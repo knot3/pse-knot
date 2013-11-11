@@ -1,0 +1,115 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+
+\begin{document}
+
+\textbf{Funktionale Anforderungen}\\
+\begin{tabular}{|p{0.125\textwidth}|p{0.875\textwidth}|}
+\hline 
+\textbackslash F 110  \textbackslash & Speicherung einer Bestenliste für die Levels \\ 
+\hline 
+\textbackslash F 120  \textbackslash  & Import und Export des Austauschdatei-Formates \\ 
+\hline 
+\textbackslash F 130  \textbackslash  & Strukturierte Übersicht über alles importierten Levels \\ 
+\hline
+\textbackslash F 140  \textbackslash  & Wechsel zwischen verschiedenen Kameraeinstellungen (Geführte, zentrierte oder frei-bewegliche Kamera)  \\ 
+\hline
+\textbackslash F 150  \textbackslash  & Setzen von neuen Ankerpunkten an Kanten \\ 
+\hline
+\textbackslash F 160  \textbackslash  & Wechsel zwischen verschiedenen Kameraeinstellungen (Geführte, zentrierte oder frei-bewegliche Kamera)  \\ 
+\hline
+\textbackslash F 170  \textbackslash  & Durch Tastendruck (ESC?) ist das Pause-Menü erreichbar\\ 
+\hline
+\textbackslash F 180  \textbackslash  & Standard Grafikeinstellungen werden vom Programm vorgegeben oder bestimmt.\\ 
+\hline
+\textbackslash F 190  \textbackslash  & Im Tutorial werden über Textausgaben und grafische Visualisierungen dem Spieler schrittweise die einzelnen Bedienungsmöglichkeiten beigebracht  \\
+\hline
+\textbackslash F 200  \textbackslash  & Der Spieler kann Einstellungen zur Grafik und dem Ton im Menüpunkt Einstellungen des Hauptmenüs bzw. Pause-Menü vornehmen\\
+\hline
+\textbackslash F 210  \textbackslash  & Beim Starten des Frei-Bau-Modus (Sandkasten-Modus) wird dem Spieler ein einfacher Knoten (4 Kanten, 4 Ecken) zum Transfomieren bereitgestellt \\
+\hline
+\textbackslash F 220  \textbackslash  & Beim Verlassen des aktuellen Spiels (Frei-Bau-Modus) über das Pause-Menü wird nachgefragt ob der aktuelle Knoten gespeichert werden soll, ohne Speicher der Modus verlassen werden soll oder ob dieser Vorgang abgebrochen werden soll\\
+\hline
+\textbackslash F 230  \textbackslash  & Der Spieler kann im Frei-Bau-Modus (Sandkasten-Modus) aus zwei erstellten Knoten eine Level für den Challenge-Modus erstellen.\\
+\hline
+\textbackslash F 240  \textbackslash  & Nach der Auswahl des Challenge-Modus kann der Spieler über eine Übersicht ein Level auswählen anhand von Schwierigkeitsgrad, Bewertungen oder Bestzeit \\
+\hline
+\textbackslash F 250  \textbackslash  & Nach dem Start eines Levels sieht der Spieler beide Knoten (Ausgangsknoten und Referenzknoten) und kann die Ansicht beliebig verändern. Sobald er die erste Veränderung am Ausgangsknoten vornimmt startet die Zeitmessung\\
+\hline
+\textbackslash F 260  \textbackslash  & Spiel prüft den transformierten Ausgangsknoten auf Gleichheit mit dem Referenzknoten. Falls Gleichheit besteht wird die Zeit angehalten und der Abschlussbildschirm wird eingeblendet \\
+\hline
+\textbackslash F 270  \textbackslash  & Das Spiel speichert die Platzierung des Spielers in der Bestenliste und die Bewertung des Levels\\
+\hline
+\end{tabular} 
+
+\newpage
+\textbf{Nichtfunktionale Anforderungen}\\
+\begin{tabular}{|p{0.125\textwidth}|p{0.875\textwidth}|}
+\hline 
+\textbackslash NF10  \textbackslash & Transformierung des Knotes muss durch die Maus möglich sein\\ 
+\hline 
+\textbackslash NF20  \textbackslash & Im manuellen und zentrierten Kamera-Modus muss die Kamera mit Hilfe der Maus oder Tastatur navigierbar sein (Drehen, Zoomen und Bewegen)\\ 
+\hline 
+\textbackslash NF30  \textbackslash & Das Spiel sollte unter normalen Grafikeinstellungen immer mindestens eine Bildwiederholungsraten von 30 Bilder pro Sekunde haben\\ 
+\hline 
+\textbackslash NF40  \textbackslash & Grafische Gestaltung der Knoten soll die Übersicht des Spielers nicht einschränken oder verschlechtern\\ 
+\hline 
+\textbackslash NF50  \textbackslash & Soll bis auf die Installation von .NET ohne Zusätze lauffähig sein.\\ 
+\hline 
+\end{tabular} 
+
+\newpage
+\textbf{Globale Testfälle} \\
+\begin{tabular}{|p{0.125\textwidth}|p{0.875\textwidth}|}
+\hline 
+\textbackslash T10  \textbackslash & Veränderung der Grafikauflösung  im Einstellungsmenü \\ 
+\hline 
+\textbackslash T20  \textbackslash & Veränderung der Lautstärke der Musik und Toneffekte im Einstellungsmenü  \\ 
+\hline 
+\textbackslash T30  \textbackslash & Beenden des Spiels über das Hauptmenü\\ 
+\hline
+\textbackslash T40  \textbackslash & Rückkehr vom Pause-Menü zum Hauptmenü und beenden des aktuellen Spiels \\ 
+\hline
+\textbackslash T50  \textbackslash & Beenden des Spiels über das Pause-Menü\\ 
+\hline
+\textbackslash T60  \textbackslash & Transformieren des Knotens sowohl im Challengen-Modus als auch im Frei-Bau-Modus.\\ 
+\hline
+\textbackslash T70  \textbackslash & Kamerapostion verändern (bewegen, drehen und zoomen) im Challengen-Modus als auch im Frei-Bau-Modus.\\ 
+\hline
+\textbackslash T80  \textbackslash & Erfolgreiches Beenden einer Challenge und Speicherung der Bestenliste und der Challenge-Bewertung\\ 
+\hline
+\textbackslash T90  \textbackslash & Verformung eines Knoten im Frei-Bau-Modus sowie die Speicherung dieses Knotens\\ 
+\hline
+\textbackslash T100  \textbackslash & Exportieren und Importieren eines Knoten.\\ 
+\hline
+\end{tabular} 
+
+
+\newpage
+\textbf{Glossar} \\
+\begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
+\hline 
+\ Transformieren & Verändern des Knoten durch Verschiebung der Kanten und Teilkanten\\
+\hline 
+\ Tutorial & Vereinfachter Freibau-Modus (Sandkasten-Modus)  in dem das grundlegende Bedienkonzept erläutert wird. Es ist über das Hauptmenü erreichbar.\\
+\hline 
+\ Ankerpunkt & wird bei der Transformation des Knoten als neue Kante betrachtet. Wird benötigt wenn eine Kante nur teilweise transformiert werden soll (z.B. halbieren einer Kante)\\ 
+\hline 
+Hauptmenü & Dieses Menü ist der erste Bildschirm mit dem der Spieler interagieren kann. Hier kann er Einstellungen zum Spiel vornehmen (z.B. Grafik und Ton) oder ein neues Spiel in einem der beiden Modi starten. \\ 
+\hline 
+Pause-Menü & Sonderform vom Hauptmenü in dem Einstellungen zum laufenden Spiel getätigt werden können (z.B. Speichern, Laden, Grafikeinstellungen, Rückkehr zum Hauptmenü (beenden des aktuellen Spiels) und Verlassen Spiels) \\ 
+\hline 
+Einstellungsmenü & In diesem Menü sind Einstellungen zu Grafik und Ton möglich. Erreichbar über das Hauptmenü bzw. Pause-Menü \\ 
+\hline 
+Referenzknoten & Bildet die Referenz für die Transformation des Ausgangsknoten im Challengen-Modus\\ 
+\hline 
+Ausgangsknoten & Diesen Knoten muss der Spieler im Challenge-Modus transfomieren, sodass er dem Referenzknoten gleicht \\ 
+\hline 
+Abschlussbildschirm & Ist der eingeblendete Bildschirm nach dem erfolgreichen Abschluss eines Levels im Challenge-Modus. Hier wird Platzierung des Spielers in der Bestenliste angezeigt (anhand der Spielzeit) und der Spieler kann das Level bewerten.\\ 
+\hline 
+
+
+\end{tabular} 
+\end{document}
