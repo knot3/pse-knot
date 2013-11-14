@@ -1,6 +1,6 @@
 \documentclass{scrreprt}
 
-\usepackage{lmodern}
+\usepackage{lmodern} % Löst Problem mit nicht korrekt dargestellten Zeichen in SVG-Grafiken
 
 \usepackage[utf8x]{inputenc}
 \usepackage[ngerman]{babel}
@@ -9,20 +9,32 @@
 \usepackage{graphicx}
 
 
-\usepackage{svg}
+\usepackage{svg} % Fragen? Siehe GitHub-Wiki oder E-Mail an pse oder Issue. Das svg-Paket ist auf Win. nicht trivial.
 
 
 
 
 \begin{document}
 
-\title{KNOT$^3$\\(Echtzeit-Computergrafik in der Spieleentwicklung)}
+\title{Pflichtenheft\\~\\~\\KNOT$^3$}
 \author{Tobias Schulz, Maximilian Reuter, Pascal Knodel, \\Gerd Augsburg, Christina Erler, Daniel Warzel} 
-\date{\today}%TODO ändern
+\date{\today}
 
 \maketitle
-% %TODO Versionsnummer
+% %TODO: Vorlage mit:
+% Titel
+% (KIT-/Knot³)Logo (wenn möglich)
+% Felder für Veranstaltung, 
+% PSE-Teilnehmer, 
+% Betreuer, 
+% Versionsnummer, 
+% Erstes Datum und das der letzten Aktualisierung ...
+
 \tableofcontents
+
+% TODO: Inkonsistente Bezeichner /F 10/, /NF10/! Gemeinsames Format definieren, 
+% evtl. d. LaTeX-Befehl überprüfen. Hinweis: Keine Nummerierung, bereits vergebene Bezeichner stehen fest/
+% könnten bereits refernziert worden sein! Lediglich das Format einhalten!
 
 \input{zielbestimmung.tex}
 
