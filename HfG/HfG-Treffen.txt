@@ -1,0 +1,34 @@
+
+- zum Menü:
+  - das grundlegende Design der einzelnen Menu-Seiten wird aus Vektorgrafiken geladen
+    (kann dann besser zu verschiedenen Seitenverhältnissen skaliert werden)
+  - Text wird durch XNA gerendert, schrift mitgeliefert (sie sucht noch mal eine bessere aus)
+  - das Klicken auf einen Butten wird realisiert, indem die Position und die Größe des Buttons
+    relativ zur Bildschirm-Breite und -Höhe registriert wird
+  - Zurück-Button immer an der gleichen Stelle (z.b. unten rechts)
+  - die "Knoten" im Menü gehen ineinander über, wenn man in ein Untermenü geht (Animation ausdenken)
+  
+- Knoten sollen einfärbbar sein
+  - wenn sie nicht eingefärbt sind haben sie eine Standardfare, die festzulegen ist
+  - die Farbe kann durch selektieren eines oder mehrerer Knoten und Drücken von z.b. der Taste C gewählt werden,
+    indem die Farbe aus einem dann sich öffnenden Menu ausgewählt wird
+  - neue Farben im Optionsmenü hinzufügen
+
+- Knoten auswählen:
+  - mit Linksklick auf eine Kante wird diese ausgewählt
+    - mit Ctrl wird diese zur Auswahl hinzugefügt
+    - mit Shift wird das Intervall zwischen der letzten und der aktiellen selektiert
+  - optional, da weniger intuitiv: auswählen mit aufeinanderfolgendem Linksklick auf zwei Knoten
+    - schließt sich nicht aus, sobald die Kanten selektiert sind (egal wie), können danach auch
+      mit C die farben gewählt werden und mit Doppelklick Flächen gebildet werden
+    
+- Flächen bilden:
+  - mit Doppelklick auf selektierte Kanten
+  - es werden nicht 4 einen geschlossenes Rechteck bildende Kanten benötigt, um eine fläche darin zu machen, sondern nur 3
+    (d.h. eie Kante kann leer sein), dafür können dann an die neu gebildete "virtuelle" Kante der Fläche weitere Flächen andocken
+    => mindestens 3 Kanten oder angrenzende Flächen
+
+- Weitere Ideen zum Spielmodus:
+  - Cel-Shading für die Knoten (das wäre ein Postprocessing-Effekt, der unabhängig allem anderen wäre und den
+    wir mit rein nehmen können, wenn wir den Shader implementieren können (es gibt einige Beispiele im Internet für XNA-Cel-Chading))
+
