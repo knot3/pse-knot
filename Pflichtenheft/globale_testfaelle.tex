@@ -1,39 +1,25 @@
 \chapter{Globale Testfälle}
 
-\begin{tabular}{|p{0.125\textwidth}|p{0.875\textwidth}|}
-\hline 
-\textbackslash T10  \textbackslash & Veränderung der Grafikauflösung  im Einstellungsmenü \\ 
-\hline 
-\textbackslash T20  \textbackslash & Veränderung der Lautstärke der Musik und Toneffekte im Einstellungsmenü  \\ 
-\hline 
-\textbackslash T30  \textbackslash & Beenden des Spiels über das Hauptmenü\\ 
-\hline
-\textbackslash T40  \textbackslash & Rückkehr vom Pause-Menü zum Hauptmenü und beenden des aktuellen Spiels \\ 
-\hline
-\textbackslash T50  \textbackslash & Beenden des Spiels über das Pause-Menü\\ 
-\hline
-\textbackslash T60  \textbackslash & Transformieren des Knotens sowohl im Challengen-Modus als auch im Frei-Bau-Modus.\\ 
-\hline
-\textbackslash T70  \textbackslash & Kamerapostion verändern (bewegen, drehen und zoomen) im Challengen-Modus als auch im Frei-Bau-Modus.\\ 
-\hline
-\textbackslash T80  \textbackslash & Erfolgreiches Beenden einer Challenge. \\ 
-\hline
-\textbackslash T90  \textbackslash & Verformung eines Knoten im Frei-Bau-Modus sowie die Speicherung dieses Knotens\\ 
-\hline
-\textbackslash T100  \textbackslash & Exportieren und Importieren eines Knoten.\\ 
-\hline
-\textbackslash T110  \textbackslash & Undo beliebig vieler Knoten-Transformationen\\ 
-\hline
-\textbackslash T120 \textbackslash & Speichern eines Spielstands. \\
-\hline
-\textbackslash T130 \textbackslash & Laden eines Spielstands. \\
-\hline
-\textbackslash T140 \textbackslash & Löschen von Spielspeicherständen. \\
-\hline
-\textbackslash T150 \textbackslash & Installation des Spiels auf Windows Zielsystemen. \\
-\hline
-\textbackslash T160 \textbackslash & Restlose Deinstallation des Spiels von Windows Zielsystemen. \\
-\hline
-\textbackslash T170 \textbackslash & Update der Bestenliste. \\
-\hline
-\end{tabular} 
+\renewcommand{\theenumi}{/T\_\arabic{enumi}0/}
+\renewcommand{\labelenumi}{\theenumi}
+
+\begin{enumerate}
+\item Veränderung der Grafikauflösung  im Einstellungsmenü 
+\item Veränderung der Lautstärke der Musik und Toneffekte im Einstellungsmenü  
+\item Beenden des Spiels über das Hauptmenü 
+\item Rückkehr vom Pause-Menü zum Hauptmenü und beenden des aktuellen Spiels 
+\item Beenden des Spiels über das Pause-Menü 
+\item Transformieren des Knotens sowohl im Challengen-Modus als auch im Frei-Bau-Modus. 
+\item Kamerapostion verändern (bewegen, drehen und zoomen) im Challengen-Modus als auch im Frei-Bau-Modus. 
+\item Erfolgreiches Beenden einer Challenge. 
+\item Verformung eines Knoten im Frei-Bau-Modus sowie die Speicherung dieses Knotens 
+\item Exportieren und Importieren eines Knoten. 
+\item Undo beliebig vieler Knoten-Transformationen 
+\item Speichern eines Spielstands.
+\item Laden eines Spielstands.
+\item Löschen von Spielspeicherständen.
+\item Installation des Spiels auf Windows Zielsystemen.
+\item Restlose Deinstallation des Spiels von Windows Zielsystemen.
+\item Update der Bestenliste.
+
+\end{enumerate}
