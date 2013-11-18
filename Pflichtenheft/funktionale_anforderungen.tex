@@ -5,25 +5,64 @@
 \renewcommand{\theenumi}{/F\_\arabic{enumi}0/}
 \renewcommand{\labelenumi}{\theenumi}
 
-\begin{enumerate}
 
-\item Speicherung einer Bestenliste für die Levels
-\item Import und Export des Austauschdatei-Formates 
-\item Strukturierte Übersicht über alles importierten Levels 
-\item Wechsel zwischen verschiedenen Kameraeinstellungen (Geführte, zentrierte oder frei-bewegliche Kamera)  
-\item Setzen von neuen Ankerpunkten an Kanten 
-\item Durch Tastendruck (ESC?) ist das Pause-Menü erreichbar 
-\item Standard Grafikeinstellungen werden vom Programm vorgegeben oder bestimmt. 
-\item Im Tutorial werden über Textausgaben und grafische Visualisierungen dem Spieler schrittweise die einzelnen Bedienungsmöglichkeiten beigebracht 
-\item Der Spieler kann Einstellungen zur Grafik und dem Ton im Menüpunkt Einstellungen des Hauptmenüs bzw. Pause-Menü vornehmen
-\item Beim Starten des Frei-Bau-Modus (Sandkasten-Modus) wird dem Spieler ein einfacher Knoten (4 Kanten, 4 Ecken, Basisquadrat?) zum Transfomieren bereitgestellt
-\item Beim Verlassen des aktuellen Spiels (Frei-Bau-Modus) über das Pause-Menü wird nachgefragt ob der aktuelle Knoten gespeichert werden soll, ohne Speicher der Modus verlassen werden soll oder ob dieser Vorgang abgebrochen werden soll % TODO: verbessern.
-\item Der Spieler kann im Frei-Bau-Modus (Sandkasten-Modus) aus zwei erstellten Knoten eine Level für den Challenge-Modus erstellen.
-\item Nach der Auswahl des Challenge-Modus kann der Spieler über eine Übersicht ein Level auswählen anhand von Schwierigkeitsgrad, Bewertungen oder Bestzeit
-\item Nach dem Start eines Levels sieht der Spieler beide Knoten (Ausgangsknoten und Referenzknoten) und kann die Ansicht beliebig verändern. Sobald er die erste Veränderung am Ausgangsknoten vornimmt startet die Zeitmessung
-\item Spiel prüft den transformierten Ausgangsknoten auf Gleichheit mit dem Referenzknoten. Falls Gleichheit besteht wird die Zeit angehalten und der Abschlussbildschirm wird eingeblendet
-\item Das Spiel speichert die Platzierung des Spielers in der Bestenliste und die Bewertung des Levels
-\item Spieler können Namen/Nicknames eingeben, welche gespeichert werden.
+
+\section{Konfiguration}
+Der Spieler kann verschiedene Eigenschaften des Programms einsehen und an seine Vorlieben anpassen.
+\begin{enumerate}
+ 
+\item Der Spieler kann Einstellungen zur Grafik und dem Ton im Menüpunkt Einstellungen des Hauptmenüs bzw. Pause-Menü vornehmen.
+\item Standard Grafikeinstellungen werden vom Programm vorgegeben.
+\item In den Einstellungen kann der Spieler die Tastaturbelegung einsehen und  ändern.
+\item Wechsel zwischen verschiedenen Kameraeinstellungen (Geführte oder frei-bewegliche Kamera).  
+\item Durch Tastendruck ist das Pause-Menü erreichbar während des laufenden Spiels.
+\item Die Farben zum Einfärben von Knoten kann der Spieler selbständig festlegen. Die Anzahl ist aber beschränkt.
+
+\end{enumerate}
+
+\section{Spielfunktionen}
+Der Spieler kann durch verschiedene Funktionen mit dem Spiel interagieren. Er kann zum Beispiel die Kamera drehen und den Knoten verformen. 
+
+\begin{enumerate}[resume]
+\item Setzen von neuen Ankerpunkten an Kanten. %aktuell?
+\item Beim Starten des Creative-Modus wird dem Spieler ein einfacher Knoten (einfaches Rechteck?) zum Transfomieren bereitgestellt.
+\item Der Spieler kann im Creative-Modus aus zwei erstellten Knoten eine Level für den Challenge-Modus erstellen.
+\item Die Kanten des Knotens können vom Spieler vollständig oder teilweise ausgewählt werden.
+\item Ausgewählte Kanten kann der Spieler in die Richtung der Koordinatenachsen transformieren.
+\item Das Programm überprüft ob eine Transformation gültig ist, falls nicht wird diese nicht ausgeführt.
+\item Wenn der Spieler auf den Undo-Button klickt wird seine letzte gültige Transformation rückgängig gemacht (ist wiederholbar).
+\item Wenn der Spieler die Undo-Funktion genutzt hat kann er seine letzten Undo-Aktionen durch ein Klick auf den Redo-Button wieder rückgängig machen. Redo funktioniert nur so lange der Spieler keine Veränderung am Knoten vorgenommen hat.
+\item Im Challenge-Modus prüft das Programm den transformierten Ausgangsknoten auf Gleichheit mit dem Referenzknoten. Falls Gleichheit besteht wird die Zeit angehalten und der Abschlussbildschirm wird eingeblendet.
+\item Kanten können vom Spieler eingefärbt werden.
+\item Der Spieler kann im Creative-Modus vier Kanten auswählen zwischen denen eine Fläche erstellt wird, sofern diese Kanten ein Rechteck bilden.
+\item Falls der Spieler nur drei Knoten für eine Fläche auswählt wird  die fehlenden Kante durch eine "virtuelle Kante" ersetzt.
+
+\end{enumerate}
+
+\section{Darstellung}
+Alle wichtigen Informationen werden dem Spieler visuell oder akustisch dargestellt. Die Atmosphäre wird durch die musikalische Untermalung verbessert.
+
+\begin{enumerate}[resume]
+\item Strukturierte Übersicht über alles importierten Levels.
+\item Nach der Auswahl des Challenge-Modus kann der Spieler über eine Übersicht ein Level auswählen anhand von Bewertungen oder Bestzeiten.
+\item Nach dem Start eines Levels sieht der Spieler beide Knoten (Ausgangsknoten und Referenzknoten). Sobald er die erste Veränderung am Ausgangsknoten vornimmt startet die Zeitmessung.
+\item Ausgewählte Kanten werden visuell hervorgehoben.
+\item Die vom Spieler ausgewählte Musik wird im Hintergrund wiederholt abgespielt.
+
+\end{enumerate}
+\section{Datenverwaltung}
+Grundlegende Inhalte des Spieles werden abgespeichert und verwaltet.
+Diese Inhalte können auch zwischen verschiedenen Systemen ausgetauscht werden. 
+
+\begin{enumerate}[resume]
+\item Speicherung einer Bestenliste für jedes Level.
+\item Import und Export von Knoten und Challenges mit Hilfe eines Austauschdatei-Formates.
+\item Beim Verlassen des aktuellen Creative-Modus über das Pause-Menü  kann der Spieler auswählen ob er den aktuellen Knoten speichern möchte oder ohne Speichern den Modus verlassen will.
+\item Der Spieler kann einen Spielernamen eingeben, welcher gespeichert wird.
+\item Das Spiel speichert die Platzierung des Spielers in einer Bestenliste für das Level unter dessen Spielernamen.
+\item Da Spiel speichert Spieler-Bewertungen des Levels.
+
+
 
 \end{enumerate}
 
