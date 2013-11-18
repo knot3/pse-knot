@@ -23,47 +23,9 @@
 ]{scrreprt}
 
 
-%%
-%% %%%%%%%%%% Pakete %%%%%%%%%%
-%%
 
-%%
-%% Neue Deutsche Rechtschreibung (z.B. für Trennregeln)
-%%
-\usepackage[ngerman]{babel}
-
-%%
-%% Automatische Zeichendekodierung (z.B. Umlaute)
-%%
-\usepackage[utf8x]{inputenc}
-
-%%
-%% Schriftart: Latin Modern.
-%%
-\usepackage{lmodern}
-
-%%
-%% Zum Einbinden von Skalierbaren Vektorgrafiken (SVG-Format). In einem 
-%% Zwischenschritt werden .tex- und .pdf-Dateien generiert.
-%%
-%% WICHTIG: Das svg-Paket braucht eine Installation des Programms "Inkscape". 
-%%          In den Einstellungen der verwendeten TeX-Umgebung muss dem Aufruf 
-%%          von pdflatex noch der Parameter --shell-escape übergeben werden
-%%          (s. Dokumentation des svg-Pakets).
-%%
-\usepackage{svg}
-
-%%
-%% Lokale und globale Verlinkungen verfügbar und "klickbar" machen.
-%%
-\usepackage{hyperref}
-
-
-
-
-
-\let\oldCommand\input
-\renewcommand{\input}[1]{\oldCommand{\detokenize{#1}}}
+\include{LaTeX/Pakete}
+\include{LaTeX/Makros}
 
 
 
@@ -73,17 +35,19 @@
 	\input{Cover/II}
 	
 	\input{Inhalt/_1_Übersicht/_1_Übersicht}
-%	\input{Inhalt/}
-%	\input{Inhalt/}
-%	\input{Inhalt/}
-%	\input{Inhalt/}
-%	\input{Inhalt/}
-%	\input{Inhalt/}
-%	\input{Inhalt/}
-%	\input{Inhalt/}
-%	\input{Inhalt/}
-%	\input{Inhalt/}
-	
+	\input{Inhalt/_2_Einführung/_2_Einführung}
+	\input{Inhalt/_3_Umfang/_3_Umfang}
+	\input{Inhalt/_4_Nutzer/_4_Nutzer}
+	\input{Inhalt/_5_Einsatz/_5_Einsatz}
+	\input{Inhalt/_6_Betrieb/_6_Betrieb}
+	\input{Inhalt/_7_Anforderungen/_7_Anforderungen}
+	\input{Inhalt/_8_Daten/_8_Daten}
+	\input{Inhalt/_9_Nutzung/_9_Nutzung}
+	\input{Inhalt/10_Qualität/10_Qualität}
+	\input{Inhalt/11_Entwicklung/11_Entwicklung}
+	\input{Inhalt/12_Verteilung/12_Verteilung}
+	\input{Inhalt/13_Verzeichnisse/13_Verzeichnisse}
+	\input{Inhalt/14_Anhänge/14_Anhänge}
 	
 	\input{Cover/III}
 
