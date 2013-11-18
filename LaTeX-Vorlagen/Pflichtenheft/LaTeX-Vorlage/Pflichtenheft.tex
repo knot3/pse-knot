@@ -2,53 +2,54 @@
 % LaTeX-Vorlage für Pflichtenhefte.
 %
 
-%%                  
-%% "Master"-Dokument.                    
-%%
 
-
-%%
-%% Dokument-Typ.
-%%
-\documentclass[
-%
-	paper = A4,
-	pdftex,
-	oneside,
-	12pt,
-	parkskip = half,
-	headsepline,
-	footsepline
-%
-]{scrreprt}
+\documentclass{scrreprt}
 
 
 
-\include{LaTeX/Pakete}
-\include{LaTeX/Makros}
+\input{LaTeX/Pakete}
 
 
 
 \begin{document}
 
+	% Titelseite
+	%
 	\input{Cover/I}
+	
+	% Start-Teaser
+	%
 	\input{Cover/II}
+
+	% Inhaltsverzeichnis
+	%
+	\input{Inhalt/13_Verzeichnisse/_1_Inhalt}
 	
-	\input{Inhalt/_1_Übersicht/_1_Übersicht}
-	\input{Inhalt/_2_Einführung/_2_Einführung}
-	\input{Inhalt/_3_Umfang/_3_Umfang}
-	\input{Inhalt/_4_Nutzer/_4_Nutzer}
-	\input{Inhalt/_5_Einsatz/_5_Einsatz}
-	\input{Inhalt/_6_Betrieb/_6_Betrieb}
-	\input{Inhalt/_7_Anforderungen/_7_Anforderungen}
-	\input{Inhalt/_8_Daten/_8_Daten}
-	\input{Inhalt/_9_Nutzung/_9_Nutzung}
-	\input{Inhalt/10_Qualität/10_Qualität}
-	\input{Inhalt/11_Entwicklung/11_Entwicklung}
-	\input{Inhalt/12_Verteilung/12_Verteilung}
-	\input{Inhalt/13_Verzeichnisse/13_Verzeichnisse}
-	\input{Inhalt/14_Anhänge/14_Anhänge}
+	% Gliederung
+	%
+	\input{Inhalt/_1_Einführung/_1_Einführung} %
+	\input{Inhalt/_2_Umfang/_2_Umfang}
+	\input{Inhalt/_3_Nutzer/_3_Nutzer}
+	\input{Inhalt/_4_Einsatz/_4_Einsatz}
+	\input{Inhalt/_5_Betrieb/_5_Betrieb}
+	\input{Inhalt/_6_Anforderungen/_6_Anforderungen}
+	\input{Inhalt/_7_Daten/_7_Daten}
+	\input{Inhalt/_8_Nutzung/_8_Nutzung}
+	\input{Inhalt/_9_Qualität/_9_Qualität} %
+	\input{Inhalt/10_Entwicklung/10_Entwicklung}
+	\input{Inhalt/11_Verteilung/11_Verteilung}
 	
+	% Verzeichnisse
+	%
+	\input{Inhalt/12_Verzeichnisse/12_Verzeichnisse}
+	
+	% Anhänge
+	%
+	\input{Inhalt/13_Anhänge/13_Anhänge} %
+	
+	% Schluss-Teaser
+	%
 	\input{Cover/III}
+
 
 \end{document}
