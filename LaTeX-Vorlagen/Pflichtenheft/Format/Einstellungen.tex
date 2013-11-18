@@ -1,0 +1,47 @@
+%%
+%% Format Einstellungen.
+%%
+
+\documentclass[
+%
+	paper = A4,
+	pdftex,
+	oneside,
+	12pt,
+	parkskip = half,
+	headsepline,
+	footsepline
+%
+]{scrreprt}
+
+
+%%
+%% Neue Deutsche Rechtschreibung (z.B. für Trennregeln)
+%%
+\usepackage[ngerman]{babel}
+
+%%
+%% Automatische Zeichendekodierung (z.B. Umlaute)
+%%
+\usepackage[utf8x]{inputenc}
+
+%%
+%% Schriftart: Latin Modern.
+%%
+\usepackage{lmodern}
+
+%%
+%% Zum Einbinden von Skalierbaren Vektorgrafiken (SVG-Format). In einem 
+%% Zwischenschritt werden .tex- und .pdf-Dateien generiert.
+%%
+%% WICHTIG: Das svg-Paket braucht eine Installation des Programms "Inkscape". 
+%%          In den Einstellungen der verwendeten TeX-Umgebung muss dem Aufruf 
+%%          von pdflatex noch der Parameter --shell-escape übergeben werden
+%%          (s. Dokumentation des svg-Pakets).
+%%
+\usepackage{svg}
+
+%%
+%% Lokale und globale Verlinkungen verfügbar und "klickbar" machen.
+%%
+\usepackage{hyperref}
