@@ -1,53 +1,67 @@
 %
 % LaTeX-Vorlage für Pflichtenhefte.
 %
-
-
-\documentclass{scrreprt}
+\documentclass{report}
 
 
 \input{LaTeX/Pakete}
 
 
 
+\makeatletter
+\renewcommand*{\IeC}{%
+  \ifx\protect\@typeset@protect
+    \if@safe@actives
+      \expandafter\expandafter\expandafter\IeC@detokenize
+    \else
+      \expandafter\expandafter\expandafter\@firstofone
+    \fi
+  \else
+    \noexpand\IeC
+  \fi
+}
+\newcommand*{\IeC@detokenize}[1]{\detokenize{#1}}
+\makeatother
+
+
 \begin{document}
 
-	% Titelseite
+	% Cover
 	%
-%	\input{Cover/I}
+	\input{Cover/I}
 	
-	% Start-Teaser
+	% Teaser
 	%
-%	\input{Cover/II}
+	\input{Cover/II}
 
 	% Inhaltsverzeichnis
 	%
-%	\input{Inhalt/Verzeichnisse/Inhalt}
+	\input{Inhalt/Verzeichnisse/Inhalt}
 	
 	% Gliederung
 	%
-	%\include{Inhalt/Einführung/Einführung}
-%	\input{Inhalt/Umfang/Umfang}
-%	\input{Inhalt/Nutzer/Nutzer}
-%	\input{Inhalt/Einsatz/Einsatz}
-%	\input{Inhalt/Betrieb/Betrieb}
-%	\input{Inhalt/Anforderungen/Anforderungen}
+	\input{Inhalt/Einfuehrung/Einfuehrung}
+	\input{Inhalt/Umfang/Umfang}
+	\input{Inhalt/Nutzer/Nutzer}
+	\input{Inhalt/Einsatz/Einsatz}
+	\input{Inhalt/Betrieb/Betrieb}
+	\input{Inhalt/Anforderungen/Anforderungen}
 %	\input{Inhalt/Daten/Daten}
 %	\input{Inhalt/Nutzung/Nutzung}
-%	\input{Inhalt/Qualität/Qualität}
+%	\input{Inhalt/Qualitaet/Qualitaet}
 %	\input{Inhalt/Entwicklung/Entwicklung}
 %	\input{Inhalt/Verteilung/Verteilung}
-	
-	% Verzeichnisse
-	%
+%	
+%	% Verzeichnisse
+%	%
 %	\input{Inhalt/Verzeichnisse/Verzeichnisse}
-	
-	% Anhänge
-	%
-%	\input{Inhalt/Anhänge/Anhänge}
-	
-	% Schluss-Teaser
-	%
+%	
+%	% Anhänge
+%	%
+%	\input{Inhalt/Anhaenge/Anhaenge}
+%	
+%	% Schluss-Teaser
+%	%
 %	\input{Cover/III}
 
 
