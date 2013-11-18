@@ -7,16 +7,84 @@
 %%
 
 
+%%
+%% Dokument-Typ.
+%%
+\documentclass[
+%
+	paper = A4,
+	pdftex,
+	oneside,
+	12pt,
+	parkskip = half,
+	headsepline,
+	footsepline
+%
+]{scrreprt}
 
-\input{Format/Einstellungen}
+
+%%
+%% %%%%%%%%%% Pakete %%%%%%%%%%
+%%
+
+%%
+%% Neue Deutsche Rechtschreibung (z.B. für Trennregeln)
+%%
+\usepackage[ngerman]{babel}
+
+%%
+%% Automatische Zeichendekodierung (z.B. Umlaute)
+%%
+\usepackage[utf8x]{inputenc}
+
+%%
+%% Schriftart: Latin Modern.
+%%
+\usepackage{lmodern}
+
+%%
+%% Zum Einbinden von Skalierbaren Vektorgrafiken (SVG-Format). In einem 
+%% Zwischenschritt werden .tex- und .pdf-Dateien generiert.
+%%
+%% WICHTIG: Das svg-Paket braucht eine Installation des Programms "Inkscape". 
+%%          In den Einstellungen der verwendeten TeX-Umgebung muss dem Aufruf 
+%%          von pdflatex noch der Parameter --shell-escape übergeben werden
+%%          (s. Dokumentation des svg-Pakets).
+%%
+\usepackage{svg}
+
+%%
+%% Lokale und globale Verlinkungen verfügbar und "klickbar" machen.
+%%
+\usepackage{hyperref}
+
+
+
+
+
+\let\oldCommand\input
+\renewcommand{\input}[1]{\oldCommand{\detokenize{#1}}}
 
 
 
 \begin{document}
 
-
-\include{Teaser/Cover}
-
-
+	\input{Cover/I}
+	\input{Cover/II}
+	
+	\input{Inhalt/_1_Übersicht/_1_Übersicht}
+%	\input{Inhalt/}
+%	\input{Inhalt/}
+%	\input{Inhalt/}
+%	\input{Inhalt/}
+%	\input{Inhalt/}
+%	\input{Inhalt/}
+%	\input{Inhalt/}
+%	\input{Inhalt/}
+%	\input{Inhalt/}
+%	\input{Inhalt/}
+	
+	
+	\input{Cover/III}
 
 \end{document}
