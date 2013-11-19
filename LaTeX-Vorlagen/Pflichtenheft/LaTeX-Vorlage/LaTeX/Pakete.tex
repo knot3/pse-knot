@@ -26,6 +26,26 @@
 \usepackage{lmodern}
 
 %
+%
+%
+
+\usepackage[left=2.2cm,right=2.2cm,top=2.25cm,bottom=3cm]{geometry}
+\usepackage{fancyhdr} 
+\fancyhf{}
+\cfoot{\thepage}
+\pagestyle{fancy}
+
+\usepackage{tocloft} % hatte bei mir das Problem verursacht
+\usepackage{titletoc}
+
+% Abstände über Kapitel 0
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-\topskip}}
+% Abstand über "Inhaltsverzeichnis" (tocloft Package)
+\setlength{\cftbeforetoctitleskip}{0pt} 
+
+
+
+%
 % Verlinkungen verfügbar und "klickbar" machen.
 %
 \usepackage[hidelinks]{hyperref}
