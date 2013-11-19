@@ -1,60 +1,55 @@
 \documentclass{scrreprt}
 
-\usepackage{lmodern} % Löst Problem mit nicht korrekt dargestellten Zeichen in SVG-Grafiken
-
+\usepackage{lmodern}
 \usepackage[utf8x]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{graphicx}
-
-
-\usepackage{svg} % Fragen? Siehe GitHub-Wiki oder E-Mail an pse oder Issue. Das svg-Paket ist auf Win. nicht trivial.
-
-
-\usepackage{hyperref} % Soll am Ende stehen. Für Links innerhalb und nach außen.
+\usepackage{svg}
+\usepackage{hyperref}
 
 
 \begin{document}
 
-\title{Pflichtenheft\\~\\~\\\Huge{KNOT$^3$}\\~\\\Large (\href{http://pp.info.uni-karlsruhe.de/lehre/WS201314/pse/}{Praxis der Softwareentwicklung am KIT}: Echtzeit-Computergrafik in der Spieleentwicklung \\am \href{http://cg.ibds.kit.edu/index.php}{Lehrstuhl für Computergrafik})}
-\author{Tobias Schulz, Maximilian Reuter, Pascal Knodel, \\Gerd Augsburg, Christina Erler, Daniel Warzel} 
-\date{\today}
+	\title{	
+	%
+		Pflichtenheft\\~\\~\\
+		\Huge{KNOT$^3$}\\~\\
+		\Large (\href{http://pp.info.uni-karlsruhe.de/lehre/WS201314/pse/}{Praxis der Softwareentwicklung am KIT}: Echtzeit-Computergrafik in der Spieleentwicklung \\am \href{http://cg.ibds.kit.edu/index.php}{Lehrstuhl für Computergrafik})
+	%
+	}
+	
+	\author{
+	%
+		Tobias Schulz, Maximilian Reuter, Pascal Knodel,\\
+	 	Gerd Augsburg, Christina Erler, Daniel Warzel
+	%
+	} 
+	 
+	\date{\today}
+	
+	\maketitle
+	% %TODO: Vorlage mit:
+	% Titel
+	% (KIT-/Knot³)Logo (wenn möglich)
+	% Felder für Veranstaltung, 
+	% PSE-Teilnehmer, 
+	% Betreuer, 
+	% Versionsnummer, 
+	% Erstes Datum und das der letzten Aktualisierung ...
 
-\maketitle
-% %TODO: Vorlage mit:
-% Titel
-% (KIT-/Knot³)Logo (wenn möglich)
-% Felder für Veranstaltung, 
-% PSE-Teilnehmer, 
-% Betreuer, 
-% Versionsnummer, 
-% Erstes Datum und das der letzten Aktualisierung ...
+	\tableofcontents
 
-\tableofcontents
-
-% TODO: Inkonsistente Bezeichner /F 10/, /NF10/! Gemeinsames Format definieren, 
-% evtl. d. LaTeX-Befehl überprüfen. Hinweis: Keine Nummerierung, bereits vergebene Bezeichner stehen fest/
-% könnten bereits refernziert worden sein! Lediglich das Format einhalten!
-
-\input{zielbestimmung.tex} % .tex's weg :P!
-
-\input{produkteinsatz.tex}
-
-\input{produktumgebung.tex}
-
-\input{funktionale_anforderungen.tex}
-
-\input{produktdaten.tex}
-
-\input{nichtfunktionale_anforderungen.tex}
-
-\input{globale_testfaelle.tex}
-
-\input{entwicklung}
-
-\input{systemmodelle.tex}
-
-\input{glossar.tex}
+	\input{zielbestimmung}
+	\input{produkteinsatz}
+	\input{produktumgebung}
+	\input{funktionale_anforderungen}
+	\input{produktdaten}
+	\input{nichtfunktionale_anforderungen}
+	\input{globale_testfaelle}
+	\input{entwicklung}
+	\input{systemmodelle}
+	\input{glossar}
 
 \end{document}
