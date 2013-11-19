@@ -3,6 +3,8 @@
 \renewcommand{\theenumi}{/T\_\arabic{enumi}0/}
 \renewcommand{\labelenumi}{\theenumi}
 
+\section{Funktionstests}
+
 \begin{enumerate}
 \item Die Grafikauflösung wird im Einstellungsmenü verändert.\\
 	 	\textit{Erwartet:} Das Spiel verwendet die gewünschte Auflösung sofern diese vom System unterstützt wird. Falls nicht wird eine Fehlermeldung eingeblendet, die darauf hinweist, dass diese Einstellung nicht möglich ist. Die Auflösung wird in diesem Fall nicht geändert.
@@ -12,13 +14,13 @@
 \item Beenden des Spiels über das Hauptmenü\\
 \textit{Erwartet:} Das Spiel schließt sich vollständig, d.h. alle laufenden Prozesse des Spieles werden beendet und der Speicher wird freigeben.
 \item Verlassen eines aktiven Spiels über das Pause-Menü.\\
-\textit{Erwartet:} Nach dem klicken auf den  über das Pause-Menü erscheint das Hauptmenü.
+\textit{Erwartet:} Nach dem klicken auf den Beenden-Button des Pause-Menüs erscheint das Hauptmenü.
 \item Transformieren des Knotens sowohl im Challenge-Modus als auch im Creative-Modus.\\
 \textit{Erwartet:} Falls die Transformation gültig ist wird die Kante entsprechend transformiert. Dies funktioniert sowohl im Challenge-Modus als auch im Creative-Modus.
-\item Kamerapostion verändern (bewegen, drehen und zoomen) im Challengen-Modus als auch im Creative-Modus.\\
+\item Kamerapostion verändern (bewegen, drehen und zoomen) sowohl im Challenge-Modus als auch im Creative-Modus.\\
 \textit{Erwartet:} Die Kameraposition verändert sich wie gewünscht in die vorgegebene Richtung. Dies funktioniert sowohl im Challenge-Modus als auch im Creative-Modus.
 \item Erfolgreiches Beenden einer Challenge. \\
-\textit{Erwartet:} Die Zeit wird gestoppt und der Abschlussbildschirm wird eingeblendet. Falls die Zeit für die Bestenliste ausgereicht hat wird diese direkt eingetragen. Nun hat man die Möglichkeit die Challenge zu wiederholen oder zum Hauptmenü zu wechseln.
+\textit{Erwartet:} Die Zeit wird gestoppt und der Abschlussbildschirm wird eingeblendet. Falls die Zeit für die Bestenliste ausgereicht hat wird diese direkt eingetragen.
 \item Speicherung eines Knotens den man im Creative-Modus erstellt hat und späteres Laden.\\
 \textit{Erwartet:} Ein Knoten wird in einer Datei im Austauschformat gespeichert. Wenn diese Datei geladen wird erhält man den vorher abgespeicherten Knoten zurück.
 \item Installation des Spiels auf Windows Zielsystemen
@@ -26,7 +28,15 @@
 
 \end{enumerate}
 
+
+\section{Robustheitstests}
+
+
 \begin{enumerate}[resume]
 \item Rückgängig machen beliebig vieler Knoten-Transformationen. 
-\item Wiederholen von genau eines Schrittes, der zuvor rückgängig gemacht wurde. 
+\item Wiederholen von rückgängig gemachten Schritten.
+\item Wahllose Eingaben führen nicht zum Absturz.
 \end{enumerate}
+
+
+
