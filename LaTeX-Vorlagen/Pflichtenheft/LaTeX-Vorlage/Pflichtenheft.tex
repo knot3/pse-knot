@@ -10,29 +10,18 @@
 ]{scrreprt}
 
 
+
 \input{LaTeX/Pakete}
+\input{LaTeX/Makros}
 
+\input{LaTeX/Einstellungen/Kompatibilitaet}
 
-
-\makeatletter
-\renewcommand*{\IeC}{%
-  \ifx\protect\@typeset@protect
-    \if@safe@actives
-      \expandafter\expandafter\expandafter\IeC@detokenize
-    \else
-      \expandafter\expandafter\expandafter\@firstofone
-    \fi
-  \else
-    \noexpand\IeC
-  \fi
-}
-\newcommand*{\IeC@detokenize}[1]{\detokenize{#1}}
-\makeatother
 
 
 \begin{document}
 
-	% Glossar-Einträge im Voraus bekannt machen.
+	% Glossar-Einträge im Voraus bekannt machen,
+	% damit sie im Folgenden verwendbar sind.
 	%
 	\input{Inhalt/Verzeichnisse/Fachausdruecke}
 
@@ -48,7 +37,7 @@
 	%
 	\input{Inhalt/Verzeichnisse/Inhalt}
 	
-	% Gliederung
+	% Inhalt
 	%
 	\input{Inhalt/Einfuehrung/Einfuehrung}
 	\input{Inhalt/Umfang/Umfang}
