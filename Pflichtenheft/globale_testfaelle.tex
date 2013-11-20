@@ -7,7 +7,13 @@
 
 \begin{enumerate}
 \item Die Grafikauflösung wird im Einstellungsmenü verändert.\\
-	 	\textit{Erwartet:} Das Spiel verwendet die gewünschte Auflösung, sofern diese vom System unterstützt wird. Falls nicht, wird eine Fehlermeldung eingeblendet, die darauf hinweist, dass diese Einstellung nicht möglich ist. Die Auflösung wird in diesem Fall nicht geändert.
+\textit{Erwartet:} Das Spiel verwendet die gewünschte Auflösung, sofern diese vom System unterstützt wird. Falls nicht, wird eine Fehlermeldung eingeblendet, die darauf hinweist, dass diese Einstellung nicht möglich ist. Die Auflösung wird in diesem Fall nicht geändert.
+
+\item Starten eines neuen Knotens im Creativ-Modus.\\
+\textit{Erwartet:} Spiel initialisiert einen Knoten der verändert werden kann
+
+\item Erstellen einer neuen Challenge.\\
+\textit{Erwartet:}Nach Auswahl der Knoten die zur Challenge gehören, soll die Challenge erstellt werden
 	 	
 \item Die Lautstärke der Musik und Toneffekte wird im Einstellungsmenü angepasst. \\  
 \textit{Erwartet:} Bei erhöhter Lautstärke wird die Musik oder die Toneffekte lauter abgespielt als bei niedrigeren Einstellungen. Die Soundeffekte oder Musik werden nicht abgespielt wenn die Lautstärke auf den Wert 0 gestellt wurde. Falls nur die Musik auf dem Wert 0 steht, wird nur die Musik nicht abgespielt, aber die Toneffekte werden mit ihrer Lautstärke weiterhin ausgegeben.
@@ -23,10 +29,12 @@
 \textit{Erwartet:} Die Zeit wird gestoppt und der Abschlussbildschirm wird eingeblendet. Falls die Zeit für die Bestenliste ausgereicht hat, wird diese direkt eingetragen.
 \item Speicherung eines Knotens den man im Creative-Modus erstellt hat und späteres Laden.\\
 \textit{Erwartet:} Ein Knoten wird in einer Datei im Austauschformat gespeichert. Wenn diese Datei geladen wird erhält man den vorher abgespeicherten Knoten zurück.
-\item Importieren einer Datei die keinen gültigen Knoten enthält.
+\item Importieren einer Datei die keinen gültigen Knoten enthält.\\
 \textit{Erwartet:} Das Spiel bricht das Importieren ab und meldet, dass diese Datei keinen gültigen Knoten enthält.
-\item Installation des Spiels auf Windows Zielsystemen
-\item Restlose Deinstallation des Spiels von Windows Zielsystemen.
+\item Installation des Spiels auf Windows Zielsystemen\\
+\textit{Erwartet:} Installation ohne Problem und anschließende Lauffähigkeit des Spiels
+\item Restlose Deinstallation des Spiels von Windows Zielsystemen.\\
+\textit{Erwartet:}Deeinstallation des Spiels ohne hinterbliebene Dateien
 
 \end{enumerate}
 
@@ -35,11 +43,15 @@
 
 
 \begin{enumerate}[resume]
-\item Importieren eines sehr großen Knoten hat.
+\item Importieren eines sehr großen Knoten hat.\\
 \textit{Erwartet:} Die Datei wird anstandslos geladen sofern das System genügend Speicher besitzt.
-\item Rückgängig machen beliebig vieler Knoten-Transformationen. 
-\item Wiederholen von rückgängig gemachten Schritten.
-\item Wahllose Eingaben führen nicht zum Absturz.
+\item Rückgängig machen beliebig vieler Knoten-Transformationen. \\
+\textit{Erwartet:}Knoten wird sequentiell in die vorhergegangenen Zustände versetzt
+\item Wiederholen von rückgängig gemachten Schritten.\\
+\textit{Erwartet:}Schritte werden sequentiell wiederhergestellt
+
+\item Wahlloses Drücken von Tasten.\\
+\textit{Erwartet:}Spiel verhält sich normal und produziert keine Fehler
 \end{enumerate}
 
 
