@@ -1,6 +1,32 @@
 % !TeX encoding = UTF-8
 %
-% (eigene) Makros
+% (eigene) Makros:
 %
 
 
+% Todo: verbesserung möglich.
+%
+% Entferne äußere Leerzeichen.
+%
+\newcommand{\entfaeLZ}[1]{\romannumeral-`\.\expandafter\noexpand#1}
+
+
+
+%
+% Anforderungsliste.
+%
+\newenvironment{reqs}[1]{
+
+	\begin{enumerate}{}{}
+	
+	\setlength{\itemsep}{10pt}
+	\setlength{\itemindent}{50pt}
+	
+	\let\alterBefehl\item
+	\renewcommand\item[2][]{\alterBefehl[/#1\_\entfaeLZ{##1}/]{##2}}
+}{
+
+	\end{enumerate}
+}
+
+\newenvironment{req}{\item}{}
