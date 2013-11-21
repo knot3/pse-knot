@@ -1,16 +1,16 @@
 \chapter{Produktdaten}
 
-\renewcommand{\theenumi}{/PD\_\arabic{enumi}0/}
+\renewcommand{\theenumi}{/PPD\_\arabic{enumi}0/}
 \renewcommand{\labelenumi}{\theenumi}
 
+\section{Persistente Daten}
 
 \begin{enumerate}
 
-\item Jeder Nutzer hat die Möglichkeit ein persönliches Spielerprofil anzulegen. Diese Daten unterstützen ihn auch bei späteren Aktionen, wie z.B. durch eine Autovervollständigung bei einem neuen Bestenlisteneintrag. 
+\item Nutzerprofile speichern Informationen zum Spieler dauerhaft. 
 
   \begin{itemize}
      \item Nickname
-     \item Der Schwierigkeitsgrad muss nicht gespeichert werden, da er dynamisch aus der Knotenstruktur berechnet wird.
   \end{itemize}
 
 \item Eine Spielestatistik bietet dem aktuellen Spieler eine Übersicht über gebaute Knoten und absolvierte Challenges.
@@ -29,7 +29,8 @@
      \item Englische Sprache
   \end{itemize}
   
-\item Neue Sprachpakete können von der Support-Webseite gezogen werden.
+%\item Neue Sprachpakete für die Internationalisierung sind integrierbar.
+
 \item In der Offline-Bestenliste für Challenges wird der Spielername und die Zeit gespeichert.
 \item 10-Challenges sind bei jedem Knot³-Spielpaket enthalten.
 
@@ -38,24 +39,23 @@
      \item Empfehlung (Anfänger oder Fortgeschrittene)
   \end{itemize}
 
-\item Standard-Grafikeinstellungen werden einmalig beim ersten Start des Spiels ermittelt.
-\item Vom Spieler angepasste Grafikeinstellungen sind auch beim nächsten Spielstart weiterhin aktiv.
+\item Standard-Grafikeinstellungen werden beim ersten Spielstart gespeichert. Vom Spieler angepasste Grafikeinstellungen sind auch beim nächsten Start weiterhin aktiv.
+
 \item Weitere Einstellungen
 
   \begin{itemize}
      \item Sprache
      \item Effekte
-     \item Musik
+     \item (Hintergrund-)Musik
   \end{itemize}
 
-\item Standard-Steuerungseinstellungen sind voreingestellt.
-\item Spielstände des 2. Modus (Spielstandname, Spieler, Spielzeit, ...) können aus einer eigenen Übersicht ausgewählt und geladen werden.
-\item Jeder Windows-Nutzer, für den eine lokale Kopie von Knot³ installiert wurde, kann seine Erfolge in einer lokale Bestenliste einsehen. Für jede Challenge ist eine Bestenliste anzulegen.
-\item Bei der Entwicklung werden Visual Studio C-Sharp/XNA 4.0 Projekte gespeichert.
-\item Bei der Entwicklung entstehen Dokumentationen der Quelltexte.
-\item Grafiken welche bei der Benutzeroberfläche eingebunden werden.
-\item Die Dokumentation des Spiels für den Spielers ist im Hauptmenü abrufbar.
-\item Die Online-Bestenliste ist über das WWW aufrufbar.
+\item Voreingestellte Standard-Steuerungseinstellungen.
+\item {\color{red}Spielstände des 2. Modus (Spielstandname, Spieler, Spielzeit, ...) können aus einer eigenen Übersicht ausgewählt und geladen werden.}
+\item Die Erfolge und lokale Bestenliste. Für jede Challenge ist eine Bestenliste anzulegen.
+\item Die bei der  Entwicklung entstehenden Dokumentationen.
+\item Grafiken welche Teil der Benutzeroberfläche sind.
+%\item Die Dokumentation des Spiels für den Spielers ist im Hauptmenü abrufbar.
+\item Die Online-Bestenliste.
 
   \begin{itemize}
      \item Spielername
@@ -64,23 +64,37 @@
      \item Spieldauer
   \end{itemize}
   
-\item Eine Knot³-Homepage ist erste Anlaufstelle für Support, Downloads und die Bestenliste.
-\item Es gibt eine Webseite von der die Online-Bestenliste abrufbar ist.
-\item Es gibt eine Support-Webseite für Sprachpakete und neue Levels.
-\item Die Adresse, an welche die Highscores zur Online-Veröffentlichung gesendet werden ist in den Einstellungen gespeichert.
-\item Knoten bei Spielständen des 1. Modus werden in einem Standardformat gespeichert.
+\item Die Knot³-Homepage.
+\item Die Webseite der Online-Bestenliste.
+\item Die Support-Webseite.
+\item Informationen zur Erreichbarkeit Webseiten (URLs).
+\item Der eine Knoten im Creative(-Mode) und die zwei Knoten im Challenge(-Mode).
 
   \begin{itemize}
-     \item Knoten
-     \item Hinweis: Die Komplexität wird dynamisch berechnet und muss nicht gespeichert werden.
+     \item Knoten (im Austauschformat)
+     \item Kantenfarben
+     \item Texturierung
   \end{itemize}
   
 \item Knoten bei Spielständen des 1. Modus werden in einem Format welches 3D-Drucker verstehen gespeichert.
-\item Musik-Dateien, welche Geräusche von Effekten enthalten.
-\item Musik-Dateien mit der Musik zum Spiel.
+\item Soundeffekt-Dateien, welche Geräusche von Effekten enthalten.
+\item Dateien für die Musikstücke, welche als Hintergrundmusik abgespielt werden.
 
 
 
 \end{enumerate}
 
+~\\
 
+\renewcommand{\theenumi}{/GPD\_\arabic{enumi}0/}
+\renewcommand{\labelenumi}{\theenumi}
+
+\section{Generierbare Daten}
+
+
+\begin{enumerate}
+
+\item Der Schwierigkeitsgrad muss nicht gespeichert werden, da er dynamisch aus der Knotenstruktur berechnet wird.
+\item Die Knoten-Komplexität wird dynamisch berechnet und muss nicht gespeichert werden.
+
+\end{enumerate}

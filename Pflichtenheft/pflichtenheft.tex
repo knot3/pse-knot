@@ -10,6 +10,18 @@
 \usepackage{longtable}
 \usepackage{todonotes} % not found!?
 
+
+\usepackage{vmargin}
+\setpapersize{A4} % besser oben?
+\setmarginsrb{3cm}{1.5cm}{3cm}{1cm}{6mm}{6mm}{5mm}{15mm}
+
+% Tiefe d. Inh. VZ
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3} 
+
+
+
+
 \usepackage{graphicx}
 \usepackage{svg}
 \usepackage{hyperref}
@@ -46,6 +58,7 @@
 
 	\tableofcontents
 
+	\input{Einleitung}
 	\input{zielbestimmung}
 	\input{produkteinsatz}
 	\input{produktumgebung}
