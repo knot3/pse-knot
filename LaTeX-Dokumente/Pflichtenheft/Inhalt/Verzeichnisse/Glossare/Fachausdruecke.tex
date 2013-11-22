@@ -26,7 +26,7 @@
 \newglossaryentry{fa:Creative}{
 %
 	name = Creative,
-	description = {(Beschreibung) ...},
+	description = {Der Creative(-Mode) ist der erste Spielmodus. Im Creative(-Mode) baut der Spieler ausgehend von einer Grundform einen beliebigen (Gitter-)Knoten. Das Spiel gibt dem Spieler einige Hilfsfunktionen zur Bewertung der Komplexität seines gebauten Knotens.},
 	type = FA
 %
 }
@@ -34,7 +34,35 @@
 \newglossaryentry{fa:Challenge}{
 %
 	name = Challenge,
-	description = {(Beschreibung) ...},
+	description = {Der Spieler bekommt die Aufgabe einen vorgegebenen Knoten nachzubauen.},
+	type = FA
+%
+}
+\newglossaryentry{fa:Modifikation}{
+%
+	name = Modifikation,
+	description = {Beschreibt eine beliebige Änderung am Knoten. Umfasst damit Transformationen, Einfärben, ... alles was den Knoten ändert.},
+	type = FA
+%
+}
+\newglossaryentry{fa:Datenaustauschformat}{
+%
+	name = Datenaustauschformat,
+	description = {Das Speicherformat der Level wie in den Produktdaten beschrieben},
+	type = FA
+%
+}
+\newglossaryentry{fa:Level}{
+%
+	name = Level,
+	description = { In sich beendetes Spiel: Eine Challenge ist gleichzeitig ein Level. Ein Level hat einen Startknoten und einen Zielknoten. Transformiert der Spieler den Startknoten durch mehrere Schritte in den Zielknoten, so ist das Level beendet. Es gibt verschiedene Standard-Levels, welche von 1-10 mit steigender Schwierigkeit geordnet sind.},
+	type = FA
+%
+}
+\newglossaryentry{fa:Undo}{
+%
+	name = Undo,
+	description = { Mit der Undo-Funktion kann eine vorherige Transformation zurückgenommen werden.},
 	type = FA
 %
 }
