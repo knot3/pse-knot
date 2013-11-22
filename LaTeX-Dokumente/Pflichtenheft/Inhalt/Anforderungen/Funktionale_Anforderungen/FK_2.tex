@@ -4,7 +4,7 @@
 %
 
 
-\subsection{(Name der Funktionalen-Kategorie) ...}
+\subsection{(Spielfunktionen}
 
 %
 % Hier in {} ein Bezeichner-Kürzel (z.B.: K, -> PFAK_...) eingeben:
@@ -15,7 +15,7 @@
 %
 
 ~\\
-(Beschreibung der Funktionalen-Kategorie) ...
+Der Spieler kann durch verschiedene Funktionen mit dem Spiel interagieren. Er kann zum Beispiel die Kamera drehen und den Knoten verformen. 
 \\
 
 %
@@ -25,8 +25,19 @@
 
 \begin{ids}{\gls{PFA\K}}
 
-	\id[ 1] ...
- 	\id[10] ...
+	\id[ 90] Beim Starten des Creative-Modus wird dem Spieler ein einfacher Knoten zum Transfomieren bereitgestellt.
+ 	\id[100] Der Spieler kann im Creative-Modus aus zwei erstellten Knoten eine Level für den Challenge-Modus erstellen.
+ 	\id[ 110] Beim Starten des Creative-Modus wird dem Spieler ein einfacher Knoten  zum Transfomieren bereitgestellt.
+ 	\id[ 120] Der Spieler kann im Creative-Modus aus zwei erstellten Knoten ein Level für den Challenge-Modus erstellen.
+ 	\id[ 130] Die Kanten des Knotens können vom Spieler vollständig oder teilweise ausgewählt werden.
+ 	\id[ 140] Ausgewählte Kanten kann der Spieler in die Richtung der Koordinatenachsen transformieren.
+ 	\id[ 150] Das Programm überprüft, ob eine Transformation gültig ist, falls nicht wird diese nicht ausgeführt.
+ 	\id[ 160] Wenn der Spieler auf den Undo-Button klickt wird seine letzte Transformation rückgängig gemacht (beliebig wiederholbar). 
+ 	\id[ 170] Im Challenge-Modus prüft das Programm den transformierten Ausgangsknoten auf Gleichheit mit dem Referenzknoten. Falls Gleichheit besteht wird die Zeit angehalten und der Abschlussbildschirm wird eingeblendet.
+ 	\id[ 180] Der Spieler kann das Spiel jederzeit beenden.
+ 	
+ 	
+ 	
 	
 \end{ids}
 
@@ -41,8 +52,16 @@
 
 \begin{ids}{\gls{OFA\K}}
 
-	\id[ 11] ...
- 	\id[100] ...
+	\id[ 190] Wenn der Spieler die Undo-Funktion genutzt hat, kann er seine letzten Undo-Aktionen durch Klicks auf den Redo-Button schrittweise rückgängig machen. Redo funktioniert nur so lange der Spieler keine Veränderung am Knoten vorgenommen hat.
+ 	\id[ 200] Kanten können vom Spieler eingefärbt werden.
+ 	\id[ 210] Der Spieler kann im Creative-Modus vier Kanten auswählen, zwischen denen eine Fläche erstellt wird, sofern diese Kanten ein Rechteck bilden.
+ 	\id[ 220] Falls der Spieler nur drei Kanten für eine Fläche auswählt, wird  die fehlende Kante durch eine \textquotedblleft virtuelle Kante\textquotedblright~ersetzt.
+ 	\id [230] Nach erfolgreichem Beenden einer Challenge kann der Spieler die Challenge neu starten.
+ 	\id[ 240] Von einem Knoten kann der Spieler ein Bild erzeugen und abspeichern
+ 	\id[ 250] Beim Erzeugen eines Bildes kann der Spieler verschiedene Render-Modi auswählen.
+ 	\id[ 260] Ein erstellter Knoten kann in ein Format für 3D-Drucker exportiert werden.
+ 	\id[ 270] Der Spieler kann Eastereggs finden.
+ 	
 	
 \end{ids}
 
