@@ -10,23 +10,32 @@
 %
 \newcommand{\entfaeLZ}[1]{\romannumeral-`\.\expandafter\noexpand#1}
 
+\usepackage{scrextend}
+\addtokomafont{labelinglabel}{\sffamily\bfseries} % FETTE Bezeichner
 
+\usepackage{calc}
+\usepackage{enumitem}
 
 %
-% Anforderungsliste.
+% Bezeichner-Liste.
 %
-\newenvironment{reqs}[1]{
+\newenvironment{ids}[1]{ %ToDo: fix hack
 
-	\begin{enumerate}{}{}
+	\begin{labeling}{/YYYYXXXX\_00000/} % leider nur eine "vernünftige" Konstante
+	% labeling statt enumerate: Längste Beschriftung wäre als Arg. möglich, um aut. die Einrückung vorzunehmen. Hält 4 Alpha, einem Unterstrich 5 Nummern und // stand + YY.
 	
-	\setlength{\itemsep}{10pt}
-	\setlength{\itemindent}{50pt}
-	
-	\let\alterBefehl\item
-	\renewcommand\item[2][]{\alterBefehl[/#1\_\entfaeLZ{##1}/]{##2}}
+	\setlength{\itemsep}{0.25cm} % Abstand zw. Listeneinträgen
+%	\setlength{\itemindent}{0.5cm}
+%	\setlength{\labelsep}{0.5cm}
+	\setlength{\labelwidth}{\labelwidth-30pt}
+%	\setlength{\labelindent}{22cm}
+%	\setlength{\leftmargin}{2cm}
+%	
+\let\alterBefehl\item
+\renewcommand\item[2][]{\alterBefehl[/#1\_\entfaeLZ{##1}/]{##2}}
+
 }{
-
-	\end{enumerate}
+	\end{labeling}
 }
 
-\newenvironment{req}{\item}{}
+\newenvironment{id}{\item}{}

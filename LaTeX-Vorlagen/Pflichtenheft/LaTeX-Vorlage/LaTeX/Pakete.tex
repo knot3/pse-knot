@@ -19,6 +19,10 @@
 %
 \usepackage{amssymb}
 
+%
+%
+%
+%\usepackage{tikz}
 
 %
 %
@@ -40,31 +44,24 @@
 %
 \usepackage{longtable}
 
+%
+% Abstand links, rechts, vor, nach Abschnitten (engl. "section")
+%
+\usepackage{titlesec}
+\titlespacing{\section}{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+
+%
+% Abstände.
+%
+\usepackage{vmargin}
+\setpapersize{A4} % besser oben?
+\setmarginsrb{3cm}{1.5cm}{3cm}{1cm}{6mm}{6mm}{5mm}{15mm}
 
 %
 %
 %
-% % % % % % % % % %
-
-% experimentell:
-%
-%\usepackage[left=2.2cm,right=2.2cm,top=2.25cm,bottom=3cm]{geometry}
-%\usepackage{fancyhdr} 
-%\fancyhf{}
-%\cfoot{\thepage}
-%\pagestyle{fancy}
-%
-%\usepackage{tocloft}
-%\usepackage{titletoc}
-%
-%% Abstände über Kapitel 0
-%\renewcommand*{\chapterheadstartvskip}{\vspace*{-\topskip}}
-%% Abstand über "Inhaltsverzeichnis" (tocloft Package)
-%\setlength{\cftbeforetoctitleskip}{0pt} 
-%
-%\usepackage{enumitem} % %
-% % % % % % % % % % % % % %
-
+\usepackage{graphicx}
 
 %
 % Skalierbare Vektorgrafiken (SVG'en) einbinden.
@@ -83,7 +80,19 @@
 %
 % HINWEIS: perl nötig.
 %
-\usepackage{glossaries}
+\usepackage[nomain]{glossaries}
+\newglossary{FA}{fai}{fao}{Fachausdrücke}
+\newglossary{AK}{aki}{ako}{Abkürzungen}
 \makeglossaries
-
+%% Glossar-Einträge im Voraus bekannt machen,
+%% damit sie im Folgenden verwendbar sind.
+\loadglsentries[FA]{Inhalt/Verzeichnisse/Glossare/Fachausdruecke}
+\loadglsentries[AK]{Inhalt/Verzeichnisse/Glossare/Abkuerzungen}
+%
+% HINWEIS:
+%
+% Begriffe, die im Glossar auftauchen müssen auch im
+% Text auftauchen und durch gls{Begriff} markiert worden
+% sein, damit sie im Verzeichnis gelistet werden!
+%
 

@@ -1,12 +1,18 @@
 % !TeX encoding = UTF-8
 %
 % Kompatibilitätseinstellungen für Pakete welche
-% unter ../../LaTeX/Pakete eigebunden sind.
+% unter "../../LaTeX/Pakete" eigebunden sind. Z.B. wenn
+% verschiedene LaTeX-Pakete nicht kompatibel zueinander
+% sind, dann werden hier Kompatibilitätseinstellungen
+% vorgenommen.
 %
 
 
+%
+%
+%
 \makeatletter
-\renewcommand*{\IeC}{%
+\renewcommand*{\IeC}{
   \ifx\protect\@typeset@protect
     \if@safe@actives
       \expandafter\expandafter\expandafter\IeC@detokenize
