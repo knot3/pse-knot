@@ -1,0 +1,63 @@
+% !TeX encoding = UTF-8
+%
+% LaTeX-Vorlage für Pflichtenhefte.
+%
+\documentclass[
+%
+	fontsize = 12.1pt,
+	paper    = A4,
+	pagesize = auto
+%
+]{scrreprt}
+
+
+
+\input{LaTeX/Pakete} % Eingebundene LaTeX-Pakete.
+\input{LaTeX/Makros} % Eigene LaTeX-Makros.
+
+\input{LaTeX/Einstellungen/Kompatibilitaet} % Nachträgliche Kompatibilitätseinstellungen für problematische LaTeX-Pakete.
+
+
+
+\begin{document}
+
+	% Cover
+	%
+	\input{Cover/I}
+	
+	% Teaser
+	%
+	\input{Cover/II}
+
+	% Inhaltsverzeichnis
+	%
+	\input{Inhalt/Verzeichnisse/Inhalt}
+	
+	% Inhalt
+	%
+	\input{Inhalt/Einfuehrung/Einfuehrung}
+	\input{Inhalt/Umfang/Umfang}
+	\input{Inhalt/Nutzer/Nutzer}
+	\input{Inhalt/Einsatz/Einsatz}
+	\input{Inhalt/Betriebsmittel/Betriebsmittel}
+	\input{Inhalt/Anforderungen/Anforderungen}
+	\input{Inhalt/Daten/Daten}
+	\input{Inhalt/Nutzung/Nutzung}
+	\input{Inhalt/Qualitaet/Qualitaet}
+	\input{Inhalt/Entwicklung/Entwicklung}
+	\input{Inhalt/Verteilung/Verteilung}
+	
+	% Verzeichnisse
+	%
+	\input{Inhalt/Verzeichnisse/Verzeichnisse}
+	
+	% Anhänge
+	%
+	%\input{Inhalt/Anhaenge/Anhaenge}
+	
+	% Schluss-Teaser
+	%
+	\input{Cover/III}
+
+
+\end{document}
