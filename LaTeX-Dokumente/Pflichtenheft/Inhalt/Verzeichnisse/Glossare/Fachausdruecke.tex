@@ -19,10 +19,49 @@
 	type = FA
 %
 }
+\newglossaryentry{fa:Spieler}{
+%
+	name = Spieler,
+	description = {So wird der Nutzer des Programmes genannt},
+	type = FA
+%
+}
 
+\newglossaryentry{fa:Spielername}{
+%
+	name = Spielername,
+	description = {Der Name der in den Bestenliste für den aktuellen Spieler eingetragen werden},
+	type = FA
+%
+}
+
+%
+% Menüs
+%
+\newglossaryentry{fa:Hauptmenu}{
+%
+	name = Hauptmenü,
+	description = {Dieses Menü ist der erste Bildschirm mit dem der Spieler interagieren kann. Hier kann er Einstellungen zum Spiel vornehmen (z.B. Grafik und Ton).},
+	type = FA
+%
+}
+\newglossaryentry{fa:Pausemenu}{
+%
+	name = Pause-Menü,
+	description = {Sonderform vom Hauptmenü in dem Einstellungen zum laufenden Spiel getätigt werden können (z.B. Speichern, Laden, Grafikeinstellungen, Rückkehr zum Hauptmenü (beenden des aktuellen Spiels) und Verlassen Spiels)},
+	type = FA
+%
+}
 %
 % Spielmodi
 %
+\newglossaryentry{fa:Knoten}{
+%
+	name = Knoten,
+	description = {Im Spiel arbeitet der Spieler an einem dreidimensionalen (Gitter-)Knoten, dabei beginnt er mit einer Ausgangsform (im Zweidimensionalen z.B. ein Quadrat). Wie am Beispiel des Quadrats zu sehen ist, besteht ein Knoten aus einem geschlossenen Gebilde.},
+	type = FA
+%
+}
 \newglossaryentry{fa:Creative}{
 %
 	name = Creative,
@@ -45,6 +84,13 @@
 	type = FA
 %
 }
+\newglossaryentry{fa:Transformation}{
+%
+	name = Transformation,
+	description = {Verändern des Knoten durch Verschiebung der Kanten und Teilkanten.},
+	type = FA
+%
+}
 \newglossaryentry{fa:Datenaustauschformat}{
 %
 	name = Datenaustauschformat,
@@ -59,6 +105,27 @@
 	type = FA
 %
 }
+\newglossaryentry{fa:Ausgangsknoten}{
+%
+	name = Ausgangsknoten,
+	description = { Diesen Knoten muss der Spieler im Challenge-Mode transfomieren, sodass er dem Referenzknoten gleicht.},
+	type = FA
+%
+}
+\newglossaryentry{fa:Referenzknoten}{
+%
+	name = Referenzknoten,
+	description = { Bildet die Referenz für die Transformation des Ausgangsknoten im Challengen-Mode.},
+	type = FA
+%
+}
+\newglossaryentry{fa:Rasterpunkt}{
+%
+	name = Rasterpunkt,
+	description = { Gitterpunktepunkte im Raum die in einem vorgegeben Abstand zu einander sind.},
+	type = FA
+%
+}
 \newglossaryentry{fa:Undo}{
 %
 	name = Undo,
@@ -69,7 +136,7 @@
 \newglossaryentry{fa:Redo}{
 %
 	name = Redo,
-	description = { Mit der Undo-Funktion kann eine vorherige Transformation zurückgenommen werden.},
+	description = { Mit der Redo-Funktion kann eine vorherige Undo-Aktion wiederhergestellt werden.},
 	type = FA
 %
 }
@@ -94,9 +161,23 @@
 	type = FA
 %
 }
-\newglossaryentry{fa:Eastereggs}{
+\newglossaryentry{fa:Abschlussbildschirm}{
 %
-	name = Bestenliste,
+	name = Abschlussbildschirm,
+	description = { Ist der eingeblendete Bildschirm nach dem erfolgreichen Abschluss eines Levels im Challenge-Mode. Hier wird Platzierung des Spielers in der Bestenliste angezeigt (anhand der Spielzeit) und der Spieler kann das Level bewerten.},
+	type = FA
+%
+}
+\newglossaryentry{fa:virtuellerKnoten}{
+%
+	name = virtueller Knoten,
+	description = { Wenn ein Spieler in Knot³ einen Zug ausführt, werden ihm durch eine vorläufige Skizzierung der Knoten-Transformationen (je nach Interaktion) die möglichen Resultate des Zugs gezeigt. },
+	type = FA
+%
+}
+\newglossaryentry{fa:Easteregg}{
+%
+	name = Easteregg,
 	description = { XXXXXXXXXXXXXXXXXXXX.},
 	type = FA
 %
