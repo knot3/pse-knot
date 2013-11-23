@@ -3,7 +3,9 @@
 % LaTeX-Pakete.
 %
 
-\usepackage{makeidx}
+%\usepackage{makeidx}
+
+
 %
 % Neue Deutsche Rechtschreibung.
 %
@@ -54,7 +56,7 @@
 %
 % Abstände.
 %
-\usepackage{vmargin}
+\usepackage{vmargin} % ToDo: durch geometry ersetzen
 \setpapersize{A4} % besser oben?
 \setmarginsrb{3cm}{1.5cm}{3cm}{1cm}{6mm}{6mm}{5mm}{15mm}
 
@@ -81,6 +83,7 @@
 % HINWEIS: perl nötig.
 %
 \usepackage[nomain]{glossaries}
+\renewcommand*{\glspostdescription}{} % Kein automatischer Setzpunkt nach einem Eintrag.
 \newglossary{FA}{fai}{fao}{Fachausdrücke}
 \newglossary{AK}{aki}{ako}{Abkürzungen}
 \makeglossaries
