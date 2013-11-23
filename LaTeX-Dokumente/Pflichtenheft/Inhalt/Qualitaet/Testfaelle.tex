@@ -7,7 +7,7 @@
 %
 % Testfälle starten auf einer eigenen Seite.
 %
-%\clearpage
+\clearpage
 
 
 \section{Testf{"a}lle}
@@ -27,15 +27,15 @@
 		
 		\textit{Erwartet:} Das Spiel verwendet die gewünschte Auflösung, sofern diese vom System unterstützt wird. Falls nicht, wird eine Fehlermeldung eingeblendet, die darauf hinweist, dass diese Einstellung nicht möglich ist. Die Auflösung wird in diesem Fall nicht geändert.
 
-		\id[ 20] Bau eines neuen Knotens im Creative.\\
+		\id[ 20] Auswahl des \gls{fa:Creative}-Mode und Transformation des zur Verfügung gestellten Knoten.\\
 		
-		\textit{Erwartet:} Spiel initialisiert einen Knoten der verändert werden kann.
+		\textit{Erwartet:} Spiel initialisiert einen Knoten der verändert werden kann. Der Spieler kann alle gültigen Transformationen ohne Probleme ausführen.
 
 		\id[ 30] Erstellen einer neuen Challenge.\\
 		
-		\textit{Erwartet:} Nach Auswahl der Knoten die zur Challenge gehören, soll die Challenge erstellt werden.
+		\textit{Erwartet:} Nach Auswahl des \gls{fa:Ausgangsknoten} und des \gls{fa:Referenzknoten} die zur Challenge gehören, soll die Challenge erstellt werden.
 		
-		\id[ 40] Die Lautstärke der Musik und Toneffekte wird im Einstellungsmenü angepasst.\\ 
+		\id[ 40] Die Lautstärke der Musik und Toneffekte  im Einstellungsmenü anpassen.\\ 
 		
 		\textit{Erwartet:} Bei erhöhter Lautstärke wird die Musik oder die Toneffekte lauter abgespielt, als bei niedrigeren Einstellungen. Die Soundeffekte oder Musik werden nicht abgespielt, wenn die Lautstärke auf den Wert 0 gestellt wurde. Falls nur die Musik auf dem Wert 0 steht, wird nur die Musik nicht abgespielt, aber die Toneffekte werden mit ihrer Lautstärke weiterhin ausgegeben.
 		
@@ -45,9 +45,9 @@
 
 		\id[ 60] Verlassen eines aktiven Spiels über das Pause-Menü.\\
 		
-		\textit{Erwartet:} Nach dem Klicken auf den Beenden-Button, des Pause-Menüs erscheint das Hauptmenü.
+		\textit{Erwartet:} Nach dem Klicken auf den Beenden-Button, des \gls{fa:Pausemenu} erscheint das \gls{fa:Hauptmenu}.
 
-		\id[70] Transformieren des Knotens, sowohl im Challenge-Modus als auch im Creative-Modus.\\
+		\id[70] Transformieren des Knotens, sowohl im Challenge-Mode als auch im Creative-Mode.\\
 		
 		\textit{Erwartet:} Falls die Transformation gültig ist, wird die Kante entsprechend transformiert. Dies funktioniert, sowohl im Challenge-Modus als auch im Creative-Modus.
 
@@ -57,11 +57,11 @@
 
 		\id[ 90] Erfolgreiches Beenden einer Challenge.\\
 		
-		\textit{Erwartet:} Die Zeit wird gestoppt und der Abschlussbildschirm wird eingeblendet. Falls die Zeit für die Bestenliste ausgereicht hat, wird diese direkt eingetragen.
+		\textit{Erwartet:} Die Zeit wird gestoppt und der Abschlussbildschirm wird eingeblendet. Falls die Zeit für die Bestenliste ausgereicht hat, wird diese direkt eingetragen mit dem eingetragenen Spielernamen.
 
-		\id[100] Speicherung eines Knotens den man im Creative-Modus erstellt hat und späteres Laden.\\
+		\id[100] Speicherung eines Knotens den man im Creative-Mode erstellt hat und späteres Laden.\\
 		
-		\textit{Erwartet:} Ein Knoten wird in einer Datei im Austauschformat gespeichert. Wenn diese Datei geladen wird erhält man den vorher abgespeicherten Knoten zurück.
+		\textit{Erwartet:} Ein Knoten wird in einer Datei im Dateiaustauschformat gespeichert. Wenn diese Datei geladen wird erhält man den vorher abgespeicherten Knoten zurück.
 		
 		\id[120] Installation des Spiels auf Windows Zielsystemen.\\
 		
@@ -70,6 +70,8 @@
 		\id[130] Restlose Deinstallation des Spiels von Windows Zielsystemen.\\
 		
 		\textit{Erwartet:} Deinstallation des Spiels ohne verbliebene Dateien.
+		
+	
 
 	\end{ids}
 
@@ -87,6 +89,9 @@
 	\id[500] Importieren einer Datei die keinen gültigen Knoten enthält.\\
 	
 	\textit{Erwartet:} Das Spiel bricht das Importieren ab und meldet, dass diese Datei keinen gültigen Knoten enthält.
+	\id[510] Erstellen einer Challenge mit zwei identischen Knoten.\\
+	\textit{Erwartet:} Das Spiel überprüft die beiden Knoten auf Gleichheit. Wenn Gleichheit besteht wird die Erstellung der Challenge nicht durchgeführt, da beide Knoten identisch sind und somit die Challenge automatisch gewonnen wäre nach dem Start.
+	
 
 \end{ids}
 
@@ -101,7 +106,12 @@
 
 	\begin{ids}{\gls{PTF}}
 	
-		\id[1000] ...
+		\id[1000] Importieren einer sehr großen gültigen Knoten-Datei (mit mehreren hunderten Kanten).\\
+		\textit{Erwartet:} Das Spiel kann den Knoten importieren und korrekt überprüfen sofern die Ressourcen des Systems ausreichend sind.
+		\id[1010] Erstellen einer Challenge mit zwei sehr Großen Knoten (jeweils mit mehreren Hundert Kanten).
+		\textit{Erwartet:} Die Challenge wird erstellt sofern die beiden Knoten nicht identisch sind und das System genug Ressourcen besitzt um die Knoten zu laden.
+		\id[1020] Wahllose Tasteneingaben im Creative-MOde.
+		\textit{Erwartet:} Sofern gedrückte Taste keine Funktionalität erfüllt wird nicht passieren. Falls diese Taste eine Funktion erfüllt wird nur diese ausgeführt.
 	
 	\end{ids}
 
