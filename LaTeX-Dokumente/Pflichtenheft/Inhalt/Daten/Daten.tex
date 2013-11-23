@@ -1,118 +1,17 @@
 % !TeX encoding = UTF-8
 %
-% Produkt-Daten
+% Produkt-Daten:
 %
-
-% % % !!!!!!! siehe auch Pflichtenheft/Produktaten.txt (alt)
 
 
 \chapter{Daten}
 \label{DT}~\\
 
-%...
-%\\
 
-\subsection{Persistente Daten}~\\
+\input{Inhalt/Daten/Feste_Daten}
 
-\section*{\underline{Pflicht-Daten:}}~\\
-
-\begin{ids}{\gls{PD}}
-
-	\id[10] Nutzerprofile speichern Informationen zum Spieler dauerhaft. 
-	  \begin{itemize}
-         \item Nickname
-      \end{itemize}
-      
-     \id[20] Eine Spielestatistik bietet dem aktuellen Spieler eine Übersicht über gebaute Knoten und absolvierte Challenges.
-%     \begin{itemize}
-%       \item Spielzeit
-%       \item Errungenschaften
-%       \item Bestandene Challenges
-%       \item Übersicht der Creatives
-%     \end{itemize}
-     
-     \id[30] Standard-Spracheinstellungen sind verfügbar.
-     \begin{itemize}
-       \item Englische Sprache
-       \item Deutsche Sprache (optional)
-     \end{itemize}
-     
-	 \id[40] In der Offline-Bestenliste für Challenges wird der Spielername und die Zeit gespeichert.
-
-	\id[45] 10-Challenges sind bei jedem Knot³-Spielpaket enthalten.
-      \begin{itemize}
-      \item Levelname
-      \item Empfehlung (Anfänger oder      Fortgeschrittene)
-      \end{itemize}
-
-	 \id[50] Standard-Grafikeinstellungen werden beim ersten Spielstart gespeichert. Vom Spieler angepasste Grafikeinstellungen sind auch beim nächsten Start weiterhin aktiv.
-	 
-	 \id[60] Weitere Einstellungen
-	 \begin{itemize}
-     \item Sprache
-     \item Effekte
-     \item (Hintergrund-)Musik
-     \end{itemize}
-     
-	 \id[70] Die Erfolge und lokale Bestenliste. Für jede Challenge ist eine Bestenliste anzulegen.
-	 
-	 \id[80] Die bei der  Entwicklung entstehenden Dokumentationen.
-	 
-	 \id[90] Grafiken welche Teil der Benutzeroberfläche sind.
-	 
-	 \id[100] Der eine Knoten im Creative(-Mode) und die zwei Knoten im Challenge(-Mode).
-     \begin{itemize}
-       \item Knoten (im Austauschformat)
-       \item Kantenfarben
-       \item Texturierung
-     \end{itemize}
-  
-	 \id[110] Soundeffekt-Dateien, welche Geräusche von Effekten enthalten.
-	 
-	 \id[120] Dateien für die Musikstücke, welche als Hintergrundmusik abgespielt werden.
-
-\end{ids}
-~\\
-\section*{\underline{Optionale Daten:}}~\\
-\begin{ids}{\gls{OD}}
-
-	\id[10] Die Online-Bestenliste.
-	 \begin{itemize}
-       \item Spielername
-       \item Datum
-       \item Erreichte Punkte
-       \item Spieldauer
-     \end{itemize}
-     
-     \id[20] Die Knot³-Homepage.
-     
-     \id[30] Die Webseite der Online-Bestenliste.
-     
-     \id[40] Die Support-Webseite.
-     
-     \id[50] Informationen zur Erreichbarkeit Webseiten (URLs).
-     
-     \id[60] Knoten bei Spielständen des 1. Modus werden in einem Format welches 3D-Drucker verstehen gespeichert.
-     
-\end{ids}
 ~\\
 
+\input{Inhalt/Daten/Flüchtige_Daten}
 
-\subsection{Generierbare Daten}~\\
-
-\begin{ids}{\gls{PD}}
-
-	\id[130] Der Schwierigkeitsgrad muss nicht gespeichert werden, da er dynamisch aus der Knotenstruktur berechnet wird.
-	
-	\id[140] Die Knoten-Komplexität wird dynamisch berechnet und muss nicht gespeichert werden.
-
-\end{ids}
-~\\
-
-
-%%
-%% Im Inhaltsverzeichnis nach diesem "chapter" einen Seitenumbruch erzwingen.
-%%
-
-\addtocontents{toc}{\protect\newpage}
 

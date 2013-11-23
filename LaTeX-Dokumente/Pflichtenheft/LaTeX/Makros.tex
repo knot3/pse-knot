@@ -24,6 +24,7 @@
 	\begin{labeling}{/YYXXX\_00000/} % leider nur eine "vernünftige" Konstante
 	% labeling statt enumerate: Längste Beschriftung wäre als Arg. möglich, um aut. die Einrückung vorzunehmen. Hält 4 Alpha, einem Unterstrich 5 Nummern und // stand + YY.
 	
+%	\setlistdepth{0}
 	\setlength{\itemsep}{0.15cm} % Abstand zw. Listeneinträgen
 %	\setlength{\itemindent}{0.5cm}
 %	\setlength{\labelsep}{0.5cm}
@@ -32,10 +33,10 @@
 %	\setlength{\leftmargin}{2cm}
 %	
 \let\alterBefehl\item
-\renewcommand\item[2][]{\alterBefehl[/#1\_\entfaeLZ{##1}/]{##2}}
+\newcommand\id[2][]{\alterBefehl[/#1\_\entfaeLZ{##1}/]{##2}}
 
 }{
 	\end{labeling}
 }
 
-\newenvironment{id}{\item}{}
+%\newenvironment{id}{\item}{}
