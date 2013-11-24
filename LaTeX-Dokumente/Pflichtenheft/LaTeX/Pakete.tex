@@ -91,13 +91,18 @@
 %
 %\usepackage[hidelinks]{hyperref} % Kein "Roter Kasten"/Hervorhebung von Links
 \usepackage{hyperref}
+\hypersetup{%
+  colorlinks=false,% hyperlinks will be black
+  linkbordercolor=red,% hyperlink borders will be red
+  pdfborderstyle={/S/U/W 1}% border style will be underline of width 1pt
+}
 
 %
 % Glossare.
 %
 % HINWEIS: perl nötig.
 %
-\usepackage[nomain]{glossaries}
+\usepackage[nomain,toc,section, sanitize={description=false}]{glossaries}
 \renewcommand*{\glspostdescription}{} % Kein automatischer Satzpunkt nach einem Eintrag.
 \newglossary{FA}{fai}{fao}{Fachausdrücke}
 \newglossary{AK}{aki}{ako}{Abkürzungen}
