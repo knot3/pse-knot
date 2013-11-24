@@ -15,15 +15,18 @@ Eine grobe Abschätzung der Ressourcennutzung unter \textit{normalen} Bedingunge
 \begin{ids}{\gls{VS}}
 
 	\id[10] {\textbf{Prozessorauslastung}} \hfill\\
-	
-	Das System wird etwa zu 10 \% ausgelastet (Referenz-Prozessor-System: Intel(R) Core(TM) i5 CPU M460 @ 2.53 GHz (4 CPUs), ~2.4 GHz).\\
+
+	Der Prozessor wird etwa zu 30-50 \% ausgelastet (Referenz: Intel(R) Core(TM) i5 CPU 3470 @ 3.20 GHz (4 Kerne), ~3.20 GHz).\\
 	
 	\id[20] {\textbf{Arbeitsspeicher}} \hfill\\
 	
-	Im Creative beginnt der Verbrauch bei unter 10 MB und steigt zunehmend an. Einfache Challenges liegen bei 50 MB, schwierigere Levels brauchen entsprechend mehr, vielleicht bis zu 100 MB. Das liegt daran, dass während des Spiels die Änderungen des Spielers am Knoten gespeichert werden, um sie auf dessen Anweisung wieder rückgängig zu machen.\\
+	Im Creative beginnt der Verbrauch bei etwa 100 MB und steigt zunehmend an. Der Verbrauch hängt von der Anzahl der Knoten, Kanten und den dazugehörigen 3D-Modellen ab. Kleinere Knoten mit zweistelliger Kantenanzahl	liegen bei etwa 150 MB, sehr komplexe Knoten mit 3000 Knoten benötigen über 1 GB Arbeitsspeicher. Dazu kommt Speicherplatz, der dazu benötigt wird, dass während des Spiels die Änderungen des Spielers am Knoten gespeichert werden, um sie auf dessen Anweisung wieder rückgängig zu machen.\\
+
+	\id[30] Grafikspeicher \hfill\\
 	
-	
-	\id[30] {\textbf{Festplattenspeicher}} \hfill\\
+	Die Auslastung des Grafikspeichers hängt ebenfalls von der Anzahl der Knoten und von der Komplexität der Texturen und Modelle ab, die wir später verwenden werden. Es ist mit einem Verbrauch zwischen 50 MB bei Knoten mit einer zweistelliger Kantenanzahl und mehreren hundert MB bei mehreren tausend Kanten zu rechnen.
+
+	\id[40] {\textbf{Festplattenspeicher}} \hfill\\
 		
 	Für die Installation des gesamten Spiels sollten ca. 50 bis 100 MB Festplattenspeicher ausreichend sein. Wenn der Spieler im Creative eigene Knotengebilde erstellt kommen für einen Knoten mit bis zu 100 Kanten nur wenige KB hinzu. Dies gilt auch für Challenges.\\
 
