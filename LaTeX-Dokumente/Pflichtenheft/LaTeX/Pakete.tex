@@ -98,14 +98,17 @@
 % HINWEIS: perl nötig.
 %
 \usepackage[nomain]{glossaries}
-\renewcommand*{\glspostdescription}{} % Kein automatischer Setzpunkt nach einem Eintrag.
+\renewcommand*{\glspostdescription}{} % Kein automatischer Satzpunkt nach einem Eintrag.
 \newglossary{FA}{fai}{fao}{Fachausdrücke}
 \newglossary{AK}{aki}{ako}{Abkürzungen}
+\newglossary{BZ}{bzi}{bzo}{Bezeichner}
 \makeglossaries
 %% Glossar-Einträge im Voraus bekannt machen,
 %% damit sie im Folgenden verwendbar sind.
 \loadglsentries[FA]{Inhalt/Verzeichnisse/Glossare/Fachausdruecke}
+\loadglsentries[BZ]{Inhalt/Verzeichnisse/Glossare/Bezeichner}
 \loadglsentries[AK]{Inhalt/Verzeichnisse/Glossare/Abkuerzungen}
+
 %
 % HINWEIS:
 %
