@@ -44,13 +44,13 @@
 
 \begin{ids}{\gls{OGO}}
 
-	\id[0010] Im Hauptmenü /PGO\_0010/ eine Auswahl um die Credits anzuzeigen.
+	\id[0010] Im Hauptmenü /PGO\_0010/ eine Auswahl um die \gls{fa:Credits} anzuzeigen.
 	
 	\id[0020] Ein Menü für verschiedene Spieleinstellungen.
 	
 	\id[0030] Im Hauptmenü /PGO\_0010/ eine Auswahl um zum Menü für Spieleinstellungen /OGO\_0020/ zu kommen.
 	
-	\id[0040] Im Einstellungsmenü /OGO\_0020/ ein Untermenü für die Tastaturbelegung.
+	\id[0040] Im \gls{fa:EinstM} /OGO\_0020/ ein Untermenü für die Tastaturbelegung.
 	
 	\id[0050] Im Einstellungsmenü /OGO\_0020/ ein Untermenü für grafische Einstellungen.
 	
@@ -121,7 +121,7 @@
 	\clearpage
 	~\\
 	
-	Im Spiel kann der Nutzer auch die {\color{red} Einstellungen} erreichen. Die Menüeinträge in den unterschiedlichen Spielmodi können variieren.
+	Auch aus dem laufenden Spiel heraus kann der Nutzer die Einstellungen erreichen. Die Menüeinträge in den unterschiedlichen Spielmodi können variieren.
 
 	\begin{longtable}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 	
@@ -146,56 +146,13 @@
 	
 \clearpage
 
-
-\section{Benutzerinteraktionsmodelle}
-	
-\clearpage
-
-\subsection{Spielz{"u}ge}
-
-~\\
-...
-
-\subsubsection{Beispiele g{"u}ltiger}
-
-
-\gls{fa:gueltZug}
-~\\
-...
-
-\subsubsection{Beispiele ung{"u}ltiger Z{"u}ge}
-
-	\begin{figure}[htb]
-	  \centering
-	  \includegraphics[width = \textwidth]{Inhalt/Nutzung/Grafiken/Grafische_Oberflaechen/Ungueltiger_Zug.png}
-	  \caption{Parallele Kantenvereinigung}
-	  \label{fig:zug1}
-	\end{figure}
-
-Der Knoten auf der linken Seite \ref{fig:zug1} beschreibt eine gültige Spielsituation. Der Spieler wählt eine Kante (blaue Hervorhebung) aus, um einen weiteren Zug vorzunehmen.
-Einem Spieler ist es nicht möglich, zwei parallele Kanten (hier: die Blaue und die Rote) zu einer Kante zu vereinen. Das ist ein \gls{fa:ungueltZug}. Der Knoten soll immer aus einem geschlossenen Kreis von Kanten bestehen. Der Knoten auf der rechten Seite \ref{fig:zug1} ist daher eine ungültige Spielsituation.
-
-
-...
-
-\clearpage
-
-
-
-	\begin{figure}[ht]
-	% ssetpagelength
-	  \centering
-	  \includesvg[width = 1.2\textwidth]{inGame}
-	  \caption{Interaktionen während eines Spiels (allgemein)}
-	\end{figure}
-
-
-
 \begin{landscape}
 
-	\begin{figure}[h]
+	\section{Benutzerinteraktionsmodelle}
+
+	\begin{figure}[!h]
 		\centering
-	 	\includesvg[width = 1.1\textwidth]{menu}
+	 	\includesvg[width = 0.99\textwidth]{menu}
 	 	\caption{Hauptmenüstruktur beginnend mit /PGO\_0010/. Grau hinterlegtes ist Optional.}
 	\end{figure}
 	
@@ -217,6 +174,7 @@ Einem Spieler ist es nicht möglich, zwei parallele Kanten (hier: die Blaue und 
 \end{landscape}
 	
 \clearpage
+
 
 
 %
@@ -259,5 +217,41 @@ Einem Spieler ist es nicht möglich, zwei parallele Kanten (hier: die Blaue und 
 	  \label{fig:pipes2}
 	\end{figure}
 	
+
+\clearpage
 	
+
+
+\subsection{Spielz{"u}ge}~\\
+
+
+\subsubsection{Beispiele g{"u}ltiger Z{"u}ge}
+
+
+~\\
+...
+Das ist ein \gls{fa:gZug}.
+
+
+
+
+\subsubsection{Beispiele unm{"o}gliche Z{"u}ge}
+
+	\begin{figure}[htb]
+	  \centering
+	  \includegraphics[width = \textwidth]{Inhalt/Nutzung/Grafiken/Grafische_Oberflaechen/Ungueltiger_Zug.png}
+	  \caption{Parallele Kantenvereinigung}
+	  \label{fig:zug1}
+	\end{figure}
+
+Der Knoten auf der linken Seite \ref{fig:zug1} beschreibt eine gültige Spielsituation. Der Spieler wählt eine Kante (blaue Hervorhebung) aus, um einen weiteren \gls{fa:Zug} vorzunehmen.
+Einem Spieler ist es nicht möglich, zwei parallele Kanten (hier: die Blaue und die Rote) zu einer Kante zu vereinen. Das ist ein \gls{fa:uZug}. Der Knoten soll immer aus einem geschlossenen Kreis von Kanten bestehen. Der Knoten auf der rechten Seite \ref{fig:zug1} ist daher eine ungültige Spielsituation.
+
+
+
+
+
+...
+
+\clearpage
 

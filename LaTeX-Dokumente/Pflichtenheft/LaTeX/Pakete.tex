@@ -29,6 +29,9 @@
 % Automatische Kodierung vieler Sonderzeichen.
 %
 \usepackage[utf8x]{inputenc}
+\PrerenderUnicode{ü}
+\PrerenderUnicode{ä}
+\PrerenderUnicode{ö}
 
 %
 % Z.B. Symbol: Schwarzer Stern.
@@ -102,7 +105,8 @@
 %
 % HINWEIS: perl nötig.
 %
-\usepackage[nomain,toc,section, sanitize={description=false}]{glossaries}
+%\usepackage[nomain,toc,section, sanitize={description=false}]{glossaries}
+\usepackage[nomain]{glossaries}
 \renewcommand*{\glspostdescription}{} % Kein automatischer Satzpunkt nach einem Eintrag.
 \newglossary{FA}{fai}{fao}{Fachausdrücke}
 \newglossary{AK}{aki}{ako}{Abkürzungen}
