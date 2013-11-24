@@ -106,6 +106,9 @@
 		\item[in game] /PGO\_1010/ Der Editor in dem Das eigentliche Spiel stattfindet.
 		\item[credits] /OGO\_0010/ Anzeige der Mitwirkenden.
 		\item[settings] /OGO\_0020/ Einstellungsmöglichkeiten für Audio, Video, Steuerung und Farbpalette.
+		\save[save] Speichert das laufende Spiel.
+		\item[quit] Beendet das laufende Spiel.
+		\item[render options] Bietet dem Nutzer verschiedene Möglichkeiten seinen Knoten zu rändern und zu exportieren.
 	\end{description}
    
    ~\\
@@ -113,68 +116,70 @@
 	\begin{figure}[h]
 		\centering
 	 	\includesvg[svgpath=./, width = 0.95\textwidth]{menu}
-	 	\caption{Hauptmenüverlauf}
+	 	\caption{Hauptmenüstruktur beginnend mit /PGO\_0010/. Grau hinterlegtes ist Optional.}
 	\end{figure}
 	
-	\clearpage
-	~\\
-	
-	Auch aus dem laufenden Spiel heraus kann der Nutzer die Einstellungen erreichen. Die Menüeinträge in den unterschiedlichen Spielmodi können variieren.
-
-	\begin{longtable}{|p{0.25\textwidth}|p{0.75\textwidth}|}
-	
-	\hline
-	settings & Genau wie aus dem Hauptmenü.\\
-	\hline
-	save & Speichert den aktuellen Spielstand.\\
-	\hline
-	quit & Beendet das laufende Spiel. \\
-	\hline
-	render options & Bietet dem Nutzer verschiedene Möglichkeiten seinen Knoten zu rendern und zu exportieren.\\
-	\hline
-	
-	\end{longtable}
+	%~ \clearpage
+	%~ ~\\
+	%~ 
+	%~ Auch aus dem laufenden Spiel heraus kann der Nutzer die Einstellungen erreichen. Die Menüeinträge in den unterschiedlichen Spielmodi können variieren.
+%~ 
+	%~ \begin{longtable}{|p{0.25\textwidth}|p{0.75\textwidth}|}
+	%~ 
+	%~ \hline
+	%~ settings & Genau wie aus dem Hauptmenü.\\
+	%~ \hline
+	%~ save & Speichert den aktuellen Spielstand.\\
+	%~ \hline
+	%~ quit & Beendet das laufende Spiel. \\
+	%~ \hline
+	%~ render options & Bietet dem Nutzer verschiedene Möglichkeiten seinen Knoten zu rendern und zu exportieren.\\
+	%~ \hline
+	%~ 
+	%~ \end{longtable}
 	
 	\begin{figure}[!ht]
 		  \centering
 		  \includesvg[svgpath=./, width = \textwidth]{ingamemenu}
-		  \caption{Menü f. Einstellungen während des Spiels.}
-	\end{figure}
-
-	
-\clearpage
-
-\begin{landscape}
-
-	\section{Benutzerinteraktionsmodelle}
-
-	\begin{figure}[!h]
-		\centering
-	 	\includesvg[width = 0.99\textwidth]{menu}
-	 	\caption{Hauptmenüstruktur beginnend mit /PGO\_0010/. Grau hinterlegtes ist Optional.}
-	\end{figure}
-	
-\end{landscape}
-
-\clearpage
-
-\begin{landscape}
-
-	\begin{figure}[h]
-		\centering
-	 	\includesvg[width = 1.1\textwidth]{ingamemenu}
-	 	\caption{Zugriffsmöglichkeiten im Editor /PGO\_1010/. Grau hinterlegtes ist Optional.\\\hspace{\textwidth}
+		  \caption{Zugriffsmöglichkeiten im Editor /PGO\_1010/. Grau hinterlegtes ist Optional.\\\hspace{\textwidth}
 			1: Nur im \glqq creative\grqq~ Modus\\\hspace{\textwidth}
 			2: Nur im \glqq creative\grqq~ Modus und nach bestandener Herausforderung}
-		\label{fig:ingamemenu}
 	\end{figure}
-	
-\end{landscape}
+
 	
 \clearpage
-
-
-
+%~ 
+%~ \begin{landscape}
+%~ 
+	%~ \section{Benutzerinteraktionsmodelle}
+%~ 
+	%~ \begin{figure}[!h]
+		%~ \centering
+	 	%~ \includesvg[width = 0.99\textwidth]{menu}
+	 	%~ \caption{Hauptmenüstruktur beginnend mit /PGO\_0010/. Grau hinterlegtes ist Optional.}
+	%~ \end{figure}
+	%~ 
+%~ \end{landscape}
+%~ 
+%~ \clearpage
+%~ 
+%~ \begin{landscape}
+%~ 
+	%~ \begin{figure}[h]
+		%~ \centering
+	 	%~ \includesvg[width = 1.1\textwidth]{ingamemenu}
+	 	%~ \caption{Zugriffsmöglichkeiten im Editor /PGO\_1010/. Grau hinterlegtes ist Optional.\\\hspace{\textwidth}
+			%~ 1: Nur im \glqq creative\grqq~ Modus\\\hspace{\textwidth}
+			%~ 2: Nur im \glqq creative\grqq~ Modus und nach bestandener Herausforderung}
+		%~ \label{fig:ingamemenu}
+	%~ \end{figure}
+	%~ 
+%~ \end{landscape}
+	%~ 
+%~ \clearpage
+%~ 
+%~ 
+%~ 
 %
 %
 %
@@ -227,29 +232,20 @@
 
 
 ~\\
-...
-Das ist ein \gls{fa:gZug}.
-
+Grundsätzlich ist jede Transformation, die mit der Spielmechanik machbar ist ein \gls{fa:gZug}.
+Die Spielmechanik verhindert das entstehen von doppelt belegten Kanten, was einen ungültigen Zustand darstellen würde.
 
 
 
 \subsubsection{Beispiele unm{"o}glicher Z{"u}ge}
-
 	\begin{figure}[htb]
 	  \centering
 	  \includegraphics[width = \textwidth]{Inhalt/Nutzung/Grafiken/Grafische_Oberflaechen/Ungueltiger_Zug.png}
 	  \caption{Parallele Kantenvereinigung}
 	  \label{fig:zug1}
 	\end{figure}
-
 Der Knoten auf der linken Seite \ref{fig:zug1} beschreibt eine gültige Spielsituation. Der Spieler wählt eine Kante (blaue Hervorhebung) aus, um einen weiteren \gls{fa:Zug} vorzunehmen.
 Einem Spieler ist es nicht möglich, zwei parallele Kanten (hier: die Blaue und die Rote) zu einer Kante zu vereinen. Das ist ein \gls{fa:uZug}. Der Knoten soll immer aus einem geschlossenen Kreis von Kanten bestehen. Der Knoten auf der rechten Seite \ref{fig:zug1} ist daher eine ungültige Spielsituation.
-
-
-
-
-
-...
 
 \clearpage
 
