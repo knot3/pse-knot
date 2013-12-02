@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7e68fb-2f1a-48b0-b0e9-9246167792c0" name="UMLClassDiagram1" linkedPackageId="b8a8636a-4ab4-41c4-b206-61edb0603f16" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="241cf01f-418d-4cd9-addc-11f8f868a44a">
+      <profileInstance Id="8fd6544b-c2a1-4241-ae7b-bc12ae904f2f" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b011a8fc-5dd2-4899-a32b-b3b1ca5e8c8c">
+      <profileInstance Id="3ae9b8e3-b29c-4c40-b516-a70260a49914" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" name="GameState" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
+        <suppliersInternal>
+          <dependency Id="e7e41043-5cdf-4067-8eef-e93499b95c73">
+            <classMoniker Id="0292f17f-66df-4df5-a90e-2d95ff6cf091" LastKnownName="Game" />
+            <elementDefinition Id="14a6c220-2da0-4a23-9bdf-ba5031550c57" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4823b9be-7031-4733-8877-4d5295c4606d" name="ChallengeModeScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8b9488c1-242f-477e-accc-97772cd5c6c2" />
+        <generalsInternal>
+          <generalization Id="cdb8e6e0-3671-4c79-961c-cd9600526c7e" isSubstitutable="false">
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameState" />
+            <elementDefinition Id="b7f0bba0-521a-4675-91d0-75463e181ac8" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="18ff7c22-8f44-4253-85fa-2086ca709e08" name="CreativeModeScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6abc3c09-d569-457f-b05e-269334687631" />
+        <generalsInternal>
+          <generalization Id="059ce2f1-f1e7-4f15-92e4-09c9185a9c14" isSubstitutable="false">
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameState" />
+            <elementDefinition Id="27710a56-921f-4535-8406-e0481c67fc6a" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="717b8204-13a2-467a-b711-9d679b3c9aa8" name="MenuScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="804d7705-44d5-4391-9eab-c5fe9f3195ae" />
+        <generalsInternal>
+          <generalization Id="f4664fd9-d311-4326-897e-d9ebf2899419" isSubstitutable="false">
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameState" />
+            <elementDefinition Id="94e262ae-3c71-446c-8fb7-4ac31f2ccf93" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0292f17f-66df-4df5-a90e-2d95ff6cf091" name="Game" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1b0ab1b6-d355-44b3-aa4a-df611621c60f" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="b8a8636a-4ab4-41c4-b206-61edb0603f16" name="ModelingProject1">
+    <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
+  </package>
+</logicalClassDesignerModel>

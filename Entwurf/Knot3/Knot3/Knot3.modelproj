@@ -22,6 +22,34 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="3DModelle.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="3DModelle.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>3DModelle.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Knot.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Knot.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Knot.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="GameState.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="GameState.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>GameState.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Format.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Format.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Format.classdiagram</DependentUpon>
+    </Content>
     <Content Include="Widget.classdiagram">
       <SubType>Content</SubType>
     </Content>

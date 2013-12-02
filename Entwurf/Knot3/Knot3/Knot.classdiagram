@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4dd72b25-4e26-4c0d-aaae-647424dfac33" name="UMLClassDiagram1" linkedPackageId="1ad2dd4e-b09e-4bfe-901c-e03b155bb971" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="b6d14665-2a26-4305-aa10-5c64d3ae4276">
+      <profileInstance Id="4061705a-d851-4485-a3cc-8c6473d865e0" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="ecc90928-cc0b-4667-85b5-417e8d60936a">
+      <profileInstance Id="08a2ce36-1002-4657-b346-6f92146ef0db" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9f44d620-251c-44b9-943f-7c7dfdda903e" name="Knot" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="11f023c9-2bb0-40fd-8bc0-85fe865ab6ff" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0af56caf-1ef4-4c36-a2cd-52f7c7669509" name="Node" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="07888f31-32af-4982-b962-53146da4fdc8" />
+        <suppliersInternal>
+          <dependency Id="a3496d43-69e6-4f3b-82e2-4293f14f7c49">
+            <classMoniker Id="9f44d620-251c-44b9-943f-7c7dfdda903e" LastKnownName="Knot" />
+            <elementDefinition Id="f0ff8556-a14b-44e3-a606-868ac424b023" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="58af7f9d-f261-4e80-9634-bec9cdcc19d5" name="EdgeList" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="74633d95-60da-4537-ab35-415fc7a4e546" />
+        <suppliersInternal>
+          <dependency Id="28e40264-6c65-4c13-accb-9b8675482313">
+            <classMoniker Id="9f44d620-251c-44b9-943f-7c7dfdda903e" LastKnownName="Knot" />
+            <elementDefinition Id="0d9f4bd2-8e57-4704-a41f-4ebe9c66aefe" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="34cfac94-3415-45a2-bff8-9f7f990eb624" name="KnotInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="015caaad-d35d-407a-908c-db72bc0d3c88" />
+        <suppliersInternal>
+          <dependency Id="f37c1773-8c0e-4a3d-b581-c5569414b292">
+            <classMoniker Id="9f44d620-251c-44b9-943f-7c7dfdda903e" LastKnownName="Knot" />
+            <elementDefinition Id="3f6c91c7-adad-43a6-8bff-e40884b51717" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="43393abe-e886-4b10-aede-72b9571f3201" name="Edge" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="91384762-e872-4895-9c03-ce395ce36c4f" />
+        <suppliersInternal>
+          <dependency Id="646c6eed-711d-4a52-981e-8d715cf721b1">
+            <classMoniker Id="58af7f9d-f261-4e80-9634-bec9cdcc19d5" LastKnownName="EdgeList" />
+            <elementDefinition Id="2fcdeec2-46e9-489b-8647-735348246441" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="1ad2dd4e-b09e-4bfe-901c-e03b155bb971" name="ModelingProject1">
+    <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
+  </package>
+</logicalClassDesignerModel>

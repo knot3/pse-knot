@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc184cf5-f240-4d95-bc66-963bed10b7c4" name="UMLClassDiagram1" linkedPackageId="83617cec-a287-4f01-af6b-49408eea9d89" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="f94704da-7d56-4a90-ac24-a99437de5451">
+      <profileInstance Id="1c6e597d-d15e-4940-a832-999c1c853a75" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="553005c4-e200-47c4-8721-87cab3499922">
+      <profileInstance Id="250961c8-b1af-4a1a-a753-fc8a2dccd94a" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="63811b34-a163-41af-b10c-b681bf4581fc" name="IKnotFormat" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="877c4e38-2e13-41bd-8b1a-b37c6c41c39b" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7ef0197c-e110-4574-969a-aeae69bd1485" name="EdgeListFormat" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e9fb1450-d0be-40a1-9dba-13d081f9e98a" />
+        <suppliersInternal>
+          <interfaceRealization Id="e347cc11-61c3-4eb8-a7cc-3e214b558fed">
+            <interfaceMoniker Id="63811b34-a163-41af-b10c-b681bf4581fc" LastKnownName="IKnotFormat" />
+            <elementDefinition Id="70d15eab-e36c-4c2a-a37b-21c2194a1a8f" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="eded978e-4668-4bc6-8cb1-abfc2167f5a6" name="IChallengeFormat" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="323312a4-8d40-46e2-8be7-98883706304c" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="83617cec-a287-4f01-af6b-49408eea9d89" name="ModelingProject1">
+    <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
+  </package>
+</logicalClassDesignerModel>

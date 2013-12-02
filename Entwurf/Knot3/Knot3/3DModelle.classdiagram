@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="1ed1b565-1f84-48cc-ba24-fb3e2d0daf1b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="941be71e-a867-4d90-8c23-a12a3ee0a770">
+      <profileInstance Id="ce1fd231-3cb2-4d13-aeb4-ed3274bdd80f" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="cd370150-0c28-450a-86de-84ae9631f1ee">
+      <profileInstance Id="d55e7f71-0a21-4e24-8d76-e596dc1991ce" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="183547ee-6ee0-416d-97cd-e68ddbda176e" name="DrawableGameComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5261792c-2c8f-4bc0-9da0-da80b87be157" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5437f405-fde9-4e18-9db5-057ee6cf7a52" name="DrawableGameStateComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f4aad81a-6f15-43d6-838c-6b82c3c0955a" />
+        <suppliersInternal>
+          <interfaceRealization Id="4632e803-b28f-4996-94f5-5cc6ea9638fb">
+            <interfaceMoniker Id="e6d09d9a-09e0-4b26-8543-c31c6b3112fd" LastKnownName="IGameStateComponent" />
+            <elementDefinition Id="f9ac820a-ef42-47c6-bd3a-fb6a72c0a1b1" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization Id="9db7d93f-f42b-4812-bc66-a6d49f11f7da" isSubstitutable="false">
+            <classMoniker Id="183547ee-6ee0-416d-97cd-e68ddbda176e" LastKnownName="DrawableGameComponent" />
+            <elementDefinition Id="8af58e74-7fd1-42a8-b1ac-1e328f51bf71" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="e6d09d9a-09e0-4b26-8543-c31c6b3112fd" name="IGameStateComponent" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b04289a6-b9eb-4ab1-ba6e-bec80a65f9f1" />
+        <generalsInternal>
+          <generalization Id="67a87de9-fdb2-477a-a83c-d499a9f7457c" isSubstitutable="false">
+            <interfaceMoniker Id="beebda50-7c5b-4e79-a3fd-2821a18ff61f" LastKnownName="IGameComponent" />
+            <elementDefinition Id="c39e2ccf-c231-47dc-b884-43af84bf32e5" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="beebda50-7c5b-4e79-a3fd-2821a18ff61f" name="IGameComponent" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ead8146e-f2d4-4970-91c8-5616b12211d6" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1719f587-b957-441a-8718-ec0f01e304bb" name="GameStateComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6f0d7f90-3057-4b46-a467-b69ebe4b89b8" />
+        <suppliersInternal>
+          <interfaceRealization Id="9f43170d-e512-4c39-8f94-badd4f123e4a">
+            <interfaceMoniker Id="e6d09d9a-09e0-4b26-8543-c31c6b3112fd" LastKnownName="IGameStateComponent" />
+            <elementDefinition Id="92a31c31-487c-4889-af3b-89c3f6150a70" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization Id="4fb1f287-6d9f-4f59-aa95-382c15705715" isSubstitutable="false">
+            <classMoniker Id="63fc60cb-96eb-4f85-97ee-05dbc0e47c21" LastKnownName="GameComponent" />
+            <elementDefinition Id="3733408d-b098-458f-bbee-a0ab39c97b87" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="63fc60cb-96eb-4f85-97ee-05dbc0e47c21" name="GameComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e2591221-6197-429d-90d6-a6f6a798628f" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f8484a24-803c-4c5e-83af-b48366ff8098" name="World" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0b511387-a1f1-4f38-879d-9f8e93c1c20c" />
+        <suppliersInternal>
+          <interfaceRealization Id="d02191ae-a342-4666-b256-b92aae63e425">
+            <interfaceMoniker Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" LastKnownName="IGameObject" />
+            <elementDefinition Id="7948eb89-7c5c-459b-b5f9-c23aa898511c" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization Id="d0b1051c-f0d9-4737-9029-f2bc44bb7ba5" isSubstitutable="false">
+            <classMoniker Id="5437f405-fde9-4e18-9db5-057ee6cf7a52" LastKnownName="DrawableGameStateComponent" />
+            <elementDefinition Id="12a9a5c1-c40c-4b9f-8602-255f90a18b0c" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" name="IGameObject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a1b8031b-f94b-4891-a13f-73db369d072e" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e00d87f0-7b76-489e-8a78-82ac7f499eb4" name="GameModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f77a9291-5b87-4ae2-b5c4-bb30d10b9470" />
+        <suppliersInternal>
+          <interfaceRealization Id="1679192d-671c-4cd4-838c-682cedfbdcf4">
+            <interfaceMoniker Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" LastKnownName="IGameObject" />
+            <elementDefinition Id="c96d28eb-458e-486c-a329-4028a9289f8a" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="1ed1b565-1f84-48cc-ba24-fb3e2d0daf1b" name="ModelingProject1">
+    <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
+  </package>
+</logicalClassDesignerModel>
