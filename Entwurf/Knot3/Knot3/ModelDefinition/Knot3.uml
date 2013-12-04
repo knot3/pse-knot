@@ -430,7 +430,7 @@
       <class
         Id="b05c9546-203b-4543-835e-2e9ed8fa301a"
         name="Widget"
-        isAbstract="false"
+        isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
         <generalsInternal>
@@ -1930,7 +1930,7 @@
     <packageHasNamedElement>
       <class
         Id="556063af-8667-4152-bcce-20fa3bbbfac1"
-        name="ItemWidget"
+        name="WidgetItem"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1944,6 +1944,143 @@
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="dac4d46e-abe2-4034-9c2b-ce8e2436e872"
+            name="BackRoundColor"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8c01338a-807f-45aa-ad96-802ff2e82de1"
+                LastKnownName="Color"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="263990b3-0cae-4438-9169-37a0a5e45841"
+            name="ForeGroundColor"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8c01338a-807f-45aa-ad96-802ff2e82de1"
+                LastKnownName="Color"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="486c79b0-8e02-4981-a624-7fd8001fd075"
+            name="ItemState"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="91ec9133-d001-4a38-9da2-7ed5ff25ad90"
+                LastKnownName="ItemState"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="c70524bd-7e56-4719-b788-2b643149fc09"
+            name="itemNum"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b2d5aa2e-4c93-4059-a3e3-5ea6a2e4695e"
+                LastKnownName="int"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="30d7e983-718b-4176-acf5-1726c52cd7a8"
+            name="ItemWidget"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="98cfd8ed-6f06-4868-88fc-df5a352ac1f7"
+                  name="GameState"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="610a59dd-0519-46e4-93d2-732594d726c0"
+                  name="DisplayLayer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cfd42073-c23b-4ff3-84bc-b829216a7f5b"
+                  name="int"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9ebeeaf9-e654-42fa-bf26-633aa9965f41"
+                  name="LazyItemColor"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7b0b21bb-62df-48f9-b5ec-186ba663898f"
+                  name="LazyItemColor"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c3b10558-d62e-442a-bbd5-0c5586af156f"
+                  name="HAlign"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="77d11f41-858a-49cf-ae0e-478079d59e6d"
+                  name="VAlign"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1963,6 +2100,246 @@
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="ee2bb8a7-28bb-4264-a6c1-275d7f18eaef"
+            name="IsMouseEventEnable"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="349d0a89-5802-412d-bfe4-ef755ee9dc33"
+                LastKnownName="bool"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d91a0ee4-38f4-4d93-b040-5c71d4a51e75"
+            name="OnSelectColor"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="49d9005d-774f-4688-ab97-cc54a2486c0f"
+                LastKnownName="Action"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a7b6149f-152f-4676-96e7-0e6f4d998038"
+            name="spriteBatch"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="a9ee2775-c921-4320-880c-d57899176359"
+                LastKnownName="spriteBatch"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2b1dff52-493f-4e07-b788-820e0847e877"
+            name="SelectedColor"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="02947b0f-e764-46a0-9a86-5e49041fe4aa"
+            name="Bounds"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="10526152-9d9d-41fd-a2f9-bb005a3606af"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="29f6da9f-0f15-4731-b677-83347cbe004b"
+                      LastKnownName="Rectangle"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0cad4aa6-feda-453a-8086-43bfa9459501"
+            name="ColorPicker"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="257ff308-6c5c-4878-bf2b-525879219281"
+                  name="GameState"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4fc8b7b9-dc61-4596-8f92-f00265a7cbe5"
+                  name="DisplayLayer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="246aca07-3301-48e6-94d4-2cd71c77a472"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6dc0c30b-a26a-488c-a04f-aacfba597dba"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="af99e238-2d9a-4ccc-b1c6-d2f3ee88958b"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="84655e17-94ce-4f09-a218-965ee6167ad6"
+            name="OnLeftClick"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b0f5b9eb-e5bf-4986-a10c-4b3a48e2f20c"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a1526aba-85f2-44e4-9268-06718b3c1f88"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4f70c6b8-b04c-47f2-886d-f8d50f69ac3e"
+                  name="ClickState"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9800a873-a7b8-4f0f-9f3c-9981765c275a"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="783b1914-c6ad-4d1b-bc79-c5d61abd6966"
+            name="OnRightClick"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="26887c9d-e4ee-4777-ac77-b4371242d3ae"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1ae81238-8948-4831-9a8b-2471cfc4bcff"
+                  name="ClickState"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bfe308f1-a59b-448d-a5b8-f2cd8926e3d5"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9cb8be45-932b-4148-8f7c-a69393a4174e"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1997,10 +2374,484 @@
             isSubstitutable="false">
             <classMoniker
               Id="556063af-8667-4152-bcce-20fa3bbbfac1"
-              LastKnownName="ItemWidget"
+              LastKnownName="WidgetItem"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="7e1e4571-227f-4af9-9b5c-84ee73580815"
+            name="Info"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="2be02516-9de7-4d47-99f6-22230cfd9bff"
+                LastKnownName="MenuItemInfo"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="442dd494-b99c-4403-a93a-379c76f0dcbc"
+            name="IsKeyEventEnabled"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="349d0a89-5802-412d-bfe4-ef755ee9dc33"
+                LastKnownName="bool"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4fd629e6-7955-4190-9c41-ab0a9eb8f8a7"
+            name="IsMouseEventEnabled"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="349d0a89-5802-412d-bfe4-ef755ee9dc33"
+                LastKnownName="bool"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="acf3d275-57eb-4f5d-8c55-71ec9d207ebe"
+            name="RelativePosition"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="a05fbecf-1814-49cc-8b42-4677a324b2be"
+                LastKnownName="LazyPosition"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8d16b56b-650c-4ab3-9e58-8202610e0cca"
+            name="RelativeSize"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="34b3e439-088e-43ef-8668-adf779d93d72"
+                LastKnownName="LazySize"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ef861195-854f-4025-9ae0-f4239c0f383b"
+            name="ValidKeys"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="6ce3964c-2a35-4774-8001-714733fdb738"
+                LastKnownName="List"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="05c0a9b3-b206-4403-97bb-17bd0db632e9"
+            name="spriteBatch"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="59cb6928-ecb1-4277-8a6e-b87302429590"
+                LastKnownName="SpriteBatch"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="24e1e86c-1255-4646-8c29-96efdb279042"
+            name="bounds"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3483b7ae-59b9-492d-ac68-018c818e30ee"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="29f6da9f-0f15-4731-b677-83347cbe004b"
+                      LastKnownName="Rectangle"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="bb246429-0e52-4538-97fb-adab5c0e5f14"
+            name="Collapse"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="34a56ec7-df70-4eca-8af5-d52dd1b9d5b7"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2035302b-7bf9-49d5-a541-477a1535c501"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="53e5f240-9011-4de6-98eb-9dc8964357d4"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="45150ba5-f6ee-4f16-8233-18e456c8fbce"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="215c168a-4829-40ab-a6da-e358b91a7eb9"
+            name="MenuItem"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fa2e3833-baaf-4743-afd7-7b8a57da875e"
+                  name="GameState"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="01716c28-39b8-491f-9710-65a000a04c2f"
+                  name="DisplayLayer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d4b6b234-6eb0-43c8-a55e-de215b6bad4a"
+                  name="int"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="eff17590-dc0e-4aa5-8100-959ec04f1921"
+                  name="MenuItemInfo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="249e3c4f-55a2-4dc3-a06a-676de117be4f"
+                  name="LazyItemColor"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e97459fa-8d2f-4b76-b583-f578c0918ef8"
+                  name="LazyItemColor"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2c892136-d0d2-4378-9c5b-970f44dd42e4"
+                  name="HAlign"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="eb28a41c-fde2-4c08-9234-7099c5da670c"
+            name="OnKeyEvent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="40d6c8e4-a26b-4b71-b6cb-dc60126d40cd"
+                  name="List"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b73f07f7-1d32-4dc9-b3dc-cf5e16411517"
+                  name="KeyEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fd96bab7-4620-48da-a44d-5cc17739083b"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a49ab043-46f5-4176-85b0-304d727034b3"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="9cb6ec90-8b37-4f1f-b8cf-bd21edfd6e0d"
+            name="TextPosition"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b15997cd-b093-45e7-bfad-559713d00c09"
+                  name="SpriteFont"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f812ad28-91a4-48b1-a174-84777cd4066f"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0ed11d7-9638-4189-9201-5eb38d88dba8"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8a7754ea-0a38-49a2-8115-8c3fe0fa5db9"
+            name="OnLeftClick"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="39aa718c-de11-4c1d-adbd-29474d6a05f3"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bdbb97dc-4678-4018-9331-df31f1439564"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="868aa8bb-0459-4262-8c7a-7833a203e2a5"
+                  name="ClickState"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="39110dee-eb96-490b-9f08-cda0a438e017"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="83a4b797-40e8-4e87-baec-2380f077760a"
+            name="OnRightClick"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ea0c4692-ad74-48bf-8689-a517599634c5"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c810c0b2-b5b4-49cd-93fd-edcb1fe0f27b"
+                  name="ClickState"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5721ca5d-4a2d-4c73-851a-64920c987433"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7b79f589-8d61-4586-b037-6ddcb3eda620"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="fb9c10ce-0d73-453f-a1d4-cb7446648f95"
+            name="TextPosition"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8a82ee6c-945a-4a18-8f45-f1668fc9225c"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0ed11d7-9638-4189-9201-5eb38d88dba8"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="eb912342-8c4a-4631-8e24-a1f3c8f21aee"
+                  name="SpriteFont"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="85c4e395-d7ad-46aa-8ecd-08d91cf58359"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2020,6 +2871,223 @@
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="9ec3e065-981a-43a1-a173-79fc6952b30a"
+            name="AddEntries"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="798edd98-966b-46f9-b257-6e98cbf06ed2"
+                  name="DropDownMenuItem[]"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cbbf6452-f69a-4815-8468-291276efa71d"
+                  name="DropDownMenuItem"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3564b117-d5d5-4bec-83a3-f97477ab6ed2"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="805ab5e9-6c9b-4e9d-a9ba-92ce65f1dd26"
+            name="AddEntries"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="10f88d92-58e6-48e4-8b90-b9f75f20c53b"
+                  name="DistinctOptionInfo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9beee434-4630-4d01-b92b-7a50c620e885"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4e9e3a28-41d4-4ca0-acdd-a747efa6d50b"
+            name="Collapse"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="91e625c8-0728-42a7-903b-25509a1bfdcb"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="fa18f13b-e0a6-4499-8f84-d593bbef26de"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="68e4e214-6710-4226-81da-45305eb3eff6"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3b42033a-ffd3-4a0d-99b0-d9031a60ae9c"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
+                      LastKnownName="void"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="74dfc987-8a41-4206-8e29-eb455f88c1d3"
+            name="DropDownMenu"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="34cea43d-2254-43c6-96bc-bf16a586b688"
+                  name="GameState"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="73a32462-d273-4c76-85e1-47acca2170c2"
+                  name="DisplayLayer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="104c75fa-3b87-4830-93d0-c2d06e3f50d4"
+                  name="int"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="45e4d882-83ab-43ea-ab6f-6ce063f9d1a0"
+                  name="MenutItemInfo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="88d83b16-4578-45cf-83af-d21bd4651fad"
+                  name="LazyItemColor"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ee53a738-102c-4b2b-9ba6-29879834ba23"
+                  name="LazyItemColor"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cceeb044-edd6-4b41-92f9-b7d0e4eef70e"
+                  name="HAlign"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="eededeab-759d-4e2d-b99f-30885ae42c76"
+            name="SubComponents"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fe4078aa-6930-44f0-96f5-02927eaed6d2"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="da0b1744-1e88-4b02-a786-06fcffabd32d"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="03f5828c-76f6-4ebc-b695-89e2cd85e11c"
+                      LastKnownName="IEnumerable"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2039,6 +3107,68 @@
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="303f0852-6c82-4b06-a104-636bfbf0ba11"
+            name="MenuButton"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="01d5be4f-d264-42aa-ae3d-0296656b26eb"
+                  name="GameState"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="69d12510-b609-4372-a620-a0467020e1b0"
+                  name="DisplayLayer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1b3a8759-8a71-4cf5-b17b-e4578fbc244c"
+                  name="int"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6adef63e-4358-4706-a1ab-4286283ae7aa"
+                  name="MenuItemInfo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e7f926b8-df1d-441c-b462-b6a4342e1638"
+                  name="LazyItemColor"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2403506f-96b8-4aa0-a5e4-5e0434a8b8ce"
+                  name="LazyItemColor"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f7136a17-e045-42b1-ba6f-520560849f5a"
+                  name="HAlign"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2058,7 +3188,133 @@
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="6937500a-0666-4d3d-a07f-6ce69e5158af"
+            name="Attribute1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="49d9005d-774f-4688-ab97-cc54a2486c0f"
+        name="Action" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="a9ee2775-c921-4320-880c-d57899176359"
+        name="spriteBatch" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="29f6da9f-0f15-4731-b677-83347cbe004b"
+        name="Rectangle" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="91ec9133-d001-4a38-9da2-7ed5ff25ad90"
+        name="ItemState" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="2be02516-9de7-4d47-99f6-22230cfd9bff"
+        name="MenuItemInfo" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="6ce3964c-2a35-4774-8001-714733fdb738"
+        name="List" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="59cb6928-ecb1-4277-8a6e-b87302429590"
+        name="SpriteBatch" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ba0171a7-785f-4e64-bc18-15ccabcc47a6"
+        name="DropDownMenuItem"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="5194903c-f55a-4c91-935f-1c1ffc03c588"
+            name="OnSelected"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="49d9005d-774f-4688-ab97-cc54a2486c0f"
+                LastKnownName="Action"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8f766da8-fd03-4486-93b9-b83d57a055db"
+            name="Text"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17"
+                LastKnownName="string"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="112b4e48-7a28-4bea-9bff-c84977046f2b"
+            name="DropDownMenuItem"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="17d1501b-4e1f-4ebc-8e51-d2f07f5ec049"
+                  name="string"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6b205c29-f398-4b22-977d-beff8acf3f7f"
+                  name="Action"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17"
+        name="string" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
