@@ -926,6 +926,138 @@
             <elementDefinition Id="f039ab96-14ab-478b-a4f3-982d12588c2d" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="fceb1454-0f4d-4d66-a476-1954b7fe2a53" name="InputText" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3f20b9e5-733a-4b01-a6e2-875a79664d2f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="cd2dde84-8fdb-4417-8920-5f8da59e35d6" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="dd74fe6a-5cfc-47e4-84d3-2f91391cab13" name="IsKeyEventEnabled" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="85c76560-bb17-4a96-8e63-db188b350ec5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0bdb1ddc-0948-4247-8469-5594f93bdee2" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="2bd7b33e-5e60-4ba0-9923-05df937a06ba" name="ValidKeys" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fb58aff4-9863-4723-90f6-5ea353fd414c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5a4fa242-dd7e-4b8c-acb4-f02b30587001" LastKnownName="List" />
+            </type_NamedElement>
+          </property>
+          <property Id="cd79e654-26ad-487e-a689-4751f3eb8689" name="spriteBatch" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="307748ae-7201-44c8-9d6b-6b151db3533a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ed9e623b-20dc-48ea-82b0-7f94ae289225" LastKnownName="SpriteBatch" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="a8d80f8b-bd56-42f0-8d55-1dba69bf3c77" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="acbf22f3-7d94-4249-b1cf-687ba04cc81a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b6173161-f718-460f-b63f-973a6cf0da42" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="1e7facf2-d983-48db-be05-1496ca44a539" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f583abb1-a852-4705-a299-89c776558e14" direction="Return" isUnique="false">
+                  <elementDefinition Id="9f2de332-60bc-4c71-8656-cb2a87db1936" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e3762742-55e6-449e-bfa2-bb66c49495dd" name="OnKeyEvent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="42b1a914-d4aa-430f-aa7e-d25740345129" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4ff98a77-ab2d-4f91-896a-26e8590d446c" name="List" direction="In" isUnique="false">
+                  <elementDefinition Id="84272c26-c114-4bdd-8fa5-636396e3ad1c" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="af828072-66b2-45b0-a734-a0ce656dcd74" name="KeyEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="1021bce8-7994-4e86-be1f-c8cf4985575b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2bfba6d0-1e3d-421c-be79-32837dcb4b12" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="27197d29-622f-48bb-9268-0c2b06592699" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e1fe2e27-93b5-49eb-ba99-4fe2ceb27b6b" direction="Return" isUnique="false">
+                  <elementDefinition Id="98ab2f49-5268-415e-a0ba-38cd0f17962a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="7504ce74-ed61-470f-9275-252cb2cb99a9" name="TextInput" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="525f3c15-b52f-42e3-ab20-a6326a1a7dd1" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f3475e08-52bf-42d8-8688-3373313a901f" name="GameState" direction="In" isUnique="false">
+                  <elementDefinition Id="7b9d98fd-be7a-4322-b119-00be3c1e56db" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f49cdc03-4a35-4a24-92fd-cc729193faac" name="DisplayLayer" direction="In" isUnique="false">
+                  <elementDefinition Id="a3178549-72d4-413d-9324-609e3ad144b5" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bd1794f0-1f78-41c6-baf8-804c919a6a5a" name="LazyPosition" direction="In" isUnique="false">
+                  <elementDefinition Id="4c80e3fa-5a25-4caa-87ee-ab5b10ada303" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="44445490-bad0-4a46-accd-3ffc77f296c4" name="LazySize" direction="In" isUnique="false">
+                  <elementDefinition Id="35160c99-dda3-4dea-8f34-1a71f5ec2199" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fdaec637-c078-44b8-882c-ed5b633cf59e" name="LazySize" direction="In" isUnique="false">
+                  <elementDefinition Id="4dfcebac-b4df-4076-8fc4-fa4e4091e80b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e9707102-562d-4776-9318-ffab4bcac4c7" name="LazyColor" direction="In" isUnique="false">
+                  <elementDefinition Id="6027dddd-309d-48fe-a77b-9f1773c2ffb0" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8677dc21-10c1-48ef-bedb-51b1678349b7" name="LazyColor" direction="In" isUnique="false">
+                  <elementDefinition Id="fd69077a-8185-4696-8bff-fd759939f696" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2ba961b4-64e8-4aa4-b65a-03fa013a8ecf" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="00cd37f8-b094-43e4-b306-ae4355070c7f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b61acdf4-b2fa-420e-bdb9-5c867d90ee3b" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="8976ab43-0a42-4b5d-a1ca-b0426e259807" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b7ff0608-09d3-442d-a7c6-0b07e4852030" direction="Return" isUnique="false">
+                  <elementDefinition Id="b5d4a0da-ddfa-45af-bed3-0c2076a0c2a3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
