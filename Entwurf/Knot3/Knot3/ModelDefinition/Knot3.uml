@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="20ab710a-33d8-48fa-b17c-f3bf548e2638"
   name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -37,7 +37,7 @@
         <ownedAttributesInternal>
           <property
             Id="caf89e15-c4b7-4103-89bb-c995d08bfec6"
-            name="camera"
+            name="Camera"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -55,7 +55,7 @@
           </property>
           <property
             Id="90d5d753-3dd4-4fa4-9c0d-b690a1f98ef3"
-            name="content"
+            name="Content"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -73,7 +73,7 @@
           </property>
           <property
             Id="045cb31b-13f9-4c04-a3c5-f96fc73841e5"
-            name="graphics"
+            name="Graphics"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -91,7 +91,7 @@
           </property>
           <property
             Id="05c7ac74-49fb-449a-930b-dba480c78f80"
-            name="device"
+            name="Device"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -109,7 +109,7 @@
           </property>
           <property
             Id="cd4dc731-2037-489c-9ddf-e82209e7a372"
-            name="input"
+            name="Input"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -127,7 +127,7 @@
           </property>
           <property
             Id="c7833aaf-47ce-4095-8f5a-28c8591843cb"
-            name="state"
+            name="State"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -137,15 +137,15 @@
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="afee086f-725e-4918-8e20-1cc23326b405"
+              <classMoniker
+                Id="6a413035-a387-4d1d-98f9-72f1d432b824"
                 LastKnownName="GameState"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
           <property
             Id="f9d5e2b9-09bf-458b-92c2-f9891d2042e1"
-            name="viewport"
+            name="Index"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -156,14 +156,14 @@
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="a3bcd64a-6a3c-4788-8b20-5682f26cb00b"
-                LastKnownName="Viewport"
+                Id="b2d5aa2e-4c93-4059-a3e3-5ea6a2e4695e"
+                LastKnownName="int"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
           <property
             Id="229893ca-cfba-43da-82f2-67b2fa914922"
-            name="world"
+            name="World"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -173,8 +173,8 @@
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="4faa8d31-01d1-49be-8d66-9d7cb6735ad0"
+              <classMoniker
+                Id="0b511387-a1f1-4f38-879d-9f8e93c1c20c"
                 LastKnownName="World"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
@@ -183,7 +183,7 @@
         <ownedOperationsInternal>
           <operation
             Id="7d2ab93b-58ad-4eac-9326-cdece4b0511d"
-            name="subComponents"
+            name="SubComponents"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -249,7 +249,7 @@
         <ownedAttributes>
           <property
             Id="7d02d5cf-af21-4932-b05b-b53c2f3424d8"
-            name="index"
+            name="Index"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -269,7 +269,7 @@
         <ownedOperations>
           <operation
             Id="e4d45fb0-57b0-4305-bd09-a2d2801b587f"
-            name="subComponents"
+            name="SubComponents"
             isLeaf="false"
             isStatic="false"
             isAbstract="true"
@@ -291,7 +291,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="445b4078-b99d-4e2a-82ee-fea266bd7ac9"
+                  Id="7da77035-1c01-4d3f-a584-af4d11f1906f"
                   name="GameTime"
                   direction="In"
                   isUnique="false" />
@@ -394,7 +394,7 @@
           </operation>
           <operation
             Id="0fa1d6f2-2772-43f8-a7da-1dc8958842a9"
-            name="draw"
+            name="Draw"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -416,7 +416,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="918ac6e4-0080-4757-b3f6-376bb79c42b5"
+                  Id="12140217-bafb-479e-9d6b-aec397c432c8"
                   name="GameTime"
                   direction="In"
                   isUnique="false" />
@@ -446,7 +446,7 @@
         <ownedAttributesInternal>
           <property
             Id="7d25a069-0dc0-4179-ba6c-a2dfba816eeb"
-            name="backgroundColor"
+            name="BackgroundColor"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -464,7 +464,7 @@
           </property>
           <property
             Id="d0fb2710-51bc-4bc8-a34f-077375f3811e"
-            name="scaledPadding"
+            name="ScaledPadding"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -482,7 +482,7 @@
           </property>
           <property
             Id="910d90fd-c7ee-492f-8adf-8d0f6e00fea1"
-            name="scaledPosition"
+            name="ScaledPosition"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -500,7 +500,7 @@
           </property>
           <property
             Id="4a08a158-7741-4362-a65f-c6a93dfcd687"
-            name="scaledSize"
+            name="ScaledSize"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -518,7 +518,7 @@
           </property>
           <property
             Id="3bd6fd36-a712-4c90-8e4e-dd4f612b60d8"
-            name="alignX"
+            name="AlignX"
             visibility="Protected"
             isLeaf="false"
             isStatic="false"
@@ -537,7 +537,7 @@
           </property>
           <property
             Id="30404963-3729-4181-b11f-1c1d29d250dc"
-            name="alignY"
+            name="AlignY"
             visibility="Protected"
             isLeaf="false"
             isStatic="false"
@@ -556,7 +556,7 @@
           </property>
           <property
             Id="82040e8d-fd34-42ff-9ecd-6ae49334811c"
-            name="relativePosition"
+            name="RelativePosition"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -574,7 +574,7 @@
           </property>
           <property
             Id="caee9c4e-fe6f-4548-9552-84fff513c050"
-            name="relativePadding"
+            name="RelativePadding"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -592,7 +592,7 @@
           </property>
           <property
             Id="c8db38fd-2cf3-46a8-91de-1b615e87137f"
-            name="foregroundColor"
+            name="ForegroundColor"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -610,7 +610,7 @@
           </property>
           <property
             Id="d8b5de8b-0caf-4636-9201-51d1ce777008"
-            name="isVisible"
+            name="IsVisible"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -628,7 +628,7 @@
           </property>
           <property
             Id="7d61dde3-4ae4-4ace-a111-445802654236"
-            name="relativeSize"
+            name="RelativeSize"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -715,20 +715,13 @@
         <ownedOperationsInternal>
           <operation
             Id="9e6fe158-b4b0-4343-826a-c74d7bc8cd45"
-            name="draw"
+            name="Draw"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false">
             <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="7ec3e865-384d-460e-b6db-5945ecf911d2"
-                  name="GameTime"
-                  direction="In"
-                  isUnique="false" />
-              </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
                   Id="ebc42044-9438-4da1-b3a5-32fce095c49c"
@@ -741,6 +734,13 @@
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
                 </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="53491ce0-b336-487c-8a95-8a1427768085"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -772,20 +772,13 @@
             isQuery="false" />
           <operation
             Id="8435a574-eb20-49ae-b4b7-beca457dbd09"
-            name="update"
+            name="Update"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false">
             <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="a3ca734d-b799-4595-b26d-12991224c0fc"
-                  name="GameTime"
-                  direction="In"
-                  isUnique="false" />
-              </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
                   Id="30bc32fa-be59-4425-befa-8496aaba4899"
@@ -798,6 +791,13 @@
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
                 </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="211a4618-389d-4b80-8a81-2578876d63ad"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -1926,6 +1926,139 @@
         name="IChallengeFormat"
         isAbstract="false"
         isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="556063af-8667-4152-bcce-20fa3bbbfac1"
+        name="ItemWidget"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="67ecaf0b-2575-4fa6-8c26-3003a0cce05b"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b05c9546-203b-4543-835e-2e9ed8fa301a"
+              LastKnownName="Widget"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="87d339e7-487e-4515-bd95-834052451e11"
+        name="ColorPicker"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="251d27a4-1eed-4ddf-9efc-432567279466"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b05c9546-203b-4543-835e-2e9ed8fa301a"
+              LastKnownName="Widget"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="cfe949ff-a255-4677-ac9a-9fabb544197f"
+        name="TextInput"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="f039ab96-14ab-478b-a4f3-982d12588c2d"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b05c9546-203b-4543-835e-2e9ed8fa301a"
+              LastKnownName="Widget"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b679ea26-bfbf-4d56-b611-46f8c8896df6"
+        name="MenuItem"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="07e79521-2a4d-45e0-a6a4-26c7d6e7be7b"
+            isSubstitutable="false">
+            <classMoniker
+              Id="556063af-8667-4152-bcce-20fa3bbbfac1"
+              LastKnownName="ItemWidget"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="dad52a41-9625-41f9-9651-10600abdf2ad"
+        name="DropDownMenu"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="871590bf-04ee-4c3f-bd3d-1efbc3cbebf4"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b679ea26-bfbf-4d56-b611-46f8c8896df6"
+              LastKnownName="MenuItem"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9bb6ee3c-14ed-4a75-88d7-b3a1fc67ae19"
+        name="MenuButton"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="e3d86dec-3281-456e-89e3-12055d55253a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b679ea26-bfbf-4d56-b611-46f8c8896df6"
+              LastKnownName="MenuItem"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4343f110-2443-4052-b89e-44570f47d83f"
+        name="VerticalMenu"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="57b2ad77-f882-41dd-90aa-aeb1171d2153"
+            isSubstitutable="false">
+            <classMoniker
+              Id="7c390abe-c44e-4e92-a5cc-7b0c6b7406db"
+              LastKnownName="Menu"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
