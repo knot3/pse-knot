@@ -705,9 +705,9 @@
       <class Id="cdf40e4e-a7c6-4d3e-803b-d48b87652a0f" name="MenuItem" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="b679ea26-bfbf-4d56-b611-46f8c8896df6" />
         <generalsInternal>
-          <generalization Id="ee6e49e2-cc6b-4f28-9714-a056a2e2b8a2" isSubstitutable="false">
+          <generalization Id="ff27c840-d7db-4880-b4f1-0134511cba73" isSubstitutable="false">
             <classMoniker Id="36abe49f-f74c-4c7a-9c15-d39de35bc5cc" LastKnownName="WidgetItem" />
-            <elementDefinition Id="07e79521-2a4d-45e0-a6a4-26c7d6e7be7b" />
+            <elementDefinition Id="e4a46ef6-ddb0-48ba-904f-2dcb65e720ff" />
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
@@ -1089,24 +1089,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="dd38105d-3f2c-4470-97b9-976dabfbd69e" name="SubComponents" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="eededeab-759d-4e2d-b99f-30885ae42c76" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="c05a701f-b406-4a6f-87c3-1f60eb66b407" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="fe4078aa-6930-44f0-96f5-02927eaed6d2" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="32880459-fd31-4662-af11-fda9f65909b6" direction="Return" isUnique="false">
-                  <elementDefinition Id="da0b1744-1e88-4b02-a786-06fcffabd32d" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="a17eac05-9826-4952-8628-a84d3a3beaa5" LastKnownName="IEnumerable" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1175,6 +1157,9 @@
         <ownedAttributesInternal>
           <property Id="3c3266c9-8162-485d-87f2-9e4502720479" name="Attribute1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6937500a-0666-4d3d-a07f-6ce69e5158af" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8567d7f5-47c7-44d0-954b-ca8f5316b757" LastKnownName="Border" />
+            </type_NamedElement>
           </property>
         </ownedAttributesInternal>
       </class>
@@ -1273,6 +1258,11 @@
     <packageHasNamedElement>
       <referencedType Id="cd2dde84-8fdb-4417-8920-5f8da59e35d6" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
         <elementDefinition Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8567d7f5-47c7-44d0-954b-ca8f5316b757" name="Border" isAbstract="false" isLeaf="false" cachedFullName="Border">
+        <elementDefinition Id="f87f2f71-c126-4eac-b5bc-a949e05906d7" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
