@@ -376,6 +376,233 @@
             <elementDefinition Id="e4c75d11-5116-42ce-b392-0a12788b0ace" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="84620e3b-beb5-41c2-95ec-07e7b6aab175" name="IsVisible" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="db313031-e2a3-4cfe-901d-de2cbf728c60" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0bdb1ddc-0948-4247-8469-5594f93bdee2" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="d14e6cbc-e917-45bf-b160-4fa6708d97cb" name="ItemDisplayLayer" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c7fb186e-8f91-4e0e-866c-34b965c25921" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b76356c2-00e2-4bf6-b6a6-47d1575302ef" LastKnownName="DisplayLayer" />
+            </type_NamedElement>
+          </property>
+          <property Id="4f347a53-aed9-4c73-99d4-9d1a346808b4" name="ItemAlignX" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="12d841b9-a8aa-4be9-82f5-95a12d43929e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6c5e2c1c-9519-448e-af2a-88ba5ec5e096" LastKnownName="HAlign" />
+            </type_NamedElement>
+          </property>
+          <property Id="357d84cc-f09c-41f2-afd7-01c62bdbc869" name="ItemCount" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="54950599-db79-471e-810d-76b69aaba044" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ece03980-b3a0-4547-9d2d-ffa09b6ae452" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="4eed3c9e-65f4-4d58-96c2-7457ce30c215" name="ItemBackgroundColor" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7c6e0baf-9cc4-44a1-8379-362d890f9b32" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fc69c281-74ad-426c-927d-2e0025a401ee" LastKnownName="LazyItemColor" />
+            </type_NamedElement>
+          </property>
+          <property Id="9183d0a2-8259-4f5a-89c0-ec2ec58b33ab" name="ItemForegroundColor" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="28825446-5a2f-4e7c-bae0-f8cf37533f14" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fc69c281-74ad-426c-927d-2e0025a401ee" LastKnownName="LazyItemColor" />
+            </type_NamedElement>
+          </property>
+          <property Id="20a536c5-48a0-4e38-ba7a-587e7d814fb8" name="Items" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8767da62-8d57-4f96-95f1-b95179615e01" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5a4fa242-dd7e-4b8c-acb4-f02b30587001" LastKnownName="List" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="7076c2d6-1f55-49fa-8b0b-9acd6833cffc" name="AddDropDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5c945a89-97a8-4901-aa45-588736207ec1" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d0f5b983-2924-4c41-9f25-7ccfa6b7d5be" direction="Return" isUnique="false">
+                  <elementDefinition Id="53b2986e-6b79-490a-9287-67a05587a04e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="42abe2bd-9c23-440d-ba9e-fa4cad3fc54b" name="MenuItemInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="a4bf07d7-5227-45dd-b329-8044d2b1b0c2" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="15f498a1-0c50-43dc-b7ca-04861dc41cb2" name="DropDownMenuItem[]" direction="In" isUnique="false">
+                  <elementDefinition Id="3c6190ed-039e-4bcb-9029-472fd7473b3a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0577da24-58a3-4f3a-b7c3-11185fa47e23" name="DropDownMenuItem" direction="In" isUnique="false">
+                  <elementDefinition Id="c8b5bcf4-4be9-4c9e-a578-da05bfbfdc8f" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b5ee87ae-7a39-4b33-af4e-89d180fe00e1" name="Add Button" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4342d9d3-9755-4f35-8b91-b233ce177d9c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fb4c66dd-5a11-4068-a42e-9b75a3b567ba" name="MenuItemInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="f5b53583-48ff-4336-b207-3cceaf40cc9f" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="40370bed-a0cc-4c21-9d10-46a3a11053a5" direction="Return" isUnique="false">
+                  <elementDefinition Id="2f1c6a2d-e29a-434e-87f0-744b46a5d1fe" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="eeffe920-94f3-46cb-8f21-08c4692f892d" LastKnownName="MenuButton" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0b3d3bd2-0a4e-498c-9c5e-0d9badc0b958" name="AddDropDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="422c1f5e-e237-4bbf-86c8-9f1c434a14ad" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e85c0589-a273-4612-8711-19325b9bfb98" name="MenuItemInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="a8d95a1a-5697-4b41-add3-49d0bc84f831" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0d55c6ca-e22b-4b8a-bd2c-55d2aea7a3cb" name="DistinctOptionInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="ed6239bc-5305-45e2-ad07-7bff6a8421dd" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="59fa4229-fa08-4d6c-887c-348197fa0c89" direction="Return" isUnique="false">
+                  <elementDefinition Id="6a0ab839-bc86-47cd-893a-70e233956cd6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="30397995-334c-4800-85b6-d274c8ba9566" name="Clear" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1a06b641-90e0-48f4-bb09-9125210c990a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="97155b20-11b1-4e6c-9dd4-04169952235d" direction="Return" isUnique="false">
+                  <elementDefinition Id="0e5655e4-0ff2-43c2-90f9-c79b3fd9e4f2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6885fd49-3b04-452f-9ffd-ad0f506687dd" name="CollapseMenus" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f3031cb1-ae10-4a6e-a42c-403d0527edc1" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="449b958f-bbd8-4259-89a9-101ce50cf9b9" name="MenuItem" direction="In" isUnique="false">
+                  <elementDefinition Id="66ca14e9-5be5-4f33-9e0c-b778c924d838" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2ef34a63-33d9-4d54-9994-4ab911b71ea8" direction="Return" isUnique="false">
+                  <elementDefinition Id="05d1deb0-3bbe-406c-b479-43769b69ec60" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="9206d818-97fa-4b62-a229-8bc55b9c3453" name="Initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="032aa1e6-61ca-44a7-ab97-485f19d1978a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="72e52564-d383-4705-abe0-aa376bcdfbaf" name="LazyItemColor" direction="In" isUnique="false">
+                  <elementDefinition Id="471eae23-05e6-46e0-bc57-f0c31ffbe3db" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="98c9a000-bca5-4cc1-ac42-52b32a2faa3f" name="LazyItemColor" direction="In" isUnique="false">
+                  <elementDefinition Id="4a306f58-4219-421e-8ab8-075587ad19fe" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7e9ac014-9886-4a68-8eea-3652574192f0" name="HAlign" direction="In" isUnique="false">
+                  <elementDefinition Id="16b2af9d-431f-4812-b1a2-690e0e36901d" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e11baf2b-f3cf-4459-b163-fc895bb040c3" direction="Return" isUnique="false">
+                  <elementDefinition Id="3e20746a-9739-4fd2-8fc5-2317269415de" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="894dd194-32b9-4820-ac4a-6f95c777fddd" name="Menu" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b4aac91a-55f0-423d-96ee-7c50fbd1f4fc" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="515f4ba2-e4bc-40ef-9e59-641de5d4d6cb" name="GameState" direction="In" isUnique="false">
+                  <elementDefinition Id="03eee408-77e5-4ba3-9518-038997144623" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="02582684-6c51-4b27-8788-6a76fa9ec931" name="DisplayerLayer" direction="In" isUnique="false">
+                  <elementDefinition Id="b9e89f13-4bba-469c-8a86-d2fc90fada2e" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7d9fb8a9-fe1c-4d40-ba0f-f703feeadd6b" name="LazyColor" direction="In" isUnique="false">
+                  <elementDefinition Id="b3c75853-0353-44fb-86e4-c69379a10fc7" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0cef7137-1a21-4f6c-81fe-0bd211757429" name="LazyColor" direction="In" isUnique="false">
+                  <elementDefinition Id="b6b7599d-f5d7-40ae-ac1e-1cd7fbde3474" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2422ecba-f444-43df-b84e-de26069447d8" name="HAlign" direction="In" isUnique="false">
+                  <elementDefinition Id="e57c4f29-b8fd-4f7c-ad0c-8143b0296800" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="68a4cb2b-4b6f-453f-8777-d2efad7376b0" name="VAlign" direction="In" isUnique="false">
+                  <elementDefinition Id="1bd39bf1-e4ff-4632-9dbf-6873319e72c6" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="23508616-3fb0-4384-8652-15af3fd320ac" name="SubComponents" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8220af36-0a03-46dc-930c-7286f8cad29c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c3b966c2-a295-4e65-9e76-4d4be3352a10" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="0e797451-ac1e-4ce1-a8ca-ab3c977c209a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4354b98e-704a-42c4-bab9-4629dc9c704a" direction="Return" isUnique="false">
+                  <elementDefinition Id="28e8d405-ac4a-4ac3-b992-e284399f12ba" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a17eac05-9826-4952-8628-a84d3a3beaa5" LastKnownName="IEnumerable" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
@@ -705,9 +932,9 @@
       <class Id="cdf40e4e-a7c6-4d3e-803b-d48b87652a0f" name="MenuItem" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="b679ea26-bfbf-4d56-b611-46f8c8896df6" />
         <generalsInternal>
-          <generalization Id="ff27c840-d7db-4880-b4f1-0134511cba73" isSubstitutable="false">
+          <generalization Id="ee6e49e2-cc6b-4f28-9714-a056a2e2b8a2" isSubstitutable="false">
             <classMoniker Id="36abe49f-f74c-4c7a-9c15-d39de35bc5cc" LastKnownName="WidgetItem" />
-            <elementDefinition Id="e4a46ef6-ddb0-48ba-904f-2dcb65e720ff" />
+            <elementDefinition Id="07e79521-2a4d-45e0-a6a4-26c7d6e7be7b" />
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
@@ -1089,6 +1316,24 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="dd38105d-3f2c-4470-97b9-976dabfbd69e" name="SubComponents" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="eededeab-759d-4e2d-b99f-30885ae42c76" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c05a701f-b406-4a6f-87c3-1f60eb66b407" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="fe4078aa-6930-44f0-96f5-02927eaed6d2" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="32880459-fd31-4662-af11-fda9f65909b6" direction="Return" isUnique="false">
+                  <elementDefinition Id="da0b1744-1e88-4b02-a786-06fcffabd32d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a17eac05-9826-4952-8628-a84d3a3beaa5" LastKnownName="IEnumerable" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1155,13 +1400,260 @@
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
-          <property Id="3c3266c9-8162-485d-87f2-9e4502720479" name="Attribute1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="3c3266c9-8162-485d-87f2-9e4502720479" name="border" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6937500a-0666-4d3d-a07f-6ce69e5158af" />
             <type_NamedElement>
               <referencedTypeMoniker Id="8567d7f5-47c7-44d0-954b-ca8f5316b757" LastKnownName="Border" />
             </type_NamedElement>
           </property>
+          <property Id="aee50c8d-4db5-4d1b-b255-3b32850ead64" name="Border" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="36c586c3-993a-4733-b22e-be6c582a2eb5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8567d7f5-47c7-44d0-954b-ca8f5316b757" LastKnownName="Border" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="f28f4385-23fc-4c97-893d-5e4b3ad11bed" name="AddButton" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="20defb34-ba1c-4567-9bad-a030a0acd7ff" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="89ea6a58-4fac-4be7-a9bf-219c3efb31d4" name="MenuItemInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="f9a5552e-647d-48b1-8081-c320b4abb1e7" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ada98b1f-2aed-4958-8643-2185ad2b3099" direction="Return" isUnique="false">
+                  <elementDefinition Id="73b6e145-a3eb-44a1-b72d-343e70d248eb" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="eeffe920-94f3-46cb-8f21-08c4692f892d" LastKnownName="MenuButton" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="65acb5b5-ff49-4e5d-8f69-a83e26b812c6" name="AddDropDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a59cc05c-33be-489e-8447-247314321aaa" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1cd07e47-4927-4566-95bf-ddc28a046e88" name="MenuItemInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="efc85f07-455f-477d-b9f3-0e11c466abb9" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7afcb625-40b8-4e65-93fa-37aa8e7e1d4d" name="DropDownMenuItem[]" direction="In" isUnique="false">
+                  <elementDefinition Id="37fda82f-4783-4722-adaf-766ccadf7187" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="42bd3500-1fe1-4d61-a68a-bade846a4dae" name="DropDownMenuItem" direction="In" isUnique="false">
+                  <elementDefinition Id="9cb4c844-3bf0-4160-b667-cdb82cec5691" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cb7c1134-7731-43ff-86d4-cdbfc8036ad6" direction="Return" isUnique="false">
+                  <elementDefinition Id="14c37971-79b9-4151-86f5-005f5ad692ae" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="128aaeab-7ede-4124-82e0-3611955a161b" name="AddDropDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f9fc3e8e-8d4b-438c-b7ee-00b1e2d1f722" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2e67427b-444c-498d-95f3-bcf887ddfc05" name="MenuItemInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="6dc1f18b-5af4-491d-88f6-e566f249d558" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="80d2ad80-69a2-40e8-a118-84f919dc1c36" name="DistinctOptionInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="0c0ba216-724f-4dec-8861-7a85d9f62fe5" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="de8b58ed-e41c-4891-92de-5f47e0db48cc" direction="Return" isUnique="false">
+                  <elementDefinition Id="d0f1c853-0f0a-48a3-b595-74dd7fb8630b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="466caa96-7b39-40dd-915f-2f9e06ecfb58" name="Align" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="847c1318-6789-40ec-95ac-c7cc400674e0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f857d954-6ed5-4d0b-b37b-a24ff0b16548" name="Viewport" direction="In" isUnique="false">
+                  <elementDefinition Id="6f9f99c8-3893-4bd4-9aa8-f6aaae4b8134" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="15e72373-4426-4dea-8db9-e35ec85a541c" name="float" direction="In" isUnique="false">
+                  <elementDefinition Id="e1a5e223-cd23-4834-aea4-d1a3b42b9199" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="825a4271-919f-44e7-b384-d0e72f1cd9b9" name="Vector2" direction="In" isUnique="false">
+                  <elementDefinition Id="2fa7c8cb-a13d-4f02-b12c-a3912e28df29" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="eb749564-7983-4667-857a-05cb565c3dc9" name="Vector2" direction="In" isUnique="false">
+                  <elementDefinition Id="ed7a4da0-6805-4ab7-9c87-132afac797b1" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f3fa6a35-2b2c-48d6-9924-4abc2cba722a" name="float" direction="In" isUnique="false">
+                  <elementDefinition Id="05f78654-17e3-4f4e-baa5-1bde0bc5b211" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4ce1df7a-e562-4475-89df-371c772177e2" direction="Return" isUnique="false">
+                  <elementDefinition Id="4be59f0d-dda5-4b64-9c28-bba4f503a63b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="3341df34-6a71-4f4a-b07b-1817f5a9f841" name="Align" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="48a467eb-24f7-4dfd-b269-a054a52f5b0d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3003b47c-9919-49e6-8624-95777eac6b3c" name="Viewport" direction="In" isUnique="false">
+                  <elementDefinition Id="83659126-b2bc-4bdd-8cde-6a69eec8b134" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="47dd2492-a8f3-4c47-acba-56e2852735cb" name="float" direction="In" isUnique="false">
+                  <elementDefinition Id="906395cc-49f8-4c6d-b9c1-da4889ddb044" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="920ab27a-b2bb-43b0-90aa-5b1fe8a74813" name="int" direction="In" isUnique="false">
+                  <elementDefinition Id="3506cd09-f9e2-4f1f-9fd1-b639905be3b0" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a715edff-f60f-47ac-a61e-25be96548be5" name="int" direction="In" isUnique="false">
+                  <elementDefinition Id="eb43e64d-20a1-43ae-890a-9026dffc7f65" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ab32cb42-3dfa-4755-8914-a7722bd62399" name="int" direction="In" isUnique="false">
+                  <elementDefinition Id="b9dd7c38-7b1a-4a4f-883d-8432f6aee276" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7d6b7e1c-0827-4e85-8487-85965f711240" name="int" direction="In" isUnique="false">
+                  <elementDefinition Id="d455fd6f-96c3-430c-af85-152ab53e6eec" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c9ab919f-2e47-4a18-ac1d-66d140080937" name="float" direction="In" isUnique="false">
+                  <elementDefinition Id="015fc467-de63-4bc1-8b62-d8763f55bbaf" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f9d649a6-1bd6-452f-86d4-99cd1ed0d025" direction="Return" isUnique="false">
+                  <elementDefinition Id="743b59da-ed21-4a27-9c92-4baf6ccfdca9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="cc224985-cafb-4167-901d-57f2be01bf80" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cbf9206f-428f-4a35-930b-fe7141589dec" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ca5f030f-2ad1-45a8-b7ab-682d1eb06e06" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="379274ee-6c09-423f-91b9-4a6de7a1672a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="132dfaf0-58f8-4c09-b5a1-9957522233ea" direction="Return" isUnique="false">
+                  <elementDefinition Id="9e9efc9f-fd98-4f5b-aa39-095fe57ac209" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="33fd0ad9-f0e3-46be-8f17-d542e1a7f84b" name="Initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6e85d769-f078-4e31-abb6-6013cdb0804e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4a591468-bc7a-460e-b953-b3ed250a94f6" name="LazyItemColor" direction="In" isUnique="false">
+                  <elementDefinition Id="04cffb87-0c86-42c6-9e69-3e600741f4ba" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e6a959f7-bad4-4897-b9e9-57c5bca257d4" name="LazyItemColor" direction="In" isUnique="false">
+                  <elementDefinition Id="b18aad23-777c-4dad-b489-e6f8d3c8b0d8" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8f59df59-2ce8-4ff9-b516-949df640a4de" name="HAlign" direction="In" isUnique="false">
+                  <elementDefinition Id="fa3ddeea-3bda-4020-8744-b12041a0bbf4" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="089d0da4-7d45-4225-a23a-8a99e85feae1" name="Border" direction="In" isUnique="false">
+                  <elementDefinition Id="6a86a0a6-ee0c-4408-9faf-2fc7c7339a00" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ed60429e-52ea-42b8-addb-d07e80f92478" direction="Return" isUnique="false">
+                  <elementDefinition Id="0e065c7e-c12b-4ab4-86ea-e8bbcf80f43c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="d737c1cb-cdb8-4043-85b8-143cbdfb33b1" name="RelativeItemPosition" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="318cc46f-6afa-4709-a310-0e0359ceb242" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b90408fb-577d-4101-9463-b41a407b6c72" name="int" direction="In" isUnique="false">
+                  <elementDefinition Id="e4451956-34ee-402a-8b42-afbe5d4baf16" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="69cb928e-c4cc-4ccc-9e74-fdef9880bc6a" direction="Return" isUnique="false">
+                  <elementDefinition Id="abfdec8c-30d0-45e5-97db-ff476b1fc41b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1448ba2d-3398-4150-9580-a70bd6412f31" LastKnownName="Vector2" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="322b3091-bd5c-4121-81af-3c13e4dc7e51" name="VerticalMenu" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="dc2e2c4f-d645-45cc-8c6b-420e15185ba1" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ddda638c-a765-4dc2-90c6-5fe887e4b53c" name="GameState" direction="In" isUnique="false">
+                  <elementDefinition Id="a805ded2-04b1-4530-8d92-cefc69c89d4a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f07841d1-c7c1-4c3f-9b1b-0a0aa4ce2725" name="DisplayLayer4" direction="In" isUnique="false">
+                  <elementDefinition Id="6b521907-4dd7-4516-8975-171b14bcd9c6" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
@@ -1258,6 +1750,21 @@
     <packageHasNamedElement>
       <referencedType Id="cd2dde84-8fdb-4417-8920-5f8da59e35d6" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
         <elementDefinition Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b76356c2-00e2-4bf6-b6a6-47d1575302ef" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="DisplayLayer">
+        <elementDefinition Id="6c59f423-429a-466a-bd67-3c68a8fa1443" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fc69c281-74ad-426c-927d-2e0025a401ee" name="LazyItemColor" isAbstract="false" isLeaf="false" cachedFullName="LazyItemColor">
+        <elementDefinition Id="bed50b2d-4e22-45a2-933f-55ad124f9163" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="eeffe920-94f3-46cb-8f21-08c4692f892d" name="MenuButton" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::MenuButton">
+        <elementDefinition Id="9bb6ee3c-14ed-4a75-88d7-b3a1fc67ae19" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
