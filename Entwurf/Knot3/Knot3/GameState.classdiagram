@@ -1,19 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7e68fb-2f1a-48b0-b0e9-9246167792c0" name="UMLClassDiagram1" linkedPackageId="b8a8636a-4ab4-41c4-b206-61edb0603f16" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="241cf01f-418d-4cd9-addc-11f8f868a44a">
-      <profileInstance Id="8fd6544b-c2a1-4241-ae7b-bc12ae904f2f" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="b011a8fc-5dd2-4899-a32b-b3b1ca5e8c8c">
-      <profileInstance Id="3ae9b8e3-b29c-4c40-b516-a70260a49914" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7e68fb-2f1a-48b0-b0e9-9246167792c0" name="UMLClassDiagram1" linkedPackageId="b8a8636a-4ab4-41c4-b206-61edb0603f16" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="2a57c0ca-d9e5-433b-95be-86d45d9c2423">
+      <elementDefinition Id="0eed9d6b-d83c-4ec7-88bb-b162be9cc205" />
+      <body>Enthält Effekt-Einstellungen</body>
+      <annotatedElements>
+        <classMoniker Id="d41a512f-f2ae-46a1-95c0-ec9953540257" LastKnownName="GraphicsSettings" />
+      </annotatedElements>
+    </comment>
+    <comment Id="e2c1b957-d7fc-44a9-8358-e612d6e53f76">
+      <elementDefinition Id="f11c7c2f-df5b-44a1-9140-2a578af532e0" />
+      <body>Wird bei einer Spielpause angezeigt.</body>
+      <annotatedElements>
+        <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" name="GameState" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -49,7 +51,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="717b8204-13a2-467a-b711-9d679b3c9aa8" name="MenuScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="717b8204-13a2-467a-b711-9d679b3c9aa8" name="Menu" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="804d7705-44d5-4391-9eab-c5fe9f3195ae" />
         <generalsInternal>
           <generalization Id="f4664fd9-d311-4326-897e-d9ebf2899419" isSubstitutable="false">
@@ -64,8 +66,99 @@
         <elementDefinition Id="1b0ab1b6-d355-44b3-aa4a-df611621c60f" />
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0d23878a-0551-4c95-a9a2-5cce86c62b60" name="Start" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8d0c1248-e881-46bf-b69e-b147b39e9f99" />
+        <generalsInternal>
+          <generalization Id="d5da6913-cadf-49e5-8c5b-403b12c937e8" isSubstitutable="false">
+            <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
+            <elementDefinition Id="dac64a5e-30a0-4001-bf00-b41cd924d769" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="254e82ae-55b2-4d33-b4b7-24987e30e8f3" name="Load" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="639c1282-f62c-416b-bdb1-b24627dc1e99" />
+        <generalsInternal>
+          <generalization Id="db920b7f-f491-44ee-9065-3739cbb9dd6f" isSubstitutable="false">
+            <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
+            <elementDefinition Id="acf9307f-760c-4b65-83a3-d3488ab4f44b" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="3c3956d1-cbf6-4fda-b1a0-7cffdaed0cf0" name="Credits" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="72a427a6-840d-4705-9b00-bf5a0b64d6d3" />
+        <generalsInternal>
+          <generalization Id="96faee50-200d-40a2-b776-51b3dfc03d0d" isSubstitutable="false">
+            <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
+            <elementDefinition Id="157c1658-9500-4ad2-b541-1a02504a7985" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4bc74e65-c75a-4637-98d1-d712a72c6fa2" name="Settings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c113a081-d9d2-4128-8136-396179f3f79e" />
+        <generalsInternal>
+          <generalization Id="3182cecf-2701-4ff6-9951-c7f9d8c6a6f1" isSubstitutable="false">
+            <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
+            <elementDefinition Id="71d11002-a288-4beb-97bb-150b1299ebc8" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d41a512f-f2ae-46a1-95c0-ec9953540257" name="GraphicsSettings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c59360ed-c7b8-4e10-a2df-0cbebf4c9756" />
+        <generalsInternal>
+          <generalization Id="fa395585-0abd-4974-8bb0-dc5bbe531ef4" isSubstitutable="false">
+            <classMoniker Id="4bc74e65-c75a-4637-98d1-d712a72c6fa2" LastKnownName="Settings" />
+            <elementDefinition Id="cc673377-ffe2-475c-ad1a-c996948dd923" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ebfd9fc0-fc49-49ae-b873-f4b15e50b15a" name="AudioSettings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="461f0798-20c4-4800-9cfb-6112a287eefa" />
+        <generalsInternal>
+          <generalization Id="6f4149d1-d665-4b85-85e1-5c441d201c84" isSubstitutable="false">
+            <classMoniker Id="4bc74e65-c75a-4637-98d1-d712a72c6fa2" LastKnownName="Settings" />
+            <elementDefinition Id="12144fe5-f261-483f-9b58-3f9d57a224a1" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="39926444-4744-48b4-b3ef-05694c96e547" name="ControlSettings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="758f27db-37bc-4706-83d0-7b59c925a3dd" />
+        <generalsInternal>
+          <generalization Id="7166d766-1bbf-4168-9e73-114902a14462" isSubstitutable="false">
+            <classMoniker Id="4bc74e65-c75a-4637-98d1-d712a72c6fa2" LastKnownName="Settings" />
+            <elementDefinition Id="2713069e-61c5-4486-9883-f07ea3b95866" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="b8a8636a-4ab4-41c4-b206-61edb0603f16" name="ModelingProject1">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
+    <profileInstances>
+      <packageHasProfileInstances Id="241cf01f-418d-4cd9-addc-11f8f868a44a">
+        <profileInstance Id="8fd6544b-c2a1-4241-ae7b-bc12ae904f2f" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="b011a8fc-5dd2-4899-a32b-b3b1ca5e8c8c">
+        <profileInstance Id="3ae9b8e3-b29c-4c40-b516-a70260a49914" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

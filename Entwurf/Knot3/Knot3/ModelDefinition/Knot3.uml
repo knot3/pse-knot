@@ -3,6 +3,28 @@
   dslVersion="1.0.0.0"
   Id="20ab710a-33d8-48fa-b17c-f3bf548e2638"
   name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="0eed9d6b-d83c-4ec7-88bb-b162be9cc205">
+      <body>Enthält Effekt-Einstellungen</body>
+      <annotatedElements>
+        <classMoniker
+          Id="c59360ed-c7b8-4e10-a2df-0cbebf4c9756"
+          LastKnownName="GraphicsSettings"
+          LastKnownLocation="Knot3.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="f11c7c2f-df5b-44a1-9140-2a578af532e0">
+      <body>Wird auch bei einer Spielpause angezeigt.</body>
+      <annotatedElements>
+        <classMoniker
+          Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
+          LastKnownName="Menu"
+          LastKnownLocation="Knot3.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
   <profileInstances>
     <packageHasProfileInstances
       Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
@@ -2303,7 +2325,7 @@
     <packageHasNamedElement>
       <class
         Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
-        name="MenuScreen"
+        name="Menu"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -4426,6 +4448,139 @@
       <undefinedType
         Id="f87f2f71-c126-4eac-b5bc-a949e05906d7"
         name="Border" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8d0c1248-e881-46bf-b69e-b147b39e9f99"
+        name="Start"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="dac64a5e-30a0-4001-bf00-b41cd924d769"
+            isSubstitutable="false">
+            <classMoniker
+              Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
+              LastKnownName="Menu"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="639c1282-f62c-416b-bdb1-b24627dc1e99"
+        name="Load"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="acf9307f-760c-4b65-83a3-d3488ab4f44b"
+            isSubstitutable="false">
+            <classMoniker
+              Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
+              LastKnownName="Menu"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="72a427a6-840d-4705-9b00-bf5a0b64d6d3"
+        name="Credits"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="157c1658-9500-4ad2-b541-1a02504a7985"
+            isSubstitutable="false">
+            <classMoniker
+              Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
+              LastKnownName="Menu"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c113a081-d9d2-4128-8136-396179f3f79e"
+        name="Settings"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="71d11002-a288-4beb-97bb-150b1299ebc8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
+              LastKnownName="Menu"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c59360ed-c7b8-4e10-a2df-0cbebf4c9756"
+        name="GraphicsSettings"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="cc673377-ffe2-475c-ad1a-c996948dd923"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c113a081-d9d2-4128-8136-396179f3f79e"
+              LastKnownName="Settings"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="461f0798-20c4-4800-9cfb-6112a287eefa"
+        name="AudioSettings"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="12144fe5-f261-483f-9b58-3f9d57a224a1"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c113a081-d9d2-4128-8136-396179f3f79e"
+              LastKnownName="Settings"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="758f27db-37bc-4706-83d0-7b59c925a3dd"
+        name="ControlSettings"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="2713069e-61c5-4486-9883-f07ea3b95866"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c113a081-d9d2-4128-8136-396179f3f79e"
+              LastKnownName="Settings"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
