@@ -10,7 +10,7 @@
     </comment>
     <comment Id="e2c1b957-d7fc-44a9-8358-e612d6e53f76">
       <elementDefinition Id="f11c7c2f-df5b-44a1-9140-2a578af532e0" />
-      <body>Wird auch bei einer Spielpause angezeigt.</body>
+      <body>Wird auch bei einer Spielpausen angezeigt.</body>
       <annotatedElements>
         <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
       </annotatedElements>
@@ -29,7 +29,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="4823b9be-7031-4733-8877-4d5295c4606d" name="ChallengeModeScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="4823b9be-7031-4733-8877-4d5295c4606d" name="ChallengeMode" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8b9488c1-242f-477e-accc-97772cd5c6c2" />
         <generalsInternal>
           <generalization Id="cdb8e6e0-3671-4c79-961c-cd9600526c7e" isSubstitutable="false">
@@ -40,7 +40,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="18ff7c22-8f44-4253-85fa-2086ca709e08" name="CreativeModeScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="18ff7c22-8f44-4253-85fa-2086ca709e08" name="CreativeMode" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6abc3c09-d569-457f-b05e-269334687631" />
         <generalsInternal>
           <generalization Id="059ce2f1-f1e7-4f15-92e4-09c9185a9c14" isSubstitutable="false">
@@ -81,9 +81,9 @@
       <class Id="254e82ae-55b2-4d33-b4b7-24987e30e8f3" name="Load" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="639c1282-f62c-416b-bdb1-b24627dc1e99" />
         <generalsInternal>
-          <generalization Id="db920b7f-f491-44ee-9065-3739cbb9dd6f" isSubstitutable="false">
+          <generalization Id="e0260a32-32b9-44ad-9704-cf16ae1b8479" isSubstitutable="false">
             <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
-            <elementDefinition Id="acf9307f-760c-4b65-83a3-d3488ab4f44b" />
+            <elementDefinition Id="501a640c-b406-4174-a908-e1fd21636f94" />
           </generalization>
         </generalsInternal>
       </class>
@@ -139,6 +139,17 @@
           <generalization Id="7166d766-1bbf-4168-9e73-114902a14462" isSubstitutable="false">
             <classMoniker Id="4bc74e65-c75a-4637-98d1-d712a72c6fa2" LastKnownName="Settings" />
             <elementDefinition Id="2713069e-61c5-4486-9883-f07ea3b95866" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="aec34b10-5b5e-4400-8569-31f5fbe599a8" name="Save" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c805764c-9619-4eba-9f8e-aae6cc060f84" />
+        <generalsInternal>
+          <generalization Id="d6a7fa9b-cfdd-4e10-b56b-c5eca41fb470" isSubstitutable="false">
+            <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
+            <elementDefinition Id="8c69741a-dbe9-4867-85cd-6f3f3e151ebd" />
           </generalization>
         </generalsInternal>
       </class>
