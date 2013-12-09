@@ -1,5 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="88c201e0-6f82-492f-b993-4f45529d74af" name="UMLClassDiagram1" linkedPackageId="043cb81b-6165-44a7-9481-d62ded78ac9a" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="d19c517f-3451-4dce-a6e7-22e89443af09">
+      <elementDefinition Id="17c576b7-ab94-43c3-a798-10dfdbe56f26" />
+      <body>Kompositum
+</body>
+      <annotatedElements>
+        <classMoniker Id="d1578a22-cf47-4bbd-9c43-3d63e133c8ac" LastKnownName="Menu" />
+      </annotatedElements>
+    </comment>
+    <comment Id="4184211a-04c5-4712-91b6-b646cdb75534">
+      <elementDefinition Id="d6e5274d-c4cc-4056-aef1-7547d406c53a" />
+      <body>Kompositum
+</body>
+      <annotatedElements>
+        <classMoniker Id="c5cdf57b-07c8-4b9f-8293-c2670398af8f" LastKnownName="MenuItem" />
+      </annotatedElements>
+    </comment>
+    <comment Id="ea8fff61-27ea-40b2-b648-fe708b501b75">
+      <elementDefinition Id="fa2eac07-c4c1-4d1f-8d2d-834f0bc2ed67" />
+      <body>Kompositum
+</body>
+      <annotatedElements>
+        <classMoniker Id="5e499f30-21d4-4150-99b5-38154553bc32" LastKnownName="ColorPicker" />
+      </annotatedElements>
+    </comment>
+    <comment Id="af46dce8-a126-43ce-9655-be893dde9a7d">
+      <elementDefinition Id="51303fe2-ba63-4f9e-9675-693397207808" />
+      <body>Kompositum
+</body>
+      <annotatedElements>
+        <classMoniker Id="b7ad447f-cfa0-44a7-9737-c1fe02730abe" LastKnownName="Dialog" />
+      </annotatedElements>
+    </comment>
+    <comment Id="087a46af-ef18-4710-a834-47c17e101110">
+      <elementDefinition Id="17466d58-b2f2-4e2b-8055-e426ac7f9859" />
+      <body>Komponente
+</body>
+      <annotatedElements>
+        <classMoniker Id="758af3ee-54c3-4437-a86a-ca2478c234fc" LastKnownName="Widget" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="295327cb-46a2-416c-ad18-27de6fb088fb" name="DrawableGameStateComponent" isAbstract="true" isLeaf="false" isActiveClass="false">
@@ -352,6 +394,58 @@
             <elementDefinition Id="1310601c-4c03-4324-aff2-2d99d81b926b" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="4040307a-4ca0-407e-bbc4-6407b8dd94f8" name="RelativeSize" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6c4c1910-383e-49c8-870a-47e93656dd61" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" LastKnownName="Vector2" />
+            </type_NamedElement>
+          </property>
+          <property Id="b1562218-da9f-4014-ae9a-0fbe9f5f1e6d" name="RelativePosition" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="be0ac250-87b1-451d-8c01-96718642b998" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" LastKnownName="Vector2" />
+            </type_NamedElement>
+          </property>
+          <property Id="a5899d9e-b432-4869-a789-3552212253de" name="IsVisible" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="41320bcd-78a0-4e16-8600-9251eecb47b7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ccdd6648-3158-4127-ac44-8b654ccaee13" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="3a6107d0-bafe-42c2-8943-913e80b5f521" name="add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8d61b75b-458a-4fe3-aad4-c1dc47d585c1" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5b4f4c31-05b9-49a1-90fd-fde0dc725dfc" name="Widget" direction="In" isUnique="false">
+                  <elementDefinition Id="e2ee79b0-2426-4e5b-872e-4ea4bb3a638c" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f3c2f8f3-e633-4f24-8bdf-e88501fdc2fa" name="delete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="50db46e1-9cea-4778-8caf-91e94f2c912a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="49204714-4735-479e-ac28-b7578c610528" name="Widget" direction="In" isUnique="false">
+                  <elementDefinition Id="66db5cc9-4603-4488-a28a-3925235051ed" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="24811be6-0c91-43c4-99ad-3adb0125b2ab" name="getChild" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f1d11c25-5894-4098-a82c-4b574aeff279" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3a7a44c2-ffdf-4ca8-bd14-5eca38dd111f" name="int" direction="In" isUnique="false">
+                  <elementDefinition Id="1c1aee5c-c220-4ab5-8ebe-58ff16e4e509" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -363,6 +457,26 @@
             <elementDefinition Id="4e6598be-e633-4ef1-9fdd-ff3255fa6db6" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="ee27a97c-7c4c-4861-9499-a484541cfaf7" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="852ffd35-d951-4c03-9205-52bfa9a64333" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="119462ee-200f-4243-93ba-fcb62c21b8cc" name="add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="432f3353-efae-46e0-8450-d94e005ef907" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e323cad2-dcc8-4b5c-9203-bae1d77e1298" name="SubMenu" direction="In" isUnique="false">
+                  <elementDefinition Id="8a57f6d2-dc42-4062-8352-98a4539d9ae7" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -374,6 +488,18 @@
             <elementDefinition Id="5b6c23a8-c180-46e1-9bda-7889e5151448" />
           </generalization>
         </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="a3e2b571-7e02-40d2-b24f-80df43bb61f1" name="add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d4369619-90f8-4f09-a5cb-bb9d8a1b7a1e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="50397acd-7275-4adc-9527-6f23b7e8021f" name="MenuItem" direction="In" isUnique="false">
+                  <elementDefinition Id="d4bacda2-cab2-49d9-8ce4-74ea5e982812" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -476,7 +602,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="b7ad447f-cfa0-44a7-9737-c1fe02730abe" name="Dialog" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="b7ad447f-cfa0-44a7-9737-c1fe02730abe" name="Dialog" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="714f7ec3-50fe-4621-8a6e-991471c07940" />
         <generalsInternal>
           <generalization Id="cbe8d263-e1e4-4061-9031-21a719d34bcd" isSubstitutable="false">
@@ -484,6 +610,20 @@
             <elementDefinition Id="036fc00e-ab05-4c11-bacf-fbd6399e34ac" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="09a27fb9-6ecd-435a-9827-562c7bb53f54" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bb23363b-b86a-42c2-9086-fbeb7cd8e781" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="abf9db41-50e5-4a82-8a7a-7c67679b8395" name="Text" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fe7fe86b-82fd-4c2b-b804-64ba406d564a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -508,6 +648,21 @@
         </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" name="Vector2" isAbstract="false" isLeaf="false" cachedFullName="Vector2">
+        <elementDefinition Id="b0ed11d7-9638-4189-9201-5eb38d88dba8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ccdd6648-3158-4127-ac44-8b654ccaee13" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="349d0a89-5802-412d-bfe4-ef755ee9dc33" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="97fc3d15-0385-4934-b293-93dd5acf3cde" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="043cb81b-6165-44a7-9481-d62ded78ac9a" name="ModelingProject1">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
