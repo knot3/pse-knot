@@ -3,29 +3,27 @@
   <ownedCommentsInternal>
     <comment Id="2a57c0ca-d9e5-433b-95be-86d45d9c2423">
       <elementDefinition Id="0eed9d6b-d83c-4ec7-88bb-b162be9cc205" />
-      <body>Enthält Effekt-Einstellungen</body>
+      <body>Und Effekt-Einstellungen.</body>
       <annotatedElements>
         <classMoniker Id="d41a512f-f2ae-46a1-95c0-ec9953540257" LastKnownName="GraphicsSettings" />
       </annotatedElements>
     </comment>
     <comment Id="e2c1b957-d7fc-44a9-8358-e612d6e53f76">
       <elementDefinition Id="f11c7c2f-df5b-44a1-9140-2a578af532e0" />
-      <body>Wird auch bei einer Spielpausen angezeigt.</body>
+      <body>Wird auch bei Spielpausen angezeigt.</body>
       <annotatedElements>
         <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
       </annotatedElements>
     </comment>
+    <comment Id="1771b353-4470-4350-ae8f-f55ea069e66f">
+      <elementDefinition Id="4b993d87-666f-4115-833c-59862b9ba0a5" />
+      <body>EM: Zustands-Muster (EN: state pattern)</body>
+    </comment>
   </ownedCommentsInternal>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
-      <class Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" name="GameState" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" name="GameScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
-        <suppliersInternal>
-          <dependency Id="e7e41043-5cdf-4067-8eef-e93499b95c73">
-            <classMoniker Id="0292f17f-66df-4df5-a90e-2d95ff6cf091" LastKnownName="Game" />
-            <elementDefinition Id="14a6c220-2da0-4a23-9bdf-ba5031550c57" />
-          </dependency>
-        </suppliersInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -33,7 +31,7 @@
         <elementDefinition Id="8b9488c1-242f-477e-accc-97772cd5c6c2" />
         <generalsInternal>
           <generalization Id="cdb8e6e0-3671-4c79-961c-cd9600526c7e" isSubstitutable="false">
-            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameState" />
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameScreen" />
             <elementDefinition Id="b7f0bba0-521a-4675-91d0-75463e181ac8" />
           </generalization>
         </generalsInternal>
@@ -44,7 +42,7 @@
         <elementDefinition Id="6abc3c09-d569-457f-b05e-269334687631" />
         <generalsInternal>
           <generalization Id="059ce2f1-f1e7-4f15-92e4-09c9185a9c14" isSubstitutable="false">
-            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameState" />
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameScreen" />
             <elementDefinition Id="27710a56-921f-4535-8406-e0481c67fc6a" />
           </generalization>
         </generalsInternal>
@@ -55,15 +53,10 @@
         <elementDefinition Id="804d7705-44d5-4391-9eab-c5fe9f3195ae" />
         <generalsInternal>
           <generalization Id="f4664fd9-d311-4326-897e-d9ebf2899419" isSubstitutable="false">
-            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameState" />
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameScreen" />
             <elementDefinition Id="94e262ae-3c71-446c-8fb7-4ac31f2ccf93" />
           </generalization>
         </generalsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="0292f17f-66df-4df5-a90e-2d95ff6cf091" name="Game" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="1b0ab1b6-d355-44b3-aa4a-df611621c60f" />
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -150,6 +143,28 @@
           <generalization Id="d6a7fa9b-cfdd-4e10-b56b-c5eca41fb470" isSubstitutable="false">
             <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
             <elementDefinition Id="8c69741a-dbe9-4867-85cd-6f3f3e151ebd" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a423bd3c-fff5-46e4-a1dc-a780bf276139" name="ScreenManager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="fc6acc48-92b6-452b-a589-feaaae83210e" />
+        <suppliersInternal>
+          <dependency Id="7cb8e3cb-1949-4eb1-83b3-003db3ed9740">
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameScreen" />
+            <elementDefinition Id="9dfbf981-5108-4d80-9658-5bf234d8c292" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="08aec2fe-a58d-42da-a980-fd311d7ef883" name="ProfileSettings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4669203c-87cf-4f22-85dd-0513b79be0d7" />
+        <generalsInternal>
+          <generalization Id="d12f928f-a684-494b-9099-119285fc2e43" isSubstitutable="false">
+            <classMoniker Id="4bc74e65-c75a-4637-98d1-d712a72c6fa2" LastKnownName="Settings" />
+            <elementDefinition Id="b4f08b6f-8b61-4cca-9944-62596268b794" />
           </generalization>
         </generalsInternal>
       </class>

@@ -6,7 +6,7 @@
   <ownedCommentsInternal>
     <comment
       Id="0eed9d6b-d83c-4ec7-88bb-b162be9cc205">
-      <body>Enthält Effekt-Einstellungen</body>
+      <body>Und Effekt-Einstellungen.</body>
       <annotatedElements>
         <classMoniker
           Id="c59360ed-c7b8-4e10-a2df-0cbebf4c9756"
@@ -16,13 +16,17 @@
     </comment>
     <comment
       Id="f11c7c2f-df5b-44a1-9140-2a578af532e0">
-      <body>Wird auch bei einer Spielpausen angezeigt.</body>
+      <body>Wird auch bei Spielpausen angezeigt.</body>
       <annotatedElements>
         <classMoniker
           Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
           LastKnownName="Menu"
           LastKnownLocation="Knot3.uml" />
       </annotatedElements>
+    </comment>
+    <comment
+      Id="4b993d87-666f-4115-833c-59862b9ba0a5">
+      <body>EM: Zustands-Muster (EN: state pattern)</body>
     </comment>
   </ownedCommentsInternal>
   <profileInstances>
@@ -161,7 +165,7 @@
             <type_NamedElement>
               <classMoniker
                 Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-                LastKnownName="GameState"
+                LastKnownName="GameScreen"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -2269,7 +2273,7 @@
     <packageHasNamedElement>
       <class
         Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-        name="GameState"
+        name="GameScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -2297,7 +2301,7 @@
             isSubstitutable="false">
             <classMoniker
               Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-              LastKnownName="GameState"
+              LastKnownName="GameScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -2316,7 +2320,7 @@
             isSubstitutable="false">
             <classMoniker
               Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-              LastKnownName="GameState"
+              LastKnownName="GameScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -2335,7 +2339,7 @@
             isSubstitutable="false">
             <classMoniker
               Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-              LastKnownName="GameState"
+              LastKnownName="GameScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -4596,6 +4600,49 @@
             <classMoniker
               Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
               LastKnownName="Menu"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e5286ab3-88ef-4a54-95de-5b229990777d"
+        LastKnownName="Package1"
+        LastKnownLocation="Package_1217.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="fc6acc48-92b6-452b-a589-feaaae83210e"
+        name="ScreenManager"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="9dfbf981-5108-4d80-9658-5bf234d8c292">
+            <classMoniker
+              Id="6a413035-a387-4d1d-98f9-72f1d432b824"
+              LastKnownName="GameScreen"
+              LastKnownLocation="Knot3.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4669203c-87cf-4f22-85dd-0513b79be0d7"
+        name="ProfileSettings"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="b4f08b6f-8b61-4cca-9944-62596268b794"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c113a081-d9d2-4128-8136-396179f3f79e"
+              LastKnownName="Settings"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
