@@ -29,6 +29,16 @@
       <body>EM: Zustands-Muster (EN: state pattern)
 
 Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Oberfläche und eigenes Verhalten.</body>
+      <annotatedElements>
+        <classMoniker
+          Id="fc6acc48-92b6-452b-a589-feaaae83210e"
+          LastKnownName="ScreenManager"
+          LastKnownLocation="Knot3.uml" />
+        <classMoniker
+          Id="6a413035-a387-4d1d-98f9-72f1d432b824"
+          LastKnownName="GameScreen"
+          LastKnownLocation="Knot3.uml" />
+      </annotatedElements>
     </comment>
     <comment
       Id="17c576b7-ab94-43c3-a798-10dfdbe56f26">
@@ -2046,6 +2056,26 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="30eb698e-92ca-4973-a74e-f926eb829125"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17"
+                LastKnownName="string"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2542,6 +2572,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           </generalization>
         </generalsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ecb20c6a-059f-411f-b3d1-0ace72daf866"
+        name="name" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

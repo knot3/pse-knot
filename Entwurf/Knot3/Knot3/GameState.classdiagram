@@ -20,6 +20,10 @@
       <body>EM: Zustands-Muster (EN: state pattern)
 
 Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Oberfläche und eigenes Verhalten.</body>
+      <annotatedElements>
+        <classMoniker Id="a423bd3c-fff5-46e4-a1dc-a780bf276139" LastKnownName="ScreenManager" />
+        <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameScreen" />
+      </annotatedElements>
     </comment>
   </ownedCommentsInternal>
   <packagedElements>
@@ -169,8 +173,21 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="b4f08b6f-8b61-4cca-9944-62596268b794" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="d160b0c9-40e1-4ebb-804f-bcdcdcc5ab36" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="30eb698e-92ca-4973-a74e-f926eb829125" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="741c646e-7c0e-4364-b9d3-e23d4157c900" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="741c646e-7c0e-4364-b9d3-e23d4157c900" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="b8a8636a-4ab4-41c4-b206-61edb0603f16" name="ModelingProject1">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
