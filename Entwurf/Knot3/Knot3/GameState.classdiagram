@@ -3,14 +3,14 @@
   <ownedCommentsInternal>
     <comment Id="2a57c0ca-d9e5-433b-95be-86d45d9c2423">
       <elementDefinition Id="0eed9d6b-d83c-4ec7-88bb-b162be9cc205" />
-      <body>Schließt Effekt-Einstellungen ein.</body>
+      <body>Auch Effekt-Einstellungen.</body>
       <annotatedElements>
         <classMoniker Id="d41a512f-f2ae-46a1-95c0-ec9953540257" LastKnownName="GraphicsSettings" />
       </annotatedElements>
     </comment>
     <comment Id="e2c1b957-d7fc-44a9-8358-e612d6e53f76">
       <elementDefinition Id="f11c7c2f-df5b-44a1-9140-2a578af532e0" />
-      <body>Wird auch bei Spielpausen angezeigt.</body>
+      <body>Auch in Pausen.</body>
       <annotatedElements>
         <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="Menu" />
       </annotatedElements>
@@ -21,15 +21,29 @@
 
 Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Oberfläche und eigenes Verhalten.</body>
       <annotatedElements>
-        <classMoniker Id="a423bd3c-fff5-46e4-a1dc-a780bf276139" LastKnownName="ScreenManager" />
-        <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameScreen" />
+        <classMoniker Id="a423bd3c-fff5-46e4-a1dc-a780bf276139" LastKnownName="IGameScreenManager" />
+        <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="IGameScreen" />
       </annotatedElements>
     </comment>
   </ownedCommentsInternal>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
-      <class Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" name="GameScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" name="IGameScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
+        <ownedOperationsInternal>
+          <operation Id="82f853f5-4320-4b5d-9935-ffceaa716557" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="17473978-c831-46b4-b5eb-37501a91a56c" />
+          </operation>
+          <operation Id="af147bf3-6c72-4ee7-90a0-2dda3d02dc73" name="BeforeSwitch" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="166be9ad-0911-47c9-bca9-ca58ba4bade2" />
+          </operation>
+          <operation Id="40c4e55b-1015-4421-a099-78d54f1bb0e0" name="Front" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="da112ca6-292a-4c0d-9d3f-26e4483a5735" />
+          </operation>
+          <operation Id="a7867896-1e4a-40e8-8204-87cad1e6933c" name="BeforeExit" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="096eec15-8229-4813-a7f4-5b134b91ce4a" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -37,7 +51,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <elementDefinition Id="8b9488c1-242f-477e-accc-97772cd5c6c2" />
         <generalsInternal>
           <generalization Id="cdb8e6e0-3671-4c79-961c-cd9600526c7e" isSubstitutable="false">
-            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameScreen" />
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="IGameScreen" />
             <elementDefinition Id="b7f0bba0-521a-4675-91d0-75463e181ac8" />
           </generalization>
         </generalsInternal>
@@ -48,7 +62,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <elementDefinition Id="6abc3c09-d569-457f-b05e-269334687631" />
         <generalsInternal>
           <generalization Id="059ce2f1-f1e7-4f15-92e4-09c9185a9c14" isSubstitutable="false">
-            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameScreen" />
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="IGameScreen" />
             <elementDefinition Id="27710a56-921f-4535-8406-e0481c67fc6a" />
           </generalization>
         </generalsInternal>
@@ -59,7 +73,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <elementDefinition Id="804d7705-44d5-4391-9eab-c5fe9f3195ae" />
         <generalsInternal>
           <generalization Id="f4664fd9-d311-4326-897e-d9ebf2899419" isSubstitutable="false">
-            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameScreen" />
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="IGameScreen" />
             <elementDefinition Id="94e262ae-3c71-446c-8fb7-4ac31f2ccf93" />
           </generalization>
         </generalsInternal>
@@ -154,14 +168,108 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="a423bd3c-fff5-46e4-a1dc-a780bf276139" name="ScreenManager" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="a423bd3c-fff5-46e4-a1dc-a780bf276139" name="IGameScreenManager" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="fc6acc48-92b6-452b-a589-feaaae83210e" />
         <suppliersInternal>
           <dependency Id="7cb8e3cb-1949-4eb1-83b3-003db3ed9740">
-            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="GameScreen" />
+            <classMoniker Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" LastKnownName="IGameScreen" />
             <elementDefinition Id="9dfbf981-5108-4d80-9658-5bf234d8c292" />
           </dependency>
         </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="5773e8fe-0756-44ce-8a0b-6f57cd352892" name="currentScreens" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="abc09e88-20f6-4d45-8dd4-007312595397" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="13ec1c8e-c24e-4b0f-95d8-3751a193731c" LastKnownName="Stack&lt;IGameScreen&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="83fc910d-4f7f-4064-bbb0-1c081da6a701" name="activeUpdateables" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0a246d5d-2bd6-4ae2-addd-d1152012c19b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="78742a5a-cfb1-4db9-977b-7ae036a7f507" LastKnownName="List&lt;Updateable&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="6c0706f6-a60d-401a-ad08-37882ae40d41" name="activeDrawables" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="18c264e8-cb53-46cd-b80c-902a907ffd6e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8aa22e69-a319-47cf-8641-8638286b60bc" LastKnownName="List&lt;Drawables&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="d31b5656-d160-4d7f-a55d-9a2422a52d40" name="Switch" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b75e6906-09a2-4cc4-8ce4-a61eba256662" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c84c06b7-9ea5-421d-9eef-7ed7b6a5448f" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="9bdf10ee-760b-4f38-816d-8856aeabfba5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3fdcc6cd-b0f1-4c1b-b66d-7c668bc4a071" LastKnownName="IGameScreen" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b6b83cd2-f3ab-4a63-b8c2-adc7dfbe2fcb" name="Pop" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8c440dd4-6ce8-414c-affd-ed85d0cf0202" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b6c96cb3-b251-4827-8598-f2c375046826" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="60eaf6ec-f216-42e8-a315-95ec5b90dc71" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3fdcc6cd-b0f1-4c1b-b66d-7c668bc4a071" LastKnownName="IGameScreen" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="eac5e35f-18b3-4164-a16d-41c030518863" name="Push" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="807f6cd9-661a-4be6-a337-217e88a0fbb3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="722f7e49-6d98-4f4e-9585-43ff37c6ca0f" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="43953dcc-6c05-46f1-88aa-7003f213f9bd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3fdcc6cd-b0f1-4c1b-b66d-7c668bc4a071" LastKnownName="IGameScreen" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6d6b8045-a54c-4786-8e6c-8a6d69e9fe4e" name="Peek" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5f45284b-f97b-48e2-a3ed-3fa4a6df0b8d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0eb92ad1-89f7-4515-93e7-5bdd5b528b52" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="ffc1878d-08a0-43b5-a35c-f7ae491c2441" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3fdcc6cd-b0f1-4c1b-b66d-7c668bc4a071" LastKnownName="IGameScreen" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="372690c2-670f-4fd4-9fa6-7d1bfd9bd0e7" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6992cbac-fe71-49f6-8558-64c85cbf52eb" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2364790b-1ad1-4a19-9990-326b1ffb4506" name="GameTime gameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="c435a777-e415-438d-bb4d-5c4adfe25cc6" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="12714c86-c735-4a19-ae7c-db9d53722710" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="504b1e20-dbc0-4685-9fad-a70f73dceaba" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7283e512-11a0-4576-818b-59e622fe2635" name="GameTime gameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="5c91c5bb-2647-47f5-965e-f33374d5aff0" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -174,18 +282,38 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
-          <property Id="d160b0c9-40e1-4ebb-804f-bcdcdcc5ab36" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="d160b0c9-40e1-4ebb-804f-bcdcdcc5ab36" name="name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="30eb698e-92ca-4973-a74e-f926eb829125" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="741c646e-7c0e-4364-b9d3-e23d4157c900" LastKnownName="string" />
+              <referencedTypeMoniker Id="18ba8544-3d88-43e3-81aa-db8ae065df5f" LastKnownName="string" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
-      <referencedType Id="741c646e-7c0e-4364-b9d3-e23d4157c900" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+      <referencedType Id="18ba8544-3d88-43e3-81aa-db8ae065df5f" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
         <elementDefinition Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3fdcc6cd-b0f1-4c1b-b66d-7c668bc4a071" name="IGameScreen" isAbstract="false" isLeaf="false" cachedFullName="IGameScreen">
+        <elementDefinition Id="46ce5f0e-64d6-425a-babb-477a9fcdae2a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="13ec1c8e-c24e-4b0f-95d8-3751a193731c" name="Stack&lt;IGameScreen&gt;" isAbstract="false" isLeaf="false" cachedFullName="Stack&lt;IGameScreen&gt;">
+        <elementDefinition Id="a3ea8e77-0901-4ebc-be0a-63a1d2c90a2a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="78742a5a-cfb1-4db9-977b-7ae036a7f507" name="List&lt;Updateable&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;Updateable&gt;">
+        <elementDefinition Id="7dc7e320-9953-4d53-9c5f-e7c8c8ee078f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8aa22e69-a319-47cf-8641-8638286b60bc" name="List&lt;Drawables&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;Drawables&gt;">
+        <elementDefinition Id="b2eea463-efdf-441c-81ea-a254388dce19" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

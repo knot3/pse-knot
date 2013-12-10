@@ -6,7 +6,7 @@
   <ownedCommentsInternal>
     <comment
       Id="0eed9d6b-d83c-4ec7-88bb-b162be9cc205">
-      <body>Schließt Effekt-Einstellungen ein.</body>
+      <body>Auch Effekt-Einstellungen.</body>
       <annotatedElements>
         <classMoniker
           Id="c59360ed-c7b8-4e10-a2df-0cbebf4c9756"
@@ -16,7 +16,7 @@
     </comment>
     <comment
       Id="f11c7c2f-df5b-44a1-9140-2a578af532e0">
-      <body>Wird auch bei Spielpausen angezeigt.</body>
+      <body>Auch in Pausen.</body>
       <annotatedElements>
         <classMoniker
           Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
@@ -32,11 +32,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       <annotatedElements>
         <classMoniker
           Id="fc6acc48-92b6-452b-a589-feaaae83210e"
-          LastKnownName="ScreenManager"
+          LastKnownName="IGameScreenManager"
           LastKnownLocation="Knot3.uml" />
         <classMoniker
           Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-          LastKnownName="GameScreen"
+          LastKnownName="IGameScreen"
           LastKnownLocation="Knot3.uml" />
       </annotatedElements>
     </comment>
@@ -232,7 +232,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <type_NamedElement>
               <classMoniker
                 Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-                LastKnownName="GameScreen"
+                LastKnownName="IGameScreen"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -1620,7 +1620,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-        name="GameScreen"
+        name="IGameScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1633,6 +1633,40 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               LastKnownLocation="Knot3.uml" />
           </dependency>
         </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="17473978-c831-46b4-b5eb-37501a91a56c"
+            name="Entered"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="166be9ad-0911-47c9-bca9-ca58ba4bade2"
+            name="BeforeSwitch"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="da112ca6-292a-4c0d-9d3f-26e4483a5735"
+            name="Front"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="096eec15-8229-4813-a7f4-5b134b91ce4a"
+            name="BeforeExit"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1648,7 +1682,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-              LastKnownName="GameScreen"
+              LastKnownName="IGameScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -1667,7 +1701,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-              LastKnownName="GameScreen"
+              LastKnownName="IGameScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -1686,7 +1720,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-              LastKnownName="GameScreen"
+              LastKnownName="IGameScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -2024,7 +2058,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="fc6acc48-92b6-452b-a589-feaaae83210e"
-        name="ScreenManager"
+        name="IGameScreenManager"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -2033,10 +2067,204 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             Id="9dfbf981-5108-4d80-9658-5bf234d8c292">
             <classMoniker
               Id="6a413035-a387-4d1d-98f9-72f1d432b824"
-              LastKnownName="GameScreen"
+              LastKnownName="IGameScreen"
               LastKnownLocation="Knot3.uml" />
           </dependency>
         </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="abc09e88-20f6-4d45-8dd4-007312595397"
+            name="currentScreens"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="a3ea8e77-0901-4ebc-be0a-63a1d2c90a2a"
+                LastKnownName="Stack&lt;IGameScreen&gt;"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0a246d5d-2bd6-4ae2-addd-d1152012c19b"
+            name="activeUpdateables"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="7dc7e320-9953-4d53-9c5f-e7c8c8ee078f"
+                LastKnownName="List&lt;Updateable&gt;"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="18c264e8-cb53-46cd-b80c-902a907ffd6e"
+            name="activeDrawables"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b2eea463-efdf-441c-81ea-a254388dce19"
+                LastKnownName="List&lt;Drawables&gt;"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="b75e6906-09a2-4cc4-8ce4-a61eba256662"
+            name="Switch"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9bdf10ee-760b-4f38-816d-8856aeabfba5"
+                  name="screen"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="46ce5f0e-64d6-425a-babb-477a9fcdae2a"
+                      LastKnownName="IGameScreen"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8c440dd4-6ce8-414c-affd-ed85d0cf0202"
+            name="Pop"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="60eaf6ec-f216-42e8-a315-95ec5b90dc71"
+                  name="screen"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="46ce5f0e-64d6-425a-babb-477a9fcdae2a"
+                      LastKnownName="IGameScreen"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="807f6cd9-661a-4be6-a337-217e88a0fbb3"
+            name="Push"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="43953dcc-6c05-46f1-88aa-7003f213f9bd"
+                  name="screen"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="46ce5f0e-64d6-425a-babb-477a9fcdae2a"
+                      LastKnownName="IGameScreen"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5f45284b-f97b-48e2-a3ed-3fa4a6df0b8d"
+            name="Peek"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ffc1878d-08a0-43b5-a35c-f7ae491c2441"
+                  name="screen"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="46ce5f0e-64d6-425a-babb-477a9fcdae2a"
+                      LastKnownName="IGameScreen"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6992cbac-fe71-49f6-8558-64c85cbf52eb"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c435a777-e415-438d-bb4d-5c4adfe25cc6"
+                  name="GameTime gameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="504b1e20-dbc0-4685-9fad-a70f73dceaba"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5c91c5bb-2647-47f5-965e-f33374d5aff0"
+                  name="GameTime gameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2059,7 +2287,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedAttributesInternal>
           <property
             Id="30eb698e-92ca-4973-a74e-f926eb829125"
-            name="Name"
+            name="name"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2577,6 +2805,31 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       <undefinedType
         Id="ecb20c6a-059f-411f-b3d1-0ace72daf866"
         name="name" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="46ce5f0e-64d6-425a-babb-477a9fcdae2a"
+        name="IGameScreen" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="a3ea8e77-0901-4ebc-be0a-63a1d2c90a2a"
+        name="Stack&lt;IGameScreen&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="863a5ed0-48ad-4e31-b911-a1c1ebe45483"
+        name="List&lt;IGameScreen&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="7dc7e320-9953-4d53-9c5f-e7c8c8ee078f"
+        name="List&lt;Updateable&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b2eea463-efdf-441c-81ea-a254388dce19"
+        name="List&lt;Drawables&gt;" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
