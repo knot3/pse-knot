@@ -338,6 +338,12 @@
               <referencedTypeMoniker Id="ccdd6648-3158-4127-ac44-8b654ccaee13" LastKnownName="bool" />
             </type_NamedElement>
           </property>
+          <property Id="fd61728a-8d90-4b91-bb8f-752b9c2313c0" name="BackgroundColor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9e04d674-92a3-4dc6-8984-4bbdde017536" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="695bb1f0-201b-4fc8-88ac-179e84c2ebbe" LastKnownName="Color" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -369,8 +375,16 @@
             <elementDefinition Id="a20f42b8-7569-4e6f-8b13-7ce29791e167" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="883c7a3e-4292-491c-880a-d09bc6499582" name="MenuItem" direction="In" isUnique="false">
-                  <elementDefinition Id="daf7ebae-cc59-4e40-882b-ea5f46687c29" />
+                <parameter Id="50b84ee2-71d9-49f1-8328-2d4ac45564e4" name="MenuItem" direction="In" isUnique="false">
+                  <elementDefinition Id="76848848-a554-4080-9be7-f47a1686d75b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9f894f18-1528-44e9-ab78-83e4f3c610c8" direction="Return" isUnique="false">
+                  <elementDefinition Id="e19d3500-7992-4953-a753-0f833ceb25af" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -379,8 +393,16 @@
             <elementDefinition Id="4f35a424-7a96-4407-97fd-2de73cda33d7" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a766cf8b-c739-41b2-9c42-a272ccb49d3e" name="MenuItem" direction="In" isUnique="false">
-                  <elementDefinition Id="d33d5464-dab2-40e3-abeb-39e01a044e1a" />
+                <parameter Id="0d3239ad-7be2-49db-95b6-5991eb0d791f" name="MenuItem" direction="In" isUnique="false">
+                  <elementDefinition Id="ee6cf444-89c4-4f0a-8ae8-0aa39abc80c4" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="862c3918-b148-48c4-815d-a9d2c95460b6" direction="Return" isUnique="false">
+                  <elementDefinition Id="96a2e32a-6697-4e68-b0c6-ae4e42e5b114" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -389,8 +411,16 @@
             <elementDefinition Id="6aab98c9-df9b-459d-9f08-707d6e531f7e" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="b0d89b1c-3845-443c-9cce-290645acb6df" name="int" direction="In" isUnique="false">
-                  <elementDefinition Id="c24f1b58-d092-4b8f-9698-5655000f28e5" />
+                <parameter Id="010860a0-a4a1-47af-8161-d0371f50260c" name="int" direction="In" isUnique="false">
+                  <elementDefinition Id="22e73fe3-c7e8-4f33-9351-20c42f0f17f6" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="19a348b6-cb2c-4acf-b233-9ee4e56f313d" direction="Return" isUnique="false">
+                  <elementDefinition Id="8816ef3c-ec3c-4dda-8978-1ba1ef42cd56" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -433,6 +463,47 @@
             <elementDefinition Id="6c8b7c3b-c5c2-427a-8a18-72123fd8d651" />
           </generalization>
         </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="ef1d9c16-4541-42e9-959b-78d7edbb3745" name="OnLeftClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b158cf9b-9f17-4981-b997-2048805f02fd" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c3bac26a-9ca1-41c4-bcc0-f493760a6252" direction="Return" isUnique="false">
+                  <elementDefinition Id="9e29568b-73a2-4e34-acae-207cdaddffdf" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="761a2ac7-f505-49f6-8787-a4281c0d19e6" name="OnRightClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a9f5bad9-55c3-4b17-bef9-a7fc2d1ba515" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8847bc09-2aaf-4e71-8ed5-2bd1a4f0c91a" direction="Return" isUnique="false">
+                  <elementDefinition Id="8543daba-e6e8-4865-816e-ddfc97618af0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="087075d8-623b-4498-ad07-775ffc518b05" name="OnKeyEvent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4ddc0572-5746-416c-8d98-0392ac8ccd80" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7c7e711e-1a01-4bf1-8627-22f54135ed81" direction="Return" isUnique="false">
+                  <elementDefinition Id="34fd8cf8-d335-4f67-8d0c-1b4a4814f1ed" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -444,6 +515,14 @@
             <elementDefinition Id="e4f6c4cf-623e-4353-aaf9-adf5b774ab51" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="2e70b486-6957-4def-b6f6-113faf8c767a" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e2f3e476-1840-47a9-b64d-2c050eb1a6f9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -455,6 +534,14 @@
             <elementDefinition Id="e4a567ed-e7ae-4761-8536-17fbddbcfb4b" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="85b9292b-f4fb-4c0a-a8ca-5cd25c12b1b3" name="Text" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="acab79f7-fcae-42da-8230-25a3a417aade" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -466,6 +553,23 @@
             <elementDefinition Id="c1e63fbf-7610-4ca3-9398-9a6331e52e8f" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="0d4b59c5-8495-4444-a58b-69f6cb38d42e" name="Value" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="513b37b3-d8c4-4646-af2b-95eed938c23e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ece03980-b3a0-4547-9d2d-ffa09b6ae452" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="3ff0b482-e495-4421-9f50-6af8d2a48480" name="MinValue" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="cf235ed6-30c5-42a7-85e2-02b8c2ea82b0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ece03980-b3a0-4547-9d2d-ffa09b6ae452" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="81a2e176-235c-4886-88aa-91428a0a404b" name="MaxValue" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8ead2fa1-108a-430e-a948-3bce50d1282c" />
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -488,6 +592,14 @@
             <elementDefinition Id="342a0aee-0ed3-4e93-a023-08a6b5395382" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="00f86474-723d-4c37-b336-04f52283e337" name="Color" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="22be5f3e-744c-452c-84da-568af4c79acf" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="695bb1f0-201b-4fc8-88ac-179e84c2ebbe" LastKnownName="Color" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -499,6 +611,26 @@
             <elementDefinition Id="89399cfc-79f8-46c3-88c8-d8bcdd9893cf" />
           </generalization>
         </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="d8483d87-558d-4158-94f8-91f81fca9b66" name="AddEntries" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2ce46dbd-04fa-4916-85ef-0599facf2854" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="51000e29-745a-48d5-b554-a2713aa6f74d" direction="Return" isUnique="false">
+                  <elementDefinition Id="7b737c03-9a06-4c34-862c-721360c98331" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e1ea86e2-b858-4ad7-8430-366a80d7b7cf" name="DropDownEntrie" direction="In" isUnique="false">
+                  <elementDefinition Id="0f964936-b52d-4847-bfec-d667dcf54a80" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -510,6 +642,14 @@
             <elementDefinition Id="55a89523-d626-4057-914d-85075bb78292" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="6ffb90d6-6721-40f8-9dc3-0cecbe6a9ff9" name="InputText" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c904236f-0f4a-440a-b825-f86a246db4e7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -521,6 +661,14 @@
             <elementDefinition Id="40be807b-d751-4650-bc35-10f6ea07b9ae" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="a43f579e-4ffd-4234-b310-88a4c82eb8d6" name="Color" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b96c9b5b-e866-4e91-859b-91c9fca30179" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="695bb1f0-201b-4fc8-88ac-179e84c2ebbe" LastKnownName="Color" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -594,6 +742,30 @@
       <Interface Id="3480c895-cf9e-4e94-8ad4-d130b9cdbabf" name="IEnumerable&lt;MenuItem&gt;" isAbstract="false" isLeaf="false">
         <elementDefinition Id="44fab749-946e-40c7-9de1-ade0eee097ac" />
       </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="695bb1f0-201b-4fc8-88ac-179e84c2ebbe" name="Color" isAbstract="false" isLeaf="false" cachedFullName="Color">
+        <elementDefinition Id="8c01338a-807f-45aa-ad96-802ff2e82de1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="508113f3-5a89-4d01-bbc7-1d4b3ec27a62" name="DropDownEntrie" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5d2eded3-b9d9-494c-b92c-5674a3a62b5b" />
+        <suppliersInternal>
+          <dependency Id="dd2848d1-6749-446f-964f-1a0ab199765a">
+            <classMoniker Id="a8b40508-2a7a-4919-b6a4-7f74d0682f28" LastKnownName="DropDownMenuItem" />
+            <elementDefinition Id="c8e9a67e-472c-4d56-ad15-73c7502d6759" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="6f12ba7b-08dc-4ab3-a440-2db302b8f89d" name="Text" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3f48bef9-954d-4c15-8a69-f082e3697168" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="043cb81b-6165-44a7-9481-d62ded78ac9a" name="ModelingProject1">
