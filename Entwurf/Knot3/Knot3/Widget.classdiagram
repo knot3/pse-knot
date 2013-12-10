@@ -352,7 +352,7 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="ffb6277d-5839-4e3a-b7fb-be03ffd816f2" name="boundingBox" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="ffb6277d-5839-4e3a-b7fb-be03ffd816f2" name="BoundingBox" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="2c179158-dce5-4bf3-b146-dd7354d4e7be" />
             <ownedParameters>
               <operationHasOwnedParameters>
@@ -847,6 +847,25 @@
       <Interface Id="60ca7c92-bde9-4dda-ac03-edc62e9f78fc" name="IKeyEventListener" isAbstract="false" isLeaf="false">
         <elementDefinition Id="15c84ecc-d292-47b1-bf9e-395cd7812f4e" />
       </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9b0836b7-8010-46d3-a5f6-c9b54b062f45" name="TextInputDiaglog" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4c5bb927-b287-4456-b7b8-a992bebdbffb" />
+        <generalsInternal>
+          <generalization Id="3ec49b48-e3db-41ad-b58c-4bea03ccacd2" isSubstitutable="false">
+            <classMoniker Id="b7ad447f-cfa0-44a7-9737-c1fe02730abe" LastKnownName="Dialog" />
+            <elementDefinition Id="0c90f74b-7d52-4d4a-8396-2c0d25c308a2" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="e8e13f06-d58b-4fa4-9fcd-1393b40dca4a" name="InputText" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b99ff281-ef85-4892-8c19-d80655b0f219" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="043cb81b-6165-44a7-9481-d62ded78ac9a" name="ModelingProject1">

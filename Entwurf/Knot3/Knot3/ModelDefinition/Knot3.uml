@@ -2418,7 +2418,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation
             Id="2c179158-dce5-4bf3-b146-dd7354d4e7be"
-            name="boundingBox"
+            name="BoundingBox"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -3341,6 +3341,45 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         name="IKeyEventListener"
         isAbstract="false"
         isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4c5bb927-b287-4456-b7b8-a992bebdbffb"
+        name="TextInputDiaglog"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="0c90f74b-7d52-4d4a-8396-2c0d25c308a2"
+            isSubstitutable="false">
+            <classMoniker
+              Id="714f7ec3-50fe-4621-8a6e-991471c07940"
+              LastKnownName="Dialog"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="b99ff281-ef85-4892-8c19-d80655b0f219"
+            name="InputText"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
