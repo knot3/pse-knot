@@ -2160,6 +2160,15 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="8041e768-d0ed-48eb-baf3-63e269c9014a">
+            <interfaceMoniker
+              Id="100b70c4-de9a-4e3e-8896-1828b6901c71"
+              LastKnownName="IEnumerable&lt;MenuItem&gt;"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="4e6598be-e633-4ef1-9fdd-ff3255fa6db6"
@@ -2242,6 +2251,54 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                   name="int"
                   direction="In"
                   isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="56e752c2-64d4-451b-81b4-059bda8cfb46"
+            name="GetEnumerator"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0413b341-1c3e-4555-bf46-eb3c4540ca51"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0e54893-3ad2-4125-89b1-23281d82c34e"
+                      LastKnownName="IEnumerator&lt;MenuItem&gt;"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="aa3e1860-f6a9-49c6-b506-600966af2095"
+            name="Size"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="01df9df6-341b-49c8-897a-4449e137f2ac"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b2d5aa2e-4c93-4059-a3e3-5ea6a2e4695e"
+                      LastKnownName="int"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -2537,6 +2594,45 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       <undefinedType
         Id="ecb20c6a-059f-411f-b3d1-0ace72daf866"
         name="name" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="100b70c4-de9a-4e3e-8896-1828b6901c71"
+        name="IEnumerable&lt;MenuItem&gt;"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="d3403085-f0a7-46f7-b73c-cac9606f573f"
+            name="GetEnumerator"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7ab7d0d7-31a2-4884-b117-6624f644170a"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0e54893-3ad2-4125-89b1-23281d82c34e"
+                      LastKnownName="IEnumerator&lt;MenuItem&gt;"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b0e54893-3ad2-4125-89b1-23281d82c34e"
+        name="IEnumerator&lt;MenuItem&gt;" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

@@ -419,6 +419,12 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="d1578a22-cf47-4bbd-9c43-3d63e133c8ac" name="Menu" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="b4e6504e-28fd-4e43-8533-79b8e88964d8" />
+        <suppliersInternal>
+          <interfaceRealization Id="49ed7447-7fcf-4def-b5bf-d69ff89ea3e5">
+            <interfaceMoniker Id="1dc7df8d-8d83-43f7-a4df-47f33ec0b208" LastKnownName="IEnumerable&lt;MenuItem&gt;" />
+            <elementDefinition Id="8041e768-d0ed-48eb-baf3-63e269c9014a" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization Id="7c57d107-b9d3-4be7-b120-5656c39c1a39" isSubstitutable="false">
             <classMoniker Id="758af3ee-54c3-4437-a86a-ca2478c234fc" LastKnownName="Widget" />
@@ -460,6 +466,32 @@
               <operationHasOwnedParameters>
                 <parameter Id="b0d89b1c-3845-443c-9cce-290645acb6df" name="int" direction="In" isUnique="false">
                   <elementDefinition Id="c24f1b58-d092-4b8f-9698-5655000f28e5" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="5e4b52be-9223-4f42-b90b-72d9a4881753" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="56e752c2-64d4-451b-81b4-059bda8cfb46" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7bb8968f-7cf2-4633-926c-105f132861a8" direction="Return" isUnique="false">
+                  <elementDefinition Id="0413b341-1c3e-4555-bf46-eb3c4540ca51" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="19eb53d4-7a7a-4e6c-9cf4-a3e89ccde8c3" LastKnownName="IEnumerator&lt;MenuItem&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e36d4b06-5a4e-4978-8ee8-01111f44c0e1" name="Size" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="aa3e1860-f6a9-49c6-b506-600966af2095" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8ed3ea49-53f1-449e-9495-2ff4ab4da4b5" direction="Return" isUnique="false">
+                  <elementDefinition Id="01df9df6-341b-49c8-897a-4449e137f2ac" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ece03980-b3a0-4547-9d2d-ffa09b6ae452" LastKnownName="int" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -626,6 +658,31 @@
     <packageHasNamedElement>
       <referencedType Id="97fc3d15-0385-4934-b293-93dd5acf3cde" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
         <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="1dc7df8d-8d83-43f7-a4df-47f33ec0b208" name="IEnumerable&lt;MenuItem&gt;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="100b70c4-de9a-4e3e-8896-1828b6901c71" />
+        <ownedOperations>
+          <operation Id="2acf1c5e-54f5-4946-8b25-c103c2f0fc8e" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d3403085-f0a7-46f7-b73c-cac9606f573f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5292ead9-f4f6-49b9-9baf-17b95de2161d" direction="Return" isUnique="false">
+                  <elementDefinition Id="7ab7d0d7-31a2-4884-b117-6624f644170a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="19eb53d4-7a7a-4e6c-9cf4-a3e89ccde8c3" LastKnownName="IEnumerator&lt;MenuItem&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="19eb53d4-7a7a-4e6c-9cf4-a3e89ccde8c3" name="IEnumerator&lt;MenuItem&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerator&lt;MenuItem&gt;">
+        <elementDefinition Id="b0e54893-3ad2-4125-89b1-23281d82c34e" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
