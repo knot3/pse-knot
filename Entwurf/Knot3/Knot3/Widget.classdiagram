@@ -414,43 +414,17 @@
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="3a6107d0-bafe-42c2-8943-913e80b5f521" name="add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="8d61b75b-458a-4fe3-aad4-c1dc47d585c1" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="5b4f4c31-05b9-49a1-90fd-fde0dc725dfc" name="Widget" direction="In" isUnique="false">
-                  <elementDefinition Id="e2ee79b0-2426-4e5b-872e-4ea4bb3a638c" />
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="f3c2f8f3-e633-4f24-8bdf-e88501fdc2fa" name="delete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="50db46e1-9cea-4778-8caf-91e94f2c912a" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="49204714-4735-479e-ac28-b7578c610528" name="Widget" direction="In" isUnique="false">
-                  <elementDefinition Id="66db5cc9-4603-4488-a28a-3925235051ed" />
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="24811be6-0c91-43c4-99ad-3adb0125b2ab" name="getChild" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="f1d11c25-5894-4098-a82c-4b574aeff279" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="3a7a44c2-ffdf-4ca8-bd14-5eca38dd111f" name="int" direction="In" isUnique="false">
-                  <elementDefinition Id="1c1aee5c-c220-4ab5-8ebe-58ff16e4e509" />
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="d1578a22-cf47-4bbd-9c43-3d63e133c8ac" name="Menu" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="b4e6504e-28fd-4e43-8533-79b8e88964d8" />
+        <suppliersInternal>
+          <interfaceRealization Id="49ed7447-7fcf-4def-b5bf-d69ff89ea3e5">
+            <interfaceMoniker Id="1dc7df8d-8d83-43f7-a4df-47f33ec0b208" LastKnownName="IEnumerable&lt;MenuItem&gt;" />
+            <elementDefinition Id="8041e768-d0ed-48eb-baf3-63e269c9014a" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization Id="7c57d107-b9d3-4be7-b120-5656c39c1a39" isSubstitutable="false">
             <classMoniker Id="758af3ee-54c3-4437-a86a-ca2478c234fc" LastKnownName="Widget" />
@@ -466,35 +440,58 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="119462ee-200f-4243-93ba-fcb62c21b8cc" name="add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="432f3353-efae-46e0-8450-d94e005ef907" />
+          <operation Id="46075495-54f9-438f-a3ef-db4082896271" name="Add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a20f42b8-7569-4e6f-8b13-7ce29791e167" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="e323cad2-dcc8-4b5c-9203-bae1d77e1298" name="SubMenu" direction="In" isUnique="false">
-                  <elementDefinition Id="8a57f6d2-dc42-4062-8352-98a4539d9ae7" />
+                <parameter Id="883c7a3e-4292-491c-880a-d09bc6499582" name="MenuItem" direction="In" isUnique="false">
+                  <elementDefinition Id="daf7ebae-cc59-4e40-882b-ea5f46687c29" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="4ebc2fcc-8f51-4c1a-b7b7-36a84e91ed93" name="SubMenu" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="16760c72-b9cf-45ac-ae43-c025b0cad9b7" />
-        <generalsInternal>
-          <generalization Id="07bd5ff4-4866-479f-9470-6582f5edd8fa" isSubstitutable="false">
-            <classMoniker Id="d1578a22-cf47-4bbd-9c43-3d63e133c8ac" LastKnownName="Menu" />
-            <elementDefinition Id="5b6c23a8-c180-46e1-9bda-7889e5151448" />
-          </generalization>
-        </generalsInternal>
-        <ownedOperationsInternal>
-          <operation Id="a3e2b571-7e02-40d2-b24f-80df43bb61f1" name="add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="d4369619-90f8-4f09-a5cb-bb9d8a1b7a1e" />
+          <operation Id="22508a22-0dbd-4ace-ace9-3c3fbc99d93e" name="Delete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4f35a424-7a96-4407-97fd-2de73cda33d7" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="50397acd-7275-4adc-9527-6f23b7e8021f" name="MenuItem" direction="In" isUnique="false">
-                  <elementDefinition Id="d4bacda2-cab2-49d9-8ce4-74ea5e982812" />
+                <parameter Id="a766cf8b-c739-41b2-9c42-a272ccb49d3e" name="MenuItem" direction="In" isUnique="false">
+                  <elementDefinition Id="d33d5464-dab2-40e3-abeb-39e01a044e1a" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="fc058807-9255-4b92-9c65-0d62bdcb24fc" name="GetChild" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6aab98c9-df9b-459d-9f08-707d6e531f7e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b0d89b1c-3845-443c-9cce-290645acb6df" name="int" direction="In" isUnique="false">
+                  <elementDefinition Id="c24f1b58-d092-4b8f-9698-5655000f28e5" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="5e4b52be-9223-4f42-b90b-72d9a4881753" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="56e752c2-64d4-451b-81b4-059bda8cfb46" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7bb8968f-7cf2-4633-926c-105f132861a8" direction="Return" isUnique="false">
+                  <elementDefinition Id="0413b341-1c3e-4555-bf46-eb3c4540ca51" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="19eb53d4-7a7a-4e6c-9cf4-a3e89ccde8c3" LastKnownName="IEnumerator&lt;MenuItem&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e36d4b06-5a4e-4978-8ee8-01111f44c0e1" name="Size" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="aa3e1860-f6a9-49c6-b506-600966af2095" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8ed3ea49-53f1-449e-9495-2ff4ab4da4b5" direction="Return" isUnique="false">
+                  <elementDefinition Id="01df9df6-341b-49c8-897a-4449e137f2ac" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ece03980-b3a0-4547-9d2d-ffa09b6ae452" LastKnownName="int" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -661,6 +658,31 @@
     <packageHasNamedElement>
       <referencedType Id="97fc3d15-0385-4934-b293-93dd5acf3cde" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
         <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="1dc7df8d-8d83-43f7-a4df-47f33ec0b208" name="IEnumerable&lt;MenuItem&gt;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="100b70c4-de9a-4e3e-8896-1828b6901c71" />
+        <ownedOperations>
+          <operation Id="2acf1c5e-54f5-4946-8b25-c103c2f0fc8e" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d3403085-f0a7-46f7-b73c-cac9606f573f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5292ead9-f4f6-49b9-9baf-17b95de2161d" direction="Return" isUnique="false">
+                  <elementDefinition Id="7ab7d0d7-31a2-4884-b117-6624f644170a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="19eb53d4-7a7a-4e6c-9cf4-a3e89ccde8c3" LastKnownName="IEnumerator&lt;MenuItem&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="19eb53d4-7a7a-4e6c-9cf4-a3e89ccde8c3" name="IEnumerator&lt;MenuItem&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerator&lt;MenuItem&gt;">
+        <elementDefinition Id="b0e54893-3ad2-4125-89b1-23281d82c34e" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
