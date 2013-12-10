@@ -2396,7 +2396,76 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="6ae3eb1b-4c26-4df1-9a20-8fabb5cb84d1"
+            name="ForegroundColor"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8c01338a-807f-45aa-ad96-802ff2e82de1"
+                LastKnownName="Color"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="2c179158-dce5-4bf3-b146-dd7354d4e7be"
+            name="boundingBox"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="72042aa1-82c5-40d7-8cc3-70642193049f"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="29f6da9f-0f15-4731-b677-83347cbe004b"
+                      LastKnownName="Rectangle"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2048fbbf-4524-4761-9902-cf5523d51b2d"
+            name="Widget"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f7fa01dd-5505-44f1-b6b1-39af75b501d2"
+                  name="GameState state"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="eefae474-61e3-4dbc-90e9-6979abfafe88"
+                  name="DisplayLayer drawOrder"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2616,6 +2685,22 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="8535e193-9c14-4678-a704-77d2f89b1ae4">
+            <interfaceMoniker
+              Id="15c84ecc-d292-47b1-bf9e-395cd7812f4e"
+              LastKnownName="IKeyEventListener"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="4d9cf1a6-60c3-49f4-9705-3b348a52fbfb">
+            <interfaceMoniker
+              Id="4910e594-6b74-4c83-ab82-cbe5fb40becf"
+              LastKnownName="IMouseEventListener"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="6c8b7c3b-c5c2-427a-8a18-72123fd8d651"
@@ -3004,6 +3089,22 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="9d97a50d-a7e1-463c-a701-74beefeaa2af">
+            <interfaceMoniker
+              Id="15c84ecc-d292-47b1-bf9e-395cd7812f4e"
+              LastKnownName="IKeyEventListener"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="81117b99-7555-45a4-af1b-9c20e549ad2b">
+            <interfaceMoniker
+              Id="4910e594-6b74-4c83-ab82-cbe5fb40becf"
+              LastKnownName="IMouseEventListener"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="40be807b-d751-4650-bc35-10f6ea07b9ae"
@@ -3043,6 +3144,22 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="3df6189e-ac2c-4bd8-b5fd-67df5369388e">
+            <interfaceMoniker
+              Id="15c84ecc-d292-47b1-bf9e-395cd7812f4e"
+              LastKnownName="IKeyEventListener"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="ad2fbf26-7d3b-445e-a1fd-d3156a9d1921">
+            <interfaceMoniker
+              Id="4910e594-6b74-4c83-ab82-cbe5fb40becf"
+              LastKnownName="IMouseEventListener"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="036fc00e-ab05-4c11-bacf-fbd6399e34ac"
@@ -3210,6 +3327,20 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           </property>
         </ownedAttributesInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="4910e594-6b74-4c83-ab82-cbe5fb40becf"
+        name="IMouseEventListener"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="15c84ecc-d292-47b1-bf9e-395cd7812f4e"
+        name="IKeyEventListener"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
