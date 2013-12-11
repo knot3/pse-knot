@@ -17,7 +17,7 @@
     </comment>
     <comment Id="1771b353-4470-4350-ae8f-f55ea069e66f">
       <elementDefinition Id="4b993d87-666f-4115-833c-59862b9ba0a5" />
-      <body>EM: Zustands-Muster (EN: state pattern)
+      <body>Zustands-Muster (EN: state pattern)
 
 Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Oberfläche und eigenes Verhalten.</body>
       <annotatedElements>
@@ -79,6 +79,20 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="b7f0bba0-521a-4675-91d0-75463e181ac8" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="ec2d686a-e112-46b4-ba5e-76d803040168" name="PlayerKnot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6a403d06-2031-4aab-87fb-ff017f2e76dd" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6960f6b1-809e-45c9-a6b2-053b48790e9e" LastKnownName="Knot" />
+            </type_NamedElement>
+          </property>
+          <property Id="1f3f07bf-3e30-41e0-b3d2-cf154c68ff51" name="ChallengeKnot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5077eeb2-42cc-4504-97f5-8727359bc8ef" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6960f6b1-809e-45c9-a6b2-053b48790e9e" LastKnownName="Knot" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -90,6 +104,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="27710a56-921f-4535-8406-e0481c67fc6a" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="496cae7c-246d-4968-8eb0-7551852b1e79" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4ac73481-e980-40c0-a6d5-6d3d329d3bef" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6960f6b1-809e-45c9-a6b2-053b48790e9e" LastKnownName="Knot" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -276,6 +298,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <referencedType Id="35daeb0b-2c4d-4a65-b2c6-a2575ab0b3b1" name="Knot3Game" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::Knot3Game">
         <elementDefinition Id="11fbb466-9655-4a46-8154-2ac99e569051" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6960f6b1-809e-45c9-a6b2-053b48790e9e" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::Knot">
+        <elementDefinition Id="11f023c9-2bb0-40fd-8bc0-85fe865ab6ff" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
