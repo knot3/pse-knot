@@ -53,52 +53,16 @@
           </interfaceRealization>
         </suppliersInternal>
         <ownedAttributesInternal>
-          <property Id="f5e50642-4de5-433d-914e-753ec5c71132" name="Camera" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="caf89e15-c4b7-4103-89bb-c995d08bfec6" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="663597b5-2853-44ab-98f9-3959c46c8572" LastKnownName="Camera" />
-            </type_NamedElement>
-          </property>
-          <property Id="a48ac620-f95f-4eac-918b-8d008b074b60" name="Content" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="90d5d753-3dd4-4fa4-9c0d-b690a1f98ef3" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="c0b4bade-5acd-4b15-985f-a2f13f852bd4" LastKnownName="ContentManager" />
-            </type_NamedElement>
-          </property>
-          <property Id="c6372bbe-f34f-48f6-aad3-2063608d3fa4" name="Graphics" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="045cb31b-13f9-4c04-a3c5-f96fc73841e5" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="a6073eb0-61a9-4b3a-b718-a744e8735b4b" LastKnownName="GraphicsDeviceManager" />
-            </type_NamedElement>
-          </property>
-          <property Id="9d51b130-243c-40a4-926e-9be85357869e" name="Device" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="05c7ac74-49fb-449a-930b-dba480c78f80" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="a5eaef72-43ab-4b4f-a07b-6a85d173b871" LastKnownName="GraphicsDevice" />
-            </type_NamedElement>
-          </property>
-          <property Id="f42e59a1-90ff-4277-b707-10eb10de966a" name="Input" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="cd4dc731-2037-489c-9ddf-e82209e7a372" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="9359962d-22cd-4808-bace-6c812337d68b" LastKnownName="Input" />
-            </type_NamedElement>
-          </property>
           <property Id="1d6a0872-b222-4020-aaff-bd934eb833bc" name="State" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="c7833aaf-47ce-4095-8f5a-28c8591843cb" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="c6e1ceda-02ce-41ef-8b3c-ca329bc12f2e" LastKnownName="GameState" />
+              <referencedTypeMoniker Id="c6e1ceda-02ce-41ef-8b3c-ca329bc12f2e" LastKnownName="GameScreen" />
             </type_NamedElement>
           </property>
           <property Id="32432e76-3332-43ba-83a1-cba880d632b4" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="f9d5e2b9-09bf-458b-92c2-f9891d2042e1" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ece03980-b3a0-4547-9d2d-ffa09b6ae452" LastKnownName="int" />
-            </type_NamedElement>
-          </property>
-          <property Id="c91e2f2d-98dd-4b03-9f32-d5b2ff35f9b0" name="World" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="229893ca-cfba-43da-82f2-67b2fa914922" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="fa9ce228-0a73-4213-b589-8c294850f093" LastKnownName="World" />
+              <referencedTypeMoniker Id="a4866850-74de-4a6e-87e0-1c1e360427cd" LastKnownName="DisplayLayer" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -125,13 +89,13 @@
             <elementDefinition Id="43480645-b7d5-4516-9895-a1886921ac3c" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="e4c64565-d81e-4fca-8083-f3447d306f47" name="GameState" direction="In" isUnique="false">
-                  <elementDefinition Id="32287e94-e6a9-4dea-a4aa-734dd671f3e7" />
+                <parameter Id="6109795f-ff1a-45fc-9946-cf49e8718faa" name="GameScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="47b36569-ad79-4f79-90a7-e0022d3ddfe6" />
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="55ad9f95-89d3-41c5-9caa-84564522f643" name="DisplayLayer" direction="In" isUnique="false">
-                  <elementDefinition Id="84cf4785-be47-43d4-8856-7cdc3935313d" />
+                <parameter Id="63144c8a-924e-4003-91f3-45452bd0d6bf" name="DisplayLayer" direction="In" isUnique="false">
+                  <elementDefinition Id="b1cc8ad2-b985-4a8d-9495-5feac8a22c01" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -146,7 +110,13 @@
           <property Id="029e29bc-9cad-4c48-9505-f83b45b7f3d6" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="7d02d5cf-af21-4932-b05b-b53c2f3424d8" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ece03980-b3a0-4547-9d2d-ffa09b6ae452" LastKnownName="int" />
+              <referencedTypeMoniker Id="6946bbf4-fc92-4de9-acd6-f1f5ee6e6114" LastKnownName="DisplayLayer" />
+            </type_NamedElement>
+          </property>
+          <property Id="fcecf906-265f-4f63-a763-665d272f888a" name="State" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f4d159b0-422b-4293-9f83-ba2336c5f42a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c6e1ceda-02ce-41ef-8b3c-ca329bc12f2e" LastKnownName="GameScreen" />
             </type_NamedElement>
           </property>
         </ownedAttributes>
@@ -229,38 +199,8 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="663597b5-2853-44ab-98f9-3959c46c8572" name="Camera" isAbstract="false" isLeaf="false" cachedFullName="Camera">
-        <elementDefinition Id="9ddd781f-7312-4626-9964-039198cde826" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="c0b4bade-5acd-4b15-985f-a2f13f852bd4" name="ContentManager" isAbstract="false" isLeaf="false" cachedFullName="ContentManager">
-        <elementDefinition Id="909f1650-ca69-420c-ab20-79fc691c096e" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="a5eaef72-43ab-4b4f-a07b-6a85d173b871" name="GraphicsDevice" isAbstract="false" isLeaf="false" cachedFullName="GraphicsDevice">
-        <elementDefinition Id="a0139b25-2691-4fa8-8e3d-14e9eb35a198" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="a6073eb0-61a9-4b3a-b718-a744e8735b4b" name="GraphicsDeviceManager" isAbstract="false" isLeaf="false" cachedFullName="GraphicsDeviceManager">
-        <elementDefinition Id="173c35a5-a065-49e9-8380-7d1bba787d47" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="9359962d-22cd-4808-bace-6c812337d68b" name="Input" isAbstract="false" isLeaf="false" cachedFullName="Input">
-        <elementDefinition Id="127b4092-e1f5-49eb-8ded-8c3d1dc2f2d2" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="c6e1ceda-02ce-41ef-8b3c-ca329bc12f2e" name="GameState" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::GameState">
+      <referencedType Id="c6e1ceda-02ce-41ef-8b3c-ca329bc12f2e" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::GameScreen">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="fa9ce228-0a73-4213-b589-8c294850f093" name="World" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::World">
-        <elementDefinition Id="0b511387-a1f1-4f38-879d-9f8e93c1c20c" />
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
@@ -1086,6 +1026,16 @@
     <packageHasNamedElement>
       <referencedType Id="01bc24a9-77d0-4a8e-aef3-e276f3d9723d" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
         <elementDefinition Id="349d0a89-5802-412d-bfe4-ef755ee9dc33" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6946bbf4-fc92-4de9-acd6-f1f5ee6e6114" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="DisplayLayer">
+        <elementDefinition Id="6c59f423-429a-466a-bd67-3c68a8fa1443" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a4866850-74de-4a6e-87e0-1c1e360427cd" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::DisplayLayer">
+        <elementDefinition Id="a29019b8-26ba-465c-b33c-698eebbd7ee6" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
