@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="1ed1b565-1f84-48cc-ba24-fb3e2d0daf1b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" name="IGameObject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a1b8031b-f94b-4891-a13f-73db369d072e" />
+        <targetEnds>
+          <association Id="2ea73435-1bf1-43c3-b793-47adfab154b9" isDerived="false" sourceEndRoleName="IGameObject" targetEndRoleName="GameObjectInfo" isLeaf="false" isAbstract="false">
+            <classMoniker Id="8acf167b-00e8-47a9-aa37-61e67a2a5e49" LastKnownName="GameObjectInfo" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9d083e3b-d6e9-4768-bda0-7cb3c7fdfb03" name="IGameObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ebf0b5cf-a9db-4e57-88cb-d3be4b5204ee" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9d1eca62-fd11-45ac-8664-627ff3ee8b26" name="GameObjectInfo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="356c2ea1-c440-4b7b-87f3-f40b8659a7d1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9e2ca82d-90e5-4d01-9f5e-6741e11b6a93" />
+          </association>
+        </targetEnds>
+        <ownedAttributes>
+          <property Id="6d41d286-3bbf-4a0b-81f6-2a8c1fb9f132" name="Info" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="57138abd-ad7d-454d-b88a-594ba90c7772" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="4a9b7a55-ff4d-43df-a9fc-351b579adfe5" LastKnownName="GameObjectInfo" />
+            </type_NamedElement>
+          </property>
+          <property Id="13751127-8eba-4583-8d07-37130b36b71a" name="World" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="95109b6c-eb7a-43e8-8f35-4d23b5a6ee69" />
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation Id="96ae36c1-d05b-49c9-b43c-a939ee60fc6a" name="Center" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7370ca33-dca1-4ac8-937c-b86cacfe82e7" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ed6779c9-304c-42a0-acef-05c903b17803" direction="Return" isUnique="false">
+                  <elementDefinition Id="588f4785-0502-4564-961a-7465e6e7973d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3f376840-bd1b-4608-b29e-525474ab1a77" LastKnownName="Vector3" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2f015c39-e856-47ef-8b14-613f1f62b612" name="Update" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f6d4a880-7b8c-4089-8f3a-f95768dd5baa" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f54e54c0-d65d-4db8-b376-78faf557f769" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="5af0c4fb-35e7-412a-864d-b17fb00e4462" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="70f9d3fb-a11f-45d0-ad57-7f67c73a2581" name="Draw" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9324a654-0d41-4c71-93cb-f6f44f765a63" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a3f7dfeb-a055-4cba-a133-912f50873f44" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="49eafc22-bd6c-4d3d-87a5-948eb304ab42" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0bda5ae4-c617-45f4-a201-124fd0811978" name="Intersects" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c18278be-c05c-4f57-bce5-68488326dcca" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="eb6f1a69-a8c4-42aa-b9f3-50ab8f40de4a" name="Ray" direction="In" isUnique="false">
+                  <elementDefinition Id="3390bd69-47da-4478-836a-6580361d3a5b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4b5a227c-d8b3-47dc-b3a4-1f20f4f0eb4f" direction="Return" isUnique="false">
+                  <elementDefinition Id="383c5e3f-889a-40ef-8feb-e427d3c86def" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3ed3f291-ff43-4f72-97c8-19a1b66594a1" LastKnownName="GameObjectDistance" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e00d87f0-7b76-489e-8a78-82ac7f499eb4" name="GameModel" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f77a9291-5b87-4ae2-b5c4-bb30d10b9470" />
+        <suppliersInternal>
+          <interfaceRealization Id="1679192d-671c-4cd4-838c-682cedfbdcf4">
+            <interfaceMoniker Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" LastKnownName="IGameObject" />
+            <elementDefinition Id="c96d28eb-458e-486c-a329-4028a9289f8a" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="32fe276d-03a1-49c6-932e-ecf1c61ecb94" isDerived="false" sourceEndRoleName="GameModel" targetEndRoleName="GameModelInfo" isLeaf="false" isAbstract="false">
+            <classMoniker Id="bead00fa-15a9-4e02-b654-4680c4b3fbc2" LastKnownName="GameModelInfo" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a01a40a9-300b-40f4-914c-e49f872ac6a4" name="GameModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="56af8cf0-a71e-4778-bdbb-fd1b459847e8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d26cfe7a-1140-4e48-a53b-bf015340fd02" name="GameModelInfo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e7c760e9-c9b0-4694-953c-e2eaa9a20078" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="79cb4354-71f2-4d80-b326-0f54802108fe" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="7db350dd-f2e1-47da-98c9-007b0b00640a" name="Alpha" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="833269af-7971-4265-86ec-5d2e27d2ab12" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c99d3718-f969-4976-8211-951a102e8cee" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="d30ffcce-2a9b-4554-a2d8-595a45524dd4" name="BaseColor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="08ab8a7b-9f42-4644-8428-2d52634419dd" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="58a784be-9ba8-4f6d-936f-97d6e4e35ac5" LastKnownName="Color" />
+            </type_NamedElement>
+          </property>
+          <property Id="24407fa3-6e48-4d2b-b560-821e5c5f8b9a" name="HightlightColor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f58ddc2c-aa6a-44db-992d-16af8f40f93d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="58a784be-9ba8-4f6d-936f-97d6e4e35ac5" LastKnownName="Color" />
+            </type_NamedElement>
+          </property>
+          <property Id="1285ae72-9f20-4440-a6e2-fc3db9a735a3" name="HighlightIntensity" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="60a3cb45-ef0d-409c-ae09-fb779a53064b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c99d3718-f969-4976-8211-951a102e8cee" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="bbc1af52-f720-4f36-ab47-84b5c60dabf6" name="Info" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4a1fd53c-2841-4291-b948-9df1de4687f1" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="327352df-57ef-4dba-8e55-6b6fc0d38baa" LastKnownName="GameModelInfo" />
+            </type_NamedElement>
+          </property>
+          <property Id="4f3f0477-918a-4979-8051-eb1f276a3ef1" name="Model" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ed8967fd-27b7-4b4e-b491-323f0ee2b46d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="387cefa3-53fb-4c33-8cb4-0e181d20a773" LastKnownName="XNA.Model" />
+            </type_NamedElement>
+          </property>
+          <property Id="13aa43c8-1edc-4251-ba06-67299252d887" name="World" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c2bd450f-108d-46d2-903f-9f49aa7a14b7" />
+          </property>
+          <property Id="16146d0e-da32-4359-a44c-8d89b67e0a57" name="WorldMatrix" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7fafd5d4-2335-474d-9ba5-977fab30ffdf" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3177c8d5-7e09-4f73-a441-22edf350e4f2" LastKnownName="Matrix" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="51c4f56d-8726-42d8-9265-a5b3d851b321" name="Center" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a0552c78-51ad-43ef-b6d8-184c79a1636a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="eb52be74-3a87-4200-ac2a-bb34ff785567" direction="Return" isUnique="false">
+                  <elementDefinition Id="5ed1e2e9-6bc0-446c-ae3c-011a2e7ede98" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3f376840-bd1b-4608-b29e-525474ab1a77" LastKnownName="Vector3" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b5542805-cf44-4012-938b-533e88ef330a" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b80b2a29-1b07-48d7-8063-fdb8cd6d88a8" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1d6a8229-1ae0-4ccb-a80c-325fe09b113f" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="857625d0-a031-4105-bf89-054d790ce4da" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b7d8073f-e5e4-40d8-9d2b-4f5c269ac729" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9b300c42-a28c-4ce2-866f-40a3af29ecb0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b4e04804-9382-4a99-ac52-d9f1516c2afc" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="665dee25-653e-45ef-be5d-0879e0e3c39a" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="302324cc-1a8b-4ee9-ac9f-2793eda57a02" name="Intersects" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f2fbc73b-cb4e-4e64-accb-420d3f39f4a4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1ec0a1c2-5db7-4cb4-a4b2-1f2a4c1af0e0" name="Ray" direction="In" isUnique="false">
+                  <elementDefinition Id="29543d36-7a50-4548-87ce-5c049b149b33" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5449a9d0-5647-4a31-aeca-eadced951ad4" direction="Return" isUnique="false">
+                  <elementDefinition Id="c27abaa1-892e-4002-8ada-0520f163635a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3ed3f291-ff43-4f72-97c8-19a1b66594a1" LastKnownName="GameObjectDistance" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0b4ce05d-c5f6-493c-8ca4-9ee446c38523" name="GameModel" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cd56641c-181c-40cf-9ee5-a5b0db25edf4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b11d2ca6-ddfb-47f3-88d3-4d6af836b3b0" name="GameScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="2f8dd387-2915-4886-8f11-c85e3d8e92ff" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c4403252-5b95-4519-8085-fdb30f237ed6" name="GameModelInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="c043c73c-6655-4e3c-a93b-d5c3aa33258e" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="3f376840-bd1b-4608-b29e-525474ab1a77" name="Vector3" isAbstract="false" isLeaf="false" cachedFullName="Vector3">
+        <elementDefinition Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c99d3718-f969-4976-8211-951a102e8cee" name="float" isAbstract="false" isLeaf="false" cachedFullName="float">
+        <elementDefinition Id="e44563c0-4586-48dd-92e1-f7ad57248de3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3177c8d5-7e09-4f73-a441-22edf350e4f2" name="Matrix" isAbstract="false" isLeaf="false" cachedFullName="Matrix">
+        <elementDefinition Id="b6a75ff6-611f-4ab3-b46d-14f2866b9c1d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8acf167b-00e8-47a9-aa37-61e67a2a5e49" name="GameObjectInfo" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b529f9b9-bd0f-4763-a1e0-4b3475bef09e" />
+        <suppliersInternal>
+          <interfaceRealization Id="dd375da8-113a-4413-bc86-4abdad197e49">
+            <interfaceMoniker Id="0d1bfc41-df6d-4843-8295-942679b78a5a" LastKnownName="IEquatable&lt;GameObjectInfo&gt;" />
+            <elementDefinition Id="115318ec-2330-42cc-8ae4-13a22868a2f0" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="8aa55338-bde0-435e-a633-97a228dc989a" name="IsMovable" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="67365eba-06a4-4f16-92b0-088a16b954ad" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6709d4d4-8811-4587-8033-d258e59152f5" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="6ad40572-3f55-4b26-bc4c-ae9f02e9b643" name="IsSelectable" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="67c9120a-1869-424d-9362-08ffb607f4b8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6709d4d4-8811-4587-8033-d258e59152f5" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="4a28c88b-1ed9-4834-8042-dd5e5cdd7226" name="IsVisible" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5e7f65b8-c02d-44cb-bec7-81427103106d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6709d4d4-8811-4587-8033-d258e59152f5" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="95dc18b0-99fe-4b01-9c54-8d05ffe26716" name="Position" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fd07e276-dae3-47d1-a104-835927dc6e08" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3f376840-bd1b-4608-b29e-525474ab1a77" LastKnownName="Vector3" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="6f59f192-562b-4f36-bfd1-adf3750df306" name="Equals" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="84e1f76e-8094-4e6c-bddf-a32f27a1fff1" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b918840c-67c8-497f-a391-ca64629305e6" name="GameObjectInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="0b5b4c8a-9c54-4432-b3e4-3e795a088f8f" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="be19bc92-5091-436f-b155-3758d590d0f8" direction="Return" isUnique="false">
+                  <elementDefinition Id="d3300f2d-befd-4e80-a0be-67ed52b92ea5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6709d4d4-8811-4587-8033-d258e59152f5" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="6709d4d4-8811-4587-8033-d258e59152f5" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="349d0a89-5802-412d-bfe4-ef755ee9dc33" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="0d1bfc41-df6d-4843-8295-942679b78a5a" name="IEquatable&lt;GameObjectInfo&gt;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e43a84cb-b7af-41f2-a0c8-def3b8c88fb3" />
+        <ownedOperations>
+          <operation Id="7b7fdb39-16f2-4fd4-a42b-952129d2687b" name="Equals" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="27f7e963-64ae-4304-9d61-d2a7c4d8795d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fd066e0e-5082-46f3-825b-9297e21581e5" direction="Return" isUnique="false">
+                  <elementDefinition Id="fed85065-7f3a-44d2-a54e-53d4393bfdcb" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6709d4d4-8811-4587-8033-d258e59152f5" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="85fe9834-d8db-406f-b4a7-d65f68458cb1" name="GameObjectInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="f5b382fc-9298-4396-b03f-c1abdbad0dc3" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="bead00fa-15a9-4e02-b654-4680c4b3fbc2" name="GameModelInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9cdf4b86-699a-4fd9-9223-b68f7f5afd61" />
+        <generalsInternal>
+          <generalization Id="0e98f97c-9e0a-4a59-8fe9-42b047df138f" isSubstitutable="false">
+            <classMoniker Id="8acf167b-00e8-47a9-aa37-61e67a2a5e49" LastKnownName="GameObjectInfo" />
+            <elementDefinition Id="cedf69ef-e78d-47e1-bca3-a5d0f173c357" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="b256beb0-228d-4acd-9221-c2a35a62685a" name="Modelname" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="766f5883-1e9e-4ce9-9976-10913c1c4288" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="610db998-dd0b-4d02-a661-c610a1adeaa2" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="f66cf619-4eee-46cc-bdf1-c7b19412e6fc" name="Rotation" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c31ee9f9-d3d2-4436-b913-75cb41b9d948" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6574fcc9-dfe8-4779-a76f-e201e6b9e592" LastKnownName="Angles3" />
+            </type_NamedElement>
+          </property>
+          <property Id="13fdf038-571f-4718-8271-4c13457e7548" name="Scale" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5c21b11e-e51c-4808-bec5-0cf068eb453c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c99d3718-f969-4976-8211-951a102e8cee" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="610db998-dd0b-4d02-a661-c610a1adeaa2" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6574fcc9-dfe8-4779-a76f-e201e6b9e592" name="Angles3" isAbstract="false" isLeaf="false" cachedFullName="Angles3">
+        <elementDefinition Id="1848a513-114c-4349-a443-97d343cee0d1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="27d8f09a-d1e9-43f6-a532-a64933180438" name="PipeModelInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="540160d0-f447-41e0-b3a2-83b435910b0f" />
+        <generalsInternal>
+          <generalization Id="79a61eff-07e5-40e9-9d80-bd4861ae342e" isSubstitutable="false">
+            <classMoniker Id="bead00fa-15a9-4e02-b654-4680c4b3fbc2" LastKnownName="GameModelInfo" />
+            <elementDefinition Id="c1177294-409f-45c2-96ff-9ea66b569963" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="d5544983-4af2-4563-be3b-d313a1308457" name="Edge" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1eb143ff-91cb-4335-8130-d9c23145c455" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b8522fa6-3ed5-4fcf-aef9-fa3b388aab25" LastKnownName="Edge" />
+            </type_NamedElement>
+          </property>
+          <property Id="99e35dea-9327-412c-8f91-68744b66de11" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4698b0c6-8076-4912-9231-cf17ef52c18f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="439e4a3a-e023-449e-8501-3ef50dfee52f" LastKnownName="Knot" />
+            </type_NamedElement>
+          </property>
+          <property Id="2492e8e5-d344-49ee-af0f-1feafd1df949" name="PositionFrom" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5219bc67-8404-4bf2-952e-e56569242951" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3f376840-bd1b-4608-b29e-525474ab1a77" LastKnownName="Vector3" />
+            </type_NamedElement>
+          </property>
+          <property Id="e60bb457-89f6-41c0-8009-66b536a44163" name="PositionTo" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8a2834c3-112a-4924-9ec4-f03f942e8fac" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3f376840-bd1b-4608-b29e-525474ab1a77" LastKnownName="Vector3" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="b8522fa6-3ed5-4fcf-aef9-fa3b388aab25" name="Edge" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::Edge">
+        <elementDefinition Id="91384762-e872-4895-9c03-ce395ce36c4f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="439e4a3a-e023-449e-8501-3ef50dfee52f" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::Knot">
+        <elementDefinition Id="11f023c9-2bb0-40fd-8bc0-85fe865ab6ff" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a42479db-cecd-4443-bb91-df54319f52f7" name="NodeModelInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="07ac8bfc-b3c4-4e8b-9e66-5755b28cd013" />
+        <generalsInternal>
+          <generalization Id="22db2145-00b6-4725-be25-0f06c6b39b25" isSubstitutable="false">
+            <classMoniker Id="bead00fa-15a9-4e02-b654-4680c4b3fbc2" LastKnownName="GameModelInfo" />
+            <elementDefinition Id="96736ccc-2726-4655-aabb-d9d83c0cf996" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="d5b12c38-6906-446d-8feb-cb63e4fe40cf" name="EdgeFrom" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5b533528-fc02-482c-a0b0-1d3b3eb6a215" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b8522fa6-3ed5-4fcf-aef9-fa3b388aab25" LastKnownName="Edge" />
+            </type_NamedElement>
+          </property>
+          <property Id="f295c87e-a784-464c-b05b-c110cf0bbb01" name="EdgeTo" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d21df6dc-052d-4db8-8387-f5c76028a820" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b8522fa6-3ed5-4fcf-aef9-fa3b388aab25" LastKnownName="Edge" />
+            </type_NamedElement>
+          </property>
+          <property Id="1f332064-368d-4d72-be61-1f36d5f3145c" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fbdcd1dc-cd40-4cd7-911f-fbf8eff20b77" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="439e4a3a-e023-449e-8501-3ef50dfee52f" LastKnownName="Knot" />
+            </type_NamedElement>
+          </property>
+          <property Id="ffaeb822-1148-4b41-8d27-8dfb1e6e9881" name="Position" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b0dcb30e-c5b2-4109-97e4-b54f023ed679" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3f376840-bd1b-4608-b29e-525474ab1a77" LastKnownName="Vector3" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="4a9b7a55-ff4d-43df-a9fc-351b579adfe5" name="GameObjectInfo" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::GameObjectInfo">
+        <elementDefinition Id="b529f9b9-bd0f-4763-a1e0-4b3475bef09e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3ed3f291-ff43-4f72-97c8-19a1b66594a1" name="GameObjectDistance" isAbstract="false" isLeaf="false" cachedFullName="GameObjectDistance">
+        <elementDefinition Id="1abed3c6-e9fb-4bc9-bc5e-c72489c77f70" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="58a784be-9ba8-4f6d-936f-97d6e4e35ac5" name="Color" isAbstract="false" isLeaf="false" cachedFullName="Color">
+        <elementDefinition Id="8c01338a-807f-45aa-ad96-802ff2e82de1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="327352df-57ef-4dba-8e55-6b6fc0d38baa" name="GameModelInfo" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::GameModelInfo">
+        <elementDefinition Id="9cdf4b86-699a-4fd9-9223-b68f7f5afd61" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="387cefa3-53fb-4c33-8cb4-0e181d20a773" name="XNA.Model" isAbstract="false" isLeaf="false" cachedFullName="XNA.Model">
+        <elementDefinition Id="521a07ca-f0e3-4076-9bb2-3d50c5b091f9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4d975b3e-5492-4f98-bd59-7881c72587e2" name="PipeModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="34cefb6f-dc1c-426d-b1ea-b554b52a3a0d" />
+        <generalsInternal>
+          <generalization Id="2f9105fd-d21e-49fa-ae74-b2c1c1fdc0f4" isSubstitutable="false">
+            <classMoniker Id="e00d87f0-7b76-489e-8a78-82ac7f499eb4" LastKnownName="GameModel" />
+            <elementDefinition Id="9063ea73-fdda-4aaf-b88e-cbe5c78e3aad" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="ea5fc4ab-9bbc-4656-b957-96ac1bd63402" isDerived="false" sourceEndRoleName="PipeModel" targetEndRoleName="PipeModelInfo" isLeaf="false" isAbstract="false">
+            <classMoniker Id="27d8f09a-d1e9-43f6-a532-a64933180438" LastKnownName="PipeModelInfo" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b6ab1015-17d2-41b8-b541-85b5c201a753" name="PipeModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="de4694e2-37e3-4141-aac6-7eb1d6ba3a8c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="34ad86c5-5268-4e2e-9cde-d98f7dfa7b36" name="PipeModelInfo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6023b197-3e59-49b8-9a0c-239fd53ec675" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3df0718a-181c-4005-b225-71162185788f" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="039cc655-f103-45f6-a5f7-7a40c04cf57a" name="Info" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ab614857-2d2e-40f6-b6e9-456f0dd18506" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="14e09127-fc0e-4489-8e93-619333c423df" LastKnownName="PipeModelInfo" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="c6b4f05f-d8a2-4d87-950d-9d777e18c4a6" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="59fd095b-adee-407f-ac64-f39ec6e9a6cc" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b1089296-b92f-4a4f-a5dd-b7e9bb113804" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="7787a7ea-60ae-4207-bdda-ad797c92bbd6" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="3c5cf9e7-2442-43cb-8702-6f9f4708f7b7" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d3377690-ec89-49e8-8317-3c8b59bebe00" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3e7aa094-6873-49a0-afa9-a9c60d5f8d95" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="b92f6308-88f6-473e-a486-89720c9c1fc7" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="1d6b80f4-6e79-4590-9875-e67c1638fa44" name="Intersects" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b5d579b3-d994-463f-9a85-42df27de5a94" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7c1f802d-1f90-4501-9606-ddc03c139ba0" name="Ray" direction="In" isUnique="false">
+                  <elementDefinition Id="12d4dfa5-6024-4ace-90ba-f6ef6f4446aa" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="24d57bd6-b9d6-4912-8819-b0a0519d9e18" direction="Return" isUnique="false">
+                  <elementDefinition Id="da5a280c-9b17-4f8a-9035-cd3d85983897" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3ed3f291-ff43-4f72-97c8-19a1b66594a1" LastKnownName="GameObjectDistance" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="fcd641ce-7532-4914-8fa8-7c34d9fee2de" name="PipeModel" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d20f02ff-b6b9-4ef6-9fb6-66cf443228a5" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="38a85e50-85f7-4a34-82cd-21481444b3e8" name="GameScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="3ce5436b-538a-4b90-b9b7-ba92d2fa4082" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7c5a732d-4e04-4f31-b4bd-6db7777dc887" name="PipeModelInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="b0262146-19b9-46d8-a8a8-2a8573c9ab46" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="14e09127-fc0e-4489-8e93-619333c423df" name="PipeModelInfo" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::PipeModelInfo">
+        <elementDefinition Id="540160d0-f447-41e0-b3a2-83b435910b0f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="38a2e96e-a5a1-4b69-a58f-b1dc2a2dca5c" name="NodeModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="31323d98-89b9-48de-801c-b06694e8954d" />
+        <generalsInternal>
+          <generalization Id="52125110-aa50-44a0-aac9-7a309ffdc166" isSubstitutable="false">
+            <classMoniker Id="e00d87f0-7b76-489e-8a78-82ac7f499eb4" LastKnownName="GameModel" />
+            <elementDefinition Id="182f00ae-f263-4ecb-8473-a88bc36d447f" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="b980375f-e2d4-4bdb-8808-7b5591bb3477" isDerived="false" sourceEndRoleName="NodeModel" targetEndRoleName="NodeModelInfo" isLeaf="false" isAbstract="false">
+            <classMoniker Id="a42479db-cecd-4443-bb91-df54319f52f7" LastKnownName="NodeModelInfo" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b1c6f690-7355-4e49-a189-38c6df20bab2" name="NodeModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="165f49b7-ec32-4694-863a-a16e767d4fee" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1b804cda-439b-4eaf-8de0-f0533f79a7bd" name="NodeModelInfo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="493297b0-db46-4e6d-b8de-bb686a78420e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a58b38a2-b1c8-44cd-9402-9ea99e8bdbe7" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="6c6dd013-1c15-4ecf-af0d-439142c07cb4" name="Info" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6899be34-240b-4238-b450-60c14a853f2d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="75bf946d-fff0-46e2-8daf-a9a8c348a63b" LastKnownName="NodeModelInfo" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="bdc8787a-2eb6-4138-a785-ed5327207bc5" name="NodeModel" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="09a5df21-1be3-4171-a687-3d24cb56ceca" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="391f363e-4c84-49e1-990b-790768033a65" name="GameScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="9adbe9e1-8075-43ff-8710-637dd8d21ec1" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4d67e381-e011-4925-91a8-2082136e811d" name="NodeModelInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="dcf2271c-19e8-4d03-bdf4-bebdd8ec7822" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6d50d209-5481-4e93-b834-d3af493be2ad" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="af937f22-51a7-4ae4-b6a9-8524ea50fee4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d1d3fe55-0445-4ba1-a590-4be28b261ea7" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="f5841a56-f92a-428b-87e1-95b50125ac25" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="40996a1f-2cbe-4bcf-b2d1-4c7904193034" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f3496da7-d249-4524-9af0-d052825a494e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e65c0227-e685-4285-8ec9-7dd8f2a37b42" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="264e49dd-55c2-46ce-9b12-48ce685c14db" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="75bf946d-fff0-46e2-8daf-a9a8c348a63b" name="NodeModelInfo" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::NodeModelInfo">
+        <elementDefinition Id="07ac8bfc-b3c4-4e8b-9e66-5755b28cd013" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="1ed1b565-1f84-48cc-ba24-fb3e2d0daf1b" name="ModelingProject1">
+    <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
+    <profileInstances>
+      <packageHasProfileInstances Id="941be71e-a867-4d90-8c23-a12a3ee0a770">
+        <profileInstance Id="ce1fd231-3cb2-4d13-aeb4-ed3274bdd80f" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="cd370150-0c28-450a-86de-84ae9631f1ee">
+        <profileInstance Id="d55e7f71-0a21-4e24-8d76-e596dc1991ce" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

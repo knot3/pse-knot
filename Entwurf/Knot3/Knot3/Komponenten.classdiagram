@@ -15,66 +15,6 @@
     </packageHasProfileInstances>
   </profileInstances>
   <packagedElements>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="db6d2ece-a8f8-4c55-ac1f-5784c18b4a8a" name="DrawableGameStateComponent" isAbstract="true" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="b8056711-8c75-45ec-a246-6a8f76a9887a" />
-        <suppliersInternal>
-          <interfaceRealization Id="95eab6e3-de19-43d3-95f3-5d92a1effc1f">
-            <interfaceMoniker Id="58011977-b629-4e75-9d3b-2af3dd885724" LastKnownName="IGameStateComponent" />
-            <elementDefinition Id="a4164f92-3584-42c6-bd80-8e13e403744f" />
-          </interfaceRealization>
-        </suppliersInternal>
-        <ownedAttributesInternal>
-          <property Id="95b508d3-d1e8-4842-99cd-c87628f843d8" name="State" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="c7833aaf-47ce-4095-8f5a-28c8591843cb" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" LastKnownName="GameScreen" />
-            </type_NamedElement>
-          </property>
-          <property Id="1aacabca-34b6-4b08-9614-8f65708b2ea4" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="f9d5e2b9-09bf-458b-92c2-f9891d2042e1" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="a7f85dac-ab6c-4580-ba69-0c9c85bcf2c5" LastKnownName="DisplayLayer" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="9ff4c609-db02-4aa7-9652-5f2a013ddaf5" name="SubComponents" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="7d2ab93b-58ad-4eac-9326-cdece4b0511d" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="c0b85bf7-f0f5-44fa-b146-0fa784c534d4" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="b458fa49-5e62-4c05-8ed2-6a4b2fc23716" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="79375096-a398-4f66-86a7-e823cae8cfd3" direction="Return" isUnique="false">
-                  <elementDefinition Id="6eea5d3a-9f5f-4b9f-8c10-7ba309b90132" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="31fa3c9b-a9d2-42e5-b800-fd83e33171c5" LastKnownName="IEnumerable" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="10400bd8-38b4-41af-b61e-cca8e68fdca3" name="DrawableGameStateComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="43480645-b7d5-4516-9895-a1886921ac3c" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="3b793c43-9397-4ad8-b52d-6126012d680b" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="47b36569-ad79-4f79-90a7-e0022d3ddfe6" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="b6fb5c7a-4448-4ff8-b024-dad0bdeb69ee" name="DisplayLayer" direction="In" isUnique="false">
-                  <elementDefinition Id="b1cc8ad2-b985-4a8d-9495-5feac8a22c01" />
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
       <referencedType Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::GameScreen">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
@@ -88,6 +28,12 @@
     <logicalClassDesignerModelHasTypes>
       <Interface Id="58011977-b629-4e75-9d3b-2af3dd885724" name="IGameStateComponent" isAbstract="false" isLeaf="false">
         <elementDefinition Id="67ab6ac2-5faa-41b0-93be-b81a4f355177" />
+        <generalsInternal>
+          <generalization Id="b1550018-2f43-412f-9014-d64dd304b996" isSubstitutable="false">
+            <interfaceMoniker Id="81d24681-eb43-47ec-9094-98fd2107c172" LastKnownName="XNA.IGameComponent" />
+            <elementDefinition Id="18ba35f3-da0c-40d0-84d1-1eba6a4a2f7a" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributes>
           <property Id="b8b180f4-892b-4c33-adcd-dda7c719d229" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="7d02d5cf-af21-4932-b05b-b53c2f3424d8" />
@@ -166,70 +112,54 @@
         <elementDefinition Id="6c59f423-429a-466a-bd67-3c68a8fa1443" />
       </referencedType>
     </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="a7f85dac-ab6c-4580-ba69-0c9c85bcf2c5" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::DisplayLayer">
-        <elementDefinition Id="a29019b8-26ba-465c-b33c-698eebbd7ee6" />
-      </referencedType>
-    </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <class Id="329acbf6-866a-4019-9ac7-d220cbec93d8" name="GameStateComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="7b4912b3-6cad-44e8-8ef9-2357e0417439" />
-        <suppliersInternal>
-          <interfaceRealization Id="6d20c6ac-d22a-496c-a3ce-eef775071db7">
-            <interfaceMoniker Id="58011977-b629-4e75-9d3b-2af3dd885724" LastKnownName="IGameStateComponent" />
-            <elementDefinition Id="80181625-fe0d-4544-9651-0f3245dd51c8" />
-          </interfaceRealization>
-        </suppliersInternal>
-        <ownedAttributesInternal>
-          <property Id="ad8ef3ff-c6f7-4877-94a1-a435adcc885c" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="f62a58a3-2bee-46ef-b51e-51fce808d8e1" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="a7f85dac-ab6c-4580-ba69-0c9c85bcf2c5" LastKnownName="DisplayLayer" />
-            </type_NamedElement>
-          </property>
-          <property Id="a97d621b-b4e8-4f0a-9a9b-99427f7c0f51" name="State" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="693ee540-460d-4bc2-b924-77ee32bf99c3" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" LastKnownName="GameScreen" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
+      <class Id="b5f319b2-7288-451a-8f51-0d7e18dcc9e9" name="XNA.DrawableGameComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="12b02be5-bdbc-4410-a0ff-66b009067e46" />
         <ownedOperationsInternal>
-          <operation Id="21c805ea-4926-48c7-ba60-787945bff652" name="SubComponents" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="87ea0171-8385-4446-be82-b2fafda53824" />
+          <operation Id="276fd19f-239d-4f1c-a155-7ae4d38cf754" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4a179ad1-c2e9-4221-8b9f-6702dac42c5d" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="03b9c140-e00d-4378-aa15-cb747be5d009" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="9ff99b18-7c8a-4af9-82bf-06d034b60615" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="aa9a2fbe-fe77-457e-83e3-bf63627f0d70" direction="Return" isUnique="false">
-                  <elementDefinition Id="bd070b32-077c-4177-a74e-1ced3885e4cb" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="31fa3c9b-a9d2-42e5-b800-fd83e33171c5" LastKnownName="IEnumerable" />
-                  </type_NamedElement>
+                <parameter Id="7250e65d-690f-4247-85e4-71f2de89ddd7" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="db6ed100-90fc-4595-a41b-ea4758f04c77" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="e7df1e34-2f0c-400c-af62-9b7bd6f9fb1d" name="GameStateComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="94f35187-28d5-4346-a62c-fa07b9347214" />
+          <operation Id="40f28346-2402-4edc-ab29-6a1be61828db" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1a96b372-90d8-41a0-870d-ff417e803181" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="8117ddc1-cb14-4e56-9549-9a08ac26bbd4" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="90da5822-2aef-4229-884c-4b177055cc64" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="55aadd1c-54ad-457b-9188-e9360b5c646e" name="DisplayLayer" direction="In" isUnique="false">
-                  <elementDefinition Id="171bc6df-b695-46ca-a498-4a182c4d9fc7" />
+                <parameter Id="4b4ec1ef-4d67-4c3f-80de-685d0934198c" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="8f438ac3-2eaf-4c18-9b72-05b41c324cae" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f425f10e-462a-4b33-9e41-3c10c5ebacf2" name="XNA.GameComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5c19bbcd-16b3-46d4-8c45-86eed9e5ecbd" />
+        <ownedOperationsInternal>
+          <operation Id="2e0222d7-c804-4370-b594-4ffb7ced0b1f" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5d019a6d-433a-47d5-97ee-108b464b2f56" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="83189516-6d80-4e55-bbc8-76c1ed9fd0cd" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="670d88f0-f7ba-4093-8e20-9f7640f2e3ef" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="81d24681-eb43-47ec-9094-98fd2107c172" name="XNA.IGameComponent" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2ea48491-431f-459b-b7ad-ab9024c0926a" />
+      </Interface>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="ce0cf89a-b7d4-4ae9-944d-994a2cf84c81" name="ModelingProject1">

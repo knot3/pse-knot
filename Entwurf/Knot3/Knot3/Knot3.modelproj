@@ -22,19 +22,33 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
-    <Content Include="3DModelle.classdiagram">
+    <Content Include="3D-Komponenten.classdiagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="3DModelle.classdiagram.layout">
+    <Content Include="3D-Komponenten.classdiagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>3DModelle.classdiagram</DependentUpon>
+      <DependentUpon>3D-Komponenten.classdiagram</DependentUpon>
     </Content>
-    <Content Include="GameComponents.classdiagram">
+    <Content Include="3D-Modelle.classdiagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="GameComponents.classdiagram.layout">
+    <Content Include="3D-Modelle.classdiagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>GameComponents.classdiagram</DependentUpon>
+      <DependentUpon>3D-Modelle.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Effekte.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Effekte.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Effekte.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Komponenten.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Komponenten.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Komponenten.classdiagram</DependentUpon>
     </Content>
     <Content Include="Knot.classdiagram">
       <SubType>Content</SubType>
