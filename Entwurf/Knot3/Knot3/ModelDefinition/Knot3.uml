@@ -1921,6 +1921,60 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="89b752ad-e226-45d0-9d1b-00fc2a2e94e0"
+            isDerived="false"
+            sourceEndRoleName="Menu"
+            targetEndRoleName="MenuItem"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b850eba4-57a5-42aa-b25d-e4a3780582f1"
+              LastKnownName="MenuItem"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bd6f6ab2-d150-4868-ab54-ea13152db2c6"
+                  name="Menu"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6e10ce2e-2404-4430-a2a7-f414fb4dd4be"
+                  name="MenuItem"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="e35d1017-c07e-4425-a443-26835737664a"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="be75fb0c-faab-4ac6-a936-6bfa78489647"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="852ffd35-d951-4c03-9205-52bfa9a64333"
@@ -2449,6 +2503,16 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="df463c6d-1890-41e2-b880-cb686062e2d3"
+            name="enthält">
+            <classMoniker
+              Id="5d2eded3-b9d9-494c-b92c-5674a3a62b5b"
+              LastKnownName="DropDownEntrie"
+              LastKnownLocation="Knot3.uml" />
+          </dependency>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="89399cfc-79f8-46c3-88c8-d8bcdd9893cf"
@@ -2756,24 +2820,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
-          <property
-            Id="fbfd512a-362c-42c0-af03-5afcba694e37"
-            name="Menubuttons"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="5eb07dbd-b3dd-46bf-a375-6da868c9fb85"
-                LastKnownName="MenuButton"
-                LastKnownLocation="Knot3.uml" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -2984,15 +3030,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
-        <suppliersInternal>
-          <dependency
-            Id="c8e9a67e-472c-4d56-ad15-73c7502d6759">
-            <classMoniker
-              Id="717e6418-588c-4bb5-b38c-2154f0a68be3"
-              LastKnownName="DropDownMenuItem"
-              LastKnownLocation="Knot3.uml" />
-          </dependency>
-        </suppliersInternal>
         <ownedAttributesInternal>
           <property
             Id="3f48bef9-954d-4c15-8a69-f082e3697168"

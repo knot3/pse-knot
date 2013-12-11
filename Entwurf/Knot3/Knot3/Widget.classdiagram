@@ -231,6 +231,34 @@
             <elementDefinition Id="4e6598be-e633-4ef1-9fdd-ff3255fa6db6" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="58f71568-55de-4ff3-880b-7d2d6387e991" isDerived="false" sourceEndRoleName="Menu" targetEndRoleName="MenuItem" isLeaf="false" isAbstract="false">
+            <classMoniker Id="c5cdf57b-07c8-4b9f-8293-c2670398af8f" LastKnownName="MenuItem" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="79ad5e67-879d-4884-8333-47f5344b29c1" name="Menu" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="bd6f6ab2-d150-4868-ab54-ea13152db2c6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="648ec87d-d0d2-4aff-9ea0-df05b4d1908a" name="MenuItem" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="5f1e895d-4468-4421-b4b4-ec4664ed9ed3" name="Lower" value="1">
+                      <elementDefinition Id="e35d1017-c07e-4425-a443-26835737664a" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="27c475aa-5ccb-4ba0-9ca9-3438a44a9601" name="Upper" value="*">
+                      <elementDefinition Id="be75fb0c-faab-4ac6-a936-6bfa78489647" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="6e10ce2e-2404-4430-a2a7-f414fb4dd4be" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="89b752ad-e226-45d0-9d1b-00fc2a2e94e0" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="ee27a97c-7c4c-4861-9499-a484541cfaf7" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="852ffd35-d951-4c03-9205-52bfa9a64333" />
@@ -497,6 +525,12 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="a8b40508-2a7a-4919-b6a4-7f74d0682f28" name="DropDownMenuItem" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="717e6418-588c-4bb5-b38c-2154f0a68be3" />
+        <suppliersInternal>
+          <dependency Id="0ee795c7-960a-4925-afc3-8f06b5e58ff9" name="enthält">
+            <classMoniker Id="508113f3-5a89-4d01-bbc7-1d4b3ec27a62" LastKnownName="DropDownEntrie" />
+            <elementDefinition Id="df463c6d-1890-41e2-b880-cb686062e2d3" />
+          </dependency>
+        </suppliersInternal>
         <generalsInternal>
           <generalization Id="1e05994b-7cf3-4b9d-bbb5-d06fc89c3d8a" isSubstitutable="false">
             <classMoniker Id="c5cdf57b-07c8-4b9f-8293-c2670398af8f" LastKnownName="MenuItem" />
@@ -659,12 +693,6 @@
               <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
             </type_NamedElement>
           </property>
-          <property Id="0dbfed01-87e2-4770-8b9e-72bb472804c5" name="Menubuttons" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="fbfd512a-362c-42c0-af03-5afcba694e37" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="bdcd81f1-99ba-4c9d-b98b-1c1fa89e9657" LastKnownName="MenuButton" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="4e360381-a99b-4918-84c5-f9067d96b99e" name="OnKeyEvent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -787,12 +815,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="508113f3-5a89-4d01-bbc7-1d4b3ec27a62" name="DropDownEntrie" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="5d2eded3-b9d9-494c-b92c-5674a3a62b5b" />
-        <suppliersInternal>
-          <dependency Id="dd2848d1-6749-446f-964f-1a0ab199765a">
-            <classMoniker Id="a8b40508-2a7a-4919-b6a4-7f74d0682f28" LastKnownName="DropDownMenuItem" />
-            <elementDefinition Id="c8e9a67e-472c-4d56-ad15-73c7502d6759" />
-          </dependency>
-        </suppliersInternal>
         <ownedAttributesInternal>
           <property Id="6f12ba7b-08dc-4ab3-a440-2db302b8f89d" name="Text" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="3f48bef9-954d-4c15-8a69-f082e3697168" />
@@ -1028,11 +1050,6 @@
         </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
-    <packageHasNamedElement>
-      <referencedType Id="bdcd81f1-99ba-4c9d-b98b-1c1fa89e9657" name="MenuButton" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::MenuButton">
-        <elementDefinition Id="5eb07dbd-b3dd-46bf-a375-6da868c9fb85" />
-      </referencedType>
-    </packageHasNamedElement>
   </packagedElements>
   <package Id="043cb81b-6165-44a7-9481-d62ded78ac9a" name="Knot3-Entwurf">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
