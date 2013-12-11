@@ -2,7 +2,7 @@
 <modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="20ab710a-33d8-48fa-b17c-f3bf548e2638"
-  name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  name="Knot3-Entwurf" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <ownedCommentsInternal>
     <comment
       Id="0eed9d6b-d83c-4ec7-88bb-b162be9cc205">
@@ -5554,6 +5554,100 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 <parameter
                   Id="4c3d74ec-3fd6-4459-981c-1b3d533258dc"
                   name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bd8523cb-f1c6-4f44-80e0-f5cb3062f3d0"
+        name="RenderEffectStack"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="ef35a6ed-6730-4d38-b19f-4830c04b3e7c"
+            name="CurrentEffect"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="c26cea4a-4b15-4df5-becb-7c583552dd0c"
+                LastKnownName="IRenderEffect"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2fe44166-cdd5-42f8-a48c-b813e118a083"
+            name="DefaultEffect"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="c26cea4a-4b15-4df5-becb-7c583552dd0c"
+                LastKnownName="IRenderEffect"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="9bd437a1-3aa9-4e36-a9da-f999c20ee8ee"
+            name="Pop : IRenderEffect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="f7db07f4-5d7b-4c69-8df2-cf05acf803dc"
+            name="Push"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ce28f286-ab6b-419c-9cb1-c65d0723a5a4"
+                  name="IRenderEffect"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0d271a2e-c748-4caf-a3b5-f1b664980b1e"
+            name="RenderEffectStack"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="23eeea57-5ff6-4c5f-92d0-9400b1076824"
+                  name="IRenderEffect defaultEffect"
                   direction="In"
                   isUnique="false" />
               </operationHasOwnedParameters>

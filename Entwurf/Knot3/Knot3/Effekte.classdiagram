@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f41f99fa-0b9f-41ab-99af-7e57903e67ba" name="Effekte" linkedPackageId="298f3868-f371-4a7f-bf37-2c41bc718a50" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="eb0814e2-a547-494c-aa47-9c581760ad6e">
-      <profileInstance Id="cd9c7382-5071-4066-b5db-b0863f153726" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="392c10f7-fba4-4751-a190-5b4718950639">
-      <profileInstance Id="808c576d-4f4f-4fe3-be15-2a3342d534f3" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="98e4a96c-de44-46e4-a0c5-b33fc96fa240" name="IRenderEffect" isAbstract="false" isLeaf="false">
@@ -316,8 +302,76 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="58dae154-c053-4106-bd5f-85059a0db501" name="RenderEffectStack" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bd8523cb-f1c6-4f44-80e0-f5cb3062f3d0" />
+        <ownedAttributesInternal>
+          <property Id="0d93a924-f807-43b9-92ae-4238e387e61d" name="CurrentEffect" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ef35a6ed-6730-4d38-b19f-4830c04b3e7c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9a0a2a49-3eff-4c2a-ae41-8b8a7a036273" LastKnownName="IRenderEffect" />
+            </type_NamedElement>
+          </property>
+          <property Id="63ca8ce9-33d4-4df8-b18f-212d28afa96a" name="DefaultEffect" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2fe44166-cdd5-42f8-a48c-b813e118a083" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7ac9782f-7cef-4110-9516-3ec9dbdbd441" LastKnownName="IRenderEffect" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="0223b1ad-e897-4d0e-992a-8c54f76885fc" name="Pop : IRenderEffect" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9bd437a1-3aa9-4e36-a9da-f999c20ee8ee" />
+          </operation>
+          <operation Id="35d27b85-b0ce-43cc-8a56-285909a2991a" name="Push" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f7db07f4-5d7b-4c69-8df2-cf05acf803dc" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="60058aaa-d74f-4671-b8f9-31479eeb7294" name="IRenderEffect" direction="In" isUnique="false">
+                  <elementDefinition Id="ce28f286-ab6b-419c-9cb1-c65d0723a5a4" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b2649ace-6679-4ad8-8b0b-316d80c5d2e0" name="RenderEffectStack" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0d271a2e-c748-4caf-a3b5-f1b664980b1e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b03def55-23cc-4d64-8843-b4ca15931e4b" name="IRenderEffect defaultEffect" direction="In" isUnique="false">
+                  <elementDefinition Id="23eeea57-5ff6-4c5f-92d0-9400b1076824" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="7ac9782f-7cef-4110-9516-3ec9dbdbd441" name="IRenderEffect" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IRenderEffect">
+        <elementDefinition Id="c26cea4a-4b15-4df5-becb-7c583552dd0c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="9a0a2a49-3eff-4c2a-ae41-8b8a7a036273" name="IRenderEffect" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IRenderEffect">
+        <elementDefinition Id="c26cea4a-4b15-4df5-becb-7c583552dd0c" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
-  <package Id="298f3868-f371-4a7f-bf37-2c41bc718a50" name="ModelingProject1">
+  <package Id="298f3868-f371-4a7f-bf37-2c41bc718a50" name="Knot3-Entwurf">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
+    <profileInstances>
+      <packageHasProfileInstances Id="eb0814e2-a547-494c-aa47-9c581760ad6e">
+        <profileInstance Id="cd9c7382-5071-4066-b5db-b0863f153726" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="392c10f7-fba4-4751-a190-5b4718950639">
+        <profileInstance Id="808c576d-4f4f-4fe3-be15-2a3342d534f3" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>
