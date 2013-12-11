@@ -161,6 +161,268 @@
         <elementDefinition Id="2ea48491-431f-459b-b7ad-ab9024c0926a" />
       </Interface>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ca6b6956-b19f-49ff-aa30-b72b9b14b9ed" name="DrawableGameStateComponent" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="66521df7-75cf-4193-bcb8-e1f6e64ac58f" />
+        <suppliersInternal>
+          <interfaceRealization Id="70136448-533a-45b9-b8de-56dca3044d95">
+            <interfaceMoniker Id="58011977-b629-4e75-9d3b-2af3dd885724" LastKnownName="IGameStateComponent" />
+            <elementDefinition Id="8db0112c-0ab4-49d5-9497-df0a6d199484" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization Id="60408da4-9838-4c84-8441-a25d148e0c5c" isSubstitutable="false">
+            <classMoniker Id="b5f319b2-7288-451a-8f51-0d7e18dcc9e9" LastKnownName="XNA.DrawableGameComponent" />
+            <elementDefinition Id="dfb3b6f1-33e8-49ef-8fa8-5377987708c6" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="23e75a7f-5e36-44f7-9991-ac610e340832" name="State" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3de1c8fb-8e72-44fd-bd96-caadc3069882" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" LastKnownName="GameScreen" />
+            </type_NamedElement>
+          </property>
+          <property Id="f9143566-33c4-447f-a317-083a5c7a5b54" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f8734a87-96c7-4b7d-b266-eed9992369b5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d7352e32-e6ce-48f4-af5f-ed6017eaac70" LastKnownName="DisplayLayer" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="e3a15ecd-1013-4fff-a1eb-889012ec870f" name="SubComponents" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7f570431-5165-417f-92cb-f6ed85bc7408" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="315b28fc-86c9-4e90-a3ea-ec08def533d2" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="4e22dbc5-84bd-41f2-a366-d41d9579c63a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="15ad6aa2-1c65-4ab7-a555-365c3c8dfd4c" direction="Return" isUnique="false">
+                  <elementDefinition Id="fbb5a784-a6d0-47e4-9786-086c3120862c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="31fa3c9b-a9d2-42e5-b800-fd83e33171c5" LastKnownName="IEnumerable" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="ab6e95fe-95bb-449e-85bc-3eb15132fb62" name="DrawableGameStateComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="49c00fab-e36e-4ce2-8ff0-fb6ca1dd9dd9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c93c2c21-47b2-4543-bcac-1b38847b6fb3" name="GameScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="ccb08218-8a51-44a1-8871-f69c4775e94b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ed3ac3cb-e3dd-4e41-b292-a522c139013a" name="DisplayLayer" direction="In" isUnique="false">
+                  <elementDefinition Id="2563f175-84a8-4519-8967-660fe58662b4" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="d7352e32-e6ce-48f4-af5f-ed6017eaac70" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::DisplayLayer">
+        <elementDefinition Id="a29019b8-26ba-465c-b33c-698eebbd7ee6" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5b9dafbd-dada-4c90-bfd5-0f85a7aa3e33" name="GameStateComponent" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="da6db864-d5d8-4bc7-8081-d3f3b61e3e5e" />
+        <suppliersInternal>
+          <interfaceRealization Id="9e0c164a-b837-41be-a250-6ba705482f5e">
+            <interfaceMoniker Id="58011977-b629-4e75-9d3b-2af3dd885724" LastKnownName="IGameStateComponent" />
+            <elementDefinition Id="db165b60-0efa-49ab-9027-964110ab8422" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization Id="e88dfe20-8600-4ca0-9e7c-70a08a8f80ba" isSubstitutable="false">
+            <classMoniker Id="f425f10e-462a-4b33-9e41-3c10c5ebacf2" LastKnownName="XNA.GameComponent" />
+            <elementDefinition Id="d7b4ae8f-0d04-4895-96bc-81e032ba95ba" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="71ec4009-2f27-490e-9223-dc73e6f5cdfd" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="638cc1db-d73f-4ad4-98b8-59db9d370aca" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d7352e32-e6ce-48f4-af5f-ed6017eaac70" LastKnownName="DisplayLayer" />
+            </type_NamedElement>
+          </property>
+          <property Id="4fe9697b-af34-48c1-a9af-d19a4f00a5b4" name="State" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f7b802e4-0f18-4925-bfe5-8d9e71c1897d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" LastKnownName="GameScreen" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="07e8d47e-aa00-4f48-81ac-c049fe3e70ae" name="SubComponents" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5eeff4a3-6bd2-40fe-b745-d1337d2d5b4f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="53e1aa45-35ed-41de-a77c-c4732a1d90d9" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="b504d464-9bf4-4427-859e-1b0fa9da819a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f02f78f6-a4cb-469a-b0ee-d488d8644a6a" direction="Return" isUnique="false">
+                  <elementDefinition Id="ec632e7c-9ee0-403b-a01a-ef7c38ec8598" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="31fa3c9b-a9d2-42e5-b800-fd83e33171c5" LastKnownName="IEnumerable" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f6b5310f-e433-4479-8b91-f21426d53617" name="GameStateComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="828e6417-0908-426c-98a7-8a8206b2c546" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f1d0b5e9-1057-4547-8f89-143bd7939c3c" name="GameScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="b15496ad-a4f0-4c9b-bbd9-57782e0a0706" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1520fe86-5b93-429c-a924-dab9d79c265f" name="DisplayLayer" direction="In" isUnique="false">
+                  <elementDefinition Id="e80af8e3-b337-4662-912b-277579570f8c" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="3255e0f6-792a-4d1f-afef-eab8b9841a0a" name="Knot3Game" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="11fbb466-9655-4a46-8154-2ac99e569051" />
+        <generalsInternal>
+          <generalization Id="6dd341bb-ee4a-4142-8a36-77d6652514ac" isSubstitutable="false">
+            <classMoniker Id="23f09771-d328-49f3-9cb1-30803f33fe46" LastKnownName="XNA.Game" />
+            <elementDefinition Id="f64bebbc-526b-44f0-a789-ff41decd42f2" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="48169b2f-8878-4ca3-8666-043cedb6c32e" name="IsFullScreen" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f946bd69-15da-4faa-813c-14cdabcaeb12" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a164dda2-fdd5-4e3d-a1d3-fb0bbdfce25f" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="499962f6-7fa4-4837-b92c-d211fc3cb91a" name="Screens" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3fe89988-e31d-4545-a2e6-ddc3aa1f30bd" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e6d61968-00ff-4a54-82a6-e1a345f83c59" LastKnownName="GameScreenManager" />
+            </type_NamedElement>
+          </property>
+          <property Id="cce3fcfa-0037-443f-98dd-77b490c5ce89" name="VSync" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f5d2eed2-6ab4-4b57-98e7-2a3153542327" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a164dda2-fdd5-4e3d-a1d3-fb0bbdfce25f" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="ebe8c148-02b2-4a57-90bc-2aab285202f6" name="Graphics" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b857bfa2-88c7-42b1-95ef-59975ea15c90" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e73a8651-8e68-40e7-8930-b395df361685" LastKnownName="GraphicsDeviceManager" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="ee1fd672-7bdc-409c-b331-dd49050a721b" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="51e9b6fa-293e-4f5c-a52c-9fd00c6d2c63" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="baae19dd-0146-4d74-a69a-7ade0ad886ec" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="71894c89-86c9-459a-98f9-4c0740c04a7e" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="9ecd8fdb-d248-4bc8-b73b-ddb8d277ebe2" name="Game" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bd4f62cd-4a4b-46dc-a3c3-9cdf4005aaad" />
+          </operation>
+          <operation Id="7b7e195a-c56f-4948-82d7-9ef15952183c" name="Initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1ade705e-903d-4172-973f-f18c15d9b691" />
+          </operation>
+          <operation Id="6dc4e4fa-203b-4231-be0c-89eedae11a71" name="LoadContent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c2425478-29d6-4370-b165-eb0f5b8eca84" />
+          </operation>
+          <operation Id="fd2c1f47-e07f-4ca6-8bc3-1753a9c33da7" name="UnloadContent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d2ad7e0b-f959-46b8-af9f-af50bbeb36c8" />
+          </operation>
+          <operation Id="a09ebccc-7935-4f6a-8530-f4704909a847" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1d816251-1b8a-4185-8198-8d8d51c4e032" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7a83632c-337d-4728-823f-cf1dfd020d47" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="431ada5d-cc07-4ba0-8095-aaa048a0d4da" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="23f09771-d328-49f3-9cb1-30803f33fe46" name="XNA.Game" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="be0801d7-2d99-41ed-bd13-2f16b7c65405" />
+        <ownedOperationsInternal>
+          <operation Id="769c5ffd-a2f7-4af6-9b2c-ad6b29b72d39" name="Game" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="03540a7c-6179-419e-8dca-1a460542001b" />
+          </operation>
+          <operation Id="3a2959f0-f660-4490-aebe-de95d5c6e574" name="Initialize" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="05b11538-d994-44aa-922c-f06e2bacefcd" />
+          </operation>
+          <operation Id="e56bbe28-42d5-43f0-91aa-b486b26e6044" name="LoadContent" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="590fb5f1-537e-4946-867b-1cb46667e955" />
+          </operation>
+          <operation Id="97ae6ce9-964b-4e52-bb2f-1745ba266b42" name="UnloadContent" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="dc36d2ed-5beb-402a-b3d1-978d60eaa703" />
+          </operation>
+          <operation Id="5e2cae00-ad27-4646-9d51-3be4734f44c7" name="Update" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1c6ab63a-6859-4380-9dd3-c7f8bb5e0f8c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4ccffdab-6752-4a9e-b695-a868d99b9089" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="efc3670d-d7dd-472f-8e90-70ee9cfdbd94" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="a2c6cee0-58e8-44e7-b1d0-224d26d98380" name="Draw" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="508d9203-5be7-43b6-a1e5-ccb820c8fdf9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d7b3c18b-df53-41d7-aa00-a4db20ffff31" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="4c3d74ec-3fd6-4459-981c-1b3d533258dc" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="a164dda2-fdd5-4e3d-a1d3-fb0bbdfce25f" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="349d0a89-5802-412d-bfe4-ef755ee9dc33" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e6d61968-00ff-4a54-82a6-e1a345f83c59" name="GameScreenManager" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::GameScreenManager">
+        <elementDefinition Id="fc6acc48-92b6-452b-a589-feaaae83210e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e73a8651-8e68-40e7-8930-b395df361685" name="GraphicsDeviceManager" isAbstract="false" isLeaf="false" cachedFullName="GraphicsDeviceManager">
+        <elementDefinition Id="173c35a5-a065-49e9-8380-7d1bba787d47" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="ce0cf89a-b7d4-4ae9-944d-994a2cf84c81" name="ModelingProject1">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />

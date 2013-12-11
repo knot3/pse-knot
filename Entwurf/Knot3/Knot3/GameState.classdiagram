@@ -30,6 +30,20 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <logicalClassDesignerModelHasTypes>
       <class Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" name="GameScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
+        <ownedAttributesInternal>
+          <property Id="a364eb94-faf1-4c38-8c78-27b2f96e9bff" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a49036a2-baa4-406b-b218-0ebe8b68f392" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="35daeb0b-2c4d-4a65-b2c6-a2575ab0b3b1" LastKnownName="Knot3Game" />
+            </type_NamedElement>
+          </property>
+          <property Id="654bd505-e2d8-48c1-b524-065c643c730e" name="Input" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="22ccfb92-b348-45b3-b56b-7126d0594760" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0923499c-3ee1-4b82-82e5-3c426d322235" LastKnownName="InputHandler" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="82f853f5-4320-4b5d-9935-ffceaa716557" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="17473978-c831-46b4-b5eb-37501a91a56c" />
@@ -39,6 +53,19 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           </operation>
           <operation Id="a7867896-1e4a-40e8-8204-87cad1e6933c" name="BeforeExit" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="096eec15-8229-4813-a7f4-5b134b91ce4a" />
+          </operation>
+          <operation Id="611d5ca0-23df-4584-80df-897de42e88dd" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="07731970-b004-47e3-ac87-c82ff92b9568" />
+          </operation>
+          <operation Id="b07dc600-0baa-41f7-ad92-5ae143bf6a2b" name="GameScreen" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2b77a2d1-a3e0-41c5-bbdd-123a4adfce7d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ff52780f-cedd-4aba-a855-fe5fa3735bf2" name="Game" direction="In" isUnique="false">
+                  <elementDefinition Id="34f2958f-bf1e-4478-8312-a15c32782661" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -239,6 +266,16 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <referencedType Id="18ba8544-3d88-43e3-81aa-db8ae065df5f" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
         <elementDefinition Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0923499c-3ee1-4b82-82e5-3c426d322235" name="InputHandler" isAbstract="false" isLeaf="false" cachedFullName="InputHandler">
+        <elementDefinition Id="dea92a93-c6bc-4965-b6eb-7247893561ad" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="35daeb0b-2c4d-4a65-b2c6-a2575ab0b3b1" name="Knot3Game" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::Knot3Game">
+        <elementDefinition Id="11fbb466-9655-4a46-8154-2ac99e569051" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

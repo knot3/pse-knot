@@ -90,6 +90,12 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="6529508b-0968-4419-811f-efa593e51162" name="MousePointer" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="74acd629-0246-44a5-9518-4ee691e261a9" />
+        <generalsInternal>
+          <generalization Id="d0c950b8-9063-4ef3-b76b-4cd522dfc0e5" isSubstitutable="false">
+            <classMoniker Id="3248cacd-1daf-43da-85ed-693ea2ac0f09" LastKnownName="DrawableGameStateComponent" />
+            <elementDefinition Id="04858aa6-2e43-48da-9536-9199e5141efa" />
+          </generalization>
+        </generalsInternal>
         <ownedOperationsInternal>
           <operation Id="e1549893-12f9-4a30-8e80-b569988f3518" name="MousePointer" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a53bd1bf-fcfe-4f3d-9f32-b1a91f8d2ee2" />
@@ -140,6 +146,12 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="758af3ee-54c3-4437-a86a-ca2478c234fc" name="Widget" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="4f22627d-129d-4aef-8502-eb51d13ea118" />
+        <generalsInternal>
+          <generalization Id="c5bd13a6-047e-4be6-a566-70ea4d6d91bc" isSubstitutable="false">
+            <classMoniker Id="3248cacd-1daf-43da-85ed-693ea2ac0f09" LastKnownName="DrawableGameStateComponent" />
+            <elementDefinition Id="c0dff137-2e7b-43f1-bcb5-00edacc8ffa4" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="4040307a-4ca0-407e-bbc4-6407b8dd94f8" name="RelativeSize" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6c4c1910-383e-49c8-870a-47e93656dd61" />
@@ -939,6 +951,66 @@
         <elementDefinition Id="b0e54893-3ad2-4125-89b1-23281d82c34e" />
       </referencedType>
     </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="3248cacd-1daf-43da-85ed-693ea2ac0f09" name="DrawableGameStateComponent" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="66521df7-75cf-4193-bcb8-e1f6e64ac58f" />
+        <suppliersInternal>
+          <interfaceRealization Id="8007a769-6089-4bcb-81a0-a1575d08caae">
+            <interfaceMoniker Id="fc812789-0be1-4bce-841d-ac20c070e9fe" LastKnownName="IGameStateComponent" />
+            <elementDefinition Id="8db0112c-0ab4-49d5-9497-df0a6d199484" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="a8cbb642-05f7-4278-9020-f8ba74e176b5" name="State" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3de1c8fb-8e72-44fd-bd96-caadc3069882" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c6e1ceda-02ce-41ef-8b3c-ca329bc12f2e" LastKnownName="GameScreen" />
+            </type_NamedElement>
+          </property>
+          <property Id="e3d8e080-21f9-43aa-a652-2e5bf1fbab4d" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f8734a87-96c7-4b7d-b266-eed9992369b5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5212a23b-ccef-42cb-a274-c45983449d8b" LastKnownName="DisplayLayer" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="67f96941-a4d5-4986-8716-0121e3ce1473" name="SubComponents" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7f570431-5165-417f-92cb-f6ed85bc7408" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="31b000fc-6d9e-4664-ad90-761372aab28d" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="4e22dbc5-84bd-41f2-a366-d41d9579c63a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="237ab0f8-3bd9-43a8-bc7d-ae6b176ed718" direction="Return" isUnique="false">
+                  <elementDefinition Id="fbb5a784-a6d0-47e4-9786-086c3120862c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a17eac05-9826-4952-8628-a84d3a3beaa5" LastKnownName="IEnumerable" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2ba8072a-7fd4-46ed-9b46-77429fd71e9f" name="DrawableGameStateComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="49c00fab-e36e-4ce2-8ff0-fb6ca1dd9dd9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e9171353-a905-47f3-a9d9-a87232ddbe2c" name="GameScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="ccb08218-8a51-44a1-8871-f69c4775e94b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="96de7052-4ebb-4655-b7a3-4a32e4edf8df" name="DisplayLayer" direction="In" isUnique="false">
+                  <elementDefinition Id="2563f175-84a8-4519-8967-660fe58662b4" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="043cb81b-6165-44a7-9481-d62ded78ac9a" name="ModelingProject1">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
