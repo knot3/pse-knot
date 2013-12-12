@@ -921,6 +921,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="1bb42bc3-5443-47d8-9841-93bbf09699ee"
+            name="PostProcessingEffect"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="36bf255c-b5d2-4108-8c3d-e6dbe293a208"
+                LastKnownName="RenderEffect"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -973,6 +991,42 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="64abfe96-848d-4e9d-bee0-4c704b807df7"
+            name="AddGameComponents"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e2c64357-5d68-480e-9409-2ee47d467bf7"
+                  name="params IGameStateComponent[]"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="67396a69-e90a-428d-8d3f-0811d9934cb5"
+            name="RemoveGameComponents"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5fe53ed5-af00-4df2-83da-dca49455d4cf"
+                  name="params IGameStateComponent[]"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1016,6 +1070,101 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false" />
+          <property
+            Id="f6dbcc50-6478-4607-a03c-b832f1eab05f"
+            name="ChallengeWorld"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="8228b23e-d24d-4fcc-9419-b5fbb8853415"
+                LastKnownName="World"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1539c073-0b3a-440d-a7a3-5b4901007c19"
+            name="PlayerWorld"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="8228b23e-d24d-4fcc-9419-b5fbb8853415"
+                LastKnownName="World"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="49cf282d-0260-4e0d-83b1-f7a10ade8ffe"
+            name="ChallengeKnotRenderer"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="fc1acae3-7da1-451e-9350-367e3504d6c5"
+                LastKnownName="ModelRenderer"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5e105c82-4631-4798-b051-d9d9c10559c0"
+            name="PlayerKnotRenderer"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="fc1acae3-7da1-451e-9350-367e3504d6c5"
+                LastKnownName="ModelRenderer"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4fddd8b1-ba81-4e87-b233-fa68cbba782b"
+            name="PlayerKnotMovement"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="483caf34-4e6e-4415-b1e7-eb247dcee902"
+                LastKnownName="PipeMovement"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1058,6 +1207,44 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false" />
+          <property
+            Id="22fee5db-0878-4ebe-84f4-b2af52bc899e"
+            name="World"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="8228b23e-d24d-4fcc-9419-b5fbb8853415"
+                LastKnownName="World"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="49234b93-5402-43e5-8021-4df8d7ff1245"
+            name="KnotRenderer"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="fc1acae3-7da1-451e-9350-367e3504d6c5"
+                LastKnownName="ModelRenderer"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1485,8 +1672,8 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9bdf10ee-760b-4f38-816d-8856aeabfba5"
-                  name="screen"
+                  Id="ba01568d-c402-480c-8fff-3e097491df4f"
+                  name="GameScreen"
                   direction="In"
                   isUnique="false" />
               </operationHasOwnedParameters>
@@ -1503,8 +1690,8 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="60eaf6ec-f216-42e8-a315-95ec5b90dc71"
-                  name="screen"
+                  Id="46ac9755-8bbe-4b15-96cb-dc9a3db4bee8"
+                  name="GameScreen"
                   direction="In"
                   isUnique="false" />
               </operationHasOwnedParameters>
@@ -1521,8 +1708,8 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="43953dcc-6c05-46f1-88aa-7003f213f9bd"
-                  name="screen"
+                  Id="94f6c3a0-c133-4f54-b49d-de2ec7f61b24"
+                  name="GameScreen"
                   direction="In"
                   isUnique="false" />
               </operationHasOwnedParameters>
@@ -1535,17 +1722,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false">
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="ffc1878d-08a0-43b5-a35c-f7ae491c2441"
-                  name="screen"
-                  direction="In"
-                  isUnique="false" />
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -8939,6 +9116,16 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       <undefinedType
         Id="9a809785-4c60-47c4-ac96-be629c1f64d7"
         name="IEnumerator&lt;Edge&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="7146062a-e956-4346-8427-37640e8bf8a1"
+        name="GameTime" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="f21de764-0ff5-4cb3-96d8-7ac6dc6c6f9a"
+        name="params IGameStateComponent[]" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
