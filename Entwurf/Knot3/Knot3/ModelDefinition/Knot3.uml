@@ -3698,8 +3698,8 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
-                LastKnownName="float"
+                Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3"
+                LastKnownName="Vector3"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -3858,6 +3858,15 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="fddd4241-eaf4-4851-ab6e-7f5f383c4a86">
+            <interfaceMoniker
+              Id="1d786f00-6e4e-4d2f-8a53-2acb25bae9c7"
+              LastKnownName="IJunction"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="96736ccc-2726-4655-aabb-d9d83c0cf996"
@@ -6023,6 +6032,164 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               LastKnownLocation="Knot3.uml" />
           </interfaceRealization>
         </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="006e0a9e-687c-4307-a22f-d27dc0b5bc16"
+            isDerived="false"
+            sourceEndRoleName="ModelRenderer"
+            targetEndRoleName="NodeModel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="31323d98-89b9-48de-801c-b06694e8954d"
+              LastKnownName="NodeModel"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="27e4c1e4-aa5e-4c22-b2c4-474a4a4cd739"
+                  name="ModelRenderer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e1880148-dcc8-4051-ac9c-59c4ca0f43ab"
+                  name="NodeModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5ce8bdd2-9f69-444d-acf3-81fcdc32b946"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a6c0651b-997e-4caf-be44-daeab0d23400"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e6c5e86b-06d1-4c57-b343-dbcd1f310996"
+            isDerived="false"
+            sourceEndRoleName="ModelRenderer"
+            targetEndRoleName="ModelRenderer"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="34cefb6f-dc1c-426d-b1ea-b554b52a3a0d"
+              LastKnownName="PipeModel"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4a4447ec-260a-44f8-a97b-f34b2c4266cd"
+                  name="ModelRenderer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c02abd56-e922-4de3-94b5-9baebc354048"
+                  name="ModelRenderer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="b7ab3cf0-7b35-474d-bac4-634e60e8eacc"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="062d2057-aba1-497e-a988-fa4163d76090"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="903fe33d-8d34-4138-a922-d557b91a383d"
+            isDerived="false"
+            sourceEndRoleName="ModelRenderer"
+            targetEndRoleName="ModelRenderer"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="61c4de81-9192-4142-bd82-39800192bb1b"
+              LastKnownName="ArrowModel"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c33627b3-18e3-468a-89fd-f203b11a4d6a"
+                  name="ModelRenderer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7218cc62-5465-4e2b-a577-1b4036dd78d1"
+                  name="ModelRenderer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="27b256cd-ed1c-41d5-8523-d2b020600293"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="713968e5-f763-418d-9e0b-1c828f5b68d9"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="ec2fed37-7fbe-4c34-8f25-84670e7600e6"
@@ -6057,6 +6224,63 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <classMoniker
                 Id="8228b23e-d24d-4fcc-9419-b5fbb8853415"
                 LastKnownName="World"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="604803b0-f536-40a9-9674-ce32efa0d7a3"
+            name="arrows"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="622b934a-9d49-40e0-8190-798ebf3540eb"
+                LastKnownName="List&lt;ArrowModel&gt;"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1614474c-f77d-4d6f-b152-92027f51b88d"
+            name="nodes"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="373bf563-bc50-4a80-9571-c0c56924a8b8"
+                LastKnownName="List&lt;NodeModel&gt;"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ac50bbb8-19e3-4a4c-979a-f31325017187"
+            name="pipes"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c96bad3b-34d8-422a-a980-fe7a299e53b6"
+                LastKnownName="List&lt;PipeModel&gt;"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -6981,14 +7205,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="542ebe05-00d2-4691-a445-d04dd272e035"
+                  Id="7b09a363-b673-4a36-b5f1-cfa92c3868d3"
                   name="GameScreen"
                   direction="In"
                   isUnique="false" />
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="1a3f5ba6-3067-4049-936e-b38bb4186f59"
+                  Id="b3cc5155-7ab2-4ac0-a15f-cf014a396da0"
                   name="ArrowModelInfo"
                   direction="In"
                   isUnique="false" />
@@ -7081,6 +7305,72 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           </operation>
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="622b934a-9d49-40e0-8190-798ebf3540eb"
+        name="List&lt;ArrowModel&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="373bf563-bc50-4a80-9571-c0c56924a8b8"
+        name="List&lt;NodeModel&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="c96bad3b-34d8-422a-a980-fe7a299e53b6"
+        name="List&lt;PipeModel&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="1d786f00-6e4e-4d2f-8a53-2acb25bae9c7"
+        name="IJunction"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="0095d06c-411f-4ffa-9a9b-c31a0bf3be30"
+            name="EdgeFrom"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="91384762-e872-4895-9c03-ce395ce36c4f"
+                LastKnownName="Edge"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2963d7f8-9853-44fe-ac14-b19d5b0184ad"
+            name="EdgeTo"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="91384762-e872-4895-9c03-ce395ce36c4f"
+                LastKnownName="Edge"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="7e8f8149-1196-42f5-97a7-685729c992ce"
+        name="ModelingProject1::Edge" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
