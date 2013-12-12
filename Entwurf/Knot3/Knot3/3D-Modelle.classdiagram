@@ -979,6 +979,9 @@
           </property>
           <property Id="01591360-e4fc-435f-a5cf-f001e496ced6" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="178a8d2c-cf35-4410-b96e-855c7f483cbe" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="06b0828a-03a4-48f8-af6a-4564f5ad2253" LastKnownName="Knot" />
+            </type_NamedElement>
           </property>
           <property Id="ba54fdb4-bee5-4db1-8718-187b16357f38" name="World" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="e4b4f6aa-0e67-45fd-933f-fab101343bd9" />
@@ -1287,8 +1290,8 @@
             <elementDefinition Id="54fe891b-f4fc-40e5-a013-2f5b30d6bc61" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="30abdff3-0392-4806-8574-cbbd15091257" name="GmaeTime" direction="In" isUnique="false">
-                  <elementDefinition Id="33753e48-176a-42e3-ac45-336770942fca" />
+                <parameter Id="7f4b772d-7622-4fd7-8849-264c4ee0e022" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="33becc87-bf08-4ab5-a374-68d6b1995ba4" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1415,6 +1418,11 @@
     </packageHasNamedElement>
     <packageHasNamedElement>
       <referencedType Id="99fc3d50-f700-4f40-9cd7-b68aa1f96a05" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
+        <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="06b0828a-03a4-48f8-af6a-4564f5ad2253" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
         <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
       </referencedType>
     </packageHasNamedElement>
