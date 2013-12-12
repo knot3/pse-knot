@@ -31,6 +31,9 @@
           </property>
           <property Id="13751127-8eba-4583-8d07-37130b36b71a" name="World" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="95109b6c-eb7a-43e8-8f35-4d23b5a6ee69" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="4c4a389c-0c41-4575-872f-15f3f10e6a03" LastKnownName="World" />
+            </type_NamedElement>
           </property>
         </ownedAttributes>
         <ownedOperations>
@@ -152,8 +155,11 @@
               <referencedTypeMoniker Id="387cefa3-53fb-4c33-8cb4-0e181d20a773" LastKnownName="XNA.Model" />
             </type_NamedElement>
           </property>
-          <property Id="13aa43c8-1edc-4251-ba06-67299252d887" name="World" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="13aa43c8-1edc-4251-ba06-67299252d887" name="World" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="c2bd450f-108d-46d2-903f-9f49aa7a14b7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="127556db-8a2c-4797-8e5c-36237a5f82d9" LastKnownName="World" />
+            </type_NamedElement>
           </property>
           <property Id="16146d0e-da32-4359-a44c-8d89b67e0a57" name="WorldMatrix" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="7fafd5d4-2335-474d-9ba5-977fab30ffdf" />
@@ -399,9 +405,15 @@
         <ownedAttributesInternal>
           <property Id="d5544983-4af2-4563-be3b-d313a1308457" name="Edge" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="1eb143ff-91cb-4335-8130-d9c23145c455" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="af497dfc-5150-4712-8d62-57edf338356f" LastKnownName="Edge" />
+            </type_NamedElement>
           </property>
           <property Id="99e35dea-9327-412c-8f91-68744b66de11" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="4698b0c6-8076-4912-9231-cf17ef52c18f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="99fc3d50-f700-4f40-9cd7-b68aa1f96a05" LastKnownName="Knot" />
+            </type_NamedElement>
           </property>
           <property Id="2492e8e5-d344-49ee-af0f-1feafd1df949" name="PositionFrom" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5219bc67-8404-4bf2-952e-e56569242951" />
@@ -1424,6 +1436,16 @@
     <packageHasNamedElement>
       <referencedType Id="06b0828a-03a4-48f8-af6a-4564f5ad2253" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
         <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="af497dfc-5150-4712-8d62-57edf338356f" name="Edge" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Edge">
+        <elementDefinition Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="127556db-8a2c-4797-8e5c-36237a5f82d9" name="World" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::World">
+        <elementDefinition Id="8228b23e-d24d-4fcc-9419-b5fbb8853415" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4dd72b25-4e26-4c0d-aaae-647424dfac33" name="UMLClassDiagram1" linkedPackageId="1ad2dd4e-b09e-4bfe-901c-e03b155bb971" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4dd72b25-4e26-4c0d-aaae-647424dfac33" name="UMLClassDiagram1" linkedPackageId="1ad2dd4e-b09e-4bfe-901c-e03b155bb971" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
@@ -17,12 +17,12 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" name="Knot3-Entwurf::IKnotIO" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IKnotIO">
+      <referencedType Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" name="IKnotIO" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IKnotIO">
         <elementDefinition Id="0b22d353-d1cd-4ef0-b4e0-9aaa60af844b" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="31160ae5-cf06-41fb-ab2f-f791de857985" name="KnotInfo" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotInfo">
+      <referencedType Id="31160ae5-cf06-41fb-ab2f-f791de857985" name="KnotMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotMetaData">
         <elementDefinition Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0" />
       </referencedType>
     </packageHasNamedElement>
@@ -107,7 +107,7 @@
         </suppliersInternal>
         <targetEnds>
           <association Id="05443354-eefa-4ec1-8ed4-f3077c1e5fab" isDerived="false" sourceEndRoleName="Knot" targetEndRoleName="KnotInfo" isLeaf="false" isAbstract="false">
-            <classMoniker Id="ef685b42-789a-4789-ae66-d5758bf6fb9c" LastKnownName="KnotInfo" />
+            <classMoniker Id="ef685b42-789a-4789-ae66-d5758bf6fb9c" LastKnownName="KnotMetaData" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="3654bed6-37ff-45f8-95c8-b87be4e18a2e" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
@@ -146,16 +146,22 @@
               <referencedTypeMoniker Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" LastKnownName="String" />
             </type_NamedElement>
           </property>
-          <property Id="5b5b383b-c2b1-42f9-bfbd-6252bf8c22d6" name="Edges" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="5b5b383b-c2b1-42f9-bfbd-6252bf8c22d6" name="edges" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5086b86f-5390-4787-94f3-43c99ce29320" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="6f71b2ca-70b8-48f7-ba2c-cae1af07c05b" LastKnownName="EdgeCircle" />
+              <referencedTypeMoniker Id="59322f3f-820c-4a0c-9afb-910eed27aefe" LastKnownName="EdgeCircle" />
             </type_NamedElement>
           </property>
           <property Id="be6215dc-7d1c-4cea-91fa-c570630356d2" name="Info" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6647ff19-bc70-421c-91df-149cd28ee1bc" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotInfo" />
+              <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotMetaData" />
+            </type_NamedElement>
+          </property>
+          <property Id="6127bf6c-4a86-4d20-9d3a-ce65b616a1a9" name="file" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1376e740-3a34-41d3-95e0-8a67acafee79" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="99ae66d1-3a5c-4820-9200-283ea14c471e" LastKnownName="IKnotIO" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -167,10 +173,10 @@
             <elementDefinition Id="d5c81f32-59d4-4725-887c-5b02a96d341c" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="918d15bc-c344-4ac7-b32c-5cd519ff8e5c" name="file" direction="In" isUnique="false">
-                  <elementDefinition Id="b0b8a577-d377-4446-ab45-d9a91aa822f9" />
+                <parameter Id="59c3cc6a-b06c-4a99-88dc-f6c7b4167c78" name="file" direction="In" isUnique="false">
+                  <elementDefinition Id="52dae7ca-9120-45d3-b13b-7be5e5f5fb92" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="Knot3-Entwurf::IKnotIO" />
+                    <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="IKnotIO" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -183,7 +189,7 @@
                 <parameter Id="a3cb7c3d-e32f-4cca-b469-757c607ca0f0" name="info" direction="In" isUnique="false">
                   <elementDefinition Id="d85126a9-53f4-4564-95f2-9c19ed183ae6" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotInfo" />
+                    <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotMetaData" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -318,6 +324,22 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="19a8ba97-8c96-4df4-a65d-9a3159c93ea9" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="81ba225e-67af-415d-a4f9-c51311a1b324" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1c551f21-aaba-493b-9d42-fad254301ea9" name="file" direction="In" isUnique="false">
+                  <elementDefinition Id="deb493e5-486d-49ad-a4d1-1a550983e034" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="207f120a-3809-4aaa-a3d2-ef6d1883f59f" LastKnownName="IKnotInfo" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="42c4cf55-e21d-479c-89e0-878ab71cd37c" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1c76cb4a-cc2f-4158-9574-b7f62b7b09b2" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -341,6 +363,12 @@
             <elementDefinition Id="7843af3b-2154-4177-8a0b-32a6bc380c25" />
             <type_NamedElement>
               <referencedTypeMoniker Id="311dab93-c332-4392-a4e6-5fe76f61edb5" LastKnownName="Direction" />
+            </type_NamedElement>
+          </property>
+          <property Id="f6315bde-4d05-4a52-8c39-1fd2fa23eecc" name="Rectangles" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d2570684-40b9-4822-ae32-af19ba460aa1" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3011437f-d804-4bfd-8c6d-5ade6e899aa0" LastKnownName="List&lt;int&gt;" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -433,7 +461,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="ef685b42-789a-4789-ae66-d5758bf6fb9c" name="KnotInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="ef685b42-789a-4789-ae66-d5758bf6fb9c" name="KnotMetaData" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0" />
         <ownedAttributesInternal>
           <property Id="a07b52c7-f34d-4f75-9316-18af8dcc360f" name="Name" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -463,7 +491,7 @@
                 <parameter Id="8b2d7154-955c-47a1-9ab1-34cb65829a52" direction="Return" isUnique="false">
                   <elementDefinition Id="23d01455-d4c8-4f9c-8bcf-0e9f5bbe2f00" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotInfo" />
+                    <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotMetaData" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -524,6 +552,26 @@
     <packageHasNamedElement>
       <referencedType Id="2f361b1f-77f5-445e-8e8d-8d7df4f5714c" name="IEnumerator&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerator&lt;Edge&gt;">
         <elementDefinition Id="9a809785-4c60-47c4-ac96-be629c1f64d7" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="99ae66d1-3a5c-4820-9200-283ea14c471e" name="IKnotIO" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IKnotIO">
+        <elementDefinition Id="0b22d353-d1cd-4ef0-b4e0-9aaa60af844b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="59322f3f-820c-4a0c-9afb-910eed27aefe" name="EdgeCircle" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::EdgeCircle">
+        <elementDefinition Id="bebc304e-672b-410a-bea3-bd2c5350cb64" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="207f120a-3809-4aaa-a3d2-ef6d1883f59f" name="IKnotInfo" isAbstract="false" isLeaf="false" cachedFullName="IKnotInfo">
+        <elementDefinition Id="a40fa953-b0f1-45ea-b42e-d340a0479127" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3011437f-d804-4bfd-8c6d-5ade6e899aa0" name="List&lt;int&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;int&gt;">
+        <elementDefinition Id="ff6fca6a-32e7-4f47-bf47-8b804f07039f" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

@@ -10,7 +10,7 @@
       <annotatedElements>
         <classMoniker
           Id="c59360ed-c7b8-4e10-a2df-0cbebf4c9756"
-          LastKnownName="GraphicsSettings"
+          LastKnownName="GraphicsSettingsScreen"
           LastKnownLocation="Knot3.uml" />
       </annotatedElements>
     </comment>
@@ -20,7 +20,7 @@
       <annotatedElements>
         <classMoniker
           Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
-          LastKnownName="Menu"
+          LastKnownName="MenuScreen"
           LastKnownLocation="Knot3.uml" />
       </annotatedElements>
     </comment>
@@ -454,7 +454,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="8228b23e-d24d-4fcc-9419-b5fbb8853415"
+                LastKnownName="World"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributes>
         <ownedOperations>
           <operation
@@ -720,7 +727,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           <property
             Id="c2bd450f-108d-46d2-903f-9f49aa7a14b7"
             name="World"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -728,7 +734,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="8228b23e-d24d-4fcc-9419-b5fbb8853415"
+                LastKnownName="World"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
           <property
             Id="7fafd5d4-2335-474d-9ba5-977fab30ffdf"
             name="WorldMatrix"
@@ -1261,7 +1274,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
-        name="Menu"
+        name="MenuScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1353,7 +1366,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="8d0c1248-e881-46bf-b69e-b147b39e9f99"
-        name="Start"
+        name="StartScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1363,7 +1376,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
-              LastKnownName="Menu"
+              LastKnownName="MenuScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -1382,7 +1395,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="639c1282-f62c-416b-bdb1-b24627dc1e99"
-        name="Load"
+        name="LoadScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1392,7 +1405,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
-              LastKnownName="Menu"
+              LastKnownName="MenuScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -1411,7 +1424,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="72a427a6-840d-4705-9b00-bf5a0b64d6d3"
-        name="Credits"
+        name="CreditsScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1421,7 +1434,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
-              LastKnownName="Menu"
+              LastKnownName="MenuScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -1440,7 +1453,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="c113a081-d9d2-4128-8136-396179f3f79e"
-        name="Settings"
+        name="SettingsScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1450,7 +1463,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
-              LastKnownName="Menu"
+              LastKnownName="MenuScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -1483,7 +1496,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="c59360ed-c7b8-4e10-a2df-0cbebf4c9756"
-        name="GraphicsSettings"
+        name="GraphicsSettingsScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1493,7 +1506,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="c113a081-d9d2-4128-8136-396179f3f79e"
-              LastKnownName="Settings"
+              LastKnownName="SettingsScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -1526,7 +1539,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="461f0798-20c4-4800-9cfb-6112a287eefa"
-        name="AudioSettings"
+        name="AudioSettingsScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1536,7 +1549,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="c113a081-d9d2-4128-8136-396179f3f79e"
-              LastKnownName="Settings"
+              LastKnownName="SettingsScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -1569,7 +1582,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="758f27db-37bc-4706-83d0-7b59c925a3dd"
-        name="ControlSettings"
+        name="ControlSettingsScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1579,7 +1592,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="c113a081-d9d2-4128-8136-396179f3f79e"
-              LastKnownName="Settings"
+              LastKnownName="SettingsScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -1600,35 +1613,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation
             Id="7217585f-5a61-499a-b8ba-6c5c8e0eeba9"
-            name="Update"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="c805764c-9619-4eba-9f8e-aae6cc060f84"
-        name="Save"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <generalsInternal>
-          <generalization
-            Id="8c69741a-dbe9-4867-85cd-6f3f3e151ebd"
-            isSubstitutable="false">
-            <classMoniker
-              Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
-              LastKnownName="Menu"
-              LastKnownLocation="Knot3.uml" />
-          </generalization>
-        </generalsInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="b6ff94ce-0f36-46ba-ba46-fdfc3874e6b8"
             name="Update"
             isLeaf="false"
             isStatic="false"
@@ -1729,7 +1713,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="4669203c-87cf-4f22-85dd-0513b79be0d7"
-        name="ProfileSettings"
+        name="ProfileSettingsScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1739,7 +1723,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isSubstitutable="false">
             <classMoniker
               Id="c113a081-d9d2-4128-8136-396179f3f79e"
-              LastKnownName="Settings"
+              LastKnownName="SettingsScreen"
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
@@ -3813,7 +3797,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
+                LastKnownName="Edge"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
           <property
             Id="4698b0c6-8076-4912-9231-cf17ef52c18f"
             name="Knot"
@@ -3824,7 +3815,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="8e1aa097-f416-4abd-af60-4daddd5f633c"
+                LastKnownName="Knot"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
           <property
             Id="5219bc67-8404-4bf2-952e-e56569242951"
             name="PositionFrom"
@@ -7424,7 +7422,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isAbstract="false">
             <classMoniker
               Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
-              LastKnownName="KnotInfo"
+              LastKnownName="KnotMetaData"
               LastKnownLocation="Knot3.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -7515,7 +7513,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           </property>
           <property
             Id="5086b86f-5390-4787-94f3-43c99ce29320"
-            name="Edges"
+            name="edges"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -7546,7 +7544,26 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <type_NamedElement>
               <classMoniker
                 Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
-                LastKnownName="KnotInfo"
+                LastKnownName="KnotMetaData"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1376e740-3a34-41d3-95e0-8a67acafee79"
+            name="file"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="0b22d353-d1cd-4ef0-b4e0-9aaa60af844b"
+                LastKnownName="IKnotIO"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -7571,7 +7588,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="b0b8a577-d377-4446-ab45-d9a91aa822f9"
+                  Id="52dae7ca-9120-45d3-b13b-7be5e5f5fb92"
                   name="file"
                   direction="In"
                   isUnique="false">
@@ -7603,7 +7620,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                   <type_NamedElement>
                     <classMoniker
                       Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
-                      LastKnownName="KnotInfo"
+                      LastKnownName="KnotMetaData"
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -7842,6 +7859,39 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="81ba225e-67af-415d-a4f9-c51311a1b324"
+            name="Save"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="deb493e5-486d-49ad-a4d1-1a550983e034"
+                  name="file"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="a40fa953-b0f1-45ea-b42e-d340a0479127"
+                      LastKnownName="IKnotInfo"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1c76cb4a-cc2f-4158-9574-b7f62b7b09b2"
+            name="Save"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -7904,6 +7954,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <undefinedTypeMoniker
                 Id="36b850b0-1220-4a68-8d64-f483281b1595"
                 LastKnownName="Direction"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d2570684-40b9-4822-ae32-af19ba460aa1"
+            name="Rectangles"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ff6fca6a-32e7-4f47-bf47-8b804f07039f"
+                LastKnownName="List&lt;int&gt;"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -8097,7 +8165,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
-        name="KnotInfo"
+        name="KnotMetaData"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -8176,7 +8244,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                   <type_NamedElement>
                     <classMoniker
                       Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
-                      LastKnownName="KnotInfo"
+                      LastKnownName="KnotMetaData"
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -8255,6 +8323,99 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="4267218a-ccc3-4088-bf89-02c7d2f49ddb"
+            isDerived="false"
+            sourceEndRoleName="Challenge"
+            targetEndRoleName="Knot"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="8e1aa097-f416-4abd-af60-4daddd5f633c"
+              LastKnownName="Knot"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ca9e2954-fbf4-46b7-a620-5c31415677ad"
+                  name="Challenge"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a066edbd-dc12-4a1b-b9ba-46d53b1e7b64"
+                  name="Knot"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="b6e2fe56-7760-4172-b5eb-76b88b825110"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="2b55d673-4223-4ce5-b3ea-4359c0383cc8"
+                      name="Upper"
+                      value="2" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f9f69430-ab58-4117-9a6a-c1a7a7f30620"
+            isDerived="false"
+            sourceEndRoleName="Challenge"
+            targetEndRoleName="ChallengeInfo"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa"
+              LastKnownName="ChallengeMetaData"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1a9b50fb-08e4-4718-89d8-36192d79f13a"
+                  name="Challenge"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c1176346-8081-42bf-a8c9-6bb245e81b9d"
+                  name="ChallengeInfo"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="fe52ae65-41b3-4e76-89b2-88f809fd17a3"
@@ -8294,7 +8455,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           </property>
           <property
             Id="7b001db6-e800-4a41-b4b2-bf2459a1cd95"
-            name="Highscore"
+            name="highscore"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -8363,6 +8524,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <undefinedTypeMoniker
                 Id="23614b56-5996-4041-92fa-8fc0d0e529f0"
                 LastKnownName="IEnumerator&lt;KeyValuePair&lt;String, Integer&gt;&gt;"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f8d0326c-f2b3-4ef7-b29f-a49eef506300"
+            name="Info"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa"
+                LastKnownName="ChallengeMetaData"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -8454,7 +8633,20 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="57ba72c2-33b0-4c5a-a141-94988ba4d86d"
+                  Id="b5053d3a-2320-44a5-9fea-a099474b79cf"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4924432d-9de0-4f0a-89c1-9dd3c8bf81ea"
                   name="start"
                   direction="In"
                   isUnique="false">
@@ -8468,7 +8660,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="27396865-c89f-417d-a2d7-e4029de8e828"
+                  Id="86a2681c-58b6-494b-b9bd-a22cfa016d6f"
                   name="target"
                   direction="In"
                   isUnique="false">
@@ -8482,7 +8674,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="a0223525-0695-4721-9b20-182a6ce63626"
+                  Id="1a47b03d-9d03-439f-ab88-7f5c7fbbf840"
                   name="name"
                   direction="In"
                   isUnique="false">
@@ -8496,7 +8688,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="fc297866-5aa4-4ab7-998c-8729b8b4c942"
+                  Id="a2b9b1b1-6b88-4586-abcd-c70603cbb694"
                   name="file"
                   direction="In"
                   isUnique="false">
@@ -8504,19 +8696,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                     <interfaceMoniker
                       Id="00e1faab-ff93-4b96-8b3f-5c194dc62336"
                       LastKnownName="IChallengeIO"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="b5053d3a-2320-44a5-9fea-a099474b79cf"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <primitiveTypeMoniker
-                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
-                      LastKnownName="Boolean"
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -8592,7 +8771,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             name="Edges"
             isLeaf="false"
             isStatic="false"
-            isReadOnly="false"
+            isReadOnly="true"
             isUnique="false"
             isDerived="false"
             isDerivedUnion="false"
@@ -8610,7 +8789,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             name="Name"
             isLeaf="false"
             isStatic="false"
-            isReadOnly="false"
+            isReadOnly="true"
             isUnique="false"
             isDerived="false"
             isDerivedUnion="false"
@@ -8620,6 +8799,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <primitiveTypeMoniker
                 Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
                 LastKnownName="String"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="81342674-85f7-44eb-8f40-5c393c8b7794"
+            name="Meta"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
+                LastKnownName="KnotMetaData"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -8732,6 +8929,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="de2da5f8-c372-47d2-abed-b4876507d90f"
+            name="Meta"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa"
+                LastKnownName="ChallengeMetaData"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributes>
         <ownedOperations>
           <operation
@@ -8766,9 +8981,63 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       <class
         Id="1ba88008-5e57-4772-bcdd-f6e6db78ae28"
         name="FileIO"
-        isAbstract="false"
+        isAbstract="true"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="b4075c3d-21d3-42e9-8a70-39fc8ab95bd3"
+            name="FileName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a0a476ae-a1c7-4d16-9736-089b8ed76548"
+            name="ConvertToFileName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="874e8975-b4bb-4d64-97d8-ce04c80ca98d"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="890eea81-739b-47ae-9ef1-3f7f04953183"
+                  name="String"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -8796,6 +9065,47 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="fc0757d9-1aac-4181-8024-7ba5c5dc3590"
+            isDerived="false"
+            sourceEndRoleName="KnotFileIO"
+            targetEndRoleName="KnotStringIO"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="fe70e314-ad6f-4cd7-bfe0-fc6ad922fc2f"
+              LastKnownName="KnotStringIO"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ad191c95-453f-4e2d-944d-4f571b0aa645"
+                  name="KnotFileIO"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4a701fdb-c367-426d-80cb-cb415ec3cf2c"
+                  name="KnotStringIO"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="ebe333f5-8a18-4577-af6b-a5ee6a513de7"
@@ -8833,6 +9143,43 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="5f993fcd-164e-410f-bf04-745233d1921a"
+            name="parser"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="fe70e314-ad6f-4cd7-bfe0-fc6ad922fc2f"
+                LastKnownName="KnotStringIO"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f24935d1-2c84-455b-825d-cd75db42b0c3"
+            name="Meta"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
+                LastKnownName="KnotMetaData"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -8846,45 +9193,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="79ef56cc-16c6-445a-9e89-62f8a314c278"
-                  name="path"
-                  direction="In"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <primitiveTypeMoniker
-                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
-                      LastKnownName="String"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
-            Id="65095b55-c8d0-4eb1-b3b5-f4972ac30fef"
-            name="DefaultStringtoEdge"
-            isLeaf="false"
-            isStatic="true"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="f3a51a2b-631e-41cf-aa33-5e1adde2e9ac"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
-                      LastKnownName="Edge"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="c46c5b22-b1b3-4ccb-b259-6ee5dae0af6e"
+                  Id="2a3f3ca0-ed07-4d3d-a219-daf6a3c2d024"
                   name="path"
                   direction="In"
                   isUnique="false">
@@ -8952,6 +9261,60 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               LastKnownLocation="Knot3.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="831c10ad-4827-4a0d-bf5c-aebc5e71fc1c"
+            isDerived="false"
+            sourceEndRoleName="ChallengeFileIO"
+            targetEndRoleName="KnotStringIO"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="fe70e314-ad6f-4cd7-bfe0-fc6ad922fc2f"
+              LastKnownName="KnotStringIO"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5fd8eff8-70a3-466c-b452-89d11527f929"
+                  name="ChallengeFileIO"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="43301d63-c23d-4127-a36d-72203d0ecc48"
+                  name="KnotStringIO"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5e1c1918-9d18-43dc-adae-bfd107cc009d"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f753278b-81fa-4e2c-8930-b8920803469f"
+                      name="Upper"
+                      value="2" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="9b96caa6-a034-4bc7-b6f9-176064a009a7"
@@ -9022,6 +9385,62 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <classMoniker
                 Id="8e1aa097-f416-4abd-af60-4daddd5f633c"
                 LastKnownName="Knot"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8d5a2180-8d72-49b5-b81e-7600663355c8"
+            name="startParser"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="fe70e314-ad6f-4cd7-bfe0-fc6ad922fc2f"
+                LastKnownName="KnotStringIO"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="77386ac7-3fa9-4263-8b4e-f80bd2c1ce6a"
+            name="targetParser"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="fe70e314-ad6f-4cd7-bfe0-fc6ad922fc2f"
+                LastKnownName="KnotStringIO"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3553ef5f-df5a-432c-8095-9761f632827b"
+            name="Meta"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa"
+                LastKnownName="ChallengeMetaData"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -9138,6 +9557,379 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       <undefinedType
         Id="e15fcfb8-815b-4e17-877e-33fb8701bcd3"
         name="not" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="a40fa953-b0f1-45ea-b42e-d340a0479127"
+        name="IKnotInfo" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3437a9b3-786d-472f-bf9a-3e4fedaf6417"
+        name="PrinterIO"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="05a0d77a-ebb0-4255-a132-5727ec546005">
+            <interfaceMoniker
+              Id="0b22d353-d1cd-4ef0-b4e0-9aaa60af844b"
+              LastKnownName="IKnotIO"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="d77e3d04-7cfa-4af6-bc32-650d3d7f7875"
+            name="Edges"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="c8483f9a-4d4d-4df4-8527-bdaac091b3cf"
+                LastKnownName="IEnumerable&lt;Edge&gt;"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9346858d-ac92-4881-bb44-19c666c5799d"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="24a26375-aa97-44db-98c5-3db304530578"
+            name="Meta"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
+                LastKnownName="KnotMetaData"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="bf3860c3-824f-44e8-a8e7-5fce3acac0e0"
+            name="Save"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d1a3db07-f691-44d4-ad0e-57e5f03044af"
+                  name="knot"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="8e1aa097-f416-4abd-af60-4daddd5f633c"
+                      LastKnownName="Knot"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c8a17801-ec78-4d90-9b2b-f1d2dad97363"
+            name="PrinterIO"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cd66b992-d38a-42d0-a3b1-acc7e8121dcd"
+                  name="path"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17"
+                      LastKnownName="string"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa"
+        name="ChallengeMetaData"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="e6032a82-b9c2-4c7f-bf98-d039ff53cfcc"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9de8d9dc-834c-4612-8226-601e57b26ff8"
+            name="Start"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
+                LastKnownName="KnotMetaData"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6ac63b09-0e6b-4f11-8daf-db61056deec4"
+            name="Target"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
+                LastKnownName="KnotMetaData"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="bdc9ecec-b8ee-426d-9f3d-1b3445b3cb20"
+            name="File"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="00e1faab-ff93-4b96-8b3f-5c194dc62336"
+                LastKnownName="IChallengeIO"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="fe70e314-ad6f-4cd7-bfe0-fc6ad922fc2f"
+        name="KnotStringIO"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="b3bd59cb-af2c-4c0b-804e-1de588d2de67">
+            <interfaceMoniker
+              Id="0b22d353-d1cd-4ef0-b4e0-9aaa60af844b"
+              LastKnownName="IKnotIO"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="561a3af0-abb9-4e1e-b44a-d50e3efa5554"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2da79503-ce22-481b-8be3-459191ce37ff"
+            name="Edges"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d720e31d-f007-40e9-a38b-a6803cf09e86"
+                LastKnownName="IErnumerable&lt;Edge&gt;"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="02240b44-9774-4c02-8a51-af5adeb8ac01"
+            name="Content"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d22057a3-1472-4142-8e40-affcbcb64a19"
+            name="Meta"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0"
+                LastKnownName="KnotMetaData"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="42f4978f-9375-47f3-a36f-4619d9a9e9e5"
+            name="Save"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="34b11596-db77-4cea-b839-4bc4365939c3"
+                  name="knot"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="8e1aa097-f416-4abd-af60-4daddd5f633c"
+                      LastKnownName="Knot"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c0a2a42a-f660-42c2-90b7-96475b979177"
+            name="KnotStringIO"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a5a16f4b-176e-40e5-8392-92682a5eeda0"
+                  name="content"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="d720e31d-f007-40e9-a38b-a6803cf09e86"
+        name="IErnumerable&lt;Edge&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="314f4c06-d6e5-4208-9f9d-927148d6b464"
+        name="Szt" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ff6fca6a-32e7-4f47-bf47-8b804f07039f"
+        name="List&lt;int&gt;" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
