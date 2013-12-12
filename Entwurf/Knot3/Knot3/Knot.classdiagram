@@ -122,6 +122,12 @@
               <referencedTypeMoniker Id="6f71b2ca-70b8-48f7-ba2c-cae1af07c05b" LastKnownName="EdgeCircle" />
             </type_NamedElement>
           </property>
+          <property Id="be6215dc-7d1c-4cea-91fa-c570630356d2" name="Info" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6647ff19-bc70-421c-91df-149cd28ee1bc" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotInfo" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="314c5508-c232-497c-8a06-2286ed40ec1c" name="Knot" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -141,18 +147,18 @@
             <elementDefinition Id="d5c81f32-59d4-4725-887c-5b02a96d341c" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="33e0dedc-feda-49b8-887a-ae8cb7eae2a7" name="file" direction="In" isUnique="false">
-                  <elementDefinition Id="c38e495f-3e68-4026-a108-6567c847cf5e" />
+                <parameter Id="2749ddef-8e4a-43cb-83c0-1404bd821d96" direction="Return" isUnique="false">
+                  <elementDefinition Id="13e9a0cd-06d6-4590-acc9-abf9964ffd2b" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="Knot3-Entwurf::IKnotIO" />
+                    <referencedTypeMoniker Id="ce22d66c-7eb3-499f-b609-03bb6d4f9fcb" LastKnownName="Knot" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="2749ddef-8e4a-43cb-83c0-1404bd821d96" direction="Return">
-                  <elementDefinition Id="13e9a0cd-06d6-4590-acc9-abf9964ffd2b" />
+                <parameter Id="220d1042-77b9-40b3-8aa2-b6c13176cb81" name="file" direction="In" isUnique="false">
+                  <elementDefinition Id="64e471d2-deaa-4231-9397-6f2bc89c67df" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="ce22d66c-7eb3-499f-b609-03bb6d4f9fcb" LastKnownName="Knot" />
+                    <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="Knot3-Entwurf::IKnotIO" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -294,9 +300,6 @@
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
-          </operation>
-          <operation Id="e23d0414-660b-4e99-87b0-5af5a8e61177" name="GetKnotInfo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="14d135e0-e8b7-4c34-afc8-8d45862cef14" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -459,7 +462,7 @@
           <property Id="6532bfd6-4f4d-412f-8c28-0fc161528179" name="File" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="fe665394-e499-43e4-b52b-b7c70a501b52" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="Knot3-Entwurf::IKnotIO" />
+              <referencedTypeMoniker Id="f8e4b590-cd87-4370-aa58-f36207420e9a" LastKnownName="IKnotIO" />
             </type_NamedElement>
           </property>
           <property Id="04771812-2816-47aa-9fa3-17e981f4a045" name="CountEdges" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -510,6 +513,11 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="f8e4b590-cd87-4370-aa58-f36207420e9a" name="IKnotIO" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IKnotIO">
+        <elementDefinition Id="0b22d353-d1cd-4ef0-b4e0-9aaa60af844b" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="1ad2dd4e-b09e-4bfe-901c-e03b155bb971" name="Knot3-Entwurf">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />

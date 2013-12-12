@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="64565f3c-6c81-4ea2-a32f-76f7c0599027" name="Challenge" linkedPackageId="06ca7ab3-4f20-4744-af82-83a2a92e2121" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="480c2d1c-3a2b-4174-9877-73717d4d97ef">
-      <profileInstance Id="aac82831-9b4d-4609-8ce5-7f1e9c973768" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="4a5fcb71-28da-4bcf-9acc-1fb771f8c4a8">
-      <profileInstance Id="1ec0fc7c-a5a9-4231-a8fc-d5129f4d84e6" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="ca5bfd32-9bc8-4a75-b9f0-078040a72f80" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
@@ -101,7 +87,13 @@
           <property Id="c8d50983-467a-4dbd-934a-5ccb239164b6" name="file" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="79861c78-0c3b-405c-8cc9-b19d53a6ccbd" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ae85b713-6b27-4ebb-a4e7-84e25e0cd5cf" LastKnownName="Knot3-Entwurf::IChallengeIO" />
+              <referencedTypeMoniker Id="68fca22c-29ce-486a-bb25-1f918ba03a0f" LastKnownName="IChallengeIO" />
+            </type_NamedElement>
+          </property>
+          <property Id="9f1fdd18-1dd5-490e-8d62-17d1030d12c4" name="Highscore" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="76e02ae6-0d4c-456a-bd0b-12cc83900500" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="72fa297b-f515-4173-a612-208b5869f04b" LastKnownName="IEnumerator&lt;KeyValuePair&lt;String, Integer&gt;&gt;" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -214,24 +206,30 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="e228b616-3d34-415b-8653-fffd22b7e126" name="GetHighscore" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="92e4029f-1665-490d-a591-ec716c614be4" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="56b8c93f-fafa-43e5-b4e3-9e976b656d4b" direction="Return" isUnique="false">
-                  <elementDefinition Id="fc5dbd80-6202-4e8a-8a6d-de1bce13106a" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="72fa297b-f515-4173-a612-208b5869f04b" LastKnownName="IEnumerator&lt;KeyValuePair&lt;String, Integer&gt;&gt;" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="68fca22c-29ce-486a-bb25-1f918ba03a0f" name="IChallengeIO" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IChallengeIO">
+        <elementDefinition Id="00e1faab-ff93-4b96-8b3f-5c194dc62336" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="06ca7ab3-4f20-4744-af82-83a2a92e2121" name="Knot3-Entwurf">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
+    <profileInstances>
+      <packageHasProfileInstances Id="480c2d1c-3a2b-4174-9877-73717d4d97ef">
+        <profileInstance Id="aac82831-9b4d-4609-8ce5-7f1e9c973768" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="4a5fcb71-28da-4bcf-9acc-1fb771f8c4a8">
+        <profileInstance Id="1ec0fc7c-a5a9-4231-a8fc-d5129f4d84e6" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>
