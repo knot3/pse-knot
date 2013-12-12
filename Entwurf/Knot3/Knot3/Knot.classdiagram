@@ -22,18 +22,8 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="ce22d66c-7eb3-499f-b609-03bb6d4f9fcb" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
-        <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="31160ae5-cf06-41fb-ab2f-f791de857985" name="KnotInfo" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotInfo">
         <elementDefinition Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="33e63f2a-59ea-4b73-bff6-4426cf0cb4db" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
-        <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -109,6 +99,46 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="bf6462c2-a8a3-47d2-95c0-1f5937bdf0a1" name="Knot" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
+        <suppliersInternal>
+          <interfaceRealization Id="3f975c49-e832-495a-ad27-16ad724f97e7">
+            <interfaceMoniker Id="c6c13587-87d1-4584-bc0a-693331279044" LastKnownName="IEnumerable&lt;Edge&gt;" />
+            <elementDefinition Id="6c5ed125-7f5b-4914-9877-0f0956f26daa" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="05443354-eefa-4ec1-8ed4-f3077c1e5fab" isDerived="false" sourceEndRoleName="Knot" targetEndRoleName="KnotInfo" isLeaf="false" isAbstract="false">
+            <classMoniker Id="ef685b42-789a-4789-ae66-d5758bf6fb9c" LastKnownName="KnotInfo" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3654bed6-37ff-45f8-95c8-b87be4e18a2e" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3b7142a7-70e1-47a8-a59d-89cb6d43123f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b68fdff3-1ed8-4ebd-86b8-dee040b02a05" name="KnotInfo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5adca5de-3e1a-4e95-9479-de313f14f368" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f5bb529a-dd10-40c7-9cdd-0693a77033c7" />
+          </association>
+          <association Id="35295d7b-803a-4198-8823-253b2d6fecca" isDerived="false" sourceEndRoleName="Knot" targetEndRoleName="EdgeCircle" isLeaf="false" isAbstract="false">
+            <classMoniker Id="55b9200c-bffe-4f87-9372-0c4f1836a2c4" LastKnownName="EdgeCircle" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1f975be0-2dca-4fce-8f9b-3ea4fdf447df" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8808bcd1-3035-41ed-a5da-b775d7a7ace2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7606d8dd-3e00-4eec-81b4-5a8f986e23ac" name="EdgeCircle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="aaaf0cd9-a1d8-447f-bcd3-c2739cb2d8da" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="01f460b1-dd86-4356-88c9-925f346bea80" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="fd2673fc-eb2c-4943-8988-7585baf61f55" name="Name" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="248d36e2-a38d-4549-be32-02dc4698ab16" />
@@ -116,7 +146,7 @@
               <referencedTypeMoniker Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" LastKnownName="String" />
             </type_NamedElement>
           </property>
-          <property Id="5b5b383b-c2b1-42f9-bfbd-6252bf8c22d6" name="Edges" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="5b5b383b-c2b1-42f9-bfbd-6252bf8c22d6" name="Edges" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5086b86f-5390-4787-94f3-43c99ce29320" />
             <type_NamedElement>
               <referencedTypeMoniker Id="6f71b2ca-70b8-48f7-ba2c-cae1af07c05b" LastKnownName="EdgeCircle" />
@@ -132,31 +162,13 @@
         <ownedOperationsInternal>
           <operation Id="314c5508-c232-497c-8a06-2286ed40ec1c" name="Knot" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="97f2441d-5021-4e63-8462-ab99e1326b60" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="9b6105bd-61c0-4e2b-a075-b0e62c8597af" direction="Return">
-                  <elementDefinition Id="18d6c5ec-1a40-483d-9ad8-3c8227f48d7b" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="a921c86b-f457-4ee6-bb7c-46121e6808c5" LastKnownName="Knot" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
           </operation>
           <operation Id="c953af8c-c0e8-4937-a349-42b6080bb3a8" name="Knot" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="d5c81f32-59d4-4725-887c-5b02a96d341c" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="2749ddef-8e4a-43cb-83c0-1404bd821d96" direction="Return" isUnique="false">
-                  <elementDefinition Id="13e9a0cd-06d6-4590-acc9-abf9964ffd2b" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="ce22d66c-7eb3-499f-b609-03bb6d4f9fcb" LastKnownName="Knot" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="220d1042-77b9-40b3-8aa2-b6c13176cb81" name="file" direction="In" isUnique="false">
-                  <elementDefinition Id="64e471d2-deaa-4231-9397-6f2bc89c67df" />
+                <parameter Id="918d15bc-c344-4ac7-b32c-5cd519ff8e5c" name="file" direction="In" isUnique="false">
+                  <elementDefinition Id="b0b8a577-d377-4446-ab45-d9a91aa822f9" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="Knot3-Entwurf::IKnotIO" />
                   </type_NamedElement>
@@ -168,18 +180,10 @@
             <elementDefinition Id="a7c2dfd4-a9a1-4a4a-a6d8-48366129474f" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="fa146cec-14a1-4525-8b3f-c841f7256cd6" name="info" direction="In" isUnique="false">
-                  <elementDefinition Id="07b4d262-cc28-4249-9680-f85125913c90" />
+                <parameter Id="a3cb7c3d-e32f-4cca-b469-757c607ca0f0" name="info" direction="In" isUnique="false">
+                  <elementDefinition Id="d85126a9-53f4-4564-95f2-9c19ed183ae6" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotInfo" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="9321516e-7fe4-4e25-b4c2-43c27244a563" direction="Return">
-                  <elementDefinition Id="794b2422-ad2c-4ce1-88b3-638ad87d2f87" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="33e63f2a-59ea-4b73-bff6-4426cf0cb4db" LastKnownName="Knot" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -301,30 +305,25 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="20fa94a3-aa0c-4ca7-bbd6-85074f0c2b65" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a2165eac-37a9-4477-ba29-2cdfb1fb5d16" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c140ff86-4940-435c-81e4-385a026d07e4" direction="Return" isUnique="false">
+                  <elementDefinition Id="24475c99-6a3f-4a96-ba55-1a08f1331bf9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2f361b1f-77f5-445e-8e8d-8d7df4f5714c" LastKnownName="IEnumerator&lt;Edge&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="8ffa4977-ca12-4aaa-9df5-31ef3e40d614" name="Edge" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069" />
-        <targetEnds>
-          <association Id="7ac72295-0e41-4e3d-88d7-66a97ff9e087" isDerived="false" sourceEndRoleName="Edge" targetEndRoleName="EdgeContainer" isLeaf="false" isAbstract="false">
-            <classMoniker Id="55b9200c-bffe-4f87-9372-0c4f1836a2c4" LastKnownName="EdgeCircle" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="71bc841d-9303-4f93-9bba-0d720ea59578" name="Edge" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="000cb36e-68cf-47d2-b684-813f854ffae8" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="b3ea108b-39de-4e0a-b427-b6eb1132fe2c" name="EdgeContainer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="570bf4ac-bdaa-4348-bfcb-85d09cad1d6d" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="b7d18a81-d024-4b89-b0c4-f0e72200ee6a" />
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property Id="de9875ab-fdf2-4ede-813d-f0cc9c50c603" name="Selected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="e29541d5-023d-4eed-8dcc-926c5d945bfe" />
@@ -350,18 +349,10 @@
             <elementDefinition Id="5924a8c3-ae44-4450-88aa-bfc9633db6cf" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a6d56f88-17cc-48c3-a525-02674e7b5375" name="dir" direction="In" isUnique="false">
-                  <elementDefinition Id="06f3e3ab-32b9-4c75-a8a9-4f09c3445437" />
+                <parameter Id="6d5833e9-c517-41bc-b0b2-3b5c13597c44" name="dir" direction="In" isUnique="false">
+                  <elementDefinition Id="1e5a7119-8b36-4391-bd9b-acaa4ab0e8a2" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="311dab93-c332-4392-a4e6-5fe76f61edb5" LastKnownName="Direction" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="24e3374d-819e-43b4-a776-87ac6c7d8b92" direction="Return" isUnique="false">
-                  <elementDefinition Id="7edb3606-2847-414b-8d7d-17231475ddc5" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="f25d47c3-710e-40d9-b268-1512ae4a0002" LastKnownName="Edge" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -387,21 +378,21 @@
       <class Id="55b9200c-bffe-4f87-9372-0c4f1836a2c4" name="EdgeCircle" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="bebc304e-672b-410a-bea3-bd2c5350cb64" />
         <targetEnds>
-          <association Id="19dce17d-589a-4222-821a-1ed40802c84d" isDerived="false" sourceEndRoleName="EdgeCircle" targetEndRoleName="Knot" isLeaf="false" isAbstract="false">
-            <classMoniker Id="bf6462c2-a8a3-47d2-95c0-1f5937bdf0a1" LastKnownName="Knot" />
+          <association Id="e61a017b-75f4-4968-abc9-9b374e6ac648" isDerived="false" sourceEndRoleName="EdgeCircle" targetEndRoleName="Edge" isLeaf="false" isAbstract="false">
+            <classMoniker Id="8ffa4977-ca12-4aaa-9df5-31ef3e40d614" LastKnownName="Edge" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="b2b583e0-d48d-4090-ad4c-05f6eac3f831" name="EdgeCircle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="9df1d8dc-d757-4249-95dd-984120b5e0ea" />
+                <memberEnd Id="33bc4a7a-b672-4081-9c1e-8f5ca5aa55a4" name="EdgeCircle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="98945860-083c-4d31-b557-e811b4968d12" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="1c3b3990-58c5-43f3-9e94-6dd68fc6684a" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="e3235ab4-8cbc-4157-bb1c-a10dd8513048" />
+                <memberEnd Id="91d4e7a8-a831-4133-8b7d-f20ec0e5edcd" name="Edge" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="497d231a-1496-4788-8370-587898cd0889" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="7d18dcd2-8456-44c3-8073-f16ae792d165" />
+            <elementDefinition Id="6247eb60-c3ac-4882-94d2-34f784f5fcb1" />
           </association>
         </targetEnds>
         <ownedAttributesInternal>
@@ -429,18 +420,10 @@
             <elementDefinition Id="783f3128-1d2c-482e-8742-9ab3a8e7789d" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="52df2ac9-b2de-431c-a4fc-41afe1f9a9db" name="content" direction="In" isUnique="false">
-                  <elementDefinition Id="0ada097f-5342-490c-99b5-19373c521e1b" />
+                <parameter Id="092baa04-1cd8-4e16-8a3c-4bc9075e5536" name="content" direction="In" isUnique="false">
+                  <elementDefinition Id="776b65ef-36c4-45e4-b462-18819420e912" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="f25d47c3-710e-40d9-b268-1512ae4a0002" LastKnownName="Edge" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="d5b25639-d082-428e-9e54-992c0786e48c" direction="Return" isUnique="false">
-                  <elementDefinition Id="2ec3ccea-3dc4-4b80-91b4-8fbdc14ee6ab" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="6f71b2ca-70b8-48f7-ba2c-cae1af07c05b" LastKnownName="EdgeCircle" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -516,6 +499,31 @@
     <packageHasNamedElement>
       <referencedType Id="f8e4b590-cd87-4370-aa58-f36207420e9a" name="IKnotIO" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IKnotIO">
         <elementDefinition Id="0b22d353-d1cd-4ef0-b4e0-9aaa60af844b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="c6c13587-87d1-4584-bc0a-693331279044" name="IEnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c8483f9a-4d4d-4df4-8527-bdaac091b3cf" />
+        <ownedOperations>
+          <operation Id="10bbd025-c8d2-498a-85d2-35f4e0dee6d2" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b9b7014c-446a-4cf9-af11-6ca5441bba08" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="254baaf6-7b56-4c8d-9616-d22f03e959fa" direction="Return" isUnique="false">
+                  <elementDefinition Id="c5175651-c699-47cb-a62c-819686e12205" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2f361b1f-77f5-445e-8e8d-8d7df4f5714c" LastKnownName="IEnumerator&lt;Edge&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="2f361b1f-77f5-445e-8e8d-8d7df4f5714c" name="IEnumerator&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerator&lt;Edge&gt;">
+        <elementDefinition Id="9a809785-4c60-47c4-ac96-be629c1f64d7" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
