@@ -3704,6 +3704,26 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="6a721705-27de-444a-a8b6-3ed691ba1621"
+            name="GameModelInfo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="856ae5a9-78eb-4d82-b890-acad54716b19"
+                  name="String"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -3802,6 +3822,33 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1752407c-d144-4564-a1f0-b160e6ee026c"
+            name="PipeModelInfo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="32f4b6ee-ad51-42d0-8767-e902f9feac50"
+                  name="EdgeList"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0c7e0537-23f8-4d5b-914a-0b729b82796c"
+                  name="Edge"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -3895,6 +3942,40 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="21571fad-4dbb-4598-8984-92e9310a261d"
+            name="NodeModelInfo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7051816a-1143-4a29-b8f3-1371fcb1a4cc"
+                  name="EdgeList"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="80fc5105-d546-48a5-af68-74efb3b40bef"
+                  name="Edge"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="89214b85-8780-47df-b2ea-83d92eaf0d08"
+                  name="Edge"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -6753,6 +6834,246 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 <parameter
                   Id="020138d9-739c-442b-9c3c-f31f4fc8f45f"
                   name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="61c4de81-9192-4142-bd82-39800192bb1b"
+        name="ArrowModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="65bfbb5f-192f-4c32-b46e-38c6f4c269ee"
+            isSubstitutable="false">
+            <classMoniker
+              Id="f77a9291-5b87-4ae2-b5c4-bb30d10b9470"
+              LastKnownName="GameModel"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="a093a8a2-3d42-4e08-80e6-66385c3d53ff"
+            isDerived="false"
+            sourceEndRoleName="ArrowModel"
+            targetEndRoleName="ArrowModelInfo"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f8a4d46a-a931-41f1-abf4-0807b059523c"
+              LastKnownName="ArrowModelInfo"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ee324c03-2a2c-4748-929c-2d0443b1356f"
+                  name="ArrowModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a4f06181-47de-4456-9e3a-fc81dfc92c5f"
+                  name="ArrowModelInfo"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="35ef5bc3-2bcd-4971-92b1-2ce3fba40013"
+            name="Info"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="f8a4d46a-a931-41f1-abf4-0807b059523c"
+                LastKnownName="ArrowModelInfo"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="54fe891b-f4fc-40e5-a013-2f5b30d6bc61"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="33753e48-176a-42e3-ac45-336770942fca"
+                  name="GmaeTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0a5ec028-4e59-42ef-b803-28d0953e3e68"
+            name="Intersects"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5bc5f133-0260-4003-854b-f935c845ad79"
+                  name="Ray"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bf9ece5f-9f98-48e6-adcd-15f86fe0f1ff"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="1abed3c6-e9fb-4bc9-bc5e-c72489c77f70"
+                      LastKnownName="GameObjectDistance"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="07057198-04b6-4f3c-b2e4-a539e17b0510"
+            name="ArrowModel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="542ebe05-00d2-4691-a445-d04dd272e035"
+                  name="GameScreen"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1a3f5ba6-3067-4049-936e-b38bb4186f59"
+                  name="ArrowModelInfo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="9a9417d3-eb4d-4811-ac92-f31375aeb334"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bbbf45ee-9bdf-4def-9b4f-1528a64ce063"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f8a4d46a-a931-41f1-abf4-0807b059523c"
+        name="ArrowModelInfo"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="274ae87c-fe47-4a14-b0a9-39ffc45d5acb"
+            isSubstitutable="false">
+            <classMoniker
+              Id="9cdf4b86-699a-4fd9-9223-b68f7f5afd61"
+              LastKnownName="GameModelInfo"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="db2c8c00-a2fb-4695-8543-bff7eb9282ab"
+            name="Direction"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3"
+                LastKnownName="Vector3"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="e6fe93fd-0fda-448f-b8a0-2f463f4a7f26"
+            name="ArrowModelInfo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e7bbaaa9-0c65-4df4-9755-b0901916b2c8"
+                  name="Vector3"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="89d7d9f4-a378-4008-a219-2d0f0bc6e4d0"
+                  name="Vector3"
                   direction="In"
                   isUnique="false" />
               </operationHasOwnedParameters>
