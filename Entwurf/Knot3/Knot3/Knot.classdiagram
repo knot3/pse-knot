@@ -7,7 +7,7 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="6f71b2ca-70b8-48f7-ba2c-cae1af07c05b" name="EdgeCircle" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::EdgeCircle">
+      <referencedType Id="6f71b2ca-70b8-48f7-ba2c-cae1af07c05b" name="Circle" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Circle">
         <elementDefinition Id="bebc304e-672b-410a-bea3-bd2c5350cb64" />
       </referencedType>
     </packageHasNamedElement>
@@ -77,11 +77,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="f25d47c3-710e-40d9-b268-1512ae4a0002" name="Edge" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Edge">
-        <elementDefinition Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="028a2455-2bf8-4ad3-bd50-8b6aeb37c6a5" name="Vector3" isAbstract="false" isLeaf="false" cachedFullName="Vector3">
         <elementDefinition Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3" />
       </referencedType>
@@ -101,7 +96,7 @@
         <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
         <suppliersInternal>
           <interfaceRealization Id="3f975c49-e832-495a-ad27-16ad724f97e7">
-            <interfaceMoniker Id="c6c13587-87d1-4584-bc0a-693331279044" LastKnownName="IEnumerable&lt;Edge&gt;" />
+            <interfaceMoniker Id="c6c13587-87d1-4584-bc0a-693331279044" LastKnownName="IEnumerable" />
             <elementDefinition Id="6c5ed125-7f5b-4914-9877-0f0956f26daa" />
           </interfaceRealization>
         </suppliersInternal>
@@ -122,8 +117,8 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="f5bb529a-dd10-40c7-9cdd-0693a77033c7" />
           </association>
-          <association Id="35295d7b-803a-4198-8823-253b2d6fecca" isDerived="false" sourceEndRoleName="Knot" targetEndRoleName="EdgeCircle" isLeaf="false" isAbstract="false">
-            <classMoniker Id="55b9200c-bffe-4f87-9372-0c4f1836a2c4" LastKnownName="EdgeCircle" />
+          <association Id="35295d7b-803a-4198-8823-253b2d6fecca" isDerived="false" sourceEndRoleName="Knot" targetEndRoleName="Circle" isLeaf="false" isAbstract="false">
+            <classMoniker Id="55b9200c-bffe-4f87-9372-0c4f1836a2c4" LastKnownName="Circle" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="1f975be0-2dca-4fce-8f9b-3ea4fdf447df" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
@@ -131,7 +126,7 @@
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="7606d8dd-3e00-4eec-81b4-5a8f986e23ac" name="EdgeCircle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                <memberEnd Id="7606d8dd-3e00-4eec-81b4-5a8f986e23ac" name="Circle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <elementDefinition Id="aaaf0cd9-a1d8-447f-bcd3-c2739cb2d8da" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -149,7 +144,7 @@
           <property Id="5b5b383b-c2b1-42f9-bfbd-6252bf8c22d6" name="edges" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5086b86f-5390-4787-94f3-43c99ce29320" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="59322f3f-820c-4a0c-9afb-910eed27aefe" LastKnownName="EdgeCircle" />
+              <referencedTypeMoniker Id="59322f3f-820c-4a0c-9afb-910eed27aefe" LastKnownName="Circle" />
             </type_NamedElement>
           </property>
           <property Id="be6215dc-7d1c-4cea-91fa-c570630356d2" name="Info" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -403,14 +398,14 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="55b9200c-bffe-4f87-9372-0c4f1836a2c4" name="EdgeCircle" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="55b9200c-bffe-4f87-9372-0c4f1836a2c4" name="Circle" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="bebc304e-672b-410a-bea3-bd2c5350cb64" />
         <targetEnds>
-          <association Id="e61a017b-75f4-4968-abc9-9b374e6ac648" isDerived="false" sourceEndRoleName="EdgeCircle" targetEndRoleName="Edge" isLeaf="false" isAbstract="false">
+          <association Id="e61a017b-75f4-4968-abc9-9b374e6ac648" isDerived="false" sourceEndRoleName="Circle" targetEndRoleName="Edge" isLeaf="false" isAbstract="false">
             <classMoniker Id="8ffa4977-ca12-4aaa-9df5-31ef3e40d614" LastKnownName="Edge" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="33bc4a7a-b672-4081-9c1e-8f5ca5aa55a4" name="EdgeCircle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                <memberEnd Id="33bc4a7a-b672-4081-9c1e-8f5ca5aa55a4" name="Circle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
                   <elementDefinition Id="98945860-083c-4d31-b557-e811b4968d12" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -423,35 +418,50 @@
             <elementDefinition Id="6247eb60-c3ac-4882-94d2-34f784f5fcb1" />
           </association>
         </targetEnds>
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature Id="664b7a18-4397-4f41-aacd-ce3bc2a8bf24" parameters="" isLeaf="false">
+            <elementDefinition Id="a6659391-3fde-4d13-93f1-8b39f18bbc84" />
+            <ownedParameters>
+              <classifierTemplateParameter Id="ab1f1b94-f6b5-4d5a-89ed-fb6b61c6c032">
+                <elementDefinition Id="ea38cb9d-3f7e-4181-9259-6cafda94273b" />
+                <ownedParameterableElement>
+                  <class Id="f416d402-1323-44fd-b1db-15171dbdd1e3" name="T" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <elementDefinition Id="c4ce530b-66c5-4681-bc25-524519a13cd6" />
+                  </class>
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
         <ownedAttributesInternal>
           <property Id="95a4ccd8-6678-4200-9852-365ebf325c63" name="content" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="3d43b100-891d-4ff4-bbff-d6c41d156c41" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="f25d47c3-710e-40d9-b268-1512ae4a0002" LastKnownName="Edge" />
+              <referencedTypeMoniker Id="83c029d4-b05c-43fd-b04a-7e2fa651fe54" LastKnownName="T" />
             </type_NamedElement>
           </property>
           <property Id="f9e092dd-85ed-4c1f-b6c6-f29cc11dace8" name="next" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="9e2e1f4a-8497-42f2-9355-5ceb7105d949" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="6f71b2ca-70b8-48f7-ba2c-cae1af07c05b" LastKnownName="EdgeCircle" />
+              <referencedTypeMoniker Id="6f71b2ca-70b8-48f7-ba2c-cae1af07c05b" LastKnownName="Circle" />
             </type_NamedElement>
           </property>
           <property Id="2ca361de-30f7-4192-ae62-14c94c625f8e" name="previous" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="444eab87-6efb-430b-8bfe-6ac9a07077c9" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="6f71b2ca-70b8-48f7-ba2c-cae1af07c05b" LastKnownName="EdgeCircle" />
+              <referencedTypeMoniker Id="6f71b2ca-70b8-48f7-ba2c-cae1af07c05b" LastKnownName="Circle" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="b19b78b2-f90d-4fd9-94ca-dbd4ad38eece" name="EdgeCircle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="b19b78b2-f90d-4fd9-94ca-dbd4ad38eece" name="Circle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="783f3128-1d2c-482e-8742-9ab3a8e7789d" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="092baa04-1cd8-4e16-8a3c-4bc9075e5536" name="content" direction="In" isUnique="false">
-                  <elementDefinition Id="776b65ef-36c4-45e4-b462-18819420e912" />
+                <parameter Id="b003d650-cfb9-4bc4-9546-09b3d002c68e" name="content" direction="In" isUnique="false">
+                  <elementDefinition Id="d9fe10d5-ea60-49c5-9e2f-8f9cdf78068f" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="f25d47c3-710e-40d9-b268-1512ae4a0002" LastKnownName="Edge" />
+                    <referencedTypeMoniker Id="83c029d4-b05c-43fd-b04a-7e2fa651fe54" LastKnownName="T" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -530,8 +540,23 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <Interface Id="c6c13587-87d1-4584-bc0a-693331279044" name="IEnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false">
+      <Interface Id="c6c13587-87d1-4584-bc0a-693331279044" name="IEnumerable" isAbstract="false" isLeaf="false">
         <elementDefinition Id="c8483f9a-4d4d-4df4-8527-bdaac091b3cf" />
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature Id="1b9c85ba-3706-482d-9ead-8935c3eb140e" parameters="" isLeaf="false">
+            <elementDefinition Id="3c9a371a-edcd-40a2-8c34-3d7c3fbf079d" />
+            <ownedParameters>
+              <classifierTemplateParameter Id="18a85af0-36e5-46f8-8333-55e466cbd656">
+                <elementDefinition Id="8b007f6b-85ae-4f06-82df-98f56a296ff2" />
+                <ownedParameterableElement>
+                  <class Id="13144f2d-5e64-432b-9fb5-76e4eed25152" name="Edge" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <elementDefinition Id="a5d1e3cb-d183-4791-80d2-678ab0dcaabb" />
+                  </class>
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
         <ownedOperations>
           <operation Id="10bbd025-c8d2-498a-85d2-35f4e0dee6d2" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="b9b7014c-446a-4cf9-af11-6ca5441bba08" />
@@ -560,7 +585,7 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="59322f3f-820c-4a0c-9afb-910eed27aefe" name="EdgeCircle" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::EdgeCircle">
+      <referencedType Id="59322f3f-820c-4a0c-9afb-910eed27aefe" name="Circle" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Circle">
         <elementDefinition Id="bebc304e-672b-410a-bea3-bd2c5350cb64" />
       </referencedType>
     </packageHasNamedElement>
@@ -572,6 +597,11 @@
     <packageHasNamedElement>
       <referencedType Id="3011437f-d804-4bfd-8c6d-5ade6e899aa0" name="List&lt;int&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;int&gt;">
         <elementDefinition Id="ff6fca6a-32e7-4f47-bf47-8b804f07039f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="83c029d4-b05c-43fd-b04a-7e2fa651fe54" name="T" isAbstract="false" isLeaf="false" cachedFullName="T">
+        <elementDefinition Id="c4ce530b-66c5-4681-bc25-524519a13cd6" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

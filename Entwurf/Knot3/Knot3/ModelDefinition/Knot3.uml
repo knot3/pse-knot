@@ -1945,7 +1945,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             Id="baedcc7a-2c71-4d46-a425-7ce9a3648402">
             <interfaceMoniker
               Id="44fab749-946e-40c7-9de1-ade0eee097ac"
-              LastKnownName="IEnumerable&lt;MenuItem&gt;"
+              LastKnownName="IEnumerable"
               LastKnownLocation="Knot3.uml" />
           </interfaceRealization>
         </suppliersInternal>
@@ -3031,9 +3031,29 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <Interface
         Id="44fab749-946e-40c7-9de1-ade0eee097ac"
-        name="IEnumerable&lt;MenuItem&gt;"
+        name="IEnumerable"
         isAbstract="false"
         isLeaf="false">
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature
+            Id="8f9854b6-2d84-45ba-b053-92cc90402f11"
+            parameters=""
+            isLeaf="false">
+            <ownedParameters>
+              <classifierTemplateParameter
+                Id="f13d07c6-470b-4b0f-8d2f-d9510490f21b">
+                <ownedParameterableElement>
+                  <class
+                    Id="383e5d09-7ea2-4b29-a76f-ee0d6d6021a6"
+                    name="MenuItem"
+                    isAbstract="false"
+                    isLeaf="false"
+                    isActiveClass="false" />
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
         <ownedOperations>
           <operation
             Id="0885e156-ced0-4415-a1db-80b49a8c4845"
@@ -7408,7 +7428,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             Id="6c5ed125-7f5b-4914-9877-0f0956f26daa">
             <interfaceMoniker
               Id="c8483f9a-4d4d-4df4-8527-bdaac091b3cf"
-              LastKnownName="IEnumerable&lt;Edge&gt;"
+              LastKnownName="IEnumerable"
               LastKnownLocation="Knot3.uml" />
           </interfaceRealization>
         </suppliersInternal>
@@ -7456,12 +7476,12 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             Id="01f460b1-dd86-4356-88c9-925f346bea80"
             isDerived="false"
             sourceEndRoleName="Knot"
-            targetEndRoleName="EdgeCircle"
+            targetEndRoleName="Circle"
             isLeaf="false"
             isAbstract="false">
             <classMoniker
               Id="bebc304e-672b-410a-bea3-bd2c5350cb64"
-              LastKnownName="EdgeCircle"
+              LastKnownName="Circle"
               LastKnownLocation="Knot3.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -7480,7 +7500,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="aaaf0cd9-a1d8-447f-bcd3-c2739cb2d8da"
-                  name="EdgeCircle"
+                  name="Circle"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -7526,7 +7546,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <type_NamedElement>
               <classMoniker
                 Id="bebc304e-672b-410a-bea3-bd2c5350cb64"
-                LastKnownName="EdgeCircle"
+                LastKnownName="Circle"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -8032,7 +8052,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <class
         Id="bebc304e-672b-410a-bea3-bd2c5350cb64"
-        name="EdgeCircle"
+        name="Circle"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -8040,7 +8060,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           <association
             Id="6247eb60-c3ac-4882-94d2-34f784f5fcb1"
             isDerived="false"
-            sourceEndRoleName="EdgeCircle"
+            sourceEndRoleName="Circle"
             targetEndRoleName="Edge"
             isLeaf="false"
             isAbstract="false">
@@ -8052,7 +8072,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="98945860-083c-4d31-b557-e811b4968d12"
-                  name="EdgeCircle"
+                  name="Circle"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -8077,6 +8097,26 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature
+            Id="a6659391-3fde-4d13-93f1-8b39f18bbc84"
+            parameters=""
+            isLeaf="false">
+            <ownedParameters>
+              <classifierTemplateParameter
+                Id="ea38cb9d-3f7e-4181-9259-6cafda94273b">
+                <ownedParameterableElement>
+                  <class
+                    Id="c4ce530b-66c5-4681-bc25-524519a13cd6"
+                    name="T"
+                    isAbstract="false"
+                    isLeaf="false"
+                    isActiveClass="false" />
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
         <ownedAttributesInternal>
           <property
             Id="3d43b100-891d-4ff4-bbff-d6c41d156c41"
@@ -8091,8 +8131,8 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isComposite="false">
             <type_NamedElement>
               <classMoniker
-                Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
-                LastKnownName="Edge"
+                Id="c4ce530b-66c5-4681-bc25-524519a13cd6"
+                LastKnownName="T"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -8110,7 +8150,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <type_NamedElement>
               <classMoniker
                 Id="bebc304e-672b-410a-bea3-bd2c5350cb64"
-                LastKnownName="EdgeCircle"
+                LastKnownName="Circle"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -8128,7 +8168,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <type_NamedElement>
               <classMoniker
                 Id="bebc304e-672b-410a-bea3-bd2c5350cb64"
-                LastKnownName="EdgeCircle"
+                LastKnownName="Circle"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -8136,7 +8176,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation
             Id="783f3128-1d2c-482e-8742-9ab3a8e7789d"
-            name="EdgeCircle"
+            name="Circle"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -8145,14 +8185,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="776b65ef-36c4-45e4-b462-18819420e912"
+                  Id="d9fe10d5-ea60-49c5-9e2f-8f9cdf78068f"
                   name="content"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <classMoniker
-                      Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
-                      LastKnownName="Edge"
+                      Id="c4ce530b-66c5-4681-bc25-524519a13cd6"
+                      LastKnownName="T"
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -9507,9 +9547,29 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <Interface
         Id="c8483f9a-4d4d-4df4-8527-bdaac091b3cf"
-        name="IEnumerable&lt;Edge&gt;"
+        name="IEnumerable"
         isAbstract="false"
         isLeaf="false">
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature
+            Id="3c9a371a-edcd-40a2-8c34-3d7c3fbf079d"
+            parameters=""
+            isLeaf="false">
+            <ownedParameters>
+              <classifierTemplateParameter
+                Id="8b007f6b-85ae-4f06-82df-98f56a296ff2">
+                <ownedParameterableElement>
+                  <class
+                    Id="a5d1e3cb-d183-4791-80d2-678ab0dcaabb"
+                    name="Edge"
+                    isAbstract="false"
+                    isLeaf="false"
+                    isActiveClass="false" />
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
         <ownedOperations>
           <operation
             Id="b9b7014c-446a-4cf9-af11-6ca5441bba08"
@@ -9594,7 +9654,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <type_NamedElement>
               <interfaceMoniker
                 Id="c8483f9a-4d4d-4df4-8527-bdaac091b3cf"
-                LastKnownName="IEnumerable&lt;Edge&gt;"
+                LastKnownName="IEnumerable"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>

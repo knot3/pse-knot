@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="88c201e0-6f82-492f-b993-4f45529d74af" name="UMLClassDiagram1" linkedPackageId="043cb81b-6165-44a7-9481-d62ded78ac9a" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="88c201e0-6f82-492f-b993-4f45529d74af" name="UMLClassDiagram1" linkedPackageId="043cb81b-6165-44a7-9481-d62ded78ac9a" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="d19c517f-3451-4dce-a6e7-22e89443af09">
       <elementDefinition Id="17c576b7-ab94-43c3-a798-10dfdbe56f26" />
@@ -221,7 +221,7 @@
         <elementDefinition Id="b4e6504e-28fd-4e43-8533-79b8e88964d8" />
         <suppliersInternal>
           <interfaceRealization Id="6b2aca11-f5fa-413c-a7f9-6826eb8fa728">
-            <interfaceMoniker Id="3480c895-cf9e-4e94-8ad4-d130b9cdbabf" LastKnownName="IEnumerable&lt;MenuItem&gt;" />
+            <interfaceMoniker Id="3480c895-cf9e-4e94-8ad4-d130b9cdbabf" LastKnownName="IEnumerable" />
             <elementDefinition Id="baedcc7a-2c71-4d46-a425-7ce9a3648402" />
           </interfaceRealization>
         </suppliersInternal>
@@ -788,8 +788,23 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <Interface Id="3480c895-cf9e-4e94-8ad4-d130b9cdbabf" name="IEnumerable&lt;MenuItem&gt;" isAbstract="false" isLeaf="false">
+      <Interface Id="3480c895-cf9e-4e94-8ad4-d130b9cdbabf" name="IEnumerable" isAbstract="false" isLeaf="false">
         <elementDefinition Id="44fab749-946e-40c7-9de1-ade0eee097ac" />
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature Id="48a64c14-abd2-4c77-b6ff-7e82afcef888" parameters="" isLeaf="false">
+            <elementDefinition Id="8f9854b6-2d84-45ba-b053-92cc90402f11" />
+            <ownedParameters>
+              <classifierTemplateParameter Id="fefa19bb-4e2f-41d8-8195-3cffd3bea26b">
+                <elementDefinition Id="f13d07c6-470b-4b0f-8d2f-d9510490f21b" />
+                <ownedParameterableElement>
+                  <class Id="864f5261-e7b1-451f-a9f3-450417474ae3" name="MenuItem" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <elementDefinition Id="383e5d09-7ea2-4b29-a76f-ee0d6d6021a6" />
+                  </class>
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
         <ownedOperations>
           <operation Id="232ce922-a9d2-4c4b-ae90-7c4c6a4b1634" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="0885e156-ced0-4415-a1db-80b49a8c4845" />
