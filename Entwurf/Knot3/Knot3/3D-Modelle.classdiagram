@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="1ed1b565-1f84-48cc-ba24-fb3e2d0daf1b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="1ed1b565-1f84-48cc-ba24-fb3e2d0daf1b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" name="IGameObject" isAbstract="false" isLeaf="false">
@@ -816,6 +816,12 @@
               <referencedTypeMoniker Id="7f8509c2-2f56-4b71-8d16-6b7eecbb48eb" LastKnownName="List&lt;PipeModel&gt;" />
             </type_NamedElement>
           </property>
+          <property Id="da6b68d1-7b88-439e-80cd-79256a4c2f39" name="Knot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ed68f4a3-a8d3-4fb0-a058-f9166ed5cc41" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="99fc3d50-f700-4f40-9cd7-b68aa1f96a05" LastKnownName="Knot" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="b8fae2b4-cff5-4119-89c2-32c18faa4ac3" name="Center" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -852,11 +858,6 @@
           <operation Id="89a50d46-8e73-4797-9631-2c8f3809a777" name="OnEdgesChanged" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="44488cf9-cff8-4426-a8f2-d6d81bf06efb" />
             <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="b3526d28-7e3d-4525-98c9-0ef4eab407ed" name="EdgeList" direction="In" isUnique="false">
-                  <elementDefinition Id="7d76f460-0d0d-459f-b08a-9d61c5cdfc6a" />
-                </parameter>
-              </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter Id="55cb5d6a-efeb-4866-ba9b-4c01678a87b8" direction="Return" isUnique="false">
                   <elementDefinition Id="50656ca0-c7c2-439d-b530-d93dc7d22364" />
@@ -1410,6 +1411,11 @@
     <packageHasNamedElement>
       <referencedType Id="597225d6-ef5f-4b86-bec1-6953da191821" name="Vector3" isAbstract="false" isLeaf="false" cachedFullName="Vector3">
         <elementDefinition Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="99fc3d50-f700-4f40-9cd7-b68aa1f96a05" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
+        <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
