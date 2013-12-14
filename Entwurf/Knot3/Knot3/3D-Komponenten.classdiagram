@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="69c5ee0d-6553-4c47-b387-53350a33f9af" name="3D-Komponenten" linkedPackageId="6f805220-e236-4324-86f3-568565fa64b7" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="69c5ee0d-6553-4c47-b387-53350a33f9af" name="3D-Komponenten" linkedPackageId="6f805220-e236-4324-86f3-568565fa64b7" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="a520d8fc-3f4b-4649-8f1d-512f5a206b64" name="List&lt;IGameObject&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;IGameObject&gt;">
@@ -427,6 +427,38 @@
         <elementDefinition Id="c26cea4a-4b15-4df5-becb-7c583552dd0c" />
       </referencedType>
     </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c63a942c-9fcd-4b93-849b-e6504b34ea81" name="ModelMouseHandler" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="67e9d870-4452-4058-b387-278e56983f41" />
+        <generalsInternal>
+          <generalization Id="286c84d6-3b86-4ab0-84e8-26d2f886b7ef" isSubstitutable="false">
+            <classMoniker Id="c2bec8b7-6678-486a-8436-7b5e717db166" LastKnownName="GameStateComponent" />
+            <elementDefinition Id="1d5c4151-d9d3-41fe-ba07-85ab5dfc9f25" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="edf6d7df-030a-4360-82b7-7cf53f86d2e8" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="dda5481e-371c-4e45-a3a6-de8d8b936eb1" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c2c5f8b7-749b-418c-952e-cc5761f8d976" name="ModelkeyHandler" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="24d1b5a3-ae3e-4b93-b23e-f2476964a786" />
+        <generalsInternal>
+          <generalization Id="cf11d519-f643-41e7-8739-2f3c991a47b4" isSubstitutable="false">
+            <classMoniker Id="c2bec8b7-6678-486a-8436-7b5e717db166" LastKnownName="GameStateComponent" />
+            <elementDefinition Id="3569fae1-555b-43fa-b960-b25f5ed4aa19" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="782dd11c-5487-4301-81f5-41bc0b7f2fee" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1407e748-31e1-4a16-af1b-0a60cb7c6f5b" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="6f805220-e236-4324-86f3-568565fa64b7" name="Knot3-Entwurf">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />

@@ -338,6 +338,18 @@
               <referencedTypeMoniker Id="e9907ca3-18d2-4615-8c63-c162aee26359" LastKnownName="IKnotIO" />
             </type_NamedElement>
           </property>
+          <property Id="e9c45939-34a3-421a-9924-ddcfbc6790d2" name="EdgesChanged" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9557b996-ae12-4904-aa1d-7fdfe7e6a6a3" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8ba55c56-acc4-41d9-91b3-d75285936113" LastKnownName="Action" />
+            </type_NamedElement>
+          </property>
+          <property Id="2281b730-8048-4921-ae59-1215b1843a7a" name="SeletedEdges" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fa7b4286-06b8-4fff-93de-1e4c3c47e56a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="03c8c5a0-56fb-4abb-a03b-0cc4088f8729" LastKnownName="IEnumerable&lt;Edge&gt;" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="028110a6-7d82-4bf1-8bd4-8232e4f71458" name="Knot" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -514,6 +526,82 @@
           <operation Id="2ecd956e-63ca-4a5a-8ca7-347592973357" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="1c76cb4a-cc2f-4158-9574-b7f62b7b09b2" />
           </operation>
+          <operation Id="bc553b13-737f-43c3-a28a-be23ad2579bf" name="Clone" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="806b769e-678e-4d8e-87ce-178d48fb69a6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c24565f1-4a9f-405b-a2f8-17f7099d7c85" direction="Return" isUnique="false">
+                  <elementDefinition Id="18d654c2-1bbe-47fb-a6ae-fa251b5561b2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f483129d-2004-447a-befc-b892da2bc515" LastKnownName="Object" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2f8f1c2b-9eef-4ded-afe6-6aa4b745b5ab" name="AddToSelection" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="69f1282b-11fd-4e3f-a73c-c83831f4caea" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9053c137-dafb-4b55-8308-1cb37704515b" name="edge" direction="In" isUnique="false">
+                  <elementDefinition Id="6304984e-60c0-4e70-8355-b09220b67e09" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="944bea59-9cdc-486d-a3af-56d11a237eec" LastKnownName="Edge" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="12bb007a-0a28-43cd-b7b1-34d7111ec84b" name="RemoveFromSelection" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="de0f5b19-671f-4289-89f9-ca9a702c1c56" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="65ec8b92-2441-4aca-8dfc-c4220e364778" name="edge" direction="In" isUnique="false">
+                  <elementDefinition Id="bc042526-2329-4ae9-a5ab-4fc6f39d8ea9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="944bea59-9cdc-486d-a3af-56d11a237eec" LastKnownName="Edge" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2a18873a-26e7-4578-95aa-a68892da7bf5" name="ClearSelection" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4a58c294-117c-4c19-bb2d-4966b61d3dc4" />
+          </operation>
+          <operation Id="cb21a17e-20bb-4315-96c5-26256bdfdc60" name="AddRangeToSelection" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="68f6e893-1495-4c20-91f3-6d020ff247e2" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3a4eb318-9aaa-446c-ae05-698d1bb370d7" name="edge" direction="In" isUnique="false">
+                  <elementDefinition Id="99ae1152-1342-4468-9124-f6dd7766827d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="944bea59-9cdc-486d-a3af-56d11a237eec" LastKnownName="Edge" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="eafc3096-fe51-41cb-a3b9-709ca0f27991" name="IsSelected" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3b1b4949-95a8-4630-ab80-d0fe3ab4fe32" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="06370041-4b54-45e3-8471-575c22e793e7" direction="Return" isUnique="false">
+                  <elementDefinition Id="a17b8834-0cb2-4a97-a54a-39f332881087" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="90ee2146-5961-40db-9de4-146a4f291d97" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1d13aa80-6a78-4792-b92c-3d0320aa2600" name="edge" direction="In" isUnique="false">
+                  <elementDefinition Id="41f21eb5-f36e-436c-a35d-2f24d3c33cfe" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="944bea59-9cdc-486d-a3af-56d11a237eec" LastKnownName="Edge" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -540,6 +628,26 @@
     <packageHasNamedElement>
       <referencedType Id="b1c4e124-7d17-4f69-80d1-a69d081914af" name="IKnotInfo" isAbstract="false" isLeaf="false" cachedFullName="IKnotInfo">
         <elementDefinition Id="a40fa953-b0f1-45ea-b42e-d340a0479127" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f483129d-2004-447a-befc-b892da2bc515" name="Object" isAbstract="false" isLeaf="false" cachedFullName="Object">
+        <elementDefinition Id="a10e3005-36b3-4995-8b77-a033861ac7bc" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8ba55c56-acc4-41d9-91b3-d75285936113" name="Action" isAbstract="false" isLeaf="false" cachedFullName="Action">
+        <elementDefinition Id="49d9005d-774f-4688-ab97-cc54a2486c0f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="03c8c5a0-56fb-4abb-a03b-0cc4088f8729" name="IEnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerable&lt;Edge&gt;">
+        <elementDefinition Id="b2abdd01-0a31-441c-ba9e-deb4a8648b9f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="944bea59-9cdc-486d-a3af-56d11a237eec" name="Edge" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Edge">
+        <elementDefinition Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

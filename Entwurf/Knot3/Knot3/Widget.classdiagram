@@ -139,7 +139,7 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="c6e1ceda-02ce-41ef-8b3c-ca329bc12f2e" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::GameScreen">
+      <referencedType Id="c6e1ceda-02ce-41ef-8b3c-ca329bc12f2e" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameScreen">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
       </referencedType>
     </packageHasNamedElement>
@@ -152,6 +152,40 @@
             <elementDefinition Id="c0dff137-2e7b-43f1-bcb5-00edacc8ffa4" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="82a4c053-0d39-49aa-b1a1-11f6f2d70c05" isDerived="false" sourceEndRoleName="Widget" targetEndRoleName="HorizontalAlignment" isLeaf="false" isAbstract="false">
+            <enumerationMoniker Id="1c51af8a-8ae3-4c3f-9498-f593cd4224ce" LastKnownName="HorizontalAlignment" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e0f6c81c-b06f-4667-9294-749b2cb16567" name="Widget" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="bcf5d7c0-1c6a-4341-a624-38f3ed2c5c69" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="dae1a6b8-11dc-4138-9611-b477dab453e0" name="HorizontalAlignment" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="37843373-4a99-4739-8788-9da3162bff07" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c2495199-077b-407f-984a-22e636875d25" />
+          </association>
+          <association Id="5e9dbdaf-41c5-4d74-b19a-62eae2cc2097" isDerived="false" sourceEndRoleName="Widget" targetEndRoleName="VerticalAlignment" isLeaf="false" isAbstract="false">
+            <enumerationMoniker Id="349fa881-a236-450f-9c89-2c3d8ab72715" LastKnownName="VerticalAlignment" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7fb7c64d-5b6d-4fa2-8214-3e26bb37dae9" name="Widget" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="296ada93-a3e6-4d37-99bb-149236afe3e5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="351d76be-3b72-43d1-a5d0-c914d608cb48" name="VerticalAlignment" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f40e7eef-4986-4680-8786-6f827c46e4a2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ff05100a-99fa-4221-9819-fa4f97f726de" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="4040307a-4ca0-407e-bbc4-6407b8dd94f8" name="RelativeSize" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6c4c1910-383e-49c8-870a-47e93656dd61" />
@@ -174,13 +208,25 @@
           <property Id="fd61728a-8d90-4b91-bb8f-752b9c2313c0" name="BackgroundColor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="9e04d674-92a3-4dc6-8984-4bbdde017536" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="695bb1f0-201b-4fc8-88ac-179e84c2ebbe" LastKnownName="Color" />
+              <referencedTypeMoniker Id="d845536b-8d30-4171-9d89-e21ecfe92720" LastKnownName="Func&lt;Color&gt;" />
             </type_NamedElement>
           </property>
           <property Id="6ac47b1f-231b-45d8-bbfa-5dbd1533763d" name="ForegroundColor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6ae3eb1b-4c26-4df1-9a20-8fabb5cb84d1" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="695bb1f0-201b-4fc8-88ac-179e84c2ebbe" LastKnownName="Color" />
+              <referencedTypeMoniker Id="8ae1dd6e-91e0-4841-a57a-b0812c027b3f" LastKnownName="Func&lt;Color&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="624e8e4c-2591-4907-9fa0-250b71334fef" name="AlignX" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="51b28432-092f-4046-94c9-af3ab819ed2e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d92cb5e9-84b5-43e1-80a0-9d3f040b4602" LastKnownName="HorizontalAlignment" />
+            </type_NamedElement>
+          </property>
+          <property Id="b336ce4c-3a9d-4e2b-af35-24fd2a67ba13" name="AlignY" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="790b7047-8ebe-414d-ac66-a12e4b029221" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="edc3dfc2-b310-4382-9b41-520bc15cba7d" LastKnownName="VerticalAlignment" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -264,6 +310,42 @@
             <elementDefinition Id="852ffd35-d951-4c03-9205-52bfa9a64333" />
             <type_NamedElement>
               <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="6fa50c61-f80c-449e-b6d1-4b535309fb46" name="RelativeItemSize" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="75d39e13-a7b1-43b1-9adc-7fab5dc3da39" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="10a0c385-6c78-408c-ac7b-d8251e072523" LastKnownName="Func&lt;int, Vector2&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="d9f7c8ef-ef9a-4cbd-bdb9-a186edd45059" name="RelativeItemPosition" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5bfe57f0-5ba0-4725-a13c-b440d265a99b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="10a0c385-6c78-408c-ac7b-d8251e072523" LastKnownName="Func&lt;int, Vector2&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="b07d2052-9004-4050-a536-137c3c93333f" name="ItemForegroundColor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f07b1b3c-5f53-417a-bf04-cac606a4e671" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3104c55-e35f-483a-8d76-f27d40ec3868" LastKnownName="Func&lt;ItemState, Vector2&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="66808f37-177f-47e2-b6ac-2d78d5325ad7" name="ItemBackgroundColor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="73626c4b-6a24-4e06-9d97-964cdc6d02e4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3104c55-e35f-483a-8d76-f27d40ec3868" LastKnownName="Func&lt;ItemState, Vector2&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="88130479-6c13-4c41-9023-1c9d99e4666a" name="ItemAlignX" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="21f6edbf-49c8-4b2a-800c-8e72e0662e3c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8b905013-5e3f-408e-b82e-6532e1030e65" LastKnownName="HorizontalAlignment" />
+            </type_NamedElement>
+          </property>
+          <property Id="7bcc4376-0aa0-43a7-88df-d8bb7d941dd9" name="ItemAlignY" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8d8f5fe1-446c-42c7-83cb-25367684c558" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="14fef3cd-477f-47a0-8e4a-745a26be2846" LastKnownName="VerticalAlignment" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -370,6 +452,44 @@
             <elementDefinition Id="6c8b7c3b-c5c2-427a-8a18-72123fd8d651" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="b0d2c44d-5a1a-4f48-a062-0d80fff316b5" isDerived="false" sourceEndRoleName="MenuItem" targetEndRoleName="ItemState" isLeaf="false" isAbstract="false">
+            <enumerationMoniker Id="14d082c3-7024-429a-8624-76981f7c54de" LastKnownName="ItemState" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3a7abbfe-245f-4f24-95fd-bc22a25dd67f" name="MenuItem" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="555c0bb8-92a3-47da-88f1-71fc34c21e00" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3990f9f6-252f-4382-835d-6d3f6461dda7" name="ItemState" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="07c2ac63-6c90-4642-9a3a-2428479a21eb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="07bcd8f3-3a89-46a9-9f62-0400673c7e28" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="baa58751-b746-4130-be94-f0392d027888" name="ItemState" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f8beadfe-dd59-4e15-a1f0-bb5499fea059" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="cb230525-499b-4d54-9264-61d838284635" LastKnownName="ItemState" />
+            </type_NamedElement>
+          </property>
+          <property Id="e3ffafe0-6e7f-4c8a-ba99-b73567e4328b" name="ItemOrder" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1d7fc35e-1a31-4204-929f-9165a5b0e804" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ece03980-b3a0-4547-9d2d-ffa09b6ae452" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="f902940c-607e-4d65-8ab3-4b6a223e5127" name="Text" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a0a6841e-40e6-4917-b35a-43f8e50f09bd" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="ef1d9c16-4541-42e9-959b-78d7edbb3745" name="OnLeftClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="b158cf9b-9f17-4981-b997-2048805f02fd" />
@@ -430,9 +550,9 @@
       <class Id="c7ae0fb0-0aed-4fb3-aaf0-aeb0eed7dab1" name="MenuButton" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="5eb07dbd-b3dd-46bf-a375-6da868c9fb85" />
         <generalsInternal>
-          <generalization Id="14e47f92-087d-44d1-890b-193a563da6b2" isSubstitutable="false">
+          <generalization Id="a7e99960-3e2d-481c-84bd-4daf0ea3e423" isSubstitutable="false">
             <classMoniker Id="c5cdf57b-07c8-4b9f-8293-c2670398af8f" LastKnownName="MenuItem" />
-            <elementDefinition Id="e4f6c4cf-623e-4353-aaf9-adf5b774ab51" />
+            <elementDefinition Id="73103551-2ca6-4141-9ff8-31527548f515" />
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
@@ -443,25 +563,21 @@
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="356c1ce9-404c-49d4-bb3c-5fcf78ec2bdb" name="TextItem" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="5264e4d5-74ec-4544-abe1-08ef91bfb992" />
-        <generalsInternal>
-          <generalization Id="cec678c5-aea4-420a-82c7-e750c26e17b1" isSubstitutable="false">
-            <classMoniker Id="c5cdf57b-07c8-4b9f-8293-c2670398af8f" LastKnownName="MenuItem" />
-            <elementDefinition Id="e4a567ed-e7ae-4761-8536-17fbddbcfb4b" />
-          </generalization>
-        </generalsInternal>
-        <ownedAttributesInternal>
-          <property Id="85b9292b-f4fb-4c0a-a8ca-5cd25c12b1b3" name="Text" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="acab79f7-fcae-42da-8230-25a3a417aade" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="8a2c0c92-e513-4132-8ef0-4a074ecf68cc" name="MenuButton" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="074813a0-9c48-4c34-bd36-7ad0d208e3e0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a5a6e7fd-fd24-4434-9649-8bec2f3caac6" name="name" direction="In" isUnique="false">
+                  <elementDefinition Id="3ee29407-fab7-433c-a589-50e34ee550a0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -488,19 +604,11 @@
           </property>
           <property Id="81a2e176-235c-4886-88aa-91428a0a404b" name="MaxValue" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="8ead2fa1-108a-430e-a948-3bce50d1282c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ece03980-b3a0-4547-9d2d-ffa09b6ae452" LastKnownName="int" />
+            </type_NamedElement>
           </property>
         </ownedAttributesInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="0d9dfe61-8334-4255-b5f8-bb0c854fa428" name="SoundSlider" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="1a91b0de-b84e-448f-bb1b-298ca8485f87" />
-        <generalsInternal>
-          <generalization Id="ee913d23-bdd2-4e8f-bb37-b1650ac88ce1" isSubstitutable="false">
-            <classMoniker Id="f72ef79c-6bdd-40bd-ae6c-af6715855891" LastKnownName="SliderItem" />
-            <elementDefinition Id="71c6e4ab-f520-45be-accf-2048ccf57e04" />
-          </generalization>
-        </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -525,33 +633,65 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="a8b40508-2a7a-4919-b6a4-7f74d0682f28" name="DropDownMenuItem" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="717e6418-588c-4bb5-b38c-2154f0a68be3" />
-        <suppliersInternal>
-          <dependency Id="0ee795c7-960a-4925-afc3-8f06b5e58ff9" name="enthält">
-            <classMoniker Id="508113f3-5a89-4d01-bbc7-1d4b3ec27a62" LastKnownName="DropDownEntrie" />
-            <elementDefinition Id="df463c6d-1890-41e2-b880-cb686062e2d3" />
-          </dependency>
-        </suppliersInternal>
         <generalsInternal>
           <generalization Id="1e05994b-7cf3-4b9d-bbb5-d06fc89c3d8a" isSubstitutable="false">
             <classMoniker Id="c5cdf57b-07c8-4b9f-8293-c2670398af8f" LastKnownName="MenuItem" />
             <elementDefinition Id="89399cfc-79f8-46c3-88c8-d8bcdd9893cf" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="0ce75d1c-1882-4ef0-be41-58856722f372" isDerived="false" sourceEndRoleName="DropDownMenuItem" targetEndRoleName="DropDownEntry" isLeaf="false" isAbstract="false">
+            <classMoniker Id="508113f3-5a89-4d01-bbc7-1d4b3ec27a62" LastKnownName="DropDownEntry" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6d0384bb-03d9-4645-8213-35d1f18e252a" name="DropDownMenuItem" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9e662798-ae00-42ec-b36b-bcf8c9bbe7c5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3ee372d5-8fda-4126-9973-71345aff63c3" name="DropDownEntry" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="27a58344-b8a5-43d8-9f8d-0bac3acec0ef" name="Lower" value="1">
+                      <elementDefinition Id="a177c467-d193-4ab0-a3db-1b4c30450b5c" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="daacfbf9-d37f-4875-b5e9-d2f85d75643e" name="Upper" value="*">
+                      <elementDefinition Id="592acb29-beb9-4c9e-bb46-11d774752f36" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="aa1132bb-9994-43cb-9a89-c5c00dd78827" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8621cb54-c64e-4250-8019-4874eb29ccde" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="e4139f1f-7225-427a-a816-6368b2469ea7" name="dropdown" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0551207a-e52c-4b80-9345-b80f02d1a216" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f02d60cc-9835-4fd7-ba51-c88f0db5bc5b" LastKnownName="VerticalMenu" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="d8483d87-558d-4158-94f8-91f81fca9b66" name="AddEntries" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="2ce46dbd-04fa-4916-85ef-0599facf2854" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="51000e29-745a-48d5-b554-a2713aa6f74d" direction="Return" isUnique="false">
-                  <elementDefinition Id="7b737c03-9a06-4c34-862c-721360c98331" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="d0baea6f-639a-4442-8040-005ac3a15efd" name="DistinctOptionInfo option" direction="In" isUnique="false">
+                  <elementDefinition Id="cc385720-954f-406f-9070-f34688413122" />
                 </parameter>
               </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="52d3f4d2-9314-4c93-bbd5-4cac8dbc868c" name="AddEntries" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6b627646-3461-4635-8840-7a2957bbf3c2" />
+            <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="e1ea86e2-b858-4ad7-8430-366a80d7b7cf" name="DropDownEntrie" direction="In" isUnique="false">
-                  <elementDefinition Id="0f964936-b52d-4847-bfec-d667dcf54a80" />
+                <parameter Id="342088e5-fcdc-4b13-964b-ae16b7364e99" name="DropDownEntry entries" direction="In" isUnique="false">
+                  <elementDefinition Id="b8ff4aea-d8dd-4611-b66c-ea3576479a36" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -828,7 +968,7 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <class Id="508113f3-5a89-4d01-bbc7-1d4b3ec27a62" name="DropDownEntrie" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="508113f3-5a89-4d01-bbc7-1d4b3ec27a62" name="DropDownEntry" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="5d2eded3-b9d9-494c-b92c-5674a3a62b5b" />
         <ownedAttributesInternal>
           <property Id="6f12ba7b-08dc-4ab3-a440-2db302b8f89d" name="Text" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -980,12 +1120,12 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="5212a23b-ccef-42cb-a274-c45983449d8b" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::DisplayLayer">
+      <referencedType Id="5212a23b-ccef-42cb-a274-c45983449d8b" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::DisplayLayer">
         <elementDefinition Id="a29019b8-26ba-465c-b33c-698eebbd7ee6" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="74eb3c89-124b-4a1e-beb5-1ac8652b206f" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::DisplayLayer">
+      <referencedType Id="74eb3c89-124b-4a1e-beb5-1ac8652b206f" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::DisplayLayer">
         <elementDefinition Id="a29019b8-26ba-465c-b33c-698eebbd7ee6" />
       </referencedType>
     </packageHasNamedElement>
@@ -1063,6 +1203,283 @@
             <elementDefinition Id="fbebb674-9a75-4b5e-8024-c1b221cb0c85" />
           </generalization>
         </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="d845536b-8d30-4171-9d89-e21ecfe92720" name="Func&lt;Color&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;Color&gt;">
+        <elementDefinition Id="4839f78a-48ce-477a-951a-7194bdfe6258" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8ae1dd6e-91e0-4841-a57a-b0812c027b3f" name="Func&lt;Color&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;Color&gt;">
+        <elementDefinition Id="4839f78a-48ce-477a-951a-7194bdfe6258" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="cb230525-499b-4d54-9264-61d838284635" name="ItemState" isAbstract="false" isLeaf="false" cachedFullName="ItemState">
+        <elementDefinition Id="91ec9133-d001-4a38-9da2-7ed5ff25ad90" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="14d082c3-7024-429a-8624-76981f7c54de" name="ItemState" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3e1214ca-2d4d-497d-abf7-6109560fd2e6" />
+        <ownedLiterals>
+          <enumerationLiteral Id="f5787b5c-75f1-4be4-a3b0-de15453fa2e6" name="Selected = 1">
+            <elementDefinition Id="a9571ebd-8ca2-4d42-abd2-5b4429779c85" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="066f16fc-146e-45c1-864c-e5de1e4e3f70" name="Hovered = 2">
+            <elementDefinition Id="1381aaf9-f564-4eba-b3ac-7217883f1c7f" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="81fe5eac-a307-42f2-9d92-e73e1fe5d26e" name="None = 0">
+            <elementDefinition Id="79d86e8b-648b-4ddb-af22-9b76c1332833" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="10a0c385-6c78-408c-ac7b-d8251e072523" name="Func&lt;int, Vector2&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;int, Vector2&gt;">
+        <elementDefinition Id="bfcf6e4b-1152-464f-8029-1a1b233e03ed" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f3104c55-e35f-483a-8d76-f27d40ec3868" name="Func&lt;ItemState, Vector2&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;ItemState, Vector2&gt;">
+        <elementDefinition Id="3c04e34e-ed44-4edb-8469-2d04405068ce" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8b905013-5e3f-408e-b82e-6532e1030e65" name="HorizontalAlignment" isAbstract="false" isLeaf="false" cachedFullName="HorizontalAlignment">
+        <elementDefinition Id="e1fc1cbc-d939-4212-8282-ca690922d927" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="14fef3cd-477f-47a0-8e4a-745a26be2846" name="VerticalAlignment" isAbstract="false" isLeaf="false" cachedFullName="VerticalAlignment">
+        <elementDefinition Id="d4fb3055-80b3-427a-9cc6-98ce4f872611" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="1c51af8a-8ae3-4c3f-9498-f593cd4224ce" name="HorizontalAlignment" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="51cebc7a-17d8-4658-9e3b-cca2a148c92d" />
+        <ownedLiterals>
+          <enumerationLiteral Id="e502c052-0972-472b-a85c-658e89f0174b" name="Left = 0">
+            <elementDefinition Id="29dbad71-0f06-4171-99f2-90d38e684b19" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="001b1eff-7a1c-4d8f-b0bd-5e9148324166" name="Center = 1">
+            <elementDefinition Id="9041640f-6cf7-4469-a1d4-210071056efd" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="50ddb56c-0010-4855-9d71-6c3eb50f5fdb" name="Right = 2">
+            <elementDefinition Id="48316d65-f33d-478a-8abb-604ad12e64cf" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="349fa881-a236-450f-9c89-2c3d8ab72715" name="VerticalAlignment" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="245b3488-d069-475f-9936-5a9266db04dc" />
+        <ownedLiterals>
+          <enumerationLiteral Id="8a1f17cb-f988-4a36-a9bb-e95a6202725f" name="Top = 1">
+            <elementDefinition Id="9fb5b0ed-e131-4e7f-ab38-98a1c380c62b" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="a677e8c6-75cf-4624-a3be-c3a7799cdb92" name="Center = 0">
+            <elementDefinition Id="ae441155-4852-4302-bb1f-dca4367fd7fd" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="d937a204-8605-41f2-bb88-9605b6bcb5e6" name="Bottom = 2">
+            <elementDefinition Id="eda927dc-5000-4c64-81a9-1042a182e423" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="d92cb5e9-84b5-43e1-80a0-9d3f040b4602" name="HorizontalAlignment" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::HorizontalAlignment">
+        <elementDefinition Id="51cebc7a-17d8-4658-9e3b-cca2a148c92d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="edc3dfc2-b310-4382-9b41-520bc15cba7d" name="VerticalAlignment" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::VerticalAlignment">
+        <elementDefinition Id="245b3488-d069-475f-9936-5a9266db04dc" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5c9b9724-3752-4c13-8a77-a49d92162781" name="CheckBoxItem" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="31a1de4f-04a4-426d-860a-2d167c427e6a" />
+        <generalsInternal>
+          <generalization Id="f835eb32-5ced-4b43-acec-3a33f137d1c5" isSubstitutable="false">
+            <classMoniker Id="c5cdf57b-07c8-4b9f-8293-c2670398af8f" LastKnownName="MenuItem" />
+            <elementDefinition Id="8189e46e-c13c-4492-87a8-7742f33f883f" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="3a0b5032-3607-4f06-961d-fea6484eb649" name="option" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="344f6d44-1f8d-4253-846a-79f11c431d60" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9f47094b-caf3-4a28-b3be-63228baa28c0" LastKnownName="BooleanOptionInfo" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="2696dce8-e165-4dc4-9c33-6cda31b91e30" name="CheckBoxItem" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b8c9fa51-a288-4b76-856a-97a2ab2231f3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="93feca5c-71b3-4e2c-b328-f2dd7a1f0107" name="option" direction="In" isUnique="false">
+                  <elementDefinition Id="f2a4da00-2dc9-46ce-a740-561f4e7c8614" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9f47094b-caf3-4a28-b3be-63228baa28c0" LastKnownName="BooleanOptionInfo" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="9f47094b-caf3-4a28-b3be-63228baa28c0" name="BooleanOptionInfo" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::BooleanOptionInfo">
+        <elementDefinition Id="5952cc66-3053-473b-a6fe-46aeabfa74e9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f02d60cc-9835-4fd7-ba51-c88f0db5bc5b" name="VerticalMenu" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::VerticalMenu">
+        <elementDefinition Id="8ddc3388-8276-4bc7-af1d-c3cbad4ee898" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f75576be-0b22-43a8-bcf1-ebe15ed6c780" name="GameStateComponent" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="da6db864-d5d8-4bc7-8081-d3f3b61e3e5e" />
+        <suppliersInternal>
+          <interfaceRealization Id="21f37a42-aabb-48cf-82eb-b3a6cf1492ca">
+            <interfaceMoniker Id="fc812789-0be1-4bce-841d-ac20c070e9fe" LastKnownName="IGameStateComponent" />
+            <elementDefinition Id="db165b60-0efa-49ab-9027-964110ab8422" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="6e3eb1b7-3a08-4ff4-acda-ca03cdca6efc" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="638cc1db-d73f-4ad4-98b8-59db9d370aca" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5212a23b-ccef-42cb-a274-c45983449d8b" LastKnownName="DisplayLayer" />
+            </type_NamedElement>
+          </property>
+          <property Id="30afdb67-ad41-4294-9c0e-5f29a0c1c786" name="State" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f7b802e4-0f18-4925-bfe5-8d9e71c1897d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c6e1ceda-02ce-41ef-8b3c-ca329bc12f2e" LastKnownName="GameScreen" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="aab9b5c1-455b-41ca-a7a4-dce25a6e90dc" name="SubComponents" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5eeff4a3-6bd2-40fe-b745-d1337d2d5b4f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fb6ee617-9616-4576-beb1-675de884f50e" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="b504d464-9bf4-4427-859e-1b0fa9da819a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f512814a-a27a-4433-b001-37f445763030" direction="Return" isUnique="false">
+                  <elementDefinition Id="ec632e7c-9ee0-403b-a01a-ef7c38ec8598" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a17eac05-9826-4952-8628-a84d3a3beaa5" LastKnownName="IEnumerable" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="42425403-3293-4926-a33f-00a33a0f258f" name="GameStateComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="828e6417-0908-426c-98a7-8a8206b2c546" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b69055aa-08b1-4e9e-8229-cd360516fc2f" name="GameScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="b15496ad-a4f0-4c9b-bbd9-57782e0a0706" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b1f76619-9767-49a3-89eb-dca844e8b67e" name="DisplayLayer" direction="In" isUnique="false">
+                  <elementDefinition Id="e80af8e3-b337-4662-912b-277579570f8c" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fb994d1b-4424-483b-9341-009926a717a1" name="WidgetMouseHandler" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2eb251d9-39ce-4db6-97f4-9bee08aa7514" />
+        <generalsInternal>
+          <generalization Id="98d014f5-b6bf-4442-a518-ada36ff71a6b" isSubstitutable="false">
+            <classMoniker Id="f75576be-0b22-43a8-bcf1-ebe15ed6c780" LastKnownName="GameStateComponent" />
+            <elementDefinition Id="8dc03225-f6ed-4253-b420-b473bcad3a52" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="ab75e301-8273-4eff-a4b6-c57b97908538" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5b891a56-6d7d-42dc-a07c-417080241378" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="65aa67f4-eeed-46ed-8829-f22ca41f5282" name="WidgetKeyHandler" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3e224fa9-803b-4110-a1f0-0b14cb699bc9" />
+        <generalsInternal>
+          <generalization Id="921eee0c-d9d6-4bda-bdcd-337e26d33117" isSubstitutable="false">
+            <classMoniker Id="f75576be-0b22-43a8-bcf1-ebe15ed6c780" LastKnownName="GameStateComponent" />
+            <elementDefinition Id="e4f8a720-5f86-4adb-b840-92cf0dc63460" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="fa18cca3-8787-4465-983d-f2cc7f0305b0" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ddda2525-883b-439e-9df8-ed6eec403bdb" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="aa9e63b7-a1b9-474f-a058-71940eaf0f28" name="KeyInputItem" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="64f2d26f-8b64-471d-9c18-fd008848650b" />
+        <generalsInternal>
+          <generalization Id="890fd415-daf4-445d-8153-0027f69d2793" isSubstitutable="false">
+            <classMoniker Id="9039eb1f-bf52-448c-8f20-7d8f84a57379" LastKnownName="InputItem" />
+            <elementDefinition Id="38fda275-1671-4c1a-b743-1ee10f029145" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="110a0462-f58a-4250-ab4e-ed464f1cda52" name="option" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c5893887-f5c5-4089-b025-5a896d0d5afe" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ad4fc9c5-9533-44bb-9469-689410770c35" LastKnownName="OptionInfo" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="e471da80-a518-4505-acd9-751f4ef063cf" name="OnKeyEvent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7cdc75f8-a1ca-459b-8284-e184a9a62153" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="ad4fc9c5-9533-44bb-9469-689410770c35" name="OptionInfo" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::OptionInfo">
+        <elementDefinition Id="56ea11bd-7722-42d3-a8ed-a2aeafea062e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="23815845-f9e1-4d2d-b689-15db150254dc" name="PauseDialog" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="cc786b63-d588-4b2f-a8eb-200b9e57ebc6" />
+        <generalsInternal>
+          <generalization Id="aec6b863-0c32-4a06-929e-a149462ad118" isSubstitutable="false">
+            <classMoniker Id="b7ad447f-cfa0-44a7-9737-c1fe02730abe" LastKnownName="Dialog" />
+            <elementDefinition Id="37653b80-e9db-43ac-8803-46e3ad59e95e" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="fac22306-00b0-4f61-8f34-5883dc6ce6e9" name="pauseMenu" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="64abe6f3-90d3-42d9-bcd8-a9f52e10549e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f02d60cc-9835-4fd7-ba51-c88f0db5bc5b" LastKnownName="VerticalMenu" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>

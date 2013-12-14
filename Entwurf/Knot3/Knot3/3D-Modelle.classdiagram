@@ -796,6 +796,32 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="903fe33d-8d34-4138-a922-d557b91a383d" />
           </association>
+          <association Id="174d3411-16a3-4318-8af3-54fab2c0ef1e" isDerived="false" sourceEndRoleName="ModelRenderer" targetEndRoleName="ModelFactory" isLeaf="false" isAbstract="false">
+            <classMoniker Id="9898c39d-5148-45bb-93fc-23bf8f344033" LastKnownName="ModelFactory" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d3d9591f-d3a9-4d29-948f-dd0c98fe379c" name="ModelRenderer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="070ab7bd-c7e1-4a99-b735-57d57b466794" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="98c35873-a4f9-4afb-98f3-f0af547020b0" name="ModelFactory" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="b5080696-d32c-4a1f-9bec-18c8b07c7fc5" name="Lower" value="3">
+                      <elementDefinition Id="25347b67-8e73-49e2-be3a-0a606b3b4506" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="16a5f59b-995e-4a78-a8b1-ccc88de180b1" name="Upper" value="3">
+                      <elementDefinition Id="5c8e5080-0b4a-4690-98e3-b928c6c3423a" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="ede315c6-7ccc-4bef-9e8e-1a5535d9c2e4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="04a1e989-1ea6-4496-86cd-23a3150c5451" />
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property Id="1b4c14d4-adf6-428b-8ee3-94f2e6fc1d93" name="Info" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -832,6 +858,24 @@
             <elementDefinition Id="ed68f4a3-a8d3-4fb0-a058-f9166ed5cc41" />
             <type_NamedElement>
               <referencedTypeMoniker Id="99fc3d50-f700-4f40-9cd7-b68aa1f96a05" LastKnownName="Knot" />
+            </type_NamedElement>
+          </property>
+          <property Id="2e06c49b-2e01-49cb-8616-94a4ffb94076" name="pipeFactory" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5e8e63f8-5bf4-4adb-9f82-0b61af68f81f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04e3027d-4509-4aea-9983-75be0abb5ffe" LastKnownName="ModelFactory" />
+            </type_NamedElement>
+          </property>
+          <property Id="bfe0cc72-6afe-4c14-a1be-8ff55a9e1020" name="nodeFactory" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="63554c2f-8fea-43b4-8d66-bc481ac54046" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="130d72c9-acd5-49b8-8556-78600fedcbf4" LastKnownName="ModelFactory" />
+            </type_NamedElement>
+          </property>
+          <property Id="79b52972-c57e-46ce-9596-1d2cc6b3b3f8" name="arrowFactory" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1898604c-970f-44ae-bc0f-37e27d26b442" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04e3027d-4509-4aea-9983-75be0abb5ffe" LastKnownName="ModelFactory" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -1446,6 +1490,95 @@
     <packageHasNamedElement>
       <referencedType Id="127556db-8a2c-4797-8e5c-36237a5f82d9" name="World" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::World">
         <elementDefinition Id="8228b23e-d24d-4fcc-9419-b5fbb8853415" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9898c39d-5148-45bb-93fc-23bf8f344033" name="ModelFactory" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="687d3b8d-187c-425e-ab93-65af3a228f92" />
+        <ownedAttributesInternal>
+          <property Id="56cb8573-882a-405b-8ea2-0c555cad7540" name="cache" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="614021b7-6a65-4368-b111-c20c28cff834" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5717a01d-6a1e-448d-9255-2e8e8974b4b6" LastKnownName="Dictionary&lt;GameModelInfo, GameModel&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="af56c674-66fc-4551-9809-a82ae55f8d85" name="createModel" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9ba4cd37-e63d-4d0a-969f-fe9c9ce9062a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="51e895f4-b9af-4829-a983-d177b22e787c" LastKnownName="Func&lt;GameState, GameModelInfo, GameModel&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="32daebd5-976e-4f6d-8ec9-1eb46c370b53" name="this" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a655b39f-2779-46f2-943c-b9b108e85696" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d4ac5478-258a-4c16-b671-35398d3a02ac" name="GameState state" direction="In" isUnique="false">
+                  <elementDefinition Id="a159453d-52d2-4262-a06f-bc1e3d2eebee" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ff0c836a-d8d3-44fe-b669-d6664b6f131e" name="GameModelInfo info" direction="In" isUnique="false">
+                  <elementDefinition Id="2d679848-5b33-4c9d-805e-869f85a7e4de" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="645de541-4e52-474b-b3ca-54b6821671f3" direction="Return" isUnique="false">
+                  <elementDefinition Id="28b3fe4e-c81f-495b-8e65-a2d34d9a2070" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="26d44308-6317-48bd-bb0d-d8fab8b51157" LastKnownName="GameModel" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="c6292cab-2489-4afe-a608-972396fcd5b1" name="ModelFactory" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f5c8afce-053a-429c-9fa7-df78fd35f0ca" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bd083ab4-e97e-49ad-9b47-b14c6b97d7b2" name="Func&lt;GameState" direction="In" isUnique="false">
+                  <elementDefinition Id="79246f04-cf2d-40c5-8a7a-041161d4c87a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1b6a4451-11dd-48c0-a402-2badb2e4632e" name="GameModelInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="24b28b1c-36c9-489f-9934-446f51709d27" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0ce99c8d-47d1-47ea-9994-023a6be7555a" name="GameModel&gt; createModel" direction="In" isUnique="false">
+                  <elementDefinition Id="76c803dd-561b-47a4-84c3-3fa1ed5d49e1" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="5717a01d-6a1e-448d-9255-2e8e8974b4b6" name="Dictionary&lt;GameModelInfo, GameModel&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;GameModelInfo, GameModel&gt;">
+        <elementDefinition Id="adc456b7-7f59-47b5-b46e-e35d5ea27b39" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="26d44308-6317-48bd-bb0d-d8fab8b51157" name="GameModel" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameModel">
+        <elementDefinition Id="f77a9291-5b87-4ae2-b5c4-bb30d10b9470" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="51e895f4-b9af-4829-a983-d177b22e787c" name="Func&lt;GameState, GameModelInfo, GameModel&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;GameState, GameModelInfo, GameModel&gt;">
+        <elementDefinition Id="ebd68188-a0c6-4a99-aaff-cb1db6c9579f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="04e3027d-4509-4aea-9983-75be0abb5ffe" name="ModelFactory" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ModelFactory">
+        <elementDefinition Id="687d3b8d-187c-425e-ab93-65af3a228f92" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="130d72c9-acd5-49b8-8556-78600fedcbf4" name="ModelFactory" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ModelFactory">
+        <elementDefinition Id="687d3b8d-187c-425e-ab93-65af3a228f92" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

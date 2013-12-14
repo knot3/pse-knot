@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="835db5d8-42d8-4388-803d-2a48148d5118" name="Settings" linkedPackageId="ae7e23b1-8258-49a9-a7ab-35086dad62d8" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e6e9193f-6514-4cb7-9a14-aec0157d39b2" name="ConfigFile" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="77e92351-2e79-4508-bb61-683bae86c29d" />
+        <ownedOperationsInternal>
+          <operation Id="13c71062-89f6-4367-b605-081bbf077256" name="SetOption" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="44830cb6-57cb-4b35-a9c4-5bd9532c3562" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="62dcfaa2-3079-4e3a-911b-9c001c4a891b" name="string section" direction="In" isUnique="false">
+                  <elementDefinition Id="2b02f27b-94a4-45a1-aecf-1db554fbd236" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0df4e467-9c61-49bf-be5c-a947cb48e84f" name="string option" direction="In" isUnique="false">
+                  <elementDefinition Id="fd319c0a-6a21-4884-a149-6c24ca34dff0" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2163b7e1-0b64-4083-bb37-9a342db8bd85" name="GetOption" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0718cd52-bc24-4db0-a0cb-2663afe89b2f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f63729ad-6130-43c9-a74e-94e19104008a" name="string section" direction="In" isUnique="false">
+                  <elementDefinition Id="83f1e6b8-5cec-491f-bec9-74c90fefca3d" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4c604479-5104-41dd-a693-74def8e7a926" name="string option" direction="In" isUnique="false">
+                  <elementDefinition Id="05eb0bab-58ab-4dc4-a692-0354cbfd539b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cb40e6e4-03a0-428a-a477-ab25b67dc419" name="bool defaultValue" direction="In" isUnique="false">
+                  <elementDefinition Id="6f14da6d-3a76-49f9-9e2f-c1a078173a7f" />
+                  <defaultValue>
+                    <literalString Id="baf1ddc7-bd4c-40eb-8156-1d190b2bbbc1" name="DefaultValue" value="false">
+                      <elementDefinition Id="e071bfd5-d71a-4e94-9d3e-a6f7176fa7af" />
+                    </literalString>
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="22e87977-ee6f-4648-b74a-4f560d2fca73" direction="Return" isUnique="false">
+                  <elementDefinition Id="897c9f2f-8693-4d33-b892-d85c8d5bbbe4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ebe00912-d108-4586-9560-547397a05a42" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="a9bce88d-1c18-4e14-ab06-968299d63553" name="GetOption" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cd659658-354a-4ae7-82eb-5b276179fdc0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bf1f99ef-55f7-4af6-adb3-e929ef5cf5e1" name="string section" direction="In" isUnique="false">
+                  <elementDefinition Id="7b721d4d-f237-4024-9793-46f2343a5f42" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="08288049-e207-471c-bbda-93d687e7b04f" name="string option" direction="In" isUnique="false">
+                  <elementDefinition Id="b88a483f-5c61-477c-bef0-90be2faf52b9" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4ca87cf2-ee58-4f5c-bad0-87e37d3eed9c" name="string defaultValue" direction="In" isUnique="false">
+                  <elementDefinition Id="a4953353-ee1c-461b-bd58-01ea0cbc6b64" />
+                  <defaultValue>
+                    <literalString Id="7a387bdb-91c6-4f7a-942d-06876229ff95" name="DefaultValue" value="null">
+                      <elementDefinition Id="2bc72bee-9db3-4685-9c2b-9a38c5a52a34" />
+                    </literalString>
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fc8a9313-eeec-45a0-9c6d-03e89b375d3a" direction="Return" isUnique="false">
+                  <elementDefinition Id="6c377b7c-8d9e-4895-aec2-0ab5015a1ff7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f9ead8aa-0ab1-4146-a690-b86b0c500429" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="7560f95d-ac61-45c9-9080-c59172a2f79a" name="SetOption" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="73c52601-7d2e-4579-ab6a-9583dbd1d1dd" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="20c6e68a-f739-4201-8304-3703dbf37470" name="string section" direction="In" isUnique="false">
+                  <elementDefinition Id="1647fffd-ce3e-44b7-bf30-e102405a00e7" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7e22ea6f-40e1-4a10-a22b-720f5338b31f" name="bool option" direction="In" isUnique="false">
+                  <elementDefinition Id="fde4d75b-533e-400f-af0f-9f089f05dc81" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="ebe00912-d108-4586-9560-547397a05a42" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="349d0a89-5802-412d-bfe4-ef755ee9dc33" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f9ead8aa-0ab1-4146-a690-b86b0c500429" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6a3af10e-2ffa-43ff-b6f7-8397b14a55c2" name="OptionInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="56ea11bd-7722-42d3-a8ed-a2aeafea062e" />
+        <targetEnds>
+          <association Id="74367ec6-7460-44f1-8630-7b06f75f1d8c" isDerived="false" sourceEndRoleName="OptionInfo" targetEndRoleName="ConfigFile" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e6e9193f-6514-4cb7-9a14-aec0157d39b2" LastKnownName="ConfigFile" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fc384b84-a5ac-451e-b96e-095d414e3639" name="OptionInfo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="045a57b6-b07f-41ea-8216-78f1a0c9edfe" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2df54e6f-b471-4ee6-8b29-49f9bcd40a75" name="ConfigFile" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="bc058171-cf0d-42b5-a779-9f7f5df67771" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3307fdaf-8598-46f0-9097-93c4ff7637cc" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="21338260-b60f-46b6-8a2b-0f2d456cb098" name="configFile" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5054794b-efd0-4faf-9f2d-44619a3a6dd6" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="317f5e6e-f2d8-4d14-8399-8ce095863235" LastKnownName="ConfigFile" />
+            </type_NamedElement>
+          </property>
+          <property Id="228280fc-c988-4efa-8f15-f48e03cf34e4" name="Section" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="95d44ac4-4e09-4593-b3e7-a7f92c0f0c1c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d2a05d94-1153-43b2-b768-0a56ddb50815" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="06fe0c14-e6e3-4f20-a49a-c4ab28bf6499" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="91d27a86-7e44-4038-9093-4dbebd50fc38" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7e5a38ef-6cb7-49d3-9d8a-f4cc4645dd1e" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="3927e5a4-6290-4498-99b2-d1f06e0655d5" name="DefaultValue" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6a62ea66-2dfa-49e2-a0b6-8799ae92b06d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7e5a38ef-6cb7-49d3-9d8a-f4cc4645dd1e" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="764c33fc-cd38-496e-ad87-d0af3ec466df" name="Value" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f4714450-242a-4700-835f-080ec32dcb2c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7e5a38ef-6cb7-49d3-9d8a-f4cc4645dd1e" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="52658c74-c455-4b84-bcaa-e8348050488b" name="OptionInfo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d6001ae3-bdc8-416a-8d52-bd9ceb0bbda6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5e1784b2-c90e-4bdf-8942-ce27e74343cd" name="string section" direction="In" isUnique="false">
+                  <elementDefinition Id="3a3d7271-70d3-4240-b4b8-87ecca889b54" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="33732595-86c0-41c2-8eaa-426db6e88b20" name="string name" direction="In" isUnique="false">
+                  <elementDefinition Id="57efd85a-1a60-4ebe-ac37-f4c2063251a5" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7e7601f6-bbf1-4466-a904-81352d147869" name="string defaultValue" direction="In" isUnique="false">
+                  <elementDefinition Id="9d0fa29e-75c9-4247-b1bd-ed2d3ce8a5f8" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6d925bcf-e851-4266-b545-0d6f82e35d72" name="ConfigFile configFile" direction="In" isUnique="false">
+                  <elementDefinition Id="6e4d27ae-a75c-4391-9066-eb1e6d50906e" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="317f5e6e-f2d8-4d14-8399-8ce095863235" name="ConfigFile" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ConfigFile">
+        <elementDefinition Id="77e92351-2e79-4508-bb61-683bae86c29d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7e5a38ef-6cb7-49d3-9d8a-f4cc4645dd1e" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d2a05d94-1153-43b2-b768-0a56ddb50815" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="256f6267-5a42-418a-aa4b-d462f067b7ae" name="Options" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5a90fafe-7f76-4e91-90f9-bf67888c40bd" />
+        <targetEnds>
+          <association Id="4ceddac3-c89f-4408-93eb-96a4fcbe9fe7" isDerived="false" sourceEndRoleName="Options" targetEndRoleName="ConfigFile" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e6e9193f-6514-4cb7-9a14-aec0157d39b2" LastKnownName="ConfigFile" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0140f9e7-0e9f-433d-b52b-7eaa432cad4b" name="Options" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2c231f7b-2280-4c9f-994e-9bcf2d0da056" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7c8f419a-04f9-4f25-9a00-96df5bfbad84" name="ConfigFile" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d4391850-f9c1-476f-9583-dab2f9bc11b7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="54461bc4-725f-4e14-a0a5-6fe3b56abbf1" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="ef89d9e3-6a31-45ec-b92f-5d341b93c6d8" name="Default" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2b3fac0f-5242-43bf-baff-69865e635bc2" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="317f5e6e-f2d8-4d14-8399-8ce095863235" LastKnownName="ConfigFile" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fc4af77a-d3cc-42d3-aae7-17aa87620531" name="DistinctOptionInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="33140199-3583-4ba2-9dd6-5eec8184a6fe" />
+        <generalsInternal>
+          <generalization Id="df589298-67cc-408e-a197-0bb85ab8c12d" isSubstitutable="false">
+            <classMoniker Id="6a3af10e-2ffa-43ff-b6f7-8397b14a55c2" LastKnownName="OptionInfo" />
+            <elementDefinition Id="087694ae-f0b9-4a1d-973f-7652528d7644" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="ec99f4d6-2a40-4f82-89ba-28b4b4f039df" name="ValidValues" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="30f8bcb9-3bf1-4eea-b863-1af0a600ad1b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1656fc11-f338-44fc-a4c6-e06f62875b7f" LastKnownName="HashSet&lt;string&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="f8f936f2-c777-40f8-ace4-a3d7e9715623" name="Value" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="81568a7d-0cbe-4d39-ad90-3781ec9cbf65" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7e5a38ef-6cb7-49d3-9d8a-f4cc4645dd1e" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="4ae523f2-7864-4ca4-a4a6-6865dfca8ea2" name="DistinctOptionInfo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="fdf65065-0764-4430-bd27-c9f3fb5c11a4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3fa320cf-06a9-41f2-a46f-b58c1f5586ed" name="string section" direction="In" isUnique="false">
+                  <elementDefinition Id="24e2d239-a0f0-446d-a3fc-4734f5b843f6" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b30c3fe2-fab6-4f03-a7aa-08ee17937b3e" name="string name" direction="In" isUnique="false">
+                  <elementDefinition Id="ff3dd03e-1fd5-4128-a163-5e9b6542e191" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="95324ed5-fd82-4aa8-9dcc-1f7a9cd9d50d" name="string defaultValue" direction="In" isUnique="false">
+                  <elementDefinition Id="8dd16bdd-716d-4aa2-b95e-ac16d53ee8a2" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cf8ee869-f782-4492-a48a-d27c0e2c4389" name="string[] validValues" direction="In" isUnique="false">
+                  <elementDefinition Id="58e6422c-f4d9-40b9-aaff-dd12dbdda064" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="57096d6c-02c4-42ba-b0f2-0461fd5ca41a" name="ConfigFile configFile" direction="In" isUnique="false">
+                  <elementDefinition Id="dfd66828-c3b9-4a76-9f9e-ed6886fa86ad" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="1656fc11-f338-44fc-a4c6-e06f62875b7f" name="HashSet&lt;string&gt;" isAbstract="false" isLeaf="false" cachedFullName="HashSet&lt;string&gt;">
+        <elementDefinition Id="321c8fb6-e46d-4630-960e-38232884b0c8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="65d72c80-83ea-4ad9-b081-b4f59c2525da" name="BooleanOptionInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5952cc66-3053-473b-a6fe-46aeabfa74e9" />
+        <generalsInternal>
+          <generalization Id="8cd51803-9ea3-431a-8da4-73109afe3019" isSubstitutable="false">
+            <classMoniker Id="fc4af77a-d3cc-42d3-aae7-17aa87620531" LastKnownName="DistinctOptionInfo" />
+            <elementDefinition Id="adb6581d-a08c-49e2-b0aa-f76d605a61d3" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="2f2b74a2-8226-4b0b-941a-191982f677bf" name="Value" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4de875c3-8dfb-47e6-a09c-4b77b6c71f99" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ebe00912-d108-4586-9560-547397a05a42" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="bc9bb37b-c1dd-4a3d-baf0-f86df4fe5b26" name="BooleanOptionInfo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b05d7c74-7814-40ae-a034-86c4812a2b75" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1ec5ece9-82e9-4143-a05b-3668e6086808" name="string section" direction="In" isUnique="false">
+                  <elementDefinition Id="8d225620-2df6-4227-9e34-e6a1728f0723" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="90b98176-a222-4c04-9eb3-8ffd551b9ecf" name="string name" direction="In" isUnique="false">
+                  <elementDefinition Id="32d55059-8146-409a-a1d2-9302fd7fcdce" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3f464c40-bc7b-421a-99cc-12aaf2e6b1ef" name="string defaultValue" direction="In" isUnique="false">
+                  <elementDefinition Id="ba0e595e-9062-4280-881c-fc522d89f707" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a0468c23-c31d-474c-aeac-a5b9151e56e1" name="ConfigFile configFile" direction="In" isUnique="false">
+                  <elementDefinition Id="6cbdc19c-11ff-4bf7-a409-ff3b2a9c26fe" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="65b9211f-4e20-4506-b75e-6d7f02d00336" name="Localizer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7e382da1-a88c-4828-b610-f74b7589e27d" />
+        <targetEnds>
+          <association Id="73ec8312-b585-41c4-853a-cabf7351d2c2" isDerived="false" sourceEndRoleName="Localizer" targetEndRoleName="ConfigFile" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e6e9193f-6514-4cb7-9a14-aec0157d39b2" LastKnownName="ConfigFile" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="71672313-7eb0-46ff-9d17-06c1be8b71f7" name="Localizer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8431ab7a-24c4-45bd-8022-45b1e45ca7f4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ef67ccf2-fce7-4d51-852d-7809b7ed8362" name="ConfigFile" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b2e19640-9996-4b81-bc91-703d63f1fc39" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f936cdc7-d8eb-4438-b961-034311ce8a42" />
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation Id="21023450-93af-40fa-a57e-6a6690c289f0" name="Localize" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="11b2f124-1dc4-4da9-b71f-860135d75afa" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="469beccb-30d7-4e26-9cc0-17f4d2746797" name="String text" direction="In" isUnique="false">
+                  <elementDefinition Id="520c07dc-2816-4c31-bdb4-ebe43dc4ebb4" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="96d96545-6595-4a4a-94f1-e631e9567d3a" direction="Return" isUnique="false">
+                  <elementDefinition Id="d6a91298-1ce6-43fc-b92f-c9348fe2bdf2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7e5a38ef-6cb7-49d3-9d8a-f4cc4645dd1e" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="ae7e23b1-8258-49a9-a7ab-35086dad62d8" name="Knot3-Entwurf">
+    <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
+    <profileInstances>
+      <packageHasProfileInstances Id="f8d18f3e-bc1d-4940-b121-1b112f194846">
+        <profileInstance Id="3d0b246b-e55b-45ad-81fd-23728ae5604c" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="18d96adb-81ac-4039-8592-bbe897d1c23b">
+        <profileInstance Id="1a2f1374-360b-483f-ac21-0fa4f62c1c92" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>
