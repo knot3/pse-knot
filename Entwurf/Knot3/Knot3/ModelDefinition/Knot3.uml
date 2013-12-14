@@ -2181,25 +2181,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
-        Id="16760c72-b9cf-45ac-ae43-c025b0cad9b7"
-        name="SubMenu"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <generalsInternal>
-          <generalization
-            Id="5b6c23a8-c180-46e1-9bda-7889e5151448"
-            isSubstitutable="false">
-            <classMoniker
-              Id="b4e6504e-28fd-4e43-8533-79b8e88964d8"
-              LastKnownName="Menu"
-              LastKnownLocation="Knot3.uml" />
-          </generalization>
-        </generalsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
         Id="b850eba4-57a5-42aa-b25d-e4a3780582f1"
         name="MenuItem"
         isAbstract="true"
@@ -2243,16 +2224,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9e29568b-73a2-4e34-acae-207cdaddffdf"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="6e093a3f-b814-4962-b792-ef9439b3d7f3"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d3fe107a-3169-45fa-9a86-c2ef8fb3ff25"
+                  name="ClickEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b3bb536e-e96f-44af-bd97-e685b7dce207"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -2267,16 +2256,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="8543daba-e6e8-4865-816e-ddfc97618af0"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="3b4b6141-cc62-48a3-a20f-bfdbc2cbee15"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="54694683-110a-4405-b9e6-ed68a36da443"
+                  name="ClickEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3197749d-01bc-460d-9cb6-52c0e5e3e265"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -2291,16 +2288,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="34fd8cf8-d335-4f67-8d0c-1b4a4814f1ed"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="cf5d6c21-e344-49b8-ae93-b4570c254feb"
+                  name="Keys[]"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fa519076-5026-43a6-8867-1ff262ee5a08"
+                  name="KeyEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="caff87e2-a3a9-480e-a800-4caafcaa7d5a"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -2701,16 +2706,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9896e5bd-93e3-4502-86ef-21642147d4d5"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="1a5ad6fb-3890-4246-b5ca-0f3ac17ddd69"
+                  name="Keys[]"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="495840c0-3f7d-491e-9dd8-da54c3c96c0e"
+                  name="KeyEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8d8333b4-8777-4907-90a0-75640030316b"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -2749,16 +2762,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="2e35f338-d92e-487e-adbd-82a427e1e9f6"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="930734be-b705-4a8e-889c-0ffc69097614"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fbd89286-d16a-4fb9-9ac4-f36c015f7862"
+                  name="ClickEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="282eb133-a503-4d49-9946-81f6ea7f9042"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -2773,16 +2794,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="e0a477eb-7346-41db-851d-7f3f33b53c96"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="339ce8ad-0943-459e-98f7-89581ea8dbb7"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7fcaea3a-7412-46fd-a648-bdccc319d2ad"
+                  name="ClickEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8dfade3b-0c0e-4728-bf77-249270c36426"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -2872,16 +2901,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="05ffa77a-f9e6-43bc-855f-767b2d4f71c1"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="924aea1e-16d5-4dfc-b53a-8677bbebaebf"
+                  name="Keys[]"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f2a48208-1851-477e-a916-7bb92e473226"
+                  name="KeyEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="905c4923-d3bb-4c34-976f-4f87ca0cd09b"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -2920,16 +2957,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="77784330-3717-4f9a-b8f1-2f4bf5a77b77"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="661cd82f-f825-4acf-8a30-5940bd8efa97"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0ddc885b-8a36-44d2-a7d3-01e817c89203"
+                  name="ClickEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="698f5d69-9ccf-43dc-ab5f-90961a6f1223"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -2944,16 +2989,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="c7e0a475-cea5-4311-9282-12dae5529f2b"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="f3d346c1-903c-40ad-8736-bb6eb983d61b"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5e209a13-1e97-46b3-bbbb-62ed2b81fdd5"
+                  name="ClickEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ba6b7918-25ad-4374-8f4b-f8b79b9cdfd0"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -3191,16 +3244,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="5d647f9d-8021-410b-be34-3c1ce195ac21"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="6910703b-7722-42e0-b6bb-a8739b88d4fb"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bd27429d-8dc5-40ac-bf79-d95b1ccf74b2"
+                  name="ClickEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f6a20566-bca4-4932-b908-49045972d5ab"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -3215,16 +3276,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="58897248-e586-4b39-b281-06d6aa328e3d"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="1a4833db-c6d2-42e6-bd18-9fec22a91215"
+                  name="Vector2"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9d4e398f-1a9e-4bdc-809e-74ee92f4580f"
+                  name="ClickEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2b61acae-0a13-468a-8063-548bc5f899a1"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -3305,16 +3374,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="34dabc10-f9e6-44e2-9997-8536a5fdf607"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  Id="bd609403-cbd5-4d04-bbc4-116d1522fd7b"
+                  name="Keys[]"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dbf5ea99-95c6-4022-b835-ba2663dfc524"
+                  name="KeyEvent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8fa3136f-2081-426e-8c34-f124a83192f2"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -7587,6 +7664,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="93b2777e-7eee-42cd-9b4a-cc083cd81c8c"
+            name="EdgesChanged"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="49d9005d-774f-4688-ab97-cc54a2486c0f"
+                LastKnownName="Action"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -8291,7 +8386,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="5e79a384-6fa4-4552-9f04-497c8e02024e"
+                  Id="aba68101-37cb-4283-bfed-220883fede01"
                   name="name"
                   direction="In"
                   isUnique="false">
@@ -8305,7 +8400,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="dcccd9ea-aed6-41d6-a5b6-ac6423e1faa2"
+                  Id="fdf6e0e7-212a-41b1-9152-dd591ab4b078"
                   name="countEdges"
                   direction="In"
                   isUnique="false">
@@ -8319,14 +8414,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="e42db786-1c17-4fc0-82f4-41e1ae10d954"
+                  Id="00873523-fb95-46ba-9ecf-50081bc7139e"
                   name="file"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="efda640d-1854-4ebc-a2e2-d4dc2414cf99"
-                      LastKnownName="IKnotIO("
+                    <interfaceMoniker
+                      Id="0b22d353-d1cd-4ef0-b4e0-9aaa60af844b"
+                      LastKnownName="IKnotIO"
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -9990,6 +10085,44 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       <undefinedType
         Id="ff6fca6a-32e7-4f47-bf47-8b804f07039f"
         name="List&lt;int&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="2b7b0bad-22e9-46e4-8982-009934afcc5a"
+        name="KeyEvent"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="fb9d74df-0372-4475-abf6-a5e1a0c40dd8"
+            name="None = 0" />
+          <enumerationLiteral
+            Id="1b8b0b3d-5629-4943-94e6-b44fecd374da"
+            name="KeyDown = 1" />
+          <enumerationLiteral
+            Id="5619e22d-2d18-4ce2-bbe1-f5e5b2531522"
+            name="KeyHeldDown = 2" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="923aa916-1a2e-4982-bcc9-da6c1d2097df"
+        name="ClickEvent"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="3c53cb42-d7ca-4a77-816e-2e66b85b1853"
+            name="SingleClick = 1" />
+          <enumerationLiteral
+            Id="d89cac4d-e4dc-4e0e-8374-1f41a679da4c"
+            name="DoubleClick = 2" />
+          <enumerationLiteral
+            Id="e4f8f782-22d9-4772-907c-ef1cf25ecb7b"
+            name="None = 0" />
+        </ownedLiterals>
+      </enumeration>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4dd72b25-4e26-4c0d-aaae-647424dfac33" name="UMLClassDiagram1" linkedPackageId="1ad2dd4e-b09e-4bfe-901c-e03b155bb971" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4dd72b25-4e26-4c0d-aaae-647424dfac33" name="UMLClassDiagram1" linkedPackageId="1ad2dd4e-b09e-4bfe-901c-e03b155bb971" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
@@ -86,11 +86,6 @@
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
       </referencedType>
     </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="dd110e77-d456-42dc-82e8-b411798ffd03" name="IKnotIO(" isAbstract="false" isLeaf="false" cachedFullName="IKnotIO(">
-        <elementDefinition Id="efda640d-1854-4ebc-a2e2-d4dc2414cf99" />
-      </referencedType>
-    </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
       <class Id="bf6462c2-a8a3-47d2-95c0-1f5937bdf0a1" name="Knot" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
@@ -157,6 +152,12 @@
             <elementDefinition Id="1376e740-3a34-41d3-95e0-8a67acafee79" />
             <type_NamedElement>
               <referencedTypeMoniker Id="99ae66d1-3a5c-4820-9200-283ea14c471e" LastKnownName="IKnotIO" />
+            </type_NamedElement>
+          </property>
+          <property Id="5b88ada0-e766-416f-ae07-33e710cf908d" name="EdgesChanged" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="93b2777e-7eee-42cd-9b4a-cc083cd81c8c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a19f5a6a-29e1-4304-bf1d-772c9e623bcc" LastKnownName="Action" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -506,26 +507,26 @@
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="9f2b377a-9bd4-4f9e-a50f-8adb47459d40" name="name" direction="In" isUnique="false">
-                  <elementDefinition Id="5e79a384-6fa4-4552-9f04-497c8e02024e" />
+                <parameter Id="0d3b3637-1b47-4b84-87f7-77e9294de864" name="name" direction="In" isUnique="false">
+                  <elementDefinition Id="aba68101-37cb-4283-bfed-220883fede01" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" LastKnownName="String" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="ce30f224-148d-4c27-b68f-cd37897b80c7" name="countEdges" direction="In" isUnique="false">
-                  <elementDefinition Id="dcccd9ea-aed6-41d6-a5b6-ac6423e1faa2" />
+                <parameter Id="da66de08-edc3-4e9d-a861-99af983a6aa7" name="countEdges" direction="In" isUnique="false">
+                  <elementDefinition Id="fdf6e0e7-212a-41b1-9152-dd591ab4b078" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="48f37cc0-80b7-4652-a597-5ad2d459d47b" LastKnownName="Integer" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c70f3e6e-6216-4a30-882c-309a63c6b1c2" name="file" direction="In" isUnique="false">
-                  <elementDefinition Id="e42db786-1c17-4fc0-82f4-41e1ae10d954" />
+                <parameter Id="04e0dfd1-91e1-4a6a-bc48-3905532518b5" name="file" direction="In" isUnique="false">
+                  <elementDefinition Id="00873523-fb95-46ba-9ecf-50081bc7139e" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="dd110e77-d456-42dc-82e8-b411798ffd03" LastKnownName="IKnotIO(" />
+                    <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="IKnotIO" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -602,6 +603,11 @@
     <packageHasNamedElement>
       <referencedType Id="83c029d4-b05c-43fd-b04a-7e2fa651fe54" name="T" isAbstract="false" isLeaf="false" cachedFullName="T">
         <elementDefinition Id="c4ce530b-66c5-4681-bc25-524519a13cd6" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a19f5a6a-29e1-4304-bf1d-772c9e623bcc" name="Action" isAbstract="false" isLeaf="false" cachedFullName="Action">
+        <elementDefinition Id="49d9005d-774f-4688-ab97-cc54a2486c0f" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

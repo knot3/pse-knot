@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="88c201e0-6f82-492f-b993-4f45529d74af" name="UMLClassDiagram1" linkedPackageId="043cb81b-6165-44a7-9481-d62ded78ac9a" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="88c201e0-6f82-492f-b993-4f45529d74af" name="UMLClassDiagram1" linkedPackageId="043cb81b-6165-44a7-9481-d62ded78ac9a" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="d19c517f-3451-4dce-a6e7-22e89443af09">
       <elementDefinition Id="17c576b7-ab94-43c3-a798-10dfdbe56f26" />
@@ -375,11 +375,18 @@
             <elementDefinition Id="b158cf9b-9f17-4981-b997-2048805f02fd" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c3bac26a-9ca1-41c4-bcc0-f493760a6252" direction="Return" isUnique="false">
-                  <elementDefinition Id="9e29568b-73a2-4e34-acae-207cdaddffdf" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="2dd8e849-615f-43fc-a283-a118632746ad" name="Vector2" direction="In" isUnique="false">
+                  <elementDefinition Id="6e093a3f-b814-4962-b792-ef9439b3d7f3" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b226a32f-ae5d-43a5-905f-602533e44ccd" name="ClickEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="d3fe107a-3169-45fa-9a86-c2ef8fb3ff25" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3cd44a22-6ef4-440f-a0d0-bbb3f97fd656" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="b3bb536e-e96f-44af-bd97-e685b7dce207" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -388,11 +395,18 @@
             <elementDefinition Id="a9f5bad9-55c3-4b17-bef9-a7fc2d1ba515" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="8847bc09-2aaf-4e71-8ed5-2bd1a4f0c91a" direction="Return" isUnique="false">
-                  <elementDefinition Id="8543daba-e6e8-4865-816e-ddfc97618af0" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="fcab2863-4ffa-43d7-8c44-495fcfb3b6ad" name="Vector2" direction="In" isUnique="false">
+                  <elementDefinition Id="3b4b6141-cc62-48a3-a20f-bfdbc2cbee15" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="966b72da-6180-4058-80c4-800aeea1b9a1" name="ClickEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="54694683-110a-4405-b9e6-ed68a36da443" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a74bbda2-89ab-49d9-8fa3-37d76adcf823" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="3197749d-01bc-460d-9cb6-52c0e5e3e265" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -401,11 +415,18 @@
             <elementDefinition Id="4ddc0572-5746-416c-8d98-0392ac8ccd80" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="7c7e711e-1a01-4bf1-8627-22f54135ed81" direction="Return" isUnique="false">
-                  <elementDefinition Id="34fd8cf8-d335-4f67-8d0c-1b4a4814f1ed" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="7fb647dd-3bb5-4a2d-90c7-989b79960fe3" name="Keys[]" direction="In" isUnique="false">
+                  <elementDefinition Id="cf5d6c21-e344-49b8-ae93-b4570c254feb" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fda87b16-d98f-4259-8c42-478680454c91" name="KeyEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="fa519076-5026-43a6-8867-1ff262ee5a08" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="71dce4dc-deb1-4055-b5c4-480d6558ae0b" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="caff87e2-a3a9-480e-a800-4caafcaa7d5a" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -610,11 +631,18 @@
             <elementDefinition Id="43e53d6b-c308-4291-b79f-304b80682e6a" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="65f842c7-eb1a-4a89-8c9f-b4ca589972ca" direction="Return" isUnique="false">
-                  <elementDefinition Id="9896e5bd-93e3-4502-86ef-21642147d4d5" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="ceb4a1af-70cb-445a-8624-8c5d36513a58" name="Keys[]" direction="In" isUnique="false">
+                  <elementDefinition Id="1a5ad6fb-3890-4246-b5ca-0f3ac17ddd69" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="14e8e0f8-cc10-4def-8c41-8c6a4264ef01" name="KeyEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="495840c0-3f7d-491e-9dd8-da54c3c96c0e" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0b13a9d4-1ee5-45ad-9b07-55c49eb1ae7f" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="8d8333b4-8777-4907-90a0-75640030316b" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -636,11 +664,18 @@
             <elementDefinition Id="7f2151d9-abfb-4f73-8835-f958fb994b7c" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="22ebe4c6-c636-4875-a503-dca76eaca068" direction="Return" isUnique="false">
-                  <elementDefinition Id="2e35f338-d92e-487e-adbd-82a427e1e9f6" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="c468f3cb-9c95-4c52-ba0e-95daa62394db" name="Vector2" direction="In" isUnique="false">
+                  <elementDefinition Id="930734be-b705-4a8e-889c-0ffc69097614" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="aea92415-80a2-461d-b08b-3ba25880e5ba" name="ClickEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="fbd89286-d16a-4fb9-9ac4-f36c015f7862" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a32a22b2-e447-4515-8223-09e09951f79f" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="282eb133-a503-4d49-9946-81f6ea7f9042" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -649,11 +684,18 @@
             <elementDefinition Id="c9207cb3-8e27-4d79-bc51-123d37f88986" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="927cef95-f17f-4cc4-96d6-e802103bd4a6" direction="Return" isUnique="false">
-                  <elementDefinition Id="e0a477eb-7346-41db-851d-7f3f33b53c96" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="db387b45-c172-44b2-a2b7-023263a8f0b4" name="Vector2" direction="In" isUnique="false">
+                  <elementDefinition Id="339ce8ad-0943-459e-98f7-89581ea8dbb7" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c514ac14-451d-40cf-b8f5-7cd70e53afbf" name="ClickEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="7fcaea3a-7412-46fd-a648-bdccc319d2ad" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="37ada74c-c8e3-4078-a557-f4e9054a88dd" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="8dfade3b-0c0e-4728-bf77-249270c36426" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -699,11 +741,18 @@
             <elementDefinition Id="71cb8c65-15c1-4361-9c51-54b7007d0806" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a3be3f8c-768a-43ea-b70b-0c685c0a1e72" direction="Return" isUnique="false">
-                  <elementDefinition Id="05ffa77a-f9e6-43bc-855f-767b2d4f71c1" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="24db75db-016f-43dd-8993-bcb0bac61577" name="Keys[]" direction="In" isUnique="false">
+                  <elementDefinition Id="924aea1e-16d5-4dfc-b53a-8677bbebaebf" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="11fbeaa9-a8c3-4d45-9bab-2170ab0ac8cd" name="KeyEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="f2a48208-1851-477e-a916-7bb92e473226" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5c57f4da-f14d-44c3-b311-8440580254d5" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="905c4923-d3bb-4c34-976f-4f87ca0cd09b" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -725,11 +774,18 @@
             <elementDefinition Id="edf74f35-0376-423f-b53d-9961693b147f" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="f7b61555-8c51-4449-9fa2-4859b87f5e4d" direction="Return" isUnique="false">
-                  <elementDefinition Id="77784330-3717-4f9a-b8f1-2f4bf5a77b77" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="6c0335d3-3a03-4ef4-aa8b-e8c72bdf0d6a" name="Vector2" direction="In" isUnique="false">
+                  <elementDefinition Id="661cd82f-f825-4acf-8a30-5940bd8efa97" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8874821b-250a-40dd-81ae-7f9b6dd12848" name="ClickEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="0ddc885b-8a36-44d2-a7d3-01e817c89203" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b6c3f8f5-953d-4ce7-bc4e-f7ff90bcdfd6" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="698f5d69-9ccf-43dc-ab5f-90961a6f1223" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -738,11 +794,18 @@
             <elementDefinition Id="e7aca1ff-4f0e-4d9c-a166-fc2f3800943b" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="20caf138-eb51-434f-966e-72ce62a722f1" direction="Return" isUnique="false">
-                  <elementDefinition Id="c7e0a475-cea5-4311-9282-12dae5529f2b" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="39341ac5-66bb-4ba8-ae25-4173d17d396c" name="Vector2" direction="In" isUnique="false">
+                  <elementDefinition Id="f3d346c1-903c-40ad-8736-bb6eb983d61b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bb6f1d47-665e-4ef7-95d2-f598614abc4a" name="ClickEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="5e209a13-1e97-46b3-bbbb-62ed2b81fdd5" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="626d46e0-fd91-44a6-950e-c86fb26d9a49" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="ba6b7918-25ad-4374-8f4b-f8b79b9cdfd0" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -880,11 +943,18 @@
             <elementDefinition Id="1da3cf3d-163b-4806-8a80-454959b8c5f2" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="b148016f-4875-416d-992d-a8d92a0ee282" direction="Return" isUnique="false">
-                  <elementDefinition Id="5d647f9d-8021-410b-be34-3c1ce195ac21" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="e81bacf6-c1e0-453e-8959-9823865fb6ce" name="Vector2" direction="In" isUnique="false">
+                  <elementDefinition Id="6910703b-7722-42e0-b6bb-a8739b88d4fb" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="932a5c14-fae3-44e2-bc5f-725199eff7dd" name="ClickEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="bd27429d-8dc5-40ac-bf79-d95b1ccf74b2" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="962784dc-9fc5-4d33-8a02-0fadc033b5bb" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="f6a20566-bca4-4932-b908-49045972d5ab" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -893,11 +963,18 @@
             <elementDefinition Id="838acf07-b389-4fde-8b90-1df665376a9f" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="60dee0dc-d333-4369-853b-3c1b620b489e" direction="Return" isUnique="false">
-                  <elementDefinition Id="58897248-e586-4b39-b281-06d6aa328e3d" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="f6d0c716-4935-4159-a318-3c6f0245e0ff" name="Vector2" direction="In" isUnique="false">
+                  <elementDefinition Id="1a4833db-c6d2-42e6-bd18-9fec22a91215" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ffeacb59-ad99-4099-9e00-df2b74547a81" name="ClickEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="9d4e398f-1a9e-4bdc-809e-74ee92f4580f" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="84adf073-d00f-4753-8622-569bdc88c60c" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="2b61acae-0a13-468a-8063-548bc5f899a1" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -933,11 +1010,18 @@
             <elementDefinition Id="f6b9faf9-a8f1-40bc-92d6-60b0f7a78288" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="8f51c777-a785-4fed-bcd7-919c1fb5c5f8" direction="Return" isUnique="false">
-                  <elementDefinition Id="34dabc10-f9e6-44e2-9997-8536a5fdf607" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="db8a172c-d57d-4244-8044-5b41095402b4" LastKnownName="void" />
-                  </type_NamedElement>
+                <parameter Id="d08a2209-c8eb-459c-b42c-f6ba66c687b1" name="Keys[]" direction="In" isUnique="false">
+                  <elementDefinition Id="bd609403-cbd5-4d04-bbc4-116d1522fd7b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4db917e8-f89e-4f38-b00d-2b7892470644" name="KeyEvent" direction="In" isUnique="false">
+                  <elementDefinition Id="dbf5ea99-95c6-4022-b835-ba2663dfc524" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2aa4332e-887f-4fa8-9bf7-9e13dd184ae9" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="8fa3136f-2081-426e-8c34-f124a83192f2" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1064,6 +1148,38 @@
           </generalization>
         </generalsInternal>
       </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="28623a11-f86f-4fbc-a501-a6f107d93675" name="KeyEvent" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2b7b0bad-22e9-46e4-8982-009934afcc5a" />
+        <ownedLiterals>
+          <enumerationLiteral Id="9f869baa-0568-4317-85a6-35fff8df428b" name="None = 0">
+            <elementDefinition Id="fb9d74df-0372-4475-abf6-a5e1a0c40dd8" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="73f66131-0307-4897-b608-b49a9fb765bd" name="KeyDown = 1">
+            <elementDefinition Id="1b8b0b3d-5629-4943-94e6-b44fecd374da" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="acabdb83-9086-4f25-8c74-d8fe36c56b77" name="KeyHeldDown = 2">
+            <elementDefinition Id="5619e22d-2d18-4ce2-bbe1-f5e5b2531522" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="7dc8eb2d-15b1-4ac9-87e3-0461fc568b32" name="ClickEvent" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="923aa916-1a2e-4982-bcc9-da6c1d2097df" />
+        <ownedLiterals>
+          <enumerationLiteral Id="c9fe127e-84fe-4029-8f30-894bacc5ee6f" name="SingleClick = 1">
+            <elementDefinition Id="3c53cb42-d7ca-4a77-816e-2e66b85b1853" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="87f5d4b2-cee6-40ba-9c49-6bf0cd59dd88" name="DoubleClick = 2">
+            <elementDefinition Id="d89cac4d-e4dc-4e0e-8374-1f41a679da4c" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="aed923ad-1508-426a-8e1f-e8ff29d406d6" name="None = 0">
+            <elementDefinition Id="e4f8f782-22d9-4772-907c-ef1cf25ecb7b" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="043cb81b-6165-44a7-9481-d62ded78ac9a" name="Knot3-Entwurf">

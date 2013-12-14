@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="64565f3c-6c81-4ea2-a32f-76f7c0599027" name="Challenge" linkedPackageId="06ca7ab3-4f20-4744-af82-83a2a92e2121" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="64565f3c-6c81-4ea2-a32f-76f7c0599027" name="Challenge" linkedPackageId="06ca7ab3-4f20-4744-af82-83a2a92e2121" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="ca5bfd32-9bc8-4a75-b9f0-078040a72f80" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
@@ -338,6 +338,12 @@
               <referencedTypeMoniker Id="e9907ca3-18d2-4615-8c63-c162aee26359" LastKnownName="IKnotIO" />
             </type_NamedElement>
           </property>
+          <property Id="1b720d3b-8db8-490a-a205-c7d2e9ab5785" name="EdgesChanged" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="93b2777e-7eee-42cd-9b4a-cc083cd81c8c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="4ce1a867-428e-4a25-8beb-579ee0b40295" LastKnownName="Action" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="028110a6-7d82-4bf1-8bd4-8232e4f71458" name="Knot" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -540,6 +546,11 @@
     <packageHasNamedElement>
       <referencedType Id="b1c4e124-7d17-4f69-80d1-a69d081914af" name="IKnotInfo" isAbstract="false" isLeaf="false" cachedFullName="IKnotInfo">
         <elementDefinition Id="a40fa953-b0f1-45ea-b42e-d340a0479127" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="4ce1a867-428e-4a25-8beb-579ee0b40295" name="Action" isAbstract="false" isLeaf="false" cachedFullName="Action">
+        <elementDefinition Id="49d9005d-774f-4688-ab97-cc54a2486c0f" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
