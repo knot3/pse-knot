@@ -359,7 +359,7 @@
           <property Id="f66cf619-4eee-46cc-bdf1-c7b19412e6fc" name="Rotation" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="c31ee9f9-d3d2-4436-b913-75cb41b9d948" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="6574fcc9-dfe8-4779-a76f-e201e6b9e592" LastKnownName="Angles3" />
+              <referencedTypeMoniker Id="86ff5098-4ab9-4e84-9d3a-0f6f86e1e90b" LastKnownName="Angles3" />
             </type_NamedElement>
           </property>
           <property Id="13fdf038-571f-4718-8271-4c13457e7548" name="Scale" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -374,10 +374,18 @@
             <elementDefinition Id="6a721705-27de-444a-a8b6-3ed691ba1621" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="89ab6bbd-fd6e-4b78-89ff-a462c554c149" name="modelname" direction="In" isUnique="false">
-                  <elementDefinition Id="e739bfb3-76ac-4642-8089-a05f116b633a" />
+                <parameter Id="fa724be8-3c59-41da-b857-4d6067a9678a" name="modelname" direction="In" isUnique="false">
+                  <elementDefinition Id="24fceb88-2fb3-45d6-a101-ed218a2e4556" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="8ecad900-07b2-4d86-90a4-4911bd3dc84c" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c7a7871c-b4ef-4e97-9cba-aae079a9bae9" name="rotation" direction="In" isUnique="false">
+                  <elementDefinition Id="1f34d4da-f837-4292-995e-dde12093ca64" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="86ff5098-4ab9-4e84-9d3a-0f6f86e1e90b" LastKnownName="Angles3" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -386,11 +394,6 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
-    <packageHasNamedElement>
-      <referencedType Id="6574fcc9-dfe8-4779-a76f-e201e6b9e592" name="Angles3" isAbstract="false" isLeaf="false" cachedFullName="Angles3">
-        <elementDefinition Id="1848a513-114c-4349-a443-97d343cee0d1" />
-      </referencedType>
-    </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
       <class Id="27d8f09a-d1e9-43f6-a532-a64933180438" name="PipeModelInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="540160d0-f447-41e0-b3a2-83b435910b0f" />
@@ -1882,6 +1885,11 @@
     <packageHasNamedElement>
       <referencedType Id="164bdfbf-1e31-4324-b8da-2c20572eb349" name="Func&lt;GameScreen, GameModelInfo, GameModel&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;GameScreen, GameModelInfo, GameModel&gt;">
         <elementDefinition Id="ef242bb5-af9f-456a-a579-473a6dbaae84" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="86ff5098-4ab9-4e84-9d3a-0f6f86e1e90b" name="Angles3" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Angles3">
+        <elementDefinition Id="b2a64f5a-1465-45ca-b3df-d178eda75355" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

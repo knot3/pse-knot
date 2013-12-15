@@ -4562,8 +4562,8 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="1848a513-114c-4349-a443-97d343cee0d1"
+              <classMoniker
+                Id="b2a64f5a-1465-45ca-b3df-d178eda75355"
                 LastKnownName="Angles3"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
@@ -4599,7 +4599,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="e739bfb3-76ac-4642-8089-a05f116b633a"
+                  Id="24fceb88-2fb3-45d6-a101-ed218a2e4556"
                   name="modelname"
                   direction="In"
                   isUnique="false">
@@ -4611,15 +4611,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1f34d4da-f837-4292-995e-dde12093ca64"
+                  name="rotation"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b2a64f5a-1465-45ca-b3df-d178eda75355"
+                      LastKnownName="Angles3"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <undefinedType
-        Id="1848a513-114c-4349-a443-97d343cee0d1"
-        name="Angles3" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -5915,6 +5924,24 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <classMoniker
                 Id="8228b23e-d24d-4fcc-9419-b5fbb8853415"
                 LastKnownName="World"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="be2b8d58-9056-4de9-88bc-936c3ad5a62f"
+            name="Rotation"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="b2a64f5a-1465-45ca-b3df-d178eda75355"
+                LastKnownName="Angles3"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -11134,11 +11161,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     </packageHasNamedElement>
     <packageHasNamedElement>
       <undefinedType
-        Id="0cd75f90-9e58-4824-9529-fd674580e6cf"
-        name="#IKnotIO" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <undefinedType
         Id="9a809785-4c60-47c4-ac96-be629c1f64d7"
         name="IEnumerator&lt;Edge&gt;" />
     </packageHasNamedElement>
@@ -13666,6 +13688,311 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       <undefinedType
         Id="5a244a16-c600-4eb8-bc94-15615536d31f"
         name="List&lt;Keys&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b2a64f5a-1465-45ca-b3df-d178eda75355"
+        name="Angles3"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="7e4280cb-8615-41a4-b000-c3a8797e348e">
+            <interfaceMoniker
+              Id="a1c425a8-6db2-4ae6-8f0d-e28d9d1e8bb8"
+              LastKnownName="IEquatable&lt;Angles3&gt;"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="e4fcd3d5-2823-45fe-9187-51d1ce9b9fb9"
+            name="X"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                LastKnownName="float"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ead59d25-a39d-44a8-a1f5-cce4e4f560a1"
+            name="Y"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                LastKnownName="float"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="dc7511b3-48b5-46b9-a5a5-8d1e834bd448"
+            name="Z"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                LastKnownName="float"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3d98abeb-c34b-4f60-8809-193dc2ac06d0"
+            name="Zero"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="b2a64f5a-1465-45ca-b3df-d178eda75355"
+                LastKnownName="Angles3"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="55057e99-73f6-4563-ae3b-74d652056189"
+            name="FromDegrees"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="074c8827-8e82-449c-8723-5e190eec2b6f"
+                  name="X"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                      LastKnownName="float"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7677f3bb-7820-43d3-92b9-c8dea28a165b"
+                  name="Y"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                      LastKnownName="float"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="399e5b1c-fe83-488e-b360-3f68b4605801"
+                  name="Z"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                      LastKnownName="float"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="676bdcad-750d-4c65-9a74-3c49132d53e4"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b2a64f5a-1465-45ca-b3df-d178eda75355"
+                      LastKnownName="Angles3"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="704130b5-36b9-488e-97bd-7d882c173c66"
+            name="Angles3"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="57865329-f66c-44eb-9613-94f1d3428150"
+                  name="X"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                      LastKnownName="float"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="08c807c0-c722-44b6-816d-23ff759d9193"
+                  name="Y"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                      LastKnownName="float"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7de0b918-8feb-49fc-ad34-5a64a6fd9f18"
+                  name="Z"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                      LastKnownName="float"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8908acbe-9d50-473b-a453-35dacfe5f9ea"
+            name="ToDegrees"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e6b54e75-4770-4f82-92b0-8e03d2c6d1a1"
+                  name="X"
+                  direction="Out"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                      LastKnownName="float"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="330d6028-9976-43ab-9874-d5c2be10efee"
+                  name="Y"
+                  direction="Out"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                      LastKnownName="float"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="15efe9b4-bfbd-416d-8b08-21199f636b39"
+                  name="Z"
+                  direction="Out"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e44563c0-4586-48dd-92e1-f7ad57248de3"
+                      LastKnownName="float"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="e8749f83-2465-4cf9-8d37-bebc0783f10b"
+        name="Float" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="a1c425a8-6db2-4ae6-8f0d-e28d9d1e8bb8"
+        name="IEquatable&lt;Angles3&gt;"
+        isAbstract="false"
+        isLeaf="false">
+        <signatures>
+          <templateBinding
+            Id="bd9e7ebb-62db-44b4-b809-bc87efd07884">
+            <redefinableTemplateSignatureMoniker
+              Id="1b3f2462-27fc-4c71-80b2-792ffae59114"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <templateBindingHasTemplateParameterSubstitution>
+                <templateParameterSubstitution
+                  Id="3caf9676-d4c2-4679-a732-f08ac37eda91">
+                  <actuals>
+                    <classMoniker
+                      Id="b2a64f5a-1465-45ca-b3df-d178eda75355"
+                      LastKnownName="Angles3"
+                      LastKnownLocation="Knot3.uml" />
+                  </actuals>
+                  <formal>
+                    <classifierTemplateParameterMoniker
+                      Id="e2f0756e-1944-40e9-9bef-b7890b215bf7"
+                      LastKnownLocation="Knot3.uml" />
+                  </formal>
+                </templateParameterSubstitution>
+              </templateBindingHasTemplateParameterSubstitution>
+            </relationshipOwnedElementsInternal>
+          </templateBinding>
+        </signatures>
+      </Interface>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

@@ -341,6 +341,12 @@
               <referencedTypeMoniker Id="1c0bf8ca-75d6-42e8-ae76-f973bf62d4c1" LastKnownName="World" />
             </type_NamedElement>
           </property>
+          <property Id="104db843-f927-4d95-a7bf-ba06e4f9bed6" name="Rotation" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="be2b8d58-9056-4de9-88bc-936c3ad5a62f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f23e0899-ac96-4cea-83dc-5486f0e8fd8b" LastKnownName="Angles3" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="04f7d09e-b3c4-4a13-b482-5b07d2f89b29" name="TargetDirection" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -546,6 +552,179 @@
         <elementDefinition Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0" />
       </referencedType>
     </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ac560ff4-1c14-473d-81c8-b60c9b9ea47a" name="Angles3" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b2a64f5a-1465-45ca-b3df-d178eda75355" />
+        <suppliersInternal>
+          <interfaceRealization Id="536bbaa1-88bc-4b1e-8136-58a8400bef80">
+            <interfaceMoniker Id="f381ccb1-e51c-49f2-ac52-aa361e64196d" LastKnownName="IEquatable&lt;Angles3&gt;" />
+            <elementDefinition Id="7e4280cb-8615-41a4-b000-c3a8797e348e" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="528695a9-ee43-4cdc-b0b0-618b233a2c55" name="X" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e4fcd3d5-2823-45fe-9187-51d1ce9b9fb9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f7ed4904-f330-4abb-bbb0-e9318e410820" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="bbc49f95-6d21-4cb0-82e9-b8992cb17595" name="Y" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ead59d25-a39d-44a8-a1f5-cce4e4f560a1" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="76976bb1-8f41-46d8-892c-a368fac6fa17" name="Z" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="dc7511b3-48b5-46b9-a5a5-8d1e834bd448" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="ad184b82-ceec-4320-b00b-64f740e4c9d1" name="Zero" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3d98abeb-c34b-4f60-8809-193dc2ac06d0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8b0a56ae-416f-4cdd-bae1-340b7d350e5b" LastKnownName="Angles3" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="7389fad6-4e9f-40d9-92e3-443ca7c3bed6" name="FromDegrees" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="55057e99-73f6-4563-ae3b-74d652056189" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3c490c4a-6baa-496a-b6e6-3b9afe4de91f" name="X" direction="In" isUnique="false">
+                  <elementDefinition Id="074c8827-8e82-449c-8723-5e190eec2b6f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d0e65004-1ece-4e84-a22b-66126375c619" name="Y" direction="In" isUnique="false">
+                  <elementDefinition Id="7677f3bb-7820-43d3-92b9-c8dea28a165b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f23a072b-f42d-4ca6-8eae-33e536f15036" name="Z" direction="In" isUnique="false">
+                  <elementDefinition Id="399e5b1c-fe83-488e-b360-3f68b4605801" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3e65cf1d-eddb-4dc6-8bad-bf556cba2b8f" direction="Return" isUnique="false">
+                  <elementDefinition Id="676bdcad-750d-4c65-9a74-3c49132d53e4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="8b0a56ae-416f-4cdd-bae1-340b7d350e5b" LastKnownName="Angles3" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="aed1b666-f2ac-49a4-9eb1-7c41e30a6c87" name="Angles3" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="704130b5-36b9-488e-97bd-7d882c173c66" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0c69e7cb-4973-435f-96ae-e9372ed1f072" name="X" direction="In" isUnique="false">
+                  <elementDefinition Id="57865329-f66c-44eb-9613-94f1d3428150" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="91ad7eb2-3c04-4eff-8d7c-4c0ace7ae730" name="Y" direction="In" isUnique="false">
+                  <elementDefinition Id="08c807c0-c722-44b6-816d-23ff759d9193" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="409b1436-73fa-4adf-b57c-528c5b988f36" name="Z" direction="In" isUnique="false">
+                  <elementDefinition Id="7de0b918-8feb-49fc-ad34-5a64a6fd9f18" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="de1e1147-c2df-4bee-9fc4-c54055e706be" name="ToDegrees" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8908acbe-9d50-473b-a453-35dacfe5f9ea" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bdb82e47-924e-40e5-9c01-9a3db8b9ca36" name="X" direction="Out" isUnique="false">
+                  <elementDefinition Id="e6b54e75-4770-4f82-92b0-8e03d2c6d1a1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3fd1e370-30a0-4c64-9c16-b4eed81ad578" name="Y" direction="Out" isUnique="false">
+                  <elementDefinition Id="330d6028-9976-43ab-9874-d5c2be10efee" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6d15ac1d-e063-4832-8164-943b1da051c2" name="Z" direction="Out" isUnique="false">
+                  <elementDefinition Id="15efe9b4-bfbd-416d-8b08-21199f636b39" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1b29385c-7118-42df-8d02-5a68114e85d7" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="f7ed4904-f330-4abb-bbb0-e9318e410820" name="float" isAbstract="false" isLeaf="false" cachedFullName="float">
+        <elementDefinition Id="e44563c0-4586-48dd-92e1-f7ad57248de3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8b0a56ae-416f-4cdd-bae1-340b7d350e5b" name="Angles3" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Angles3">
+        <elementDefinition Id="b2a64f5a-1465-45ca-b3df-d178eda75355" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="f381ccb1-e51c-49f2-ac52-aa361e64196d" name="IEquatable&lt;Angles3&gt;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a1c425a8-6db2-4ae6-8f0d-e28d9d1e8bb8" />
+        <signatures>
+          <templateBinding Id="675fc255-5e28-499a-acc1-290d447f090a">
+            <templateSignatureProxyMoniker Id="d1040223-bb07-4945-a68a-3ee081c33977" />
+            <relationshipOwnedElementsInternal>
+              <templateBindingHasTemplateParameterSubstitution>
+                <templateParameterSubstitution Id="0979e30a-6c67-403b-a74c-55403d9125ea">
+                  <elementDefinition Id="3caf9676-d4c2-4679-a732-f08ac37eda91" />
+                  <actuals>
+                    <referencedTypeMoniker Id="f23e0899-ac96-4cea-83dc-5486f0e8fd8b" LastKnownName="Angles3" />
+                  </actuals>
+                  <formal>
+                    <templateParameterProxyMoniker Id="d7501a1d-7b73-4ce8-99ae-3aafa8f1a287" />
+                  </formal>
+                </templateParameterSubstitution>
+              </templateBindingHasTemplateParameterSubstitution>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bd9e7ebb-62db-44b4-b809-bc87efd07884" />
+          </templateBinding>
+        </signatures>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="f23e0899-ac96-4cea-83dc-5486f0e8fd8b" name="Angles3" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Angles3">
+        <elementDefinition Id="b2a64f5a-1465-45ca-b3df-d178eda75355" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <templateSignatureProxies>
     <templateSignatureProxy Id="a28416ed-f4c6-4ac3-87b0-b6a0ec7b62d1" parameters="" isLeaf="false" signatureId="7fe48ec4-3bf4-4a5c-9650-74740b5e1018">
@@ -553,6 +732,17 @@
       <ownedParameters>
         <templateParameterProxy Id="5973bd89-eb56-4323-b78a-fc42b5066184" parameterId="3396f1f9-ea16-4e89-854f-2b835a327987">
           <elementDefinition Id="3396f1f9-ea16-4e89-854f-2b835a327987" />
+        </templateParameterProxy>
+      </ownedParameters>
+    </templateSignatureProxy>
+    <templateSignatureProxy Id="17999ff6-4ebe-426b-bec7-ad5bf5526a13" parameters="" isLeaf="false" signatureId="691877c3-0798-45eb-9d52-561f691cb8e7">
+      <elementDefinition Id="691877c3-0798-45eb-9d52-561f691cb8e7" />
+    </templateSignatureProxy>
+    <templateSignatureProxy Id="d1040223-bb07-4945-a68a-3ee081c33977" parameters="" isLeaf="false" signatureId="1b3f2462-27fc-4c71-80b2-792ffae59114">
+      <elementDefinition Id="1b3f2462-27fc-4c71-80b2-792ffae59114" />
+      <ownedParameters>
+        <templateParameterProxy Id="d7501a1d-7b73-4ce8-99ae-3aafa8f1a287" parameterId="e2f0756e-1944-40e9-9bef-b7890b215bf7">
+          <elementDefinition Id="e2f0756e-1944-40e9-9bef-b7890b215bf7" />
         </templateParameterProxy>
       </ownedParameters>
     </templateSignatureProxy>
