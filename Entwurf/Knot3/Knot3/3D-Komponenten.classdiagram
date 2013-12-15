@@ -22,11 +22,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="71150a81-7f21-4866-8bb3-0c0a29a7f8ea" name="IEnumerable" isAbstract="false" isLeaf="false" cachedFullName="IEnumerable">
-        <elementDefinition Id="03f5828c-76f6-4ebc-b695-89e2cd85e11c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="aac5fa34-0762-4c64-aa5d-d8fc7e32390b" name="Vector3" isAbstract="false" isLeaf="false" cachedFullName="Vector3">
         <elementDefinition Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3" />
       </referencedType>
@@ -44,11 +39,6 @@
     <packageHasNamedElement>
       <referencedType Id="31d7df95-2f0b-4a90-988f-abb6a6106e58" name="BoundingFrustum" isAbstract="false" isLeaf="false" cachedFullName="BoundingFrustum">
         <elementDefinition Id="f695f166-d3bf-4072-8059-afa54f5934e4" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="21cf609a-cb25-4532-9ae8-26892a0d71d6" name="Ray" isAbstract="false" isLeaf="false" cachedFullName="Ray">
-        <elementDefinition Id="0abe0a8f-d9fd-4d77-b1e3-ecd7ce46d1f0" />
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
@@ -114,6 +104,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="c8ffdbd1-59d7-4e49-bb03-cc134e8c6e96" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="9d703b59-89e0-4dbd-808e-2792ea42798b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="63d36cf5-24ec-4390-9878-b25f850e92bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -124,6 +117,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="e4d68eeb-0ec7-4aea-a1b6-c4e5bca23c79" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="5b1c76ad-d468-448e-871c-96f350c00030" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="63d36cf5-24ec-4390-9878-b25f850e92bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -181,13 +177,16 @@
               <operationHasOwnedParameters>
                 <parameter Id="1cdb05ca-58d7-4781-bb6c-ef5433fecaf6" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="4e22dbc5-84bd-41f2-a366-d41d9579c63a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="63d36cf5-24ec-4390-9878-b25f850e92bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter Id="0bff9d3b-6fd2-455a-9d70-211f67ca34bd" direction="Return" isUnique="false">
                   <elementDefinition Id="fbb5a784-a6d0-47e4-9786-086c3120862c" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="71150a81-7f21-4866-8bb3-0c0a29a7f8ea" LastKnownName="IEnumerable" />
+                    <referencedTypeMoniker Id="97960d93-2498-47cc-9169-e8a56e422f10" LastKnownName="IEnumerable" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -241,13 +240,16 @@
               <operationHasOwnedParameters>
                 <parameter Id="f043a1ad-2659-4174-b5fe-8ef9123086a9" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="b504d464-9bf4-4427-859e-1b0fa9da819a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="63d36cf5-24ec-4390-9878-b25f850e92bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter Id="a1c39e8a-aa68-4490-9096-d275340ff240" direction="Return" isUnique="false">
                   <elementDefinition Id="ec632e7c-9ee0-403b-a01a-ef7c38ec8598" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="71150a81-7f21-4866-8bb3-0c0a29a7f8ea" LastKnownName="IEnumerable" />
+                    <referencedTypeMoniker Id="97960d93-2498-47cc-9169-e8a56e422f10" LastKnownName="IEnumerable" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -396,33 +398,36 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="4a4c8020-fa60-4cec-b1d5-ca15a1c91e41" name="GetMouseRay" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="0d2896c6-37c5-43e9-a962-c524d6da1fc1" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="73a9eb4e-5b15-45f6-9fec-91eb76995ce8" direction="Return" isUnique="false">
-                  <elementDefinition Id="ba75e91f-5343-4ea8-812f-48aebeca0c79" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="21cf609a-cb25-4532-9ae8-26892a0d71d6" LastKnownName="Ray" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="2de140c4-745f-486e-929d-bb046297f175" name="mousePosition" direction="In" isUnique="false">
-                  <elementDefinition Id="48fd2af3-d06a-43eb-9679-c4ea58442d1b" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="a048bfba-a3aa-4171-acda-5d68905a8a4b" LastKnownName="Vector2" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
           <operation Id="8839e7e0-ba2c-44bf-b7ad-6ff4d4bd559d" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="b2c11cec-5185-4302-990d-8f3a6891eb12" />
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter Id="1c9b1abd-8cdd-483d-b605-04dc73c654f2" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="c900b487-11b5-44c6-8558-9db4bd0658b2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="63d36cf5-24ec-4390-9878-b25f850e92bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="85fd7aa7-22a9-4f51-83f0-e787eff8afc5" name="GetMouseRay" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="46b5ca8e-a17a-427e-a8c4-d4d49457eb49" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a471c86c-a2d5-40f6-bceb-343fe546921b" name="mousePosition" direction="In" isUnique="false">
+                  <elementDefinition Id="6f36ae50-cbd2-4a1b-85a3-1b41268c7041" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2c823a1f-ee2f-4508-888e-71061aeb9cce" LastKnownName="Vector2" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f72e184d-5626-418c-9757-3483e5ed1ca5" direction="Return" isUnique="false">
+                  <elementDefinition Id="5de9c899-78d8-4cf5-af29-7f936ab9618d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f50a9a85-322e-431a-8d0a-a4ce0ee2ef25" LastKnownName="Ray" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -447,6 +452,16 @@
         <ownedOperationsInternal>
           <operation Id="edf6d7df-030a-4360-82b7-7cf53f86d2e8" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="dda5481e-371c-4e45-a3a6-de8d8b936eb1" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="63c3200f-2ad7-4861-ad7b-bcd044609410" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="462a1824-b0fc-4571-a01a-8a83a0567443" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="63d36cf5-24ec-4390-9878-b25f850e92bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -463,6 +478,16 @@
         <ownedOperationsInternal>
           <operation Id="782dd11c-5487-4301-81f5-41bc0b7f2fee" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="1407e748-31e1-4a16-af1b-0a60cb7c6f5b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cc791196-0e9d-4b5c-9009-d9afd01c340b" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="7ac88c1a-ded0-4452-9ee1-d9cd0e2e62cf" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="63d36cf5-24ec-4390-9878-b25f850e92bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -499,11 +524,6 @@
     <packageHasNamedElement>
       <referencedType Id="1c0bf8ca-75d6-42e8-ae76-f973bf62d4c1" name="World" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::World">
         <elementDefinition Id="8228b23e-d24d-4fcc-9419-b5fbb8853415" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="a048bfba-a3aa-4171-acda-5d68905a8a4b" name="Vector2" isAbstract="false" isLeaf="false" cachedFullName="Vector2">
-        <elementDefinition Id="b0ed11d7-9638-4189-9201-5eb38d88dba8" />
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
@@ -723,6 +743,188 @@
     <packageHasNamedElement>
       <referencedType Id="f23e0899-ac96-4cea-83dc-5486f0e8fd8b" name="Angles3" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Angles3">
         <elementDefinition Id="b2a64f5a-1465-45ca-b3df-d178eda75355" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="63d36cf5-24ec-4390-9878-b25f850e92bd" name="GameTime" isAbstract="false" isLeaf="false" cachedFullName="GameTime">
+        <elementDefinition Id="7146062a-e956-4346-8427-37640e8bf8a1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="97960d93-2498-47cc-9169-e8a56e422f10" name="IEnumerable" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IEnumerable">
+        <elementDefinition Id="af612005-0f7a-438b-9af1-39cf01724b1c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="2c823a1f-ee2f-4508-888e-71061aeb9cce" name="Vector2" isAbstract="false" isLeaf="false" cachedFullName="Vector2">
+        <elementDefinition Id="b0ed11d7-9638-4189-9201-5eb38d88dba8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f50a9a85-322e-431a-8d0a-a4ce0ee2ef25" name="Ray" isAbstract="false" isLeaf="false" cachedFullName="Ray">
+        <elementDefinition Id="0abe0a8f-d9fd-4d77-b1e3-ecd7ce46d1f0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f5cd4c0c-b7e1-4ce3-a672-46214ab70579" name="Input" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3302820e-0b42-4f34-8cfc-aeba9e64a8d4" />
+        <generalsInternal>
+          <generalization Id="c3672fd9-8321-4caf-9823-7ce01ac79a06" isSubstitutable="false">
+            <classMoniker Id="c2bec8b7-6678-486a-8436-7b5e717db166" LastKnownName="GameScreenComponent" />
+            <elementDefinition Id="586ae1d8-2063-426d-ad80-a632da5a8cb9" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="19a61a1d-d3ce-43eb-9847-0c29db93a2b4" isDerived="false" sourceEndRoleName="Input" targetEndRoleName="ClickState" isLeaf="false" isAbstract="false">
+            <enumerationMoniker Id="2150e76c-45a2-4141-93f1-48036a8222af" LastKnownName="ClickState" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5b5994af-4b4c-4ec0-aa16-d8d62a7a9744" name="Input" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="75fb0c86-1c7e-4b2e-be4f-f97ff851a944" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="54268f4b-c80d-48ca-ba85-a3abd199741c" name="ClickState" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="f62ec88d-15e1-49f4-bc25-8d0134ba2088" name="Lower" value="2">
+                      <elementDefinition Id="a047b1e2-f1fa-4b21-9236-0b6894dbc497" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8f12ed85-7926-49ef-867a-cfdd068bfc04" name="Upper" value="2">
+                      <elementDefinition Id="52dd1ae0-89a3-4426-ab18-ff1292a62b60" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="8e4216e6-06c4-456a-8fab-0ec76b81db3c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="945d0a45-570c-40aa-a9a8-6f5898d25cc4" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="8e8e8fb2-3596-4782-b921-7ebde650c8dd" name="RightMouseButton" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fa04596c-7412-4372-951c-f5e5d573b48a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="832e9ff6-2cca-4eaf-988d-a56ca23a0d54" LastKnownName="ClickState" />
+            </type_NamedElement>
+          </property>
+          <property Id="a72c01af-28ff-456c-9676-9b297cad2a8d" name="LeftMouseButton" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="70ae38c0-3088-461b-bb95-4d7dcacdb0f0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7fc8e7d7-fca6-420e-9b6c-d8f9160328f8" LastKnownName="ClickState" />
+            </type_NamedElement>
+          </property>
+          <property Id="84101caf-1eab-4709-9a20-5774dde6f49e" name="CurrentMouseState" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="90758d93-6d3d-48d9-984b-5b7535e0e4d9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="48a4b040-804b-4f08-9af6-f6cbc991e34d" LastKnownName="MouseState" />
+            </type_NamedElement>
+          </property>
+          <property Id="3e19e849-f9a5-464c-83cc-f6a12ceb6e68" name="CurrentKeyboardState" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="aaee2a32-e869-47ea-b30e-3a24f355f7cd" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b7bd2193-09e4-43aa-9f04-d0dc71350b94" LastKnownName="KeyboardState" />
+            </type_NamedElement>
+          </property>
+          <property Id="a8eebcb3-3758-46a1-8a7d-b1bfa66f33b6" name="PreviousMouseState" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e2d29af6-81e9-4872-a7f8-48824c2f4d97" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c85b2026-48c2-4e61-afb5-4bc8750bd7da" LastKnownName="MouseState" />
+            </type_NamedElement>
+          </property>
+          <property Id="4618e50c-3da0-49e1-b307-13b84d1bdf9f" name="PreviousKeyboardState" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b27506b6-3105-498d-991f-9d5a8eca7c9f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="585a3009-881d-4547-a6db-e05311755d0c" LastKnownName="KeyboardState" />
+            </type_NamedElement>
+          </property>
+          <property Id="feb59cd2-a8fa-4ced-8a96-7beabd0396d5" name="GrabMouseMovement" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a89c1b87-bb72-43c0-8e14-78d1672193dd" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04bf89a2-a89d-40f0-8daf-66d0446d2036" LastKnownName="Boolean" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="9032365e-25bf-4025-ad60-6109c04741d5" name="Input" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8aa64236-fbf6-4037-9009-18f9bdca37ed" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c3858251-2363-4db6-babe-b1e8584d74c6" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="4ebdcd1a-aae2-42bd-a4d6-a7ed1d45a657" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" LastKnownName="GameScreen" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0537cdd1-4c4b-4639-92c4-80e0d4f1f346" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="90c95e11-5b21-45ec-9ff9-e8e9f8bd8300" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f693fbec-a0cb-40a2-b54b-517885dd5c78" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="fce4a6ee-78fa-4fb7-b3d7-54062625ecec" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="63d36cf5-24ec-4390-9878-b25f850e92bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="2150e76c-45a2-4141-93f1-48036a8222af" name="ClickState" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="708282e2-4a50-4a8d-8d27-9c919a03aad0" />
+        <ownedLiterals>
+          <enumerationLiteral Id="d9eb11ce-d3a2-4f5a-8a6a-e935de4a4fde" name="None = 0">
+            <elementDefinition Id="a616a5b9-19af-4d0a-9107-f6725a3dd971" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="601e00ca-9a29-48a1-908f-7fdedcb72d43" name="SingleClick = 1">
+            <elementDefinition Id="b74f0982-ac1d-44de-9940-fc5e532eec40" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="c11888e2-a616-4fc8-b41c-86a5ef1a50b2" name="DoubleClick = 2">
+            <elementDefinition Id="f6bef03e-0366-4127-9de4-28eccef16621" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="585a3009-881d-4547-a6db-e05311755d0c" name="KeyboardState" isAbstract="false" isLeaf="false" cachedFullName="KeyboardState">
+        <elementDefinition Id="f1ba17b9-c20a-4bc8-abef-a6efc1159f84" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c85b2026-48c2-4e61-afb5-4bc8750bd7da" name="MouseState" isAbstract="false" isLeaf="false" cachedFullName="MouseState">
+        <elementDefinition Id="33a0ebe7-5be4-4363-ad00-6af0875a635f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="04bf89a2-a89d-40f0-8daf-66d0446d2036" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="48a4b040-804b-4f08-9af6-f6cbc991e34d" name="MouseState" isAbstract="false" isLeaf="false" cachedFullName="MouseState">
+        <elementDefinition Id="33a0ebe7-5be4-4363-ad00-6af0875a635f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b7bd2193-09e4-43aa-9f04-d0dc71350b94" name="KeyboardState" isAbstract="false" isLeaf="false" cachedFullName="KeyboardState">
+        <elementDefinition Id="f1ba17b9-c20a-4bc8-abef-a6efc1159f84" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7fc8e7d7-fca6-420e-9b6c-d8f9160328f8" name="ClickState" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ClickState">
+        <elementDefinition Id="708282e2-4a50-4a8d-8d27-9c919a03aad0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="832e9ff6-2cca-4eaf-988d-a56ca23a0d54" name="ClickState" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ClickState">
+        <elementDefinition Id="708282e2-4a50-4a8d-8d27-9c919a03aad0" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

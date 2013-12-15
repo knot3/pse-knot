@@ -54,8 +54,11 @@
             <elementDefinition Id="f6d4a880-7b8c-4089-8f3a-f95768dd5baa" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="f54e54c0-d65d-4db8-b376-78faf557f769" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="5af0c4fb-35e7-412a-864d-b17fb00e4462" />
+                <parameter Id="d990a938-cbf4-4937-b29f-c694e57a9e7d" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="6a833b99-01a8-4dfd-9b09-f20b1c6b15bd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -64,8 +67,11 @@
             <elementDefinition Id="9324a654-0d41-4c71-93cb-f6f44f765a63" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a3f7dfeb-a055-4cba-a133-912f50873f44" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="49eafc22-bd6c-4d3d-87a5-948eb304ab42" />
+                <parameter Id="06abb6e1-6e2f-411f-b755-3a044bea7ff9" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="bc379d1e-daa6-47c2-bb73-67dbc253a1f1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -185,12 +191,15 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="b5542805-cf44-4012-938b-533e88ef330a" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="b5542805-cf44-4012-938b-533e88ef330a" name="Update" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="b80b2a29-1b07-48d7-8063-fdb8cd6d88a8" />
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter Id="1d6a8229-1ae0-4ccb-a80c-325fe09b113f" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="857625d0-a031-4105-bf89-054d790ce4da" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -201,6 +210,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="b4e04804-9382-4a99-ac52-d9f1516c2afc" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="665dee25-653e-45ef-be5d-0879e0e3c39a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -702,6 +714,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="d1d3fe55-0445-4ba1-a590-4be28b261ea7" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="f5841a56-f92a-428b-87e1-95b50125ac25" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -712,6 +727,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="e65c0227-e685-4285-8ec9-7dd8f2a37b42" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="264e49dd-55c2-46ce-9b12-48ce685c14db" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -987,6 +1005,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="7f768456-4d11-4035-87a5-f8f2ff2c0e80" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="7926104d-eca2-441c-8aa7-a6b0ad8cec6f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -997,6 +1018,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="8200c65a-174d-407f-bbe1-93406d9e72ff" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="ac1536ef-7ae1-445a-b7dd-70cd2548fd66" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1096,6 +1120,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="cf4e64f0-b5bb-46bc-9423-c211080c61fd" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="818d9f00-cba9-4e84-b6ec-a44c6c6c741d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1139,6 +1166,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="8f367ecd-6338-49c0-86ba-48549c5693a4" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="d602006e-c82b-4980-8efc-dc1d765c25ad" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1206,6 +1236,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="7150392d-819c-4641-917b-91ffa952e13a" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="4303ff08-2c3f-45e9-abc8-7ecc1787e824" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1216,6 +1249,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="b61251e2-7918-45f1-83ae-96d3953f5d9e" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="391b6417-bac4-4e44-8a04-80275296bf88" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1321,6 +1357,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="0ed8017d-2100-40f8-932e-7e132fac589b" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="020138d9-739c-442b-9c3c-f31f4fc8f45f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1370,6 +1409,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="7f4b772d-7622-4fd7-8849-264c4ee0e022" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="33becc87-bf08-4ab5-a374-68d6b1995ba4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1422,6 +1464,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="adfa31fc-70fc-445a-8134-a815533e6081" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="bbbf45ee-9bdf-4def-9b4f-1528a64ce063" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1890,6 +1935,11 @@
     <packageHasNamedElement>
       <referencedType Id="86ff5098-4ab9-4e84-9d3a-0f6f86e1e90b" name="Angles3" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Angles3">
         <elementDefinition Id="b2a64f5a-1465-45ca-b3df-d178eda75355" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" name="GameTime" isAbstract="false" isLeaf="false" cachedFullName="GameTime">
+        <elementDefinition Id="7146062a-e956-4346-8427-37640e8bf8a1" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

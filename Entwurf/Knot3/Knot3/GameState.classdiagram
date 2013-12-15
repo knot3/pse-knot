@@ -46,16 +46,19 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="17473978-c831-46b4-b5eb-37501a91a56c" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="e89655f0-c755-4d34-b5f3-9bdde47919b2" name="previousScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="a392e600-fd52-465a-a506-67eb04ce17ac" />
+                <parameter Id="4cf0a79a-b275-4e6a-ab9d-a9c067ec356b" name="previousScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="1e6bddad-fb6f-44ec-8a46-3a5c84d0c8f8" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="bca80d6b-4162-4413-a3d0-1de3e5c54a0d" LastKnownName="GameScreen" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="cd5cffbe-c12e-4efe-953f-9b17771fa94a" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="ae804673-6ca1-4be7-a84c-a8f3d3de98a1" />
+                <parameter Id="bb1f7374-770f-4e62-a467-a0378a240f2e" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="be60eaf0-3f4c-4a88-acfe-276adb417997" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -64,16 +67,19 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="096eec15-8229-4813-a7f4-5b134b91ce4a" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="39343a6f-560a-4b91-a4b7-a55d404fd050" name="nextScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="267c2c64-b458-4ccc-bdb5-1024e6ba15f5" />
+                <parameter Id="5b085140-4c03-44db-b918-a793924f49da" name="nextScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="272adb17-ac23-4f9a-a5f6-03af7f93606f" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="bca80d6b-4162-4413-a3d0-1de3e5c54a0d" LastKnownName="GameScreen" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="1a2d1ca4-9494-4310-9b7f-1cb72b4d4f48" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="4f9bf509-f69e-4fdc-acd1-2a9f3fa86643" />
+                <parameter Id="f3bf520d-3a24-4ae7-985d-fb8577d2b003" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="44cb667e-94f3-4a01-bf90-b7dadb58fbff" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -82,8 +88,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="07731970-b004-47e3-ac87-c82ff92b9568" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="6ac5ff11-cc9f-434d-99b0-f095c0dd7c2a" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="8aafd181-5fd2-4857-9513-808df6de301d" />
+                <parameter Id="4bfa0266-79ed-43fe-8789-204e36e105ca" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="3f29db39-4a8c-4bd6-a25e-8559bfe69f29" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -200,8 +209,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="a744d17e-c42d-419c-ba3d-dbef38c57d92" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="0481d838-e952-4a58-96ff-433c9bb7080e" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="3bae32db-4f7c-46aa-80c4-5ef9a0e8f350" />
+                <parameter Id="25a7d1fa-443d-4bfc-bb7f-760fd82ce63a" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="a06205f1-438b-43b9-a2b6-93f87e0ea95c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -220,6 +232,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="8f283c5b-3d89-451f-840b-000e5562d8aa" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="7f7454d3-9144-49a6-b7da-d43954fd9966" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -273,8 +288,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="c55133a1-fae1-4b35-9960-59817dc8d4b9" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="4f8e26eb-8f02-4db4-aef5-6468a4e8e55f" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="aad956eb-e825-4946-9381-7cad834e82e0" />
+                <parameter Id="596d6bd9-d2c0-4290-b996-de60aa4d79df" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="a0d91c93-7db7-4ad8-8553-2604e4d8e4db" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -283,16 +301,19 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="470a339d-eb60-4bc0-a307-ab04da8131d9" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="68824145-09b2-4fee-b9ab-8d660c06fc09" name="previousScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="831a0388-410a-46bf-a728-dd0020ff16d1" />
+                <parameter Id="b5afbf4d-438b-4022-b4d5-9fc8ff0404d2" name="previousScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="e6992b97-b6bd-4f72-b353-f004e09a3f34" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="bca80d6b-4162-4413-a3d0-1de3e5c54a0d" LastKnownName="GameScreen" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a51cb72c-ae26-4934-8fe8-0ba186905157" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="098464ad-6734-4630-88e4-42c1133b79ba" />
+                <parameter Id="3753eecc-e9e2-4b91-b69b-51c59f8577fe" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="21d180ab-4dab-4926-b5cc-451f4d23880c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -314,8 +335,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="189181c6-62b9-4a64-89a8-da1472ed49a0" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="643f8567-adb4-441e-9d41-2f9c5cebc071" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="72234ee9-8b86-41d3-a1a3-68a9d61a9e0c" />
+                <parameter Id="9fff6475-5a76-4cb4-8fd5-c62dbc0f446e" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="04c3b11e-b92f-4159-9eaf-53890ed934e0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -334,6 +358,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="73c0bb80-790c-44b7-affa-c46f4c851f73" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="38f1bdad-367b-437a-b920-77c90b443e59" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -355,8 +382,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="17d4dedb-2832-4d50-962e-57fcf63f4286" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="314b8141-702b-42ce-9a76-7f76ce29f359" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="b0aaf9e2-0798-4f3f-aded-d044886ec023" />
+                <parameter Id="f6728010-0218-4c4a-b617-b3a277f10e4a" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="204a3a21-8050-4e3b-bbe3-6eb1cb79b27b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -375,6 +405,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="e41b69ce-b6e9-4d18-a474-a51a9a32a697" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="f291358c-6662-4095-8e9d-b4f890afc87a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -396,8 +429,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="943d9a30-9968-4a6a-ab30-5489fe0d9328" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="584e2c71-2c83-4fdd-8efa-25a5de71d625" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="7ce14cc6-bf94-4155-ae0d-c3070c120273" />
+                <parameter Id="d758c206-69aa-4a0c-9238-85a2f5f67572" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="8a98db16-23e8-4060-a1af-7295b2b7b520" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -416,6 +452,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="0fa0b5a9-c9e1-42ae-a64c-3f506b6131ba" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="bdc53726-9fc6-48f9-837f-31fc9be90313" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -437,8 +476,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="e3737fb6-9d67-4435-993c-92d61b8b2eb3" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="ca7e4e38-127d-47f0-a7a3-43ed8d820415" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="28e655c2-d869-451f-b85f-1f09ec425fd8" />
+                <parameter Id="1a640ae3-ca19-44e1-ba23-f808cee4c2e0" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="1125c503-ffe9-4196-aa95-a93ae8f67ea2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -457,6 +499,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="4179189e-cf07-41d6-a02c-778cf1e54d1a" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="dd3e789e-a54e-4289-9151-2c3c3433a023" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -486,8 +531,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="e4ceddcc-6b2e-4212-95fc-08e73db7b8cc" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="7b4f87a1-d584-44e8-bcc7-0a5eecf4f0a9" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="7bf341bd-1d38-404f-8e2d-0ac412d0972b" />
+                <parameter Id="5ba6dd58-1a85-4d1f-a90a-abc0e7dda40f" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="6c8c56a6-0046-42d7-9e8a-a52eeb491f76" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -496,16 +544,19 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="80a9aefc-415e-4f3a-9176-028cd6db62fb" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="fe4c1ddd-7d17-4c6a-b9ac-b07091c52523" name="previousScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="0f49f87f-0032-4dd8-a09b-0ebaa96eee37" />
+                <parameter Id="1988c08f-1e02-4901-af3c-51bbc9cd1446" name="previousScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="de68c27d-5d93-4aa7-aa95-e2e6ebde4115" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="a448324a-9091-4dd8-8f9b-815a50f1a6b8" LastKnownName="GameScreen" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="38bc8f1b-e55b-4071-8673-6ff5e30132a2" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="50aed17b-db31-4b56-8196-b88727a6bc32" />
+                <parameter Id="9b4f1ea0-38e9-4e95-b289-54269f4d54d2" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="4b1c8b90-1935-4737-a64f-e8d82e726c53" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -535,8 +586,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="6b7dac9e-492f-4e16-bc80-3e0871d6772b" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="75c1645e-bbf9-4e19-a84a-b61b56c8b1b8" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="22dc6c3d-dc8e-4505-9e5d-c36c222015df" />
+                <parameter Id="29e0cd1d-8b5b-42eb-b641-f8fa79f791ab" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="6ffe08cf-2ee8-4731-bd6b-215dcf4759ff" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -555,6 +609,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="670827e7-737e-4d25-a012-cf55d02521a0" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="5b950713-297b-4545-b5ff-52b71a5697de" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -584,8 +641,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="704fc5cb-d7e3-41a7-9607-b4a291bd7263" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="6270a19f-048b-4a57-8d0d-af69a179310d" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="57af8405-baa1-4db6-9db8-d1dd8c21f193" />
+                <parameter Id="6d1aaebf-322a-41df-9a69-d1ac789f74e3" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="cb157567-34db-42ed-a6be-9bc7b850c15a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -604,6 +664,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="ecffbd1d-605c-4c29-9aa4-43fb7bee8909" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="d51e7551-2661-4ff1-b02b-6fb6b9757c9e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -633,8 +696,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="7217585f-5a61-499a-b8ba-6c5c8e0eeba9" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="7ef75e84-9f63-4ad0-b9ce-0d91d5aae7fe" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="f4c54341-6506-463b-b9ed-c0742b1ff28e" />
+                <parameter Id="9c9aa054-281e-4ce6-9b67-305a24725603" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="aa008724-2afa-47e9-bcf6-6182fee0eb50" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -653,6 +719,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="17258014-195c-4321-8e5e-518f661b1dfb" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="70feef2c-74e4-4485-80c2-f9f6227b76ae" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -682,8 +751,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="7a41e9aa-1d13-4cb9-913c-b6c46dd294e9" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a5257232-7789-4cb4-9ef0-b131cf36970a" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="b3e56cd4-d35c-427e-9a9b-369b13b70ca8" />
+                <parameter Id="e829f19b-2411-4b86-b3b1-0f76cec30ea8" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="f14bd05a-69a6-42b0-af33-db9884c451af" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -702,6 +774,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="4adc0c85-925a-4693-b5a9-ab2acf353e4d" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="d7b8bde5-a35b-4a7b-b5f0-e5611d8e6cbb" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -788,6 +863,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="65274707-9b2e-49aa-a0ea-91b138fc68b0" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="77397301-3619-4dce-ab00-dce5c85d7a3b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -889,6 +967,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <operationHasOwnedParameters>
                 <parameter Id="b799ae26-bbd7-463c-b2b8-a3a3a22b2d73" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="e0c7ed59-a00f-438c-ab5d-1f370aeddaa6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -897,8 +978,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="ebc7d356-533b-4051-bf9c-59e0a0d3485e" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="7b652ed4-bf74-4f60-bf5e-eb2453053eaa" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="26d20628-5d20-4d07-8e74-41d75c7c5d66" />
+                <parameter Id="3f82ded1-1351-4677-8342-b1b6f27b5231" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="846a6069-d04a-4eea-a3fe-04951f78832c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -939,6 +1023,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <referencedType Id="695ac93b-876b-4f3a-87ae-593f97fa2cb4" name="IGameStateComponent[]" isAbstract="false" isLeaf="false" cachedFullName="IGameStateComponent[]">
         <elementDefinition Id="1131b2d9-90fe-4729-a468-2165d53ae203" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" name="GameTime" isAbstract="false" isLeaf="false" cachedFullName="GameTime">
+        <elementDefinition Id="7146062a-e956-4346-8427-37640e8bf8a1" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

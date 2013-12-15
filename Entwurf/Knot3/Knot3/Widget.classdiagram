@@ -60,13 +60,16 @@
                 <parameter Id="aad5b9d3-a2c8-45f5-829b-f45ba60047d9" direction="Return" isUnique="false">
                   <elementDefinition Id="8bb1151c-1e88-467d-a6d2-61e51ee01927" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="a17eac05-9826-4952-8628-a84d3a3beaa5" LastKnownName="IEnumerable" />
+                    <referencedTypeMoniker Id="7fa1782c-1238-44e9-8fd4-111d448fcd51" LastKnownName="IEnumerable" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="26436954-1682-43b8-8c0c-24ac6554db89" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="7da77035-1c01-4d3f-a584-af4d11f1906f" />
+                <parameter Id="c9f15117-b3b5-4061-b1bd-9cea2d9e429a" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="ad8fa168-6354-4e26-b272-06aa016cef35" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -74,11 +77,6 @@
         </ownedOperations>
       </Interface>
     </logicalClassDesignerModelHasTypes>
-    <packageHasNamedElement>
-      <referencedType Id="a17eac05-9826-4952-8628-a84d3a3beaa5" name="IEnumerable" isAbstract="false" isLeaf="false" cachedFullName="IEnumerable">
-        <elementDefinition Id="03f5828c-76f6-4ebc-b695-89e2cd85e11c" />
-      </referencedType>
-    </packageHasNamedElement>
     <packageHasNamedElement>
       <referencedType Id="c6e1ceda-02ce-41ef-8b3c-ca329bc12f2e" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameScreen">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
@@ -1016,13 +1014,16 @@
               <operationHasOwnedParameters>
                 <parameter Id="31b000fc-6d9e-4664-ad90-761372aab28d" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="4e22dbc5-84bd-41f2-a366-d41d9579c63a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter Id="237ab0f8-3bd9-43a8-bc7d-ae6b176ed718" direction="Return" isUnique="false">
                   <elementDefinition Id="fbb5a784-a6d0-47e4-9786-086c3120862c" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="a17eac05-9826-4952-8628-a84d3a3beaa5" LastKnownName="IEnumerable" />
+                    <referencedTypeMoniker Id="7fa1782c-1238-44e9-8fd4-111d448fcd51" LastKnownName="IEnumerable" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -1235,13 +1236,16 @@
               <operationHasOwnedParameters>
                 <parameter Id="fb6ee617-9616-4576-beb1-675de884f50e" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="b504d464-9bf4-4427-859e-1b0fa9da819a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter Id="f512814a-a27a-4433-b001-37f445763030" direction="Return" isUnique="false">
                   <elementDefinition Id="ec632e7c-9ee0-403b-a01a-ef7c38ec8598" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="a17eac05-9826-4952-8628-a84d3a3beaa5" LastKnownName="IEnumerable" />
+                    <referencedTypeMoniker Id="7fa1782c-1238-44e9-8fd4-111d448fcd51" LastKnownName="IEnumerable" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -1475,6 +1479,16 @@
     <packageHasNamedElement>
       <referencedType Id="a73f9a0f-6aa8-4b69-ad08-5e27e711841f" name="Menu" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Menu">
         <elementDefinition Id="b4e6504e-28fd-4e43-8533-79b8e88964d8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c2324f55-c536-417d-8814-e9776c79305f" name="GameTime" isAbstract="false" isLeaf="false" cachedFullName="GameTime">
+        <elementDefinition Id="7146062a-e956-4346-8427-37640e8bf8a1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7fa1782c-1238-44e9-8fd4-111d448fcd51" name="IEnumerable" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IEnumerable">
+        <elementDefinition Id="af612005-0f7a-438b-9af1-39cf01724b1c" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
