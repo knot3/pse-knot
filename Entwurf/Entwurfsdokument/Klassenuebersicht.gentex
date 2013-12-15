@@ -9,6 +9,36 @@
 \newcommand{\varname}[1]{\textcolor{Black}{#1}}
 
 \section{Klassen}
+\subsection{Klasse Angles3}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/Angles3}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{float} \varname{X}] \item[]
+
+\item[\keyword{public} \ptype{float} \varname{Y}] \item[]
+
+\item[\keyword{public} \ptype{float} \varname{Z}] \item[]
+
+\item[\keyword{public} \ptype{Angles3} \varname{Zero}] \item[]
+
+\end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{Angles3} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Angles3} \varname{FromDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{ToDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})] \item[]
+
+\end{description}
+
 \subsection{Klasse ArrowModel}
 \paragraph{Beschreibung:}\mbox{}\\\\
 Diese Klasse repräsentiert ein 3D-Modell für einen Pfeil, der an selektierten Kanten erscheinen soll.
@@ -22,14 +52,16 @@ Diese Klasse repräsentiert ein 3D-Modell für einen Pfeil, der an selektierten 
 \item[\keyword{public} \ptype{ArrowModelInfo} \varname{Info}] \item[]
 Das Info-Objekt, das die Position und Richtung des Pfeils enthält.
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
-Zeichnet den Pfeil.
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{ArrowModel} (\ptype{GameScreen}, \ptype{ArrowModelInfo})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{ArrowModel} (\ptype{GameScreen} \varname{screen}, \ptype{ArrowModelInfo} \varname{info})] \item[]
 Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
+Zeichnet den Pfeil.
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
@@ -46,8 +78,8 @@ Ein Objekt dieser Klasse hält alle Informationen hält, die zur Erstellung eine
 \item[\keyword{public} \ptype{Vector3} \varname{Direction}] \item[]
 Die Richtung, die die der Pfeil zeigen soll.
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{ArrowModelInfo} (\ptype{Vector3}, \ptype{Vector3})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{ArrowModelInfo} (\ptype{Vector3} \varname{position}, \ptype{Vector3} \varname{direction})] \item[]
 Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum, das in eine bestimmte Richtung zeigt.
 \end{description}
 
@@ -65,9 +97,9 @@ Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
@@ -84,8 +116,8 @@ Diese Klasse repräsentiert eine Option, die die Werte Wahr oder Falsch annehmen
 \item[\keyword{public} \ptype{bool} \varname{Value}] \item[]
 Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{BooleanOptionInfo} (, , , )] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{BooleanOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})] \item[]
 \end{description}
 
 \subsection{Klasse Camera}
@@ -102,8 +134,6 @@ das aktuelle Kamera-Target und das Field of View.
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{private} \ptype{void} \varname{World}] \item[]
-Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 \item[\keyword{public} \ptype{Vector3} \varname{Position}] \item[]
 Die Position der Kamera.
 \item[\keyword{public} \ptype{Vector3} \varname{Target}] \item[]
@@ -120,17 +150,23 @@ Die Projektionsmatrix wird über die statische XNA-Methode Matrix.CreatePerspect
 Eine Position, um die rotiert werden soll, wenn der User die rechte Maustaste gedrückt hält und die Maus bewegt.
 \item[\keyword{public} \ptype{BoundingFrustum} \varname{ViewFrustum}] \item[]
 Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-Objekt sich um Blickfeld des Spielers befindet.
+\item[\keyword{private} \ptype{World} \varname{World}] \item[]
+Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
+\item[\keyword{public} \ptype{Angles3} \varname{Rotation}] \item[]
+
+\end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{Camera} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world})] \item[]
+
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Vector3} \varname{TargetDirection} (\ptype{Vector3})] \item[]
+\item[\keyword{public} \ptype{Vector3} \varname{TargetDirection} ()] \item[]
 
-\item[\keyword{public} \ptype{float} \varname{TargetDistance} (\ptype{float})] \item[]
+\item[\keyword{public} \ptype{float} \varname{TargetDistance} ()] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Camera} (\ptype{GameScreen}, \ptype{World})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{Ray} \varname{GetMouseRay} (\ptype{Vector2}, \ptype{Ray})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{Ray} \varname{GetMouseRay} (\ptype{Vector2} \varname{mousePosition})] \item[]
 
 \end{description}
 
@@ -143,12 +179,16 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \end{wrapfigure}
 
 
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{CelShadingEffect} (\ptype{GameScreen} \varname{screen})] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel}, \ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{GameModel})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel})] \item[]
+\item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})] \item[]
 
 \end{description}
 
@@ -177,14 +217,16 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{ChallengeMetaData} \varname{Info}] \item[]
 
 \end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{Challenge} (\ptype{ChallengeInfo} \varname{info})] \item[]
+
+\item[\keyword{public} \varname{Challenge} (\ptype{IChallangeIO} \varname{file})] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{ChallengeInfo} \varname{Challenge} (\ptype{ChallengeInfo} \varname{info}, \ptype{Challenge})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{CreateChallenge} (\ptype{Knot} \varname{start}, \ptype{Knot} \varname{target}, \ptype{String} \varname{name}, \ptype{IChallengeIO} \varname{file})] \item[]
 
-\item[\keyword{public} \ptype{Challenge} \varname{Challenge} (\ptype{Challenge}, \ptype{IChallangeIO} \varname{file})] \item[]
-
-\item[\keyword{public} \ptype{Boolean} \varname{CreateChallenge} (\ptype{Boolean}, \ptype{Knot} \varname{start}, \ptype{Knot} \varname{target}, \ptype{String} \varname{name}, \ptype{IChallengeIO} \varname{file})] \item[]
-
-\item[\keyword{public} \ptype{String} \varname{AddToHighscore} (\ptype{String} \varname{name}, \ptype{Integer} \varname{time})] \item[]
+\item[\keyword{public} \ptype{void} \varname{AddToHighscore} (\ptype{String} \varname{name}, \ptype{Integer} \varname{time})] \item[]
 
 \end{description}
 
@@ -213,10 +255,12 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{ChallengeMetaData} \varname{Meta}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{ChallengeFileIO} (\ptype{String} \varname{path})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{ChallengeFileIO} (\ptype{String} \varname{path})] \item[]
 
-\item[\keyword{public} \ptype{Challenge} \varname{Save} (\ptype{Challenge} \varname{challenge})] \item[]
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Challenge} \varname{challenge})] \item[]
 
 \end{description}
 
@@ -230,9 +274,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
@@ -270,7 +314,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \item[\keyword{public} \ptype{void} \varname{ChallengeKnot}] \item[]
 
-\item[\keyword{public} \ptype{World} \varname{PlayerKnot}] \item[]
+\item[\keyword{private} \ptype{World} \varname{ChallengeWorld}] \item[]
 
 \item[\keyword{private} \ptype{World} \varname{PlayerWorld}] \item[]
 
@@ -286,9 +330,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
@@ -305,8 +349,8 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{private} \ptype{BooleanOptionInfo} \varname{option}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{BooleanOptionInfo} \varname{CheckBoxItem} (\ptype{BooleanOptionInfo} \varname{option})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{CheckBoxItem} (\ptype{BooleanOptionInfo} \varname{option})] \item[]
 
 \end{description}
 
@@ -320,33 +364,17 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{T} \varname{content}] \item[]
+\item[\keyword{public} \ptype{T} \varname{Content}] \item[]
 
-\item[\keyword{public} \ptype{Circle} \varname{next}] \item[]
+\item[\keyword{public} \ptype{Circle} \varname{Next}] \item[]
 
-\item[\keyword{public} \ptype{Circle} \varname{previous}] \item[]
-
-\end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{T} \varname{Circle} (\ptype{T} \varname{content})] \item[]
+\item[\keyword{public} \ptype{Circle} \varname{Previous}] \item[]
 
 \end{description}
-
-\subsection{Klasse Class1}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/Class1}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{private} \ptype{VerticalMenu} \varname{pauseMenu}] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{Circle} (\ptype{T} \varname{content})] \item[]
 
 \end{description}
-
-
 
 \subsection{Klasse ColorPicker}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -364,11 +392,11 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
 
-\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
-
 \item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
+
+\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} ()] \item[]
 
 \end{description}
 
@@ -396,17 +424,29 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{SetOption} (, )] \item[]
+\item[\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{String} \varname{value})] \item[]
 
-\item[\keyword{public} \ptype{bool} \varname{GetOption} (, , , \ptype{bool})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{GetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{Boolean} \varname{defaultValue})] \item[]
 
-\item[\keyword{public} \ptype{string} \varname{GetOption} (, , , \ptype{string})] \item[]
+\item[\keyword{public} \ptype{String} \varname{GetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{String} \varname{defaultValue})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{SetOption} (, )] \item[]
+\item[\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{Boolean} \varname{value})] \item[]
 
 \end{description}
 
+\subsection{Klasse ConfirmDialog}
+\paragraph{Beschreibung:}\mbox{}\\\\
 
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/ConfirmDialog}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{private} \ptype{Menu} \varname{buttons}] \item[]
+
+\end{description}
 
 \subsection{Klasse ControlSettingsScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -422,9 +462,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
@@ -438,9 +478,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{Entered} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
 
@@ -456,7 +496,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Knot}] \item[]
 
-\item[\keyword{public} \ptype{World} \varname{Knot}] \item[]
+\item[\keyword{private} \ptype{World} \varname{World}] \item[]
 
 \item[\keyword{private} \ptype{ModelRenderer} \varname{KnotRenderer}] \item[]
 
@@ -466,9 +506,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
 
@@ -482,9 +522,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
@@ -506,11 +546,11 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
 
-\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
-
 \item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
+
+\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} ()] \item[]
 
 \end{description}
 
@@ -529,30 +569,44 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{String} \varname{Value}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{DistinctOptionInfo} (, , , , )] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{DistinctOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{IEnumerable<string>} \varname{validValues}, \ptype{ConfigFile} \varname{configFile})] \item[]
 
 \end{description}
 
-\subsection{Klasse DrawableGameStateComponent}
+\subsection{Klasse DrawableGameScreenComponent}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
-\includegraphics[scale=0.2]{Klassen/DrawableGameStateComponent}
+\includegraphics[scale=0.2]{Klassen/DrawableGameScreenComponent}
 \end{wrapfigure}
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{GameScreen} \varname{State}] \item[]
+\item[\keyword{public} \ptype{GameScreen} \varname{Screen}] \item[]
 
 \item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime}, \ptype{IEnumerable} \varname{GameTime})] \item[]
+\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{DrawableGameStateComponent} (\ptype{GameScreen}, \ptype{DisplayLayer})] \item[]
+\item[\keyword{public} \ptype{void} \varname{DrawableGameStateComponent} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{index})] \item[]
+
+\end{description}
+
+\subsection{Klasse DropDownEntry}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/DropDownEntry}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Text}] \item[]
 
 \end{description}
 
@@ -570,35 +624,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{AddEntries} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DistinctOptionInfo} \varname{option})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{AddEntries} ()] \item[]
-
-\end{description}
-
-\subsection{Klasse Edge}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/Edge}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable} \varname{Edges}] \item[]
-
-\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
-\item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
-
-\end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} (\ptype{IEnumerator<Edge>})] \item[]
-
-\item[\keyword{public} \ptype{Knot} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
-
-\item[\keyword{public} \ptype{string} \varname{PrinterIO} (\ptype{string} \varname{path})] \item[]
+\item[\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DropDownEntry} \varname{enties})] \item[]
 
 \end{description}
 
@@ -612,21 +640,21 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Color} \varname{EdgeColor}] \item[]
+\item[\keyword{public} \ptype{Color} \varname{Color}] \item[]
 
-\item[\keyword{public} \ptype{Direction} \varname{Dir}] \item[]
+\item[\keyword{public} \ptype{Direction} \varname{Direction}] \item[]
 
 \item[\keyword{public} \ptype{List<int>} \varname{Rectangles}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Direction} \varname{Edge} (\ptype{Direction} \varname{dir})] \item[]
-
-\item[\keyword{public} \ptype{Vector3} \varname{Get3DDirection} (\ptype{Vector3})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{Edge} (\ptype{Direction} \varname{direction})] \item[]
 
 \end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Vector3} \varname{Get3DDirection} ()] \item[]
 
-
+\end{description}
 
 \subsection{Klasse FadeEffect}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -638,14 +666,16 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{private} \ptype{bool} \varname{IsFinished}] \item[]
+\item[\keyword{private} \ptype{Boolean} \varname{IsFinished}] \item[]
 
 \item[\keyword{private} \ptype{RenderTarget2D} \varname{PreviousRenderTarget}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{FadeEffect} (\ptype{GameScreen}, \ptype{GameScreen})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{FadeEffect} (\ptype{GameScreen} \varname{newScreen}, \ptype{GameScreen} \varname{oldScreen})] \item[]
 
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
 
 \end{description}
@@ -664,164 +694,22 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String}, \ptype{String})] \item[]
+\item[\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String})] \item[]
 
 \end{description}
 
 
 
-\subsection{Klasse Game}
+\subsection{Klasse GameModel}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
-\includegraphics[scale=0.2]{Klassen/Game}
-\end{wrapfigure}
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
-
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
-
-\end{description}
-
-\subsection{Klasse GameModelInfo}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/GameModelInfo}
+\includegraphics[scale=0.2]{Klassen/GameModel}
 \end{wrapfigure}
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{string} \varname{Modelname}] \item[]
-
-\item[\keyword{public} \ptype{Angles3} \varname{Rotation}] \item[]
-
-\item[\keyword{public} \ptype{Vector3} \varname{Scale}] \item[]
-
-\end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{GameModelInfo} (\ptype{String})] \item[]
-
-\end{description}
-
-\subsection{Klasse GameObjectInfo}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/GameObjectInfo}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{bool} \varname{IsMovable}] \item[]
-
-\item[\keyword{public} \ptype{bool} \varname{IsSelectable}] \item[]
-
-\item[\keyword{public} \ptype{bool} \varname{IsVisible}] \item[]
-
-\item[\keyword{public} \ptype{Vector3} \varname{Position}] \item[]
-
-\end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{bool} \varname{Equals} (\ptype{GameObjectInfo}, \ptype{bool} \varname{GameObjectInfo})] \item[]
-
-\end{description}
-
-\subsection{Klasse GameScreen}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/GameScreen}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Knot3Game} \varname{Game}] \item[]
-
-\item[\keyword{public} \ptype{InputHandler} \varname{Input}] \item[]
-
-\item[\keyword{public} \ptype{RenderEffect} \varname{PostProcessingEffect}] \item[]
-
-\end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
-
-\item[\keyword{public} \ptype{GameScreen} \varname{Entered} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
-
-\item[\keyword{public} \ptype{GameScreen} \varname{BeforeExit} (\ptype{GameTime}, \ptype{GameScreen} \varname{nextScreen})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{Game})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{AddGameComponents} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{RemoveGameComponents} ()] \item[]
-
-\end{description}
-
-\subsection{Klasse GameStateComponent}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/GameStateComponent}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
-
-\item[\keyword{public} \ptype{GameScreen} \varname{State}] \item[]
-
-\end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime}, \ptype{IEnumerable} \varname{GameTime})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{GameStateComponent} (\ptype{GameScreen}, \ptype{DisplayLayer})] \item[]
-
-\end{description}
-
-\subsection{Klasse GraphicsSettingsScreen}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/GraphicsSettingsScreen}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{protected} \ptype{void} \varname{settingsMenu}] \item[]
-
-\end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
-
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
-
-\end{description}
-
-
-
-\subsection{Klasse IGameObject}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/IGameObject}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{GameObjectInfo} \varname{Info}] \item[]
-
-\item[\keyword{public} \ptype{World} \varname{World}] \item[]
-
 \item[\keyword{public} \ptype{float} \varname{Alpha}] \item[]
 
 \item[\keyword{public} \ptype{Color} \varname{BaseColor}] \item[]
@@ -839,24 +727,178 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{Matrix} \varname{WorldMatrix}] \item[]
 
 \end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{GameModel} (\ptype{GameScreen}, \ptype{GameModelInfo})] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+\item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})] \item[]
 
-\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+\end{description}
 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\subsection{Klasse GameModelInfo}
+\paragraph{Beschreibung:}\mbox{}\\\\
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/GameModelInfo}
+\end{wrapfigure}
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{GameModel} (\ptype{GameScreen}, \ptype{GameModelInfo})] \item[]
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Modelname}] \item[]
+
+\item[\keyword{public} \ptype{Angles3} \varname{Rotation}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{Scale}] \item[]
+
+\end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{GameModelInfo} (\ptype{String} \varname{modelname}, \ptype{Angles3} \varname{rotation})] \item[]
+
+\end{description}
+
+\subsection{Klasse GameObjectInfo}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/GameObjectInfo}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Boolean} \varname{IsMovable}] \item[]
+
+\item[\keyword{public} \ptype{Boolean} \varname{IsSelectable}] \item[]
+
+\item[\keyword{public} \ptype{Boolean} \varname{IsVisible}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{Position}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{GameObjectInfo} \varname{GameObjectInfo})] \item[]
+
+\item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})] \item[]
+
+\end{description}
+
+\subsection{Klasse GameScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/GameScreen}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Knot3Game} \varname{Game}] \item[]
+
+\item[\keyword{public} \ptype{Input} \varname{Input}] \item[]
+
+\item[\keyword{public} \ptype{RenderEffect} \varname{PostProcessingEffect}] \item[]
+
+\item[\keyword{public} \ptype{RenderEffectStack} \varname{CurrentRenderEffects}] \item[]
+
+\end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{GameScreen} (\ptype{Knot3Game} \varname{game})] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{BeforeExit} (\ptype{GameScreen} \varname{nextScreen}, \ptype{GameTime} \varname{time})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{AddGameComponents} (\ptype{IGameStateComponent[]} \varname{components})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{RemoveGameComponents} (\ptype{IGameStateComponent[]} \varname{components})] \item[]
+
+\end{description}
+
+\subsection{Klasse GameScreenComponent}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/GameScreenComponent}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Screen}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{GameStateComponent} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{index})] \item[]
+
+\end{description}
+
+\subsection{Klasse GraphicsSettingsScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/GraphicsSettingsScreen}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{protected} \ptype{void} \varname{settingsMenu}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse Input}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/Input}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{ClickState} \varname{RightMouseButton}] \item[]
+
+\item[\keyword{public} \ptype{ClickState} \varname{LeftMouseButton}] \item[]
+
+\item[\keyword{public} \ptype{MouseState} \varname{CurrentMouseState}] \item[]
+
+\item[\keyword{public} \ptype{KeyboardState} \varname{CurrentKeyboardState}] \item[]
+
+\item[\keyword{public} \ptype{MouseState} \varname{PreviousMouseState}] \item[]
+
+\item[\keyword{public} \ptype{KeyboardState} \varname{PreviousKeyboardState}] \item[]
+
+\item[\keyword{public} \ptype{Boolean} \varname{GrabMouseMovement}] \item[]
+
+\end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{Input} (\ptype{GameScreen} \varname{screen})] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
 
@@ -915,38 +957,40 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{SeletedEdges}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Knot} ()] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{Knot} ()] \item[]
 
+\item[\keyword{public} \varname{Knot} (\ptype{IKnotIO} \varname{file})] \item[]
+
+\item[\keyword{public} \varname{Knot} (\ptype{KnotMetaData} \varname{info})] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} ()] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{ClearSelection} ()] \item[]
 
-\item[\keyword{public} \ptype{IKnotIO} \varname{Knot} (\ptype{IKnotIO} \varname{file})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{IsValidMove} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})] \item[]
 
-\item[\keyword{public} \ptype{KnotMetaData} \varname{Knot} (\ptype{KnotMetaData} \varname{info})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{Move} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})] \item[]
 
-\item[\keyword{public} \ptype{Boolean} \varname{IsValidMove} (\ptype{Boolean}, \ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{} (\ptype{Knot} \varname{knotA}, \ptype{Knot} \varname{knotB})] \item[]
 
-\item[\keyword{public} \ptype{Boolean} \varname{Move} (\ptype{Boolean}, \ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{} (\ptype{Knot} \varname{knotA}, \ptype{Knot} \varname{knotB})] \item[]
 
-\item[\keyword{public} \ptype{Knot} \varname{} (\ptype{Knot} \varname{knotA}, \ptype{Knot} \varname{knotB}, \ptype{Boolean})] \item[]
+\item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} ()] \item[]
 
-\item[\keyword{public} \ptype{Boolean} \varname{} (\ptype{Boolean}, \ptype{Knot} \varname{knotA}, \ptype{Knot} \varname{knotB})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotInfo} \varname{file})] \item[]
 
-\item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} (\ptype{IEnumerator<Edge>})] \item[]
+\item[\keyword{public} \ptype{Object} \varname{Clone} ()] \item[]
 
-\item[\keyword{public} \ptype{IKnotInfo} \varname{Save} (\ptype{IKnotInfo} \varname{file})] \item[]
+\item[\keyword{public} \ptype{void} \varname{AddToSelection} (\ptype{Edge} \varname{edge})] \item[]
 
-\item[\keyword{public} \ptype{Object} \varname{Save} (\ptype{Object})] \item[]
+\item[\keyword{public} \ptype{void} \varname{RemoveFromSelection} (\ptype{Edge} \varname{edge})] \item[]
 
-\item[\keyword{public} \ptype{Edge} \varname{AddToSelection} (\ptype{Edge} \varname{edge})] \item[]
+\item[\keyword{public} \ptype{void} \varname{AddRangeToSelection} (\ptype{Edge} \varname{edge})] \item[]
 
-\item[\keyword{public} \ptype{Edge} \varname{RemoveFromSelection} (\ptype{Edge} \varname{edge})] \item[]
-
-\item[\keyword{public} \ptype{Edge} \varname{ClearSelection} (\ptype{Edge} \varname{edge})] \item[]
-
-\item[\keyword{public} \ptype{Boolean} \varname{IsSelected} (\ptype{Boolean}, \ptype{Edge} \varname{edge})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{IsSelected} (\ptype{Edge} \varname{edge})] \item[]
 
 \end{description}
 
@@ -960,11 +1004,11 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{bool} \varname{IsFullScreen}] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{IsFullScreen}] \item[]
 
 \item[\keyword{public} \ptype{Stack<GameScreen>} \varname{Screens}] \item[]
 
-\item[\keyword{public} \ptype{bool} \varname{VSync}] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{VSync}] \item[]
 
 \item[\keyword{public} \ptype{GraphicsDeviceManager} \varname{Graphics}] \item[]
 
@@ -980,7 +1024,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Game} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
 
 \end{description}
 
@@ -1003,10 +1047,12 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{KnotFileIO} (\ptype{String} \varname{path})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{KnotFileIO} (\ptype{String} \varname{path})] \item[]
 
-\item[\keyword{public} \ptype{Knot} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
 
 \end{description}
 
@@ -1028,7 +1074,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{protected} \ptype{KnotMetaData} \varname{KnotInfo} (\ptype{KnotMetaData}, \ptype{String} \varname{name}, \ptype{Integer} \varname{countEdges}, \ptype{IKnotIO(} \varname{file})] \item[]
+\item[\keyword{protected} \ptype{KnotMetaData} \varname{KnotInfo} (\ptype{String} \varname{name}, \ptype{Integer} \varname{countEdges}, \ptype{IKnotIO} \varname{file})] \item[]
 
 \end{description}
 
@@ -1051,10 +1097,12 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Knot} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{KnotStringIO} (\ptype{String} \varname{content})] \item[]
 
-\item[\keyword{public} \ptype{String} \varname{KnotStringIO} (\ptype{String} \varname{content})] \item[]
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
 
 \end{description}
 
@@ -1068,7 +1116,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{Localize} (, \ptype{String})] \item[]
+\item[\keyword{public} \ptype{String} \varname{Localize} (\ptype{String} \varname{text})] \item[]
 
 \end{description}
 
@@ -1098,15 +1146,15 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem}, \ptype{MenuItem})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem} \varname{item})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Delete} (\ptype{MenuItem}, \ptype{MenuItem})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Delete} (\ptype{MenuItem} \varname{item})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{GetChild} (\ptype{int}, \ptype{int})] \item[]
+\item[\keyword{public} \ptype{MenuItem} \varname{GetItem} (\ptype{Integer} \varname{i})] \item[]
 
-\item[\keyword{public} \ptype{int} \varname{Size} (\ptype{int})] \item[]
+\item[\keyword{public} \ptype{Integer} \varname{Size} ()] \item[]
 
-\item[\keyword{public} \ptype{IEnumerator<MenuItem>} \varname{GetEnumerator} (\ptype{IEnumerator<MenuItem>})] \item[]
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
 \end{description}
 
@@ -1123,8 +1171,8 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{MenuButton} (\ptype{String} \varname{name})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{MenuButton} (\ptype{String} \varname{name})] \item[]
 
 \end{description}
 
@@ -1140,7 +1188,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{ItemState} \varname{ItemState}] \item[]
 
-\item[\keyword{public} \ptype{int} \varname{ItemOrder}] \item[]
+\item[\keyword{public} \ptype{Integer} \varname{ItemOrder}] \item[]
 
 \item[\keyword{public} \ptype{String} \varname{Text}] \item[]
 
@@ -1152,27 +1200,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
 
-\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
-
-\end{description}
-
-
-
-\subsection{Klasse MenuItem}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/MenuItem}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{Text}] \item[]
-
-\end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerator<MenuItem>} \varname{GetEnumerator} (\ptype{IEnumerator<MenuItem>})] \item[]
+\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} ()] \item[]
 
 \end{description}
 
@@ -1186,9 +1214,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
@@ -1204,13 +1232,15 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{private} \ptype{Dictionary<GameModelInfo, GameModel>} \varname{cache}] \item[]
 
-\item[\keyword{private} \ptype{Func<GameState, GameModelInfo, GameModel>} \varname{createModel}] \item[]
+\item[\keyword{private} \ptype{Func<GameScreen, GameModelInfo, GameModel>} \varname{createModel}] \item[]
+
+\end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{ModelFactory} (\ptype{Func<GameScreen}, \ptype{GameModelInfo}, )] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{GameModel} \varname{this} (, , \ptype{GameModel})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{ModelFactory} (\ptype{Func<GameState}, \ptype{GameModelInfo}, )] \item[]
+\item[\keyword{public} \ptype{GameModel} \varname{this} (\ptype{GameScreen} \varname{state}, \ptype{GameModelInfo} \varname{info})] \item[]
 
 \end{description}
 
@@ -1224,7 +1254,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
 
@@ -1238,7 +1268,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
 
@@ -1271,20 +1301,22 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{private} \ptype{ModelFactory} \varname{arrowFactory}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{ModelRenderer} (\ptype{GameScreen} \varname{screen}, \ptype{GameObjectInfo} \varname{info})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
+
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{ModelRenderer} (\ptype{GameState}, \ptype{GameObjectInfo}, \ptype{GameState})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
-
-\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} (\ptype{IEnumerator})] \item[]
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
 \end{description}
 
@@ -1297,10 +1329,30 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \end{wrapfigure}
 
 
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{MousePointer} (\ptype{GameState})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{MousePointer} (\ptype{GameState})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime}, )] \item[]
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse NodeMap}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/NodeMap}
+\end{wrapfigure}
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Node} \varname{From} (\ptype{Edge} \varname{edge})] \item[]
+
+\item[\keyword{public} \ptype{Node} \varname{To} (\ptype{Edge} \varname{edge})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()] \item[]
 
 \end{description}
 
@@ -1317,12 +1369,14 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{NodeModelInfo} \varname{Info}] \item[]
 
 \end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{NodeModel} (\ptype{GameScreen} \varname{screen}, \ptype{NodeModelInfo} \varname{info})] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{NodeModel} (\ptype{GameScreen}, \ptype{NodeModelInfo})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
@@ -1336,17 +1390,17 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{EdgeFrom}] \item[]
+\item[\keyword{public} \ptype{Edge} \varname{EdgeFrom}] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{EdgeTo}] \item[]
+\item[\keyword{public} \ptype{Edge} \varname{EdgeTo}] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Knot}] \item[]
+\item[\keyword{public} \ptype{Knot} \varname{Knot}] \item[]
 
-\item[\keyword{public} \ptype{Vector3} \varname{EdgeFrom}] \item[]
+\item[\keyword{public} \ptype{Vector3} \varname{Position}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{NodeModelInfo} (\ptype{EdgeList}, \ptype{Edge}, \ptype{Edge})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{NodeModelInfo} (\ptype{Knot} \varname{knot}, \ptype{Edge} \varname{from}, \ptype{Edge} \varname{to})] \item[]
 
 \end{description}
 
@@ -1371,8 +1425,8 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{String} \varname{Value}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{OptionInfo} (, , , )] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{OptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})] \item[]
 
 \end{description}
 
@@ -1390,6 +1444,20 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 
+\subsection{Klasse PauseDialog}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/PauseDialog}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{private} \ptype{VerticalMenu} \varname{pauseMenu}] \item[]
+
+\end{description}
+
 \subsection{Klasse PipeModel}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
@@ -1403,14 +1471,12 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{PipeModelInfo} \varname{Info}] \item[]
 
 \end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{PipeModel} (\ptype{GameScreen} \varname{screen}, \ptype{PipeModelInfo} \varname{info})] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
-
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{PipeModel} (\ptype{GameScreen}, \ptype{PipeModelInfo})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})] \item[]
 
 \end{description}
 
@@ -1433,8 +1499,8 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{Vector3} \varname{PositionTo}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{PipeModelInfo} (\ptype{EdgeList}, \ptype{Edge})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{PipeModelInfo} (\ptype{Knot} \varname{knot}, \ptype{Edge} \varname{edge})] \item[]
 
 \end{description}
 
@@ -1455,18 +1521,46 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{World} \varname{World}] \item[]
 
 \end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{PipeMovement} (\ptype{GameState}, \ptype{World}, \ptype{GameObjectInfo})] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+\item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{PipeMovement} (\ptype{GameState}, \ptype{World}, \ptype{GameObjectInfo})] \item[]
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
-\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} (\ptype{IEnumerator})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+\end{description}
+
+\subsection{Klasse PrinterIO}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/PrinterIO}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{Edges}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
+
+\end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{PrinterIO} (\ptype{string} \varname{path})] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
 
 \end{description}
 
@@ -1484,9 +1578,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
@@ -1512,9 +1606,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \item[\keyword{public} \ptype{void} \varname{End} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel}, \ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{GameModel})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel})] \item[]
+\item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})] \item[]
 
 \item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
 
@@ -1535,12 +1629,14 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{private} \ptype{IRenderEffect} \varname{DefaultEffect}] \item[]
 
 \end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{RenderEffectStack} (\ptype{IRenderEffect} \varname{defaultEffect})] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{} ()] \item[]
+\item[\keyword{public} \ptype{IRenderEffect} \varname{Pop} ()] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{} (\ptype{IRenderEffect})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{RenderEffectStack} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Push} (\ptype{IRenderEffect} \varname{effect})] \item[]
 
 \end{description}
 
@@ -1560,9 +1656,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
 
@@ -1581,10 +1677,12 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{float} \varname{ShadowAlpha}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{ShadowGameModel} (\ptype{GameState}, \ptype{GameModel})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{ShadowGameModel} (\ptype{GameScreen} \varname{sreen}, \ptype{GameModel} \varname{decoratedModel})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
@@ -1607,16 +1705,18 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{Vector3} \varname{OriginalPosition}] \item[]
 
 \end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{ShadowGameObject} (\ptype{GameScreen} \varname{screen}, \ptype{IGameObject} \varname{decoratedObj})] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+\item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{ShadowGameObject} (\ptype{GameState}, \ptype{IGameObject})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})] \item[]
 
 \end{description}
 
@@ -1630,11 +1730,11 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{int} \varname{Value}] \item[]
+\item[\keyword{public} \ptype{Integer} \varname{Value}] \item[]
 
-\item[\keyword{public} \ptype{int} \varname{MinValue}] \item[]
+\item[\keyword{public} \ptype{Integer} \varname{MinValue}] \item[]
 
-\item[\keyword{public} \ptype{int} \varname{MaxValue}] \item[]
+\item[\keyword{public} \ptype{Integer} \varname{MaxValue}] \item[]
 
 \end{description}
 
@@ -1647,12 +1747,34 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \end{wrapfigure}
 
 
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{StandardEffect} (\ptype{GameScreen} \varname{screen})] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{StandardEffect} (\ptype{GameScreen})] \item[]
+\end{description}
+
+\subsection{Klasse StartScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/StartScreen}
+\end{wrapfigure}
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
+
+
+
+
 
 
 
@@ -1682,11 +1804,23 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{GameScreen} \varname{Entered} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
 
+\subsection{Klasse VerticalMenu}
+\paragraph{Beschreibung:}\mbox{}\\\\
 
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/VerticalMenu}
+\end{wrapfigure}
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{AlignItems} ()] \item[]
+
+\end{description}
 
 \subsection{Klasse Widget}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -1713,10 +1847,12 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{VerticalAlignment} \varname{AlignY}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Rectangle} \varname{BoundingBox} (\ptype{Rectangle})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{Widget} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Widget} (, )] \item[]
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Rectangle} \varname{BoundingBox} ()] \item[]
 
 \end{description}
 
@@ -1760,21 +1896,23 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Camera}] \item[]
 
-\item[\keyword{public} \ptype{List<IGameObject>} \varname{Camera}] \item[]
+\item[\keyword{public} \ptype{List<IGameObject>} \varname{Objects}] \item[]
 
 \item[\keyword{public} \ptype{IGameObject} \varname{SelectedObject}] \item[]
 
 \item[\keyword{public} \ptype{IRenderEffect} \varname{CurrentEffect}] \item[]
 
 \end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{World} (\ptype{GameScreen} \varname{screen})] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{World} (\ptype{GameScreen})] \item[]
-
-\item[\keyword{public} \ptype{IEnumerator<IGameObject>} \varname{GetEnumerator} (\ptype{IEnumerator<IGameObject>})] \item[]
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
 \end{description}
 
@@ -1788,9 +1926,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
 
@@ -1812,7 +1950,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \item[\keyword{public} \ptype{void} \varname{UnloadContent} ()] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Game} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
 
@@ -1828,7 +1966,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
 
@@ -1855,7 +1993,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Challenge} \varname{Save} (\ptype{Challenge} \varname{challenge})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Challenge} \varname{challenge})] \item[]
 
 \end{description}
 
@@ -1869,7 +2007,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Object} \varname{Clone} (\ptype{Object})] \item[]
+\item[\keyword{public} \ptype{Object} \varname{Clone} ()] \item[]
 
 \end{description}
 
@@ -1883,49 +2021,59 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} (\ptype{IEnumerator<Edge>})] \item[]
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
 \end{description}
 
-\subsection{Schnittstelle IEnumerable}
+
+
+
+
+
+
+\subsection{Schnittstelle IEnumerable1}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
-\includegraphics[scale=0.2]{Klassen/IEnumerable}
+\includegraphics[scale=0.2]{Klassen/IEnumerable1}
 \end{wrapfigure}
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerator<MenuItem>} \varname{GetEnumerator} (\ptype{IEnumerator<MenuItem>})] \item[]
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
 \end{description}
 
-\subsection{Schnittstelle IEnumerable<IGameObject>}
+\subsection{Schnittstelle IEquatable}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
-\includegraphics[scale=0.2]{Klassen/IEnumerable}
+\includegraphics[scale=0.2]{Klassen/IEquatable}
 \end{wrapfigure}
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerator<IGameObject>} \varname{GetEnumerator} (\ptype{IEnumerator<IGameObject>})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})] \item[]
 
 \end{description}
 
-\subsection{Schnittstelle IEnumerable<IGameObject>}
+
+
+
+
+\subsection{Schnittstelle IEquatable1}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
-\includegraphics[scale=0.2]{Klassen/IEnumerable}
+\includegraphics[scale=0.2]{Klassen/IEquatable1}
 \end{wrapfigure}
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} (\ptype{IEnumerator})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})] \item[]
 
 \end{description}
 
@@ -1945,13 +2093,13 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+\item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})] \item[]
 
 \end{description}
 
@@ -1967,11 +2115,11 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
 
-\item[\keyword{public} \ptype{GameScreen} \varname{State}] \item[]
+\item[\keyword{public} \ptype{GameScreen} \varname{Screen}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime}, \ptype{IEnumerable})] \item[]
+\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
 
@@ -1985,9 +2133,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{EdgeFrom}] \item[]
+\item[\keyword{public} \ptype{Edge} \varname{EdgeFrom}] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{EdgeTo}] \item[]
+\item[\keyword{public} \ptype{Edge} \varname{EdgeTo}] \item[]
 
 \end{description}
 
@@ -2003,9 +2151,9 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
 
-\item[\keyword{public} \ptype{bool} \varname{IsKeyEventEnabled}] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{IsKeyEventEnabled}] \item[]
 
-\item[\keyword{public} \ptype{List} \varname{ValidKeys}] \item[]
+\item[\keyword{public} \ptype{List<Keys>} \varname{ValidKeys}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
@@ -2031,7 +2179,7 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Knot} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
 
 \end{description}
 
@@ -2047,15 +2195,15 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
 
-\item[\keyword{public} \ptype{bool} \varname{IsMouseEventEnabled}] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{IsMouseEventEnabled}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
-
 \item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
+
+\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} ()] \item[]
 
 \end{description}
 
@@ -2077,37 +2225,15 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \item[\keyword{public} \ptype{void} \varname{End} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel}, \ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{model})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel})] \item[]
-
-\end{description}
-
-\subsection{Schnittstelle XNA.IGameComponent}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/XNAIGameComponent}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{bool} \varname{IsMovable}] \item[]
-
-\item[\keyword{public} \ptype{bool} \varname{IsSelectable}] \item[]
-
-\item[\keyword{public} \ptype{bool} \varname{IsVisible}] \item[]
-
-\item[\keyword{public} \ptype{Vector3} \varname{Position}] \item[]
+\item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{model})] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{bool} \varname{Equals} (\ptype{GameObjectInfo}, \ptype{bool} \varname{GameObjectInfo})] \item[]
 
-\item[\keyword{public} \ptype{bool} \varname{Equals} (\ptype{GameObjectInfo}, \ptype{bool})] \item[]
 
-\end{description}
+
+
 
 
 
