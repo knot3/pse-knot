@@ -26,13 +26,13 @@ Spielkomponenten, die neben der Update()-Methode auch eine Draw()-Methode besitz
 \\\\
 Alle Spielobjekte implementieren die Schnittstelle \interface{IGameObject}. Die abstrakte Klasse \class{GameModel} repräsentiert dabei ein Spielobjekt, das aus einem 3D-Modell besteht, und hält zu diesem Zweck eine Referenz auf ein Objekt der Klasse \xna{Model} aus dem XNA-Framework sowie weitere Eigenschaften wie Position, Drehung und Skalierung.
 
-Spielobjekte sind keine Komponenten, sondern werden in einer Spielwelt zusammenfasst, die durch die Klasse \class{World} repräsentiert wird. Die Spielwelt ist ein \class{DrawableGameStateComponent} und ruft in ihrer Update()- und Draw()-Methoden jeweils die dazugehörigen Methoden aller in ihr enthaltenen Spielobjekte auf.
+Spielobjekte sind keine Komponenten, sondern werden in einer Spielwelt zusammengefasst, die durch die Klasse \class{World} repräsentiert wird. Die Spielwelt ist ein \class{DrawableGameStateComponent} und ruft in ihren Update()- und Draw()-Methoden jeweils die dazugehörigen Methoden aller in ihr enthaltenen Spielobjekte auf.
 \\\\
 Shadereffekte werden durch die abstrakte Klasse \class{RenderEffect} und die von ihr abgeleiteten Klassen gekapselt. Ein \class{RenderEffect} enthält ein Rendertarget vom Typ \xna{RenderTarget2D} als Attribut und implementiert jeweils eine Begin()- und eine End-Methode. In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
 
-Nach dem Aufruf von Begin() werden alle Draw()-Calls von XNA auf dem gesetzten Rendertarget ausgeführt. Es wird also in eine im \xna{RenderTarget2D}-Objekt enthaltene Bitmap gezeichnet. Dabei wird von den Draw()-Methoden der \class{GameModel}s die DrawModel(GameModel)-Methode des \class{RenderEffect}s aufgerufen, der die Modelle mit bestimmten Shadereffekten in die Bitmap zeichnet.
+Nach dem Aufruf von Begin() werden alle Draw()-Aufrufe von XNA auf dem gesetzten Rendertarget ausgeführt. Es wird also in eine im \xna{RenderTarget2D}-Objekt enthaltene Bitmap gezeichnet. Dabei wird von den Draw()-Methoden der \class{GameModel}s die DrawModel(GameModel)-Methode des \class{RenderEffect}s aufgerufen, der die Modelle mit bestimmten Shadereffekten in die Bitmap zeichnet.
 
-In der End()-Methode wird schließlich das auf dem Stack gesicherte vorher genutzte Rendertarget wiederhergestellt und das Rendertarget des \class{RenderEffect}s wird, unter Umständen verändert durch Post-Processing-Effekte, auf dieses übergeordnete Rendertarget gezeichnet.
+In der End()-Methode wird schließlich das auf dem Stack gesicherte, vorher genutzte Rendertarget wiederhergestellt und das Rendertarget des \class{RenderEffect}s wird, unter Umständen verändert durch Post-Processing-Effekte, auf dieses übergeordnete Rendertarget gezeichnet.
 
 
 
