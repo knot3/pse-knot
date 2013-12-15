@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f41f99fa-0b9f-41ab-99af-7e57903e67ba" name="Effekte" linkedPackageId="298f3868-f371-4a7f-bf37-2c41bc718a50" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f41f99fa-0b9f-41ab-99af-7e57903e67ba" name="Effekte" linkedPackageId="298f3868-f371-4a7f-bf37-2c41bc718a50" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="98e4a96c-de44-46e4-a0c5-b33fc96fa240" name="IRenderEffect" isAbstract="false" isLeaf="false">
@@ -37,13 +37,16 @@
             <elementDefinition Id="1f3f13a6-af64-43ae-b80c-f1db0dcbbcfd" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="0850faca-0d60-489e-9471-eaf333b5b56f" name="GameModel" direction="In" isUnique="false">
-                  <elementDefinition Id="8ac99994-64a3-44c4-b175-acbe9c530791" />
+                <parameter Id="fd8af568-a6a8-4809-8988-dd31fd998318" name="model" direction="In" isUnique="false">
+                  <elementDefinition Id="bd07ab99-dd6b-4ba6-ad62-c3016672ccbc" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="400ab70b-d15a-4f96-adb6-1b7214e673d1" LastKnownName="GameModel" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="f2c0bc17-553a-4e7b-ad0c-4da8b08a0549" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="0524b5fb-045b-42b1-ac83-f56c2672847b" />
+                <parameter Id="2d8930ff-3e80-4dbe-ad1f-d9a51a95787e" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="93103510-8182-4672-a1fc-4405b3e9ce56" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -52,8 +55,11 @@
             <elementDefinition Id="f1585b21-f401-41d7-aa91-7e7c5e483257" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="d562076c-dae2-4562-a2ad-5ee256024db8" name="GameModel" direction="In" isUnique="false">
-                  <elementDefinition Id="fdf7223d-ac6c-411b-ae54-a3dc14ff59fd" />
+                <parameter Id="9d598b99-98c2-48c6-833d-596be5245e9c" name="model" direction="In" isUnique="false">
+                  <elementDefinition Id="f9ff8cc4-0485-4058-849a-d1b0ab1d018f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="400ab70b-d15a-4f96-adb6-1b7214e673d1" LastKnownName="GameModel" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -122,6 +128,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="a501f81f-6f89-4b28-8825-fd2e39124614" name="GameModel" direction="In" isUnique="false">
                   <elementDefinition Id="d1090f5a-2929-4aa8-9cd2-cd087f0d3f7a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="400ab70b-d15a-4f96-adb6-1b7214e673d1" LastKnownName="GameModel" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
@@ -137,6 +146,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="b943209a-21b0-48c3-aeff-b975dd0c1d98" name="GameModel" direction="In" isUnique="false">
                   <elementDefinition Id="1d02df1b-96a1-4e83-a0b7-81b20ddb27f1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="400ab70b-d15a-4f96-adb6-1b7214e673d1" LastKnownName="GameModel" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -188,8 +200,11 @@
             <elementDefinition Id="2b42dc48-a596-40e7-8d96-e6923365693e" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="7a22dcfd-7051-4628-a67a-29ca47aad057" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="03bd4395-3910-44e7-af4d-ca5ae7053537" />
+                <parameter Id="937ff9b5-a48a-43ab-a9ee-1dbde3fc7150" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="a1d9cf26-d042-4bb0-85bf-e0dfe9f3a18f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="702c3150-82b8-405d-b4f5-ca8d7dd4eed2" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -210,7 +225,7 @@
           <property Id="a153e1ec-9296-4136-bd08-cb83156d235e" name="IsFinished" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="b1a3389b-bc24-4567-b44c-0a0583c496ca" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="68ea2199-1420-4db7-b91c-cc12ca3aee64" LastKnownName="bool" />
+              <referencedTypeMoniker Id="5757f19e-508c-4b79-a56d-43726d10f6d0" LastKnownName="Boolean" />
             </type_NamedElement>
           </property>
           <property Id="b549b01f-4845-4d49-983b-570a8fce8573" name="PreviousRenderTarget" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -225,13 +240,19 @@
             <elementDefinition Id="84e35d04-37a2-46aa-af34-a23631370153" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="f4c3fbad-3f7e-478b-a855-1688285d0c42" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="a94bca74-eed4-4550-9519-71469e40262f" />
+                <parameter Id="78f995c3-c495-4dcd-9623-defc8150e3e5" name="newScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="a24acc25-90ef-410c-9dd6-4fc500ee5001" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="702c3150-82b8-405d-b4f5-ca8d7dd4eed2" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a87b2cb4-21f1-43a1-be78-f6a566b8e155" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="72e9eeba-d627-4933-94f1-9dd602dd7a70" />
+                <parameter Id="6caadcc8-73f4-4dc1-9b37-6d9545f2e1b3" name="oldScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="a334be6a-a455-4085-a11f-a2a9dc2d6fc7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="702c3150-82b8-405d-b4f5-ca8d7dd4eed2" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -249,11 +270,6 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
-    <packageHasNamedElement>
-      <referencedType Id="68ea2199-1420-4db7-b91c-cc12ca3aee64" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
-        <elementDefinition Id="349d0a89-5802-412d-bfe4-ef755ee9dc33" />
-      </referencedType>
-    </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
       <class Id="4e55dd83-f379-4fd0-be4c-caf5f92e7e55" name="CelShadingEffect" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="e0efdeb9-5eb8-4227-a3e9-d0b43ac57862" />
@@ -280,6 +296,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="ed566ae3-94d4-4ad2-96a0-a59a2de3da85" name="GameModel" direction="In" isUnique="false">
                   <elementDefinition Id="eab30d47-025e-459f-a1f7-a27c0dd813d9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="400ab70b-d15a-4f96-adb6-1b7214e673d1" LastKnownName="GameModel" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
@@ -295,6 +314,22 @@
               <operationHasOwnedParameters>
                 <parameter Id="739e850a-1dbe-462b-ad9d-5e779a1800b3" name="GameModel" direction="In" isUnique="false">
                   <elementDefinition Id="36bfe6e6-6b0f-47f8-8ef2-637c1e576ee9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="400ab70b-d15a-4f96-adb6-1b7214e673d1" LastKnownName="GameModel" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="eee1290d-3985-40c7-8db1-e1f8cb660c78" name="CelShadingEffect" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3ef8095d-6b27-49d3-af48-c5adf44309b7" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b2e45bb5-22f0-43b5-894d-df884a9b19af" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="88a17961-19a1-4d79-b2d7-e8fbb9f869d6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="702c3150-82b8-405d-b4f5-ca8d7dd4eed2" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -320,15 +355,28 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="0223b1ad-e897-4d0e-992a-8c54f76885fc" name="Pop : IRenderEffect" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="0223b1ad-e897-4d0e-992a-8c54f76885fc" name="Pop" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="9bd437a1-3aa9-4e36-a9da-f999c20ee8ee" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5d2842ad-9ec3-42d8-9105-6eda680e670a" direction="Return" isUnique="false">
+                  <elementDefinition Id="858eb620-e561-4a5c-9598-d8e1ea613d6d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7ac9782f-7cef-4110-9516-3ec9dbdbd441" LastKnownName="IRenderEffect" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="35d27b85-b0ce-43cc-8a56-285909a2991a" name="Push" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="f7db07f4-5d7b-4c69-8df2-cf05acf803dc" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="60058aaa-d74f-4671-b8f9-31479eeb7294" name="IRenderEffect" direction="In" isUnique="false">
-                  <elementDefinition Id="ce28f286-ab6b-419c-9cb1-c65d0723a5a4" />
+                <parameter Id="99d2c7fb-7f1a-4b1d-85d8-4674acc6202b" name="effect" direction="In" isUnique="false">
+                  <elementDefinition Id="af7962dd-9871-464c-89cb-8ce20bb21480" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7ac9782f-7cef-4110-9516-3ec9dbdbd441" LastKnownName="IRenderEffect" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -337,8 +385,11 @@
             <elementDefinition Id="0d271a2e-c748-4caf-a3b5-f1b664980b1e" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="b03def55-23cc-4d64-8843-b4ca15931e4b" name="IRenderEffect defaultEffect" direction="In" isUnique="false">
-                  <elementDefinition Id="23eeea57-5ff6-4c5f-92d0-9400b1076824" />
+                <parameter Id="876151cb-3574-46d5-91d4-b44b277d23e7" name="defaultEffect" direction="In" isUnique="false">
+                  <elementDefinition Id="62d17641-327b-4e91-b7b4-3f787d98ab74" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7ac9782f-7cef-4110-9516-3ec9dbdbd441" LastKnownName="IRenderEffect" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -354,6 +405,16 @@
     <packageHasNamedElement>
       <referencedType Id="9a0a2a49-3eff-4c2a-ae41-8b8a7a036273" name="IRenderEffect" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IRenderEffect">
         <elementDefinition Id="c26cea4a-4b15-4df5-becb-7c583552dd0c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="400ab70b-d15a-4f96-adb6-1b7214e673d1" name="GameModel" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameModel">
+        <elementDefinition Id="f77a9291-5b87-4ae2-b5c4-bb30d10b9470" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5757f19e-508c-4b79-a56d-43726d10f6d0" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

@@ -74,15 +74,18 @@
             <elementDefinition Id="c18278be-c05c-4f57-bce5-68488326dcca" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="eb6f1a69-a8c4-42aa-b9f3-50ab8f40de4a" name="Ray" direction="In" isUnique="false">
-                  <elementDefinition Id="3390bd69-47da-4478-836a-6580361d3a5b" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
                 <parameter Id="4b5a227c-d8b3-47dc-b3a4-1f20f4f0eb4f" direction="Return" isUnique="false">
                   <elementDefinition Id="383c5e3f-889a-40ef-8feb-e427d3c86def" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="3ed3f291-ff43-4f72-97c8-19a1b66594a1" LastKnownName="GameObjectDistance" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cc4e8ef6-9636-4517-badf-f860fda6785f" name="ray" direction="In" isUnique="false">
+                  <elementDefinition Id="f66e284a-c57e-46b9-b2ad-b69e9bcb24f5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="50720e0c-6752-4ed7-9930-d21a13174248" LastKnownName="Ray" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -208,6 +211,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="1ec0a1c2-5db7-4cb4-a4b2-1f2a4c1af0e0" name="Ray" direction="In" isUnique="false">
                   <elementDefinition Id="29543d36-7a50-4548-87ce-5c049b149b33" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="50720e0c-6752-4ed7-9930-d21a13174248" LastKnownName="Ray" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
@@ -548,9 +554,9 @@
       <class Id="4d975b3e-5492-4f98-bd59-7881c72587e2" name="PipeModel" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="34cefb6f-dc1c-426d-b1ea-b554b52a3a0d" />
         <generalsInternal>
-          <generalization Id="2f9105fd-d21e-49fa-ae74-b2c1c1fdc0f4" isSubstitutable="false">
+          <generalization Id="c28efec8-8520-4014-a2b2-d701004104af" isSubstitutable="false">
             <classMoniker Id="e00d87f0-7b76-489e-8a78-82ac7f499eb4" LastKnownName="GameModel" />
-            <elementDefinition Id="9063ea73-fdda-4aaf-b88e-cbe5c78e3aad" />
+            <elementDefinition Id="954c902f-1135-44b1-a6d9-2fd2e6ac6791" />
           </generalization>
         </generalsInternal>
         <targetEnds>
@@ -580,39 +586,22 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="c6b4f05f-d8a2-4d87-950d-9d777e18c4a6" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="59fd095b-adee-407f-ac64-f39ec6e9a6cc" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="b1089296-b92f-4a4f-a5dd-b7e9bb113804" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="7787a7ea-60ae-4207-bdda-ad797c92bbd6" />
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="3c5cf9e7-2442-43cb-8702-6f9f4708f7b7" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="d3377690-ec89-49e8-8317-3c8b59bebe00" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="3e7aa094-6873-49a0-afa9-a9c60d5f8d95" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="b92f6308-88f6-473e-a486-89720c9c1fc7" />
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
           <operation Id="1d6b80f4-6e79-4590-9875-e67c1638fa44" name="Intersects" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="b5d579b3-d994-463f-9a85-42df27de5a94" />
             <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="7c1f802d-1f90-4501-9606-ddc03c139ba0" name="Ray" direction="In" isUnique="false">
-                  <elementDefinition Id="12d4dfa5-6024-4ace-90ba-f6ef6f4446aa" />
-                </parameter>
-              </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter Id="24d57bd6-b9d6-4912-8819-b0a0519d9e18" direction="Return" isUnique="false">
                   <elementDefinition Id="da5a280c-9b17-4f8a-9035-cd3d85983897" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="3ed3f291-ff43-4f72-97c8-19a1b66594a1" LastKnownName="GameObjectDistance" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="30efaabe-e107-4250-9c82-8d11f83c96f0" name="ray" direction="In" isUnique="false">
+                  <elementDefinition Id="eb63341c-29e6-4261-b3cd-5d9f638c222f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="50720e0c-6752-4ed7-9930-d21a13174248" LastKnownName="Ray" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -622,16 +611,16 @@
             <elementDefinition Id="d20f02ff-b6b9-4ef6-9fb6-66cf443228a5" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="6e075fab-3a18-4c0b-b9f3-2f166a91cfde" name="screen" direction="In" isUnique="false">
-                  <elementDefinition Id="ff071187-77dc-4fbd-b1e7-ab6d89a78520" />
+                <parameter Id="08b53271-e7d1-4838-8e70-8b7509e3faf1" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="e07c3839-9a0c-42c8-8f42-fb30465ac915" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="9d9376c5-615a-4897-89e3-b8017df0a73d" LastKnownName="GameScreen" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="b6fadf6e-2b07-4848-80df-fd20b084f96c" name="screen" direction="In" isUnique="false">
-                  <elementDefinition Id="ccae1476-0196-4818-87b8-6a269d5d8d11" />
+                <parameter Id="b6fe7d1d-49a5-42c0-8801-c56e6d423681" name="info" direction="In" isUnique="false">
+                  <elementDefinition Id="ad18dc40-e794-4b96-8b7d-43e733487078" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="14e09127-fc0e-4489-8e93-619333c423df" LastKnownName="PipeModelInfo" />
                   </type_NamedElement>
@@ -687,13 +676,19 @@
             <elementDefinition Id="09a5df21-1be3-4171-a687-3d24cb56ceca" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="391f363e-4c84-49e1-990b-790768033a65" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="9adbe9e1-8075-43ff-8710-637dd8d21ec1" />
+                <parameter Id="11875c58-6488-4d28-b8fd-bc70f271f652" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="fd984663-0306-417c-9481-8c502de08ba9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9d9376c5-615a-4897-89e3-b8017df0a73d" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="4d67e381-e011-4925-91a8-2082136e811d" name="NodeModelInfo" direction="In" isUnique="false">
-                  <elementDefinition Id="dcf2271c-19e8-4d03-bdf4-bebdd8ec7822" />
+                <parameter Id="20e2ff8a-1bd9-4e1d-b8b6-d03d042f9030" name="info" direction="In" isUnique="false">
+                  <elementDefinition Id="995613c8-7724-42a7-967d-72bc9ae1e74a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="75bf946d-fff0-46e2-8daf-a9a8c348a63b" LastKnownName="NodeModelInfo" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -937,6 +932,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="5be01063-017c-457f-9431-ec4723ffac41" name="Ray" direction="In" isUnique="false">
                   <elementDefinition Id="61e007b7-127e-4fb1-b04c-d982dbf8fb38" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="50720e0c-6752-4ed7-9930-d21a13174248" LastKnownName="Ray" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
@@ -963,20 +961,18 @@
             <elementDefinition Id="03e4ff48-038c-4b78-a1cc-5724bdfa4410" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="637f7374-e154-4c12-87cb-2e5286471a17" name="GameState" direction="In" isUnique="false">
-                  <elementDefinition Id="e8a3fa8f-5b69-4227-8afa-0f6441a82f7f" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="e78be526-4287-424f-aa0f-f904ff1767e2" name="GameObjectInfo" direction="In" isUnique="false">
-                  <elementDefinition Id="fa210d2a-2ff7-4632-b5fb-1a1651e0cf11" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="8a1da687-2cf1-497d-9239-731f1a9b0903" direction="Return" isUnique="false">
-                  <elementDefinition Id="5f184888-1a3b-4585-a187-c533aa033d6a" />
+                <parameter Id="bd647b36-bc41-4d34-a5b4-5e816660e1be" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="d2f73f74-176f-418e-bffa-b4574768be61" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="5ac7ae4b-2fee-4f91-8858-f052296ca2b6" LastKnownName="void" />
+                    <referencedTypeMoniker Id="9d9376c5-615a-4897-89e3-b8017df0a73d" LastKnownName="GameScreen" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="eb78acb4-cfb0-4c93-b079-7fcbe76caa81" name="info" direction="In" isUnique="false">
+                  <elementDefinition Id="e8c8afe6-a335-43d6-9fd9-680b44557231" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b8c7f8c2-8dae-4672-9a31-434f2179bb20" LastKnownName="GameObjectInfo" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -1021,11 +1017,6 @@
     <packageHasNamedElement>
       <referencedType Id="4c4a389c-0c41-4575-872f-15f3f10e6a03" name="World" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::World">
         <elementDefinition Id="8228b23e-d24d-4fcc-9419-b5fbb8853415" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="5ac7ae4b-2fee-4f91-8858-f052296ca2b6" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
-        <elementDefinition Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0" />
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
@@ -1081,6 +1072,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="039827e7-b6aa-4d9f-a348-75bdb2849b97" name="Ray" direction="In" isUnique="false">
                   <elementDefinition Id="f22f6058-222c-4744-8f3c-2cef9a6007b8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="50720e0c-6752-4ed7-9930-d21a13174248" LastKnownName="Ray" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
@@ -1229,6 +1223,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="77b87b13-08c8-49b9-af35-dedbabb0370d" name="Ray" direction="In" isUnique="false">
                   <elementDefinition Id="7bcf8859-b127-48de-bb15-f3a061d119c1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="50720e0c-6752-4ed7-9930-d21a13174248" LastKnownName="Ray" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
@@ -1245,13 +1242,19 @@
             <elementDefinition Id="80fb1109-7e57-46a2-ae97-539bf9571bd7" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="dcd9c408-0d19-4224-be83-4efa1702ed76" name="GameState" direction="In" isUnique="false">
-                  <elementDefinition Id="3d1040a4-782a-46dc-b5bf-11b6bfd23730" />
+                <parameter Id="3000a18d-dcc8-4628-b0f5-ba943f9217dd" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="ea10b17b-9b80-4524-a2a7-c9fb64b5f93a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9d9376c5-615a-4897-89e3-b8017df0a73d" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="b7f44470-db60-4811-88cb-1b5b72ec587b" name="IGameObject" direction="In" isUnique="false">
-                  <elementDefinition Id="8adb12a4-dd1b-48ff-844c-b943a292cb4d" />
+                <parameter Id="8a49e61d-c8de-41de-92e8-ff567bbc0ce7" name="decoratedObj" direction="In" isUnique="false">
+                  <elementDefinition Id="fb30e8a5-710e-4003-b3e4-c51f30b2cf3d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2e851af6-ca4e-4885-8aef-57d8cd4d9e1c" LastKnownName="IGameObject" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1292,13 +1295,19 @@
             <elementDefinition Id="4e3cce6c-60f7-47c6-ab94-a5cede494b91" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="59b40367-aa9f-441b-bd44-a30a74a5a5f9" name="GameState" direction="In" isUnique="false">
-                  <elementDefinition Id="5412f2e8-03d2-46ce-b8d6-9e9877d723b1" />
+                <parameter Id="974ae926-ca4d-413f-89f9-39722263c15c" name="sreen" direction="In" isUnique="false">
+                  <elementDefinition Id="35f40d83-4e3b-4940-8a85-e686e3ea8b67" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9d9376c5-615a-4897-89e3-b8017df0a73d" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="9af2d1f3-0238-404b-a42f-81c4181b7c6a" name="GameModel" direction="In" isUnique="false">
-                  <elementDefinition Id="9aae07bf-0b4b-453c-9dfc-1aa2b1bdf895" />
+                <parameter Id="5fed83c5-f65b-48a7-94b2-814bed55d50a" name="decoratedModel" direction="In" isUnique="false">
+                  <elementDefinition Id="352fe26d-1150-46c9-9de0-c51940035955" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="26d44308-6317-48bd-bb0d-d8fab8b51157" LastKnownName="GameModel" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1366,15 +1375,18 @@
             <elementDefinition Id="0a5ec028-4e59-42ef-b803-28d0953e3e68" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="1230d04c-bd11-42c8-ae26-8f2407596bb7" name="Ray" direction="In" isUnique="false">
-                  <elementDefinition Id="5bc5f133-0260-4003-854b-f935c845ad79" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
                 <parameter Id="e9a45acc-6bad-4b46-b066-339182bdeeef" direction="Return" isUnique="false">
                   <elementDefinition Id="bf9ece5f-9f98-48e6-adcd-15f86fe0f1ff" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="3ed3f291-ff43-4f72-97c8-19a1b66594a1" LastKnownName="GameObjectDistance" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="45dfd54c-7ab8-4d23-8167-c77c0417ce33" name="ray" direction="In" isUnique="false">
+                  <elementDefinition Id="39cd3098-aaa4-4562-beb7-fdd42c140549" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="50720e0c-6752-4ed7-9930-d21a13174248" LastKnownName="Ray" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -1482,9 +1494,15 @@
         <ownedAttributes>
           <property Id="45f2c483-cfa1-4731-9232-579897f34fa2" name="EdgeFrom" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="0095d06c-411f-4ffa-9a9b-c31a0bf3be30" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="af497dfc-5150-4712-8d62-57edf338356f" LastKnownName="Edge" />
+            </type_NamedElement>
           </property>
           <property Id="03778013-5ae3-448e-a809-ae95fdf68431" name="EdgeTo" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="2963d7f8-9853-44fe-ac14-b19d5b0184ad" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="af497dfc-5150-4712-8d62-57edf338356f" LastKnownName="Edge" />
+            </type_NamedElement>
           </property>
         </ownedAttributes>
       </Interface>
@@ -1527,7 +1545,7 @@
           <property Id="af56c674-66fc-4551-9809-a82ae55f8d85" name="createModel" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="9ba4cd37-e63d-4d0a-969f-fe9c9ce9062a" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="51e895f4-b9af-4829-a983-d177b22e787c" LastKnownName="Func&lt;GameState, GameModelInfo, GameModel&gt;" />
+              <referencedTypeMoniker Id="164bdfbf-1e31-4324-b8da-2c20572eb349" LastKnownName="Func&lt;GameScreen, GameModelInfo, GameModel&gt;" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -1536,20 +1554,26 @@
             <elementDefinition Id="a655b39f-2779-46f2-943c-b9b108e85696" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="d4ac5478-258a-4c16-b671-35398d3a02ac" name="GameState state" direction="In" isUnique="false">
-                  <elementDefinition Id="a159453d-52d2-4262-a06f-bc1e3d2eebee" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="ff0c836a-d8d3-44fe-b669-d6664b6f131e" name="GameModelInfo info" direction="In" isUnique="false">
-                  <elementDefinition Id="2d679848-5b33-4c9d-805e-869f85a7e4de" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
                 <parameter Id="645de541-4e52-474b-b3ca-54b6821671f3" direction="Return" isUnique="false">
                   <elementDefinition Id="28b3fe4e-c81f-495b-8e65-a2d34d9a2070" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="26d44308-6317-48bd-bb0d-d8fab8b51157" LastKnownName="GameModel" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="61bee4f9-982a-4404-a42e-8a7e674d5f0f" name="state" direction="In" isUnique="false">
+                  <elementDefinition Id="5d2dd60b-5d07-42e6-b710-55447c464c6a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9d9376c5-615a-4897-89e3-b8017df0a73d" LastKnownName="GameScreen" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="338b1b92-1993-45fa-bd65-3aaa967f5822" name="info" direction="In" isUnique="false">
+                  <elementDefinition Id="e9021218-2a2b-4b9b-9807-67a42be03807" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="327352df-57ef-4dba-8e55-6b6fc0d38baa" LastKnownName="GameModelInfo" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -1559,18 +1583,18 @@
             <elementDefinition Id="f5c8afce-053a-429c-9fa7-df78fd35f0ca" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="bd083ab4-e97e-49ad-9b47-b14c6b97d7b2" name="Func&lt;GameState" direction="In" isUnique="false">
-                  <elementDefinition Id="79246f04-cf2d-40c5-8a7a-041161d4c87a" />
+                <parameter Id="f2c00fe3-b05c-4f14-9850-7a3365d3f444" name="Func&lt;GameScreen" direction="In" isUnique="false">
+                  <elementDefinition Id="439b7970-e6d6-4935-a52c-d6e76f5e759a" />
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="1b6a4451-11dd-48c0-a402-2badb2e4632e" name="GameModelInfo" direction="In" isUnique="false">
-                  <elementDefinition Id="24b28b1c-36c9-489f-9934-446f51709d27" />
+                <parameter Id="fa2770ae-41c1-430d-bffe-f4f158395978" name="GameModelInfo" direction="In" isUnique="false">
+                  <elementDefinition Id="9dc4503c-9fa9-4a0b-8cc3-67a866a10045" />
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="0ce99c8d-47d1-47ea-9994-023a6be7555a" name="GameModel&gt; createModel" direction="In" isUnique="false">
-                  <elementDefinition Id="76c803dd-561b-47a4-84c3-3fa1ed5d49e1" />
+                <parameter Id="96d4efdb-fb03-464a-a7e8-0733e679d3dd" name="GameModel&gt; createModel" direction="In" isUnique="false">
+                  <elementDefinition Id="bea73738-be46-4955-ab9c-9afc679cdc44" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1586,11 +1610,6 @@
     <packageHasNamedElement>
       <referencedType Id="26d44308-6317-48bd-bb0d-d8fab8b51157" name="GameModel" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameModel">
         <elementDefinition Id="f77a9291-5b87-4ae2-b5c4-bb30d10b9470" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="51e895f4-b9af-4829-a983-d177b22e787c" name="Func&lt;GameState, GameModelInfo, GameModel&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;GameState, GameModelInfo, GameModel&gt;">
-        <elementDefinition Id="ebd68188-a0c6-4a99-aaff-cb1db6c9579f" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1853,6 +1872,16 @@
     <packageHasNamedElement>
       <referencedType Id="389d7a8e-f0ed-499f-9c0b-d233d6dd6650" name="T" isAbstract="false" isLeaf="false" cachedFullName="T">
         <elementDefinition Id="f8d32b9a-51b4-4e20-926d-4bf835efd0f3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="50720e0c-6752-4ed7-9930-d21a13174248" name="Ray" isAbstract="false" isLeaf="false" cachedFullName="Ray">
+        <elementDefinition Id="0abe0a8f-d9fd-4d77-b1e3-ecd7ce46d1f0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="164bdfbf-1e31-4324-b8da-2c20572eb349" name="Func&lt;GameScreen, GameModelInfo, GameModel&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;GameScreen, GameModelInfo, GameModel&gt;">
+        <elementDefinition Id="ef242bb5-af9f-456a-a579-473a6dbaae84" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

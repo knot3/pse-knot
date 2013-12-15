@@ -199,13 +199,19 @@
             <elementDefinition Id="49c00fab-e36e-4ce2-8ff0-fb6ca1dd9dd9" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c93c2c21-47b2-4543-bcac-1b38847b6fb3" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="ccb08218-8a51-44a1-8871-f69c4775e94b" />
+                <parameter Id="c1b51ae5-18a1-406a-afe5-2f5050009ccd" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="f7cfbfb9-1c17-4403-b53c-199bc5062894" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="ed3ac3cb-e3dd-4e41-b292-a522c139013a" name="DisplayLayer" direction="In" isUnique="false">
-                  <elementDefinition Id="2563f175-84a8-4519-8967-660fe58662b4" />
+                <parameter Id="a98a35d6-dd34-4c27-842a-6786f1cbe7cf" name="index" direction="In" isUnique="false">
+                  <elementDefinition Id="16775391-38f6-4716-935a-625941161948" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d7352e32-e6ce-48f4-af5f-ed6017eaac70" LastKnownName="DisplayLayer" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -270,13 +276,19 @@
             <elementDefinition Id="828e6417-0908-426c-98a7-8a8206b2c546" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="f1d0b5e9-1057-4547-8f89-143bd7939c3c" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="b15496ad-a4f0-4c9b-bbd9-57782e0a0706" />
+                <parameter Id="18741a3d-3195-4ef2-bb4d-ec797363577c" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="f73a01b6-3bd1-4410-bbe8-9bbe3fa29517" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="1520fe86-5b93-429c-a924-dab9d79c265f" name="DisplayLayer" direction="In" isUnique="false">
-                  <elementDefinition Id="e80af8e3-b337-4662-912b-277579570f8c" />
+                <parameter Id="e09a751c-9257-4d61-98f7-f4c567ef5b8a" name="index" direction="In" isUnique="false">
+                  <elementDefinition Id="059a9811-c599-4fd7-8648-100519ac02da" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d7352e32-e6ce-48f4-af5f-ed6017eaac70" LastKnownName="DisplayLayer" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -438,7 +450,7 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <class Id="39907c3d-c73a-4521-aaad-062d8ea57647" name="GameScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="39907c3d-c73a-4521-aaad-062d8ea57647" name="GameScreen" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
         <ownedAttributesInternal>
           <property Id="7ad3a48c-8a30-4994-af99-4e45e41a8fbb" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -450,13 +462,19 @@
           <property Id="8c367aa6-643e-4ca9-8f89-b7ca240b751c" name="Input" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="22ccfb92-b348-45b3-b56b-7126d0594760" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="e1dabbd3-e30a-4426-852c-b1fa7ad9b776" LastKnownName="InputHandler" />
+              <referencedTypeMoniker Id="dee4c1ac-f9ee-44d5-8ced-7fdec4ea1f19" LastKnownName="Input" />
             </type_NamedElement>
           </property>
           <property Id="d4ce1b34-4329-443a-92d0-2c74b291a3bf" name="PostProcessingEffect" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="1bb42bc3-5443-47d8-9841-93bbf09699ee" />
             <type_NamedElement>
               <referencedTypeMoniker Id="7a10d915-970c-495f-9189-d79c671534dd" LastKnownName="RenderEffect" />
+            </type_NamedElement>
+          </property>
+          <property Id="ad6fcd46-551d-4068-9d45-85c2fe6e8016" name="CurrentRenderEffects" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="959802f5-69f2-4561-985c-1d7da2e41547" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="bbad6d96-d3c4-439d-a851-be703bf4a44b" LastKnownName="RenderEffectStack" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -499,13 +517,23 @@
           </operation>
           <operation Id="45dce60d-1acc-4bfa-a347-b9082aa1e9d9" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="07731970-b004-47e3-ac87-c82ff92b9568" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2df207d4-78e7-4e51-8b22-1c3ba66154b4" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="8aafd181-5fd2-4857-9513-808df6de301d" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="6855c309-9e32-4265-83fc-564e38a4f8c2" name="GameScreen" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="2b77a2d1-a3e0-41c5-bbdd-123a4adfce7d" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="813e3011-6e0d-4710-b330-f2a8991690fa" name="Game" direction="In" isUnique="false">
-                  <elementDefinition Id="34f2958f-bf1e-4478-8312-a15c32782661" />
+                <parameter Id="0b3b86e4-26f3-427e-967f-2ab05daf86d0" name="game" direction="In" isUnique="false">
+                  <elementDefinition Id="c3090312-3d26-49dd-ae88-97cb953221f6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ec783a97-045e-473a-98a5-8355494b3bf9" LastKnownName="Knot3Game" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -514,8 +542,11 @@
             <elementDefinition Id="64abfe96-848d-4e9d-bee0-4c704b807df7" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="7e3d4b9e-273a-49da-bd75-90d2b7ff8149" name="params IGameStateComponent[]" direction="In" isUnique="false">
-                  <elementDefinition Id="e2c64357-5d68-480e-9409-2ee47d467bf7" />
+                <parameter Id="009270e3-8eea-4158-af82-7ee22ef6e5bf" name="components" direction="In" isUnique="false">
+                  <elementDefinition Id="6f9ac577-29cf-4f91-9682-6bc2146c1695" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="262d7dd2-6d93-4e21-9988-6f2e1fe09671" LastKnownName="IGameStateComponent[]" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -524,8 +555,11 @@
             <elementDefinition Id="67396a69-e90a-428d-8d3f-0811d9934cb5" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="4e1f5996-ecc5-49b5-a009-3d4220665a33" name="params IGameStateComponent[]" direction="In" isUnique="false">
-                  <elementDefinition Id="5fe53ed5-af00-4df2-83da-dca49455d4cf" />
+                <parameter Id="d9aa980f-4b7c-456c-a0e2-b1ac7a617bfb" name="components" direction="In" isUnique="false">
+                  <elementDefinition Id="52fade4f-36f8-42f3-8f59-532e16176c09" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="262d7dd2-6d93-4e21-9988-6f2e1fe09671" LastKnownName="IGameStateComponent[]" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -536,11 +570,6 @@
     <packageHasNamedElement>
       <referencedType Id="ec783a97-045e-473a-98a5-8355494b3bf9" name="Knot3Game" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot3Game">
         <elementDefinition Id="11fbb466-9655-4a46-8154-2ac99e569051" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="e1dabbd3-e30a-4426-852c-b1fa7ad9b776" name="InputHandler" isAbstract="false" isLeaf="false" cachedFullName="InputHandler">
-        <elementDefinition Id="dea92a93-c6bc-4965-b6eb-7247893561ad" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -734,6 +763,21 @@
         </ownedOperations>
       </Interface>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="bbad6d96-d3c4-439d-a851-be703bf4a44b" name="RenderEffectStack" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::RenderEffectStack">
+        <elementDefinition Id="bd8523cb-f1c6-4f44-80e0-f5cb3062f3d0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="dee4c1ac-f9ee-44d5-8ced-7fdec4ea1f19" name="Input" isAbstract="false" isLeaf="false" cachedFullName="Input">
+        <elementDefinition Id="127b4092-e1f5-49eb-8ded-8c3d1dc2f2d2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="262d7dd2-6d93-4e21-9988-6f2e1fe09671" name="IGameStateComponent[]" isAbstract="false" isLeaf="false" cachedFullName="IGameStateComponent[]">
+        <elementDefinition Id="1131b2d9-90fe-4729-a468-2165d53ae203" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="ce0cf89a-b7d4-4ae9-944d-994a2cf84c81" name="Knot3-Entwurf">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />

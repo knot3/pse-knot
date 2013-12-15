@@ -12,11 +12,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="5bce6085-58a3-43bc-8af7-3e8d3019c377" name="IEnumerator&lt;IGameObject&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerator&lt;IGameObject&gt;">
-        <elementDefinition Id="e255be78-605c-416c-913d-852e2b04ee62" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameScreen">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
       </referencedType>
@@ -137,20 +132,10 @@
             <elementDefinition Id="0f1bc767-9250-4669-9a73-f69c93ef72c4" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="0b36155b-e80e-4aa2-bade-6ed4199265e6" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="5e7f60b3-879e-4bbd-a7e5-65b124b4c5b9" />
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="5664748e-904c-4043-92a1-20485f4c7d0c" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="af319877-5fd4-4e7f-baa6-c5b3afcfffec" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="a490915c-a8fd-4872-8c98-afbbd61f612e" direction="Return" isUnique="false">
-                  <elementDefinition Id="40ff1167-89fe-47fd-9764-11bf09480f6b" />
+                <parameter Id="228a5691-fd05-4eba-aef9-f2c0370e7ed3" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="fdda16ae-8670-4b96-bc08-ae4fd0166930" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="5bce6085-58a3-43bc-8af7-3e8d3019c377" LastKnownName="IEnumerator&lt;IGameObject&gt;" />
+                    <referencedTypeMoniker Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" LastKnownName="GameScreen" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -212,13 +197,19 @@
             <elementDefinition Id="49c00fab-e36e-4ce2-8ff0-fb6ca1dd9dd9" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c861f296-6c00-4070-91a9-68aff2f518cd" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="ccb08218-8a51-44a1-8871-f69c4775e94b" />
+                <parameter Id="bf848635-70cb-4027-9f22-bac65c54156c" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="f7cfbfb9-1c17-4403-b53c-199bc5062894" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="dac76566-7fab-46b1-9ff1-8403012c07e8" name="DisplayLayer" direction="In" isUnique="false">
-                  <elementDefinition Id="2563f175-84a8-4519-8967-660fe58662b4" />
+                <parameter Id="46f417b3-5139-4efc-9de9-9063b32f9ff7" name="index" direction="In" isUnique="false">
+                  <elementDefinition Id="16775391-38f6-4716-935a-625941161948" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1f772a9f-e24b-4f18-b624-fbbd1f799c89" LastKnownName="DisplayLayer" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -266,13 +257,19 @@
             <elementDefinition Id="828e6417-0908-426c-98a7-8a8206b2c546" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="2b4d8fb1-e4dd-48e3-acec-0c6e9d473457" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="b15496ad-a4f0-4c9b-bbd9-57782e0a0706" />
+                <parameter Id="be39b09f-3af1-4372-8245-bc4fff607d17" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="f73a01b6-3bd1-4410-bbe8-9bbe3fa29517" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="1ba0c5f0-1d7b-4fc0-814e-ae0b90e1637c" name="DisplayLayer" direction="In" isUnique="false">
-                  <elementDefinition Id="e80af8e3-b337-4662-912b-277579570f8c" />
+                <parameter Id="87ab878e-b812-4dcd-ad07-df991b07a5c7" name="index" direction="In" isUnique="false">
+                  <elementDefinition Id="059a9811-c599-4fd7-8648-100519ac02da" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1f772a9f-e24b-4f18-b624-fbbd1f799c89" LastKnownName="DisplayLayer" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -340,6 +337,9 @@
           </property>
           <property Id="abfcf972-660b-46b0-ac2d-344115e478d4" name="World" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="83fe60db-df0f-4bf7-a2ee-b366252f9454" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1c0bf8ca-75d6-42e8-ae76-f973bf62d4c1" LastKnownName="World" />
+            </type_NamedElement>
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
@@ -373,13 +373,19 @@
             <elementDefinition Id="19b610b7-375f-4bad-ae0c-574832dc09ec" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="59fee283-9bee-41e3-a938-38a80bdb2424" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="e365c841-6ccf-4d27-996e-ae5687f4c22f" />
+                <parameter Id="f16acbf9-2e00-4509-96c4-b8e0627a7624" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="9e6a2a69-f4a7-44c9-8f62-dc8c9d722c9a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="001289fa-36f7-4ca7-b4fe-e32405d4e845" name="World" direction="In" isUnique="false">
-                  <elementDefinition Id="7bf72b82-2436-4c5c-a63b-e56b97f16fec" />
+                <parameter Id="925460bd-7a61-4baf-9f19-5b55c5732eb1" name="world" direction="In" isUnique="false">
+                  <elementDefinition Id="271f2390-7670-4e69-aca1-a25b68366825" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1c0bf8ca-75d6-42e8-ae76-f973bf62d4c1" LastKnownName="World" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -396,8 +402,11 @@
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="3bb2fddd-b69e-4981-8a4d-b1aeaef48df2" name="Vector2" direction="In" isUnique="false">
-                  <elementDefinition Id="4a29773b-578f-4c3b-9c0d-1454f0343cdd" />
+                <parameter Id="2de140c4-745f-486e-929d-bb046297f175" name="mousePosition" direction="In" isUnique="false">
+                  <elementDefinition Id="48fd2af3-d06a-43eb-9679-c4ea58442d1b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a048bfba-a3aa-4171-acda-5d68905a8a4b" LastKnownName="Vector2" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -479,6 +488,16 @@
     <packageHasNamedElement>
       <referencedType Id="47b14c4e-d4ac-4af1-b6af-7c1b7e209174" name="IEnumerator" isAbstract="false" isLeaf="false" cachedFullName="IEnumerator">
         <elementDefinition Id="fe54f97b-5bdf-421a-a130-822248330b72" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1c0bf8ca-75d6-42e8-ae76-f973bf62d4c1" name="World" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::World">
+        <elementDefinition Id="8228b23e-d24d-4fcc-9419-b5fbb8853415" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a048bfba-a3aa-4171-acda-5d68905a8a4b" name="Vector2" isAbstract="false" isLeaf="false" cachedFullName="Vector2">
+        <elementDefinition Id="b0ed11d7-9638-4189-9201-5eb38d88dba8" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

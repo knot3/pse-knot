@@ -1,20 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7e68fb-2f1a-48b0-b0e9-9246167792c0" name="UMLClassDiagram1" linkedPackageId="b8a8636a-4ab4-41c4-b206-61edb0603f16" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7e68fb-2f1a-48b0-b0e9-9246167792c0" name="UMLClassDiagram1" linkedPackageId="b8a8636a-4ab4-41c4-b206-61edb0603f16" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
-    <comment Id="2a57c0ca-d9e5-433b-95be-86d45d9c2423">
-      <elementDefinition Id="0eed9d6b-d83c-4ec7-88bb-b162be9cc205" />
-      <body>Auch Effekt-Einstellungen.</body>
-      <annotatedElements>
-        <classMoniker Id="d41a512f-f2ae-46a1-95c0-ec9953540257" LastKnownName="GraphicsSettingsScreen" />
-      </annotatedElements>
-    </comment>
-    <comment Id="e2c1b957-d7fc-44a9-8358-e612d6e53f76">
-      <elementDefinition Id="f11c7c2f-df5b-44a1-9140-2a578af532e0" />
-      <body>Auch in Pausen.</body>
-      <annotatedElements>
-        <classMoniker Id="717b8204-13a2-467a-b711-9d679b3c9aa8" LastKnownName="MenuScreen" />
-      </annotatedElements>
-    </comment>
     <comment Id="1771b353-4470-4350-ae8f-f55ea069e66f">
       <elementDefinition Id="4b993d87-666f-4115-833c-59862b9ba0a5" />
       <body>Zustands-Muster (EN: state pattern)
@@ -27,7 +13,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
   </ownedCommentsInternal>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
-      <class Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" name="GameScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="55e567fc-cb65-4d5e-9a31-4f8e451ac16c" name="GameScreen" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
         <ownedAttributesInternal>
           <property Id="a364eb94-faf1-4c38-8c78-27b2f96e9bff" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -39,13 +25,19 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           <property Id="654bd505-e2d8-48c1-b524-065c643c730e" name="Input" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="22ccfb92-b348-45b3-b56b-7126d0594760" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="0923499c-3ee1-4b82-82e5-3c426d322235" LastKnownName="InputHandler" />
+              <referencedTypeMoniker Id="bb1d6dfb-91d0-4ac5-ae5a-e002328c6a34" LastKnownName="Input" />
             </type_NamedElement>
           </property>
           <property Id="e4cde9ab-e635-4252-b42a-be1bd0f33545" name="PostProcessingEffect" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="1bb42bc3-5443-47d8-9841-93bbf09699ee" />
             <type_NamedElement>
               <referencedTypeMoniker Id="2c46a424-a32a-45ca-83ce-e3f62eb5b6c4" LastKnownName="RenderEffect" />
+            </type_NamedElement>
+          </property>
+          <property Id="55fd2df9-deee-42f7-a180-840f415a9d04" name="CurrentRenderEffects" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="959802f5-69f2-4561-985c-1d7da2e41547" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fcedf956-a821-47d3-af67-f0cc355c06c3" LastKnownName="RenderEffectStack" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -88,13 +80,23 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           </operation>
           <operation Id="611d5ca0-23df-4584-80df-897de42e88dd" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="07731970-b004-47e3-ac87-c82ff92b9568" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6ac5ff11-cc9f-434d-99b0-f095c0dd7c2a" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="8aafd181-5fd2-4857-9513-808df6de301d" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="b07dc600-0baa-41f7-ad92-5ae143bf6a2b" name="GameScreen" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="2b77a2d1-a3e0-41c5-bbdd-123a4adfce7d" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="ff52780f-cedd-4aba-a855-fe5fa3735bf2" name="Game" direction="In" isUnique="false">
-                  <elementDefinition Id="34f2958f-bf1e-4478-8312-a15c32782661" />
+                <parameter Id="aaaa7b61-d49e-441e-98e9-fd7f0f22250b" name="game" direction="In" isUnique="false">
+                  <elementDefinition Id="c3090312-3d26-49dd-ae88-97cb953221f6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="35daeb0b-2c4d-4a65-b2c6-a2575ab0b3b1" LastKnownName="Knot3Game" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -103,8 +105,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="64abfe96-848d-4e9d-bee0-4c704b807df7" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="3465e610-6075-4547-b64d-4fa601ec3ecb" name="params IGameStateComponent[]" direction="In" isUnique="false">
-                  <elementDefinition Id="e2c64357-5d68-480e-9409-2ee47d467bf7" />
+                <parameter Id="844c7f69-6ac6-46d3-9c4e-5e0432b67822" name="components" direction="In" isUnique="false">
+                  <elementDefinition Id="6f9ac577-29cf-4f91-9682-6bc2146c1695" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="695ac93b-876b-4f3a-87ae-593f97fa2cb4" LastKnownName="IGameStateComponent[]" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -113,8 +118,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="67396a69-e90a-428d-8d3f-0811d9934cb5" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="da5f717c-45a4-4136-bcd1-8fa24229e46e" name="params IGameStateComponent[]" direction="In" isUnique="false">
-                  <elementDefinition Id="5fe53ed5-af00-4df2-83da-dca49455d4cf" />
+                <parameter Id="29ec9c26-053f-448a-817d-679f8e44b272" name="components" direction="In" isUnique="false">
+                  <elementDefinition Id="52fade4f-36f8-42f3-8f59-532e16176c09" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="695ac93b-876b-4f3a-87ae-593f97fa2cb4" LastKnownName="IGameStateComponent[]" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -190,6 +198,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="b46bd688-d792-443a-85b9-fb4f9fe7f233" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a744d17e-c42d-419c-ba3d-dbef38c57d92" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0481d838-e952-4a58-96ff-433c9bb7080e" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="3bae32db-4f7c-46aa-80c4-5ef9a0e8f350" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="87f52f75-2624-4cc5-96f7-05b0d94d6681" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="9492d989-8caf-4913-9b3e-c493ab271a6e" />
@@ -256,6 +271,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="75f2fee9-c071-4fcc-a0dc-619c0a371075" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="c55133a1-fae1-4b35-9960-59817dc8d4b9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4f8e26eb-8f02-4db4-aef5-6468a4e8e55f" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="aad956eb-e825-4946-9381-7cad834e82e0" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="d64187cf-6bc6-43b4-b5f3-ac6cd8e62817" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="470a339d-eb60-4bc0-a307-ab04da8131d9" />
@@ -279,7 +301,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="717b8204-13a2-467a-b711-9d679b3c9aa8" name="MenuScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="717b8204-13a2-467a-b711-9d679b3c9aa8" name="MenuScreen" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="804d7705-44d5-4391-9eab-c5fe9f3195ae" />
         <generalsInternal>
           <generalization Id="f4664fd9-d311-4326-897e-d9ebf2899419" isSubstitutable="false">
@@ -290,6 +312,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="08c65aa6-3163-4f89-82f2-dab118427311" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="189181c6-62b9-4a64-89a8-da1472ed49a0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="643f8567-adb4-441e-9d41-2f9c5cebc071" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="72234ee9-8b86-41d3-a1a3-68a9d61a9e0c" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="b8a088c9-e141-4e5f-bac1-a2f870894477" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="e5777482-ff35-4325-9614-ce126f7d8c1c" />
@@ -324,6 +353,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="c341034f-943d-4d05-aebd-9e640290599f" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="17d4dedb-2832-4d50-962e-57fcf63f4286" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="314b8141-702b-42ce-9a76-7f76ce29f359" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="b0aaf9e2-0798-4f3f-aded-d044886ec023" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="cc6cf427-ff77-4e2f-9b75-67ec275c6fd5" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="54f2f42d-a416-4023-8c66-ac9243d9d1a8" />
@@ -358,6 +394,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="15c679ae-b934-472d-bf39-7fb05e13b927" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="943d9a30-9968-4a6a-ab30-5489fe0d9328" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="584e2c71-2c83-4fdd-8efa-25a5de71d625" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="7ce14cc6-bf94-4155-ae0d-c3070c120273" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="6e0e504d-31df-4ecb-9ecd-bf4907105956" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="0b147088-2567-484e-9fed-931ed1d57e6c" />
@@ -392,6 +435,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="bdb5e6b7-aa3d-45ca-835b-38bbf68ec769" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="e3737fb6-9d67-4435-993c-92d61b8b2eb3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ca7e4e38-127d-47f0-a7a3-43ed8d820415" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="28e655c2-d869-451f-b85f-1f09ec425fd8" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="17d7ee8e-f0a3-4f56-ba69-b181ae606137" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="c463c959-5ca7-42fe-8038-1a2b9bc9d838" />
@@ -434,6 +484,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="8e6c1f6d-c6eb-4cf0-a1d8-c575fbe7cf50" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="e4ceddcc-6b2e-4212-95fc-08e73db7b8cc" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7b4f87a1-d584-44e8-bcc7-0a5eecf4f0a9" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="7bf341bd-1d38-404f-8e2d-0ac412d0972b" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="047d29e9-a6db-45fb-aef5-4a69ef867b66" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="80a9aefc-415e-4f3a-9176-028cd6db62fb" />
@@ -476,6 +533,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="7a808763-bc78-4e50-a1b4-0a8dd76a1f6f" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="6b7dac9e-492f-4e16-bc80-3e0871d6772b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="75c1645e-bbf9-4e19-a84a-b61b56c8b1b8" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="22dc6c3d-dc8e-4505-9e5d-c36c222015df" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="e5a9d784-221f-4cc3-8a34-71cbacd9a87a" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="25237720-4e20-4ddb-8746-169eef2aea08" />
@@ -518,6 +582,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="a8f9d3cd-e577-418e-84e7-4d80fbb4b09f" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="704fc5cb-d7e3-41a7-9607-b4a291bd7263" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6270a19f-048b-4a57-8d0d-af69a179310d" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="57af8405-baa1-4db6-9db8-d1dd8c21f193" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="788ee793-1a06-45db-8aed-47b3d67f7aee" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="33badbe9-0dee-4e41-a5db-28bb85283796" />
@@ -560,6 +631,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="2e606291-fa72-45a1-a887-5004b642661e" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="7217585f-5a61-499a-b8ba-6c5c8e0eeba9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7ef75e84-9f63-4ad0-b9ce-0d91d5aae7fe" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="f4c54341-6506-463b-b9ed-c0742b1ff28e" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="2f72b12b-1f31-486f-8c02-fc3059993aad" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="9c67435c-aaa6-4c3f-bccb-a03866f7469a" />
@@ -602,6 +680,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedOperationsInternal>
           <operation Id="da15ea36-7b62-4f33-864a-1e10a2794ace" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="7a41e9aa-1d13-4cb9-913c-b6c46dd294e9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a5257232-7789-4cb4-9ef0-b131cf36970a" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="b3e56cd4-d35c-427e-9a9b-369b13b70ca8" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="356d55d2-bc41-4205-885b-b294e4fd0831" name="Entered" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="b2c7dda1-c462-426c-8743-5859beaf3360" />
@@ -624,11 +709,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
-    <packageHasNamedElement>
-      <referencedType Id="0923499c-3ee1-4b82-82e5-3c426d322235" name="InputHandler" isAbstract="false" isLeaf="false" cachedFullName="InputHandler">
-        <elementDefinition Id="dea92a93-c6bc-4965-b6eb-7247893561ad" />
-      </referencedType>
-    </packageHasNamedElement>
     <packageHasNamedElement>
       <referencedType Id="35daeb0b-2c4d-4a65-b2c6-a2575ab0b3b1" name="Knot3Game" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::Knot3Game">
         <elementDefinition Id="11fbb466-9655-4a46-8154-2ac99e569051" />
@@ -815,6 +895,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           </operation>
           <operation Id="e8e94845-5caa-4560-9c74-592f21872a7c" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="ebc7d356-533b-4051-bf9c-59e0a0d3485e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7b652ed4-bf74-4f60-bf5e-eb2453053eaa" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="26d20628-5d20-4d07-8e74-41d75c7c5d66" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -837,6 +924,21 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <referencedType Id="214335e3-3499-46db-94b2-bfe326117370" name="Stack&lt;Knot&gt;" isAbstract="false" isLeaf="false" cachedFullName="Stack&lt;Knot&gt;">
         <elementDefinition Id="139c3a0d-0b96-4217-ae4b-ac48147e7d1a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fcedf956-a821-47d3-af67-f0cc355c06c3" name="RenderEffectStack" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::RenderEffectStack">
+        <elementDefinition Id="bd8523cb-f1c6-4f44-80e0-f5cb3062f3d0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="bb1d6dfb-91d0-4ac5-ae5a-e002328c6a34" name="Input" isAbstract="false" isLeaf="false" cachedFullName="Input">
+        <elementDefinition Id="127b4092-e1f5-49eb-8ded-8c3d1dc2f2d2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="695ac93b-876b-4f3a-87ae-593f97fa2cb4" name="IGameStateComponent[]" isAbstract="false" isLeaf="false" cachedFullName="IGameStateComponent[]">
+        <elementDefinition Id="1131b2d9-90fe-4729-a468-2165d53ae203" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

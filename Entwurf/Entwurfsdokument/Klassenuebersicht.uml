@@ -9,7 +9,7 @@ public class ArrowModel :
     // 
     + Intersects (Ray, GameObjectDistance Ray) : GameObjectDistance
     // Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
-    + ArrowModel (GameScreen, ArrowModelInfo) : void
+    + ArrowModel (GameScreen screen, ArrowModelInfo info) : GameScreen
     // 
     + Update (GameTime) : void
 
@@ -20,7 +20,7 @@ public class ArrowModelInfo :
     + Direction : Vector3
   Methods:
     // Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum, das in eine bestimmte Richtung zeigt.
-    + ArrowModelInfo (Vector3, Vector3) : void
+    + ArrowModelInfo (Vector3 position, Vector3 direction) : Vector3
 
 // 
 public class AudioSettingsScreen : 
@@ -201,26 +201,14 @@ public class CheckBoxItem :
 public class Circle : 
   Attributes:
     // 
-    + content : T
+    + Content : T
     // 
-    + next : Circle
+    + Next : Circle
     // 
-    + previous : Circle
+    + Previous : Circle
   Methods:
     // 
     + Circle (T content) : T
-
-// 
-public class Class1 : 
-  Attributes:
-    // 
-    - pauseMenu : VerticalMenu
-  Methods:
-
-// 
-public class Class1 : 
-  Attributes:
-  Methods:
 
 // 
 public class ColorPicker : 
@@ -352,6 +340,13 @@ public class DrawableGameStateComponent :
     + DrawableGameStateComponent (GameScreen, DisplayLayer) : void
 
 // 
+public class DropDownEntry : 
+  Attributes:
+    // 
+    + Text : String
+  Methods:
+
+// 
 public class DropDownMenuItem : 
   Attributes:
     // 
@@ -361,23 +356,6 @@ public class DropDownMenuItem :
     + AddEntries () : void
     // 
     + AddEntries () : void
-
-// 
-public class Edge : 
-  Attributes:
-    // 
-    + Edges : IEnumerable
-    // 
-    + Name : String
-    // 
-    + Meta : KnotMetaData
-  Methods:
-    // 
-    + GetEnumerator (IEnumerator<Edge> ) : IEnumerator<Edge>
-    // 
-    + Save (Knot knot) : Knot
-    // 
-    + PrinterIO (string path) : string
 
 // 
 public class Edge : 
@@ -393,11 +371,6 @@ public class Edge :
     + Edge (Direction dir) : Direction
     // 
     + Get3DDirection (Vector3 ) : Vector3
-
-// 
-public class Edge : 
-  Attributes:
-  Methods:
 
 // 
 public class FadeEffect : 
@@ -425,43 +398,45 @@ public class FileIO :
 public class Game : 
   Attributes:
   Methods:
-
-// 
-public class Game : 
-  Attributes:
-  Methods:
     // 
     + Update () : void
     // 
     + Update (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
+public class Game : 
+  Attributes:
+  Methods:
+
+// 
 public class GameModelInfo : 
   Attributes:
     // 
-    + Modelname : string
+    + Modelname : String
     // 
     + Rotation : Angles3
     // 
     + Scale : Vector3
   Methods:
     // 
-    + GameModelInfo (String) : void
+    + GameModelInfo (String modelname) : String
 
 // 
 public class GameObjectInfo : 
   Attributes:
     // 
-    + IsMovable : bool
+    + IsMovable : Boolean
     // 
-    + IsSelectable : bool
+    + IsSelectable : Boolean
     // 
-    + IsVisible : bool
+    + IsVisible : Boolean
     // 
     + Position : Vector3
   Methods:
     // 
-    + Equals (GameObjectInfo, bool GameObjectInfo) : bool
+    + Equals (GameObjectInfo GameObjectInfo, Boolean ) : GameObjectInfo
+    // 
+    + Equals (T other, Boolean ) : T
 
 // 
 public class GameScreen : 
@@ -539,28 +514,53 @@ public interface IEnumerable :
   Attributes:
   Methods:
     // 
-    + GetEnumerator (IEnumerator<Edge> ) : IEnumerator<Edge>
+    + GetEnumerator (IEnumerator ) : IEnumerator
 
 // 
-public interface IEnumerable : 
+public interface IEnumerable<Edge> : 
   Attributes:
   Methods:
-    // 
-    + GetEnumerator (IEnumerator<MenuItem> ) : IEnumerator<MenuItem>
 
 // 
 public interface IEnumerable<IGameObject> : 
   Attributes:
   Methods:
-    // 
-    + GetEnumerator (IEnumerator<IGameObject> ) : IEnumerator<IGameObject>
 
 // 
-public interface IEnumerable<IGameObject> : 
+public interface IEnumerable<MenuItem> : 
+  Attributes:
+  Methods:
+
+// 
+public interface IEnumerable1 : 
   Attributes:
   Methods:
     // 
     + GetEnumerator (IEnumerator ) : IEnumerator
+
+// 
+public interface IEquatable : 
+  Attributes:
+  Methods:
+    // 
+    + Equals (T other, Boolean ) : T
+
+// 
+public interface IEquatable<GameObjectInfo> : 
+  Attributes:
+  Methods:
+
+// 
+public interface IEquatable1 : 
+  Attributes:
+  Methods:
+    // 
+    + Equals (T other, Boolean ) : T
+
+// 
+public class IGameObject : 
+  Attributes:
+  Methods:
 
 // 
 public interface IGameObject : 
@@ -578,11 +578,6 @@ public interface IGameObject :
     + Draw (GameTime) : void
     // 
     + Intersects (Ray, GameObjectDistance Ray) : GameObjectDistance
-
-// 
-public class IGameObject : 
-  Attributes:
-  Methods:
 
 // 
 public class IGameObject : 
@@ -694,21 +689,6 @@ public class InputItem :
     // 
     + InputText : String
   Methods:
-
-// 
-public interface IRenderEffect : 
-  Attributes:
-    // 
-    + RenderTarget : RenderTarget2D
-  Methods:
-    // 
-    + Begin (GameTime) : void
-    // 
-    + End (GameTime) : void
-    // 
-    + DrawModel (GameModel, GameTime) : void
-    // 
-    + RemapModel (GameModel) : void
 
 // 
 public class KeyInputItem : 
@@ -874,7 +854,7 @@ public class Menu :
     // 
     + Size (int ) : int
     // 
-    + GetEnumerator (IEnumerator<MenuItem> ) : IEnumerator<MenuItem>
+    + GetEnumerator (IEnumerator ) : IEnumerator
 
 // 
 public class MenuButton : 
@@ -903,20 +883,6 @@ public class MenuItem :
     + OnKeyEvent () : void
     // 
     + Bounds (Rectangle ) : Rectangle
-
-// 
-public class MenuItem : 
-  Attributes:
-  Methods:
-
-// 
-public class MenuItem : 
-  Attributes:
-    // 
-    + Text : String
-  Methods:
-    // 
-    + GetEnumerator (IEnumerator<MenuItem> ) : IEnumerator<MenuItem>
 
 // 
 public class MenuScreen : 
@@ -1001,6 +967,17 @@ public class MousePointer :
     + Draw (GameTime, ) : void
 
 // 
+public class NodeMap : 
+  Attributes:
+  Methods:
+    // 
+    + From (Edge edge, Node ) : Edge
+    // 
+    + To (Edge edge, Node ) : Edge
+    // 
+    + OnEdgesChanged () : void
+
+// 
 public class NodeModel : 
   Attributes:
     // 
@@ -1017,16 +994,16 @@ public class NodeModel :
 public class NodeModelInfo : 
   Attributes:
     // 
-    + EdgeFrom : void
+    + EdgeFrom : Edge
     // 
-    + EdgeTo : void
+    + EdgeTo : Edge
     // 
-    + Knot : void
+    + Knot : Knot
     // 
-    + EdgeFrom : Vector3
+    + Position : Vector3
   Methods:
     // 
-    + NodeModelInfo (EdgeList, Edge, Edge) : void
+    + NodeModelInfo (Knot knot, Edge from, Edge to) : Knot
 
 // 
 public class OptionInfo : 
@@ -1053,6 +1030,13 @@ public class Options :
   Methods:
 
 // 
+public class PauseDialog : 
+  Attributes:
+    // 
+    - pauseMenu : VerticalMenu
+  Methods:
+
+// 
 public class PipeModel : 
   Attributes:
     // 
@@ -1065,7 +1049,7 @@ public class PipeModel :
     // 
     + Intersects (Ray, GameObjectDistance Ray) : GameObjectDistance
     // 
-    + PipeModel (GameScreen, PipeModelInfo) : void
+    + PipeModel (GameScreen screen, PipeModelInfo screen) : GameScreen
 
 // 
 public class PipeModelInfo : 
@@ -1080,7 +1064,7 @@ public class PipeModelInfo :
     + PositionTo : Vector3
   Methods:
     // 
-    + PipeModelInfo (EdgeList, Edge) : void
+    + PipeModelInfo (Knot knot, Edge edge) : Knot
 
 // 
 public class PipeMovement : 
@@ -1104,6 +1088,21 @@ public class PipeMovement :
     + GetEnumerator (IEnumerator ) : IEnumerator
     // 
     + Draw (GameTime) : void
+
+// 
+public class PrinterIO : 
+  Attributes:
+    // 
+    + Edges : void
+    // 
+    + Edges : String
+    // 
+    + Meta : KnotMetaData
+  Methods:
+    // 
+    + Save (Knot knot) : Knot
+    // 
+    + PrinterIO (string path) : string
 
 // 
 public class ProfileSettingsScreen : 
@@ -1235,6 +1234,26 @@ public class T :
   Methods:
 
 // 
+public interface T : 
+  Attributes:
+  Methods:
+
+// 
+public interface T : 
+  Attributes:
+  Methods:
+
+// 
+public class T : 
+  Attributes:
+  Methods:
+
+// 
+public class T : 
+  Attributes:
+  Methods:
+
+// 
 public class TextInputDialog : 
   Attributes:
     // 
@@ -1310,6 +1329,8 @@ public class World :
     + World (GameScreen) : void
     // 
     + GetEnumerator (IEnumerator<IGameObject> ) : IEnumerator<IGameObject>
+    // 
+    + GetEnumerator (IEnumerator ) : IEnumerator
 
 // 
 public class XNA.DrawableGameComponent : 
@@ -1348,18 +1369,136 @@ public class XNA.GameComponent :
 public interface XNA.IGameComponent : 
   Attributes:
     // 
-    + IsMovable : bool
+    + Camera : void
     // 
-    + IsSelectable : bool
+    - World : void
     // 
-    + IsVisible : bool
+    + IsMovable : Boolean
+    // 
+    + IsSelectable : Boolean
+    // 
+    + IsVisible : Boolean
     // 
     + Position : Vector3
+    // 
+    + Modelname : String
+    // 
+    + Rotation : Angles3
+    // 
+    + Scale : Vector3
+    // 
+    + Edge : Edge
+    // 
+    + Knot : Knot
+    // 
+    + PositionFrom : Vector3
+    // 
+    + PositionTo : Vector3
+    // 
+    + EdgeFrom : Edge
+    // 
+    + EdgeTo : Edge
+    // 
+    + Knot : Knot
+    // 
+    + Position : Vector3
+    // 
+    + Info : PipeModelInfo
+    // 
+    + Info : NodeModelInfo
+    // 
+    + Camera : List<IGameObject>
+    // 
+    + SelectedObject : IGameObject
+    // 
+    + CurrentEffect : IRenderEffect
+    // 
+    + State : GameScreen
+    // 
+    + Index : DisplayLayer
+    // 
+    + Index : DisplayLayer
+    // 
+    + State : GameScreen
+    // 
+    + Position : Vector3
+    // 
+    + Target : Vector3
+    // 
+    + FoV : float
+    // 
+    + ViewMatrix : Matrix
+    // 
+    + WorldMatrix : Matrix
+    // 
+    + ProjectionMatrix : Matrix
+    // 
+    + ArcballTarget : Vector3
+    // 
+    + ViewFrustum : BoundingFrustum
+    // 
+    - World : Vector3
   Methods:
     // 
-    + Equals (GameObjectInfo, bool GameObjectInfo) : bool
+    + Equals (GameObjectInfo GameObjectInfo, Boolean ) : GameObjectInfo
     // 
-    + Equals (GameObjectInfo, bool ) : bool
+    + Equals (T other, Boolean ) : T
+    // 
+    + GameModelInfo (String modelname) : String
+    // 
+    + PipeModelInfo (Knot knot, Edge edge) : Knot
+    // 
+    + NodeModelInfo (Knot knot, Edge from, Edge to) : Knot
+    // 
+    + Draw (GameTime) : void
+    // 
+    + Update (GameTime) : void
+    // 
+    + Intersects (Ray, GameObjectDistance Ray) : GameObjectDistance
+    // 
+    + PipeModel (GameScreen screen, PipeModelInfo screen) : GameScreen
+    // 
+    + NodeModel (GameScreen, NodeModelInfo) : void
+    // 
+    + Draw (GameTime) : void
+    // 
+    + Update (GameTime) : void
+    // 
+    + Update (GameTime) : void
+    // 
+    + Draw (GameTime) : void
+    // 
+    + World (GameScreen) : void
+    // 
+    + GetEnumerator (IEnumerator<IGameObject> ) : IEnumerator<IGameObject>
+    // 
+    + GetEnumerator (IEnumerator ) : IEnumerator
+    // 
+    + SubComponents (GameTime, IEnumerable GameTime) : IEnumerable
+    // 
+    + DrawableGameStateComponent (GameScreen, DisplayLayer) : void
+    // 
+    + SubComponents (GameTime, IEnumerable GameTime) : IEnumerable
+    // 
+    + GameStateComponent (GameScreen, DisplayLayer) : void
+    // 
+    + TargetDirection (Vector3 ) : Vector3
+    // 
+    + TargetDistance (float ) : float
+    // 
+    + Camera (GameScreen, World) : void
+    // 
+    + GetMouseRay (Vector2, Ray ) : Ray
+    // 
+    + Update (GameTime) : void
+    // 
+    + Begin (GameTime) : void
+    // 
+    + End (GameTime) : void
+    // 
+    + DrawModel (GameModel, GameTime) : void
+    // 
+    + RemapModel (GameModel) : void
 
 // 
 public interface XNA.IGameComponent : 
