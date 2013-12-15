@@ -1,0 +1,1298 @@
+\newcommand{\property}[1]{\texttt{#1}}
+
+\newcommand{\method}[1]{\texttt{#1}}
+
+\newcommand{\keyword}[1]{\textcolor{BlueViolet}{\sloppy{#1}}}
+
+\newcommand{\ptype}[1]{\textcolor{OliveGreen}{\mbox{\sloppy{#1}}}}
+
+\newcommand{\varname}[1]{\textcolor{Black}{#1}}
+
+\subsection{Klasse ArrowModel}
+\paragraph{Beschreibung:}\mbox{}\\\\
+test
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{ArrowModelInfo} \varname{Info}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{ArrowModel} (\ptype{GameScreen}\ptype{ArrowModelInfo})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse ArrowModelInfo}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Vector3} \varname{Direction}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{ArrowModelInfo} (\ptype{Vector3}\ptype{Vector3})] \item[]
+
+\end{description}
+
+\subsection{Klasse AudioSettingsScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{protected} \ptype{void} \varname{SettingsMenuSection}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse Camera}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{private} \ptype{void} \varname{World}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{Position}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{Target}] \item[]
+
+\item[\keyword{public} \ptype{float} \varname{FoV}] \item[]
+
+\item[\keyword{public} \ptype{Matrix} \varname{ViewMatrix}] \item[]
+
+\item[\keyword{public} \ptype{Matrix} \varname{WorldMatrix}] \item[]
+
+\item[\keyword{public} \ptype{Matrix} \varname{ProjectionMatrix}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{ArcballTarget}] \item[]
+
+\item[\keyword{public} \ptype{BoundingFrustum} \varname{ViewFrustum}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Vector3} \varname{TargetDirection} (\ptype{Vector3})] \item[]
+
+\item[\keyword{public} \ptype{float} \varname{TargetDistance} (\ptype{float})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Camera} (\ptype{GameScreen}\ptype{World})] \item[]
+
+\item[\keyword{public} \ptype{Ray} \varname{GetMouseRay} (\ptype{Vector2}\ptype{Ray})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse CelShadingEffect}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel}\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel})] \item[]
+
+\end{description}
+
+\subsection{Klasse Challenge}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Knot} \varname{Start}] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Target}] \item[]
+
+\item[\keyword{private} \ptype{SortedList<Integer, String>} \varname{highscore}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{private} \ptype{IChallengeIO} \varname{file}] \item[]
+
+\item[\keyword{public} \ptype{IEnumerator<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
+
+\item[\keyword{public} \ptype{ChallengeMetaData} \varname{Info}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{ChallengeInfo} \varname{Challenge} (\ptype{ChallengeInfo} \varname{info}\ptype{Challenge})] \item[]
+
+\item[\keyword{public} \ptype{Challenge} \varname{Challenge} (\ptype{Challenge}\ptype{IChallangeIO} \varname{file})] \item[]
+
+\item[\keyword{public} \ptype{Boolean} \varname{CreateChallenge} (\ptype{Boolean}\ptype{Knot} \varname{start}\ptype{Knot} \varname{target}\ptype{String} \varname{name}\ptype{IChallengeIO} \varname{file})] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{AddToHighscore} (\ptype{String} \varname{name}\ptype{Integer} \varname{time})] \item[]
+
+\end{description}
+
+\subsection{Klasse ChallengeFileIO}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{StartKnot}] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{TargetKnot}] \item[]
+
+\item[\keyword{private} \ptype{KnotStringIO} \varname{startParser}] \item[]
+
+\item[\keyword{private} \ptype{KnotStringIO} \varname{targetParser}] \item[]
+
+\item[\keyword{public} \ptype{ChallengeMetaData} \varname{Meta}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{ChallengeFileIO} (\ptype{String} \varname{path})] \item[]
+
+\item[\keyword{public} \ptype{Challenge} \varname{Save} (\ptype{Challenge} \varname{challenge})] \item[]
+
+\end{description}
+
+\subsection{Klasse ChallengeMetaData}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{Start}] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{Target}] \item[]
+
+\item[\keyword{public} \ptype{IChallengeIO} \varname{File}] \item[]
+
+\end{description}
+
+\subsection{Klasse ChallengeMode}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{PlayerKnot}] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{ChallengeKnot}] \item[]
+
+\item[\keyword{public} \ptype{World} \varname{PlayerKnot}] \item[]
+
+\item[\keyword{private} \ptype{World} \varname{PlayerWorld}] \item[]
+
+\item[\keyword{private} \ptype{ModelRenderer} \varname{ChallengeKnotRenderer}] \item[]
+
+\item[\keyword{private} \ptype{ModelRenderer} \varname{PlayerKnotRenderer}] \item[]
+
+\item[\keyword{private} \ptype{PipeMovement} \varname{PlayerKnotMovement}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse Circle}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{T} \varname{content}] \item[]
+
+\item[\keyword{public} \ptype{Circle} \varname{next}] \item[]
+
+\item[\keyword{public} \ptype{Circle} \varname{previous}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{T} \varname{Circle} (\ptype{T} \varname{content})] \item[]
+
+\end{description}
+
+\subsection{Klasse ColorPicker}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Color} \varname{Color}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
+
+\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse ColorPickItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Color} \varname{Color}] \item[]
+
+\end{description}
+
+\subsection{Klasse ConfirmDialog}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+
+\subsection{Klasse ControlSettingsScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{protected} \ptype{void} \varname{SettingsMenuSection}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse CreativeMode}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Knot}] \item[]
+
+\item[\keyword{public} \ptype{World} \varname{Knot}] \item[]
+
+\item[\keyword{private} \ptype{ModelRenderer} \varname{KnotRenderer}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse CreditsScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse Dialog}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Text}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
+
+\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse DrawableGameStateComponent}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{GameScreen} \varname{State}] \item[]
+
+\item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime}\ptype{IEnumerable} \varname{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{DrawableGameStateComponent} (\ptype{GameScreen}\ptype{DisplayLayer})] \item[]
+
+\end{description}
+
+\subsection{Klasse DropDownMenuItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DropDownEntrie})] \item[]
+
+\end{description}
+
+\subsection{Klasse Edge}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable} \varname{Edges}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} (\ptype{IEnumerator<Edge>})] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+
+\item[\keyword{public} \ptype{string} \varname{PrinterIO} (\ptype{string} \varname{path})] \item[]
+
+\end{description}
+
+\subsection{Klasse Edge}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+
+\subsection{Klasse Edge}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Boolean} \varname{Selected}] \item[]
+
+\item[\keyword{public} \ptype{Color} \varname{EdgeColor}] \item[]
+
+\item[\keyword{public} \ptype{Direction} \varname{Dir}] \item[]
+
+\item[\keyword{public} \ptype{List<int>} \varname{Rectangles}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Direction} \varname{Edge} (\ptype{Direction} \varname{dir})] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{Get3DDirection} (\ptype{Vector3})] \item[]
+
+\end{description}
+
+\subsection{Klasse FadeEffect}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{private} \ptype{bool} \varname{IsFinished}] \item[]
+
+\item[\keyword{private} \ptype{RenderTarget2D} \varname{PreviousRenderTarget}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{FadeEffect} (\ptype{GameScreen}\ptype{GameScreen})] \item[]
+
+\item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse FileIO}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{FileName}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String}\ptype{String})] \item[]
+
+\end{description}
+
+\subsection{Klasse Game}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+
+\subsection{Klasse Game}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse GameModelInfo}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{string} \varname{Modelname}] \item[]
+
+\item[\keyword{public} \ptype{Angles3} \varname{Rotation}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{Scale}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{GameModelInfo} (\ptype{String})] \item[]
+
+\end{description}
+
+\subsection{Klasse GameObjectInfo}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{bool} \varname{IsMovable}] \item[]
+
+\item[\keyword{public} \ptype{bool} \varname{IsSelectable}] \item[]
+
+\item[\keyword{public} \ptype{bool} \varname{IsVisible}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{Position}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{bool} \varname{Equals} (\ptype{GameObjectInfo}\ptype{bool} \varname{GameObjectInfo})] \item[]
+
+\end{description}
+
+\subsection{Klasse GameScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Knot3Game} \varname{Game}] \item[]
+
+\item[\keyword{public} \ptype{InputHandler} \varname{Input}] \item[]
+
+\item[\keyword{public} \ptype{RenderEffect} \varname{PostProcessingEffect}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Entered} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{BeforeSwitch} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{BeforeExit} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{Game})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{AddGameComponents} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{RemoveGameComponents} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse GameScreenManager}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Peek} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Switch} (\ptype{GameScreen})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Pop} (\ptype{GameScreen})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Push} (\ptype{GameScreen})] \item[]
+
+\end{description}
+
+\subsection{Klasse GameStateComponent}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{State}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime}\ptype{IEnumerable} \varname{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{GameStateComponent} (\ptype{GameScreen}\ptype{DisplayLayer})] \item[]
+
+\end{description}
+
+\subsection{Klasse GraphicsSettingsScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{protected} \ptype{void} \varname{SettingsMenuSection}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse IGameObject}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{GameObjectInfo} \varname{Info}] \item[]
+
+\item[\keyword{public} \ptype{World} \varname{World}] \item[]
+
+\item[\keyword{public} \ptype{float} \varname{Alpha}] \item[]
+
+\item[\keyword{public} \ptype{Color} \varname{BaseColor}] \item[]
+
+\item[\keyword{public} \ptype{Color} \varname{HightlightColor}] \item[]
+
+\item[\keyword{public} \ptype{float} \varname{HighlightIntensity}] \item[]
+
+\item[\keyword{public} \ptype{GameModelInfo} \varname{Info}] \item[]
+
+\item[\keyword{public} \ptype{XNA.Model} \varname{Model}] \item[]
+
+\item[\keyword{public} \ptype{World} \varname{World}] \item[]
+
+\item[\keyword{public} \ptype{Matrix} \varname{WorldMatrix}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{GameModel} (\ptype{GameScreen}\ptype{GameModelInfo})] \item[]
+
+\end{description}
+
+\subsection{Klasse IGameObject}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+
+\subsection{Klasse InputItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{InputText}] \item[]
+
+\end{description}
+
+\subsection{Klasse Knot}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{private} \ptype{Circle} \varname{edges}] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{Info}] \item[]
+
+\item[\keyword{private} \ptype{IKnotIO} \varname{file}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Knot} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Save} ()] \item[]
+
+\item[\keyword{public} \ptype{IKnotIO} \varname{Knot} (\ptype{IKnotIO} \varname{file})] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{Knot} (\ptype{KnotMetaData} \varname{info})] \item[]
+
+\item[\keyword{public} \ptype{Boolean} \varname{IsValidMove} (\ptype{Boolean}\ptype{Direction} \varname{dir}\ptype{Integer} \varname{distance})] \item[]
+
+\item[\keyword{public} \ptype{Boolean} \varname{Move} (\ptype{Boolean}\ptype{Direction} \varname{dir}\ptype{Integer} \varname{distance})] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{} (\ptype{Knot} \varname{knotA}\ptype{Knot} \varname{knotB}\ptype{Boolean})] \item[]
+
+\item[\keyword{public} \ptype{Boolean} \varname{} (\ptype{Boolean}\ptype{Knot} \varname{knotA}\ptype{Knot} \varname{knotB})] \item[]
+
+\item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} (\ptype{IEnumerator<Edge>})] \item[]
+
+\item[\keyword{public} \ptype{IKnotInfo} \varname{Save} (\ptype{IKnotInfo} \varname{file})] \item[]
+
+\end{description}
+
+\subsection{Klasse Knot3Game}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{bool} \varname{IsFullScreen}] \item[]
+
+\item[\keyword{public} \ptype{GameScreenManager} \varname{Screens}] \item[]
+
+\item[\keyword{public} \ptype{bool} \varname{VSync}] \item[]
+
+\item[\keyword{public} \ptype{GraphicsDeviceManager} \varname{Graphics}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Game} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Initialize} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{LoadContent} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{UnloadContent} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Game} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse KnotFileIO}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{Edges}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{private} \ptype{KnotStringIO} \varname{parser}] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{KnotFileIO} (\ptype{String} \varname{path})] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+
+\end{description}
+
+\subsection{Klasse KnotMetaData}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{IKnotIO} \varname{File}] \item[]
+
+\item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{protected} \ptype{KnotMetaData} \varname{KnotInfo} (\ptype{KnotMetaData}\ptype{String} \varname{name}\ptype{Integer} \varname{countEdges}\ptype{IKnotIO(} \varname{file})] \item[]
+
+\end{description}
+
+\subsection{Klasse KnotStringIO}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{IErnumerable<Edge>} \varname{Edges}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Content}] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Knot} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{KnotStringIO} (\ptype{String} \varname{content})] \item[]
+
+\end{description}
+
+\subsection{Klasse LoadScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse Menu}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem}\ptype{MenuItem})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Delete} (\ptype{MenuItem}\ptype{MenuItem})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{GetChild} (\ptype{int}\ptype{int})] \item[]
+
+\item[\keyword{public} \ptype{int} \varname{Size} (\ptype{int})] \item[]
+
+\item[\keyword{public} \ptype{IEnumerator<MenuItem>} \varname{GetEnumerator} (\ptype{IEnumerator<MenuItem>})] \item[]
+
+\end{description}
+
+\subsection{Klasse MenuButton}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\end{description}
+
+\subsection{Klasse MenuItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
+
+\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
+
+\end{description}
+
+\subsection{Klasse MenuItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Text}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerator<MenuItem>} \varname{GetEnumerator} (\ptype{IEnumerator<MenuItem>})] \item[]
+
+\end{description}
+
+\subsection{Klasse MenuItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+
+\subsection{Klasse MenuScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse ModelRenderer}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{GameObjectInfo} \varname{Info}] \item[]
+
+\item[\keyword{public} \ptype{World} \varname{World}] \item[]
+
+\item[\keyword{private} \ptype{List<ArrowModel>} \varname{arrows}] \item[]
+
+\item[\keyword{private} \ptype{List<NodeModel>} \varname{nodes}] \item[]
+
+\item[\keyword{private} \ptype{List<PipeModel>} \varname{pipes}] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Knot}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{ModelRenderer} (\ptype{GameState}\ptype{GameObjectInfo}\ptype{GameState})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} (\ptype{IEnumerator})] \item[]
+
+\end{description}
+
+\subsection{Klasse MousePointer}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{MousePointer} (\ptype{GameState})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse NodeModel}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{NodeModelInfo} \varname{Info}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{NodeModel} (\ptype{GameScreen}\ptype{NodeModelInfo})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse NodeModelInfo}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{EdgeFrom}] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{EdgeTo}] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Knot}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{EdgeFrom}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{NodeModelInfo} (\ptype{EdgeList}\ptype{Edge}\ptype{Edge})] \item[]
+
+\end{description}
+
+\subsection{Klasse PipeModel}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{PipeModelInfo} \varname{Info}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{PipeModel} (\ptype{GameScreen}\ptype{PipeModelInfo})] \item[]
+
+\end{description}
+
+\subsection{Klasse PipeModelInfo}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Edge} \varname{Edge}] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Knot}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{PositionFrom}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{PositionTo}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{PipeModelInfo} (\ptype{EdgeList}\ptype{Edge})] \item[]
+
+\end{description}
+
+\subsection{Klasse PipeMovement}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{GameObjectInfo} \varname{Info}] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Knot}] \item[]
+
+\item[\keyword{public} \ptype{World} \varname{World}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{PipeMovement} (\ptype{GameState}\ptype{World}\ptype{GameObjectInfo})] \item[]
+
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} (\ptype{IEnumerator})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse ProfileSettingsScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{protected} \ptype{void} \varname{SettingsMenuSection}] \item[]
+
+\item[\keyword{public} \ptype{string} \varname{Name}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse RenderEffect}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{RenderTarget2D} \varname{RenderTarget}] \item[]
+
+\item[\keyword{protected} \ptype{GameScreen} \varname{screen}] \item[]
+
+\item[\keyword{protected} \ptype{SpriteBatch} \varname{spriteBatch}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Begin} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{End} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel}\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel})] \item[]
+
+\item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse RenderEffectStack}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IRenderEffect} \varname{CurrentEffect}] \item[]
+
+\item[\keyword{private} \ptype{IRenderEffect} \varname{DefaultEffect}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{} (\ptype{IRenderEffect})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{RenderEffectStack} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse SaveLoadDialog}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+
+\subsection{Klasse SettingsScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{protected} \ptype{void} \varname{SettingsMenuSection}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse ShadowGameModel}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Color} \varname{ShadowColor}] \item[]
+
+\item[\keyword{public} \ptype{float} \varname{ShadowAlpha}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{ShadowGameModel} (\ptype{GameState}\ptype{GameModel})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse ShadowGameObject}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{GameObjectInfo} \varname{Info}] \item[]
+
+\item[\keyword{public} \ptype{World} \varname{World}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{ShadowPosition}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{OriginalPosition}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{ShadowGameObject} (\ptype{GameState}\ptype{IGameObject})] \item[]
+
+\end{description}
+
+\subsection{Klasse SliderItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{MaxValue}] \item[]
+
+\item[\keyword{public} \ptype{int} \varname{Value}] \item[]
+
+\item[\keyword{public} \ptype{int} \varname{MinValue}] \item[]
+
+\end{description}
+
+\subsection{Klasse SoundSlider}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+
+\subsection{Klasse StandardEffect}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{StandardEffect} (\ptype{GameScreen})] \item[]
+
+\end{description}
+
+\subsection{Klasse SubMenu}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+
+\subsection{Klasse T}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+
+\subsection{Klasse TextInputDialog}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{InputText}] \item[]
+
+\end{description}
+
+\subsection{Klasse TextItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Text}] \item[]
+
+\end{description}
+
+\subsection{Klasse VerticalMenu}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+
+\subsection{Klasse Widget}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Vector2} \varname{RelativeSize}] \item[]
+
+\item[\keyword{public} \ptype{Vector2} \varname{RelativePosition}] \item[]
+
+\item[\keyword{public} \ptype{bool} \varname{IsVisible}] \item[]
+
+\item[\keyword{public} \ptype{Color} \varname{BackgroundColor}] \item[]
+
+\item[\keyword{public} \ptype{Color} \varname{ForegroundColor}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Rectangle} \varname{BoundingBox} (\ptype{Rectangle})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Widget} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse World}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Camera}] \item[]
+
+\item[\keyword{public} \ptype{List<IGameObject>} \varname{Camera}] \item[]
+
+\item[\keyword{public} \ptype{IGameObject} \varname{SelectedObject}] \item[]
+
+\item[\keyword{public} \ptype{IRenderEffect} \varname{CurrentEffect}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{World} (\ptype{GameScreen})] \item[]
+
+\item[\keyword{public} \ptype{IEnumerator<IGameObject>} \varname{GetEnumerator} (\ptype{IEnumerator<IGameObject>})] \item[]
+
+\end{description}
+
+\subsection{Klasse XNA.DrawableGameComponent}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse XNA.Game}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Game} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Initialize} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{LoadContent} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{UnloadContent} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Game} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\end{description}
+
+\subsection{Klasse XNA.GameComponent}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\end{description}
+
