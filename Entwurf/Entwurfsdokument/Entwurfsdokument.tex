@@ -11,6 +11,38 @@
 \usepackage{listings}
 \usepackage{hyperref}
 
+
+
+%
+% Glossare.
+%
+% HINWEIS: perl nötig.
+%
+%\usepackage[nomain,toc,section, sanitize={description=false}]{glossaries}
+\usepackage[nomain]{glossaries}
+\renewcommand*{\glspostdescription}{} % Kein automatischer Satzpunkt nach einem Eintrag.
+\newglossary{FA}{fai}{fao}{Fachausdrücke}
+\newglossary{AK}{aki}{ako}{Abkürzungen}
+\makeglossaries
+%% Glossar-Einträge im Voraus bekannt machen,
+%% damit sie im Folgenden verwendbar sind.
+\loadglsentries[FA]{Fachausdruecke}
+\loadglsentries[AK]{Abkuerzungen}
+
+%
+% HINWEIS:
+%
+% Begriffe, die im Glossar auftauchen müssen auch im
+% Text auftauchen und durch gls{Begriff} markiert worden
+% sein, damit sie im Verzeichnis gelistet werden!
+%
+
+
+
+
+
+
+
 \begin{document}
 
 \title{\textbf{\Huge{ENTWURFSDOKUMENT}}\\\Large{(V. 1.0)}~\\~\\~\\
@@ -38,6 +70,6 @@
 \input{Ablaeufe.tex}
 \input{Klassenindex.tex}
 \input{Anmerkungen.tex}
-\input{Gloassar.tex}
+\input{Glossar.tex}
 
 \end{document}
