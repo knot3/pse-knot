@@ -8,6 +8,7 @@
 
 \newcommand{\varname}[1]{\textcolor{Black}{#1}}
 
+\section{Klassen}
 \subsection{Klasse ArrowModel}
 \paragraph{Beschreibung:}\mbox{}\\\\
 Diese Klasse repräsentiert ein 3D-Modell für einen Pfeil, der an selektierten Kanten erscheinen soll.
@@ -601,8 +602,6 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 
-
-
 \subsection{Klasse Edge}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
@@ -626,6 +625,8 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{Vector3} \varname{Get3DDirection} (\ptype{Vector3})] \item[]
 
 \end{description}
+
+
 
 \subsection{Klasse FadeEffect}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -667,6 +668,8 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 
+
+
 \subsection{Klasse Game}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
@@ -682,8 +685,6 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
 
 \end{description}
-
-
 
 \subsection{Klasse GameModelInfo}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -805,6 +806,8 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 
+
+
 \subsection{Klasse IGameObject}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
@@ -856,8 +859,6 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{void} \varname{GameModel} (\ptype{GameScreen}, \ptype{GameModelInfo})] \item[]
 
 \end{description}
-
-
 
 \subsection{Klasse InputItem}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -1137,26 +1138,6 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{Text}] \item[]
-
-\end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerator<MenuItem>} \varname{GetEnumerator} (\ptype{IEnumerator<MenuItem>})] \item[]
-
-\end{description}
-
-
-
-\subsection{Klasse MenuItem}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/MenuItem}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{ItemState} \varname{ItemState}] \item[]
 
 \item[\keyword{public} \ptype{int} \varname{ItemOrder}] \item[]
@@ -1172,6 +1153,26 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
 
 \item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
+
+\end{description}
+
+
+
+\subsection{Klasse MenuItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/MenuItem}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Text}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerator<MenuItem>} \varname{GetEnumerator} (\ptype{IEnumerator<MenuItem>})] \item[]
 
 \end{description}
 
@@ -1831,3 +1832,283 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 
 \end{description}
 
+\section{Schnittstellen}
+\subsection{Schnittstelle IChallengeIO}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IChallengeIO}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{StartKnot}] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{TargetKnot}] \item[]
+
+\item[\keyword{public} \ptype{ChallengeMetaData} \varname{Meta}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Challenge} \varname{Save} (\ptype{Challenge} \varname{challenge})] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle ICloneable}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/ICloneable}
+\end{wrapfigure}
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Object} \varname{Clone} (\ptype{Object})] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IEnumerable}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IEnumerable}
+\end{wrapfigure}
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} (\ptype{IEnumerator<Edge>})] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IEnumerable}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IEnumerable}
+\end{wrapfigure}
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerator<MenuItem>} \varname{GetEnumerator} (\ptype{IEnumerator<MenuItem>})] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IEnumerable<IGameObject>}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IEnumerable}
+\end{wrapfigure}
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerator<IGameObject>} \varname{GetEnumerator} (\ptype{IEnumerator<IGameObject>})] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IEnumerable<IGameObject>}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IEnumerable}
+\end{wrapfigure}
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} (\ptype{IEnumerator})] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IGameObject}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IGameObject}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{GameObjectInfo} \varname{Info}] \item[]
+
+\item[\keyword{public} \ptype{World} \varname{World}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IGameStateComponent}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IGameStateComponent}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{State}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime}, \ptype{IEnumerable})] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IJunction}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IJunction}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{EdgeFrom}] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{EdgeTo}] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IKeyEventListener}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IKeyEventListener}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
+
+\item[\keyword{public} \ptype{bool} \varname{IsKeyEventEnabled}] \item[]
+
+\item[\keyword{public} \ptype{List} \varname{ValidKeys}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IKnotIO}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IKnotIO}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{Edges}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Knot} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IMouseEventListener}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IMouseEventListener}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
+
+\item[\keyword{public} \ptype{bool} \varname{IsMouseEventEnabled}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle IRenderEffect}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/IRenderEffect}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{RenderTarget2D} \varname{RenderTarget}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Begin} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{End} (\ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel}, \ptype{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel})] \item[]
+
+\end{description}
+
+\subsection{Schnittstelle XNA.IGameComponent}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/XNAIGameComponent}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{bool} \varname{IsMovable}] \item[]
+
+\item[\keyword{public} \ptype{bool} \varname{IsSelectable}] \item[]
+
+\item[\keyword{public} \ptype{bool} \varname{IsVisible}] \item[]
+
+\item[\keyword{public} \ptype{Vector3} \varname{Position}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{bool} \varname{Equals} (\ptype{GameObjectInfo}, \ptype{bool} \varname{GameObjectInfo})] \item[]
+
+\item[\keyword{public} \ptype{bool} \varname{Equals} (\ptype{GameObjectInfo}, \ptype{bool})] \item[]
+
+\end{description}
+
+
+
+\section{Enumerationen}

@@ -382,11 +382,6 @@ public class Edge :
 // 
 public class Edge : 
   Attributes:
-  Methods:
-
-// 
-public class Edge : 
-  Attributes:
     // 
     + EdgeColor : Color
     // 
@@ -398,6 +393,11 @@ public class Edge :
     + Edge (Direction dir) : Direction
     // 
     + Get3DDirection (Vector3 ) : Vector3
+
+// 
+public class Edge : 
+  Attributes:
+  Methods:
 
 // 
 public class FadeEffect : 
@@ -425,15 +425,15 @@ public class FileIO :
 public class Game : 
   Attributes:
   Methods:
-    // 
-    + Update () : void
-    // 
-    + Update (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
 public class Game : 
   Attributes:
   Methods:
+    // 
+    + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
 public class GameModelInfo : 
@@ -511,6 +511,80 @@ public class GraphicsSettingsScreen :
     + Update (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
+public interface IChallengeIO : 
+  Attributes:
+    // 
+    + Highscore : IEnumerable<KeyValuePair<String, Integer>>
+    // 
+    + Name : String
+    // 
+    + StartKnot : Knot
+    // 
+    + TargetKnot : Knot
+    // 
+    + Meta : ChallengeMetaData
+  Methods:
+    // 
+    + Save (Challenge challenge) : Challenge
+
+// 
+public interface ICloneable : 
+  Attributes:
+  Methods:
+    // 
+    + Clone (Object ) : Object
+
+// 
+public interface IEnumerable : 
+  Attributes:
+  Methods:
+    // 
+    + GetEnumerator (IEnumerator<Edge> ) : IEnumerator<Edge>
+
+// 
+public interface IEnumerable : 
+  Attributes:
+  Methods:
+    // 
+    + GetEnumerator (IEnumerator<MenuItem> ) : IEnumerator<MenuItem>
+
+// 
+public interface IEnumerable<IGameObject> : 
+  Attributes:
+  Methods:
+    // 
+    + GetEnumerator (IEnumerator<IGameObject> ) : IEnumerator<IGameObject>
+
+// 
+public interface IEnumerable<IGameObject> : 
+  Attributes:
+  Methods:
+    // 
+    + GetEnumerator (IEnumerator ) : IEnumerator
+
+// 
+public interface IGameObject : 
+  Attributes:
+    // 
+    + Info : GameObjectInfo
+    // 
+    + World : World
+  Methods:
+    // 
+    + Center (Vector3 ) : Vector3
+    // 
+    + Update (GameTime) : void
+    // 
+    + Draw (GameTime) : void
+    // 
+    + Intersects (Ray, GameObjectDistance Ray) : GameObjectDistance
+
+// 
+public class IGameObject : 
+  Attributes:
+  Methods:
+
+// 
 public class IGameObject : 
   Attributes:
     // 
@@ -554,9 +628,65 @@ public class IGameObject :
     + GameModel (GameScreen, GameModelInfo) : void
 
 // 
-public class IGameObject : 
+public interface IGameStateComponent : 
   Attributes:
+    // 
+    + Index : DisplayLayer
+    // 
+    + State : GameScreen
   Methods:
+    // 
+    + SubComponents (GameTime, IEnumerable ) : IEnumerable
+
+// 
+public interface IJunction : 
+  Attributes:
+    // 
+    + EdgeFrom : void
+    // 
+    + EdgeTo : void
+  Methods:
+
+// 
+public interface IKeyEventListener : 
+  Attributes:
+    // 
+    + Index : DisplayLayer
+    // 
+    + IsKeyEventEnabled : bool
+    // 
+    + ValidKeys : List
+  Methods:
+    // 
+    + OnKeyEvent () : void
+
+// 
+public interface IKnotIO : 
+  Attributes:
+    // 
+    + Edges : IEnumerable<Edge>
+    // 
+    + Name : String
+    // 
+    + Meta : KnotMetaData
+  Methods:
+    // 
+    + Save (Knot knot) : Knot
+
+// 
+public interface IMouseEventListener : 
+  Attributes:
+    // 
+    + Index : DisplayLayer
+    // 
+    + IsMouseEventEnabled : bool
+  Methods:
+    // 
+    + Bounds (Rectangle ) : Rectangle
+    // 
+    + OnLeftClick () : void
+    // 
+    + OnRightClick () : void
 
 // 
 public class InputItem : 
@@ -564,6 +694,21 @@ public class InputItem :
     // 
     + InputText : String
   Methods:
+
+// 
+public interface IRenderEffect : 
+  Attributes:
+    // 
+    + RenderTarget : RenderTarget2D
+  Methods:
+    // 
+    + Begin (GameTime) : void
+    // 
+    + End (GameTime) : void
+    // 
+    + DrawModel (GameModel, GameTime) : void
+    // 
+    + RemapModel (GameModel) : void
 
 // 
 public class KeyInputItem : 
@@ -744,20 +889,6 @@ public class MenuButton :
 public class MenuItem : 
   Attributes:
     // 
-    + Text : String
-  Methods:
-    // 
-    + GetEnumerator (IEnumerator<MenuItem> ) : IEnumerator<MenuItem>
-
-// 
-public class MenuItem : 
-  Attributes:
-  Methods:
-
-// 
-public class MenuItem : 
-  Attributes:
-    // 
     + ItemState : ItemState
     // 
     + ItemOrder : int
@@ -772,6 +903,20 @@ public class MenuItem :
     + OnKeyEvent () : void
     // 
     + Bounds (Rectangle ) : Rectangle
+
+// 
+public class MenuItem : 
+  Attributes:
+  Methods:
+
+// 
+public class MenuItem : 
+  Attributes:
+    // 
+    + Text : String
+  Methods:
+    // 
+    + GetEnumerator (IEnumerator<MenuItem> ) : IEnumerator<MenuItem>
 
 // 
 public class MenuScreen : 
@@ -1198,4 +1343,26 @@ public class XNA.GameComponent :
   Methods:
     // 
     + Update (GameTime) : void
+
+// 
+public interface XNA.IGameComponent : 
+  Attributes:
+    // 
+    + IsMovable : bool
+    // 
+    + IsSelectable : bool
+    // 
+    + IsVisible : bool
+    // 
+    + Position : Vector3
+  Methods:
+    // 
+    + Equals (GameObjectInfo, bool GameObjectInfo) : bool
+    // 
+    + Equals (GameObjectInfo, bool ) : bool
+
+// 
+public interface XNA.IGameComponent : 
+  Attributes:
+  Methods:
 
