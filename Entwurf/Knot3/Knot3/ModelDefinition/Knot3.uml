@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="20ab710a-33d8-48fa-b17c-f3bf548e2638"
   name="Knot3-Entwurf" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -2415,7 +2415,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             Id="baedcc7a-2c71-4d46-a425-7ce9a3648402">
             <interfaceMoniker
               Id="44fab749-946e-40c7-9de1-ade0eee097ac"
-              LastKnownName="IEnumerable"
+              LastKnownName="_IEnumerable"
               LastKnownLocation="Knot3.uml" />
           </interfaceRealization>
         </suppliersInternal>
@@ -3752,7 +3752,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <Interface
         Id="44fab749-946e-40c7-9de1-ade0eee097ac"
-        name="IEnumerable"
+        name="_IEnumerable"
         isAbstract="false"
         isLeaf="false">
         <ownedRedefinableTemplateSignatureInternal>
@@ -4273,9 +4273,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="349d0a89-5802-412d-bfe4-ef755ee9dc33"
-                LastKnownName="bool"
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -4291,9 +4291,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="349d0a89-5802-412d-bfe4-ef755ee9dc33"
-                LastKnownName="bool"
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -4309,9 +4309,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="349d0a89-5802-412d-bfe4-ef755ee9dc33"
-                LastKnownName="bool"
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -4349,7 +4349,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                   Id="0b5b4c8a-9c54-4432-b3e4-3e795a088f8f"
                   name="GameObjectInfo"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b529f9b9-bd0f-4763-a1e0-4b3475bef09e"
+                      LastKnownName="GameObjectInfo"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
@@ -4357,9 +4364,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="349d0a89-5802-412d-bfe4-ef755ee9dc33"
-                      LastKnownName="bool"
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -4391,19 +4398,26 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="349d0a89-5802-412d-bfe4-ef755ee9dc33"
-                      LastKnownName="bool"
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="f5b382fc-9298-4396-b03f-c1abdbad0dc3"
-                  name="GameObjectInfo"
+                  Id="213123f2-a68c-4d99-9fbb-e7d128ff5255"
+                  name="other"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b529f9b9-bd0f-4763-a1e0-4b3475bef09e"
+                      LastKnownName="GameObjectInfo"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -4440,9 +4454,9 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17"
-                LastKnownName="string"
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -4495,10 +4509,17 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="856ae5a9-78eb-4d82-b890-acad54716b19"
-                  name="String"
+                  Id="e739bfb3-76ac-4642-8089-a05f116b633a"
+                  name="modelname"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -4613,17 +4634,31 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="32f4b6ee-ad51-42d0-8767-e902f9feac50"
-                  name="EdgeList"
+                  Id="9e8a3491-5a42-4ef0-a8be-d79bdba5a471"
+                  name="knot"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="8e1aa097-f416-4abd-af60-4daddd5f633c"
+                      LastKnownName="Knot"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="0c7e0537-23f8-4d5b-914a-0b729b82796c"
-                  name="Edge"
+                  Id="8b23ee34-b6ea-47d8-b1fe-b687f5c3cf21"
+                  name="edge"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
+                      LastKnownName="Edge"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -4667,7 +4702,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
+                LastKnownName="Edge"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
           <property
             Id="d21df6dc-052d-4db8-8387-f5c76028a820"
             name="EdgeTo"
@@ -4678,7 +4720,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
+                LastKnownName="Edge"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
           <property
             Id="fbdcd1dc-cd40-4cd7-911f-fbf8eff20b77"
             name="Knot"
@@ -4689,7 +4738,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="8e1aa097-f416-4abd-af60-4daddd5f633c"
+                LastKnownName="Knot"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
           <property
             Id="b0dcb30e-c5b2-4109-97e4-b54f023ed679"
             name="Position"
@@ -4721,24 +4777,45 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="7051816a-1143-4a29-b8f3-1371fcb1a4cc"
-                  name="EdgeList"
+                  Id="d051b2f0-2983-43f8-a05a-f4da43b388ce"
+                  name="knot"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="8e1aa097-f416-4abd-af60-4daddd5f633c"
+                      LastKnownName="Knot"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="80fc5105-d546-48a5-af68-74efb3b40bef"
-                  name="Edge"
+                  Id="c0a5155f-ab42-495b-bb8a-83e28f7c66a7"
+                  name="from"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
+                      LastKnownName="Edge"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="89214b85-8780-47df-b2ea-83d92eaf0d08"
-                  name="Edge"
+                  Id="9161d9a9-03e8-4627-b5a6-b2f1fbc92ad5"
+                  name="to"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
+                      LastKnownName="Edge"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -4912,17 +4989,31 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="3ce5436b-538a-4b90-b9b7-ba92d2fa4082"
-                  name="GameScreen"
+                  Id="ff071187-77dc-4fbd-b1e7-ab6d89a78520"
+                  name="screen"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="6a413035-a387-4d1d-98f9-72f1d432b824"
+                      LastKnownName="GameScreen"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="b0262146-19b9-46d8-a8a8-2a8573c9ab46"
-                  name="PipeModelInfo"
+                  Id="ccae1476-0196-4818-87b8-6a269d5d8d11"
+                  name="screen"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="540160d0-f447-41e0-b3a2-83b435910b0f"
+                      LastKnownName="PipeModelInfo"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -5084,7 +5175,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             Id="402bed0c-a3c6-4694-a6b3-68cd04d0cc3d">
             <interfaceMoniker
               Id="ce8ad44e-84ae-44bf-988b-9d591782fd89"
-              LastKnownName="IEnumerable&lt;IGameObject&gt;"
+              LastKnownName="_IEnumerable&lt;IGameObject&gt;"
               LastKnownLocation="Knot3.uml" />
           </interfaceRealization>
         </suppliersInternal>
@@ -5539,7 +5630,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <Interface
         Id="ce8ad44e-84ae-44bf-988b-9d591782fd89"
-        name="IEnumerable&lt;IGameObject&gt;"
+        name="_IEnumerable&lt;IGameObject&gt;"
         isAbstract="false"
         isLeaf="false">
         <ownedOperations>
@@ -6830,177 +6921,21 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         isActiveClass="false">
         <suppliersInternal>
           <interfaceRealization
-            Id="ffa3c3d2-ab00-4196-804c-a644adb9d1f6">
-            <interfaceMoniker
-              Id="364ef75f-b4de-4c22-b276-183572dbd03f"
-              LastKnownName="IEnumerable&lt;IGameObject&gt;"
-              LastKnownLocation="Knot3.uml" />
-          </interfaceRealization>
-          <interfaceRealization
             Id="68374310-d087-44fe-985e-5b31c1138fb0">
             <interfaceMoniker
               Id="a1b8031b-f94b-4891-a13f-73db369d072e"
               LastKnownName="IGameObject"
               LastKnownLocation="Knot3.uml" />
           </interfaceRealization>
+          <interfaceRealization
+            Id="7e9995c7-e490-455a-995d-a7e8d4ae97b4">
+            <interfaceMoniker
+              Id="2bd3ef82-5bb7-4fe0-a657-69bf2851f847"
+              LastKnownName="IEnumerable&lt;IGameObject&gt;"
+              LastKnownLocation="Knot3.uml" />
+          </interfaceRealization>
         </suppliersInternal>
         <targetEnds>
-          <association
-            Id="006e0a9e-687c-4307-a22f-d27dc0b5bc16"
-            isDerived="false"
-            sourceEndRoleName="ModelRenderer"
-            targetEndRoleName="NodeModel"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="31323d98-89b9-48de-801c-b06694e8954d"
-              LastKnownName="NodeModel"
-              LastKnownLocation="Knot3.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="27e4c1e4-aa5e-4c22-b2c4-474a4a4cd739"
-                  name="ModelRenderer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="e1880148-dcc8-4051-ac9c-59c4ca0f43ab"
-                  name="NodeModel"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="5ce8bdd2-9f69-444d-acf3-81fcdc32b946"
-                      name="Lower"
-                      value="0" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="a6c0651b-997e-4caf-be44-daeab0d23400"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="e6c5e86b-06d1-4c57-b343-dbcd1f310996"
-            isDerived="false"
-            sourceEndRoleName="ModelRenderer"
-            targetEndRoleName="ModelRenderer"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="34cefb6f-dc1c-426d-b1ea-b554b52a3a0d"
-              LastKnownName="PipeModel"
-              LastKnownLocation="Knot3.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="4a4447ec-260a-44f8-a97b-f34b2c4266cd"
-                  name="ModelRenderer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="c02abd56-e922-4de3-94b5-9baebc354048"
-                  name="ModelRenderer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="b7ab3cf0-7b35-474d-bac4-634e60e8eacc"
-                      name="Lower"
-                      value="0" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="062d2057-aba1-497e-a988-fa4163d76090"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="903fe33d-8d34-4138-a922-d557b91a383d"
-            isDerived="false"
-            sourceEndRoleName="ModelRenderer"
-            targetEndRoleName="ModelRenderer"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="61c4de81-9192-4142-bd82-39800192bb1b"
-              LastKnownName="ArrowModel"
-              LastKnownLocation="Knot3.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="c33627b3-18e3-468a-89fd-f203b11a4d6a"
-                  name="ModelRenderer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="7218cc62-5465-4e2b-a577-1b4036dd78d1"
-                  name="ModelRenderer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="27b256cd-ed1c-41d5-8523-d2b020600293"
-                      name="Lower"
-                      value="0" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="713968e5-f763-418d-9e0b-1c828f5b68d9"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
           <association
             Id="04a1e989-1ea6-4496-86cd-23a3150c5451"
             isDerived="false"
@@ -7048,6 +6983,201 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                       Id="5c8e5080-0b4a-4690-98e3-b928c6c3423a"
                       name="Upper"
                       value="3" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f6e93c0e-a46c-40a1-b75c-16c0722dca41"
+            isDerived="false"
+            sourceEndRoleName="ModelRenderer"
+            targetEndRoleName="NodeMap"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3d704fe7-57d5-474b-b360-c2d792dc82c3"
+              LastKnownName="NodeMap"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7c82f8e6-f2ed-45ac-881f-55d688686d69"
+                  name="ModelRenderer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e7c6e0c4-a066-48be-8b8f-5a6c0b8712d9"
+                  name="NodeMap"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="03eebbe5-b73a-4eea-9ac7-2b5779a26003"
+            isDerived="false"
+            sourceEndRoleName="ModelRenderer"
+            targetEndRoleName="PipeModel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="34cefb6f-dc1c-426d-b1ea-b554b52a3a0d"
+              LastKnownName="PipeModel"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dd44ece0-cc05-4b1e-b44e-acdb1959f409"
+                  name="ModelRenderer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b91978e0-9605-4ce5-a6cc-1f9207ea4a23"
+                  name="PipeModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="e24e7d90-389e-47da-817f-90e2dac744cd"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="4ce4dd0b-8fdd-4907-853c-edfe985a376c"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3128d1ce-e435-4329-af33-9054741dbb50"
+            isDerived="false"
+            sourceEndRoleName="ModelRenderer"
+            targetEndRoleName="ArrowModel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="61c4de81-9192-4142-bd82-39800192bb1b"
+              LastKnownName="ArrowModel"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="41ea55d9-3a46-47e7-a266-6e6bbd761aac"
+                  name="ModelRenderer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e26bf4f8-132b-4e7a-a60f-1940f764dcae"
+                  name="ArrowModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="c2abc84b-1493-42e5-9fc5-7685a9c815e8"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a31fd6c5-2370-4339-95ce-0832ecf6b4d4"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="bea3bf43-f2dd-4c67-811b-628e6a24f0dc"
+            isDerived="false"
+            sourceEndRoleName="ModelRenderer"
+            targetEndRoleName="NodeModel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="31323d98-89b9-48de-801c-b06694e8954d"
+              LastKnownName="NodeModel"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cee92612-2447-4315-b6c9-c94c41050c49"
+                  name="ModelRenderer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3da130a9-855b-4654-b16c-06625d25ea7f"
+                  name="NodeModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="7cd7d409-b18b-4892-9945-949fbc41a4c1"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f795cac3-c6b0-4510-998c-c3d30b473223"
+                      name="Upper"
+                      value="*" />
                   </upperValueInternal>
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -7293,14 +7423,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 <parameter
                   Id="50656ca0-c7c2-439d-b530-d93dc7d22364"
                   direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0"
-                      LastKnownName="void"
-                      LastKnownLocation="Knot3.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -7379,7 +7502,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </ownedParameters>
           </operation>
           <operation
-            Id="6d3cb9b1-97da-4c65-8e54-55ed9d2fae7b"
+            Id="fbf5e221-a144-4c17-ace1-f0e4312035e4"
             name="GetEnumerator"
             isLeaf="false"
             isStatic="false"
@@ -7389,7 +7512,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="15a7f144-45cf-42ff-8e73-841906528b78"
+                  Id="8ffe1625-6a6e-45d6-b5e3-52d61b4c2ddd"
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>
@@ -7415,9 +7538,35 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <Interface
         Id="364ef75f-b4de-4c22-b276-183572dbd03f"
-        name="IEnumerable&lt;IGameObject&gt;"
+        name="__IEnumerable"
         isAbstract="false"
         isLeaf="false">
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature
+            Id="4c5bdf9f-0e96-498f-b7ec-e15c79183fd7"
+            parameters=""
+            isLeaf="false">
+            <ownedParameters>
+              <classifierTemplateParameter
+                Id="dcfed643-ac98-4f4a-87d6-f429e3839250">
+                <ownedParameterableElement>
+                  <class
+                    Id="10ef87eb-2270-4281-81ce-5e929a1bc2f4"
+                    name="T"
+                    isAbstract="false"
+                    isLeaf="false"
+                    isActiveClass="false" />
+                </ownedParameterableElement>
+                <constrainingClassifier>
+                  <interfaceMoniker
+                    Id="a1b8031b-f94b-4891-a13f-73db369d072e"
+                    LastKnownName="IGameObject"
+                    LastKnownLocation="Knot3.uml" />
+                </constrainingClassifier>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
         <ownedOperations>
           <operation
             Id="eba10710-83f6-4dfc-b893-c08e0a96682e"
@@ -7458,7 +7607,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             Id="c06e6813-28e6-4367-ae77-bd9e9c6627bc">
             <interfaceMoniker
               Id="364ef75f-b4de-4c22-b276-183572dbd03f"
-              LastKnownName="IEnumerable&lt;IGameObject&gt;"
+              LastKnownName="__IEnumerable"
               LastKnownLocation="Knot3.uml" />
           </interfaceRealization>
           <interfaceRealization
@@ -8137,17 +8286,31 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="7b09a363-b673-4a36-b5f1-cfa92c3868d3"
-                  name="GameScreen"
+                  Id="8a506988-8448-4942-a255-dab1bd92a91e"
+                  name="screen"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="6a413035-a387-4d1d-98f9-72f1d432b824"
+                      LastKnownName="GameScreen"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="b3cc5155-7ab2-4ac0-a15f-cf014a396da0"
-                  name="ArrowModelInfo"
+                  Id="18a2d8d2-fa59-4a7c-a6e9-dbd60f19ae00"
+                  name="info"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="f8a4d46a-a931-41f1-abf4-0807b059523c"
+                      LastKnownName="ArrowModelInfo"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -8221,17 +8384,31 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="e7bbaaa9-0c65-4df4-9755-b0901916b2c8"
-                  name="Vector3"
+                  Id="e2021f3c-bc87-4a5b-9e84-633323240b9a"
+                  name="position"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3"
+                      LastKnownName="Vector3"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="89d7d9f4-a378-4008-a219-2d0f0bc6e4d0"
-                  name="Vector3"
+                  Id="6850ed88-0b4a-4909-a43a-e614ff2307cf"
+                  name="direction"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3"
+                      LastKnownName="Vector3"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -8312,7 +8489,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             Id="6c5ed125-7f5b-4914-9877-0f0956f26daa">
             <interfaceMoniker
               Id="c8483f9a-4d4d-4df4-8527-bdaac091b3cf"
-              LastKnownName="IEnumerable"
+              LastKnownName="__IEnumerable"
               LastKnownLocation="Knot3.uml" />
           </interfaceRealization>
           <interfaceRealization
@@ -10720,7 +10897,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <Interface
         Id="c8483f9a-4d4d-4df4-8527-bdaac091b3cf"
-        name="IEnumerable"
+        name="__IEnumerable"
         isAbstract="false"
         isLeaf="false">
         <ownedRedefinableTemplateSignatureInternal>
@@ -10827,7 +11004,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <type_NamedElement>
               <interfaceMoniker
                 Id="c8483f9a-4d4d-4df4-8527-bdaac091b3cf"
-                LastKnownName="IEnumerable"
+                LastKnownName="__IEnumerable"
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
@@ -12394,14 +12571,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
-        Id="5e5d9d51-8a71-40ec-980a-d7503c963418"
-        name="Class1"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
         Id="cc786b63-d588-4b2f-a8eb-200b9e57ebc6"
         name="PauseDialog"
         isAbstract="false"
@@ -12555,6 +12724,271 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             name="Backward" />
         </ownedLiterals>
       </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3d704fe7-57d5-474b-b360-c2d792dc82c3"
+        name="NodeMap"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="d897a673-d26f-4ee1-8acb-79105aef27d0"
+            name="From"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="da39c68b-a79c-4511-9bed-680a119a7b66"
+                  name="edge"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
+                      LastKnownName="Edge"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="23435743-b961-4c3a-b50c-4af29af2c865"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="4e782b9a-15cd-47b7-8629-8da50cdaed15"
+                      LastKnownName="Node"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="bec8993e-d167-4266-958d-fee978052430"
+            name="To"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3ffe7ccb-b558-4fce-ad19-72380c099d51"
+                  name="edge"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069"
+                      LastKnownName="Edge"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3958050e-0d00-422e-8043-2a9e4946517d"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="4e782b9a-15cd-47b7-8629-8da50cdaed15"
+                      LastKnownName="Node"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e316fbc6-e647-4640-bdfb-cfbaad13fb89"
+            name="OnEdgesChanged"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="00c5d41a-51f9-4df1-82fd-942834031f5a"
+                  direction="Return"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="4e782b9a-15cd-47b7-8629-8da50cdaed15"
+        name="Node" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="2a5686a1-b662-43f1-b377-4d89b07392a1"
+        name="IEnumerator&lt;T&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="af612005-0f7a-438b-9af1-39cf01724b1c"
+        name="IEnumerable"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature
+            Id="7708d681-ff13-4505-8d5c-b010a9a7fda0"
+            parameters=""
+            isLeaf="false">
+            <ownedParameters>
+              <classifierTemplateParameter
+                Id="45614aa7-93ce-44f4-95f1-9a8a02444b94">
+                <ownedParameterableElement>
+                  <class
+                    Id="2a7df3cd-12d3-44e4-babe-fe7b5c28ae45"
+                    name="T"
+                    isAbstract="false"
+                    isLeaf="false"
+                    isActiveClass="false" />
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
+        <ownedOperations>
+          <operation
+            Id="4cd31de6-aa42-4202-af61-230a08352a2a"
+            name="GetEnumerator"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3336e267-3550-4756-9204-e30565f6a59a"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="fe54f97b-5bdf-421a-a130-822248330b72"
+                      LastKnownName="IEnumerator"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="2bd3ef82-5bb7-4fe0-a657-69bf2851f847"
+        name="IEnumerable&lt;IGameObject&gt;"
+        isAbstract="false"
+        isLeaf="false">
+        <signatures>
+          <templateBinding
+            Id="db1c686d-5229-4914-82e7-974f080e07c2">
+            <redefinableTemplateSignatureMoniker
+              Id="7fe48ec4-3bf4-4a5c-9650-74740b5e1018"
+              LastKnownLocation="Knot3.uml" />
+            <relationshipOwnedElementsInternal>
+              <templateBindingHasTemplateParameterSubstitution>
+                <templateParameterSubstitution
+                  Id="4257179d-2538-422e-a084-dd050293f2e1">
+                  <actuals>
+                    <interfaceMoniker
+                      Id="a1b8031b-f94b-4891-a13f-73db369d072e"
+                      LastKnownName="IGameObject"
+                      LastKnownLocation="Knot3.uml" />
+                  </actuals>
+                  <formal>
+                    <classifierTemplateParameterMoniker
+                      Id="3396f1f9-ea16-4e89-854f-2b835a327987"
+                      LastKnownLocation="Knot3.uml" />
+                  </formal>
+                </templateParameterSubstitution>
+              </templateBindingHasTemplateParameterSubstitution>
+            </relationshipOwnedElementsInternal>
+          </templateBinding>
+        </signatures>
+        <generalsInternal>
+          <generalization
+            Id="2e3a438c-9ccf-40cd-8771-3d680786f945"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="af612005-0f7a-438b-9af1-39cf01724b1c"
+              LastKnownName="IEnumerable"
+              LastKnownLocation="Knot3.uml" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="cd85f7b6-1f21-40c8-8818-d20c9dba33f0"
+        name="IEnumerable1"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature
+            Id="7fe48ec4-3bf4-4a5c-9650-74740b5e1018"
+            parameters=""
+            isLeaf="false">
+            <ownedParameters>
+              <classifierTemplateParameter
+                Id="3396f1f9-ea16-4e89-854f-2b835a327987">
+                <ownedParameterableElement>
+                  <Interface
+                    Id="f8d32b9a-51b4-4e20-926d-4bf835efd0f3"
+                    name="T"
+                    isAbstract="false"
+                    isLeaf="false" />
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
+        <ownedOperations>
+          <operation
+            Id="8ae39fc8-4890-4618-a583-ef0314225d4e"
+            name="GetEnumerator"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5c66c09b-10ce-4586-a52b-8730f7b38a3d"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="fe54f97b-5bdf-421a-a130-822248330b72"
+                      LastKnownName="IEnumerator"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

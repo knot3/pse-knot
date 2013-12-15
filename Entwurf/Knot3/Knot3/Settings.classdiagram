@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="835db5d8-42d8-4388-803d-2a48148d5118" name="Settings" linkedPackageId="ae7e23b1-8258-49a9-a7ab-35086dad62d8" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="835db5d8-42d8-4388-803d-2a48148d5118" name="Settings" linkedPackageId="ae7e23b1-8258-49a9-a7ab-35086dad62d8" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="e6e9193f-6514-4cb7-9a14-aec0157d39b2" name="ConfigFile" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -393,6 +393,46 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="deb1e538-cc1b-4050-8306-de1d073ce4f3" name="IEnumerable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="af612005-0f7a-438b-9af1-39cf01724b1c" />
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature Id="f3266383-c49c-4455-8ec3-179f9556f525" parameters="" isLeaf="false">
+            <elementDefinition Id="7708d681-ff13-4505-8d5c-b010a9a7fda0" />
+            <ownedParameters>
+              <classifierTemplateParameter Id="7c320b35-6826-4f44-92ea-69b3543cee11">
+                <elementDefinition Id="45614aa7-93ce-44f4-95f1-9a8a02444b94" />
+                <ownedParameterableElement>
+                  <class Id="c99a0ef9-f667-473d-8e2e-b41a6b50735b" name="T" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <elementDefinition Id="2a7df3cd-12d3-44e4-babe-fe7b5c28ae45" />
+                  </class>
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
+        <ownedOperations>
+          <operation Id="e6ce7067-b115-41f2-a867-73848fcf8ddf" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4cd31de6-aa42-4202-af61-230a08352a2a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="34b5da15-6a16-462d-8edb-941333586f62" direction="Return" isUnique="false">
+                  <elementDefinition Id="3336e267-3550-4756-9204-e30565f6a59a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="468e85a4-863c-4979-931d-7ce9d8e6e7ef" LastKnownName="IEnumerator" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="468e85a4-863c-4979-931d-7ce9d8e6e7ef" name="IEnumerator" isAbstract="false" isLeaf="false" cachedFullName="IEnumerator">
+        <elementDefinition Id="fe54f97b-5bdf-421a-a130-822248330b72" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="ae7e23b1-8258-49a9-a7ab-35086dad62d8" name="Knot3-Entwurf">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
