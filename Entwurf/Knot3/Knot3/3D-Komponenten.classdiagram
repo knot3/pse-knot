@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="69c5ee0d-6553-4c47-b387-53350a33f9af" name="3D-Komponenten" linkedPackageId="6f805220-e236-4324-86f3-568565fa64b7" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="69c5ee0d-6553-4c47-b387-53350a33f9af" name="3D-Komponenten" linkedPackageId="6f805220-e236-4324-86f3-568565fa64b7" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="a520d8fc-3f4b-4649-8f1d-512f5a206b64" name="List&lt;IGameObject&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;IGameObject&gt;">
@@ -7,7 +7,7 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="7a486d6f-4fbe-46cb-877d-8def39b8d38f" name="IGameObject" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::IGameObject">
+      <referencedType Id="7a486d6f-4fbe-46cb-877d-8def39b8d38f" name="IGameObject" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IGameObject">
         <elementDefinition Id="a1b8031b-f94b-4891-a13f-73db369d072e" />
       </referencedType>
     </packageHasNamedElement>
@@ -17,12 +17,12 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::GameScreen">
+      <referencedType Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameScreen">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="1f772a9f-e24b-4f18-b624-fbbd1f799c89" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::DisplayLayer">
+      <referencedType Id="1f772a9f-e24b-4f18-b624-fbbd1f799c89" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::DisplayLayer">
         <elementDefinition Id="a29019b8-26ba-465c-b33c-698eebbd7ee6" />
       </referencedType>
     </packageHasNamedElement>
@@ -60,9 +60,9 @@
       <class Id="8512f22f-5211-4916-8aa3-f5ea0352e5fd" name="World" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8228b23e-d24d-4fcc-9419-b5fbb8853415" />
         <suppliersInternal>
-          <interfaceRealization Id="8077dba0-8d28-4871-97d9-577f9ad05e98">
-            <interfaceMoniker Id="d1dcf487-0006-4a08-86c8-858fac4c9623" LastKnownName="IEnumerable&lt;IGameObject&gt;" />
-            <elementDefinition Id="402bed0c-a3c6-4694-a6b3-68cd04d0cc3d" />
+          <interfaceRealization Id="12ac0ea2-f083-40d2-b874-57bd85b4743f">
+            <interfaceMoniker Id="97a36a13-34af-4ab2-a30d-77c72c44461e" LastKnownName="IEnumerable&lt;IGameObject&gt;" />
+            <elementDefinition Id="21358e89-97d8-4c51-a9a2-965997f3409c" />
           </interfaceRealization>
         </suppliersInternal>
         <generalsInternal>
@@ -151,6 +151,19 @@
                   <elementDefinition Id="40ff1167-89fe-47fd-9764-11bf09480f6b" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="5bce6085-58a3-43bc-8af7-3e8d3019c377" LastKnownName="IEnumerator&lt;IGameObject&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="91ef7436-5a3e-4fc7-998f-de9a6789e4eb" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e01c77e0-60cc-47b0-b2e4-9a7a3a554d37" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a2a8d62d-3470-41a8-81b9-72d2d305934d" direction="Return" isUnique="false">
+                  <elementDefinition Id="f4f5eb46-16ab-422d-a853-c00a1ad20dcf" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="47b14c4e-d4ac-4af1-b6af-7c1b7e209174" LastKnownName="IEnumerator" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -266,26 +279,6 @@
           </operation>
         </ownedOperationsInternal>
       </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <Interface Id="d1dcf487-0006-4a08-86c8-858fac4c9623" name="IEnumerable&lt;IGameObject&gt;" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="ce8ad44e-84ae-44bf-988b-9d591782fd89" />
-        <ownedOperations>
-          <operation Id="08964fba-0b7e-4ee2-8536-5729d68ab1f7" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="6c942742-e7af-40d2-a184-80c2080a756f" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="3ac93087-f923-4c70-b8fe-35264820fde4" direction="Return" isUnique="false">
-                  <elementDefinition Id="1ffe6de7-aad0-4dca-b730-949cc33ceee0" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="5bce6085-58a3-43bc-8af7-3e8d3019c377" LastKnownName="IEnumerator&lt;IGameObject&gt;" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperations>
-      </Interface>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="02214e83-ad0a-42ac-8eee-e8ba9ebdcda2" name="Camera" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -423,7 +416,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
-      <referencedType Id="9a2e9422-8e06-4dff-ad09-17bdd038a020" name="IRenderEffect" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::IRenderEffect">
+      <referencedType Id="9a2e9422-8e06-4dff-ad09-17bdd038a020" name="IRenderEffect" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IRenderEffect">
         <elementDefinition Id="c26cea4a-4b15-4df5-becb-7c583552dd0c" />
       </referencedType>
     </packageHasNamedElement>
@@ -459,7 +452,46 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="97a36a13-34af-4ab2-a30d-77c72c44461e" name="IEnumerable&lt;IGameObject&gt;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2bd3ef82-5bb7-4fe0-a657-69bf2851f847" />
+        <signatures>
+          <templateBinding Id="7e7d47a8-6f8a-44a1-8dfe-c924349e5002">
+            <templateSignatureProxyMoniker Id="a28416ed-f4c6-4ac3-87b0-b6a0ec7b62d1" />
+            <relationshipOwnedElementsInternal>
+              <templateBindingHasTemplateParameterSubstitution>
+                <templateParameterSubstitution Id="145092d0-590b-45b2-9770-b98563ef9fc8">
+                  <elementDefinition Id="4257179d-2538-422e-a084-dd050293f2e1" />
+                  <actuals>
+                    <referencedTypeMoniker Id="7a486d6f-4fbe-46cb-877d-8def39b8d38f" LastKnownName="IGameObject" />
+                  </actuals>
+                  <formal>
+                    <templateParameterProxyMoniker Id="5973bd89-eb56-4323-b78a-fc42b5066184" />
+                  </formal>
+                </templateParameterSubstitution>
+              </templateBindingHasTemplateParameterSubstitution>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="db1c686d-5229-4914-82e7-974f080e07c2" />
+          </templateBinding>
+        </signatures>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="47b14c4e-d4ac-4af1-b6af-7c1b7e209174" name="IEnumerator" isAbstract="false" isLeaf="false" cachedFullName="IEnumerator">
+        <elementDefinition Id="fe54f97b-5bdf-421a-a130-822248330b72" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
+  <templateSignatureProxies>
+    <templateSignatureProxy Id="a28416ed-f4c6-4ac3-87b0-b6a0ec7b62d1" parameters="" isLeaf="false" signatureId="7fe48ec4-3bf4-4a5c-9650-74740b5e1018">
+      <elementDefinition Id="7fe48ec4-3bf4-4a5c-9650-74740b5e1018" />
+      <ownedParameters>
+        <templateParameterProxy Id="5973bd89-eb56-4323-b78a-fc42b5066184" parameterId="3396f1f9-ea16-4e89-854f-2b835a327987">
+          <elementDefinition Id="3396f1f9-ea16-4e89-854f-2b835a327987" />
+        </templateParameterProxy>
+      </ownedParameters>
+    </templateSignatureProxy>
+  </templateSignatureProxies>
   <package Id="6f805220-e236-4324-86f3-568565fa64b7" name="Knot3-Entwurf">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
     <profileInstances>

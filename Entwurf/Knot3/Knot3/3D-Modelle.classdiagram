@@ -257,9 +257,9 @@
       <class Id="8acf167b-00e8-47a9-aa37-61e67a2a5e49" name="GameObjectInfo" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="b529f9b9-bd0f-4763-a1e0-4b3475bef09e" />
         <suppliersInternal>
-          <interfaceRealization Id="dd375da8-113a-4413-bc86-4abdad197e49">
-            <interfaceMoniker Id="0d1bfc41-df6d-4843-8295-942679b78a5a" LastKnownName="IEquatable&lt;GameObjectInfo&gt;" />
-            <elementDefinition Id="115318ec-2330-42cc-8ae4-13a22868a2f0" />
+          <interfaceRealization Id="24b6e810-bcf4-4f65-9728-686b9dd4cd73">
+            <interfaceMoniker Id="50129436-fe65-42ce-88be-1956378e2798" LastKnownName="IEquatable&lt;GameObjectInfo&gt;" />
+            <elementDefinition Id="58c2459e-e9d8-4fff-a341-d4f293766fa5" />
           </interfaceRealization>
         </suppliersInternal>
         <ownedAttributesInternal>
@@ -310,36 +310,29 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <Interface Id="0d1bfc41-df6d-4843-8295-942679b78a5a" name="IEquatable&lt;GameObjectInfo&gt;" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="e43a84cb-b7af-41f2-a0c8-def3b8c88fb3" />
-        <ownedOperations>
-          <operation Id="7b7fdb39-16f2-4fd4-a42b-952129d2687b" name="Equals" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="27f7e963-64ae-4304-9d61-d2a7c4d8795d" />
+          <operation Id="fd296ecf-3bca-4b36-b56b-b4610d94e6ad" name="Equals" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6a451f0b-80a6-4d23-aec7-8bf116cd6c93" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="fd066e0e-5082-46f3-825b-9297e21581e5" direction="Return" isUnique="false">
-                  <elementDefinition Id="fed85065-7f3a-44d2-a54e-53d4393bfdcb" />
+                <parameter Id="1bfd10ca-e529-403f-8328-d4e68a266813" name="other" direction="In" isUnique="false">
+                  <elementDefinition Id="21d60b42-5cc0-49a3-a80d-72204ad64917" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="9b06bf38-5358-4430-b7ac-62a14249db43" LastKnownName="Boolean" />
+                    <referencedTypeMoniker Id="389d7a8e-f0ed-499f-9c0b-d233d6dd6650" LastKnownName="T" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="6de49511-6b06-4418-9a45-5003d2c4abd5" name="other" direction="In" isUnique="false">
-                  <elementDefinition Id="213123f2-a68c-4d99-9fbb-e7d128ff5255" />
+                <parameter Id="afe985df-e42d-43f1-9c3e-15d8b3b9560f" direction="Return" isUnique="false">
+                  <elementDefinition Id="355b240b-f093-4fb1-8383-addd561b356d" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="4a9b7a55-ff4d-43df-a9fc-351b579adfe5" LastKnownName="GameObjectInfo" />
+                    <referencedTypeMoniker Id="be17e472-2116-42ff-bef6-38ee1303b73e" LastKnownName="Boolean" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-        </ownedOperations>
-      </Interface>
+        </ownedOperationsInternal>
+      </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="bead00fa-15a9-4e02-b654-4680c4b3fbc2" name="GameModelInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -1025,44 +1018,6 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <Interface Id="0224bbfe-e608-448f-9c1c-ab01194019d6" name="__IEnumerable" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="364ef75f-b4de-4c22-b276-183572dbd03f" />
-        <ownedRedefinableTemplateSignatureInternal>
-          <redefinableTemplateSignature Id="d9f15ea9-2f1a-43e2-8d13-6f876e3b9cd3" parameters="" isLeaf="false">
-            <elementDefinition Id="4c5bdf9f-0e96-498f-b7ec-e15c79183fd7" />
-            <ownedParameters>
-              <classifierTemplateParameter Id="74233977-bfbe-435f-829e-9d1cba75cda2">
-                <elementDefinition Id="dcfed643-ac98-4f4a-87d6-f429e3839250" />
-                <ownedParameterableElement>
-                  <class Id="3ecd8e35-b100-49c3-b145-50c0b26af208" name="T" isAbstract="false" isLeaf="false" isActiveClass="false">
-                    <elementDefinition Id="10ef87eb-2270-4281-81ce-5e929a1bc2f4" />
-                  </class>
-                </ownedParameterableElement>
-                <constrainingClassifier>
-                  <referencedTypeMoniker Id="f0b6c53f-2f02-428f-be0e-7ea7971e51ea" LastKnownName="IGameObject" />
-                </constrainingClassifier>
-              </classifierTemplateParameter>
-            </ownedParameters>
-          </redefinableTemplateSignature>
-        </ownedRedefinableTemplateSignatureInternal>
-        <ownedOperations>
-          <operation Id="44320e27-ea0e-4a60-bf8a-541f95d1357d" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="eba10710-83f6-4dfc-b893-c08e0a96682e" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="3f1c5a7c-1735-4e1b-be03-4f64e80e1a08" direction="Return" isUnique="false">
-                  <elementDefinition Id="479f5b62-92ad-4e14-846c-26d86144aa84" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="720bcc20-9f67-460b-b9c0-e78f1357cd46" LastKnownName="IEnumerator" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperations>
-      </Interface>
-    </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
       <referencedType Id="4c4a389c-0c41-4575-872f-15f3f10e6a03" name="World" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::World">
         <elementDefinition Id="8228b23e-d24d-4fcc-9419-b5fbb8853415" />
@@ -1077,13 +1032,13 @@
       <class Id="4f2e8f10-2db4-470e-ac79-68d9f3b72914" name="PipeMovement" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="483caf34-4e6e-4415-b1e7-eb247dcee902" />
         <suppliersInternal>
-          <interfaceRealization Id="61d65275-74e0-46b9-a7d5-49685d27381d">
-            <interfaceMoniker Id="0224bbfe-e608-448f-9c1c-ab01194019d6" LastKnownName="__IEnumerable" />
-            <elementDefinition Id="c06e6813-28e6-4367-ae77-bd9e9c6627bc" />
-          </interfaceRealization>
           <interfaceRealization Id="8eb6b7eb-1a30-4ddc-9565-dd06493b19b6">
             <interfaceMoniker Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" LastKnownName="IGameObject" />
             <elementDefinition Id="9f4d376b-2966-4662-9923-55a945ce0054" />
+          </interfaceRealization>
+          <interfaceRealization Id="2084c9f4-fec8-47b0-adbf-962fdaf8dcf5">
+            <interfaceMoniker Id="9e11ce91-e352-4470-a25a-54a4c0e3a14e" LastKnownName="IEnumerable&lt;IGameObject&gt;" />
+            <elementDefinition Id="f57dea07-94ee-4ff4-b37e-02ce14de22a9" />
           </interfaceRealization>
         </suppliersInternal>
         <ownedAttributesInternal>
@@ -1669,11 +1624,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="9b06bf38-5358-4430-b7ac-62a14249db43" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
-        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="20d582aa-9df7-4492-bda4-0fca944a8855" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
         <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
       </referencedType>
@@ -1745,11 +1695,6 @@
     <packageHasNamedElement>
       <referencedType Id="9d9376c5-615a-4897-89e3-b8017df0a73d" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameScreen">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="f0b6c53f-2f02-428f-be0e-7ea7971e51ea" name="IGameObject" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IGameObject">
-        <elementDefinition Id="a1b8031b-f94b-4891-a13f-73db369d072e" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1827,6 +1772,89 @@
         <elementDefinition Id="a1b8031b-f94b-4891-a13f-73db369d072e" />
       </referencedType>
     </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="50129436-fe65-42ce-88be-1956378e2798" name="IEquatable&lt;GameObjectInfo&gt;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cc14f08e-c937-45af-9ac0-67efffe2eed0" />
+        <signatures>
+          <templateBinding Id="6cdee433-b297-475e-a2cc-55fb8d3ec4e1">
+            <templateSignatureProxyMoniker Id="f5170198-4d26-402a-82eb-5e83d9e5a866" />
+            <relationshipOwnedElementsInternal>
+              <templateBindingHasTemplateParameterSubstitution>
+                <templateParameterSubstitution Id="fe711929-a5a5-437c-b2ba-1b5d0a5e528a">
+                  <elementDefinition Id="b856163c-fbf1-4cde-8585-3bfcad34ec1b" />
+                  <actuals>
+                    <referencedTypeMoniker Id="b8c7f8c2-8dae-4672-9a31-434f2179bb20" LastKnownName="GameObjectInfo" />
+                  </actuals>
+                  <formal>
+                    <templateParameterProxyMoniker Id="2aefc1e3-d031-4a14-a5df-6fa325028b61" />
+                  </formal>
+                </templateParameterSubstitution>
+              </templateBindingHasTemplateParameterSubstitution>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="304990d2-9506-4e6d-ba39-3c039bfa9fc2" />
+          </templateBinding>
+        </signatures>
+        <generalsInternal>
+          <generalization Id="ad263b60-894d-4c17-95eb-ae9096d19e59" isSubstitutable="false">
+            <interfaceMoniker Id="49cb6d20-3c8e-4a27-b3a3-45be63b388de" LastKnownName="IEquatable" />
+            <elementDefinition Id="80387a03-c714-4cfd-bc7b-00282e5d9f86" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="b8c7f8c2-8dae-4672-9a31-434f2179bb20" name="GameObjectInfo" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameObjectInfo">
+        <elementDefinition Id="b529f9b9-bd0f-4763-a1e0-4b3475bef09e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="49cb6d20-3c8e-4a27-b3a3-45be63b388de" name="IEquatable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fcf1d7e9-05d2-4520-a8e9-f46c0dfbc4ee" />
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature Id="fd4de0b3-c095-4592-8304-58e4a7258e17" parameters="" isLeaf="false">
+            <elementDefinition Id="1b3f2462-27fc-4c71-80b2-792ffae59114" />
+            <ownedParameters>
+              <classifierTemplateParameter Id="1418d78e-2d9a-4275-856d-f62f64c63ab4">
+                <elementDefinition Id="e2f0756e-1944-40e9-9bef-b7890b215bf7" />
+                <ownedParameterableElement>
+                  <class Id="b307828f-93b4-4f14-975b-74e3160b6f38" name="T" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <elementDefinition Id="fb009c07-4d2a-437a-acfc-105927ca1766" />
+                  </class>
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
+        <ownedOperations>
+          <operation Id="24da9956-2809-497b-896d-1401f63be846" name="Equals" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e51c930b-b626-4a14-b7be-69ce99038289" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a271df5a-faf2-471a-a96e-827c115cd961" name="other" direction="In" isUnique="false">
+                  <elementDefinition Id="f0773812-ed3a-44bb-900c-130843eb4a5d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="389d7a8e-f0ed-499f-9c0b-d233d6dd6650" LastKnownName="T" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="aa87c30b-1377-4387-9b4f-a7d41f72a32c" direction="Return" isUnique="false">
+                  <elementDefinition Id="d44c99b7-4ec6-4a24-80d8-1568e258b13d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="be17e472-2116-42ff-bef6-38ee1303b73e" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="389d7a8e-f0ed-499f-9c0b-d233d6dd6650" name="T" isAbstract="false" isLeaf="false" cachedFullName="T">
+        <elementDefinition Id="f8d32b9a-51b4-4e20-926d-4bf835efd0f3" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <templateSignatureProxies>
     <templateSignatureProxy Id="a482d21f-4517-4bdc-b741-e6c241e0ae8a" parameters="" isLeaf="false" signatureId="7708d681-ff13-4505-8d5c-b010a9a7fda0">
@@ -1837,6 +1865,17 @@
       <ownedParameters>
         <templateParameterProxy Id="e99c234c-e285-4ee2-80f6-5c9eaf391827" parameterId="3396f1f9-ea16-4e89-854f-2b835a327987">
           <elementDefinition Id="3396f1f9-ea16-4e89-854f-2b835a327987" />
+        </templateParameterProxy>
+      </ownedParameters>
+    </templateSignatureProxy>
+    <templateSignatureProxy Id="e9fe4405-22c2-4923-b0bd-56b85f1610ba" parameters="" isLeaf="false" signatureId="691877c3-0798-45eb-9d52-561f691cb8e7">
+      <elementDefinition Id="691877c3-0798-45eb-9d52-561f691cb8e7" />
+    </templateSignatureProxy>
+    <templateSignatureProxy Id="f5170198-4d26-402a-82eb-5e83d9e5a866" parameters="" isLeaf="false" signatureId="1b3f2462-27fc-4c71-80b2-792ffae59114">
+      <elementDefinition Id="1b3f2462-27fc-4c71-80b2-792ffae59114" />
+      <ownedParameters>
+        <templateParameterProxy Id="2aefc1e3-d031-4a14-a5df-6fa325028b61" parameterId="e2f0756e-1944-40e9-9bef-b7890b215bf7">
+          <elementDefinition Id="e2f0756e-1944-40e9-9bef-b7890b215bf7" />
         </templateParameterProxy>
       </ownedParameters>
     </templateSignatureProxy>

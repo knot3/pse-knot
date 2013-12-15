@@ -628,6 +628,112 @@
         </ownedOperations>
       </Interface>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="cb857a14-b23f-4342-8939-de11ba832aeb" name="IEquatable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fcf1d7e9-05d2-4520-a8e9-f46c0dfbc4ee" />
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature Id="2466dd2f-7e4d-40ff-b28d-fd0a356ad3da" parameters="" isLeaf="false">
+            <elementDefinition Id="1b3f2462-27fc-4c71-80b2-792ffae59114" />
+            <ownedParameters>
+              <classifierTemplateParameter Id="acdf1579-81dc-439d-8ff1-6a269f54467f">
+                <elementDefinition Id="e2f0756e-1944-40e9-9bef-b7890b215bf7" />
+                <ownedParameterableElement>
+                  <class Id="bbe0a8cc-c8c2-4189-9188-8b8970e014f6" name="T" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <elementDefinition Id="fb009c07-4d2a-437a-acfc-105927ca1766" />
+                  </class>
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
+        <ownedOperations>
+          <operation Id="cd6102e7-3147-4aa3-b814-589698178b73" name="Equals" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e51c930b-b626-4a14-b7be-69ce99038289" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b86a17e6-92af-4f55-9b5f-b127e3819ac9" name="other" direction="In" isUnique="false">
+                  <elementDefinition Id="f0773812-ed3a-44bb-900c-130843eb4a5d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="de637a5f-29b6-42c6-9419-c147873da5df" LastKnownName="T" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4f215670-8c74-47a3-b2c4-a5ccf8dff113" direction="Return" isUnique="false">
+                  <elementDefinition Id="d44c99b7-4ec6-4a24-80d8-1568e258b13d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2cbe05b4-f0fb-41b9-ab5d-e38af1adf5a4" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="de637a5f-29b6-42c6-9419-c147873da5df" name="T" isAbstract="false" isLeaf="false" cachedFullName="T">
+        <elementDefinition Id="f8d32b9a-51b4-4e20-926d-4bf835efd0f3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="2cbe05b4-f0fb-41b9-ab5d-e38af1adf5a4" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3216d355-de47-4d6d-af7d-46dc16ed02af" name="T" isAbstract="false" isLeaf="false" cachedFullName="T">
+        <elementDefinition Id="f8d32b9a-51b4-4e20-926d-4bf835efd0f3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3e82bbd8-e21b-4298-a678-b4577cf0c63e" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="63f34cfc-57fe-471b-9493-cc5e9439de64" name="IEquatable1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e4e8deb2-c934-4af5-bd03-6eec1764419f" />
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature Id="a3030ac6-0bbc-401c-944a-e15bf1f5e613" parameters="" isLeaf="false">
+            <elementDefinition Id="691877c3-0798-45eb-9d52-561f691cb8e7" />
+            <ownedParameters>
+              <classifierTemplateParameter Id="666c5e27-0918-43ad-92f9-7ff9ef6d4081">
+                <elementDefinition Id="08b5977e-07d2-45a9-9f4e-7b4671505ac9" />
+                <ownedParameterableElement>
+                  <Interface Id="31ff12f2-61ce-4ab3-a863-e3210f1c382e" name="T" isAbstract="false" isLeaf="false">
+                    <elementDefinition Id="b0cdc7a3-2fdd-40f6-ae13-2466cffa825b" />
+                  </Interface>
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
+        <ownedOperations>
+          <operation Id="58b188aa-e4bf-42d4-bac9-4ca92bd19588" name="Equals" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="113a4424-3811-41bd-8afe-c40e8a7badd3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="12d9f8ab-70bc-4b7c-9ca2-0fed22c6ad10" name="other" direction="In" isUnique="false">
+                  <elementDefinition Id="4af421b1-abe0-42bf-a060-0bad9630a3df" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3216d355-de47-4d6d-af7d-46dc16ed02af" LastKnownName="T" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2c2e5045-7a07-48ad-99cc-c8d6930c76b5" direction="Return" isUnique="false">
+                  <elementDefinition Id="c8513227-6b88-4cc0-93c9-d10e979eba8f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3e82bbd8-e21b-4298-a678-b4577cf0c63e" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="ce0cf89a-b7d4-4ae9-944d-994a2cf84c81" name="Knot3-Entwurf">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />

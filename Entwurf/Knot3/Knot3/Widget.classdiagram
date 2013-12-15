@@ -266,9 +266,9 @@
       <class Id="d1578a22-cf47-4bbd-9c43-3d63e133c8ac" name="Menu" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="b4e6504e-28fd-4e43-8533-79b8e88964d8" />
         <suppliersInternal>
-          <interfaceRealization Id="6b2aca11-f5fa-413c-a7f9-6826eb8fa728">
-            <interfaceMoniker Id="3480c895-cf9e-4e94-8ad4-d130b9cdbabf" LastKnownName="_IEnumerable" />
-            <elementDefinition Id="baedcc7a-2c71-4d46-a425-7ce9a3648402" />
+          <interfaceRealization Id="71496afa-fb54-4de7-bfb3-98c422500217">
+            <interfaceMoniker Id="38790ea0-ca2a-4605-b131-733840b9df7a" LastKnownName="IEnumerable&lt;MenuItem&gt;" />
+            <elementDefinition Id="af550ba5-906b-457a-81d3-cfd74e772a2c" />
           </interfaceRealization>
         </suppliersInternal>
         <generalsInternal>
@@ -417,14 +417,14 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="af95ac96-cb5d-457e-ab8f-5b61adc4c578" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="002f948f-29c8-459a-bdbc-daefa760884c" />
+          <operation Id="5d70948b-c3d5-4743-aabc-f9930048d350" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="344d2468-8754-4670-9c47-38d962a94f6b" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a7ac485b-c787-4a22-8dd0-d1edbdbff2c6" direction="Return" isUnique="false">
-                  <elementDefinition Id="eda9acc7-6461-4669-b418-0d5635faf7d1" />
+                <parameter Id="c4b27faa-b60f-4b45-994d-e716cb109112" direction="Return" isUnique="false">
+                  <elementDefinition Id="47b23885-b40d-4384-9ca2-360ad36e9e61" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="31346c35-ee5a-444c-a796-51127d9c778a" LastKnownName="IEnumerator&lt;MenuItem&gt;" />
+                    <referencedTypeMoniker Id="e4a5616a-de9e-4d6a-b0ce-50c49ff3b2c1" LastKnownName="IEnumerator" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -927,41 +927,6 @@
         <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
       </referencedType>
     </packageHasNamedElement>
-    <logicalClassDesignerModelHasTypes>
-      <Interface Id="3480c895-cf9e-4e94-8ad4-d130b9cdbabf" name="_IEnumerable" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="44fab749-946e-40c7-9de1-ade0eee097ac" />
-        <ownedRedefinableTemplateSignatureInternal>
-          <redefinableTemplateSignature Id="48a64c14-abd2-4c77-b6ff-7e82afcef888" parameters="" isLeaf="false">
-            <elementDefinition Id="8f9854b6-2d84-45ba-b053-92cc90402f11" />
-            <ownedParameters>
-              <classifierTemplateParameter Id="fefa19bb-4e2f-41d8-8195-3cffd3bea26b">
-                <elementDefinition Id="f13d07c6-470b-4b0f-8d2f-d9510490f21b" />
-                <ownedParameterableElement>
-                  <class Id="864f5261-e7b1-451f-a9f3-450417474ae3" name="MenuItem" isAbstract="false" isLeaf="false" isActiveClass="false">
-                    <elementDefinition Id="383e5d09-7ea2-4b29-a76f-ee0d6d6021a6" />
-                  </class>
-                </ownedParameterableElement>
-              </classifierTemplateParameter>
-            </ownedParameters>
-          </redefinableTemplateSignature>
-        </ownedRedefinableTemplateSignatureInternal>
-        <ownedOperations>
-          <operation Id="232ce922-a9d2-4c4b-ae90-7c4c6a4b1634" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="0885e156-ced0-4415-a1db-80b49a8c4845" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="ac701d50-d39f-4ef5-b48c-c0d19ee62581" direction="Return" isUnique="false">
-                  <elementDefinition Id="12186aa7-0956-4095-87f0-07f32b2822a0" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="31346c35-ee5a-444c-a796-51127d9c778a" LastKnownName="IEnumerator&lt;MenuItem&gt;" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperations>
-      </Interface>
-    </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
       <referencedType Id="695bb1f0-201b-4fc8-88ac-179e84c2ebbe" name="Color" isAbstract="false" isLeaf="false" cachedFullName="Color">
         <elementDefinition Id="8c01338a-807f-45aa-ad96-802ff2e82de1" />
@@ -1127,11 +1092,6 @@
     <packageHasNamedElement>
       <referencedType Id="74eb3c89-124b-4a1e-beb5-1ac8652b206f" name="DisplayLayer" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::DisplayLayer">
         <elementDefinition Id="a29019b8-26ba-465c-b33c-698eebbd7ee6" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="31346c35-ee5a-444c-a796-51127d9c778a" name="IEnumerator&lt;MenuItem&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerator&lt;MenuItem&gt;">
-        <elementDefinition Id="b0e54893-3ad2-4125-89b1-23281d82c34e" />
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
@@ -1482,7 +1442,51 @@
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="38790ea0-ca2a-4605-b131-733840b9df7a" name="IEnumerable&lt;MenuItem&gt;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d7e222a5-238e-4d43-87c3-d9a16f10967e" />
+        <signatures>
+          <templateBinding Id="b00854da-7523-46bb-a772-a74515333596">
+            <templateSignatureProxyMoniker Id="40f63856-b63f-4429-b598-7924b2d2cea9" />
+            <relationshipOwnedElementsInternal>
+              <templateBindingHasTemplateParameterSubstitution>
+                <templateParameterSubstitution Id="ceabb9a8-1663-4be0-951b-f427cd221cbe">
+                  <elementDefinition Id="9d69e2e7-4ddb-4c2f-b18d-ec86fc445274" />
+                  <actuals>
+                    <referencedTypeMoniker Id="8eb057fc-d013-4b4f-b46c-7f8406807029" LastKnownName="MenuItem" />
+                  </actuals>
+                  <formal>
+                    <templateParameterProxyMoniker Id="ab3a69ca-dafc-461b-8253-94d683a488dc" />
+                  </formal>
+                </templateParameterSubstitution>
+              </templateBindingHasTemplateParameterSubstitution>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6740c8ac-35cd-4bd9-858c-3543976e3390" />
+          </templateBinding>
+        </signatures>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="8eb057fc-d013-4b4f-b46c-7f8406807029" name="MenuItem" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::MenuItem">
+        <elementDefinition Id="b850eba4-57a5-42aa-b25d-e4a3780582f1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e4a5616a-de9e-4d6a-b0ce-50c49ff3b2c1" name="IEnumerator" isAbstract="false" isLeaf="false" cachedFullName="IEnumerator">
+        <elementDefinition Id="fe54f97b-5bdf-421a-a130-822248330b72" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
+  <templateSignatureProxies>
+    <templateSignatureProxy Id="40f63856-b63f-4429-b598-7924b2d2cea9" parameters="" isLeaf="false" signatureId="7708d681-ff13-4505-8d5c-b010a9a7fda0">
+      <elementDefinition Id="7708d681-ff13-4505-8d5c-b010a9a7fda0" />
+      <ownedParameters>
+        <templateParameterProxy Id="ab3a69ca-dafc-461b-8253-94d683a488dc" parameterId="45614aa7-93ce-44f4-95f1-9a8a02444b94">
+          <elementDefinition Id="45614aa7-93ce-44f4-95f1-9a8a02444b94" />
+        </templateParameterProxy>
+      </ownedParameters>
+    </templateSignatureProxy>
+  </templateSignatureProxies>
   <package Id="043cb81b-6165-44a7-9481-d62ded78ac9a" name="Knot3-Entwurf">
     <elementDefinition Id="20ab710a-33d8-48fa-b17c-f3bf548e2638" />
     <profileInstances>
