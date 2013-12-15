@@ -10,36 +10,36 @@
 
 \subsection{Klasse ArrowModel}
 \paragraph{Beschreibung:}\mbox{}\\\\
-test
+Diese Klasse repräsentiert ein 3D-Modell für einen Pfeil, der an selektierten Kanten erscheinen soll.
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{ArrowModelInfo} \varname{Info}] \item[]
-
+Das Info-Objekt, das die Position und Richtung des Pfeils enthält.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+Zeichnet den Pfeil.
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{ArrowModel} (\ptype{GameScreen}\ptype{ArrowModelInfo})] \item[]
-
+\item[\keyword{public} \ptype{void} \varname{ArrowModel} (\ptype{GameScreen}, \ptype{ArrowModelInfo})] \item[]
+Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
 
 \end{description}
 
 \subsection{Klasse ArrowModelInfo}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Objekt dieser Klasse hält alle Informationen hält, die zur Erstellung eines Pfeil-3D-Modelles (ArrowModel) notwendig sind.
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Vector3} \varname{Direction}] \item[]
-
+Die Richtung, die die der Pfeil zeigen soll.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{ArrowModelInfo} (\ptype{Vector3}\ptype{Vector3})] \item[]
-
+\item[\keyword{public} \ptype{void} \varname{ArrowModelInfo} (\ptype{Vector3}, \ptype{Vector3})] \item[]
+Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum, das in eine bestimmte Richtung zeigt.
 \end{description}
 
 \subsection{Klasse AudioSettingsScreen}
@@ -48,11 +48,27 @@ test
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{protected} \ptype{void} \varname{SettingsMenuSection}] \item[]
+\item[\keyword{protected} \ptype{void} \varname{settingsMenu}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+
+\end{description}
+
+\subsection{Klasse BooleanOptionInfo}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{bool} \varname{Value}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{BooleanOptionInfo} (, , , )] \item[]
 
 \end{description}
 
@@ -86,9 +102,9 @@ test
 
 \item[\keyword{public} \ptype{float} \varname{TargetDistance} (\ptype{float})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Camera} (\ptype{GameScreen}\ptype{World})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Camera} (\ptype{GameScreen}, \ptype{World})] \item[]
 
-\item[\keyword{public} \ptype{Ray} \varname{GetMouseRay} (\ptype{Vector2}\ptype{Ray})] \item[]
+\item[\keyword{public} \ptype{Ray} \varname{GetMouseRay} (\ptype{Vector2}, \ptype{Ray})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
 
@@ -102,7 +118,7 @@ test
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel}\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel}, \ptype{GameTime})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel})] \item[]
 
@@ -130,13 +146,13 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{ChallengeInfo} \varname{Challenge} (\ptype{ChallengeInfo} \varname{info}\ptype{Challenge})] \item[]
+\item[\keyword{public} \ptype{ChallengeInfo} \varname{Challenge} (\ptype{ChallengeInfo} \varname{info}, \ptype{Challenge})] \item[]
 
-\item[\keyword{public} \ptype{Challenge} \varname{Challenge} (\ptype{Challenge}\ptype{IChallangeIO} \varname{file})] \item[]
+\item[\keyword{public} \ptype{Challenge} \varname{Challenge} (\ptype{Challenge}, \ptype{IChallangeIO} \varname{file})] \item[]
 
-\item[\keyword{public} \ptype{Boolean} \varname{CreateChallenge} (\ptype{Boolean}\ptype{Knot} \varname{start}\ptype{Knot} \varname{target}\ptype{String} \varname{name}\ptype{IChallengeIO} \varname{file})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{CreateChallenge} (\ptype{Boolean}, \ptype{Knot} \varname{start}, \ptype{Knot} \varname{target}, \ptype{String} \varname{name}, \ptype{IChallengeIO} \varname{file})] \item[]
 
-\item[\keyword{public} \ptype{String} \varname{AddToHighscore} (\ptype{String} \varname{name}\ptype{Integer} \varname{time})] \item[]
+\item[\keyword{public} \ptype{String} \varname{AddToHighscore} (\ptype{String} \varname{name}, \ptype{Integer} \varname{time})] \item[]
 
 \end{description}
 
@@ -165,6 +181,18 @@ test
 \item[\keyword{public} \ptype{String} \varname{ChallengeFileIO} (\ptype{String} \varname{path})] \item[]
 
 \item[\keyword{public} \ptype{Challenge} \varname{Save} (\ptype{Challenge} \varname{challenge})] \item[]
+
+\end{description}
+
+\subsection{Klasse ChallengeLoadScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
 
 \end{description}
 
@@ -204,9 +232,29 @@ test
 
 \item[\keyword{private} \ptype{PipeMovement} \varname{PlayerKnotMovement}] \item[]
 
+\item[\keyword{public} \ptype{Stack<Knot>} \varname{Undo}] \item[]
+
+\item[\keyword{public} \ptype{Stack<Knot>} \varname{Redo}] \item[]
+
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+
+\end{description}
+
+\subsection{Klasse CheckBoxItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{private} \ptype{BooleanOptionInfo} \varname{option}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{BooleanOptionInfo} \varname{CheckBoxItem} (\ptype{BooleanOptionInfo} \varname{option})] \item[]
 
 \end{description}
 
@@ -227,6 +275,22 @@ test
 \item[\keyword{public} \ptype{T} \varname{Circle} (\ptype{T} \varname{content})] \item[]
 
 \end{description}
+
+\subsection{Klasse Class1}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{private} \ptype{VerticalMenu} \varname{pauseMenu}] \item[]
+
+\end{description}
+
+\subsection{Klasse Class1}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
 
 \subsection{Klasse ColorPicker}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -258,6 +322,22 @@ test
 
 \end{description}
 
+\subsection{Klasse ConfigFile}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{SetOption} (, )] \item[]
+
+\item[\keyword{public} \ptype{bool} \varname{GetOption} (, , , \ptype{bool})] \item[]
+
+\item[\keyword{public} \ptype{string} \varname{GetOption} (, , , \ptype{string})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{SetOption} (, )] \item[]
+
+\end{description}
+
 \subsection{Klasse ConfirmDialog}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
@@ -270,11 +350,25 @@ test
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{protected} \ptype{void} \varname{SettingsMenuSection}] \item[]
+\item[\keyword{protected} \ptype{void} \varname{settingsMenu}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+
+\end{description}
+
+\subsection{Klasse CreativeLoadScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Entered} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
 
 \end{description}
 
@@ -290,9 +384,15 @@ test
 
 \item[\keyword{private} \ptype{ModelRenderer} \varname{KnotRenderer}] \item[]
 
+\item[\keyword{public} \ptype{Stack<Knot>} \varname{Undo}] \item[]
+
+\item[\keyword{public} \ptype{Stack<Knot>} \varname{Redo}] \item[]
+
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
 
 \end{description}
 
@@ -303,6 +403,8 @@ test
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
 
 \end{description}
 
@@ -328,6 +430,22 @@ test
 
 \end{description}
 
+\subsection{Klasse DistinctOptionInfo}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{HashSet<string>} \varname{ValidValues}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Value}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{DistinctOptionInfo} (, , , , )] \item[]
+
+\end{description}
+
 \subsection{Klasse DrawableGameStateComponent}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
@@ -340,9 +458,9 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime}\ptype{IEnumerable} \varname{GameTime})] \item[]
+\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime}, \ptype{IEnumerable} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{DrawableGameStateComponent} (\ptype{GameScreen}\ptype{DisplayLayer})] \item[]
+\item[\keyword{public} \ptype{void} \varname{DrawableGameStateComponent} (\ptype{GameScreen}, \ptype{DisplayLayer})] \item[]
 
 \end{description}
 
@@ -351,8 +469,14 @@ test
 
 
 
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{private} \ptype{VerticalMenu} \varname{dropdown}] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DropDownEntrie})] \item[]
+\item[\keyword{public} \ptype{void} \varname{AddEntries} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{AddEntries} ()] \item[]
 
 \end{description}
 
@@ -390,8 +514,6 @@ test
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Boolean} \varname{Selected}] \item[]
-
 \item[\keyword{public} \ptype{Color} \varname{EdgeColor}] \item[]
 
 \item[\keyword{public} \ptype{Direction} \varname{Dir}] \item[]
@@ -418,7 +540,7 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{FadeEffect} (\ptype{GameScreen}\ptype{GameScreen})] \item[]
+\item[\keyword{public} \ptype{void} \varname{FadeEffect} (\ptype{GameScreen}, \ptype{GameScreen})] \item[]
 
 \item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
 
@@ -434,15 +556,9 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String}\ptype{String})] \item[]
+\item[\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String}, \ptype{String})] \item[]
 
 \end{description}
-
-\subsection{Klasse Game}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-
-
 
 \subsection{Klasse Game}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -452,7 +568,15 @@ test
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
 
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+
 \end{description}
+
+\subsection{Klasse Game}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
 
 \subsection{Klasse GameModelInfo}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -488,7 +612,7 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{bool} \varname{Equals} (\ptype{GameObjectInfo}\ptype{bool} \varname{GameObjectInfo})] \item[]
+\item[\keyword{public} \ptype{bool} \varname{Equals} (\ptype{GameObjectInfo}, \ptype{bool} \varname{GameObjectInfo})] \item[]
 
 \end{description}
 
@@ -506,35 +630,17 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Entered} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{BeforeSwitch} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{BeforeExit} ()] \item[]
-
 \item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{Game})] \item[]
+\item[\keyword{public} \ptype{GameScreen} \varname{Entered} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{BeforeExit} (\ptype{GameTime}, \ptype{GameScreen} \varname{nextScreen})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{Game})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{AddGameComponents} ()] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{RemoveGameComponents} ()] \item[]
-
-\end{description}
-
-\subsection{Klasse GameScreenManager}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Peek} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Switch} (\ptype{GameScreen})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Pop} (\ptype{GameScreen})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Push} (\ptype{GameScreen})] \item[]
 
 \end{description}
 
@@ -550,9 +656,9 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime}\ptype{IEnumerable} \varname{GameTime})] \item[]
+\item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime}, \ptype{IEnumerable} \varname{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{GameStateComponent} (\ptype{GameScreen}\ptype{DisplayLayer})] \item[]
+\item[\keyword{public} \ptype{void} \varname{GameStateComponent} (\ptype{GameScreen}, \ptype{DisplayLayer})] \item[]
 
 \end{description}
 
@@ -562,11 +668,13 @@ test
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{protected} \ptype{void} \varname{SettingsMenuSection}] \item[]
+\item[\keyword{protected} \ptype{void} \varname{settingsMenu}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
 
 \end{description}
 
@@ -604,7 +712,7 @@ test
 
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
 
 \item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
 
@@ -612,9 +720,9 @@ test
 
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{GameModel} (\ptype{GameScreen}\ptype{GameModelInfo})] \item[]
+\item[\keyword{public} \ptype{void} \varname{GameModel} (\ptype{GameScreen}, \ptype{GameModelInfo})] \item[]
 
 \end{description}
 
@@ -634,6 +742,20 @@ test
 
 \end{description}
 
+\subsection{Klasse KeyInputItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{private} \ptype{OptionInfo} \varname{option}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
+
+\end{description}
+
 \subsection{Klasse Knot}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
@@ -648,27 +770,43 @@ test
 
 \item[\keyword{private} \ptype{IKnotIO} \varname{file}] \item[]
 
+\item[\keyword{public} \ptype{Action} \varname{EdgesChanged}] \item[]
+
+\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{SeletedEdges}] \item[]
+
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Knot} ()] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Save} ()] \item[]
 
+\item[\keyword{public} \ptype{void} \varname{ClearSelection} ()] \item[]
+
 \item[\keyword{public} \ptype{IKnotIO} \varname{Knot} (\ptype{IKnotIO} \varname{file})] \item[]
 
 \item[\keyword{public} \ptype{KnotMetaData} \varname{Knot} (\ptype{KnotMetaData} \varname{info})] \item[]
 
-\item[\keyword{public} \ptype{Boolean} \varname{IsValidMove} (\ptype{Boolean}\ptype{Direction} \varname{dir}\ptype{Integer} \varname{distance})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{IsValidMove} (\ptype{Boolean}, \ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})] \item[]
 
-\item[\keyword{public} \ptype{Boolean} \varname{Move} (\ptype{Boolean}\ptype{Direction} \varname{dir}\ptype{Integer} \varname{distance})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{Move} (\ptype{Boolean}, \ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})] \item[]
 
-\item[\keyword{public} \ptype{Knot} \varname{} (\ptype{Knot} \varname{knotA}\ptype{Knot} \varname{knotB}\ptype{Boolean})] \item[]
+\item[\keyword{public} \ptype{Knot} \varname{} (\ptype{Knot} \varname{knotA}, \ptype{Knot} \varname{knotB}, \ptype{Boolean})] \item[]
 
-\item[\keyword{public} \ptype{Boolean} \varname{} (\ptype{Boolean}\ptype{Knot} \varname{knotA}\ptype{Knot} \varname{knotB})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{} (\ptype{Boolean}, \ptype{Knot} \varname{knotA}, \ptype{Knot} \varname{knotB})] \item[]
 
 \item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} (\ptype{IEnumerator<Edge>})] \item[]
 
 \item[\keyword{public} \ptype{IKnotInfo} \varname{Save} (\ptype{IKnotInfo} \varname{file})] \item[]
+
+\item[\keyword{public} \ptype{Object} \varname{Save} (\ptype{Object})] \item[]
+
+\item[\keyword{public} \ptype{Edge} \varname{AddToSelection} (\ptype{Edge} \varname{edge})] \item[]
+
+\item[\keyword{public} \ptype{Edge} \varname{RemoveFromSelection} (\ptype{Edge} \varname{edge})] \item[]
+
+\item[\keyword{public} \ptype{Edge} \varname{ClearSelection} (\ptype{Edge} \varname{edge})] \item[]
+
+\item[\keyword{public} \ptype{Boolean} \varname{IsSelected} (\ptype{Boolean}, \ptype{Edge} \varname{edge})] \item[]
 
 \end{description}
 
@@ -680,7 +818,7 @@ test
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{bool} \varname{IsFullScreen}] \item[]
 
-\item[\keyword{public} \ptype{GameScreenManager} \varname{Screens}] \item[]
+\item[\keyword{public} \ptype{Stack<GameScreen>} \varname{Screens}] \item[]
 
 \item[\keyword{public} \ptype{bool} \varname{VSync}] \item[]
 
@@ -738,7 +876,7 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{protected} \ptype{KnotMetaData} \varname{KnotInfo} (\ptype{KnotMetaData}\ptype{String} \varname{name}\ptype{Integer} \varname{countEdges}\ptype{IKnotIO(} \varname{file})] \item[]
+\item[\keyword{protected} \ptype{KnotMetaData} \varname{KnotInfo} (\ptype{KnotMetaData}, \ptype{String} \varname{name}, \ptype{Integer} \varname{countEdges}, \ptype{IKnotIO(} \varname{file})] \item[]
 
 \end{description}
 
@@ -764,13 +902,13 @@ test
 
 \end{description}
 
-\subsection{Klasse LoadScreen}
+\subsection{Klasse Localizer}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
 
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+\item[\keyword{public} \ptype{String} \varname{Localize} (, \ptype{String})] \item[]
 
 \end{description}
 
@@ -782,13 +920,25 @@ test
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 
+\item[\keyword{public} \ptype{Func<int, Vector2>} \varname{RelativeItemSize}] \item[]
+
+\item[\keyword{public} \ptype{Func<int, Vector2>} \varname{RelativeItemPosition}] \item[]
+
+\item[\keyword{public} \ptype{Func<ItemState, Vector2>} \varname{ItemForegroundColor}] \item[]
+
+\item[\keyword{public} \ptype{Func<ItemState, Vector2>} \varname{ItemBackgroundColor}] \item[]
+
+\item[\keyword{public} \ptype{HorizontalAlignment} \varname{ItemAlignX}] \item[]
+
+\item[\keyword{public} \ptype{VerticalAlignment} \varname{ItemAlignY}] \item[]
+
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem}\ptype{MenuItem})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem}, \ptype{MenuItem})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Delete} (\ptype{MenuItem}\ptype{MenuItem})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Delete} (\ptype{MenuItem}, \ptype{MenuItem})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{GetChild} (\ptype{int}\ptype{int})] \item[]
+\item[\keyword{public} \ptype{void} \varname{GetChild} (\ptype{int}, \ptype{int})] \item[]
 
 \item[\keyword{public} \ptype{int} \varname{Size} (\ptype{int})] \item[]
 
@@ -805,20 +955,8 @@ test
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 
 \end{description}
-
-\subsection{Klasse MenuItem}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-
-
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
-
-\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
+\item[\keyword{public} \ptype{String} \varname{MenuButton} (\ptype{String} \varname{name})] \item[]
 
 \end{description}
 
@@ -842,7 +980,71 @@ test
 
 
 
+\subsection{Klasse MenuItem}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{ItemState} \varname{ItemState}] \item[]
+
+\item[\keyword{public} \ptype{int} \varname{ItemOrder}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Text}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
+
+\item[\keyword{public} \ptype{Rectangle} \varname{Bounds} (\ptype{Rectangle})] \item[]
+
+\end{description}
+
 \subsection{Klasse MenuScreen}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
+
+\end{description}
+
+\subsection{Klasse ModelFactory}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{private} \ptype{Dictionary<GameModelInfo, GameModel>} \varname{cache}] \item[]
+
+\item[\keyword{private} \ptype{Func<GameState, GameModelInfo, GameModel>} \varname{createModel}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{GameModel} \varname{this} (, , \ptype{GameModel})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{ModelFactory} (\ptype{Func&lt;GameState}, \ptype{GameModelInfo}, )] \item[]
+
+\end{description}
+
+\subsection{Klasse ModelkeyHandler}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse ModelMouseHandler}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
 
@@ -870,15 +1072,21 @@ test
 
 \item[\keyword{public} \ptype{Knot} \varname{Knot}] \item[]
 
+\item[\keyword{private} \ptype{ModelFactory} \varname{pipeFactory}] \item[]
+
+\item[\keyword{private} \ptype{ModelFactory} \varname{nodeFactory}] \item[]
+
+\item[\keyword{private} \ptype{ModelFactory} \varname{arrowFactory}] \item[]
+
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{ModelRenderer} (\ptype{GameState}\ptype{GameObjectInfo}\ptype{GameState})] \item[]
+\item[\keyword{public} \ptype{void} \varname{ModelRenderer} (\ptype{GameState}, \ptype{GameObjectInfo}, \ptype{GameState})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
 
@@ -896,7 +1104,7 @@ test
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{MousePointer} (\ptype{GameState})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime}, )] \item[]
 
 \end{description}
 
@@ -910,7 +1118,7 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{NodeModel} (\ptype{GameScreen}\ptype{NodeModelInfo})] \item[]
+\item[\keyword{public} \ptype{void} \varname{NodeModel} (\ptype{GameScreen}, \ptype{NodeModelInfo})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
 
@@ -934,7 +1142,39 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{NodeModelInfo} (\ptype{EdgeList}\ptype{Edge}\ptype{Edge})] \item[]
+\item[\keyword{public} \ptype{void} \varname{NodeModelInfo} (\ptype{EdgeList}, \ptype{Edge}, \ptype{Edge})] \item[]
+
+\end{description}
+
+\subsection{Klasse OptionInfo}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{private} \ptype{ConfigFile} \varname{configFile}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Section}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{DefaultValue}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Value}] \item[]
+
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{OptionInfo} (, , , )] \item[]
+
+\end{description}
+
+\subsection{Klasse Options}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{ConfigFile} \varname{Default}] \item[]
 
 \end{description}
 
@@ -952,9 +1192,9 @@ test
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{PipeModel} (\ptype{GameScreen}\ptype{PipeModelInfo})] \item[]
+\item[\keyword{public} \ptype{void} \varname{PipeModel} (\ptype{GameScreen}, \ptype{PipeModelInfo})] \item[]
 
 \end{description}
 
@@ -974,7 +1214,7 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{PipeModelInfo} (\ptype{EdgeList}\ptype{Edge})] \item[]
+\item[\keyword{public} \ptype{void} \varname{PipeModelInfo} (\ptype{EdgeList}, \ptype{Edge})] \item[]
 
 \end{description}
 
@@ -994,11 +1234,11 @@ test
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Vector3} \varname{Center} (\ptype{Vector3})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{PipeMovement} (\ptype{GameState}\ptype{World}\ptype{GameObjectInfo})] \item[]
+\item[\keyword{public} \ptype{void} \varname{PipeMovement} (\ptype{GameState}, \ptype{World}, \ptype{GameObjectInfo})] \item[]
 
 \item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} (\ptype{IEnumerator})] \item[]
 
@@ -1012,13 +1252,13 @@ test
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{protected} \ptype{void} \varname{SettingsMenuSection}] \item[]
-
-\item[\keyword{public} \ptype{string} \varname{Name}] \item[]
+\item[\keyword{protected} \ptype{void} \varname{settingsMenu}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
 
 \end{description}
 
@@ -1040,7 +1280,7 @@ test
 
 \item[\keyword{public} \ptype{void} \varname{End} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel}\ptype{GameTime})] \item[]
+\item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel}, \ptype{GameTime})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel})] \item[]
 
@@ -1080,11 +1320,13 @@ test
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{protected} \ptype{void} \varname{SettingsMenuSection}] \item[]
+\item[\keyword{protected} \ptype{void} \varname{navigation}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\item[\keyword{public} \ptype{GameScreen} \varname{Update} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
 
 \end{description}
 
@@ -1100,7 +1342,7 @@ test
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{ShadowGameModel} (\ptype{GameState}\ptype{GameModel})] \item[]
+\item[\keyword{public} \ptype{void} \varname{ShadowGameModel} (\ptype{GameState}, \ptype{GameModel})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
 
@@ -1128,9 +1370,9 @@ test
 
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
 
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}\ptype{GameObjectDistance} \varname{Ray})] \item[]
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray}, \ptype{GameObjectDistance} \varname{Ray})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{ShadowGameObject} (\ptype{GameState}\ptype{IGameObject})] \item[]
+\item[\keyword{public} \ptype{void} \varname{ShadowGameObject} (\ptype{GameState}, \ptype{IGameObject})] \item[]
 
 \end{description}
 
@@ -1140,19 +1382,13 @@ test
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{MaxValue}] \item[]
-
 \item[\keyword{public} \ptype{int} \varname{Value}] \item[]
 
 \item[\keyword{public} \ptype{int} \varname{MinValue}] \item[]
 
+\item[\keyword{public} \ptype{int} \varname{MaxValue}] \item[]
+
 \end{description}
-
-\subsection{Klasse SoundSlider}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-
-
 
 \subsection{Klasse StandardEffect}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -1188,13 +1424,13 @@ test
 
 \end{description}
 
-\subsection{Klasse TextItem}
+\subsection{Klasse TutorialChallengeMode}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
 
 
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{Text}] \item[]
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{GameScreen} \varname{Entered} (\ptype{GameTime}, \ptype{GameScreen} \varname{previousScreen})] \item[]
 
 \end{description}
 
@@ -1216,15 +1452,39 @@ test
 
 \item[\keyword{public} \ptype{bool} \varname{IsVisible}] \item[]
 
-\item[\keyword{public} \ptype{Color} \varname{BackgroundColor}] \item[]
+\item[\keyword{public} \ptype{Func<Color>} \varname{BackgroundColor}] \item[]
 
-\item[\keyword{public} \ptype{Color} \varname{ForegroundColor}] \item[]
+\item[\keyword{public} \ptype{Func<Color>} \varname{ForegroundColor}] \item[]
+
+\item[\keyword{public} \ptype{HorizontalAlignment} \varname{AlignX}] \item[]
+
+\item[\keyword{public} \ptype{VerticalAlignment} \varname{AlignY}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Rectangle} \varname{BoundingBox} (\ptype{Rectangle})] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Widget} ()] \item[]
+\item[\keyword{public} \ptype{void} \varname{Widget} (, )] \item[]
+
+\end{description}
+
+\subsection{Klasse WidgetKeyHandler}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
+
+\end{description}
+
+\subsection{Klasse WidgetMouseHandler}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} ()] \item[]
 
 \end{description}
 

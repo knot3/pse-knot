@@ -1,35 +1,46 @@
-// test
+// Diese Klasse repräsentiert ein 3D-Modell für einen Pfeil, der an selektierten Kanten erscheinen soll.
 public class ArrowModel : 
   Attributes:
-    // 
+    // Das Info-Objekt, das die Position und Richtung des Pfeils enthält.
     + Info : ArrowModelInfo
   Methods:
-    // 
+    // Zeichnet den Pfeil.
     + Draw (GameTime) : void
     // 
     + Intersects (Ray, GameObjectDistance Ray) : GameObjectDistance
-    // 
+    // Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
     + ArrowModel (GameScreen, ArrowModelInfo) : void
     // 
     + Update (GameTime) : void
 
-// 
+// Ein Objekt dieser Klasse hält alle Informationen hält, die zur Erstellung eines Pfeil-3D-Modelles (ArrowModel) notwendig sind.
 public class ArrowModelInfo : 
   Attributes:
-    // 
+    // Die Richtung, die die der Pfeil zeigen soll.
     + Direction : Vector3
   Methods:
-    // 
+    // Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum, das in eine bestimmte Richtung zeigt.
     + ArrowModelInfo (Vector3, Vector3) : void
 
 // 
 public class AudioSettingsScreen : 
   Attributes:
     // 
-    # SettingsMenuSection : void
+    # settingsMenu : void
   Methods:
     // 
     + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
+
+// 
+public class BooleanOptionInfo : 
+  Attributes:
+    // 
+    + Value : bool
+  Methods:
+    // 
+    + BooleanOptionInfo (, , , ) : void
 
 // 
 public class Camera : 
@@ -126,6 +137,15 @@ public class ChallengeFileIO :
     + Save (Challenge challenge) : Challenge
 
 // 
+public class ChallengeLoadScreen : 
+  Attributes:
+  Methods:
+    // 
+    + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
+
+// 
 public class ChallengeMetaData : 
   Attributes:
     // 
@@ -155,9 +175,24 @@ public class ChallengeMode :
     - PlayerKnotRenderer : ModelRenderer
     // 
     - PlayerKnotMovement : PipeMovement
+    // 
+    + Undo : Stack<Knot>
+    // 
+    + Redo : Stack<Knot>
   Methods:
     // 
     + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
+
+// 
+public class CheckBoxItem : 
+  Attributes:
+    // 
+    - option : BooleanOptionInfo
+  Methods:
+    // 
+    + CheckBoxItem (BooleanOptionInfo option) : BooleanOptionInfo
 
 // 
 public class Circle : 
@@ -171,6 +206,18 @@ public class Circle :
   Methods:
     // 
     + Circle (T content) : T
+
+// 
+public class Class1 : 
+  Attributes:
+    // 
+    - pauseMenu : VerticalMenu
+  Methods:
+
+// 
+public class Class1 : 
+  Attributes:
+  Methods:
 
 // 
 public class ColorPicker : 
@@ -195,6 +242,19 @@ public class ColorPickItem :
   Methods:
 
 // 
+public class ConfigFile : 
+  Attributes:
+  Methods:
+    // 
+    + SetOption (, ) : void
+    // 
+    + GetOption (, , , bool ) : bool
+    // 
+    + GetOption (, , , string ) : string
+    // 
+    + SetOption (, ) : void
+
+// 
 public class ConfirmDialog : 
   Attributes:
   Methods:
@@ -203,10 +263,21 @@ public class ConfirmDialog :
 public class ControlSettingsScreen : 
   Attributes:
     // 
-    # SettingsMenuSection : void
+    # settingsMenu : void
   Methods:
     // 
     + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
+
+// 
+public class CreativeLoadScreen : 
+  Attributes:
+  Methods:
+    // 
+    + Update () : void
+    // 
+    + Entered (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
 public class CreativeMode : 
@@ -217,9 +288,15 @@ public class CreativeMode :
     + Knot : World
     // 
     - KnotRenderer : ModelRenderer
+    // 
+    + Undo : Stack<Knot>
+    // 
+    + Redo : Stack<Knot>
   Methods:
     // 
     + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
 public class CreditsScreen : 
@@ -227,6 +304,8 @@ public class CreditsScreen :
   Methods:
     // 
     + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
 public class Dialog : 
@@ -246,6 +325,17 @@ public class Dialog :
     + OnRightClick () : void
 
 // 
+public class DistinctOptionInfo : 
+  Attributes:
+    // 
+    + ValidValues : HashSet<string>
+    // 
+    + Value : String
+  Methods:
+    // 
+    + DistinctOptionInfo (, , , , ) : void
+
+// 
 public class DrawableGameStateComponent : 
   Attributes:
     // 
@@ -261,9 +351,13 @@ public class DrawableGameStateComponent :
 // 
 public class DropDownMenuItem : 
   Attributes:
+    // 
+    - dropdown : VerticalMenu
   Methods:
     // 
-    + AddEntries (DropDownEntrie, ) : void
+    + AddEntries () : void
+    // 
+    + AddEntries () : void
 
 // 
 public class Edge : 
@@ -290,8 +384,6 @@ public class Edge :
 // 
 public class Edge : 
   Attributes:
-    // 
-    + Selected : Boolean
     // 
     + EdgeColor : Color
     // 
@@ -330,13 +422,15 @@ public class FileIO :
 public class Game : 
   Attributes:
   Methods:
+    // 
+    + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
 public class Game : 
   Attributes:
   Methods:
-    // 
-    + Update () : void
 
 // 
 public class GameModelInfo : 
@@ -377,32 +471,17 @@ public class GameScreen :
     + PostProcessingEffect : RenderEffect
   Methods:
     // 
-    + Entered () : void
-    // 
-    + BeforeSwitch () : void
-    // 
-    + BeforeExit () : void
-    // 
     + Update () : void
     // 
-    + Entered (Game) : void
+    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    // 
+    + BeforeExit (GameTime, GameScreen nextScreen) : GameScreen
+    // 
+    + Update (Game) : void
     // 
     + AddGameComponents () : void
     // 
     + RemoveGameComponents () : void
-
-// 
-public class GameScreenManager : 
-  Attributes:
-  Methods:
-    // 
-    + Peek () : void
-    // 
-    + Switch (GameScreen) : void
-    // 
-    + Pop (GameScreen) : void
-    // 
-    + Push (GameScreen) : void
 
 // 
 public class GameStateComponent : 
@@ -421,10 +500,12 @@ public class GameStateComponent :
 public class GraphicsSettingsScreen : 
   Attributes:
     // 
-    # SettingsMenuSection : void
+    # settingsMenu : void
   Methods:
     // 
     + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
 public class IGameObject : 
@@ -482,6 +563,15 @@ public class InputItem :
   Methods:
 
 // 
+public class KeyInputItem : 
+  Attributes:
+    // 
+    - option : OptionInfo
+  Methods:
+    // 
+    + OnKeyEvent () : void
+
+// 
 public class Knot : 
   Attributes:
     // 
@@ -492,11 +582,17 @@ public class Knot :
     + Info : KnotMetaData
     // 
     - file : IKnotIO
+    // 
+    + EdgesChanged : Action
+    // 
+    + SeletedEdges : IEnumerable<Edge>
   Methods:
     // 
     + Knot () : void
     // 
     + Save () : void
+    // 
+    + ClearSelection () : void
     // 
     + Knot (IKnotIO file) : IKnotIO
     // 
@@ -513,6 +609,16 @@ public class Knot :
     + GetEnumerator (IEnumerator<Edge> ) : IEnumerator<Edge>
     // 
     + Save (IKnotInfo file) : IKnotInfo
+    // 
+    + Save (Object ) : Object
+    // 
+    + AddToSelection (Edge edge) : Edge
+    // 
+    + RemoveFromSelection (Edge edge) : Edge
+    // 
+    + ClearSelection (Edge edge) : Edge
+    // 
+    + IsSelected (Boolean , Edge edge) : Boolean
 
 // 
 public class Knot3Game : 
@@ -520,7 +626,7 @@ public class Knot3Game :
     // 
     + IsFullScreen : bool
     // 
-    + Screens : GameScreenManager
+    + Screens : Stack<GameScreen>
     // 
     + VSync : bool
     // 
@@ -587,17 +693,29 @@ public class KnotStringIO :
     + KnotStringIO (String content) : String
 
 // 
-public class LoadScreen : 
+public class Localizer : 
   Attributes:
   Methods:
     // 
-    + Update () : void
+    + Localize (, String ) : String
 
 // 
 public class Menu : 
   Attributes:
     // 
     + Name : String
+    // 
+    + RelativeItemSize : Func<int, Vector2>
+    // 
+    + RelativeItemPosition : Func<int, Vector2>
+    // 
+    + ItemForegroundColor : Func<ItemState, Vector2>
+    // 
+    + ItemBackgroundColor : Func<ItemState, Vector2>
+    // 
+    + ItemAlignX : HorizontalAlignment
+    // 
+    + ItemAlignY : VerticalAlignment
   Methods:
     // 
     + Add (MenuItem, MenuItem) : void
@@ -616,19 +734,8 @@ public class MenuButton :
     // 
     + Name : String
   Methods:
-
-// 
-public class MenuItem : 
-  Attributes:
-  Methods:
     // 
-    + OnLeftClick () : void
-    // 
-    + OnRightClick () : void
-    // 
-    + OnKeyEvent () : void
-    // 
-    + Bounds (Rectangle ) : Rectangle
+    + MenuButton (String name) : String
 
 // 
 public class MenuItem : 
@@ -645,7 +752,55 @@ public class MenuItem :
   Methods:
 
 // 
+public class MenuItem : 
+  Attributes:
+    // 
+    + ItemState : ItemState
+    // 
+    + ItemOrder : int
+    // 
+    + Text : String
+  Methods:
+    // 
+    + OnLeftClick () : void
+    // 
+    + OnRightClick () : void
+    // 
+    + OnKeyEvent () : void
+    // 
+    + Bounds (Rectangle ) : Rectangle
+
+// 
 public class MenuScreen : 
+  Attributes:
+  Methods:
+    // 
+    + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
+
+// 
+public class ModelFactory : 
+  Attributes:
+    // 
+    - cache : Dictionary<GameModelInfo, GameModel>
+    // 
+    - createModel : Func<GameState, GameModelInfo, GameModel>
+  Methods:
+    // 
+    + this (, , GameModel ) : GameModel
+    // 
+    + ModelFactory (Func&lt;GameState, GameModelInfo, ) : void
+
+// 
+public class ModelkeyHandler : 
+  Attributes:
+  Methods:
+    // 
+    + Update () : void
+
+// 
+public class ModelMouseHandler : 
   Attributes:
   Methods:
     // 
@@ -666,6 +821,12 @@ public class ModelRenderer :
     - pipes : List<PipeModel>
     // 
     + Knot : Knot
+    // 
+    - pipeFactory : ModelFactory
+    // 
+    - nodeFactory : ModelFactory
+    // 
+    - arrowFactory : ModelFactory
   Methods:
     // 
     + Center (Vector3 ) : Vector3
@@ -718,6 +879,30 @@ public class NodeModelInfo :
   Methods:
     // 
     + NodeModelInfo (EdgeList, Edge, Edge) : void
+
+// 
+public class OptionInfo : 
+  Attributes:
+    // 
+    - configFile : ConfigFile
+    // 
+    + Section : String
+    // 
+    + Name : String
+    // 
+    + DefaultValue : String
+    // 
+    + Value : String
+  Methods:
+    // 
+    + OptionInfo (, , , ) : void
+
+// 
+public class Options : 
+  Attributes:
+    // 
+    + Default : ConfigFile
+  Methods:
 
 // 
 public class PipeModel : 
@@ -776,12 +961,12 @@ public class PipeMovement :
 public class ProfileSettingsScreen : 
   Attributes:
     // 
-    # SettingsMenuSection : void
-    // 
-    + Name : string
+    # settingsMenu : void
   Methods:
     // 
     + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
 public class RenderEffect : 
@@ -828,10 +1013,12 @@ public class SaveLoadDialog :
 public class SettingsScreen : 
   Attributes:
     // 
-    # SettingsMenuSection : void
+    # navigation : void
   Methods:
     // 
     + Update () : void
+    // 
+    + Update (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
 public class ShadowGameModel : 
@@ -873,16 +1060,11 @@ public class ShadowGameObject :
 public class SliderItem : 
   Attributes:
     // 
-    + MaxValue : void
-    // 
     + Value : int
     // 
     + MinValue : int
-  Methods:
-
-// 
-public class SoundSlider : 
-  Attributes:
+    // 
+    + MaxValue : int
   Methods:
 
 // 
@@ -912,11 +1094,11 @@ public class TextInputDialog :
   Methods:
 
 // 
-public class TextItem : 
+public class TutorialChallengeMode : 
   Attributes:
-    // 
-    + Text : String
   Methods:
+    // 
+    + Entered (GameTime, GameScreen previousScreen) : GameScreen
 
 // 
 public class VerticalMenu : 
@@ -933,14 +1115,32 @@ public class Widget :
     // 
     + IsVisible : bool
     // 
-    + BackgroundColor : Color
+    + BackgroundColor : Func<Color>
     // 
-    + ForegroundColor : Color
+    + ForegroundColor : Func<Color>
+    // 
+    + AlignX : HorizontalAlignment
+    // 
+    + AlignY : VerticalAlignment
   Methods:
     // 
     + BoundingBox (Rectangle ) : Rectangle
     // 
     + Widget (, ) : void
+
+// 
+public class WidgetKeyHandler : 
+  Attributes:
+  Methods:
+    // 
+    + Update () : void
+
+// 
+public class WidgetMouseHandler : 
+  Attributes:
+  Methods:
+    // 
+    + Update () : void
 
 // 
 public class World : 
