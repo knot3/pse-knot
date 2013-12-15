@@ -89,7 +89,11 @@ Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
 
 \subsection{Klasse Camera}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Jede Instanz der World-Klasse hält eine für diese Spielwelt verwendete Kamera als Attribut.
+Die Hauptfunktion der Kamera-Klasse ist das Berechnen der drei Matrizen, die für die Positionierung
+und Skalierung von 3D-Objekten in einer bestimmten Spielwelt benötigt werden, der View-, World- und Projection-Matrix.
+Um diese Matrizen zu berechnen, benötigt die Kamera unter Anderem Informationen über die aktuelle Kamera-Position,
+das aktuelle Kamera-Target und das Field of View.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/Camera}
@@ -98,23 +102,23 @@ Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{private} \ptype{void} \varname{World}] \item[]
-
+Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 \item[\keyword{public} \ptype{Vector3} \varname{Position}] \item[]
-
+Die Position der Kamera.
 \item[\keyword{public} \ptype{Vector3} \varname{Target}] \item[]
-
+Das Ziel der Kamera.
 \item[\keyword{public} \ptype{float} \varname{FoV}] \item[]
-
+Das Field of View.
 \item[\keyword{public} \ptype{Matrix} \varname{ViewMatrix}] \item[]
-
+Die View-Matrix wird über die statische Methode CreateLookAt der Klasse Matrix des XNA-Frameworks mit Matrix.CreateLookAt (Position, Target, Vector3.Up) berechnet.
 \item[\keyword{public} \ptype{Matrix} \varname{WorldMatrix}] \item[]
-
+Die World-Matrix wird mit Matrix.CreateFromYawPitchRoll und den drei Rotationswinkeln berechnet.
 \item[\keyword{public} \ptype{Matrix} \varname{ProjectionMatrix}] \item[]
-
+Die Projektionsmatrix wird über die statische XNA-Methode Matrix.CreatePerspectiveFieldOfView berechnet.
 \item[\keyword{public} \ptype{Vector3} \varname{ArcballTarget}] \item[]
-
+Eine Position, um die rotiert werden soll, wenn der User die rechte Maustaste gedrückt hält und die Maus bewegt.
 \item[\keyword{public} \ptype{BoundingFrustum} \varname{ViewFrustum}] \item[]
-
+Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-Objekt sich um Blickfeld des Spielers befindet.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Vector3} \varname{TargetDirection} (\ptype{Vector3})] \item[]

@@ -41,26 +41,30 @@ public class BooleanOptionInfo :
   Methods:
     + BooleanOptionInfo (, , , ) : void
 
-// 
+// Jede Instanz der World-Klasse hält eine für diese Spielwelt verwendete Kamera als Attribut.
+// Die Hauptfunktion der Kamera-Klasse ist das Berechnen der drei Matrizen, die für die Positionierung
+// und Skalierung von 3D-Objekten in einer bestimmten Spielwelt benötigt werden, der View-, World- und Projection-Matrix.
+// Um diese Matrizen zu berechnen, benötigt die Kamera unter Anderem Informationen über die aktuelle Kamera-Position,
+// das aktuelle Kamera-Target und das Field of View.
 public class Camera : 
   Attributes:
-    // 
+    // Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
     - World : void
-    // 
+    // Die Position der Kamera.
     + Position : Vector3
-    // 
+    // Das Ziel der Kamera.
     + Target : Vector3
-    // 
+    // Das Field of View.
     + FoV : float
-    // 
+    // Die View-Matrix wird über die statische Methode CreateLookAt der Klasse Matrix des XNA-Frameworks mit Matrix.CreateLookAt (Position, Target, Vector3.Up) berechnet.
     + ViewMatrix : Matrix
-    // 
+    // Die World-Matrix wird mit Matrix.CreateFromYawPitchRoll und den drei Rotationswinkeln berechnet.
     + WorldMatrix : Matrix
-    // 
+    // Die Projektionsmatrix wird über die statische XNA-Methode Matrix.CreatePerspectiveFieldOfView berechnet.
     + ProjectionMatrix : Matrix
-    // 
+    // Eine Position, um die rotiert werden soll, wenn der User die rechte Maustaste gedrückt hält und die Maus bewegt.
     + ArcballTarget : Vector3
-    // 
+    // Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-Objekt sich um Blickfeld des Spielers befindet.
     + ViewFrustum : BoundingFrustum
   Methods:
     // 
