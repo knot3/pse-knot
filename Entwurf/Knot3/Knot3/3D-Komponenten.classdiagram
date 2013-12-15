@@ -62,7 +62,7 @@
         </suppliersInternal>
         <generalsInternal>
           <generalization Id="2cc4a55c-f2fa-4958-b5ec-0f14a7512559" isSubstitutable="false">
-            <classMoniker Id="4ed8f4eb-6cb2-4845-b598-69f9903b43ec" LastKnownName="DrawableGameStateComponent" />
+            <classMoniker Id="4ed8f4eb-6cb2-4845-b598-69f9903b43ec" LastKnownName="DrawableGameScreenComponent" />
             <elementDefinition Id="71f899f3-21f0-4e25-8e5b-0a6c0d06880e" />
           </generalization>
         </generalsInternal>
@@ -158,10 +158,10 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="4ed8f4eb-6cb2-4845-b598-69f9903b43ec" name="DrawableGameStateComponent" isAbstract="true" isLeaf="false" isActiveClass="false">
+      <class Id="4ed8f4eb-6cb2-4845-b598-69f9903b43ec" name="DrawableGameScreenComponent" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="66521df7-75cf-4193-bcb8-e1f6e64ac58f" />
         <ownedAttributesInternal>
-          <property Id="ae200abc-af55-4a19-8ea9-96d455806d6e" name="State" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="ae200abc-af55-4a19-8ea9-96d455806d6e" name="Screen" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="3de1c8fb-8e72-44fd-bd96-caadc3069882" />
             <type_NamedElement>
               <referencedTypeMoniker Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" LastKnownName="GameScreen" />
@@ -218,7 +218,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="c2bec8b7-6678-486a-8436-7b5e717db166" name="GameStateComponent" isAbstract="true" isLeaf="false" isActiveClass="false">
+      <class Id="c2bec8b7-6678-486a-8436-7b5e717db166" name="GameScreenComponent" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="da6db864-d5d8-4bc7-8081-d3f3b61e3e5e" />
         <ownedAttributesInternal>
           <property Id="e4f1ebdf-80bd-44cc-a80d-e0eeb6b8afdc" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -227,7 +227,7 @@
               <referencedTypeMoniker Id="1f772a9f-e24b-4f18-b624-fbbd1f799c89" LastKnownName="DisplayLayer" />
             </type_NamedElement>
           </property>
-          <property Id="55f6fe8b-fb62-42cc-a0b5-99851e25a9d4" name="State" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="55f6fe8b-fb62-42cc-a0b5-99851e25a9d4" name="Screen" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="f7b802e4-0f18-4925-bfe5-8d9e71c1897d" />
             <type_NamedElement>
               <referencedTypeMoniker Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" LastKnownName="GameScreen" />
@@ -282,7 +282,7 @@
         <elementDefinition Id="dc6d386c-ecb4-4739-a308-e086d1507e61" />
         <generalsInternal>
           <generalization Id="f30e6ec2-ccfb-4fd5-bbeb-8764d4b343de" isSubstitutable="false">
-            <classMoniker Id="c2bec8b7-6678-486a-8436-7b5e717db166" LastKnownName="GameStateComponent" />
+            <classMoniker Id="c2bec8b7-6678-486a-8436-7b5e717db166" LastKnownName="GameScreenComponent" />
             <elementDefinition Id="6b55186a-8f0e-4c08-a369-b5ee2f906058" />
           </generalization>
         </generalsInternal>
@@ -434,7 +434,7 @@
         <elementDefinition Id="67e9d870-4452-4058-b387-278e56983f41" />
         <generalsInternal>
           <generalization Id="286c84d6-3b86-4ab0-84e8-26d2f886b7ef" isSubstitutable="false">
-            <classMoniker Id="c2bec8b7-6678-486a-8436-7b5e717db166" LastKnownName="GameStateComponent" />
+            <classMoniker Id="c2bec8b7-6678-486a-8436-7b5e717db166" LastKnownName="GameScreenComponent" />
             <elementDefinition Id="1d5c4151-d9d3-41fe-ba07-85ab5dfc9f25" />
           </generalization>
         </generalsInternal>
@@ -450,7 +450,7 @@
         <elementDefinition Id="24d1b5a3-ae3e-4b93-b23e-f2476964a786" />
         <generalsInternal>
           <generalization Id="cf11d519-f643-41e7-8739-2f3c991a47b4" isSubstitutable="false">
-            <classMoniker Id="c2bec8b7-6678-486a-8436-7b5e717db166" LastKnownName="GameStateComponent" />
+            <classMoniker Id="c2bec8b7-6678-486a-8436-7b5e717db166" LastKnownName="GameScreenComponent" />
             <elementDefinition Id="3569fae1-555b-43fa-b960-b25f5ed4aa19" />
           </generalization>
         </generalsInternal>
@@ -498,6 +498,52 @@
     <packageHasNamedElement>
       <referencedType Id="a048bfba-a3aa-4171-acda-5d68905a8a4b" name="Vector2" isAbstract="false" isLeaf="false" cachedFullName="Vector2">
         <elementDefinition Id="b0ed11d7-9638-4189-9201-5eb38d88dba8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="86769632-0b60-4630-a5d1-385726113339" name="MousePointer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="74acd629-0246-44a5-9518-4ee691e261a9" />
+        <generalsInternal>
+          <generalization Id="39a4de9f-5cc3-4cfc-ae26-f0c58623acc5" isSubstitutable="false">
+            <classMoniker Id="4ed8f4eb-6cb2-4845-b598-69f9903b43ec" LastKnownName="DrawableGameScreenComponent" />
+            <elementDefinition Id="04858aa6-2e43-48da-9536-9199e5141efa" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="a42f3903-9324-45f1-b232-40fb0e3296f6" name="MousePointer" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a53bd1bf-fcfe-4f3d-9f32-b1a91f8d2ee2" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="82bbc730-7b5d-4078-88d1-aa7c4d28c380" name="GameState" direction="In" isUnique="false">
+                  <elementDefinition Id="451b7c12-355b-46e4-949e-d0d040c88be4" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0c695951-d165-4015-ab97-0f81c8c6937b" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0fa1d6f2-2772-43f8-a7da-1dc8958842a9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="27a3c4c8-4da9-49ed-940a-ccf2d53b130b" direction="Return" isUnique="false">
+                  <elementDefinition Id="247d48d7-24fc-4a23-8b6f-ba321d843e31" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7e1c2833-c885-4cf7-ba80-d2e665868a99" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d98c4549-b9ef-4aae-971f-e7e88472a137" name="GameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="12140217-bafb-479e-9d6b-aec397c432c8" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="7e1c2833-c885-4cf7-ba80-d2e665868a99" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="369f93a1-60bb-4381-af8c-be6c8fbc27a0" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

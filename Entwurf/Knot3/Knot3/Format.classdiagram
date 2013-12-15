@@ -3,7 +3,7 @@
   <ownedCommentsInternal>
     <comment Id="dffe96f7-0276-4603-9b75-495c187f0bea">
       <elementDefinition Id="d6259d05-2b5b-4070-8b80-5208783257c1" />
-      <body>Implementiert das testen, ob eine Datei ein gültiges Format enthält</body>
+      <body>Implementiert das Konvertieren eines Knoten-Namens in einen gültigen Dateinamen</body>
       <annotatedElements>
         <classMoniker Id="0401c688-f5f2-465b-be82-97d943ce0024" LastKnownName="FileIO" />
       </annotatedElements>
@@ -376,8 +376,11 @@
           </interfaceRealization>
         </suppliersInternal>
         <ownedAttributesInternal>
-          <property Id="c23f02f0-ee65-4ddd-81d9-01ddfb5a23a8" name="Edges" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="c23f02f0-ee65-4ddd-81d9-01ddfb5a23a8" name="Edges" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="d77e3d04-7cfa-4af6-bc32-650d3d7f7875" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1c58c1be-9517-4ee2-9f77-abcb7f969874" LastKnownName="IEnumerable&lt;Edge&gt;" />
+            </type_NamedElement>
           </property>
           <property Id="6187dd6f-2a02-4a01-8928-4a05abd4cbda" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="9346858d-ac92-4881-bb44-19c666c5799d" />
@@ -510,6 +513,11 @@
     <packageHasNamedElement>
       <referencedType Id="d7c46bda-b056-4106-bd2f-7fdc98082b73" name="ChallengeMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ChallengeMetaData">
         <elementDefinition Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1c58c1be-9517-4ee2-9f77-abcb7f969874" name="IEnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IEnumerable&lt;Edge&gt;">
+        <elementDefinition Id="ca6da500-091f-4832-b70d-f92c0f0fb34f" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

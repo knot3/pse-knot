@@ -62,11 +62,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="641e42a9-1cde-4bc1-a9f5-fbf154159e1d" name="Color" isAbstract="false" isLeaf="false" cachedFullName="Color">
-        <elementDefinition Id="8c01338a-807f-45aa-ad96-802ff2e82de1" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="028a2455-2bf8-4ad3-bd50-8b6aeb37c6a5" name="Vector3" isAbstract="false" isLeaf="false" cachedFullName="Vector3">
         <elementDefinition Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3" />
       </referencedType>
@@ -74,11 +69,6 @@
     <packageHasNamedElement>
       <referencedType Id="eacb3926-7243-4336-ad67-365918734814" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="dd110e77-d456-42dc-82e8-b411798ffd03" name="IKnotIO(" isAbstract="false" isLeaf="false" cachedFullName="IKnotIO(">
-        <elementDefinition Id="efda640d-1854-4ebc-a2e2-d4dc2414cf99" />
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
@@ -452,16 +442,16 @@
           </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="63f376e0-be38-4c60-89ea-9fa61bfbe8a8" name="EdgeColor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="63f376e0-be38-4c60-89ea-9fa61bfbe8a8" name="Color" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="cfde923e-cc70-44f1-8f8b-f98a21410c51" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="641e42a9-1cde-4bc1-a9f5-fbf154159e1d" LastKnownName="Color" />
+              <referencedTypeMoniker Id="08e8e3ac-1ebd-4887-b6e7-d9ede42bb801" LastKnownName="Color" />
             </type_NamedElement>
           </property>
-          <property Id="03289e47-aea6-42e3-84ee-466fa22165b0" name="Dir" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="03289e47-aea6-42e3-84ee-466fa22165b0" name="Direction" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="7843af3b-2154-4177-8a0b-32a6bc380c25" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="311dab93-c332-4392-a4e6-5fe76f61edb5" LastKnownName="Direction" />
+              <referencedTypeMoniker Id="7723ceb1-cc0c-4ffd-86f4-2f6be56768ad" LastKnownName="Direction" />
             </type_NamedElement>
           </property>
           <property Id="f6315bde-4d05-4a52-8c39-1fd2fa23eecc" name="Rectangles" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -476,10 +466,10 @@
             <elementDefinition Id="5924a8c3-ae44-4450-88aa-bfc9633db6cf" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="e7619905-f20a-4dd9-aa73-1ea8f7e8dbaf" name="dir" direction="In" isUnique="false">
-                  <elementDefinition Id="4971c2c2-7b4b-4db2-b35f-10c913afd534" />
+                <parameter Id="94c46d2e-48e9-4339-9bed-273f892d1c23" name="direction" direction="In" isUnique="false">
+                  <elementDefinition Id="a2ce145c-ce22-48de-bc1b-cd6181c56b0d" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="311dab93-c332-4392-a4e6-5fe76f61edb5" LastKnownName="Direction" />
+                    <referencedTypeMoniker Id="7723ceb1-cc0c-4ffd-86f4-2f6be56768ad" LastKnownName="Direction" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -646,26 +636,26 @@
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="9f2b377a-9bd4-4f9e-a50f-8adb47459d40" name="name" direction="In" isUnique="false">
-                  <elementDefinition Id="5e79a384-6fa4-4552-9f04-497c8e02024e" />
+                <parameter Id="4a57d321-272c-452d-94bc-1ed75e4f5af9" name="name" direction="In" isUnique="false">
+                  <elementDefinition Id="4fa2e4d8-a759-42d3-9ec4-02b7b249ba82" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" LastKnownName="String" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="ce30f224-148d-4c27-b68f-cd37897b80c7" name="countEdges" direction="In" isUnique="false">
-                  <elementDefinition Id="dcccd9ea-aed6-41d6-a5b6-ac6423e1faa2" />
+                <parameter Id="6d94d687-079c-452f-88a7-e1e91e50e63e" name="countEdges" direction="In" isUnique="false">
+                  <elementDefinition Id="1c11c07b-304d-4351-a045-8e984259d745" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="48f37cc0-80b7-4652-a597-5ad2d459d47b" LastKnownName="Integer" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c70f3e6e-6216-4a30-882c-309a63c6b1c2" name="file" direction="In" isUnique="false">
-                  <elementDefinition Id="e42db786-1c17-4fc0-82f4-41e1ae10d954" />
+                <parameter Id="92250457-223c-4755-8ffc-62f2af63ada3" name="file" direction="In" isUnique="false">
+                  <elementDefinition Id="76393bdb-7bb1-449b-947c-9d6a5a04375c" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="dd110e77-d456-42dc-82e8-b411798ffd03" LastKnownName="IKnotIO(" />
+                    <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="IKnotIO" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -816,6 +806,16 @@
     <packageHasNamedElement>
       <referencedType Id="8e662b10-f154-44c4-b83f-40ec8b0080f6" name="Circle" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Circle">
         <elementDefinition Id="bebc304e-672b-410a-bea3-bd2c5350cb64" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7723ceb1-cc0c-4ffd-86f4-2f6be56768ad" name="Direction" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Direction">
+        <elementDefinition Id="d05a8e6d-dbb6-4a7b-a194-57200c2aa5ff" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="08e8e3ac-1ebd-4887-b6e7-d9ede42bb801" name="Color" isAbstract="false" isLeaf="false" cachedFullName="Color">
+        <elementDefinition Id="8c01338a-807f-45aa-ad96-802ff2e82de1" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
