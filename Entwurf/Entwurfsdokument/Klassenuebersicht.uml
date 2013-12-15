@@ -1,3 +1,22 @@
+// 
+public class Angles3 : 
+  Attributes:
+    // 
+    + X : float
+    // 
+    + Y : float
+    // 
+    + Z : float
+    // 
+    + Zero : Angles3
+  Methods:
+    // 
+    + FromDegrees (float X, float Y, float Z) : Angles3
+    // 
+    + Angles3 (float X, float Y, float Z) : void
+    // 
+    + ToDegrees (float X, float Y, float Z) : void
+
 // Diese Klasse repräsentiert ein 3D-Modell für einen Pfeil, der an selektierten Kanten erscheinen soll.
 public class ArrowModel : 
   Attributes:
@@ -5,13 +24,13 @@ public class ArrowModel :
     + Info : ArrowModelInfo
   Methods:
     // Zeichnet den Pfeil.
-    + Draw (GameTime) : void
+    + Draw (GameTime GameTime) : void
     // 
-    + Intersects (GameObjectDistance , Ray ray) : GameObjectDistance
+    + Intersects (Ray ray) : GameObjectDistance
     // Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
-    + ArrowModel (GameScreen screen, ArrowModelInfo info) : GameScreen
+    + ArrowModel (GameScreen screen, ArrowModelInfo info) : void
     // 
-    + Update (GameTime) : void
+    + Update (GameTime GameTime) : void
 
 // Ein Objekt dieser Klasse hält alle Informationen hält, die zur Erstellung eines Pfeil-3D-Modelles (ArrowModel) notwendig sind.
 public class ArrowModelInfo : 
@@ -20,7 +39,7 @@ public class ArrowModelInfo :
     + Direction : Vector3
   Methods:
     // Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum, das in eine bestimmte Richtung zeigt.
-    + ArrowModelInfo (Vector3 position, Vector3 direction) : Vector3
+    + ArrowModelInfo (Vector3 position, Vector3 direction) : void
 
 // 
 public class AudioSettingsScreen : 
@@ -29,9 +48,9 @@ public class AudioSettingsScreen :
     # settingsMenu : void
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Diese Klasse repräsentiert eine Option, die die Werte Wahr oder Falsch annehmen kann.
 public class BooleanOptionInfo : 
@@ -39,7 +58,7 @@ public class BooleanOptionInfo :
     // Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
     + Value : bool
   Methods:
-    + BooleanOptionInfo (String section, String name, String defaultValue, ConfigFile configFile) : String
+    + BooleanOptionInfo (String section, String name, String defaultValue, ConfigFile configFile) : void
 
 // Jede Instanz der World-Klasse hält eine für diese Spielwelt verwendete Kamera als Attribut.
 // Die Hauptfunktion der Kamera-Klasse ist das Berechnen der drei Matrizen, die für die Positionierung
@@ -70,15 +89,15 @@ public class Camera :
     + Rotation : Angles3
   Methods:
     // 
-    + TargetDirection (Vector3 ) : Vector3
+    + TargetDirection () : Vector3
     // 
-    + TargetDistance (float ) : float
+    + TargetDistance () : float
     // 
-    + Camera (GameScreen screen, World world) : GameScreen
+    + Camera (GameScreen screen, World world) : void
     // 
-    + GetMouseRay (Ray , Vector2 mousePosition) : Ray
+    + Update (GameTime GameTime) : void
     // 
-    + Update (GameTime) : void
+    + GetMouseRay (Vector2 mousePosition) : Ray
 
 // 
 public class CelShadingEffect : 
@@ -87,11 +106,11 @@ public class CelShadingEffect :
     // 
     # DrawRenderTarget (GameTime) : void
     // 
-    + DrawModel (GameTime, GameModel GameModel) : GameModel
+    + DrawModel (GameTime, GameModel GameModel) : void
     // 
-    + RemapModel (GameModel GameModel) : GameModel
+    + RemapModel (GameModel GameModel) : void
     // 
-    + CelShadingEffect (GameScreen screen) : GameScreen
+    + CelShadingEffect (GameScreen screen) : void
 
 // 
 public class Challenge : 
@@ -112,13 +131,13 @@ public class Challenge :
     + Info : ChallengeMetaData
   Methods:
     // 
-    + Challenge (ChallengeInfo info, Challenge ) : ChallengeInfo
+    + Challenge (ChallengeInfo info) : Challenge
     // 
-    + Challenge (Challenge , IChallangeIO file) : Challenge
+    + Challenge (IChallangeIO file) : Challenge
     // 
-    + CreateChallenge (Boolean , Knot start, Knot target, String name, IChallengeIO file) : Boolean
+    + CreateChallenge (Knot start, Knot target, String name, IChallengeIO file) : Boolean
     // 
-    + AddToHighscore (String name, Integer time) : String
+    + AddToHighscore (String name, Integer time) : void
 
 // 
 public class ChallengeFileIO : 
@@ -139,18 +158,18 @@ public class ChallengeFileIO :
     + Meta : ChallengeMetaData
   Methods:
     // 
-    + ChallengeFileIO (String path) : String
+    + ChallengeFileIO (String path) : void
     // 
-    + Save (Challenge challenge) : Challenge
+    + Save (Challenge challenge) : void
 
 // 
 public class ChallengeLoadScreen : 
   Attributes:
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // 
 public class ChallengeMetaData : 
@@ -173,7 +192,7 @@ public class ChallengeMode :
     // 
     + ChallengeKnot : void
     // 
-    + PlayerKnot : World
+    - ChallengeWorld : World
     // 
     - PlayerWorld : World
     // 
@@ -188,9 +207,9 @@ public class ChallengeMode :
     + Redo : Stack<Knot>
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // 
 public class CheckBoxItem : 
@@ -199,7 +218,7 @@ public class CheckBoxItem :
     - option : BooleanOptionInfo
   Methods:
     // 
-    + CheckBoxItem (BooleanOptionInfo option) : BooleanOptionInfo
+    + CheckBoxItem (BooleanOptionInfo option) : void
 
 // 
 public class Circle : 
@@ -212,7 +231,7 @@ public class Circle :
     + Previous : Circle
   Methods:
     // 
-    + Circle (T content) : T
+    + Circle (T content) : void
 
 // 
 public class ColorPicker : 
@@ -227,7 +246,7 @@ public class ColorPicker :
     // 
     + OnRightClick () : void
     // 
-    + OnKeyEvent (Rectangle ) : Rectangle
+    + Bounds () : Rectangle
 
 // 
 public class ColorPickItem : 
@@ -241,13 +260,13 @@ public class ConfigFile :
   Attributes:
   Methods:
     // 
-    + SetOption (String section, String option, String value) : String
+    + SetOption (String section, String option, String value) : void
     // 
-    + GetOption (Boolean , String section, String option, Boolean defaultValue) : Boolean
+    + GetOption (String section, String option, Boolean defaultValue) : Boolean
     // 
-    + GetOption (String , String section, String option, String defaultValue) : String
+    + GetOption (String section, String option, String defaultValue) : String
     // 
-    + SetOption (String section, String option, Boolean _value) : String
+    + SetOption (String section, String option, Boolean _value) : void
 
 // 
 public class ConfirmDialog : 
@@ -263,18 +282,18 @@ public class ControlSettingsScreen :
     # settingsMenu : void
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // 
 public class CreativeLoadScreen : 
   Attributes:
   Methods:
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
 
 // 
 public class CreativeMode : 
@@ -282,7 +301,7 @@ public class CreativeMode :
     // 
     + Knot : void
     // 
-    + Knot : World
+    - World : World
     // 
     - KnotRenderer : ModelRenderer
     // 
@@ -291,18 +310,18 @@ public class CreativeMode :
     + Redo : Stack<Knot>
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime time) : void
 
 // 
 public class CreditsScreen : 
   Attributes:
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // 
 public class Dialog : 
@@ -319,7 +338,7 @@ public class Dialog :
     // 
     + OnRightClick () : void
     // 
-    + OnKeyEvent (Rectangle ) : Rectangle
+    + Bounds () : Rectangle
 
 // 
 public class DistinctOptionInfo : 
@@ -330,7 +349,7 @@ public class DistinctOptionInfo :
     + Value : String
   Methods:
     // 
-    + DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile) : String
+    + DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile) : void
 
 // 
 public class DrawableGameScreenComponent : 
@@ -341,9 +360,9 @@ public class DrawableGameScreenComponent :
     + Index : DisplayLayer
   Methods:
     // 
-    + SubComponents (GameTime, IEnumerable GameTime) : IEnumerable
+    + SubComponents (GameTime GameTime) : IEnumerable
     // 
-    + DrawableGameStateComponent (GameScreen screen, DisplayLayer index) : GameScreen
+    + DrawableGameStateComponent (GameScreen screen, DisplayLayer index) : void
 
 // 
 public class DropDownEntry : 
@@ -359,9 +378,9 @@ public class DropDownMenuItem :
     - dropdown : VerticalMenu
   Methods:
     // 
-    + AddEntries (DistinctOptionInfo option) : DistinctOptionInfo
+    + AddEntries (DistinctOptionInfo option) : void
     // 
-    + AddEntries (DropDownEntry enties) : DropDownEntry
+    + AddEntries (DropDownEntry enties) : void
 
 // 
 public class Edge : 
@@ -374,9 +393,9 @@ public class Edge :
     + Rectangles : List<int>
   Methods:
     // 
-    + Edge (Direction direction) : Direction
+    + Edge (Direction direction) : void
     // 
-    + Get3DDirection (Vector3 ) : Vector3
+    + Get3DDirection () : Vector3
 
 // 
 public class FadeEffect : 
@@ -387,7 +406,7 @@ public class FadeEffect :
     - PreviousRenderTarget : RenderTarget2D
   Methods:
     // 
-    + FadeEffect (GameScreen newScreen, GameScreen oldScreen) : GameScreen
+    + FadeEffect (GameScreen newScreen, GameScreen oldScreen) : void
     // 
     # DrawRenderTarget (GameTime) : void
 
@@ -398,7 +417,7 @@ public class FileIO :
     + FileName : String
   Methods:
     // 
-    + ConvertToFileName (String, String ) : String
+    + ConvertToFileName (String) : String
 
 // 
 public class Game : 
@@ -406,13 +425,35 @@ public class Game :
   Methods:
 
 // 
-public class Game : 
+public class GameModel : 
   Attributes:
+    // 
+    + Alpha : float
+    // 
+    + BaseColor : Color
+    // 
+    + HightlightColor : Color
+    // 
+    + HighlightIntensity : float
+    // 
+    + Info : GameModelInfo
+    // 
+    + Model : XNA.Model
+    // 
+    + World : World
+    // 
+    + WorldMatrix : Matrix
   Methods:
     // 
-    + Update (GameTime) : void
+    + Center () : Vector3
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Update (GameTime GameTime) : void
+    // 
+    + Draw (GameTime GameTime) : void
+    // 
+    + Intersects (Ray Ray) : GameObjectDistance
+    // 
+    + GameModel (GameScreen, GameModelInfo) : void
 
 // 
 public class GameModelInfo : 
@@ -425,7 +466,7 @@ public class GameModelInfo :
     + Scale : Vector3
   Methods:
     // 
-    + GameModelInfo (String modelname, Angles3 rotation) : String
+    + GameModelInfo (String modelname, Angles3 rotation) : void
 
 // 
 public class GameObjectInfo : 
@@ -440,9 +481,9 @@ public class GameObjectInfo :
     + Position : Vector3
   Methods:
     // 
-    + Equals (GameObjectInfo GameObjectInfo, Boolean ) : GameObjectInfo
+    + Equals (GameObjectInfo GameObjectInfo) : Boolean
     // 
-    + Equals (T other, Boolean ) : T
+    + Equals (T other) : Boolean
 
 // 
 public class GameScreen : 
@@ -457,17 +498,17 @@ public class GameScreen :
     + CurrentRenderEffects : RenderEffectStack
   Methods:
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime time) : void
     // 
-    + BeforeExit (GameTime, GameScreen nextScreen) : GameScreen
+    + BeforeExit (GameScreen nextScreen, GameTime time) : void
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + GameScreen (Knot3Game game) : Knot3Game
+    + GameScreen (Knot3Game game) : void
     // 
-    + AddGameComponents (IGameStateComponent[] components) : IGameStateComponent[]
+    + AddGameComponents (IGameStateComponent[] components) : void
     // 
-    + RemoveGameComponents (IGameStateComponent[] components) : IGameStateComponent[]
+    + RemoveGameComponents (IGameStateComponent[] components) : void
 
 // 
 public class GameScreenComponent : 
@@ -478,9 +519,9 @@ public class GameScreenComponent :
     + Screen : GameScreen
   Methods:
     // 
-    + SubComponents (GameTime, IEnumerable GameTime) : IEnumerable
+    + SubComponents (GameTime GameTime) : IEnumerable
     // 
-    + GameStateComponent (GameScreen screen, DisplayLayer index) : GameScreen
+    + GameStateComponent (GameScreen screen, DisplayLayer index) : void
 
 // 
 public class GraphicsSettingsScreen : 
@@ -489,9 +530,9 @@ public class GraphicsSettingsScreen :
     # settingsMenu : void
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // 
 public interface IChallengeIO : 
@@ -508,21 +549,21 @@ public interface IChallengeIO :
     + Meta : ChallengeMetaData
   Methods:
     // 
-    + Save (Challenge challenge) : Challenge
+    + Save (Challenge challenge) : void
 
 // 
 public interface ICloneable : 
   Attributes:
   Methods:
     // 
-    + Clone (Object ) : Object
+    + Clone () : Object
 
 // 
 public interface IEnumerable : 
   Attributes:
   Methods:
     // 
-    + GetEnumerator (IEnumerator ) : IEnumerator
+    + GetEnumerator () : IEnumerator
 
 // 
 public interface IEnumerable<Edge> : 
@@ -544,14 +585,14 @@ public interface IEnumerable1 :
   Attributes:
   Methods:
     // 
-    + GetEnumerator (IEnumerator ) : IEnumerator
+    + GetEnumerator () : IEnumerator
 
 // 
 public interface IEquatable : 
   Attributes:
   Methods:
     // 
-    + Equals (T other, Boolean ) : T
+    + Equals (T other) : Boolean
 
 // 
 public interface IEquatable<Angles3> : 
@@ -568,12 +609,7 @@ public interface IEquatable1 :
   Attributes:
   Methods:
     // 
-    + Equals (T other, Boolean ) : T
-
-// 
-public class IGameObject : 
-  Attributes:
-  Methods:
+    + Equals (T other) : Boolean
 
 // 
 public interface IGameObject : 
@@ -584,56 +620,13 @@ public interface IGameObject :
     + World : World
   Methods:
     // 
-    + Center (Vector3 ) : Vector3
+    + Center () : Vector3
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Draw (GameTime) : void
+    + Draw (GameTime time) : void
     // 
-    + Intersects (GameObjectDistance , Ray ray) : GameObjectDistance
-
-// 
-public class IGameObject : 
-  Attributes:
-    // 
-    + Info : GameObjectInfo
-    // 
-    + World : World
-    // 
-    + Alpha : float
-    // 
-    + BaseColor : Color
-    // 
-    + HightlightColor : Color
-    // 
-    + HighlightIntensity : float
-    // 
-    + Info : GameModelInfo
-    // 
-    + Model : XNA.Model
-    // 
-    + World : World
-    // 
-    + WorldMatrix : Matrix
-  Methods:
-    // 
-    + Center (Vector3 ) : Vector3
-    // 
-    + Update (GameTime) : void
-    // 
-    + Draw (GameTime) : void
-    // 
-    + Intersects (GameObjectDistance , Ray ray) : GameObjectDistance
-    // 
-    + Center (Vector3 ) : Vector3
-    // 
-    + Update (GameTime) : void
-    // 
-    + Draw (GameTime) : void
-    // 
-    + Intersects (Ray Ray, GameObjectDistance ) : Ray
-    // 
-    + GameModel (GameScreen, GameModelInfo) : void
+    + Intersects (Ray ray) : GameObjectDistance
 
 // 
 public interface IGameStateComponent : 
@@ -644,7 +637,7 @@ public interface IGameStateComponent :
     + Screen : GameScreen
   Methods:
     // 
-    + SubComponents (GameTime, IEnumerable ) : IEnumerable
+    + SubComponents (GameTime time) : IEnumerable
 
 // 
 public interface IJunction : 
@@ -679,7 +672,7 @@ public interface IKnotIO :
     + Meta : KnotMetaData
   Methods:
     // 
-    + Save (Knot knot) : Knot
+    + Save (Knot knot) : void
 
 // 
 public interface IMouseEventListener : 
@@ -694,7 +687,30 @@ public interface IMouseEventListener :
     // 
     + OnRightClick () : void
     // 
-    + Bounds (Rectangle ) : Rectangle
+    + Bounds () : Rectangle
+
+// 
+public class Input : 
+  Attributes:
+    // 
+    + RightMouseButton : ClickState
+    // 
+    + LeftMouseButton : ClickState
+    // 
+    + CurrentMouseState : MouseState
+    // 
+    + CurrentKeyboardState : KeyboardState
+    // 
+    + PreviousMouseState : MouseState
+    // 
+    + PreviousKeyboardState : KeyboardState
+    // 
+    + GrabMouseMovement : Boolean
+  Methods:
+    // 
+    + Input (GameScreen screen) : void
+    // 
+    + Update (GameTime time) : void
 
 // 
 public class InputItem : 
@@ -702,6 +718,21 @@ public class InputItem :
     // 
     + InputText : String
   Methods:
+
+// 
+public interface IRenderEffect : 
+  Attributes:
+    // 
+    + RenderTarget : RenderTarget2D
+  Methods:
+    // 
+    + Begin (GameTime) : void
+    // 
+    + End (GameTime) : void
+    // 
+    + DrawModel (GameTime, GameModel model) : void
+    // 
+    + RemapModel (GameModel model) : void
 
 // 
 public class KeyInputItem : 
@@ -735,31 +766,31 @@ public class Knot :
     // 
     + ClearSelection () : void
     // 
-    + Knot (IKnotIO file) : IKnotIO
+    + Knot (IKnotIO file) : void
     // 
-    + Knot (KnotMetaData info) : KnotMetaData
+    + Knot (KnotMetaData info) : void
     // 
-    + IsValidMove (Boolean , Direction dir, Integer distance) : Boolean
+    + IsValidMove (Direction dir, Integer distance) : Boolean
     // 
-    + Move (Boolean , Direction dir, Integer distance) : Boolean
+    + Move (Direction dir, Integer distance) : Boolean
     // 
-    +  (Knot knotA, Knot knotB, Boolean ) : Knot
+    +  (Knot knotA, Knot knotB) : Boolean
     // 
-    +  (Boolean , Knot knotA, Knot knotB) : Boolean
+    +  (Knot knotA, Knot knotB) : Boolean
     // 
-    + GetEnumerator (IEnumerator<Edge> ) : IEnumerator<Edge>
+    + GetEnumerator () : IEnumerator<Edge>
     // 
-    + Save (IKnotInfo file) : IKnotInfo
+    + Save (IKnotInfo file) : void
     // 
-    + Save (Object ) : Object
+    + Clone () : Object
     // 
-    + AddToSelection (Edge edge) : Edge
+    + AddToSelection (Edge edge) : void
     // 
-    + RemoveFromSelection (Edge edge) : Edge
+    + RemoveFromSelection (Edge edge) : void
     // 
-    + ClearSelection (Edge edge) : Edge
+    + AddRangeToSelection (Edge edge) : void
     // 
-    + IsSelected (Boolean , Edge edge) : Boolean
+    + IsSelected (Edge edge) : Boolean
 
 // 
 public class Knot3Game : 
@@ -784,7 +815,7 @@ public class Knot3Game :
     // 
     + Draw (GameTime) : void
     // 
-    + Game (GameTime) : void
+    + Update (GameTime) : void
 
 // 
 public class KnotFileIO : 
@@ -799,9 +830,9 @@ public class KnotFileIO :
     + Meta : KnotMetaData
   Methods:
     // 
-    + KnotFileIO (String path) : String
+    + KnotFileIO (String path) : void
     // 
-    + Save (Knot knot) : Knot
+    + Save (Knot knot) : void
 
 // 
 public class KnotMetaData : 
@@ -814,7 +845,7 @@ public class KnotMetaData :
     + CountEdges : Integer
   Methods:
     // 
-    # KnotInfo (KnotMetaData , String name, Integer countEdges, IKnotIO file) : KnotMetaData
+    # KnotInfo (String name, Integer countEdges, IKnotIO file) : KnotMetaData
 
 // 
 public class KnotStringIO : 
@@ -829,16 +860,16 @@ public class KnotStringIO :
     + Meta : KnotMetaData
   Methods:
     // 
-    + Save (Knot knot) : Knot
+    + Save (Knot knot) : void
     // 
-    + KnotStringIO (String content) : String
+    + KnotStringIO (String content) : void
 
 // 
 public class Localizer : 
   Attributes:
   Methods:
     // 
-    + Localize (String , String text) : String
+    + Localize (String text) : String
 
 // 
 public class Menu : 
@@ -859,15 +890,15 @@ public class Menu :
     + ItemAlignY : VerticalAlignment
   Methods:
     // 
-    + Add (MenuItem item) : MenuItem
+    + Add (MenuItem item) : void
     // 
-    + Delete (MenuItem item) : MenuItem
+    + Delete (MenuItem item) : void
     // 
-    + GetItem (MenuItem , Integer i) : MenuItem
+    + GetItem (Integer i) : MenuItem
     // 
-    + Size (Integer ) : Integer
+    + Size () : Integer
     // 
-    + GetEnumerator (IEnumerator ) : IEnumerator
+    + GetEnumerator () : IEnumerator
 
 // 
 public class MenuButton : 
@@ -876,7 +907,7 @@ public class MenuButton :
     + Name : String
   Methods:
     // 
-    + MenuButton (String name) : String
+    + MenuButton (String name) : void
 
 // 
 public class MenuItem : 
@@ -895,16 +926,16 @@ public class MenuItem :
     // 
     + OnKeyEvent () : void
     // 
-    + OnLeftClick (Rectangle ) : Rectangle
+    + Bounds () : Rectangle
 
 // 
 public class MenuScreen : 
   Attributes:
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // 
 public class ModelFactory : 
@@ -915,7 +946,7 @@ public class ModelFactory :
     - createModel : Func<GameScreen, GameModelInfo, GameModel>
   Methods:
     // 
-    + this (GameModel , GameScreen state, GameModelInfo info) : GameModel
+    + this (GameScreen state, GameModelInfo info) : GameModel
     // 
     + ModelFactory (Func<GameScreen, GameModelInfo, ) : void
 
@@ -924,14 +955,14 @@ public class ModelkeyHandler :
   Attributes:
   Methods:
     // 
-    + Update () : void
+    + Update (GameTime time) : void
 
 // 
 public class ModelMouseHandler : 
   Attributes:
   Methods:
     // 
-    + Update () : void
+    + Update (GameTime time) : void
 
 // 
 public class ModelRenderer : 
@@ -956,19 +987,19 @@ public class ModelRenderer :
     - arrowFactory : ModelFactory
   Methods:
     // 
-    + Center (Vector3 ) : Vector3
+    + Center () : Vector3
     // 
-    + Intersects (Ray Ray, GameObjectDistance ) : Ray
+    + Intersects (Ray Ray) : GameObjectDistance
     // 
     + OnEdgesChanged () : void
     // 
-    + ModelRenderer (GameScreen screen, GameObjectInfo info) : GameScreen
+    + ModelRenderer (GameScreen screen, GameObjectInfo info) : void
     // 
-    + Update (GameTime) : void
+    + Update (GameTime GameTime) : void
     // 
-    + Draw (GameTime) : void
+    + Draw (GameTime GameTime) : void
     // 
-    + GetEnumerator (IEnumerator ) : IEnumerator
+    + GetEnumerator () : IEnumerator
 
 // 
 public class MousePointer : 
@@ -977,16 +1008,16 @@ public class MousePointer :
     // 
     + MousePointer (GameState) : void
     // 
-    + Draw (GameTime, ) : void
+    + Draw (GameTime) : void
 
 // 
 public class NodeMap : 
   Attributes:
   Methods:
     // 
-    + From (Edge edge, Node ) : Edge
+    + From (Edge edge) : Node
     // 
-    + To (Edge edge, Node ) : Edge
+    + To (Edge edge) : Node
     // 
     + OnEdgesChanged () : void
 
@@ -997,11 +1028,11 @@ public class NodeModel :
     + Info : NodeModelInfo
   Methods:
     // 
-    + NodeModel (GameScreen screen, NodeModelInfo info) : GameScreen
+    + NodeModel (GameScreen screen, NodeModelInfo info) : void
     // 
-    + Draw (GameTime) : void
+    + Draw (GameTime GameTime) : void
     // 
-    + Update (GameTime) : void
+    + Update (GameTime GameTime) : void
 
 // 
 public class NodeModelInfo : 
@@ -1016,7 +1047,7 @@ public class NodeModelInfo :
     + Position : Vector3
   Methods:
     // 
-    + NodeModelInfo (Knot knot, Edge from, Edge to) : Knot
+    + NodeModelInfo (Knot knot, Edge from, Edge to) : void
 
 // 
 public class OptionInfo : 
@@ -1033,7 +1064,7 @@ public class OptionInfo :
     + Value : String
   Methods:
     // 
-    + OptionInfo (String section, String name, String defaultValue, ConfigFile configFile) : String
+    + OptionInfo (String section, String name, String defaultValue, ConfigFile configFile) : void
 
 // 
 public class Options : 
@@ -1056,9 +1087,9 @@ public class PipeModel :
     + Info : PipeModelInfo
   Methods:
     // 
-    + Intersects (GameObjectDistance , Ray ray) : GameObjectDistance
+    + Intersects (Ray ray) : GameObjectDistance
     // 
-    + PipeModel (GameScreen screen, PipeModelInfo info) : GameScreen
+    + PipeModel (GameScreen screen, PipeModelInfo info) : void
 
 // 
 public class PipeModelInfo : 
@@ -1073,7 +1104,7 @@ public class PipeModelInfo :
     + PositionTo : Vector3
   Methods:
     // 
-    + PipeModelInfo (Knot knot, Edge edge) : Knot
+    + PipeModelInfo (Knot knot, Edge edge) : void
 
 // 
 public class PipeMovement : 
@@ -1086,17 +1117,17 @@ public class PipeMovement :
     + World : World
   Methods:
     // 
-    + Center (Vector3 ) : Vector3
+    + Center () : Vector3
     // 
-    + Intersects (Ray Ray, GameObjectDistance ) : Ray
+    + Intersects (Ray Ray) : GameObjectDistance
     // 
-    + Update (GameTime) : void
+    + Update (GameTime GameTime) : void
     // 
     + PipeMovement (GameState, World, GameObjectInfo) : void
     // 
-    + GetEnumerator (IEnumerator ) : IEnumerator
+    + GetEnumerator () : IEnumerator
     // 
-    + Draw (GameTime) : void
+    + Draw (GameTime GameTime) : void
 
 // 
 public class PrinterIO : 
@@ -1109,9 +1140,9 @@ public class PrinterIO :
     + Meta : KnotMetaData
   Methods:
     // 
-    + Save (Knot knot) : Knot
+    + Save (Knot knot) : void
     // 
-    + PrinterIO (string path) : string
+    + PrinterIO (string path) : void
 
 // 
 public class ProfileSettingsScreen : 
@@ -1120,9 +1151,9 @@ public class ProfileSettingsScreen :
     # settingsMenu : void
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // 
 public class RenderEffect : 
@@ -1139,9 +1170,9 @@ public class RenderEffect :
     // 
     + End (GameTime) : void
     // 
-    + DrawModel (GameTime, GameModel GameModel) : GameModel
+    + DrawModel (GameTime, GameModel GameModel) : void
     // 
-    + RemapModel (GameModel GameModel) : GameModel
+    + RemapModel (GameModel GameModel) : void
     // 
     # DrawRenderTarget (GameTime) : void
 
@@ -1154,11 +1185,11 @@ public class RenderEffectStack :
     - DefaultEffect : IRenderEffect
   Methods:
     // 
-    + Pop (IRenderEffect ) : IRenderEffect
+    + Pop () : IRenderEffect
     // 
-    + Push (IRenderEffect effect) : IRenderEffect
+    + Push (IRenderEffect effect) : void
     // 
-    + RenderEffectStack (IRenderEffect defaultEffect) : IRenderEffect
+    + RenderEffectStack (IRenderEffect defaultEffect) : void
 
 // 
 public class SaveDialog : 
@@ -1172,9 +1203,9 @@ public class SettingsScreen :
     # navigation : void
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime time) : void
 
 // 
 public class ShadowGameModel : 
@@ -1185,9 +1216,9 @@ public class ShadowGameModel :
     + ShadowAlpha : float
   Methods:
     // 
-    + ShadowGameModel (GameScreen sreen, GameModel decoratedModel) : GameScreen
+    + ShadowGameModel (GameScreen sreen, GameModel decoratedModel) : void
     // 
-    + Draw (GameTime) : void
+    + Draw (GameTime GameTime) : void
 
 // 
 public class ShadowGameObject : 
@@ -1202,15 +1233,15 @@ public class ShadowGameObject :
     + OriginalPosition : Vector3
   Methods:
     // 
-    + Center (Vector3 ) : Vector3
+    + Center () : Vector3
     // 
-    + Update (GameTime) : void
+    + Update (GameTime GameTime) : void
     // 
-    + Draw (GameTime) : void
+    + Draw (GameTime GameTime) : void
     // 
-    + Intersects (Ray Ray, GameObjectDistance ) : Ray
+    + Intersects (Ray Ray) : GameObjectDistance
     // 
-    + ShadowGameObject (GameScreen screen, IGameObject decoratedObj) : GameScreen
+    + ShadowGameObject (GameScreen screen, IGameObject decoratedObj) : void
 
 // 
 public class SliderItem : 
@@ -1230,7 +1261,16 @@ public class StandardEffect :
     // 
     # DrawRenderTarget (GameTime) : void
     // 
-    + StandardEffect (GameScreen screen) : GameScreen
+    + StandardEffect (GameScreen screen) : void
+
+// 
+public class StartScreen : 
+  Attributes:
+  Methods:
+    // 
+    + Update (GameTime time) : void
+    // 
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // 
 public class SubMenu : 
@@ -1238,49 +1278,22 @@ public class SubMenu :
   Methods:
 
 // 
-public class T : 
-  Attributes:
-  Methods:
-
-// 
-public class T : 
-  Attributes:
-  Methods:
-
-// 
-public class T : 
-  Attributes:
-  Methods:
-
-// 
-public class T : 
-  Attributes:
-    // 
-    + X : float
-    // 
-    + Y : float
-    // 
-    + Z : float
-    // 
-    + Zero : Angles3
-  Methods:
-    // 
-    + GetEnumerator (IEnumerator ) : IEnumerator
-    // 
-    + GetEnumerator (IEnumerator ) : IEnumerator
-    // 
-    + Equals (T other, Boolean ) : T
-    // 
-    + Equals (T other, Boolean ) : T
-    // 
-    + FromDegrees (float X, float Y, float Z, Angles3 ) : float
-    // 
-    + Angles3 (float X, float Y, float Z) : float
-    // 
-    + ToDegrees (float X, float Y, float Z) : float
-
-// 
 public interface T : 
+  Attributes:
+  Methods:
+
+// 
+public class T : 
+  Attributes:
+  Methods:
+
+// 
+public class T : 
+  Attributes:
+  Methods:
+
+// 
+public class T : 
   Attributes:
   Methods:
 
@@ -1301,7 +1314,7 @@ public class TutorialChallengeMode :
   Attributes:
   Methods:
     // 
-    + Entered (GameTime, GameScreen previousScreen) : GameScreen
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // 
 public class VerticalMenu : 
@@ -1329,9 +1342,9 @@ public class Widget :
     + AlignY : VerticalAlignment
   Methods:
     // 
-    + BoundingBox (Rectangle ) : Rectangle
+    + BoundingBox () : Rectangle
     // 
-    + Widget (GameScreen screen, DisplayLayer drawOrder) : GameScreen
+    + Widget (GameScreen screen, DisplayLayer drawOrder) : void
 
 // 
 public class WidgetKeyHandler : 
@@ -1353,29 +1366,29 @@ public class World :
     // 
     + Camera : void
     // 
-    + Camera : List<IGameObject>
+    + Objects : List<IGameObject>
     // 
     + SelectedObject : IGameObject
     // 
     + CurrentEffect : IRenderEffect
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime GameTime) : void
     // 
-    + Draw (GameTime) : void
+    + Draw (GameTime GameTime) : void
     // 
-    + World (GameScreen screen) : GameScreen
+    + World (GameScreen screen) : void
     // 
-    + GetEnumerator (IEnumerator ) : IEnumerator
+    + GetEnumerator () : IEnumerator
 
 // 
 public class XNA.DrawableGameComponent : 
   Attributes:
   Methods:
     // 
-    + Draw (GameTime) : void
+    + Draw (GameTime time) : void
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
 
 // 
 public class XNA.Game : 
@@ -1390,7 +1403,7 @@ public class XNA.Game :
     // 
     + UnloadContent () : void
     // 
-    + Game (GameTime) : void
+    + Update (GameTime) : void
     // 
     + Draw (GameTime) : void
 
@@ -1399,141 +1412,10 @@ public class XNA.GameComponent :
   Attributes:
   Methods:
     // 
-    + Update (GameTime) : void
+    + Update (GameTime time) : void
 
 // 
 public interface XNA.IGameComponent : 
   Attributes:
   Methods:
-
-// 
-public interface XNA.IGameComponent : 
-  Attributes:
-    // 
-    + Camera : void
-    // 
-    + IsMovable : Boolean
-    // 
-    + IsSelectable : Boolean
-    // 
-    + IsVisible : Boolean
-    // 
-    + Position : Vector3
-    // 
-    + Modelname : String
-    // 
-    + Rotation : Angles3
-    // 
-    + Scale : Vector3
-    // 
-    + Edge : Edge
-    // 
-    + Knot : Knot
-    // 
-    + PositionFrom : Vector3
-    // 
-    + PositionTo : Vector3
-    // 
-    + EdgeFrom : Edge
-    // 
-    + EdgeTo : Edge
-    // 
-    + Knot : Knot
-    // 
-    + Position : Vector3
-    // 
-    + Info : PipeModelInfo
-    // 
-    + Info : NodeModelInfo
-    // 
-    + Camera : List<IGameObject>
-    // 
-    + SelectedObject : IGameObject
-    // 
-    + CurrentEffect : IRenderEffect
-    // 
-    + Screen : GameScreen
-    // 
-    + Index : DisplayLayer
-    // 
-    + Index : DisplayLayer
-    // 
-    + Screen : GameScreen
-    // 
-    + Position : Vector3
-    // 
-    + Target : Vector3
-    // 
-    + FoV : float
-    // 
-    + ViewMatrix : Matrix
-    // 
-    + WorldMatrix : Matrix
-    // 
-    + ProjectionMatrix : Matrix
-    // 
-    + ArcballTarget : Vector3
-    // 
-    + ViewFrustum : BoundingFrustum
-    // 
-    - World : World
-    // 
-    + Rotation : Angles3
-    // 
-    + RenderTarget : RenderTarget2D
-  Methods:
-    // 
-    + Equals (GameObjectInfo GameObjectInfo, Boolean ) : GameObjectInfo
-    // 
-    + Equals (T other, Boolean ) : T
-    // 
-    + GameModelInfo (String modelname, Angles3 rotation) : String
-    // 
-    + PipeModelInfo (Knot knot, Edge edge) : Knot
-    // 
-    + NodeModelInfo (Knot knot, Edge from, Edge to) : Knot
-    // 
-    + Intersects (GameObjectDistance , Ray ray) : GameObjectDistance
-    // 
-    + PipeModel (GameScreen screen, PipeModelInfo info) : GameScreen
-    // 
-    + NodeModel (GameScreen screen, NodeModelInfo info) : GameScreen
-    // 
-    + Draw (GameTime) : void
-    // 
-    + Update (GameTime) : void
-    // 
-    + Update (GameTime) : void
-    // 
-    + Draw (GameTime) : void
-    // 
-    + World (GameScreen screen) : GameScreen
-    // 
-    + GetEnumerator (IEnumerator ) : IEnumerator
-    // 
-    + SubComponents (GameTime, IEnumerable GameTime) : IEnumerable
-    // 
-    + DrawableGameStateComponent (GameScreen screen, DisplayLayer index) : GameScreen
-    // 
-    + SubComponents (GameTime, IEnumerable GameTime) : IEnumerable
-    // 
-    + GameStateComponent (GameScreen screen, DisplayLayer index) : GameScreen
-    // 
-    + TargetDirection (Vector3 ) : Vector3
-    // 
-    + TargetDistance (float ) : float
-    // 
-    + Camera (GameScreen screen, World world) : GameScreen
-    // 
-    + GetMouseRay (Ray , Vector2 mousePosition) : Ray
-    // 
-    + Update (GameTime) : void
-    // 
-    + Begin (GameTime) : void
-    // 
-    + End (GameTime) : void
-    // 
-    + DrawModel (GameTime, GameModel model) : GameModel
-    // 
-    + RemapModel (GameModel model) : GameModel
 
