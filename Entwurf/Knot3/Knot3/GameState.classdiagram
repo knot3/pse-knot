@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7e68fb-2f1a-48b0-b0e9-9246167792c0" name="UMLClassDiagram1" linkedPackageId="b8a8636a-4ab4-41c4-b206-61edb0603f16" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7e68fb-2f1a-48b0-b0e9-9246167792c0" name="UMLClassDiagram1" linkedPackageId="b8a8636a-4ab4-41c4-b206-61edb0603f16" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="1771b353-4470-4350-ae8f-f55ea069e66f">
       <elementDefinition Id="4b993d87-666f-4115-833c-59862b9ba0a5" />
@@ -140,7 +140,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="4823b9be-7031-4733-8877-4d5295c4606d" name="ChallengeMode" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="4823b9be-7031-4733-8877-4d5295c4606d" name="ChallengeModeScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8b9488c1-242f-477e-accc-97772cd5c6c2" />
         <generalsInternal>
           <generalization Id="cdb8e6e0-3671-4c79-961c-cd9600526c7e" isSubstitutable="false">
@@ -152,13 +152,13 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           <property Id="ec2d686a-e112-46b4-ba5e-76d803040168" name="PlayerKnot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6a403d06-2031-4aab-87fb-ff017f2e76dd" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="6960f6b1-809e-45c9-a6b2-053b48790e9e" LastKnownName="Knot" />
+              <referencedTypeMoniker Id="6c0e9460-4cea-41c1-a068-08721b454830" LastKnownName="Knot" />
             </type_NamedElement>
           </property>
           <property Id="1f3f07bf-3e30-41e0-b3d2-cf154c68ff51" name="ChallengeKnot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5077eeb2-42cc-4504-97f5-8727359bc8ef" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="6960f6b1-809e-45c9-a6b2-053b48790e9e" LastKnownName="Knot" />
+              <referencedTypeMoniker Id="72f3c1af-25fc-455d-966e-681d69b0e0f6" LastKnownName="Knot" />
             </type_NamedElement>
           </property>
           <property Id="66aa6d2c-5049-4202-8395-2eaf3ea3bda9" name="ChallengeWorld" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -243,7 +243,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="18ff7c22-8f44-4253-85fa-2086ca709e08" name="CreativeMode" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="18ff7c22-8f44-4253-85fa-2086ca709e08" name="CreativeModeScreen" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6abc3c09-d569-457f-b05e-269334687631" />
         <generalsInternal>
           <generalization Id="059ce2f1-f1e7-4f15-92e4-09c9185a9c14" isSubstitutable="false">
@@ -844,7 +844,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <elementDefinition Id="e2f2a3c3-6290-4f74-9ae6-e46b3ee8b725" />
         <generalsInternal>
           <generalization Id="f05b5690-ac17-4f81-92cf-26e21796fc27" isSubstitutable="false">
-            <classMoniker Id="4823b9be-7031-4733-8877-4d5295c4606d" LastKnownName="ChallengeMode" />
+            <classMoniker Id="4823b9be-7031-4733-8877-4d5295c4606d" LastKnownName="ChallengeModeScreen" />
             <elementDefinition Id="3124824c-8223-495f-9a68-5fab8364b566" />
           </generalization>
         </generalsInternal>
@@ -1028,6 +1028,16 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <referencedType Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" name="GameTime" isAbstract="false" isLeaf="false" cachedFullName="GameTime">
         <elementDefinition Id="7146062a-e956-4346-8427-37640e8bf8a1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="72f3c1af-25fc-455d-966e-681d69b0e0f6" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
+        <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6c0e9460-4cea-41c1-a068-08721b454830" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
+        <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

@@ -124,121 +124,121 @@ public class Challenge :
     + Target : Knot
     // Eine sortierte Bestenliste.
     - highscore : SortedList<Integer, String>
+    // Das Speicherformat der Challenge.
+    - format : IChallengeIO
+    // Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
+    + Highscore : IEnumerator<KeyValuePair<String, Integer>>
+    // Die Metadaten der Challenge.
+    + MetaData : ChallengeMetaData
     // Der Name der Challenge.
     + Name : String
-    // Das Dateiformat der Challenge.
-    - file : IChallengeIO
-    // Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterleiegenden Datenstruktur zugänglich macht.
-    + Highscore : IEnumerator<KeyValuePair<String, Integer>>
-    // 
-    + MetaData : ChallengeMetaData
   Methods:
     // Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
-    + Challenge (ChallengeMetaData info) : Challenge
     // Erstellt ein Challenge-Objekt aus einer gegebenenen Challenge-Datei.
-    + Challenge (IChallangeIO file) : Challenge
-    // Erstellt eine neue Challenge mit einem gegebenen Ausgangs- und Referenzknoten und einem Namen 
+    + Challenge (ChallengeMetaData meta) : Challenge
+    // Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
+    // Erstellt ein Challenge-Objekt aus einer gegebenenen Challenge-Datei.
+    + Challenge (IChallangeIO format) : Challenge
+    // Erstellt eine neue Challenge mit einem gegebenen Ausgangs- und Referenzknoten und einem Namen
     + CreateChallenge (Knot start, Knot target, String name, IChallengeIO file) : Boolean
-    // 
+    // Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
     + AddToHighscore (String name, Integer time) : void
 
-// 
+// Implementiert das Speicherformat für Challenges.
 public class ChallengeFileIO : 
   Attributes:
-    // 
-    + Highscore : IEnumerable<KeyValuePair<String, Integer>>
-    // 
-    + Name : String
-    // 
-    + StartKnot : Knot
-    // 
-    + TargetKnot : Knot
-    // 
+    // Der Parser für den Ausgangsknoten im Challenge-Format.
     - startParser : KnotStringIO
-    // 
+    // Der Parser für den Referenzknoten im Challenge-Format.
     - targetParser : KnotStringIO
   Methods:
-    // 
-    + ChallengeFileIO (String path) : void
-    // 
+    // Erstellt ein ChallengeFileIO-Objekt.
+    + ChallengeFileIO () : void
+    // Speichert eine Challenge in dem Dateinamen, der in dem Challenge-Objekt enthalten ist.
     + Save (Challenge challenge) : void
-    // 
-    + ChallengeFileIO (Challenge challenge) : void
+    // Lädt eine Challenge aus einer angebenenen Datei.
+    + Load (String filename) : Challenge
+    // Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
+    + LoadMetaData (String filename) : ChallengeMetaData
 
-// 
+// Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
 public class ChallengeLoadScreen : 
   Attributes:
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Fügt das Menu mit dem Spielständen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// 
+// Enthält Metadaten zu einer Challenge.
 public class ChallengeMetaData : 
   Attributes:
-    // 
+    // Der Name der Challenge.
     + Name : String
-    // 
+    // Der Ausgangsknoten, den der Spieler in den Referenzknoten transformieren muss.
     + Start : KnotMetaData
-    // 
+    // Der Referenzknoten, in den der Spieler den Ausgangsknoten transformieren muss.
     + Target : KnotMetaData
-    // 
-    + File : IChallengeIO
+    // Das Format, aus dem die Metadaten der Challenge gelesen wurden oder null.
+    + Format : IChallengeIO
+    // Der Dateiname, aus dem die Metadaten der Challenge gelesen wurden oder in den sie abgespeichert werden sollen.
+    + Filename : String
+    // Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
+    + Highscore : IEnumerator<KeyValuePair<String, Integer>>
   Methods:
-    // 
-    + ChallengeMetaData (IChallengeIO file) : void
+    // Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metadaten des Ausgangs- und Referenzknotens.
+    + ChallengeMetaData (String name, KnotMetaData start, KnotMetaData target) : void
 
-// 
-public class ChallengeMode : 
+// Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für den Ausgangs- und Referenzknoten je eine 3D-Welt zeichnet.
+public class ChallengeModeScreen : 
   Attributes:
-    // 
+    // Der Spielerknoten, der während der Transformation des Spielers aus dem Ausgangsknoten entsteht.
     + PlayerKnot : void
-    // 
+    // Der Referenzknoten.
     + ChallengeKnot : void
-    // 
+    // Die Spielwelt der 3D-Modelle des Referenzknotens.
     - ChallengeWorld : World
-    // 
+    // Die Spielwelt der 3D-Modelle des Spielerknotens.
     - PlayerWorld : World
-    // 
+    // Der Controller, der aus dem Referenzknoten die 3D-Modelle erstellt.
     - ChallengeKnotRenderer : KnotRenderer
-    // 
+    // Der Controller, der aus dem Spielerknoten die 3D-Modelle erstellt.
     - PlayerKnotRenderer : KnotRenderer
-    // 
+    // Der Inputhandler, der die Kantenverschiebungen des Spielerknotens durchführt.
     - PlayerKnotMovement : PipeMovement
-    // 
+    // Der Undo-Stack.
     + Undo : Stack<Knot>
-    // 
+    // Der Redo-Stack.
     + Redo : Stack<Knot>
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// 
+// Ein Menueintrag, der einen Auswahlkasten darstellt.
 public class CheckBoxItem : 
   Attributes:
-    // 
+    // Die Option, die mit dem Auswahlkasten verknüft ist.
     - option : BooleanOptionInfo
   Methods:
-    // 
+    // Erstellt einen Menueintrag für die angegebenen Option.
     + CheckBoxItem (BooleanOptionInfo option) : void
 
-// 
+// Eine doppelt verkettete Liste.
 public class Circle : 
   Attributes:
-    // 
+    // Der Wert dieses Listeneintrags.
     + Content : T
-    // 
+    // Der nächste Listeneintrag.
     + Next : Circle
-    // 
+    // Der vorherige Listeneintrag.
     + Previous : Circle
   Methods:
-    // 
+    // Erstellt einen neuen Listeneintrag.
     + Circle (T content) : void
 
-// 
+// Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
 public class ColorPicker : 
   Attributes:
     // 
@@ -286,7 +286,7 @@ public class ControlSettingsScreen :
     // 
     # settingsMenu : void
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
@@ -297,11 +297,11 @@ public class CreativeLoadScreen :
   Methods:
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
 // 
-public class CreativeMode : 
+public class CreativeModeScreen : 
   Attributes:
     // 
     + Knot : void
@@ -314,7 +314,7 @@ public class CreativeMode :
     // 
     + Redo : Stack<Knot>
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + Entered (GameScreen previousScreen, GameTime time) : void
@@ -323,7 +323,7 @@ public class CreativeMode :
 public class CreditsScreen : 
   Attributes:
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
@@ -416,10 +416,14 @@ public class FadeEffect :
     # DrawRenderTarget (GameTime) : void
 
 // 
-public class FileIO : 
+public class FileUtility : 
   Attributes:
     // 
-    + FileName : String
+    + SettingsDirectory : String
+    // 
+    + SavegameDirectory : String
+    // 
+    + ScreenshotDirectory : String
   Methods:
     // 
     + ConvertToFileName (String name) : String
@@ -506,7 +510,7 @@ public class GameScreen :
     + Entered (GameScreen previousScreen, GameTime time) : void
     // 
     + BeforeExit (GameScreen nextScreen, GameTime time) : void
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + GameScreen (Knot3Game game) : void
@@ -534,7 +538,7 @@ public class GraphicsSettingsScreen :
     // 
     # settingsMenu : void
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
@@ -542,17 +546,13 @@ public class GraphicsSettingsScreen :
 // 
 public interface IChallengeIO : 
   Attributes:
-    // 
-    + Highscore : IEnumerable<KeyValuePair<String, Integer>>
-    // 
-    + Name : String
-    // 
-    + StartKnot : Knot
-    // 
-    + TargetKnot : Knot
   Methods:
     // 
     + Save (Challenge challenge) : void
+    // 
+    + Load (String filename) : Challenge
+    // 
+    + LoadMetaData (String filename) : ChallengeMetaData
 
 // 
 public interface ICloneable : 
@@ -624,7 +624,7 @@ public interface IGameObject :
   Methods:
     // 
     + Center () : Vector3
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + Draw (GameTime time) : void
@@ -667,15 +667,13 @@ public interface IKeyEventListener :
 // 
 public interface IKnotIO : 
   Attributes:
-    // 
-    + Edges : IEnumerable<Edge>
-    // 
-    + Name : String
-    // 
-    + CountEdges : Integer
   Methods:
     // 
     + Save (Knot knot) : void
+    // 
+    + Load (String filename) : Knot
+    // 
+    + LoadMetaData (String filename) : KnotMetaData
 
 // 
 public interface IMouseEventListener : 
@@ -712,7 +710,7 @@ public class Input :
   Methods:
     // 
     + Input (GameScreen screen) : void
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
 // 
@@ -756,7 +754,7 @@ public class Knot :
     // 
     + MetaData : KnotMetaData
     // 
-    - file : IKnotIO
+    - format : IKnotIO
     // 
     + EdgesChanged : Action
     // 
@@ -768,8 +766,6 @@ public class Knot :
     + Save () : void
     // 
     + ClearSelection () : void
-    // 
-    + Knot (IKnotIO file) : void
     // 
     + Knot (KnotMetaData info) : void
     // 
@@ -794,6 +790,8 @@ public class Knot :
     + AddRangeToSelection (Edge edge) : void
     // 
     + IsSelected (Edge edge) : Boolean
+    // 
+    + Knot (IKnotIO format) : void
 
 // 
 public class Knot3Game : 
@@ -824,26 +822,22 @@ public class Knot3Game :
 public class KnotFileIO : 
   Attributes:
     // 
-    + Edges : IEnumerable<Edge>
-    // 
-    + Name : String
-    // 
     - parser : KnotStringIO
-    // 
-    + CountEdges : Integer
   Methods:
     // 
-    + KnotFileIO (String path) : void
+    + KnotFileIO () : void
     // 
     + Save (Knot knot) : void
     // 
-    + KnotFileIO (Knot knot) : void
+    + Load (String filename) : Knot
+    // 
+    + LoadMetaData (String filename) : KnotMetaData
 
 // 
 public class KnotInputHandler : 
   Attributes:
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
 // 
@@ -852,9 +846,11 @@ public class KnotMetaData :
     // 
     + Name : String
     // 
-    + File : IKnotIO
+    + Format : IKnotIO
     // 
     + CountEdges : Integer
+    // 
+    + Filename : String
   Methods:
     // 
     + KnotMetaData (String name, Integer countEdges, IKnotIO file) : KnotMetaData
@@ -901,19 +897,15 @@ public class KnotRenderer :
 // 
 public class KnotStringIO : 
   Attributes:
-    // 
-    + Name : String
-    // 
-    + Edges : IErnumerable<Edge>
-    // 
-    + Content : String
-    // 
-    + CountEdges : Integer
   Methods:
+    // 
+    + KnotStringIO () : void
     // 
     + Save (Knot knot) : void
     // 
-    + KnotStringIO (String content) : void
+    + Load (String filename) : Knot
+    // 
+    + LoadMetaData (String filename) : KnotMetaData
 
 // 
 public class Localizer : 
@@ -983,7 +975,7 @@ public class MenuItem :
 public class MenuScreen : 
   Attributes:
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
@@ -1005,7 +997,7 @@ public class ModelFactory :
 public class ModelMouseHandler : 
   Attributes:
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
 // 
@@ -1139,17 +1131,15 @@ public class PipeMovement :
 // 
 public class PrinterIO : 
   Attributes:
-    // 
-    + Edges : IEnumerable<Edge>
-    // 
-    + Name : String
-    // 
-    + CountEdges : Integer
   Methods:
+    // 
+    + PrinterIO () : void
     // 
     + Save (Knot knot) : void
     // 
-    + PrinterIO (string path) : void
+    + Load (String filename) : Knot
+    // 
+    + LoadMetaData (String filename) : KnotMetaData
 
 // 
 public class ProfileSettingsScreen : 
@@ -1157,7 +1147,7 @@ public class ProfileSettingsScreen :
     // 
     # settingsMenu : void
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
@@ -1209,7 +1199,7 @@ public class SettingsScreen :
     // 
     # navigation : void
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + Entered (GameScreen previousScreen, GameTime time) : void
@@ -1274,7 +1264,7 @@ public class StandardEffect :
 public class StartScreen : 
   Attributes:
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
@@ -1394,7 +1384,7 @@ public class XNA.DrawableGameComponent :
   Methods:
     // 
     + Draw (GameTime time) : void
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
 // 
@@ -1418,7 +1408,7 @@ public class XNA.Game :
 public class XNA.GameComponent : 
   Attributes:
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
 // 

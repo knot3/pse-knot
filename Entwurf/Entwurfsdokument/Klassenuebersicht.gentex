@@ -211,33 +211,33 @@ Der Ausgangsknoten, den der Spieler in den Referenzknoten transformieren muss.
 Der Referenzknoten, in den der Spieler den Ausgangsknoten transformieren muss.
 \item[\keyword{private} \ptype{SortedList<Integer, String>} \varname{highscore}] \item[]
 Eine sortierte Bestenliste.
+\item[\keyword{private} \ptype{IChallengeIO} \varname{format}] \item[]
+Das Speicherformat der Challenge.
+\item[\keyword{public} \ptype{IEnumerator<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
+Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
+\item[\keyword{public} \ptype{ChallengeMetaData} \varname{MetaData}] \item[]
+Die Metadaten der Challenge.
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 Der Name der Challenge.
-\item[\keyword{private} \ptype{IChallengeIO} \varname{file}] \item[]
-Das Dateiformat der Challenge.
-\item[\keyword{public} \ptype{IEnumerator<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
-Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterleiegenden Datenstruktur zugänglich macht.
-\item[\keyword{public} \ptype{ChallengeMetaData} \varname{MetaData}] \item[]
-
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{Challenge} (\ptype{ChallengeMetaData} \varname{info})] \item[]
+\item[\keyword{public} \varname{Challenge} (\ptype{ChallengeMetaData} \varname{meta})] \item[]
 Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
-Erstellt ein Challenge-Obje
-\item[\keyword{public} \varname{Challenge} (\ptype{IChallangeIO} \varname{file})] \item[]
+Erstellt ein Challenge-Objekt aus einer gegebenenen Challenge-Datei.
+\item[\keyword{public} \varname{Challenge} (\ptype{IChallangeIO} \varname{format})] \item[]
 Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
-Erstellt ein Challenge-Obje
+Erstellt ein Challenge-Objekt aus einer gegebenenen Challenge-Datei.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Boolean} \varname{CreateChallenge} (\ptype{Knot} \varname{start}, \ptype{Knot} \varname{target}, \ptype{String} \varname{name}, \ptype{IChallengeIO} \varname{file})] \item[]
-
+Erstellt eine neue Challenge mit einem gegebenen Ausgangs- und Referenzknoten und einem Namen
 \item[\keyword{public} \ptype{void} \varname{AddToHighscore} (\ptype{String} \varname{name}, \ptype{Integer} \varname{time})] \item[]
-
+Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
 \end{description}
 
 \subsection{Klasse ChallengeFileIO}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Implementiert das Speicherformat für Challenges.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/ChallengeFileIO}
@@ -245,33 +245,27 @@ Erstellt ein Challenge-Obje
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
-
-\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
-\item[\keyword{public} \ptype{Knot} \varname{StartKnot}] \item[]
-
-\item[\keyword{public} \ptype{Knot} \varname{TargetKnot}] \item[]
-
 \item[\keyword{private} \ptype{KnotStringIO} \varname{startParser}] \item[]
-
+Der Parser für den Ausgangsknoten im Challenge-Format.
 \item[\keyword{private} \ptype{KnotStringIO} \varname{targetParser}] \item[]
-
+Der Parser für den Referenzknoten im Challenge-Format.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{ChallengeFileIO} (\ptype{String} \varname{path})] \item[]
-
-\item[\keyword{public} \varname{ChallengeFileIO} (\ptype{Challenge} \varname{challenge})] \item[]
-
+\item[\keyword{public} \varname{ChallengeFileIO} ()] \item[]
+Erstellt ein ChallengeFileIO-Objekt.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Challenge} \varname{challenge})] \item[]
-
+Speichert eine Challenge in dem Dateinamen, der in dem Challenge-Objekt enthalten ist.
+\item[\keyword{public} \ptype{Challenge} \varname{Load} (\ptype{String} \varname{filename})] \item[]
+Lädt eine Challenge aus einer angebenenen Datei.
+\item[\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})] \item[]
+Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
 \end{description}
 
 \subsection{Klasse ChallengeLoadScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/ChallengeLoadScreen}
@@ -280,14 +274,14 @@ Erstellt ein Challenge-Obje
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
-
+Fügt das Menu mit dem Spielständen in die Spielkomponentenliste ein.
 \end{description}
 
 \subsection{Klasse ChallengeMetaData}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Enthält Metadaten zu einer Challenge.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/ChallengeMetaData}
@@ -296,25 +290,29 @@ Erstellt ein Challenge-Obje
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
+Der Name der Challenge.
 \item[\keyword{public} \ptype{KnotMetaData} \varname{Start}] \item[]
-
+Der Ausgangsknoten, den der Spieler in den Referenzknoten transformieren muss.
 \item[\keyword{public} \ptype{KnotMetaData} \varname{Target}] \item[]
-
-\item[\keyword{public} \ptype{IChallengeIO} \varname{File}] \item[]
-
+Der Referenzknoten, in den der Spieler den Ausgangsknoten transformieren muss.
+\item[\keyword{public} \ptype{IChallengeIO} \varname{Format}] \item[]
+Das Format, aus dem die Metadaten der Challenge gelesen wurden oder null.
+\item[\keyword{public} \ptype{String} \varname{Filename}] \item[]
+Der Dateiname, aus dem die Metadaten der Challenge gelesen wurden oder in den sie abgespeichert werden sollen.
+\item[\keyword{public} \ptype{IEnumerator<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
+Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{ChallengeMetaData} (\ptype{IChallengeIO} \varname{file})] \item[]
-
+\item[\keyword{public} \varname{ChallengeMetaData} (\ptype{String} \varname{name}, \ptype{KnotMetaData} \varname{start}, \ptype{KnotMetaData} \varname{target})] \item[]
+Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metadaten des Ausgangs- und Referenzknotens.
 \end{description}
 
-\subsection{Klasse ChallengeMode}
+\subsection{Klasse ChallengeModeScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für den Ausgangs- und Referenzknoten je eine 3D-Welt zeichnet.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
-\includegraphics[scale=0.2]{Klassen/ChallengeMode}
+\includegraphics[scale=0.2]{Klassen/ChallengeModeScreen}
 \end{wrapfigure}
 
 
@@ -472,7 +470,7 @@ Erstellt ein Challenge-Obje
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
@@ -490,15 +488,15 @@ Erstellt ein Challenge-Obje
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \end{description}
 
-\subsection{Klasse CreativeMode}
+\subsection{Klasse CreativeModeScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
-\includegraphics[scale=0.2]{Klassen/CreativeMode}
+\includegraphics[scale=0.2]{Klassen/CreativeModeScreen}
 \end{wrapfigure}
 
 
@@ -532,7 +530,7 @@ Erstellt ein Challenge-Obje
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
@@ -689,17 +687,21 @@ Erstellt ein Challenge-Obje
 
 \end{description}
 
-\subsection{Klasse FileIO}
+\subsection{Klasse FileUtility}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
-\includegraphics[scale=0.2]{Klassen/FileIO}
+\includegraphics[scale=0.2]{Klassen/FileUtility}
 \end{wrapfigure}
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{FileName}] \item[]
+\item[\keyword{public} \ptype{String} \varname{SettingsDirectory}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{SavegameDirectory}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{ScreenshotDirectory}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
@@ -828,7 +830,7 @@ Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{BeforeExit} (\ptype{GameScreen} \varname{nextScreen}, \ptype{GameTime} \varname{time})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{AddGameComponents} (\ptype{IGameStateComponent[]} \varname{components})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{RemoveGameComponents} (\ptype{IGameStateComponent[]} \varname{components})] \item[]
@@ -872,7 +874,7 @@ Wird für jeden Frame aufgerufen.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
@@ -908,7 +910,7 @@ Wird für jeden Frame aufgerufen.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \end{description}
 
 \subsection{Klasse InputItem}
@@ -959,7 +961,7 @@ Wird für jeden Frame aufgerufen.
 
 \item[\keyword{public} \ptype{KnotMetaData} \varname{MetaData}] \item[]
 
-\item[\keyword{private} \ptype{IKnotIO} \varname{file}] \item[]
+\item[\keyword{private} \ptype{IKnotIO} \varname{format}] \item[]
 
 \item[\keyword{public} \ptype{Action} \varname{EdgesChanged}] \item[]
 
@@ -969,9 +971,9 @@ Wird für jeden Frame aufgerufen.
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{Knot} ()] \item[]
 
-\item[\keyword{public} \varname{Knot} (\ptype{IKnotIO} \varname{file})] \item[]
-
 \item[\keyword{public} \varname{Knot} (\ptype{KnotMetaData} \varname{info})] \item[]
+
+\item[\keyword{public} \varname{Knot} (\ptype{IKnotIO} \varname{format})] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
@@ -1047,23 +1049,19 @@ Wird für jeden Frame aufgerufen.
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{Edges}] \item[]
-
-\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
 \item[\keyword{private} \ptype{KnotStringIO} \varname{parser}] \item[]
-
-\item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{KnotFileIO} (\ptype{String} \varname{path})] \item[]
-
-\item[\keyword{public} \varname{KnotFileIO} (\ptype{Knot} \varname{knot})] \item[]
+\item[\keyword{public} \varname{KnotFileIO} ()] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})] \item[]
 
 \end{description}
 
@@ -1078,7 +1076,7 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \end{description}
 
 \subsection{Klasse KnotMetaData}
@@ -1093,9 +1091,11 @@ Wird für jeden Frame aufgerufen.
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 
-\item[\keyword{public} \ptype{IKnotIO} \varname{File}] \item[]
+\item[\keyword{public} \ptype{IKnotIO} \varname{Format}] \item[]
 
 \item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Filename}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
@@ -1160,22 +1160,16 @@ Wird für jeden Frame aufgerufen.
 \end{wrapfigure}
 
 
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
-\item[\keyword{public} \ptype{IErnumerable<Edge>} \varname{Edges}] \item[]
-
-\item[\keyword{public} \ptype{String} \varname{Content}] \item[]
-
-\item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
-
-\end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{KnotStringIO} (\ptype{String} \varname{content})] \item[]
+\item[\keyword{public} \varname{KnotStringIO} ()] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})] \item[]
 
 \end{description}
 
@@ -1288,7 +1282,7 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
@@ -1328,7 +1322,7 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \end{description}
 
 \subsection{Klasse MousePointer}
@@ -1558,20 +1552,16 @@ Wird für jeden Frame aufgerufen.
 \end{wrapfigure}
 
 
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{Edges}] \item[]
-
-\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
-\item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
-
-\end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{PrinterIO} (\ptype{string} \varname{path})] \item[]
+\item[\keyword{public} \varname{PrinterIO} ()] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})] \item[]
 
 \end{description}
 
@@ -1590,7 +1580,7 @@ Wird für jeden Frame aufgerufen.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
@@ -1668,7 +1658,7 @@ Wird für jeden Frame aufgerufen.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
@@ -1778,7 +1768,7 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
 
 \end{description}
@@ -1940,7 +1930,7 @@ Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \end{description}
 
 \subsection{Klasse XNA.Game}
@@ -1978,7 +1968,7 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \end{description}
 
 \section{Schnittstellen}
@@ -1991,18 +1981,12 @@ Wird für jeden Frame aufgerufen.
 \end{wrapfigure}
 
 
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
-
-\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
-\item[\keyword{public} \ptype{Knot} \varname{StartKnot}] \item[]
-
-\item[\keyword{public} \ptype{Knot} \varname{TargetKnot}] \item[]
-
-\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Challenge} \varname{challenge})] \item[]
+
+\item[\keyword{public} \ptype{Challenge} \varname{Load} (\ptype{String} \varname{filename})] \item[]
+
+\item[\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})] \item[]
 
 \end{description}
 
@@ -2105,7 +2089,7 @@ Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})] \item[]
 
 \item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})] \item[]
@@ -2179,16 +2163,12 @@ Wird für jeden Frame aufgerufen.
 \end{wrapfigure}
 
 
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{Edges}] \item[]
-
-\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
-\item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
-
-\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})] \item[]
+
+\item[\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})] \item[]
 
 \end{description}
 
