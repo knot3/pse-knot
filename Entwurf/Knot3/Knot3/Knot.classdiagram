@@ -656,6 +656,27 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="fe38bb66-ab7d-4103-b82e-448e7151b091" name="KnotMetaData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c67a9434-c843-4b80-b5b9-e3231d28ba0a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c4e29517-9bc9-4dc7-8d6b-901eb2ebc2c3" name="file" direction="In" isUnique="false">
+                  <elementDefinition Id="06500513-0205-42b0-b409-a777666b279c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="IKnotIO" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7c1ffd3d-5342-420f-bc4d-d63aae156a05" direction="Return" isUnique="false">
+                  <elementDefinition Id="0d1605bc-2c77-4fd5-b9ee-5d8f80a57358" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotMetaData" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
