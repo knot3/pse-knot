@@ -196,9 +196,9 @@ public class ChallengeMode :
     // 
     - PlayerWorld : World
     // 
-    - ChallengeKnotRenderer : ModelRenderer
+    - ChallengeKnotRenderer : KnotRenderer
     // 
-    - PlayerKnotRenderer : ModelRenderer
+    - PlayerKnotRenderer : KnotRenderer
     // 
     - PlayerKnotMovement : PipeMovement
     // 
@@ -303,7 +303,7 @@ public class CreativeMode :
     // 
     - World : World
     // 
-    - KnotRenderer : ModelRenderer
+    - KnotRenderer : KnotRenderer
     // 
     + Undo : Stack<Knot>
     // 
@@ -417,7 +417,7 @@ public class FileIO :
     + FileName : String
   Methods:
     // 
-    + ConvertToFileName (String) : String
+    + ConvertToFileName (String name) : String
 
 // 
 public class Game : 
@@ -669,7 +669,7 @@ public interface IKnotIO :
     // 
     + Name : String
     // 
-    + Meta : KnotMetaData
+    + MetaData : KnotMetaData
   Methods:
     // 
     + Save (Knot knot) : void
@@ -751,13 +751,13 @@ public class Knot :
     // 
     - edges : Circle
     // 
-    + Info : KnotMetaData
+    + MetaData : KnotMetaData
     // 
     - file : IKnotIO
     // 
     + EdgesChanged : Action
     // 
-    + SeletedEdges : IEnumerable<Edge>
+    + SelectedEdges : IEnumerable<Edge>
   Methods:
     // 
     + Knot () : void
@@ -780,7 +780,7 @@ public class Knot :
     // 
     + GetEnumerator () : IEnumerator<Edge>
     // 
-    + Save (IKnotInfo file) : void
+    + Save (IKnotIO file) : void
     // 
     + Clone () : Object
     // 
@@ -827,12 +827,21 @@ public class KnotFileIO :
     // 
     - parser : KnotStringIO
     // 
-    + Meta : KnotMetaData
+    + MetaData : KnotMetaData
   Methods:
     // 
     + KnotFileIO (String path) : void
     // 
     + Save (Knot knot) : void
+    // 
+    + KnotFileIO (Knot knot) : void
+
+// 
+public class KnotInputHandler : 
+  Attributes:
+  Methods:
+    // 
+    + Update (GameTime time) : void
 
 // 
 public class KnotMetaData : 
@@ -845,7 +854,44 @@ public class KnotMetaData :
     + CountEdges : Integer
   Methods:
     // 
-    # KnotInfo (String name, Integer countEdges, IKnotIO file) : KnotMetaData
+    + KnotMetaData (String name, Integer countEdges, IKnotIO file) : KnotMetaData
+
+// 
+public class KnotRenderer : 
+  Attributes:
+    // 
+    + Info : GameObjectInfo
+    // 
+    + World : World
+    // 
+    - arrows : List<ArrowModel>
+    // 
+    - nodes : List<NodeModel>
+    // 
+    - pipes : List<PipeModel>
+    // 
+    + Knot : Knot
+    // 
+    - pipeFactory : ModelFactory
+    // 
+    - nodeFactory : ModelFactory
+    // 
+    - arrowFactory : ModelFactory
+  Methods:
+    // 
+    + Center () : Vector3
+    // 
+    + Intersects (Ray Ray) : GameObjectDistance
+    // 
+    + OnEdgesChanged () : void
+    // 
+    + ModelRenderer (GameScreen screen, GameObjectInfo info) : void
+    // 
+    + Update (GameTime GameTime) : void
+    // 
+    + Draw (GameTime GameTime) : void
+    // 
+    + GetEnumerator () : IEnumerator
 
 // 
 public class KnotStringIO : 
@@ -857,7 +903,7 @@ public class KnotStringIO :
     // 
     + Content : String
     // 
-    + Meta : KnotMetaData
+    + MetaData : KnotMetaData
   Methods:
     // 
     + Save (Knot knot) : void
@@ -951,55 +997,11 @@ public class ModelFactory :
     + ModelFactory (Func<GameScreen, GameModelInfo, ) : void
 
 // 
-public class ModelkeyHandler : 
-  Attributes:
-  Methods:
-    // 
-    + Update (GameTime time) : void
-
-// 
 public class ModelMouseHandler : 
   Attributes:
   Methods:
     // 
     + Update (GameTime time) : void
-
-// 
-public class ModelRenderer : 
-  Attributes:
-    // 
-    + Info : GameObjectInfo
-    // 
-    + World : World
-    // 
-    - arrows : List<ArrowModel>
-    // 
-    - nodes : List<NodeModel>
-    // 
-    - pipes : List<PipeModel>
-    // 
-    + Knot : Knot
-    // 
-    - pipeFactory : ModelFactory
-    // 
-    - nodeFactory : ModelFactory
-    // 
-    - arrowFactory : ModelFactory
-  Methods:
-    // 
-    + Center () : Vector3
-    // 
-    + Intersects (Ray Ray) : GameObjectDistance
-    // 
-    + OnEdgesChanged () : void
-    // 
-    + ModelRenderer (GameScreen screen, GameObjectInfo info) : void
-    // 
-    + Update (GameTime GameTime) : void
-    // 
-    + Draw (GameTime GameTime) : void
-    // 
-    + GetEnumerator () : IEnumerator
 
 // 
 public class MousePointer : 
@@ -1137,7 +1139,7 @@ public class PrinterIO :
     // 
     + Name : String
     // 
-    + Meta : KnotMetaData
+    + MetaData : KnotMetaData
   Methods:
     // 
     + Save (Knot knot) : void

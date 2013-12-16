@@ -318,9 +318,9 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \item[\keyword{private} \ptype{World} \varname{PlayerWorld}] \item[]
 
-\item[\keyword{private} \ptype{ModelRenderer} \varname{ChallengeKnotRenderer}] \item[]
+\item[\keyword{private} \ptype{KnotRenderer} \varname{ChallengeKnotRenderer}] \item[]
 
-\item[\keyword{private} \ptype{ModelRenderer} \varname{PlayerKnotRenderer}] \item[]
+\item[\keyword{private} \ptype{KnotRenderer} \varname{PlayerKnotRenderer}] \item[]
 
 \item[\keyword{private} \ptype{PipeMovement} \varname{PlayerKnotMovement}] \item[]
 
@@ -498,7 +498,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \item[\keyword{private} \ptype{World} \varname{World}] \item[]
 
-\item[\keyword{private} \ptype{ModelRenderer} \varname{KnotRenderer}] \item[]
+\item[\keyword{private} \ptype{KnotRenderer} \varname{KnotRenderer}] \item[]
 
 \item[\keyword{public} \ptype{Stack<Knot>} \varname{Undo}] \item[]
 
@@ -694,7 +694,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String})] \item[]
+\item[\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String} \varname{name})] \item[]
 
 \end{description}
 
@@ -948,13 +948,13 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \item[\keyword{private} \ptype{Circle} \varname{edges}] \item[]
 
-\item[\keyword{public} \ptype{KnotMetaData} \varname{Info}] \item[]
+\item[\keyword{public} \ptype{KnotMetaData} \varname{MetaData}] \item[]
 
 \item[\keyword{private} \ptype{IKnotIO} \varname{file}] \item[]
 
 \item[\keyword{public} \ptype{Action} \varname{EdgesChanged}] \item[]
 
-\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{SeletedEdges}] \item[]
+\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{SelectedEdges}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
@@ -980,7 +980,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} ()] \item[]
 
-\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotInfo} \varname{file})] \item[]
+\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotIO} \varname{file})] \item[]
 
 \item[\keyword{public} \ptype{Object} \varname{Clone} ()] \item[]
 
@@ -1044,15 +1044,31 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \item[\keyword{private} \ptype{KnotStringIO} \varname{parser}] \item[]
 
-\item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
+\item[\keyword{public} \ptype{KnotMetaData} \varname{MetaData}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{KnotFileIO} (\ptype{String} \varname{path})] \item[]
 
+\item[\keyword{public} \varname{KnotFileIO} (\ptype{Knot} \varname{knot})] \item[]
+
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+
+\end{description}
+
+\subsection{Klasse KnotInputHandler}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/KnotInputHandler}
+\end{wrapfigure}
+
+
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
 
@@ -1073,8 +1089,54 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 \item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
 
 \end{description}
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Integer} \varname{countEdges}, \ptype{IKnotIO} \varname{file})] \item[]
+
+\end{description}
+
+\subsection{Klasse KnotRenderer}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/KnotRenderer}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{GameObjectInfo} \varname{Info}] \item[]
+
+\item[\keyword{public} \ptype{World} \varname{World}] \item[]
+
+\item[\keyword{private} \ptype{List<ArrowModel>} \varname{arrows}] \item[]
+
+\item[\keyword{private} \ptype{List<NodeModel>} \varname{nodes}] \item[]
+
+\item[\keyword{private} \ptype{List<PipeModel>} \varname{pipes}] \item[]
+
+\item[\keyword{public} \ptype{Knot} \varname{Knot}] \item[]
+
+\item[\keyword{private} \ptype{ModelFactory} \varname{pipeFactory}] \item[]
+
+\item[\keyword{private} \ptype{ModelFactory} \varname{nodeFactory}] \item[]
+
+\item[\keyword{private} \ptype{ModelFactory} \varname{arrowFactory}] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{protected} \ptype{KnotMetaData} \varname{KnotInfo} (\ptype{String} \varname{name}, \ptype{Integer} \varname{countEdges}, \ptype{IKnotIO} \varname{file})] \item[]
+\item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
+
+\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{ModelRenderer} (\ptype{GameScreen} \varname{screen}, \ptype{GameObjectInfo} \varname{info})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
+
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
 \end{description}
 
@@ -1094,7 +1156,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \item[\keyword{public} \ptype{String} \varname{Content}] \item[]
 
-\item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
+\item[\keyword{public} \ptype{KnotMetaData} \varname{MetaData}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
@@ -1244,20 +1306,6 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \end{description}
 
-\subsection{Klasse ModelkeyHandler}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/ModelkeyHandler}
-\end{wrapfigure}
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
-\end{description}
-
 \subsection{Klasse ModelMouseHandler}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
@@ -1269,54 +1317,6 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
-\end{description}
-
-\subsection{Klasse ModelRenderer}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/ModelRenderer}
-\end{wrapfigure}
-
-
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{GameObjectInfo} \varname{Info}] \item[]
-
-\item[\keyword{public} \ptype{World} \varname{World}] \item[]
-
-\item[\keyword{private} \ptype{List<ArrowModel>} \varname{arrows}] \item[]
-
-\item[\keyword{private} \ptype{List<NodeModel>} \varname{nodes}] \item[]
-
-\item[\keyword{private} \ptype{List<PipeModel>} \varname{pipes}] \item[]
-
-\item[\keyword{public} \ptype{Knot} \varname{Knot}] \item[]
-
-\item[\keyword{private} \ptype{ModelFactory} \varname{pipeFactory}] \item[]
-
-\item[\keyword{private} \ptype{ModelFactory} \varname{nodeFactory}] \item[]
-
-\item[\keyword{private} \ptype{ModelFactory} \varname{arrowFactory}] \item[]
-
-\end{description}
-\paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{ModelRenderer} (\ptype{GameScreen} \varname{screen}, \ptype{GameObjectInfo} \varname{info})] \item[]
-
-\end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
-
-\item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
-
-\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
 \end{description}
 
@@ -1552,7 +1552,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 
-\item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
+\item[\keyword{public} \ptype{KnotMetaData} \varname{MetaData}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
@@ -2175,7 +2175,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 
-\item[\keyword{public} \ptype{KnotMetaData} \varname{Meta}] \item[]
+\item[\keyword{public} \ptype{KnotMetaData} \varname{MetaData}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
