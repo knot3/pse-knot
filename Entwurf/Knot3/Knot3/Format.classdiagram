@@ -51,10 +51,10 @@
               <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
             </type_NamedElement>
           </property>
-          <property Id="713e0ed5-837f-4e50-901c-32ddf8d4f21f" name="Meta" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="713e0ed5-837f-4e50-901c-32ddf8d4f21f" name="MetaData" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="81342674-85f7-44eb-8f40-5c393c8b7794" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="afe9aba2-810e-4e63-a16c-90b91821037c" LastKnownName="KnotMetaData" />
+              <referencedTypeMoniker Id="26fe4149-7e6e-4b51-afc3-87d00db6dfa3" LastKnownName="KnotMetaData" />
             </type_NamedElement>
           </property>
         </ownedAttributes>
@@ -151,8 +151,11 @@
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="6ad97cec-7105-46d1-9c35-4943d6cb81bb" name="String" direction="In" isUnique="false">
-                  <elementDefinition Id="890eea81-739b-47ae-9ef1-3f7f04953183" />
+                <parameter Id="dd425110-ba0e-4979-9c04-88261560a3d4" name="name" direction="In" isUnique="false">
+                  <elementDefinition Id="18458ce6-466f-4ef2-b581-a30d6e5894fa" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -212,10 +215,10 @@
               <referencedTypeMoniker Id="af00efc4-9504-48f1-a271-d542dccbab4f" LastKnownName="KnotStringIO" />
             </type_NamedElement>
           </property>
-          <property Id="5647bd29-1f0b-4ee8-9274-1b76f1c14826" name="Meta" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="5647bd29-1f0b-4ee8-9274-1b76f1c14826" name="MetaData" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="f24935d1-2c84-455b-825d-cd75db42b0c3" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="afe9aba2-810e-4e63-a16c-90b91821037c" LastKnownName="KnotMetaData" />
+              <referencedTypeMoniker Id="4ff63127-9645-4b93-a3a7-71ea58ec3d43" LastKnownName="KnotMetaData" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -388,10 +391,10 @@
               <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
             </type_NamedElement>
           </property>
-          <property Id="65eeb14b-1f2c-4b1f-985a-e4470d2ea1d0" name="Meta" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="65eeb14b-1f2c-4b1f-985a-e4470d2ea1d0" name="MetaData" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="24a26375-aa97-44db-98c5-3db304530578" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="afe9aba2-810e-4e63-a16c-90b91821037c" LastKnownName="KnotMetaData" />
+              <referencedTypeMoniker Id="76d639a6-d7ab-4a78-88d1-3254b51594bd" LastKnownName="KnotMetaData" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -458,10 +461,10 @@
               <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
             </type_NamedElement>
           </property>
-          <property Id="4ca285ee-8e9e-46aa-9ea8-0ba45b0ef26f" name="Meta" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="4ca285ee-8e9e-46aa-9ea8-0ba45b0ef26f" name="MetaData" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="d22057a3-1472-4142-8e40-affcbcb64a19" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="afe9aba2-810e-4e63-a16c-90b91821037c" LastKnownName="KnotMetaData" />
+              <referencedTypeMoniker Id="542aac29-7f1e-443b-abcb-224ba784e4b3" LastKnownName="KnotMetaData" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -506,11 +509,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="afe9aba2-810e-4e63-a16c-90b91821037c" name="KnotMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotMetaData">
-        <elementDefinition Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="d7c46bda-b056-4106-bd2f-7fdc98082b73" name="ChallengeMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ChallengeMetaData">
         <elementDefinition Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa" />
       </referencedType>
@@ -518,6 +516,26 @@
     <packageHasNamedElement>
       <referencedType Id="1c58c1be-9517-4ee2-9f77-abcb7f969874" name="IEnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IEnumerable&lt;Edge&gt;">
         <elementDefinition Id="ca6da500-091f-4832-b70d-f92c0f0fb34f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="26fe4149-7e6e-4b51-afc3-87d00db6dfa3" name="KnotMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotMetaData">
+        <elementDefinition Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="76d639a6-d7ab-4a78-88d1-3254b51594bd" name="KnotMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotMetaData">
+        <elementDefinition Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="4ff63127-9645-4b93-a3a7-71ea58ec3d43" name="KnotMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotMetaData">
+        <elementDefinition Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="542aac29-7f1e-443b-abcb-224ba784e4b3" name="KnotMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotMetaData">
+        <elementDefinition Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

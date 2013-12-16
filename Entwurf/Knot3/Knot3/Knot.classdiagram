@@ -126,10 +126,10 @@
               <referencedTypeMoniker Id="59322f3f-820c-4a0c-9afb-910eed27aefe" LastKnownName="Circle" />
             </type_NamedElement>
           </property>
-          <property Id="be6215dc-7d1c-4cea-91fa-c570630356d2" name="Info" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="be6215dc-7d1c-4cea-91fa-c570630356d2" name="MetaData" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6647ff19-bc70-421c-91df-149cd28ee1bc" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotMetaData" />
+              <referencedTypeMoniker Id="208a276c-2524-4b67-ac48-42ca26ef7a78" LastKnownName="KnotMetaData" />
             </type_NamedElement>
           </property>
           <property Id="6127bf6c-4a86-4d20-9d3a-ce65b616a1a9" name="file" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -144,10 +144,10 @@
               <referencedTypeMoniker Id="0aa9e7d3-e03f-4171-93a4-957b038d11c7" LastKnownName="Action" />
             </type_NamedElement>
           </property>
-          <property Id="ab8b639d-d6e3-4b68-948c-be153911f410" name="SeletedEdges" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="ab8b639d-d6e3-4b68-948c-be153911f410" name="SelectedEdges" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="fa7b4286-06b8-4fff-93de-1e4c3c47e56a" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ac8cf7ef-fbd1-4a69-97f3-88a0157d934e" LastKnownName="IEnumerable&lt;Edge&gt;" />
+              <referencedTypeMoniker Id="82ae28c3-3b0c-483b-8702-0a0d353e1876" LastKnownName="IEnumerable&lt;Edge&gt;" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -314,10 +314,10 @@
             <elementDefinition Id="81ba225e-67af-415d-a4f9-c51311a1b324" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="1c551f21-aaba-493b-9d42-fad254301ea9" name="file" direction="In" isUnique="false">
-                  <elementDefinition Id="deb493e5-486d-49ad-a4d1-1a550983e034" />
+                <parameter Id="fd19be2d-748f-4db1-a29b-13a9cadb3c39" name="file" direction="In" isUnique="false">
+                  <elementDefinition Id="608ed0f1-e9b1-4dc3-a160-77636c55a0c2" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="207f120a-3809-4aaa-a3d2-ef6d1883f59f" LastKnownName="IKnotInfo" />
+                    <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="IKnotIO" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -614,7 +614,7 @@
           <property Id="04771812-2816-47aa-9fa3-17e981f4a045" name="CountEdges" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="119af92b-9411-4fc3-b81f-66c97ea44762" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="1c94052f-c131-4240-ac62-832dc9cb7e1a" LastKnownName="Func&lt;Integer&gt;" />
+              <referencedTypeMoniker Id="5b363a01-6ae0-4814-9e69-3316b35dc7b1" LastKnownName="Integer" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -631,24 +631,24 @@
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="1fe421d3-d697-4910-821b-97e00eeca3cd" name="name" direction="In" isUnique="false">
-                  <elementDefinition Id="faace292-f136-4f94-a5ed-da4c4e49c584" />
+                <parameter Id="bb859246-c334-4fb5-949b-f230bbcf18e3" name="name" direction="In" isUnique="false">
+                  <elementDefinition Id="f6c3c958-ac49-4230-83ac-fa5e052c5522" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" LastKnownName="String" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="8d341a1a-5704-42e5-b0b4-6682de2deefc" name="countEdges" direction="In" isUnique="false">
-                  <elementDefinition Id="5449d616-bda2-4510-86c6-b56fe54a7340" />
+                <parameter Id="3a2df391-bbf8-4751-88a3-12ee0871e6ba" name="countEdges" direction="In" isUnique="false">
+                  <elementDefinition Id="fcb8cc8d-4afd-42ff-a482-745bca2c273a" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="1c94052f-c131-4240-ac62-832dc9cb7e1a" LastKnownName="Func&lt;Integer&gt;" />
+                    <referencedTypeMoniker Id="48f37cc0-80b7-4652-a597-5ad2d459d47b" LastKnownName="Integer" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="93930854-0edb-49b4-a721-fc245d35f0ad" name="file" direction="In" isUnique="false">
-                  <elementDefinition Id="fa8d184f-235c-4430-ab9b-69fe4901a280" />
+                <parameter Id="340b67f5-4cae-4126-be34-2bcaea1d0213" name="file" direction="In" isUnique="false">
+                  <elementDefinition Id="f354330d-acde-49b6-960e-1ce1a43b6872" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="IKnotIO" />
                   </type_NamedElement>
@@ -677,11 +677,6 @@
     <packageHasNamedElement>
       <referencedType Id="59322f3f-820c-4a0c-9afb-910eed27aefe" name="Circle" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Circle">
         <elementDefinition Id="bebc304e-672b-410a-bea3-bd2c5350cb64" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="207f120a-3809-4aaa-a3d2-ef6d1883f59f" name="IKnotInfo" isAbstract="false" isLeaf="false" cachedFullName="IKnotInfo">
-        <elementDefinition Id="a40fa953-b0f1-45ea-b42e-d340a0479127" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -722,11 +717,6 @@
     <packageHasNamedElement>
       <referencedType Id="0aa9e7d3-e03f-4171-93a4-957b038d11c7" name="Action" isAbstract="false" isLeaf="false" cachedFullName="Action">
         <elementDefinition Id="49d9005d-774f-4688-ab97-cc54a2486c0f" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="ac8cf7ef-fbd1-4a69-97f3-88a0157d934e" name="IEnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerable&lt;Edge&gt;">
-        <elementDefinition Id="b2abdd01-0a31-441c-ba9e-deb4a8648b9f" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -814,8 +804,18 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="1c94052f-c131-4240-ac62-832dc9cb7e1a" name="Func&lt;Integer&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;Integer&gt;">
-        <elementDefinition Id="80e1a73d-93c7-4338-8bd7-41688049ef73" />
+      <referencedType Id="208a276c-2524-4b67-ac48-42ca26ef7a78" name="KnotMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotMetaData">
+        <elementDefinition Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5b363a01-6ae0-4814-9e69-3316b35dc7b1" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="82ae28c3-3b0c-483b-8702-0a0d353e1876" name="IEnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IEnumerable&lt;Edge&gt;">
+        <elementDefinition Id="ca6da500-091f-4832-b70d-f92c0f0fb34f" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
