@@ -235,29 +235,41 @@ public class Circle :
     // Der vorherige Listeneintrag.
     + Previous : Circle
   Methods:
+    // Entfernt diesen Listeneintrag und verknüft den vorherigen mit dem nächsten Eintrag.
+    + Remove () : void
     // Erstellt einen neuen Listeneintrag.
     + Circle (T content) : void
+    // Fügt nach diesem Listeneintrag einen neuen Listeneintrag ein.
+    + InsertAfter (T next) : void
+    // Fügt vor diesem Listeneintrag einen neuen Listeneintrag ein.
+    + InsertBefore (T previous) : void
+    // Gibt einen Enumerator über die Liste zurück.
+    + GetEnumerator () : IEnumerator<T>
+    // Gibt einen Enumerator über die Liste zurück.
+    + GetEnumerator () : IEnumerator
 
 // Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
 public class ColorPicker : 
   Attributes:
-    // 
+    // Die ausgewählte Farbe.
     + Color : Color
   Methods:
-    // 
+    // Reagiert auf Tastatureingaben.
     + OnKeyEvent () : void
-    // 
+    // Bei einem Klick auf die linke Maustaste wird eine Farbe ausgewählt und im Attribut Color abgespeichert.
     + OnLeftClick () : void
-    // 
+    // Bei einem Klick auf die rechte Maustaste geschieht nichts.
     + OnRightClick () : void
-    // 
+    // Gibt die Ausmaße des ColorPickers zurück.
     + Bounds () : Rectangle
 
-// 
+// Ein Menueintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
 public class ColorPickItem : 
   Attributes:
-    // 
+    // Die aktuelle Farbe.
     + Color : Color
+    // Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
+    - picker : ColorPicker
   Methods:
 
 // 
@@ -792,6 +804,8 @@ public class Knot :
     + IsSelected (Edge edge) : Boolean
     // 
     + Knot (IKnotIO format) : void
+    // 
+    + GetEnumerator () : IEnumerator
 
 // 
 public class Knot3Game : 

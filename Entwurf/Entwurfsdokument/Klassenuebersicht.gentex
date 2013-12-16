@@ -318,34 +318,34 @@ Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für de
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{PlayerKnot}] \item[]
-
+Der Spielerknoten, der während der Transformation des Spielers aus dem Ausgangsknoten entsteht.
 \item[\keyword{public} \ptype{void} \varname{ChallengeKnot}] \item[]
-
+Der Referenzknoten.
 \item[\keyword{private} \ptype{World} \varname{ChallengeWorld}] \item[]
-
+Die Spielwelt der 3D-Modelle des Referenzknotens.
 \item[\keyword{private} \ptype{World} \varname{PlayerWorld}] \item[]
-
+Die Spielwelt der 3D-Modelle des Spielerknotens.
 \item[\keyword{private} \ptype{KnotRenderer} \varname{ChallengeKnotRenderer}] \item[]
-
+Der Controller, der aus dem Referenzknoten die 3D-Modelle erstellt.
 \item[\keyword{private} \ptype{KnotRenderer} \varname{PlayerKnotRenderer}] \item[]
-
+Der Controller, der aus dem Spielerknoten die 3D-Modelle erstellt.
 \item[\keyword{private} \ptype{PipeMovement} \varname{PlayerKnotMovement}] \item[]
-
+Der Inputhandler, der die Kantenverschiebungen des Spielerknotens durchführt.
 \item[\keyword{public} \ptype{Stack<Knot>} \varname{Undo}] \item[]
-
+Der Undo-Stack.
 \item[\keyword{public} \ptype{Stack<Knot>} \varname{Redo}] \item[]
-
+Der Redo-Stack.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
-
+Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
 \end{description}
 
 \subsection{Klasse CheckBoxItem}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Menueintrag, der einen Auswahlkasten darstellt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/CheckBoxItem}
@@ -354,16 +354,16 @@ Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für de
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{private} \ptype{BooleanOptionInfo} \varname{option}] \item[]
-
+Die Option, die mit dem Auswahlkasten verknüft ist.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{CheckBoxItem} (\ptype{BooleanOptionInfo} \varname{option})] \item[]
-
+Erstellt einen Menueintrag für die angegebenen Option.
 \end{description}
 
 \subsection{Klasse Circle}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Eine doppelt verkettete Liste.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/Circle}
@@ -372,20 +372,32 @@ Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für de
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{T} \varname{Content}] \item[]
-
+Der Wert dieses Listeneintrags.
 \item[\keyword{public} \ptype{Circle} \varname{Next}] \item[]
-
+Der nächste Listeneintrag.
 \item[\keyword{public} \ptype{Circle} \varname{Previous}] \item[]
-
+Der vorherige Listeneintrag.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{Circle} (\ptype{T} \varname{content})] \item[]
+Erstellt einen neuen Listeneintrag.
+\end{description}
+\paragraph{Methoden:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{void} \varname{Remove} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{InsertAfter} (\ptype{T} \varname{next})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{InsertBefore} (\ptype{T} \varname{previous})] \item[]
+
+\item[\keyword{public} \ptype{IEnumerator<T>} \varname{GetEnumerator} ()] \item[]
+
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
 \end{description}
 
 \subsection{Klasse ColorPicker}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/ColorPicker}
@@ -394,7 +406,7 @@ Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für de
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Color} \varname{Color}] \item[]
-
+Die ausgewählte Farbe.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
@@ -418,6 +430,8 @@ Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für de
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Color} \varname{Color}] \item[]
+
+\item[\keyword{private} \ptype{ColorPicker} \varname{picker}] \item[]
 
 \end{description}
 
@@ -514,7 +528,7 @@ Wird für jeden Frame aufgerufen.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})] \item[]
 
 \end{description}
@@ -1002,6 +1016,8 @@ Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{AddRangeToSelection} (\ptype{Edge} \varname{edge})] \item[]
 
 \item[\keyword{public} \ptype{Boolean} \varname{IsSelected} (\ptype{Edge} \varname{edge})] \item[]
+
+\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
 \end{description}
 
