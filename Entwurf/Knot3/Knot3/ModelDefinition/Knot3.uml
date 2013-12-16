@@ -11233,6 +11233,31 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="614db007-3b04-4883-8107-68dd14936100"
+            name="KnotFileIO"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bf2741a0-493e-4367-8b84-0f089a3fdd90"
+                  name="knot"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="8e1aa097-f416-4abd-af60-4daddd5f633c"
+                      LastKnownName="Knot"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -13519,22 +13544,25 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedLiterals>
           <enumerationLiteral
             Id="565253cb-0468-4f46-b51d-18b97a65becf"
-            name="Left" />
+            name="Left = 1" />
           <enumerationLiteral
             Id="dd2793b0-812f-493b-b69b-abb5e7fd43df"
-            name="Right" />
+            name="Right = 2" />
           <enumerationLiteral
             Id="e7392fb9-dff9-43d8-85be-653a3dbf6253"
-            name="Up" />
+            name="Up = 3" />
           <enumerationLiteral
             Id="7f139d6e-ffb3-450c-bacb-80679e0ce377"
-            name="Down" />
+            name="Down = 4" />
           <enumerationLiteral
             Id="7dab7d80-336e-4e4d-a20f-716eb57f7ee1"
-            name="Forward" />
+            name="Forward = 5" />
           <enumerationLiteral
             Id="07ed9397-a59b-430c-bc0e-820e586afd84"
-            name="Backward" />
+            name="Backward = 6" />
+          <enumerationLiteral
+            Id="aa08b258-6e83-4fe4-86e6-d2949172e94f"
+            name="Zero = 0" />
         </ownedLiterals>
       </enumeration>
     </packageHasNamedElement>
