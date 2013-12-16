@@ -1786,12 +1786,6 @@ Wird für jeden Frame aufgerufen.
 
 
 
-
-
-
-
-
-
 \subsection{Klasse TextInputDialog}
 \paragraph{Beschreibung:}\mbox{}\\\\
 
@@ -1928,60 +1922,6 @@ Wird für jeden Frame aufgerufen.
 
 \end{description}
 
-\subsection{Klasse XNA.DrawableGameComponent}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/XNADrawableGameComponent}
-\end{wrapfigure}
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-Wird für jeden Frame aufgerufen.
-\end{description}
-
-\subsection{Klasse XNA.Game}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/XNAGame}
-\end{wrapfigure}
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Game} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Initialize} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{LoadContent} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{UnloadContent} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime})] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime})] \item[]
-
-\end{description}
-
-\subsection{Klasse XNA.GameComponent}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/XNAGameComponent}
-\end{wrapfigure}
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-Wird für jeden Frame aufgerufen.
-\end{description}
-
 \section{Schnittstellen}
 \subsection{Schnittstelle IChallengeIO}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -1999,86 +1939,6 @@ Speichert eine Challenge.
 Lädt eine Challenge.
 \item[\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})] \item[]
 Lädt die Metadaten einer Challenge.
-\end{description}
-
-\subsection{Schnittstelle ICloneable}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/ICloneable}
-\end{wrapfigure}
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Object} \varname{Clone} ()] \item[]
-
-\end{description}
-
-\subsection{Schnittstelle IEnumerable}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/IEnumerable}
-\end{wrapfigure}
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
-
-\end{description}
-
-
-
-
-
-
-
-\subsection{Schnittstelle IEnumerable1}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/IEnumerable1}
-\end{wrapfigure}
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
-
-\end{description}
-
-\subsection{Schnittstelle IEquatable}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/IEquatable}
-\end{wrapfigure}
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})] \item[]
-
-\end{description}
-
-
-
-
-
-\subsection{Schnittstelle IEquatable1}
-\paragraph{Beschreibung:}\mbox{}\\\\
-
-\begin{wrapfigure}{R}{0.5\textwidth}
-\centering
-\includegraphics[scale=0.2]{Klassen/IEquatable1}
-\end{wrapfigure}
-
-
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})] \item[]
-
 \end{description}
 
 \subsection{Schnittstelle IGameObject}
@@ -2231,11 +2091,5 @@ Die Reaktion auf einen Rechtsklick.
 \item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{model})] \item[]
 
 \end{description}
-
-
-
-
-
-
 
 \section{Enumerationen}

@@ -564,66 +564,6 @@ public interface IChallengeIO :
     // Lädt die Metadaten einer Challenge.
     + LoadMetaData (String filename) : ChallengeMetaData
 
-// 
-public interface ICloneable : 
-  Attributes:
-  Methods:
-    // 
-    + Clone () : Object
-
-// 
-public interface IEnumerable : 
-  Attributes:
-  Methods:
-    // 
-    + GetEnumerator () : IEnumerator
-
-// 
-public interface IEnumerable<Edge> : 
-  Attributes:
-  Methods:
-
-// 
-public interface IEnumerable<IGameObject> : 
-  Attributes:
-  Methods:
-
-// 
-public interface IEnumerable<MenuItem> : 
-  Attributes:
-  Methods:
-
-// 
-public interface IEnumerable1 : 
-  Attributes:
-  Methods:
-    // 
-    + GetEnumerator () : IEnumerator
-
-// 
-public interface IEquatable : 
-  Attributes:
-  Methods:
-    // 
-    + Equals (T other) : Boolean
-
-// 
-public interface IEquatable<Angles3> : 
-  Attributes:
-  Methods:
-
-// 
-public interface IEquatable<GameObjectInfo> : 
-  Attributes:
-  Methods:
-
-// 
-public interface IEquatable1 : 
-  Attributes:
-  Methods:
-    // 
-    + Equals (T other) : Boolean
-
 // Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz auf die Spielwelt, in der sich das
 // Spielobjekt befindet, sowie Informationen zu dem Spielobjekt.
 public interface IGameObject : 
@@ -1282,31 +1222,6 @@ public class SubMenu :
   Methods:
 
 // 
-public class T : 
-  Attributes:
-  Methods:
-
-// 
-public class T : 
-  Attributes:
-  Methods:
-
-// 
-public class T : 
-  Attributes:
-  Methods:
-
-// 
-public interface T : 
-  Attributes:
-  Methods:
-
-// 
-public interface T : 
-  Attributes:
-  Methods:
-
-// 
 public class TextInputDialog : 
   Attributes:
     // 
@@ -1384,42 +1299,4 @@ public class World :
     + World (GameScreen screen) : void
     // 
     + GetEnumerator () : IEnumerator
-
-// 
-public class XNA.DrawableGameComponent : 
-  Attributes:
-  Methods:
-    // 
-    + Draw (GameTime time) : void
-    // Wird für jeden Frame aufgerufen.
-    + Update (GameTime time) : void
-
-// 
-public class XNA.Game : 
-  Attributes:
-  Methods:
-    // 
-    + Game () : void
-    // 
-    + Initialize () : void
-    // 
-    + LoadContent () : void
-    // 
-    + UnloadContent () : void
-    // 
-    + Update (GameTime) : void
-    // 
-    + Draw (GameTime) : void
-
-// 
-public class XNA.GameComponent : 
-  Attributes:
-  Methods:
-    // Wird für jeden Frame aufgerufen.
-    + Update (GameTime time) : void
-
-// 
-public interface XNA.IGameComponent : 
-  Attributes:
-  Methods:
 
