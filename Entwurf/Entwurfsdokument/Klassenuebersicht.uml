@@ -32,10 +32,10 @@ public class ArrowModel :
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
 
-// Ein Objekt dieser Klasse hält alle Informationen hält, die zur Erstellung eines Pfeil-3D-Modelles (ArrowModel) notwendig sind.
+// Ein Objekt dieser Klasse hält alle Informationen, die zur Erstellung eines Pfeil-3D-Modelles (ArrowModel) notwendig sind.
 public class ArrowModelInfo : 
   Attributes:
-    // Die Richtung, die die der Pfeil zeigen soll.
+    // Die Richtung, die der Pfeil zeigen soll.
     + Direction : Vector3
   Methods:
     // Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum, das in eine bestimmte Richtung zeigt.
@@ -44,21 +44,21 @@ public class ArrowModelInfo :
 // Der Spielzustand, der die Audio-Einstellungen darstellt.
 public class AudioSettingsScreen : 
   Attributes:
-    // Das Menu, das die Einstellungen enthält.
+    // Das Menü, das die Einstellungen enthält.
     # settingsMenu : void
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // Fügt das Menu mit dem Einstellungen in die Spielkomponentenliste ein.
+    // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// Diese Klasse repräsentiert eine Option, die die Werte \glqq Wahr \grqq oder \glqq Falsch \grqq annehmen kann.
+// Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann.
 public class BooleanOptionInfo : 
   Attributes:
-    // Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
+    // Ein Property, das den aktuell abgespeicherten Wert zurückgibt.
     + Value : bool
   Methods:
-    // Erstellt eine neue Option, die die Werte \glqq Wahr \grqq oder \glqq Falsch \grqq annehmen kann, mit dem angegebenen Namen in dem
+    // Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
     // angegebenen Abschnitt der angegebenen Einstellungsdatei.
     + BooleanOptionInfo (String section, String name, String defaultValue, ConfigFile configFile) : void
 
@@ -84,9 +84,9 @@ public class Camera :
     + ProjectionMatrix : Matrix
     // Eine Position, um die rotiert werden soll, wenn der User die rechte Maustaste gedrückt hält und die Maus bewegt.
     + ArcballTarget : Vector3
-    // Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-Objekt sich um Blickfeld des Spielers befindet.
+    // Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-Objekt sich im Blickfeld des Spielers befindet.
     + ViewFrustum : BoundingFrustum
-    // Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
+    // Eine Referenz auf die Spielwelt, für welche die Kamera zuständig ist.
     - World : World
     // Die Rotationswinkel.
     + Rotation : Angles3
@@ -118,9 +118,9 @@ public class CelShadingEffect :
 // Ein Objekt dieser Klasse repräsentiert eine Challenge.
 public class Challenge : 
   Attributes:
-    // Der Ausgangsknoten, den der Spieler in den Referenzknoten transformieren muss.
+    // Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
     + Start : Knot
-    // Der Referenzknoten, in den der Spieler den Ausgangsknoten transformieren muss.
+    // Der Referenzknoten, in den der Spieler den Ausgangsknoten transformiert.
     + Target : Knot
     // Eine sortierte Bestenliste.
     - highscore : SortedList<Integer, String>
@@ -135,12 +135,7 @@ public class Challenge :
   Methods:
     // Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
     // Erstellt ein Challenge-Objekt aus einer gegebenenen Challenge-Datei.
-    + Challenge (ChallengeMetaData meta) : Challenge
-    // Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
-    // Erstellt ein Challenge-Objekt aus einer gegebenenen Challenge-Datei.
-    + Challenge (IChallangeIO format) : Challenge
-    // Erstellt eine neue Challenge mit einem gegebenen Ausgangs- und Referenzknoten und einem Namen
-    + CreateChallenge (Knot start, Knot target, String name, IChallengeIO file) : Boolean
+    + Challenge (ChallengeMetaData meta, Knot start, Knot target) : void
     // Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
     + AddToHighscore (String name, Integer time) : void
 
@@ -167,7 +162,7 @@ public class ChallengeLoadScreen :
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // Fügt das Menu mit dem Spielständen in die Spielkomponentenliste ein.
+    // Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Enthält Metadaten zu einer Challenge.
@@ -175,24 +170,24 @@ public class ChallengeMetaData :
   Attributes:
     // Der Name der Challenge.
     + Name : String
-    // Der Ausgangsknoten, den der Spieler in den Referenzknoten transformieren muss.
+    // Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
     + Start : KnotMetaData
-    // Der Referenzknoten, in den der Spieler den Ausgangsknoten transformieren muss.
+    // Der Referenzknoten, in den der Spieler den Ausgangsknoten transformiert.
     + Target : KnotMetaData
     // Das Format, aus dem die Metadaten der Challenge gelesen wurden oder null.
     + Format : IChallengeIO
-    // Der Dateiname, aus dem die Metadaten der Challenge gelesen wurden oder in den sie abgespeichert werden sollen.
+    // Der Dateiname, aus dem die Metadaten der Challenge gelesen wurden oder in den sie abgespeichert werden.
     + Filename : String
     // Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
     + Highscore : IEnumerator<KeyValuePair<String, Integer>>
   Methods:
     // Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metadaten des Ausgangs- und Referenzknotens.
-    + ChallengeMetaData (String name, KnotMetaData start, KnotMetaData target) : void
+    + ChallengeMetaData (String name, KnotMetaData start, KnotMetaData target, String filename, IChallengeIO format) : void
 
 // Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für den Ausgangs- und Referenzknoten je eine 3D-Welt zeichnet.
 public class ChallengeModeScreen : 
   Attributes:
-    // Der Spielerknoten, der während der Transformation des Spielers aus dem Ausgangsknoten entsteht.
+    // Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
     + PlayerKnot : void
     // Der Referenzknoten.
     + ChallengeKnot : void
@@ -216,13 +211,13 @@ public class ChallengeModeScreen :
     // Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// Ein Menueintrag, der einen Auswahlkasten darstellt.
+// Ein Menüeintrag, der einen Auswahlkasten darstellt.
 public class CheckBoxItem : 
   Attributes:
     // Die Option, die mit dem Auswahlkasten verknüft ist.
     - option : BooleanOptionInfo
   Methods:
-    // Erstellt einen Menueintrag für die angegebenen Option.
+    // Erstellt einen Menüeintrag für die angegebene Option.
     + CheckBoxItem (BooleanOptionInfo option) : void
 
 // Eine doppelt verkettete Liste.
@@ -263,7 +258,7 @@ public class ColorPicker :
     // Bei einem Rechtsklick geschieht nichts.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
 
-// Ein Menueintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
+// Ein Menüeintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
 public class ColorPickItem : 
   Attributes:
     // Die aktuelle Farbe.
@@ -278,9 +273,9 @@ public class ConfigFile :
   Methods:
     // Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
     + SetOption (String section, String option, String value) : void
-    // Gibt den aktuell in der Datei vorhandenen Wert für die angegebenen Option in dem angegebenen Abschnitt zurück.
+    // Gibt den aktuell in der Datei vorhandenen Wert für die angegebene Option in dem angegebenen Abschnitt zurück.
     + GetOption (String section, String option, Boolean defaultValue) : Boolean
-    // Gibt den aktuell in der Datei vorhandenen Wert für die angegebenen Option in dem angegebenen Abschnitt zurück.
+    // Gibt den aktuell in der Datei vorhandenen Wert für die angegebene Option in dem angegebenen Abschnitt zurück.
     + GetOption (String section, String option, String defaultValue) : String
     // Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
     + SetOption (String section, String option, Boolean _value) : void
@@ -295,19 +290,19 @@ public class ConfirmDialog :
 // Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
 public class ControlSettingsScreen : 
   Attributes:
-    // Das Menu, das die Einstellungen enthält.
+    // Das Menü, das die Einstellungen enthält.
     # settingsMenu : void
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // Fügt das Menu mit dem Einstellungen in die Spielkomponentenliste ein.
+    // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
 public class CreativeLoadScreen : 
   Attributes:
   Methods:
-    // Fügt das Menu mit dem Spielständen in die Spielkomponentenliste ein.
+    // Fügt das Menü mit dem Spielständen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
@@ -337,7 +332,7 @@ public class CreditsScreen :
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // Fügt das Menu mit dem Mitwirkenden in die Spielkomponentenliste ein.
+    // Fügt das Menü mit den Mitwirkenden in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
@@ -403,7 +398,7 @@ public class DropDownMenuItem :
     // Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
     + AddEntries (DropDownEntry enties) : void
 
-// Eine Kante eines Knoten, die aus einer Richtung und einer Farben sowie optional einer Liste von Flächennummern besteht.
+// Eine Kante eines Knotens, die aus einer Richtung und einer Farbe, sowie optional einer Liste von Flächennummern besteht.
 public class Edge : 
   Attributes:
     // Die Farbe der Kante.
@@ -519,7 +514,7 @@ public class GameScreen :
     + CurrentRenderEffects : RenderEffectStack
   Methods:
     // Beginnt mit dem Füllen der Spielkomponentenliste des XNA-Frameworks und fügt sowohl für Tastatur- als auch für
-    // Mauseingaben einen Inputhandler für Widgets hinzu. Wird Unterklassen von GameScreen reimplementiert und fügt zursätzlich weitere
+    // Mauseingaben einen Inputhandler für Widgets hinzu. Wird in Unterklassen von GameScreen reimplementiert und fügt zursätzlich weitere
     // Spielkomponenten hinzu.
     + Entered (GameScreen previousScreen, GameTime time) : void
     // Leert die Spielkomponentenliste des XNA-Frameworks.
@@ -529,7 +524,7 @@ public class GameScreen :
     // 
     + GameScreen (Knot3Game game) : void
     // Fügt die angegebenen Spielkomponenten und deren über die Methode SubComponents() ermittelten
-    // Unterkomponenten des Spielkomponentenliste des XNA-Frameworks hinzu.
+    // Unterkomponenten der Spielkomponentenliste des XNA-Frameworks hinzu.
     + AddGameComponents (IGameStateComponent[] components) : void
     // Entfernt die angegebenen Spiekomponenten und deren Unterkomponenten von der Spielkomponentenliste des XNA-Frameworks.
     + RemoveGameComponents (IGameStateComponent[] components) : void
@@ -550,12 +545,12 @@ public class GameScreenComponent :
 // Der Spielzustand, der die Grafik-Einstellungen darstellt.
 public class GraphicsSettingsScreen : 
   Attributes:
-    // Das Menu, das die Einstellungen enthält.
+    // Das Menü, das die Einstellungen enthält.
     # settingsMenu : void
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // Fügt das Menu mit dem Einstellungen in die Spielkomponentenliste ein.
+    // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
@@ -633,7 +628,7 @@ public interface IEquatable1 :
 // Spielobjekt befindet, sowie Informationen zu dem Spielobjekt.
 public interface IGameObject : 
   Attributes:
-    // Informationen über das Spielobjekt wie z.B. die Position.
+    // Informationen über das Spielobjekt, wie z.B. die Position.
     + Info : GameObjectInfo
     // Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
     + World : World
@@ -667,12 +662,12 @@ public interface IJunction :
     + EdgeTo : Edge
   Methods:
 
-// Eine Schnittstelle, die von Klassen inmplementiert wird, die auf Tastatureingaben reagieren.
+// Eine Schnittstelle, die von Klassen inmplementiert wird, welche auf Tastatureingaben reagieren.
 public interface IKeyEventListener : 
   Attributes:
     // Die Eingabepriorität.
     + Index : DisplayLayer
-    // Ob die Klasse zur Zeit auf Tastatureingaben reagiert.
+    // Zeigt an, ob die Klasse zur Zeit auf Tastatureingaben reagiert.
     + IsKeyEventEnabled : Boolean
     // Die Tasten, auf die die Klasse reagiert.
     + ValidKeys : List<Keys>
@@ -691,7 +686,7 @@ public interface IKnotIO :
     // Lädt die Metadaten eines Knotens.
     + LoadMetaData (String filename) : KnotMetaData
 
-// Eine Schnittstelle, die von Klassen inmplementiert wird, die auf Maus-Klicks reagieren.
+// Eine Schnittstelle, die von Klassen implementiert wird, die auf Maus-Klicks reagieren.
 public interface IMouseEventListener : 
   Attributes:
     // Die Eingabepriorität.
@@ -770,8 +765,6 @@ public class Knot :
     // 
     + MetaData : KnotMetaData
     // 
-    - format : IKnotIO
-    // 
     + EdgesChanged : Action
     // 
     + SelectedEdges : IEnumerable<Edge>
@@ -783,7 +776,7 @@ public class Knot :
     // 
     + ClearSelection () : void
     // 
-    + Knot (KnotMetaData info) : void
+    + Knot (KnotMetaData meta, IEnumerable<Edge> edges) : void
     // 
     + IsValidMove (Direction dir, Integer distance) : Boolean
     // 
@@ -795,8 +788,6 @@ public class Knot :
     // 
     + GetEnumerator () : IEnumerator<Edge>
     // 
-    + Save (IKnotIO file) : void
-    // 
     + Clone () : Object
     // 
     + AddToSelection (Edge edge) : void
@@ -807,9 +798,9 @@ public class Knot :
     // 
     + IsSelected (Edge edge) : Boolean
     // 
-    + Knot (IKnotIO format) : void
-    // 
     + GetEnumerator () : IEnumerator
+    // 
+    + Save (, IKnotIO format) : void
 
 // 
 public class Knot3Game : 
@@ -871,9 +862,7 @@ public class KnotMetaData :
     + Filename : String
   Methods:
     // 
-    + KnotMetaData (String name, Integer countEdges, IKnotIO file) : KnotMetaData
-    // 
-    + KnotMetaData (IKnotIO file) : KnotMetaData
+    + KnotMetaData (String name, Integer countEdges, IKnotIO format, String filename) : KnotMetaData
 
 // 
 public class KnotRenderer : 
