@@ -1,20 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc184cf5-f240-4d95-bc66-963bed10b7c4" name="UMLClassDiagram1" linkedPackageId="83617cec-a287-4f01-af6b-49408eea9d89" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <ownedCommentsInternal>
-    <comment Id="dffe96f7-0276-4603-9b75-495c187f0bea">
-      <elementDefinition Id="d6259d05-2b5b-4070-8b80-5208783257c1" />
-      <body>Implementiert das Konvertieren eines Knoten-Namens in einen gültigen Dateinamen</body>
-      <annotatedElements>
-        <classMoniker Id="0401c688-f5f2-465b-be82-97d943ce0024" LastKnownName="FileIO" />
-      </annotatedElements>
-    </comment>
-  </ownedCommentsInternal>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc184cf5-f240-4d95-bc66-963bed10b7c4" name="UMLClassDiagram1" linkedPackageId="83617cec-a287-4f01-af6b-49408eea9d89" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
-    <packageHasNamedElement>
-      <referencedType Id="939666fd-4202-48d6-b07c-4a18bc7db454" name="IEnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerable&lt;Edge&gt;">
-        <elementDefinition Id="b2abdd01-0a31-441c-ba9e-deb4a8648b9f" />
-      </referencedType>
-    </packageHasNamedElement>
     <packageHasNamedElement>
       <referencedType Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
         <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
@@ -30,34 +16,9 @@
         <elementDefinition Id="64404476-bbf5-46aa-ad92-f014dce61d8d" />
       </referencedType>
     </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="e4821eb5-75e8-44ec-8473-709f5d59154a" name="IEnumerable&lt;KeyValuePair&lt;String, Integer&gt;&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerable&lt;KeyValuePair&lt;String, Integer&gt;&gt;">
-        <elementDefinition Id="4492a66d-2636-4d96-b8cb-6d2df80307b7" />
-      </referencedType>
-    </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="26d093ca-451f-4146-8b67-0bd3c43ffd36" name="IKnotIO" isAbstract="false" isLeaf="false">
         <elementDefinition Id="0b22d353-d1cd-4ef0-b4e0-9aaa60af844b" />
-        <ownedAttributes>
-          <property Id="26b9b810-fc21-4766-91b3-d5ad91f78dad" name="Edges" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="e7829434-ee44-4def-b720-c6ea4bc92f25" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="939666fd-4202-48d6-b07c-4a18bc7db454" LastKnownName="IEnumerable&lt;Edge&gt;" />
-            </type_NamedElement>
-          </property>
-          <property Id="6fe8aa81-bbe4-46be-8841-14c644ded7d7" name="Name" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="dbbf5c41-47e1-491a-af29-a58d4c5f823a" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
-          <property Id="b79d56ed-4b33-4581-a47b-d1e60c797265" name="CountEdges" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="63c60ed8-0af8-4a2b-9a9f-42ecfbe7efb5" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="5bce467e-a73b-47ee-ad24-6d6bc737c3fa" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributes>
         <ownedOperations>
           <operation Id="fef45485-00b1-44fa-9b26-850cfe46ae12" name="Save" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="b690e2d3-259f-41b8-8056-0cd2b385a916" />
@@ -72,38 +33,54 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="ccf722d5-e219-4f8e-a748-8d8dd6889c51" name="Load" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="dcb07944-2c42-4e24-9287-83d51701de65" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="49bdf2d7-8c78-4494-b30a-34edf169b13f" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="ef137e95-ecb2-45a2-ab77-706211d2efe6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0cd3bd71-4f1a-4b60-aa8d-a111b8aac540" direction="Return" isUnique="false">
+                  <elementDefinition Id="7685ef5c-92dd-424a-b9af-de43e61c4eb0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="8d2d61bc-001a-4407-9fbe-e56e0a5b15a9" name="LoadMetaData" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ee078646-a907-49be-8dd2-bbfd4274a238" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e397b28c-f108-4123-834f-9d5116d4d51e" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="5fbb806e-c613-4ec5-b069-21d28a4b0614" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c5a4c2b8-34fc-4e9e-b658-72f1424befd5" direction="Return" isUnique="false">
+                  <elementDefinition Id="aaaf124b-e590-4785-a46e-bff5386e41b8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a84c1b74-caae-4991-a6c0-22ed0cdafb83" LastKnownName="KnotMetaData" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperations>
       </Interface>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="0d789b35-ba10-4e40-9bdf-310d9eec51f4" name="IChallengeIO" isAbstract="false" isLeaf="false">
         <elementDefinition Id="00e1faab-ff93-4b96-8b3f-5c194dc62336" />
-        <ownedAttributes>
-          <property Id="0563bc70-e0b2-4866-a02c-cab74d023d6a" name="Highscore" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="8ce76472-3687-472c-bf70-553edbf7345f" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="e4821eb5-75e8-44ec-8473-709f5d59154a" LastKnownName="IEnumerable&lt;KeyValuePair&lt;String, Integer&gt;&gt;" />
-            </type_NamedElement>
-          </property>
-          <property Id="ae3b8dac-fb15-428e-b53c-44d9c0e1eaee" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="8bba8bb4-1454-4c8d-bbd9-0f6bad4c7656" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
-          <property Id="ee1800bb-b720-4f35-b801-e20b85badcd7" name="StartKnot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="c9b5126c-a437-4de9-818d-8bc5f21ab5e9" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
-            </type_NamedElement>
-          </property>
-          <property Id="31f0aea6-738c-4519-b4d7-15e741ac69c9" name="TargetKnot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="26ea75ae-d10f-481c-ae3d-568c3b524791" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributes>
         <ownedOperations>
           <operation Id="0daf407d-ea92-4f54-b725-23f4dcf5587d" name="Save" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="1d8d28c0-ca17-4870-889d-0b8d10237e84" />
@@ -118,22 +95,76 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="ab527005-0fc1-4517-896f-fc53e577d209" name="Load" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="170299bf-f264-45a3-a605-ba113425bc26" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ae35ec55-d91c-4350-84bc-2a6523132b50" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="c88e4516-81b7-42ef-b9f6-4e4e6d01b8e4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="823caf24-9ca9-420e-a270-15fee3876e3d" direction="Return" isUnique="false">
+                  <elementDefinition Id="41810885-8ed8-4b19-a97f-fdcf89a6e59f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4035729b-3142-4220-8114-4b1d1addd77e" LastKnownName="Challenge" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="379fbb25-c8bc-4dec-bd4e-368d219b6af7" name="LoadMetaData" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ef57a036-1978-4388-8d09-f778c5876e28" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="19c973df-cb09-4f3a-bb18-5a24c2beaf68" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="b272cc72-cb9c-4f19-9be5-d4617f137896" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="68439aae-44a8-4666-84a6-858883ab261d" direction="Return" isUnique="false">
+                  <elementDefinition Id="3a638267-e453-4de9-9651-37662bfc5a40" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f2266790-5b6f-4a9e-940a-1ce2fc2e0e74" LastKnownName="ChallengeMetaData" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperations>
       </Interface>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="0401c688-f5f2-465b-be82-97d943ce0024" name="FileIO" isAbstract="true" isLeaf="false" isActiveClass="false">
+      <class Id="0401c688-f5f2-465b-be82-97d943ce0024" name="FileUtility" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="1ba88008-5e57-4772-bcdd-f6e6db78ae28" />
         <ownedAttributesInternal>
-          <property Id="3c9b0cd8-4825-4cc0-a930-d7ddb201a690" name="FileName" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="b4075c3d-21d3-42e9-8a70-39fc8ab95bd3" />
+          <property Id="f404dfc2-bd92-455b-a1be-5d059fa7dd36" name="SettingsDirectory" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d4d61ee9-0856-4e2a-952c-4e8b81d9235e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="b20a2009-405a-4deb-8d54-ef39c9e264c0" name="SavegameDirectory" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="04b37a74-e05a-4003-b5dc-2b0596bb9e3d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="dbf42600-e448-4eec-af5e-f7c042a9a87c" name="ScreenshotDirectory" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0e7912c7-5c42-441b-a044-e80cd4e586d9" />
             <type_NamedElement>
               <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="53ca734e-659c-414e-9c3f-3b6388d9e6a0" name="ConvertToFileName" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="53ca734e-659c-414e-9c3f-3b6388d9e6a0" name="ConvertToFileName" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a0a476ae-a1c7-4d16-9736-089b8ed76548" />
             <ownedParameters>
               <operationHasOwnedParameters>
@@ -161,17 +192,11 @@
       <class Id="d44dd3aa-4049-4571-875c-1eee32cbddd0" name="KnotFileIO" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="96227068-6ec7-4a81-bfbc-b53567a22454" />
         <suppliersInternal>
-          <interfaceRealization Id="ab05869e-7193-4ade-8c11-03c637163fa8">
+          <interfaceRealization Id="98759706-6328-42ad-8355-2aba8d5b472b">
             <interfaceMoniker Id="26d093ca-451f-4146-8b67-0bd3c43ffd36" LastKnownName="IKnotIO" />
-            <elementDefinition Id="abe5cbc2-79cf-4163-b8ea-2f582d48d7b0" />
+            <elementDefinition Id="0d6621f3-21fe-467f-a12d-8af17443d0d5" />
           </interfaceRealization>
         </suppliersInternal>
-        <generalsInternal>
-          <generalization Id="09c17b51-67cb-48b4-b886-630f449ffcbd" isSubstitutable="false">
-            <classMoniker Id="0401c688-f5f2-465b-be82-97d943ce0024" LastKnownName="FileIO" />
-            <elementDefinition Id="eab606be-1dca-4bf2-9f1d-15fed54d223b" />
-          </generalization>
-        </generalsInternal>
         <targetEnds>
           <association Id="95c9d626-1e3c-4355-b03c-3e3737571d5a" isDerived="false" sourceEndRoleName="KnotFileIO" targetEndRoleName="KnotStringIO" isLeaf="false" isAbstract="false">
             <classMoniker Id="99b53560-b680-480e-b790-9feaa60dfc79" LastKnownName="KnotStringIO" />
@@ -191,51 +216,44 @@
           </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="423c2f46-71c7-4480-b918-aaf9dd8b1683" name="Edges" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="ebe333f5-8a18-4577-af6b-a5ee6a513de7" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="939666fd-4202-48d6-b07c-4a18bc7db454" LastKnownName="IEnumerable&lt;Edge&gt;" />
-            </type_NamedElement>
-          </property>
-          <property Id="d8963861-7656-4b8a-bb15-cae09e19b9a8" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="b1c97109-8ac7-412f-b741-a72ef05aeac2" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
           <property Id="1e4b9459-c0df-418e-b276-b13e0f63cc7a" name="parser" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5f993fcd-164e-410f-bf04-745233d1921a" />
             <type_NamedElement>
               <referencedTypeMoniker Id="af00efc4-9504-48f1-a271-d542dccbab4f" LastKnownName="KnotStringIO" />
             </type_NamedElement>
           </property>
-          <property Id="5647bd29-1f0b-4ee8-9274-1b76f1c14826" name="CountEdges" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="f24935d1-2c84-455b-825d-cd75db42b0c3" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="917b310e-bd61-456f-88fe-738121b54ed4" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="536c46c8-496d-4bcf-9f48-4c750d732115" name="KnotFileIO" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="51211943-cd68-4ee0-a780-f5d8f347fd7d" />
+          <operation Id="47372eff-d0ac-492e-940c-6d21821c20f7" name="KnotFileIO" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3cf88604-12c6-4e26-ad62-c8bb8d56436a" />
+          </operation>
+          <operation Id="bbbf2737-ba10-4cc5-aee7-1e30704b6df9" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f1631558-33c4-41e7-8423-57b283e69a54" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="3b155f0f-bda9-47eb-8ee3-6b045cb12b79" name="path" direction="In" isUnique="false">
-                  <elementDefinition Id="2a3f3ca0-ed07-4d3d-a219-daf6a3c2d024" />
+                <parameter Id="f1d283dc-f7de-4ea5-99ce-ea602b623ffc" name="knot" direction="In" isUnique="false">
+                  <elementDefinition Id="f716e75c-3e5b-4556-8321-cbb54604a73a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f83de8ae-410d-4ae4-8bf5-bf241bafe9fd" name="Load" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bedb602c-4105-4213-8071-6bfbdac8f507" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f258a9ce-bf9e-4526-85e2-eb5971a65ab8" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="498c6612-911b-45c3-ba1c-2b2bd372bb05" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="fe2adca2-cfbd-4efe-9ebb-200060549110" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="28467a67-e7a3-439d-9d58-d75bbebb7ecb" />
-            <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="dc6e670f-01b2-49a8-9156-579b3876c5d6" name="knot" direction="In" isUnique="false">
-                  <elementDefinition Id="fa19801f-d1c7-4cd4-a91e-0562dd4b4786" />
+                <parameter Id="55caf281-1902-4dc0-85c7-3bf56e6c372f" direction="Return" isUnique="false">
+                  <elementDefinition Id="425b81ed-3eb1-47ee-b071-f9f27d9b854f" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
                   </type_NamedElement>
@@ -243,14 +261,22 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="22430b8d-1b9a-416e-b996-f094435d07c8" name="KnotFileIO" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="614db007-3b04-4883-8107-68dd14936100" />
+          <operation Id="2f9beb48-1b4a-460a-80da-b1a683a57820" name="LoadMetaData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3f38d6dc-f54a-4625-ad93-df8f514df21b" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="0fcf12a1-91fd-40fb-86e7-28c9188a7d00" name="knot" direction="In" isUnique="false">
-                  <elementDefinition Id="bf2741a0-493e-4367-8b84-0f089a3fdd90" />
+                <parameter Id="117c0bb4-9ccf-4ea8-b9b5-16367447c6a2" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="b53f8044-9a55-4782-95c9-bbb2fa4974f4" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="70ef1053-ef17-4083-8250-c0cce0e2315b" direction="Return" isUnique="false">
+                  <elementDefinition Id="d373a4c5-8f85-4bf7-a8cb-06f7bf685ec8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a84c1b74-caae-4991-a6c0-22ed0cdafb83" LastKnownName="KnotMetaData" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -263,17 +289,11 @@
       <class Id="b0ea3db4-c43f-4c24-9dd6-3acba00e9894" name="ChallengeFileIO" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="85afb5b7-7451-431f-8222-346dd0312c05" />
         <suppliersInternal>
-          <interfaceRealization Id="62c42ea2-9c27-4274-82a2-9b9610c6e3f2">
+          <interfaceRealization Id="73ad2ed6-e3c2-4b3b-806b-af6ebfa2094b">
             <interfaceMoniker Id="0d789b35-ba10-4e40-9bdf-310d9eec51f4" LastKnownName="IChallengeIO" />
-            <elementDefinition Id="c04626b4-898b-48cb-8804-f73c5349c426" />
+            <elementDefinition Id="6ea1a27f-0f12-4a17-9dd3-040d90d98ab4" />
           </interfaceRealization>
         </suppliersInternal>
-        <generalsInternal>
-          <generalization Id="4080d5ae-de05-49ff-86cb-c02934b27d47" isSubstitutable="false">
-            <classMoniker Id="0401c688-f5f2-465b-be82-97d943ce0024" LastKnownName="FileIO" />
-            <elementDefinition Id="ca7579ee-8cae-4d33-b79c-dc3cbc9cd263" />
-          </generalization>
-        </generalsInternal>
         <targetEnds>
           <association Id="36f8760d-cc47-4631-8e33-7f96047e24f2" isDerived="false" sourceEndRoleName="ChallengeFileIO" targetEndRoleName="KnotStringIO" isLeaf="false" isAbstract="false">
             <classMoniker Id="99b53560-b680-480e-b790-9feaa60dfc79" LastKnownName="KnotStringIO" />
@@ -303,30 +323,6 @@
           </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="fc3b62ec-1af8-4eb7-a555-4290330a49ba" name="Highscore" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="9b96caa6-a034-4bc7-b6f9-176064a009a7" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="e4821eb5-75e8-44ec-8473-709f5d59154a" LastKnownName="IEnumerable&lt;KeyValuePair&lt;String, Integer&gt;&gt;" />
-            </type_NamedElement>
-          </property>
-          <property Id="5be7fc07-b58c-4ed6-9a87-dace0690c601" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="215253f7-22c9-4583-8373-b87362121b0a" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
-          <property Id="61655cc5-53b8-4559-a83a-cb53564dd9aa" name="StartKnot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="cea6bbca-c91b-485a-95ba-7b222a83f121" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
-            </type_NamedElement>
-          </property>
-          <property Id="5bc7b0d4-073f-4d5a-9614-f322230fb03e" name="TargetKnot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="bab1af22-1040-43b5-a343-1f9cea396c53" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
-            </type_NamedElement>
-          </property>
           <property Id="ef3ebae9-7372-4788-a7fd-ce194aa31543" name="startParser" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="8d5a2180-8d72-49b5-b81e-7600663355c8" />
             <type_NamedElement>
@@ -343,23 +339,13 @@
         <ownedOperationsInternal>
           <operation Id="4d3741e9-972a-4ad2-9a20-ade3da0d2e0e" name="ChallengeFileIO" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="0856ced0-f08a-436b-879a-683db64c9f48" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="f9f61760-2f79-457f-8522-0633cabc7825" name="path" direction="In" isUnique="false">
-                  <elementDefinition Id="5fa442ab-7b3b-4bcc-ab51-5997c9913752" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
           </operation>
-          <operation Id="c3e5ca66-7864-4352-a977-bf0291a9143b" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="fab5f391-cbf6-4362-ab39-7cfb3d6545d1" />
+          <operation Id="7fef9f0b-fd11-49f8-86e0-5e447dfb133c" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e4ce9ac3-2898-4776-9874-7a64794c970c" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="fb459b57-b512-4326-b3d3-88b4537806f1" name="challenge" direction="In" isUnique="false">
-                  <elementDefinition Id="2b58d9b4-54da-4c99-98b6-4f3c8c068e7c" />
+                <parameter Id="14f49956-8875-48b0-b7f0-dd6d90a9234d" name="challenge" direction="In" isUnique="false">
+                  <elementDefinition Id="2c1c687c-a12f-45f8-9e69-8527e545e0b8" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="a05340df-0712-47cc-bda4-27cc215e8c67" LastKnownName="Challenge" />
                   </type_NamedElement>
@@ -367,14 +353,43 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="15024717-87df-4bc0-b2e4-e8f2645c8381" name="ChallengeFileIO" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="37615630-4f99-4c15-b704-8467783ae584" />
+          <operation Id="201269dc-0c91-40f1-b268-ec2ded160eb9" name="Load" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e23f752c-0ed2-40af-aacb-ad075122c7a0" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="93b677d3-b46c-4862-aae5-5cfa961d13e5" name="challenge" direction="In" isUnique="false">
-                  <elementDefinition Id="8ccaf22c-9bfb-4efb-b607-2c8c1f2a7b99" />
+                <parameter Id="c1ce5fd9-c8d0-44e7-98a6-d8a3bae9e2d6" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="58f86316-b691-4e9e-97a8-49c83755eb90" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4fcb5bb5-c495-4d55-9c39-c5c46c5cba78" direction="Return" isUnique="false">
+                  <elementDefinition Id="1bcbea46-fd55-4853-a26c-2fea9d7b0b1f" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="4035729b-3142-4220-8114-4b1d1addd77e" LastKnownName="Challenge" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="38eac8b5-f171-4215-92d4-cb261cd4d7b1" name="LoadMetaData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="10151ad5-2d17-47bd-b558-7fd32b5db8a3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1958c075-d0d5-4552-bc6e-94f8d820e46a" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="38945f90-6ea4-4e96-829c-0c36f15b7f4c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f09a5b85-114a-4ab3-845c-2a10ef6aee0d" direction="Return" isUnique="false">
+                  <elementDefinition Id="8842a281-389e-42d6-9092-8344a52eb1dc" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f2266790-5b6f-4a9e-940a-1ce2fc2e0e74" LastKnownName="ChallengeMetaData" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -392,26 +407,6 @@
             <elementDefinition Id="05a0d77a-ebb0-4255-a132-5727ec546005" />
           </interfaceRealization>
         </suppliersInternal>
-        <ownedAttributesInternal>
-          <property Id="c23f02f0-ee65-4ddd-81d9-01ddfb5a23a8" name="Edges" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="d77e3d04-7cfa-4af6-bc32-650d3d7f7875" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="1c58c1be-9517-4ee2-9f77-abcb7f969874" LastKnownName="IEnumerable&lt;Edge&gt;" />
-            </type_NamedElement>
-          </property>
-          <property Id="6187dd6f-2a02-4a01-8928-4a05abd4cbda" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="9346858d-ac92-4881-bb44-19c666c5799d" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
-          <property Id="65eeb14b-1f2c-4b1f-985a-e4470d2ea1d0" name="CountEdges" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="24a26375-aa97-44db-98c5-3db304530578" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="5cc449dc-02b8-464b-9de9-3d8107657057" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="3fb3e293-d086-4806-9e2f-c3be9bf1358f" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="bf3860c3-824f-44e8-a8e7-5fce3acac0e0" />
@@ -428,67 +423,21 @@
           </operation>
           <operation Id="d07b2e8b-7849-4d44-bc0c-3a0c6c197d0e" name="PrinterIO" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="c8a17801-ec78-4d90-9b2b-f1d2dad97363" />
+          </operation>
+          <operation Id="0c13274d-5a4d-4c3d-87aa-0214bed9f5bc" name="Load" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="139c8a82-df1f-442e-8cbb-a8c9f1e3e5f3" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="b4a2bbad-a657-45d8-bc78-052dbe0f697e" name="path" direction="In" isUnique="false">
-                  <elementDefinition Id="cd66b992-d38a-42d0-a3b1-acc7e8121dcd" />
+                <parameter Id="f7bd2039-a00f-4561-8c3a-8c667dde48e8" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="b12e61e7-3be3-4b45-92fa-179fcffaa08b" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="a7b3be71-df5f-492f-a14d-9ae8a159ede5" LastKnownName="string" />
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <packageHasNamedElement>
-      <referencedType Id="a7b3be71-df5f-492f-a14d-9ae8a159ede5" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
-        <elementDefinition Id="8fd9ba28-a596-4c6e-aed2-2bf1fc576a17" />
-      </referencedType>
-    </packageHasNamedElement>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="99b53560-b680-480e-b790-9feaa60dfc79" name="KnotStringIO" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="fe70e314-ad6f-4cd7-bfe0-fc6ad922fc2f" />
-        <suppliersInternal>
-          <interfaceRealization Id="c1d23882-fd15-4d92-932c-73610ab2b574">
-            <interfaceMoniker Id="26d093ca-451f-4146-8b67-0bd3c43ffd36" LastKnownName="IKnotIO" />
-            <elementDefinition Id="b3bd59cb-af2c-4c0b-804e-1de588d2de67" />
-          </interfaceRealization>
-        </suppliersInternal>
-        <ownedAttributesInternal>
-          <property Id="310b5eae-b9fb-4a12-b927-3923342b6bde" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="561a3af0-abb9-4e1e-b44a-d50e3efa5554" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
-          <property Id="33149c39-2bf0-4924-babd-b74e095e0863" name="Edges" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="2da79503-ce22-481b-8be3-459191ce37ff" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="137c99da-255e-4329-b7be-7f53d385be99" LastKnownName="IErnumerable&lt;Edge&gt;" />
-            </type_NamedElement>
-          </property>
-          <property Id="106764fe-17a3-426d-8888-a55d93c8fe06" name="Content" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="02240b44-9774-4c02-8a51-af5adeb8ac01" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
-          <property Id="4ca285ee-8e9e-46aa-9ea8-0ba45b0ef26f" name="CountEdges" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="d22057a3-1472-4142-8e40-affcbcb64a19" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="4b110fc1-d667-4c47-ac37-36fd23682136" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="e1553afb-5fe7-4a69-8156-d604984818b9" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="42f4978f-9375-47f3-a36f-4619d9a9e9e5" />
-            <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c41fa376-5294-412f-8dcf-7dba39dc5b37" name="knot" direction="In" isUnique="false">
-                  <elementDefinition Id="34b11596-db77-4cea-b839-4bc4365939c3" />
+                <parameter Id="9de5729f-2ea4-46d4-9e51-5b1c94b0948b" direction="Return" isUnique="false">
+                  <elementDefinition Id="10c8538f-a829-42a9-bea3-69701620816f" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
                   </type_NamedElement>
@@ -496,14 +445,93 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="1a80d0eb-9e66-40ae-b9de-96f716ad94d2" name="KnotStringIO" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="c0a2a42a-f660-42c2-90b7-96475b979177" />
+          <operation Id="f11b8eb5-e1dd-4159-85ca-bfb79d133738" name="LoadMetaData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="108838a2-56ef-4e36-bf83-c3094adec9a5" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="169a34c6-0743-4aed-b3d4-a5e25631e8f0" name="content" direction="In" isUnique="false">
-                  <elementDefinition Id="a5a16f4b-176e-40e5-8392-92682a5eeda0" />
+                <parameter Id="7ac8f6ab-d559-41c5-9f75-dd71e5129271" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="8c6f88c5-7a70-4496-9aae-4925a316d636" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e2c192cd-b9a0-4418-8513-596bd2b482de" direction="Return" isUnique="false">
+                  <elementDefinition Id="34fb4b8f-99d0-4078-b1ba-01293c041e20" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a84c1b74-caae-4991-a6c0-22ed0cdafb83" LastKnownName="KnotMetaData" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="99b53560-b680-480e-b790-9feaa60dfc79" name="KnotStringIO" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="fe70e314-ad6f-4cd7-bfe0-fc6ad922fc2f" />
+        <suppliersInternal>
+          <interfaceRealization Id="1eef9937-3be4-44e5-beff-6e29c8cd82b2">
+            <interfaceMoniker Id="26d093ca-451f-4146-8b67-0bd3c43ffd36" LastKnownName="IKnotIO" />
+            <elementDefinition Id="524918da-8e83-4445-be5d-a9d3f96cefc0" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="1a80d0eb-9e66-40ae-b9de-96f716ad94d2" name="KnotStringIO" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c0a2a42a-f660-42c2-90b7-96475b979177" />
+          </operation>
+          <operation Id="b488ec5c-a93b-4e63-9afa-e246bb9a851d" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9ee0ea21-bbd6-4c16-ab42-0987eb5c39e7" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8150584a-d897-49a6-9e89-aa08ff34f91e" name="knot" direction="In" isUnique="false">
+                  <elementDefinition Id="93cf433e-312c-4b6a-acea-893f3f5cbdb3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="3e4788e3-f6d0-4175-aca0-c53cfa68a5f2" name="Load" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="409213ff-2f90-45a8-bcb9-d4ebda99e828" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1f0090b0-7ae8-4da8-8a0a-6966f5140db5" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="29b4093d-d592-48a7-9beb-fddb13c6028b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cd43a6c8-2bd3-4f86-be31-0b1bbc39aefb" direction="Return" isUnique="false">
+                  <elementDefinition Id="5064fd19-d876-4743-92bb-26b6fbc5e4c7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2af337a5-edf0-41d4-8685-c3fb1986b01f" name="LoadMetaData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e88df1c2-8158-49ed-929a-78cc22c6fb76" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0039fe76-20e8-4ccc-8cf5-8dae0cad2876" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="abaad096-cacf-4ebb-ba2c-6dc46f2081b5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40400a0f-2261-4e5f-b91d-c80a5026dfc9" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="340f86c5-95df-4511-a214-c77c040ff1eb" direction="Return" isUnique="false">
+                  <elementDefinition Id="fde20a59-06a2-4487-8b88-645a555ec675" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a84c1b74-caae-4991-a6c0-22ed0cdafb83" LastKnownName="KnotMetaData" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -513,43 +541,23 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
-      <referencedType Id="137c99da-255e-4329-b7be-7f53d385be99" name="IErnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="IErnumerable&lt;Edge&gt;">
-        <elementDefinition Id="d720e31d-f007-40e9-a38b-a6803cf09e86" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="af00efc4-9504-48f1-a271-d542dccbab4f" name="KnotStringIO" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotStringIO">
         <elementDefinition Id="fe70e314-ad6f-4cd7-bfe0-fc6ad922fc2f" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="1c58c1be-9517-4ee2-9f77-abcb7f969874" name="IEnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IEnumerable&lt;Edge&gt;">
-        <elementDefinition Id="ca6da500-091f-4832-b70d-f92c0f0fb34f" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="5bce467e-a73b-47ee-ad24-6d6bc737c3fa" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
-        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="917b310e-bd61-456f-88fe-738121b54ed4" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
-        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="5cc449dc-02b8-464b-9de9-3d8107657057" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
-        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="4b110fc1-d667-4c47-ac37-36fd23682136" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
-        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="4035729b-3142-4220-8114-4b1d1addd77e" name="Challenge" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Challenge">
         <elementDefinition Id="11346fa0-373d-42fa-879a-d0edf202b0e2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a84c1b74-caae-4991-a6c0-22ed0cdafb83" name="KnotMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::KnotMetaData">
+        <elementDefinition Id="3dbc28bc-c028-4ae5-a6ed-42c2923865d0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f2266790-5b6f-4a9e-940a-1ce2fc2e0e74" name="ChallengeMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ChallengeMetaData">
+        <elementDefinition Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

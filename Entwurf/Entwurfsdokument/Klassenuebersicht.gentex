@@ -11,7 +11,7 @@
 \section{Klassen}
 \subsection{Klasse Angles3}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Diese Klasse repräsentiert die Rotationswinkel der drei Achsen.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/Angles3}
@@ -20,23 +20,23 @@
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{float} \varname{X}] \item[]
-
+Der Rotationswinkel um die X-Achse.
 \item[\keyword{public} \ptype{float} \varname{Y}] \item[]
-
+Der Rotationswinkel um die Y-Achse.
 \item[\keyword{public} \ptype{float} \varname{Z}] \item[]
-
+Der Rotationswinkel um die Z-Achse.
 \item[\keyword{public} \ptype{Angles3} \varname{Zero}] \item[]
-
+Eine statische Property mit dem Wert X = 0, Y = 0, Z = 0.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{Angles3} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})] \item[]
-
+Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Angles3} \varname{FromDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})] \item[]
-
+Konvertiert Grad in Bogenmaß.
 \item[\keyword{public} \ptype{void} \varname{ToDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})] \item[]
-
+Konvertiert Bogenmaß in Grad.
 \end{description}
 
 \subsection{Klasse ArrowModel}
@@ -60,9 +60,9 @@ Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmte
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 Zeichnet den Pfeil.
 \item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})] \item[]
-
+Überprüft, ob der Mausstrahl den Pfeil schneidet.
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \end{description}
 
 \subsection{Klasse ArrowModelInfo}
@@ -85,7 +85,7 @@ Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum
 
 \subsection{Klasse AudioSettingsScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Der Spielzustand, der die Audio-Einstellungen darstellt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/AudioSettingsScreen}
@@ -94,18 +94,18 @@ Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{protected} \ptype{void} \varname{settingsMenu}] \item[]
-
+Das Menu, das die Einstellungen enthält.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
-
+Fügt das Menu mit dem Einstellungen in die Spielkomponentenliste ein.
 \end{description}
 
 \subsection{Klasse BooleanOptionInfo}
 \paragraph{Beschreibung:}\mbox{}\\\\
-Diese Klasse repräsentiert eine Option, die die Werte Wahr oder Falsch annehmen kann.
+Diese Klasse repräsentiert eine Option, die die Werte \glqq Wahr \grqq oder \glqq Falsch \grqq annehmen kann.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/BooleanOptionInfo}
@@ -118,6 +118,8 @@ Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{BooleanOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})] \item[]
+Erstellt eine neue Option, die die Werte \glqq Wahr \grqq oder \glqq Falsch \grqq annehmen kann, mit einem bestimmten Namen in einem
+bestimmten Abschnitt der angegebenen Einstellungsdatei.
 \end{description}
 
 \subsection{Klasse Camera}
@@ -139,9 +141,10 @@ Die Position der Kamera.
 \item[\keyword{public} \ptype{Vector3} \varname{Target}] \item[]
 Das Ziel der Kamera.
 \item[\keyword{public} \ptype{float} \varname{FoV}] \item[]
-Das Field of View.
+Das Sichtfeld.
 \item[\keyword{public} \ptype{Matrix} \varname{ViewMatrix}] \item[]
-Die View-Matrix wird über die statische Methode CreateLookAt der Klasse Matrix des XNA-Frameworks mit Matrix.CreateLookAt (Position, Target, Vector3.Up) berechnet.
+Die View-Matrix wird über die statische Methode CreateLookAt der Klasse Matrix des XNA-Frameworks
+mit Matrix.CreateLookAt (Position, Target, Vector3.Up) berechnet.
 \item[\keyword{public} \ptype{Matrix} \varname{WorldMatrix}] \item[]
 Die World-Matrix wird mit Matrix.CreateFromYawPitchRoll und den drei Rotationswinkeln berechnet.
 \item[\keyword{public} \ptype{Matrix} \varname{ProjectionMatrix}] \item[]
@@ -153,26 +156,26 @@ Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-
 \item[\keyword{private} \ptype{World} \varname{World}] \item[]
 Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 \item[\keyword{public} \ptype{Angles3} \varname{Rotation}] \item[]
-
+Die Rotationswinkel.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{Camera} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world})] \item[]
-
+Erstellt eine neue Kamera in einem bestimmten GameScreen für eine bestimmte Spielwelt.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Vector3} \varname{TargetDirection} ()] \item[]
-
+Die Blickrichtung.
 \item[\keyword{public} \ptype{float} \varname{TargetDistance} ()] \item[]
-
+Der Abstand zwischen der Kamera und dem Kamera-Ziel.
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{Ray} \varname{GetMouseRay} (\ptype{Vector2} \varname{mousePosition})] \item[]
-
+Berechnet einen Strahl für die angegebenene 2D-Mausposition.
 \end{description}
 
 \subsection{Klasse CelShadingEffect}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Cel-Shading-Effekt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/CelShadingEffect}
@@ -181,20 +184,20 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{CelShadingEffect} (\ptype{GameScreen} \varname{screen})] \item[]
-
+Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
-
+Zeichnet das Rendertarget mithilfe eines Outline-Shaders.
 \item[\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{GameModel})] \item[]
-
+Zeichnet ein 3D-Modell auf das Rendertarget.
 \item[\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})] \item[]
-
+Weist dem 3D-Modell den Cel-Shader zu.
 \end{description}
 
 \subsection{Klasse Challenge}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Objekt dieser Klasse repräsentiert eine Challenge.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/Challenge}
@@ -203,25 +206,27 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Knot} \varname{Start}] \item[]
-
+Der Ausgangsknoten, den der Spieler in den Referenzknoten transformieren muss.
 \item[\keyword{public} \ptype{Knot} \varname{Target}] \item[]
-
+Der Referenzknoten, in den der Spieler den Ausgangsknoten transformieren muss.
 \item[\keyword{private} \ptype{SortedList<Integer, String>} \varname{highscore}] \item[]
-
+Eine sortierte Bestenliste.
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
+Der Name der Challenge.
 \item[\keyword{private} \ptype{IChallengeIO} \varname{file}] \item[]
-
+Das Dateiformat der Challenge.
 \item[\keyword{public} \ptype{IEnumerator<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
-
-\item[\keyword{public} \ptype{ChallengeMetaData} \varname{Info}] \item[]
+Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterleiegenden Datenstruktur zugänglich macht.
+\item[\keyword{public} \ptype{ChallengeMetaData} \varname{MetaData}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{Challenge} (\ptype{ChallengeInfo} \varname{info})] \item[]
-
+\item[\keyword{public} \varname{Challenge} (\ptype{ChallengeMetaData} \varname{info})] \item[]
+Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
+Erstellt ein Challenge-Obje
 \item[\keyword{public} \varname{Challenge} (\ptype{IChallangeIO} \varname{file})] \item[]
-
+Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
+Erstellt ein Challenge-Obje
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Boolean} \varname{CreateChallenge} (\ptype{Knot} \varname{start}, \ptype{Knot} \varname{target}, \ptype{String} \varname{name}, \ptype{IChallengeIO} \varname{file})] \item[]
@@ -739,7 +744,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 \item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
 \item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})] \item[]
@@ -1139,7 +1144,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 \item[\keyword{public} \ptype{void} \varname{ModelRenderer} (\ptype{GameScreen} \varname{screen}, \ptype{GameObjectInfo} \varname{info})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
 \item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
@@ -1383,7 +1388,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \end{description}
 
 \subsection{Klasse NodeModelInfo}
@@ -1537,7 +1542,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 \item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
@@ -1719,7 +1724,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 \item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
 \item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})] \item[]
@@ -1915,7 +1920,7 @@ Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
 
 \item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]

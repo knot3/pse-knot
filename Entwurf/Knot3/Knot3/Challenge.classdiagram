@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="64565f3c-6c81-4ea2-a32f-76f7c0599027" name="Challenge" linkedPackageId="06ca7ab3-4f20-4744-af82-83a2a92e2121" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="64565f3c-6c81-4ea2-a32f-76f7c0599027" name="Challenge" linkedPackageId="06ca7ab3-4f20-4744-af82-83a2a92e2121" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="ca5bfd32-9bc8-4a75-b9f0-078040a72f80" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
@@ -14,11 +14,6 @@
     <packageHasNamedElement>
       <referencedType Id="ae85b713-6b27-4ebb-a4e7-84e25e0cd5cf" name="IChallengeIO" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IChallengeIO">
         <elementDefinition Id="00e1faab-ff93-4b96-8b3f-5c194dc62336" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="a73270f1-58c9-4ce4-8b13-411b483cb080" name="ChallengeInfo" isAbstract="false" isLeaf="false" cachedFullName="ChallengeInfo">
-        <elementDefinition Id="71c3782d-2993-4d59-a549-81a72237468c" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -135,10 +130,10 @@
               <referencedTypeMoniker Id="72fa297b-f515-4173-a612-208b5869f04b" LastKnownName="IEnumerator&lt;KeyValuePair&lt;String, Integer&gt;&gt;" />
             </type_NamedElement>
           </property>
-          <property Id="dc8407cc-2f48-40b3-88e2-8862a8fa5ed0" name="Info" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="dc8407cc-2f48-40b3-88e2-8862a8fa5ed0" name="MetaData" isLeaf="false" isStatic="false" isReadOnly="true" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="f8d0326c-f2b3-4ef7-b29f-a49eef506300" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="3b957520-b815-4d5b-8552-ca1a08249c51" LastKnownName="ChallengeMetaData" />
+              <referencedTypeMoniker Id="e576c81c-5804-432a-8438-a4cc983f0f43" LastKnownName="ChallengeMetaData" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -147,18 +142,18 @@
             <elementDefinition Id="a8a48e95-0dfc-432d-be73-67c52a5fd6d8" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c697ac35-ff52-48d5-b652-d1a1fb65e149" name="info" direction="In" isUnique="false">
-                  <elementDefinition Id="68de547f-3de9-4df1-a035-8576ae1f5ad6" />
+                <parameter Id="2b13bcb0-add0-44fa-be69-8ff6cdc6e0a2" direction="Return" isUnique="false">
+                  <elementDefinition Id="59068307-f4b6-4b94-968c-9bbe8cf702c0" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="a73270f1-58c9-4ce4-8b13-411b483cb080" LastKnownName="ChallengeInfo" />
+                    <referencedTypeMoniker Id="3b6f2db7-2bdf-419c-8791-7918c8737c9f" LastKnownName="Challenge" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="2b13bcb0-add0-44fa-be69-8ff6cdc6e0a2" direction="Return">
-                  <elementDefinition Id="59068307-f4b6-4b94-968c-9bbe8cf702c0" />
+                <parameter Id="94d0e804-ecd6-40cf-9fe8-c5db34f79c03" name="meta" direction="In" isUnique="false">
+                  <elementDefinition Id="7eea1d57-f8fd-44e0-9ab0-26f1bc624b2b" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="3b6f2db7-2bdf-419c-8791-7918c8737c9f" LastKnownName="Challenge" />
+                    <referencedTypeMoniker Id="3b957520-b815-4d5b-8552-ca1a08249c51" LastKnownName="ChallengeMetaData" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -658,6 +653,11 @@
     <packageHasNamedElement>
       <referencedType Id="944bea59-9cdc-486d-a3af-56d11a237eec" name="Edge" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Edge">
         <elementDefinition Id="bbb4b99f-638d-4935-94c1-5fa0b7cbb069" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e576c81c-5804-432a-8438-a4cc983f0f43" name="ChallengeMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ChallengeMetaData">
+        <elementDefinition Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

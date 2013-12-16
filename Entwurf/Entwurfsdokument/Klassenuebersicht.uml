@@ -1,20 +1,20 @@
-// 
+// Diese Klasse repräsentiert die Rotationswinkel der drei Achsen.
 public class Angles3 : 
   Attributes:
-    // 
+    // Der Rotationswinkel um die X-Achse.
     + X : float
-    // 
+    // Der Rotationswinkel um die Y-Achse.
     + Y : float
-    // 
+    // Der Rotationswinkel um die Z-Achse.
     + Z : float
-    // 
+    // Eine statische Property mit dem Wert X = 0, Y = 0, Z = 0.
     + Zero : Angles3
   Methods:
-    // 
+    // Konvertiert Grad in Bogenmaß.
     + FromDegrees (float X, float Y, float Z) : Angles3
-    // 
+    // Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
     + Angles3 (float X, float Y, float Z) : void
-    // 
+    // Konvertiert Bogenmaß in Grad.
     + ToDegrees (float X, float Y, float Z) : void
 
 // Diese Klasse repräsentiert ein 3D-Modell für einen Pfeil, der an selektierten Kanten erscheinen soll.
@@ -25,11 +25,11 @@ public class ArrowModel :
   Methods:
     // Zeichnet den Pfeil.
     + Draw (GameTime GameTime) : void
-    // 
+    // Überprüft, ob der Mausstrahl den Pfeil schneidet.
     + Intersects (Ray ray) : GameObjectDistance
     // Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
     + ArrowModel (GameScreen screen, ArrowModelInfo info) : void
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
 
 // Ein Objekt dieser Klasse hält alle Informationen hält, die zur Erstellung eines Pfeil-3D-Modelles (ArrowModel) notwendig sind.
@@ -41,23 +41,25 @@ public class ArrowModelInfo :
     // Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum, das in eine bestimmte Richtung zeigt.
     + ArrowModelInfo (Vector3 position, Vector3 direction) : void
 
-// 
+// Der Spielzustand, der die Audio-Einstellungen darstellt.
 public class AudioSettingsScreen : 
   Attributes:
-    // 
+    // Das Menu, das die Einstellungen enthält.
     # settingsMenu : void
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Fügt das Menu mit dem Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// Diese Klasse repräsentiert eine Option, die die Werte Wahr oder Falsch annehmen kann.
+// Diese Klasse repräsentiert eine Option, die die Werte \glqq Wahr \grqq oder \glqq Falsch \grqq annehmen kann.
 public class BooleanOptionInfo : 
   Attributes:
     // Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
     + Value : bool
   Methods:
+    // Erstellt eine neue Option, die die Werte \glqq Wahr \grqq oder \glqq Falsch \grqq annehmen kann, mit einem bestimmten Namen in einem
+    // bestimmten Abschnitt der angegebenen Einstellungsdatei.
     + BooleanOptionInfo (String section, String name, String defaultValue, ConfigFile configFile) : void
 
 // Jede Instanz der World-Klasse hält eine für diese Spielwelt verwendete Kamera als Attribut.
@@ -71,9 +73,10 @@ public class Camera :
     + Position : Vector3
     // Das Ziel der Kamera.
     + Target : Vector3
-    // Das Field of View.
+    // Das Sichtfeld.
     + FoV : float
-    // Die View-Matrix wird über die statische Methode CreateLookAt der Klasse Matrix des XNA-Frameworks mit Matrix.CreateLookAt (Position, Target, Vector3.Up) berechnet.
+    // Die View-Matrix wird über die statische Methode CreateLookAt der Klasse Matrix des XNA-Frameworks
+    // mit Matrix.CreateLookAt (Position, Target, Vector3.Up) berechnet.
     + ViewMatrix : Matrix
     // Die World-Matrix wird mit Matrix.CreateFromYawPitchRoll und den drei Rotationswinkeln berechnet.
     + WorldMatrix : Matrix
@@ -85,56 +88,56 @@ public class Camera :
     + ViewFrustum : BoundingFrustum
     // Eine Referenz auf die Spielwelt, für die die Kamera zuständig ist.
     - World : World
-    // 
+    // Die Rotationswinkel.
     + Rotation : Angles3
   Methods:
-    // 
+    // Die Blickrichtung.
     + TargetDirection () : Vector3
-    // 
+    // Der Abstand zwischen der Kamera und dem Kamera-Ziel.
     + TargetDistance () : float
-    // 
+    // Erstellt eine neue Kamera in einem bestimmten GameScreen für eine bestimmte Spielwelt.
     + Camera (GameScreen screen, World world) : void
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
-    // 
+    // Berechnet einen Strahl für die angegebenene 2D-Mausposition.
     + GetMouseRay (Vector2 mousePosition) : Ray
 
-// 
+// Ein Cel-Shading-Effekt.
 public class CelShadingEffect : 
   Attributes:
   Methods:
-    // 
+    // Zeichnet das Rendertarget mithilfe eines Outline-Shaders.
     # DrawRenderTarget (GameTime) : void
-    // 
+    // Zeichnet ein 3D-Modell auf das Rendertarget.
     + DrawModel (GameTime, GameModel GameModel) : void
-    // 
+    // Weist dem 3D-Modell den Cel-Shader zu.
     + RemapModel (GameModel GameModel) : void
-    // 
+    // Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
     + CelShadingEffect (GameScreen screen) : void
 
-// 
+// Ein Objekt dieser Klasse repräsentiert eine Challenge.
 public class Challenge : 
   Attributes:
-    // 
+    // Der Ausgangsknoten, den der Spieler in den Referenzknoten transformieren muss.
     + Start : Knot
-    // 
+    // Der Referenzknoten, in den der Spieler den Ausgangsknoten transformieren muss.
     + Target : Knot
-    // 
+    // Eine sortierte Bestenliste.
     - highscore : SortedList<Integer, String>
-    // 
+    // Der Name der Challenge.
     + Name : String
-    // 
+    // Das Dateiformat der Challenge.
     - file : IChallengeIO
-    // 
+    // Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterleiegenden Datenstruktur zugänglich macht.
     + Highscore : IEnumerator<KeyValuePair<String, Integer>>
     // 
-    + Info : ChallengeMetaData
+    + MetaData : ChallengeMetaData
   Methods:
-    // 
-    + Challenge (ChallengeInfo info) : Challenge
-    // 
+    // Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
+    + Challenge (ChallengeMetaData info) : Challenge
+    // Erstellt ein Challenge-Objekt aus einer gegebenenen Challenge-Datei.
     + Challenge (IChallangeIO file) : Challenge
-    // 
+    // Erstellt eine neue Challenge mit einem gegebenen Ausgangs- und Referenzknoten und einem Namen 
     + CreateChallenge (Knot start, Knot target, String name, IChallengeIO file) : Boolean
     // 
     + AddToHighscore (String name, Integer time) : void
@@ -448,7 +451,7 @@ public class GameModel :
   Methods:
     // 
     + Center () : Vector3
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
     // 
     + Draw (GameTime GameTime) : void
@@ -888,7 +891,7 @@ public class KnotRenderer :
     + OnEdgesChanged () : void
     // 
     + ModelRenderer (GameScreen screen, GameObjectInfo info) : void
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
     // 
     + Draw (GameTime GameTime) : void
@@ -1035,7 +1038,7 @@ public class NodeModel :
     + NodeModel (GameScreen screen, NodeModelInfo info) : void
     // 
     + Draw (GameTime GameTime) : void
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
 
 // 
@@ -1124,7 +1127,7 @@ public class PipeMovement :
     + Center () : Vector3
     // 
     + Intersects (Ray Ray) : GameObjectDistance
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
     // 
     + PipeMovement (GameState, World, GameObjectInfo) : void
@@ -1238,7 +1241,7 @@ public class ShadowGameObject :
   Methods:
     // 
     + Center () : Vector3
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
     // 
     + Draw (GameTime GameTime) : void
@@ -1282,6 +1285,16 @@ public class SubMenu :
   Methods:
 
 // 
+public class T : 
+  Attributes:
+  Methods:
+
+// 
+public interface T : 
+  Attributes:
+  Methods:
+
+// 
 public interface T : 
   Attributes:
   Methods:
@@ -1293,16 +1306,6 @@ public class T :
 
 // 
 public class T : 
-  Attributes:
-  Methods:
-
-// 
-public class T : 
-  Attributes:
-  Methods:
-
-// 
-public interface T : 
   Attributes:
   Methods:
 
@@ -1376,7 +1379,7 @@ public class World :
     // 
     + CurrentEffect : IRenderEffect
   Methods:
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
     // 
     + Draw (GameTime GameTime) : void
