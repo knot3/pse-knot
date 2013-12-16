@@ -103,12 +103,6 @@
               <referencedTypeMoniker Id="6c474a64-df2f-42d5-bf71-3c376c9cf3e5" LastKnownName="Knot" />
             </type_NamedElement>
           </property>
-          <property Id="fe4f3990-a29c-473b-85c8-0ed33af54fea" name="Meta" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="de2da5f8-c372-47d2-abed-b4876507d90f" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="d7c46bda-b056-4106-bd2f-7fdc98082b73" LastKnownName="ChallengeMetaData" />
-            </type_NamedElement>
-          </property>
         </ownedAttributes>
         <ownedOperations>
           <operation Id="0daf407d-ea92-4f54-b725-23f4dcf5587d" name="Save" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
@@ -345,12 +339,6 @@
               <referencedTypeMoniker Id="af00efc4-9504-48f1-a271-d542dccbab4f" LastKnownName="KnotStringIO" />
             </type_NamedElement>
           </property>
-          <property Id="29520c92-dc80-4337-aaca-0c33e6f5f193" name="Meta" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="3553ef5f-df5a-432c-8095-9761f632827b" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="d7c46bda-b056-4106-bd2f-7fdc98082b73" LastKnownName="ChallengeMetaData" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="4d3741e9-972a-4ad2-9a20-ade3da0d2e0e" name="ChallengeFileIO" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -374,6 +362,19 @@
                   <elementDefinition Id="2b58d9b4-54da-4c99-98b6-4f3c8c068e7c" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="a05340df-0712-47cc-bda4-27cc215e8c67" LastKnownName="Challenge" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="15024717-87df-4bc0-b2e4-e8f2645c8381" name="ChallengeFileIO" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="37615630-4f99-4c15-b704-8467783ae584" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="93b677d3-b46c-4862-aae5-5cfa961d13e5" name="challenge" direction="In" isUnique="false">
+                  <elementDefinition Id="8ccaf22c-9bfb-4efb-b607-2c8c1f2a7b99" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4035729b-3142-4220-8114-4b1d1addd77e" LastKnownName="Challenge" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -522,11 +523,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="d7c46bda-b056-4106-bd2f-7fdc98082b73" name="ChallengeMetaData" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ChallengeMetaData">
-        <elementDefinition Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="1c58c1be-9517-4ee2-9f77-abcb7f969874" name="IEnumerable&lt;Edge&gt;" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IEnumerable&lt;Edge&gt;">
         <elementDefinition Id="ca6da500-091f-4832-b70d-f92c0f0fb34f" />
       </referencedType>
@@ -549,6 +545,11 @@
     <packageHasNamedElement>
       <referencedType Id="4b110fc1-d667-4c47-ac37-36fd23682136" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="4035729b-3142-4220-8114-4b1d1addd77e" name="Challenge" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Challenge">
+        <elementDefinition Id="11346fa0-373d-42fa-879a-d0edf202b0e2" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

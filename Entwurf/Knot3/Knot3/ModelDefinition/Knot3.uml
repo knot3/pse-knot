@@ -10954,24 +10954,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
-          <property
-            Id="de2da5f8-c372-47d2-abed-b4876507d90f"
-            name="Meta"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa"
-                LastKnownName="ChallengeMetaData"
-                LastKnownLocation="Knot3.uml" />
-            </type_NamedElement>
-          </property>
         </ownedAttributes>
         <ownedOperations>
           <operation
@@ -11483,24 +11465,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
-          <property
-            Id="3553ef5f-df5a-432c-8095-9761f632827b"
-            name="Meta"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="cf163eb6-c196-4cf6-9c36-f420c00fb2fa"
-                LastKnownName="ChallengeMetaData"
-                LastKnownLocation="Knot3.uml" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -11546,6 +11510,31 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                   <type_NamedElement>
                     <undefinedTypeMoniker
                       Id="64404476-bbf5-46aa-ad92-f014dce61d8d"
+                      LastKnownName="Challenge"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="37615630-4f99-4c15-b704-8467783ae584"
+            name="ChallengeFileIO"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8ccaf22c-9bfb-4efb-b607-2c8c1f2a7b99"
+                  name="challenge"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11346fa0-373d-42fa-879a-d0edf202b0e2"
                       LastKnownName="Challenge"
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
@@ -11788,6 +11777,33 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="3e894897-293f-43a3-9468-d6e02bbb53c5"
+            name="ChallengeMetaData"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fd0f21ba-a4f0-431d-9258-a28cbeaade4d"
+                  name="file"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="00e1faab-ff93-4b96-8b3f-5c194dc62336"
+                      LastKnownName="IChallengeIO"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
