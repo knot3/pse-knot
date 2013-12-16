@@ -36,7 +36,7 @@
   </ownedCommentsInternal>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
-      <Interface Id="fc812789-0be1-4bce-841d-ac20c070e9fe" name="IGameStateComponent" isAbstract="false" isLeaf="false">
+      <Interface Id="fc812789-0be1-4bce-841d-ac20c070e9fe" name="IGameScreenComponent" isAbstract="false" isLeaf="false">
         <elementDefinition Id="67ab6ac2-5faa-41b0-93be-b81a4f355177" />
         <ownedAttributes>
           <property Id="029e29bc-9cad-4c48-9505-f83b45b7f3d6" name="Index" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -463,9 +463,61 @@
         <ownedOperationsInternal>
           <operation Id="ef1d9c16-4541-42e9-959b-78d7edbb3745" name="OnLeftClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="b158cf9b-9f17-4981-b997-2048805f02fd" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="87e8e8d1-ca9a-4624-a164-2b5c92bc6690" name="position" direction="In" isUnique="false">
+                  <elementDefinition Id="53b69419-3d6d-4f41-9150-08b8876283d8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" LastKnownName="Vector2" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2c258ea9-a62f-460f-a3b8-b62d41ee8d11" name="state" direction="In" isUnique="false">
+                  <elementDefinition Id="a20426e2-2c2c-44fa-8c47-4c0da5463228" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5b20c606-80f0-46e5-88fd-3a75f7bfee1d" LastKnownName="ClickState" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="22d244ed-7621-4ec8-b65f-ec2ecdb14c27" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="91224b9f-fe0d-4abf-b613-0c031fbc8e8d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="761a2ac7-f505-49f6-8787-a4281c0d19e6" name="OnRightClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a9f5bad9-55c3-4b17-bef9-a7fc2d1ba515" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2f21f12f-5e0a-4f79-97e3-dbf507c83bb8" name="position" direction="In" isUnique="false">
+                  <elementDefinition Id="2974cb99-7376-42e0-96a1-32648ae87e2e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" LastKnownName="Vector2" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3d124baa-f91c-402a-ad86-9bce8155d20c" name="state" direction="In" isUnique="false">
+                  <elementDefinition Id="ce0a7dfa-4f23-434f-bc75-aaf8f8df17c6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5b20c606-80f0-46e5-88fd-3a75f7bfee1d" LastKnownName="ClickState" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="326de7ad-c0a7-4d15-9ac1-6137702f25f2" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="8d39690b-ea56-4b8d-97bb-6515021904e7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="087075d8-623b-4498-ad07-775ffc518b05" name="OnKeyEvent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="4ddc0572-5746-416c-8d98-0392ac8ccd80" />
@@ -716,9 +768,61 @@
           </operation>
           <operation Id="b6d841d8-8cfc-478e-97fe-e168169f2872" name="OnLeftClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="7f2151d9-abfb-4f73-8835-f958fb994b7c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="714bd721-495a-4233-9f1e-dfd822e203ed" name="position" direction="In" isUnique="false">
+                  <elementDefinition Id="b4472953-f03d-40b6-98af-a11c85293509" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" LastKnownName="Vector2" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0cd27f0c-e2ae-4e34-b149-83b977d28e07" name="state" direction="In" isUnique="false">
+                  <elementDefinition Id="689c13e2-fcb3-4a78-a714-6c24bfb65017" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5b20c606-80f0-46e5-88fd-3a75f7bfee1d" LastKnownName="ClickState" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="05c79810-917d-49c6-952d-239b5624f4e5" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="30024323-01aa-4318-9983-b985c4b2ba23" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="1a979657-7e34-4d58-9b7b-f594593208ee" name="OnRightClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="c9207cb3-8e27-4d79-bc51-123d37f88986" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="302dc5e1-c8fb-40d8-8d0b-eeaeb96f8630" name="position" direction="In" isUnique="false">
+                  <elementDefinition Id="f67242e5-a630-4447-a622-f454a64b2673" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" LastKnownName="Vector2" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="031ba133-544c-4d8e-ad53-df088123eb8f" name="state" direction="In" isUnique="false">
+                  <elementDefinition Id="6215ac64-69e8-4432-984b-a7f81c0c36f2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5b20c606-80f0-46e5-88fd-3a75f7bfee1d" LastKnownName="ClickState" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f21f3b04-0aed-44ff-bbd2-9cb466578302" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="a36ac088-34a6-45e9-ba19-7029c588ccd8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -743,10 +847,10 @@
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
-          <property Id="09a27fb9-6ecd-435a-9827-562c7bb53f54" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="09a27fb9-6ecd-435a-9827-562c7bb53f54" name="Title" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="bb23363b-b86a-42c2-9086-fbeb7cd8e781" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+              <referencedTypeMoniker Id="196a1ab3-f357-4798-8af4-4e77d35d709f" LastKnownName="String" />
             </type_NamedElement>
           </property>
           <property Id="abf9db41-50e5-4a82-8a7a-7c67679b8395" name="Text" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -775,9 +879,61 @@
           </operation>
           <operation Id="fb81e8b8-9889-4d9b-ada2-823f11bed3d6" name="OnLeftClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="edf74f35-0376-423f-b53d-9961693b147f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="737a6730-5231-4397-8fde-1c1a34d6b5a5" name="position" direction="In" isUnique="false">
+                  <elementDefinition Id="1989e465-40c5-4a6c-8d22-23f1d9192f58" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" LastKnownName="Vector2" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7bcfb02f-9592-4666-a7f1-49e101b485b0" name="state" direction="In" isUnique="false">
+                  <elementDefinition Id="0c09e84f-b037-429f-bcbe-efa0db927aa7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5b20c606-80f0-46e5-88fd-3a75f7bfee1d" LastKnownName="ClickState" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="866732b5-5086-42fa-a2b3-d73a28377e7b" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="6c789e73-a8bd-45ec-8bea-89589baeb223" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="383f0638-d005-4012-a8ff-2ef30ef017e4" name="OnRightClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="e7aca1ff-4f0e-4d9c-a166-fc2f3800943b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0cb27e31-485a-44f8-869c-d3138f0cd8e0" name="position" direction="In" isUnique="false">
+                  <elementDefinition Id="692c8a59-de0e-4d24-92ac-124905646149" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" LastKnownName="Vector2" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b8c0fd6d-0adb-4afa-8021-ac1d26e35efe" name="state" direction="In" isUnique="false">
+                  <elementDefinition Id="bfb5a30b-bd13-4d4c-b7e9-6ad4da8d9f65" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5b20c606-80f0-46e5-88fd-3a75f7bfee1d" LastKnownName="ClickState" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c87e0669-5fb6-496c-958c-6fbd48d35302" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="069eb356-1f25-401f-8d1e-e5eb0eef193b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -901,9 +1057,61 @@
           </operation>
           <operation Id="4a67d2a3-7b71-4265-8a00-296128ba7f5a" name="OnLeftClick" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="1da3cf3d-163b-4806-8a80-454959b8c5f2" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d6407782-73d8-4641-9c7e-c877b651c408" name="position" direction="In" isUnique="false">
+                  <elementDefinition Id="95cdf721-f8bf-4e2b-b1ac-9282925fb23d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" LastKnownName="Vector2" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="83840beb-3c50-43ae-b439-b0c9c5ce20f7" name="state" direction="In" isUnique="false">
+                  <elementDefinition Id="4d0d03be-7bfd-4678-98c4-a9d5f7680074" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5b20c606-80f0-46e5-88fd-3a75f7bfee1d" LastKnownName="ClickState" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="673f769a-a624-4b5f-bcb4-61db122f0f61" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="ada65112-79c6-48cc-81de-b8398373ca4d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="e17b21c7-6ff9-4220-b58c-2dfc5922ff3d" name="OnRightClick" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="838acf07-b389-4fde-8b90-1df665376a9f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f0114cc6-793e-463b-af35-a0f2ccf86d99" name="position" direction="In" isUnique="false">
+                  <elementDefinition Id="4263cb90-f99e-486e-ae89-30392b9adea6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="49a4ab63-3024-4c18-9c3c-6002f98226f3" LastKnownName="Vector2" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4c7ee7b6-e780-41d4-bf27-f355cc782016" name="state" direction="In" isUnique="false">
+                  <elementDefinition Id="5abb11a3-1294-477d-ba7c-7fb72765bd7a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5b20c606-80f0-46e5-88fd-3a75f7bfee1d" LastKnownName="ClickState" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3da3ee3b-0c5b-4120-a3ce-fb39c2decc8c" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="375e416d-ca57-4a48-9ef0-af904c697112" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperations>
       </Interface>
@@ -995,7 +1203,7 @@
         <elementDefinition Id="66521df7-75cf-4193-bcb8-e1f6e64ac58f" />
         <suppliersInternal>
           <interfaceRealization Id="8007a769-6089-4bcb-81a0-a1575d08caae">
-            <interfaceMoniker Id="fc812789-0be1-4bce-841d-ac20c070e9fe" LastKnownName="IGameStateComponent" />
+            <interfaceMoniker Id="fc812789-0be1-4bce-841d-ac20c070e9fe" LastKnownName="IGameScreenComponent" />
             <elementDefinition Id="8db0112c-0ab4-49d5-9497-df0a6d199484" />
           </interfaceRealization>
         </suppliersInternal>
@@ -1217,7 +1425,7 @@
         <elementDefinition Id="da6db864-d5d8-4bc7-8081-d3f3b61e3e5e" />
         <suppliersInternal>
           <interfaceRealization Id="21f37a42-aabb-48cf-82eb-b3a6cf1492ca">
-            <interfaceMoniker Id="fc812789-0be1-4bce-841d-ac20c070e9fe" LastKnownName="IGameStateComponent" />
+            <interfaceMoniker Id="fc812789-0be1-4bce-841d-ac20c070e9fe" LastKnownName="IGameScreenComponent" />
             <elementDefinition Id="db165b60-0efa-49ab-9027-964110ab8422" />
           </interfaceRealization>
         </suppliersInternal>
@@ -1500,6 +1708,16 @@
     <packageHasNamedElement>
       <referencedType Id="82d4d313-54f6-4d86-8b39-dfbac7537885" name="ColorPicker" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ColorPicker">
         <elementDefinition Id="9e7ffb62-d351-48a9-a560-f9364fd8d999" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="196a1ab3-f357-4798-8af4-4e77d35d709f" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5b20c606-80f0-46e5-88fd-3a75f7bfee1d" name="ClickState" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ClickState">
+        <elementDefinition Id="708282e2-4a50-4a8d-8d27-9c919a03aad0" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

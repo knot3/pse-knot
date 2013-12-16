@@ -118,8 +118,8 @@ Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{BooleanOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})] \item[]
-Erstellt eine neue Option, die die Werte \glqq Wahr \grqq oder \glqq Falsch \grqq annehmen kann, mit einem bestimmten Namen in einem
-bestimmten Abschnitt der angegebenen Einstellungsdatei.
+Erstellt eine neue Option, die die Werte \glqq Wahr \grqq oder \glqq Falsch \grqq annehmen kann, mit dem angegebenen Namen in dem
+angegebenen Abschnitt der angegebenen Einstellungsdatei.
 \end{description}
 
 \subsection{Klasse Camera}
@@ -322,9 +322,9 @@ Der Spielerknoten, der während der Transformation des Spielers aus dem Ausgangs
 \item[\keyword{public} \ptype{void} \varname{ChallengeKnot}] \item[]
 Der Referenzknoten.
 \item[\keyword{private} \ptype{World} \varname{ChallengeWorld}] \item[]
-Die Spielwelt der 3D-Modelle des Referenzknotens.
+Die Spielwelt in der die 3D-Modelle des dargestellten Referenzknotens enthalten sind.
 \item[\keyword{private} \ptype{World} \varname{PlayerWorld}] \item[]
-Die Spielwelt der 3D-Modelle des Spielerknotens.
+Die Spielwelt in der die 3D-Modelle des dargestellten Spielerknotens enthalten sind.
 \item[\keyword{private} \ptype{KnotRenderer} \varname{ChallengeKnotRenderer}] \item[]
 Der Controller, der aus dem Referenzknoten die 3D-Modelle erstellt.
 \item[\keyword{private} \ptype{KnotRenderer} \varname{PlayerKnotRenderer}] \item[]
@@ -340,7 +340,7 @@ Der Redo-Stack.
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
-Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
+Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
 \end{description}
 
 \subsection{Klasse CheckBoxItem}
@@ -384,15 +384,15 @@ Erstellt einen neuen Listeneintrag.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Remove} ()] \item[]
-
+Entfernt diesen Listeneintrag und verknüft den vorherigen mit dem nächsten Eintrag.
 \item[\keyword{public} \ptype{void} \varname{InsertAfter} (\ptype{T} \varname{next})] \item[]
-
+Fügt nach diesem Listeneintrag einen neuen Listeneintrag ein.
 \item[\keyword{public} \ptype{void} \varname{InsertBefore} (\ptype{T} \varname{previous})] \item[]
-
+Fügt vor diesem Listeneintrag einen neuen Listeneintrag ein.
 \item[\keyword{public} \ptype{IEnumerator<T>} \varname{GetEnumerator} ()] \item[]
-
+Gibt einen Enumerator über die Liste zurück.
 \item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
-
+Gibt einen Enumerator über die Liste zurück.
 \end{description}
 
 \subsection{Klasse ColorPicker}
@@ -410,18 +410,18 @@ Die ausgewählte Farbe.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
-
+Reagiert auf Tastatureingaben.
 \item[\keyword{public} \ptype{Rectangle} \varname{Bounds} ()] \item[]
-
+Gibt die Ausmaße des ColorPickers zurück.
+\item[\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})] \item[]
+Bei einem Linksklick wird eine Farbe ausgewählt und im Attribut Color abgespeichert.
+\item[\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})] \item[]
+Bei einem Rechtsklick geschieht nichts.
 \end{description}
 
 \subsection{Klasse ColorPickItem}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Menueintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/ColorPickItem}
@@ -430,14 +430,14 @@ Die ausgewählte Farbe.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Color} \varname{Color}] \item[]
-
+Die aktuelle Farbe.
 \item[\keyword{private} \ptype{ColorPicker} \varname{picker}] \item[]
-
+Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
 \end{description}
 
 \subsection{Klasse ConfigFile}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Repräsentiert eine Einstellungsdatei.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/ConfigFile}
@@ -446,18 +446,18 @@ Die ausgewählte Farbe.
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{String} \varname{value})] \item[]
-
+Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
 \item[\keyword{public} \ptype{Boolean} \varname{GetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{Boolean} \varname{defaultValue})] \item[]
-
+Gibt den aktuell in der Datei vorhandenen Wert für die angegebenen Option in dem angegebenen Abschnitt zurück.
 \item[\keyword{public} \ptype{String} \varname{GetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{String} \varname{defaultValue})] \item[]
-
+Gibt den aktuell in der Datei vorhandenen Wert für die angegebenen Option in dem angegebenen Abschnitt zurück.
 \item[\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{Boolean} \varname{value})] \item[]
-
+Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
 \end{description}
 
 \subsection{Klasse ConfirmDialog}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Dialog, der Schaltflächen zum Bestätigen einer Aktion anzeigt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/ConfirmDialog}
@@ -466,12 +466,12 @@ Die ausgewählte Farbe.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{private} \ptype{Menu} \varname{buttons}] \item[]
-
+Das Menü, das Schaltflächen enthält.
 \end{description}
 
 \subsection{Klasse ControlSettingsScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/ControlSettingsScreen}
@@ -480,18 +480,18 @@ Die ausgewählte Farbe.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{protected} \ptype{void} \varname{settingsMenu}] \item[]
-
+Das Menu, das die Einstellungen enthält.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
-
+Fügt das Menu mit dem Einstellungen in die Spielkomponentenliste ein.
 \end{description}
 
 \subsection{Klasse CreativeLoadScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/CreativeLoadScreen}
@@ -500,14 +500,14 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
-
+Fügt das Menu mit dem Spielständen in die Spielkomponentenliste ein.
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 Wird für jeden Frame aufgerufen.
 \end{description}
 
 \subsection{Klasse CreativeModeScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv ist und für den Knoten eine 3D-Welt zeichnet.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/CreativeModeScreen}
@@ -516,26 +516,26 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Knot}] \item[]
-
+Der Knoten, der vom Spieler bearbeitet wird.
 \item[\keyword{private} \ptype{World} \varname{World}] \item[]
-
+Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
 \item[\keyword{private} \ptype{KnotRenderer} \varname{KnotRenderer}] \item[]
-
+Der Controller, der aus dem Knoten die 3D-Modelle erstellt.
 \item[\keyword{public} \ptype{Stack<Knot>} \varname{Undo}] \item[]
-
+Der Undo-Stack.
 \item[\keyword{public} \ptype{Stack<Knot>} \varname{Redo}] \item[]
-
+Der Redo-Stack.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})] \item[]
-
+Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
 \end{description}
 
 \subsection{Klasse CreditsScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/CreditsScreen}
@@ -546,12 +546,12 @@ Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
-
+Fügt das Menu mit dem Mitwirkenden in die Spielkomponentenliste ein.
 \end{description}
 
 \subsection{Klasse Dialog}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/Dialog}
@@ -559,25 +559,26 @@ Wird für jeden Frame aufgerufen.
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
+\item[\keyword{public} \ptype{String} \varname{Title}] \item[]
+Der Fenstertitel.
 \item[\keyword{public} \ptype{String} \varname{Text}] \item[]
-
+Der angezeigte Text.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
-
+Durch Drücken der Entertaste wird die ausgewählte Aktion ausgeführt. Durch Drücken der Escape-Taste wird der Dialog abgebrochen.
+Mit Hilfe der Pfeiltasten kann zwischen den Aktionen gewechselt werden.
 \item[\keyword{public} \ptype{Rectangle} \varname{Bounds} ()] \item[]
-
+Gibt die Ausmaße des Dialogs zurück.
+\item[\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})] \item[]
+Bei einem Linksklick geschieht nichts.
+\item[\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})] \item[]
+Bei einem Rechtsklick geschieht nichts.
 \end{description}
 
 \subsection{Klasse DistinctOptionInfo}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/DistinctOptionInfo}
@@ -588,16 +589,17 @@ Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{HashSet<string>} \varname{ValidValues}] \item[]
 
 \item[\keyword{public} \ptype{String} \varname{Value}] \item[]
-
+Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{DistinctOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{IEnumerable<string>} \varname{validValues}, \ptype{ConfigFile} \varname{configFile})] \item[]
-
+Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
+angegebenen Abschnitt der angegebenen Einstellungsdatei.
 \end{description}
 
 \subsection{Klasse DrawableGameScreenComponent}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Eine zeichenbare Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/DrawableGameScreenComponent}
@@ -606,20 +608,20 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{GameScreen} \varname{Screen}] \item[]
-
+Der zugewiesene Spielzustand.
 \item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
-
+Die Zeichen- und Eingabepriorität.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
 \item[\keyword{public} \ptype{void} \varname{DrawableGameStateComponent} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{index})] \item[]
-
+Erstellt eine neue zeichenbare Spielkomponente in dem angegebenen Spielzustand mit der angegebenen Priorität.
 \end{description}
 
 \subsection{Klasse DropDownEntry}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Repräsentiert einen Eintrag in einem Dropdown-Menü.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/DropDownEntry}
@@ -628,12 +630,12 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Text}] \item[]
-
+Der Text des Eintrags.
 \end{description}
 
 \subsection{Klasse DropDownMenuItem}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Menüeintrag, der den ausgewählten Wert anzeigt und bei einem Linksklick ein Dropdown-Menü zur Auswahl eines neuen Wertes ein- oder ausblendet.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/DropDownMenuItem}
@@ -642,18 +644,20 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{private} \ptype{VerticalMenu} \varname{dropdown}] \item[]
-
+Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DistinctOptionInfo} \varname{option})] \item[]
-
+Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
+Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
 \item[\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DropDownEntry} \varname{enties})] \item[]
-
+Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
+Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
 \end{description}
 
 \subsection{Klasse Edge}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Eine Kante eines Knoten, die aus einer Richtung und einer Farben sowie optional einer Liste von Flächennummern besteht.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/Edge}
@@ -662,24 +666,24 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Color} \varname{Color}] \item[]
-
+Die Farbe der Kante.
 \item[\keyword{public} \ptype{Direction} \varname{Direction}] \item[]
-
+Die Richtung der Kante.
 \item[\keyword{public} \ptype{List<int>} \varname{Rectangles}] \item[]
-
+Die Liste der Flächennummern, die an die Kante angrenzen.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{Edge} (\ptype{Direction} \varname{direction})] \item[]
-
+Erstellt eine neue Kante mit der angegebenen Richtung.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Vector3} \varname{Get3DDirection} ()] \item[]
-
+Gibt die Richtung als normalisierten Vektor3 zurück.
 \end{description}
 
 \subsection{Klasse FadeEffect}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Postprocessing-Effekt, der eine Überblendung zwischen zwei Spielzuständen darstellt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/FadeEffect}
@@ -688,22 +692,22 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{private} \ptype{Boolean} \varname{IsFinished}] \item[]
-
+Gibt an, ob die Überblendung abgeschlossen ist und das RenderTarget nur noch den neuen Spielzustand darstellt.
 \item[\keyword{private} \ptype{RenderTarget2D} \varname{PreviousRenderTarget}] \item[]
-
+Der zuletzt gerenderte Frame im bisherigen Spielzustand.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{FadeEffect} (\ptype{GameScreen} \varname{newScreen}, \ptype{GameScreen} \varname{oldScreen})] \item[]
-
+Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime})] \item[]
-
+Zeichnet die Überblendung des zuletzt gerenderten Frames des bisherigen Spielzustands in das Rendertarget des aktuellen Spielzustands
 \end{description}
 
 \subsection{Klasse FileUtility}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Eine Hilfsklasse für Dateioperationen.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/FileUtility}
@@ -712,22 +716,20 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{SettingsDirectory}] \item[]
-
+Das Einstellungsverzeichnis.
 \item[\keyword{public} \ptype{String} \varname{SavegameDirectory}] \item[]
-
+Das Spielstandverzeichnis.
 \item[\keyword{public} \ptype{String} \varname{ScreenshotDirectory}] \item[]
-
+Das Bildschirmfotoverzeichnis.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String} \varname{name})] \item[]
-
+Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungüliger Zeichen.
 \end{description}
-
-
 
 \subsection{Klasse GameModel}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Repräsentiert ein 3D-Modell in einer Spielwelt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/GameModel}
@@ -736,40 +738,40 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{float} \varname{Alpha}] \item[]
-
+Die Transparenz des Modells.
 \item[\keyword{public} \ptype{Color} \varname{BaseColor}] \item[]
-
+Die Farbe des Modells.
 \item[\keyword{public} \ptype{Color} \varname{HightlightColor}] \item[]
-
+Die Auswahlfarbe des Modells.
 \item[\keyword{public} \ptype{float} \varname{HighlightIntensity}] \item[]
-
+Die Intensität der Auswahlfarbe.
 \item[\keyword{public} \ptype{GameModelInfo} \varname{Info}] \item[]
-
+Die Modellinformationen wie Position, Skalierung und der Dateiname des 3D-Modells.
 \item[\keyword{public} \ptype{XNA.Model} \varname{Model}] \item[]
-
+Die Klasse des XNA-Frameworks, die ein 3D-Modell repräsentiert.
 \item[\keyword{public} \ptype{World} \varname{World}] \item[]
-
+Die Spielwelt, in der sich das 3D-Modell befindet.
 \item[\keyword{public} \ptype{Matrix} \varname{WorldMatrix}] \item[]
-
+Die Weltmatrix des 3D-Modells in der angegebenen Spielwelt.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{GameModel} (\ptype{GameScreen}, \ptype{GameModelInfo})] \item[]
-
+\item[\keyword{public} \varname{GameModel} (\ptype{GameScreen} \varname{screen}, \ptype{GameModelInfo} \varname{info})] \item[]
+Erstellt ein neues 3D-Modell in dem angegebenen Spielzustand mit den angegebenen Modellinformationen.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
-
+Gibt die Mitte des 3D-Modells zurück.
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})] \item[]
 Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Zeichnet das 3D-Modell in der angegebenen Spielwelt mit dem aktuellen RenderEffekt der Spielwelt.
 \item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})] \item[]
-
+Überprüft, ob der Mausstrahl das 3D-Modell schneidet.
 \end{description}
 
 \subsection{Klasse GameModelInfo}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Enthält Informationen über ein 3D-Modell wie den Dateinamen, die Rotation und die Skalierung.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/GameModelInfo}
@@ -778,20 +780,21 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Modelname}] \item[]
-
+Der Dateiname des Modells.
 \item[\keyword{public} \ptype{Angles3} \varname{Rotation}] \item[]
-
+Die Rotation des Modells.
 \item[\keyword{public} \ptype{Vector3} \varname{Scale}] \item[]
-
+Die Skalierung des Modells.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{GameModelInfo} (\ptype{String} \varname{modelname}, \ptype{Angles3} \varname{rotation})] \item[]
-
+\item[\keyword{public} \varname{GameModelInfo} (\ptype{String} \varname{modelname}, \ptype{Angles3} \varname{rotation}, \ptype{Vector3} \varname{scale})] \item[]
+Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angebenenen Informationen zu
+Dateiname, Rotation und Skalierung.
 \end{description}
 
 \subsection{Klasse GameObjectInfo}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Enthält Informationen über ein 3D-Objekt wie die Position, Sichtbarkeit, Verschiebbarkeit und Auswählbarkeit.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/GameObjectInfo}
@@ -800,24 +803,24 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Boolean} \varname{IsMovable}] \item[]
-
+Die Verschiebbarkeit des Spielobjektes.
 \item[\keyword{public} \ptype{Boolean} \varname{IsSelectable}] \item[]
-
+Die Auswählbarkeit des Spielobjektes.
 \item[\keyword{public} \ptype{Boolean} \varname{IsVisible}] \item[]
-
+Die Sichtbarkeit des Spielobjektes.
 \item[\keyword{public} \ptype{Vector3} \varname{Position}] \item[]
-
+Die Position des Spielobjektes.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{GameObjectInfo} \varname{GameObjectInfo})] \item[]
-
+Vergleicht zwei Informationsobjekte für Spielobjekte.
 \item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})] \item[]
-
+Vergleicht zwei Informationsobjekte für Spielobjekte.
 \end{description}
 
 \subsection{Klasse GameScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/GameScreen}
@@ -826,13 +829,13 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Knot3Game} \varname{Game}] \item[]
-
+Das Spiel, zu dem der Spielzustand gehört.
 \item[\keyword{public} \ptype{Input} \varname{Input}] \item[]
-
+Der Inputhandler des Spielzustands.
 \item[\keyword{public} \ptype{RenderEffect} \varname{PostProcessingEffect}] \item[]
-
+Der aktuelle Postprocessing-Effekt des Spielzustands
 \item[\keyword{public} \ptype{RenderEffectStack} \varname{CurrentRenderEffects}] \item[]
-
+Ein Stack, der während dem Aufruf der Draw-Methoden der Spielkomponenten die jeweils aktuellen Rendereffekte enthält.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{GameScreen} (\ptype{Knot3Game} \varname{game})] \item[]
@@ -840,20 +843,23 @@ Wird für jeden Frame aufgerufen.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})] \item[]
-
+Beginnt mit dem Füllen der Spielkomponentenliste des XNA-Frameworks und fügt sowohl für Tastatur- als auch für
+Mauseingaben einen Inputhandler für Widgets hinzu. Wird Unterklassen von GameScreen reimplementiert und fügt zursätzlich weitere
+Spielkomponenten hinzu.
 \item[\keyword{public} \ptype{void} \varname{BeforeExit} (\ptype{GameScreen} \varname{nextScreen}, \ptype{GameTime} \varname{time})] \item[]
-
+Leert die Spielkomponentenliste des XNA-Frameworks.
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{AddGameComponents} (\ptype{IGameStateComponent[]} \varname{components})] \item[]
-
+Fügt die angegebenen Spielkomponenten und deren über die Methode SubComponents() ermittelten
+Unterkomponenten des Spielkomponentenliste des XNA-Frameworks hinzu.
 \item[\keyword{public} \ptype{void} \varname{RemoveGameComponents} (\ptype{IGameStateComponent[]} \varname{components})] \item[]
-
+Entfernt die angegebenen Spiekomponenten und deren Unterkomponenten von der Spielkomponentenliste des XNA-Frameworks.
 \end{description}
 
 \subsection{Klasse GameScreenComponent}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/GameScreenComponent}
@@ -862,20 +868,20 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
-
+Die Zeichen- und Eingabepriorität.
 \item[\keyword{public} \ptype{GameScreen} \varname{Screen}] \item[]
-
+Der zugewiesene Spielzustand.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})] \item[]
-
+Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
 \item[\keyword{public} \ptype{void} \varname{GameStateComponent} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{index})] \item[]
-
+Erstellt eine neue Spielkomponente in dem angegebenen Spielzustand mit der angegebenen Priorität.
 \end{description}
 
 \subsection{Klasse GraphicsSettingsScreen}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Der Spielzustand, der die Grafik-Einstellungen darstellt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/GraphicsSettingsScreen}
@@ -884,13 +890,13 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{protected} \ptype{void} \varname{settingsMenu}] \item[]
-
+Das Menu, das die Einstellungen enthält.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})] \item[]
-
+Fügt das Menu mit dem Einstellungen in die Spielkomponentenliste ein.
 \end{description}
 
 \subsection{Klasse Input}
@@ -1277,11 +1283,11 @@ Wird für jeden Frame aufgerufen.
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
-
 \item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})] \item[]
+
+\item[\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})] \item[]
 
 \item[\keyword{public} \ptype{Rectangle} \varname{Bounds} ()] \item[]
 
@@ -1990,7 +1996,7 @@ Wird für jeden Frame aufgerufen.
 \section{Schnittstellen}
 \subsection{Schnittstelle IChallengeIO}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/IChallengeIO}
@@ -1999,11 +2005,11 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Challenge} \varname{challenge})] \item[]
-
+Speichert eine Challenge.
 \item[\keyword{public} \ptype{Challenge} \varname{Load} (\ptype{String} \varname{filename})] \item[]
-
+Lädt eine Challenge.
 \item[\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})] \item[]
-
+Lädt die Metadaten einer Challenge.
 \end{description}
 
 \subsection{Schnittstelle ICloneable}
@@ -2088,7 +2094,8 @@ Wird für jeden Frame aufgerufen.
 
 \subsection{Schnittstelle IGameObject}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz auf die Spielwelt, in der sich das
+Spielobjekt befindet, sowie Informationen zu dem Spielobjekt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/IGameObject}
@@ -2097,44 +2104,44 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{GameObjectInfo} \varname{Info}] \item[]
-
+Informationen über das Spielobjekt wie z.B. die Position.
 \item[\keyword{public} \ptype{World} \varname{World}] \item[]
-
+Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Vector3} \varname{Center} ()] \item[]
-
+Die Mitte des Spielobjektes im 3D-Raum.
 \item[\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})] \item[]
 Wird für jeden Frame aufgerufen.
 \item[\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})] \item[]
-
+Zeichnet das Spielobjekt.
 \item[\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})] \item[]
-
+Überprüft, ob der Mausstrahl das Spielobjekt schneidet.
 \end{description}
 
-\subsection{Schnittstelle IGameStateComponent}
+\subsection{Schnittstelle IGameScreenComponent}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Eine Schnittstelle für eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
-\includegraphics[scale=0.2]{Klassen/IGameStateComponent}
+\includegraphics[scale=0.2]{Klassen/IGameScreenComponent}
 \end{wrapfigure}
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
-
+Die Zeichen- und Eingabepriorität.
 \item[\keyword{public} \ptype{GameScreen} \varname{Screen}] \item[]
-
+Der zugewiesene Spielzustand.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{time})] \item[]
-
+Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
 \end{description}
 
 \subsection{Schnittstelle IJunction}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Repräsentiert einen Übergang zwischen zwei Kanten.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/IJunction}
@@ -2143,14 +2150,14 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Edge} \varname{EdgeFrom}] \item[]
-
+Die Kante vor dem Übergang.
 \item[\keyword{public} \ptype{Edge} \varname{EdgeTo}] \item[]
-
+Die Kante nach dem Übergang.
 \end{description}
 
 \subsection{Schnittstelle IKeyEventListener}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Eine Schnittstelle, die von Klassen inmplementiert wird, die auf Tastatureingaben reagieren.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/IKeyEventListener}
@@ -2159,20 +2166,20 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
-
+Die Eingabepriorität.
 \item[\keyword{public} \ptype{Boolean} \varname{IsKeyEventEnabled}] \item[]
-
+Ob die Klasse zur Zeit auf Tastatureingaben reagiert.
 \item[\keyword{public} \ptype{List<Keys>} \varname{ValidKeys}] \item[]
-
+Die Tasten, auf die die Klasse reagiert.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{OnKeyEvent} ()] \item[]
-
+Die Reaktion auf eine Tasteneingabe.
 \end{description}
 
 \subsection{Schnittstelle IKnotIO}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten implementiert werden müssen.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/IKnotIO}
@@ -2181,16 +2188,16 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
-
+Speichert einen Knoten.
 \item[\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})] \item[]
-
+Lädt einen Knoten.
 \item[\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})] \item[]
-
+Lädt die Metadaten eines Knotens.
 \end{description}
 
 \subsection{Schnittstelle IMouseEventListener}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Eine Schnittstelle, die von Klassen inmplementiert wird, die auf Maus-Klicks reagieren.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/IMouseEventListener}
@@ -2199,17 +2206,17 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{DisplayLayer} \varname{Index}] \item[]
-
+Die Eingabepriorität.
 \item[\keyword{public} \ptype{Boolean} \varname{IsMouseEventEnabled}] \item[]
-
+Ob die Klasse zur Zeit auf Mausklicks reagiert.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{OnLeftClick} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{OnRightClick} ()] \item[]
-
 \item[\keyword{public} \ptype{Rectangle} \varname{Bounds} ()] \item[]
-
+Die Ausmaße des von der Klasse repräsentierten Objektes.
+\item[\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})] \item[]
+Die Reaktion auf einen Linksklick.
+\item[\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})] \item[]
+Die Reaktion auf einen Rechtsklick.
 \end{description}
 
 \subsection{Schnittstelle IRenderEffect}

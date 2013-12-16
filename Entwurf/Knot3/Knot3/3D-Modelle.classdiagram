@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="1ed1b565-1f84-48cc-ba24-fb3e2d0daf1b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="1ed1b565-1f84-48cc-ba24-fb3e2d0daf1b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" name="IGameObject" isAbstract="false" isLeaf="false">
@@ -242,13 +242,19 @@
             <elementDefinition Id="cd56641c-181c-40cf-9ee5-a5b0db25edf4" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="b11d2ca6-ddfb-47f3-88d3-4d6af836b3b0" name="GameScreen" direction="In" isUnique="false">
-                  <elementDefinition Id="2f8dd387-2915-4886-8f11-c85e3d8e92ff" />
+                <parameter Id="b8842106-9290-4f5e-9783-ce73af67a8c5" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="f054ed57-304d-4a30-a612-bb52b0d42116" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9d9376c5-615a-4897-89e3-b8017df0a73d" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c4403252-5b95-4519-8085-fdb30f237ed6" name="GameModelInfo" direction="In" isUnique="false">
-                  <elementDefinition Id="c043c73c-6655-4e3c-a93b-d5c3aa33258e" />
+                <parameter Id="c154ca2a-0242-48b2-a44a-4336db537c90" name="info" direction="In" isUnique="false">
+                  <elementDefinition Id="6a8cccb1-447d-4691-964f-a015ee7728ed" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="327352df-57ef-4dba-8e55-6b6fc0d38baa" LastKnownName="GameModelInfo" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -386,18 +392,26 @@
             <elementDefinition Id="6a721705-27de-444a-a8b6-3ed691ba1621" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="fa724be8-3c59-41da-b857-4d6067a9678a" name="modelname" direction="In" isUnique="false">
-                  <elementDefinition Id="24fceb88-2fb3-45d6-a101-ed218a2e4556" />
+                <parameter Id="07fa95af-98a1-4b3f-b1a8-4c1063bb2f52" name="modelname" direction="In" isUnique="false">
+                  <elementDefinition Id="ee5d7e8a-77a0-46f0-9990-d92f887fc2e6" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="8ecad900-07b2-4d86-90a4-4911bd3dc84c" LastKnownName="String" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c7a7871c-b4ef-4e97-9cba-aae079a9bae9" name="rotation" direction="In" isUnique="false">
-                  <elementDefinition Id="1f34d4da-f837-4292-995e-dde12093ca64" />
+                <parameter Id="36bf0859-cbb8-4db0-b05c-74d3961d7c9d" name="rotation" direction="In" isUnique="false">
+                  <elementDefinition Id="af402270-70c2-4ced-a3e1-c9e7dcba3447" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="86ff5098-4ab9-4e84-9d3a-0f6f86e1e90b" LastKnownName="Angles3" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="61fe237f-ef8d-4f33-9e70-31c531dddbcb" name="scale" direction="In" isUnique="false">
+                  <elementDefinition Id="4df86fdf-0ab7-412b-8e65-5277b5a989d1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3f376840-bd1b-4608-b29e-525474ab1a77" LastKnownName="Vector3" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -1900,7 +1914,7 @@
                 <parameter Id="a271df5a-faf2-471a-a96e-827c115cd961" name="other" direction="In" isUnique="false">
                   <elementDefinition Id="f0773812-ed3a-44bb-900c-130843eb4a5d" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="389d7a8e-f0ed-499f-9c0b-d233d6dd6650" LastKnownName="T" />
+                    <referencedTypeMoniker Id="61ee1675-0745-490b-b2d3-5cb2cf58f629" LastKnownName="T" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -1940,6 +1954,11 @@
     <packageHasNamedElement>
       <referencedType Id="3bd0c323-8cc5-43d7-909d-b465d79f7708" name="GameTime" isAbstract="false" isLeaf="false" cachedFullName="GameTime">
         <elementDefinition Id="7146062a-e956-4346-8427-37640e8bf8a1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="61ee1675-0745-490b-b2d3-5cb2cf58f629" name="T" isAbstract="false" isLeaf="false" cachedFullName="T">
+        <elementDefinition Id="b0cdc7a3-2fdd-40f6-ae13-2466cffa825b" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

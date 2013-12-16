@@ -79,7 +79,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <Interface
         Id="67ab6ac2-5faa-41b0-93be-b81a4f355177"
-        name="IGameStateComponent"
+        name="IGameScreenComponent"
         isAbstract="false"
         isLeaf="false">
         <generalsInternal>
@@ -860,17 +860,31 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="2f8dd387-2915-4886-8f11-c85e3d8e92ff"
-                  name="GameScreen"
+                  Id="f054ed57-304d-4a30-a612-bb52b0d42116"
+                  name="screen"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="6a413035-a387-4d1d-98f9-72f1d432b824"
+                      LastKnownName="GameScreen"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="c043c73c-6655-4e3c-a93b-d5c3aa33258e"
-                  name="GameModelInfo"
+                  Id="6a8cccb1-447d-4691-964f-a015ee7728ed"
+                  name="info"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="9cdf4b86-699a-4fd9-9223-b68f7f5afd61"
+                      LastKnownName="GameModelInfo"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -884,15 +898,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
-        <suppliersInternal>
-          <dependency
-            Id="14a6c220-2da0-4a23-9bdf-ba5031550c57">
-            <classMoniker
-              Id="1b0ab1b6-d355-44b3-aa4a-df611621c60f"
-              LastKnownName="Game"
-              LastKnownLocation="Knot3.uml" />
-          </dependency>
-        </suppliersInternal>
         <ownedAttributesInternal>
           <property
             Id="a49036a2-baa4-406b-b218-0ebe8b68f392"
@@ -1645,14 +1650,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
           </operation>
         </ownedOperationsInternal>
       </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="1b0ab1b6-d355-44b3-aa4a-df611621c60f"
-        name="Game"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <undefinedType
@@ -3335,7 +3332,52 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="53b69419-3d6d-4f41-9150-08b8876283d8"
+                  name="position"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0ed11d7-9638-4189-9201-5eb38d88dba8"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a20426e2-2c2c-44fa-8c47-4c0da5463228"
+                  name="state"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="708282e2-4a50-4a8d-8d27-9c919a03aad0"
+                      LastKnownName="ClickState"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="91224b9f-fe0d-4abf-b613-0c031fbc8e8d"
+                  name="time"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="a9f5bad9-55c3-4b17-bef9-a7fc2d1ba515"
             name="OnRightClick"
@@ -3343,7 +3385,52 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2974cb99-7376-42e0-96a1-32648ae87e2e"
+                  name="position"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0ed11d7-9638-4189-9201-5eb38d88dba8"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ce0a7dfa-4f23-434f-bc75-aaf8f8df17c6"
+                  name="state"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="708282e2-4a50-4a8d-8d27-9c919a03aad0"
+                      LastKnownName="ClickState"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8d39690b-ea56-4b8d-97bb-6515021904e7"
+                  name="time"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="4ddc0572-5746-416c-8d98-0392ac8ccd80"
             name="OnKeyEvent"
@@ -3856,7 +3943,52 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b4472953-f03d-40b6-98af-a11c85293509"
+                  name="position"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0ed11d7-9638-4189-9201-5eb38d88dba8"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="689c13e2-fcb3-4a78-a714-6c24bfb65017"
+                  name="state"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="708282e2-4a50-4a8d-8d27-9c919a03aad0"
+                      LastKnownName="ClickState"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="30024323-01aa-4318-9983-b985c4b2ba23"
+                  name="time"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="c9207cb3-8e27-4d79-bc51-123d37f88986"
             name="OnRightClick"
@@ -3864,7 +3996,52 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f67242e5-a630-4447-a622-f454a64b2673"
+                  name="position"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0ed11d7-9638-4189-9201-5eb38d88dba8"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6215ac64-69e8-4432-984b-a7f81c0c36f2"
+                  name="state"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="708282e2-4a50-4a8d-8d27-9c919a03aad0"
+                      LastKnownName="ClickState"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a36ac088-34a6-45e9-ba19-7029c588ccd8"
+                  name="time"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3904,7 +4081,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         <ownedAttributesInternal>
           <property
             Id="bb23363b-b86a-42c2-9086-fbeb7cd8e781"
-            name="Name"
+            name="Title"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -3979,7 +4156,52 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1989e465-40c5-4a6c-8d22-23f1d9192f58"
+                  name="position"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0ed11d7-9638-4189-9201-5eb38d88dba8"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0c09e84f-b037-429f-bcbe-efa0db927aa7"
+                  name="state"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="708282e2-4a50-4a8d-8d27-9c919a03aad0"
+                      LastKnownName="ClickState"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6c789e73-a8bd-45ec-8bea-89589baeb223"
+                  name="time"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="e7aca1ff-4f0e-4d9c-a166-fc2f3800943b"
             name="OnRightClick"
@@ -3987,7 +4209,52 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="692c8a59-de0e-4d24-92ac-124905646149"
+                  name="position"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0ed11d7-9638-4189-9201-5eb38d88dba8"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bfb5a30b-bd13-4d4c-b7e9-6ad4da8d9f65"
+                  name="state"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="708282e2-4a50-4a8d-8d27-9c919a03aad0"
+                      LastKnownName="ClickState"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="069eb356-1f25-401f-8d1e-e5eb0eef193b"
+                  name="time"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -4226,7 +4493,52 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isStatic="false"
             isAbstract="true"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="95cdf721-f8bf-4e2b-b1ac-9282925fb23d"
+                  name="position"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0ed11d7-9638-4189-9201-5eb38d88dba8"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4d0d03be-7bfd-4678-98c4-a9d5f7680074"
+                  name="state"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="708282e2-4a50-4a8d-8d27-9c919a03aad0"
+                      LastKnownName="ClickState"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ada65112-79c6-48cc-81de-b8398373ca4d"
+                  name="time"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="838acf07-b389-4fde-8b90-1df665376a9f"
             name="OnRightClick"
@@ -4234,7 +4546,52 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             isStatic="false"
             isAbstract="true"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4263cb90-f99e-486e-ae89-30392b9adea6"
+                  name="position"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b0ed11d7-9638-4189-9201-5eb38d88dba8"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5abb11a3-1294-477d-ba7c-7fb72765bd7a"
+                  name="state"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="708282e2-4a50-4a8d-8d27-9c919a03aad0"
+                      LastKnownName="ClickState"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="375e416d-ca57-4a48-9ef0-af904c697112"
+                  name="time"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperations>
       </Interface>
     </packageHasNamedElement>
@@ -4831,7 +5188,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="24fceb88-2fb3-45d6-a101-ed218a2e4556"
+                  Id="ee5d7e8a-77a0-46f0-9990-d92f887fc2e6"
                   name="modelname"
                   direction="In"
                   isUnique="false">
@@ -4845,7 +5202,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="1f34d4da-f837-4292-995e-dde12093ca64"
+                  Id="af402270-70c2-4ced-a3e1-c9e7dcba3447"
                   name="rotation"
                   direction="In"
                   isUnique="false">
@@ -4853,6 +5210,20 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                     <classMoniker
                       Id="b2a64f5a-1465-45ca-b3df-d178eda75355"
                       LastKnownName="Angles3"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4df86fdf-0ab7-412b-8e65-5277b5a989d1"
+                  name="scale"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3"
+                      LastKnownName="Vector3"
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -5742,7 +6113,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             Id="8db0112c-0ab4-49d5-9497-df0a6d199484">
             <interfaceMoniker
               Id="67ab6ac2-5faa-41b0-93be-b81a4f355177"
-              LastKnownName="IGameStateComponent"
+              LastKnownName="IGameScreenComponent"
               LastKnownLocation="Knot3.uml" />
           </interfaceRealization>
         </suppliersInternal>
@@ -5887,7 +6258,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             Id="db165b60-0efa-49ab-9027-964110ab8422">
             <interfaceMoniker
               Id="67ab6ac2-5faa-41b0-93be-b81a4f355177"
-              LastKnownName="IGameStateComponent"
+              LastKnownName="IGameScreenComponent"
               LastKnownLocation="Knot3.uml" />
           </interfaceRealization>
         </suppliersInternal>
@@ -14121,7 +14492,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                   isUnique="false">
                   <type_NamedElement>
                     <interfaceMoniker
-                      Id="f8d32b9a-51b4-4e20-926d-4bf835efd0f3"
+                      Id="b0cdc7a3-2fdd-40f6-ae13-2466cffa825b"
                       LastKnownName="T"
                       LastKnownLocation="Knot3.uml" />
                   </type_NamedElement>
@@ -14965,6 +15336,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       <undefinedType
         Id="80e1a73d-93c7-4338-8bd7-41688049ef73"
         name="Func&lt;Integer&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="e3904205-ab1a-47dd-bc3b-9f84dd0aa05d"
+        name="gameTime" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

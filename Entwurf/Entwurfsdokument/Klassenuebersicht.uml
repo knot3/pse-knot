@@ -58,8 +58,8 @@ public class BooleanOptionInfo :
     // Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
     + Value : bool
   Methods:
-    // Erstellt eine neue Option, die die Werte \glqq Wahr \grqq oder \glqq Falsch \grqq annehmen kann, mit einem bestimmten Namen in einem
-    // bestimmten Abschnitt der angegebenen Einstellungsdatei.
+    // Erstellt eine neue Option, die die Werte \glqq Wahr \grqq oder \glqq Falsch \grqq annehmen kann, mit dem angegebenen Namen in dem
+    // angegebenen Abschnitt der angegebenen Einstellungsdatei.
     + BooleanOptionInfo (String section, String name, String defaultValue, ConfigFile configFile) : void
 
 // Jede Instanz der World-Klasse hält eine für diese Spielwelt verwendete Kamera als Attribut.
@@ -196,9 +196,9 @@ public class ChallengeModeScreen :
     + PlayerKnot : void
     // Der Referenzknoten.
     + ChallengeKnot : void
-    // Die Spielwelt der 3D-Modelle des Referenzknotens.
+    // Die Spielwelt in der die 3D-Modelle des dargestellten Referenzknotens enthalten sind.
     - ChallengeWorld : World
-    // Die Spielwelt der 3D-Modelle des Spielerknotens.
+    // Die Spielwelt in der die 3D-Modelle des dargestellten Spielerknotens enthalten sind.
     - PlayerWorld : World
     // Der Controller, der aus dem Referenzknoten die 3D-Modelle erstellt.
     - ChallengeKnotRenderer : KnotRenderer
@@ -213,7 +213,7 @@ public class ChallengeModeScreen :
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
+    // Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Ein Menueintrag, der einen Auswahlkasten darstellt.
@@ -256,12 +256,12 @@ public class ColorPicker :
   Methods:
     // Reagiert auf Tastatureingaben.
     + OnKeyEvent () : void
-    // Bei einem Klick auf die linke Maustaste wird eine Farbe ausgewählt und im Attribut Color abgespeichert.
-    + OnLeftClick () : void
-    // Bei einem Klick auf die rechte Maustaste geschieht nichts.
-    + OnRightClick () : void
     // Gibt die Ausmaße des ColorPickers zurück.
     + Bounds () : Rectangle
+    // Bei einem Linksklick wird eine Farbe ausgewählt und im Attribut Color abgespeichert.
+    + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
+    // Bei einem Rechtsklick geschieht nichts.
+    + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
 
 // Ein Menueintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
 public class ColorPickItem : 
@@ -272,298 +272,301 @@ public class ColorPickItem :
     - picker : ColorPicker
   Methods:
 
-// 
+// Repräsentiert eine Einstellungsdatei.
 public class ConfigFile : 
   Attributes:
   Methods:
-    // 
+    // Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
     + SetOption (String section, String option, String value) : void
-    // 
+    // Gibt den aktuell in der Datei vorhandenen Wert für die angegebenen Option in dem angegebenen Abschnitt zurück.
     + GetOption (String section, String option, Boolean defaultValue) : Boolean
-    // 
+    // Gibt den aktuell in der Datei vorhandenen Wert für die angegebenen Option in dem angegebenen Abschnitt zurück.
     + GetOption (String section, String option, String defaultValue) : String
-    // 
+    // Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
     + SetOption (String section, String option, Boolean _value) : void
 
-// 
+// Ein Dialog, der Schaltflächen zum Bestätigen einer Aktion anzeigt.
 public class ConfirmDialog : 
   Attributes:
-    // 
+    // Das Menü, das Schaltflächen enthält.
     - buttons : Menu
   Methods:
 
-// 
+// Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
 public class ControlSettingsScreen : 
   Attributes:
-    // 
+    // Das Menu, das die Einstellungen enthält.
     # settingsMenu : void
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Fügt das Menu mit dem Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// 
+// Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
 public class CreativeLoadScreen : 
   Attributes:
   Methods:
-    // 
+    // Fügt das Menu mit dem Spielständen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
-// 
+// Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv ist und für den Knoten eine 3D-Welt zeichnet.
 public class CreativeModeScreen : 
   Attributes:
-    // 
+    // Der Knoten, der vom Spieler bearbeitet wird.
     + Knot : void
-    // 
+    // Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
     - World : World
-    // 
+    // Der Controller, der aus dem Knoten die 3D-Modelle erstellt.
     - KnotRenderer : KnotRenderer
-    // 
+    // Der Undo-Stack.
     + Undo : Stack<Knot>
-    // 
+    // Der Redo-Stack.
     + Redo : Stack<Knot>
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime time) : void
 
-// 
+// Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
 public class CreditsScreen : 
   Attributes:
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Fügt das Menu mit dem Mitwirkenden in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// 
+// Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
 public class Dialog : 
   Attributes:
-    // 
-    + Name : String
-    // 
+    // Der Fenstertitel.
+    + Title : String
+    // Der angezeigte Text.
     + Text : String
   Methods:
-    // 
+    // Durch Drücken der Entertaste wird die ausgewählte Aktion ausgeführt. Durch Drücken der Escape-Taste wird der Dialog abgebrochen.
+    // Mit Hilfe der Pfeiltasten kann zwischen den Aktionen gewechselt werden.
     + OnKeyEvent () : void
-    // 
-    + OnLeftClick () : void
-    // 
-    + OnRightClick () : void
-    // 
+    // Gibt die Ausmaße des Dialogs zurück.
     + Bounds () : Rectangle
+    // Bei einem Linksklick geschieht nichts.
+    + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
+    // Bei einem Rechtsklick geschieht nichts.
+    + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
 
-// 
+// Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
 public class DistinctOptionInfo : 
   Attributes:
     // 
     + ValidValues : HashSet<string>
-    // 
+    // Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
     + Value : String
   Methods:
-    // 
+    // Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
+    // angegebenen Abschnitt der angegebenen Einstellungsdatei.
     + DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile) : void
 
-// 
+// Eine zeichenbare Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
 public class DrawableGameScreenComponent : 
   Attributes:
-    // 
+    // Der zugewiesene Spielzustand.
     + Screen : GameScreen
-    // 
+    // Die Zeichen- und Eingabepriorität.
     + Index : DisplayLayer
   Methods:
-    // 
+    // Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
     + SubComponents (GameTime GameTime) : IEnumerable
-    // 
+    // Erstellt eine neue zeichenbare Spielkomponente in dem angegebenen Spielzustand mit der angegebenen Priorität.
     + DrawableGameStateComponent (GameScreen screen, DisplayLayer index) : void
 
-// 
+// Repräsentiert einen Eintrag in einem Dropdown-Menü.
 public class DropDownEntry : 
   Attributes:
-    // 
+    // Der Text des Eintrags.
     + Text : String
   Methods:
 
-// 
+// Ein Menüeintrag, der den ausgewählten Wert anzeigt und bei einem Linksklick ein Dropdown-Menü zur Auswahl eines neuen Wertes ein- oder ausblendet.
 public class DropDownMenuItem : 
   Attributes:
-    // 
+    // Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
     - dropdown : VerticalMenu
   Methods:
-    // 
+    // Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
+    // Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
     + AddEntries (DistinctOptionInfo option) : void
-    // 
+    // Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
+    // Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
     + AddEntries (DropDownEntry enties) : void
 
-// 
+// Eine Kante eines Knoten, die aus einer Richtung und einer Farben sowie optional einer Liste von Flächennummern besteht.
 public class Edge : 
   Attributes:
-    // 
+    // Die Farbe der Kante.
     + Color : Color
-    // 
+    // Die Richtung der Kante.
     + Direction : Direction
-    // 
+    // Die Liste der Flächennummern, die an die Kante angrenzen.
     + Rectangles : List<int>
   Methods:
-    // 
+    // Erstellt eine neue Kante mit der angegebenen Richtung.
     + Edge (Direction direction) : void
-    // 
+    // Gibt die Richtung als normalisierten Vektor3 zurück.
     + Get3DDirection () : Vector3
 
-// 
+// Ein Postprocessing-Effekt, der eine Überblendung zwischen zwei Spielzuständen darstellt.
 public class FadeEffect : 
   Attributes:
-    // 
+    // Gibt an, ob die Überblendung abgeschlossen ist und das RenderTarget nur noch den neuen Spielzustand darstellt.
     - IsFinished : Boolean
-    // 
+    // Der zuletzt gerenderte Frame im bisherigen Spielzustand.
     - PreviousRenderTarget : RenderTarget2D
   Methods:
-    // 
+    // Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
     + FadeEffect (GameScreen newScreen, GameScreen oldScreen) : void
-    // 
+    // Zeichnet die Überblendung des zuletzt gerenderten Frames des bisherigen Spielzustands in das Rendertarget des aktuellen Spielzustands
     # DrawRenderTarget (GameTime) : void
 
-// 
+// Eine Hilfsklasse für Dateioperationen.
 public class FileUtility : 
   Attributes:
-    // 
+    // Das Einstellungsverzeichnis.
     + SettingsDirectory : String
-    // 
+    // Das Spielstandverzeichnis.
     + SavegameDirectory : String
-    // 
+    // Das Bildschirmfotoverzeichnis.
     + ScreenshotDirectory : String
   Methods:
-    // 
+    // Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungüliger Zeichen.
     + ConvertToFileName (String name) : String
 
-// 
-public class Game : 
-  Attributes:
-  Methods:
-
-// 
+// Repräsentiert ein 3D-Modell in einer Spielwelt.
 public class GameModel : 
   Attributes:
-    // 
+    // Die Transparenz des Modells.
     + Alpha : float
-    // 
+    // Die Farbe des Modells.
     + BaseColor : Color
-    // 
+    // Die Auswahlfarbe des Modells.
     + HightlightColor : Color
-    // 
+    // Die Intensität der Auswahlfarbe.
     + HighlightIntensity : float
-    // 
+    // Die Modellinformationen wie Position, Skalierung und der Dateiname des 3D-Modells.
     + Info : GameModelInfo
-    // 
+    // Die Klasse des XNA-Frameworks, die ein 3D-Modell repräsentiert.
     + Model : XNA.Model
-    // 
+    // Die Spielwelt, in der sich das 3D-Modell befindet.
     + World : World
-    // 
+    // Die Weltmatrix des 3D-Modells in der angegebenen Spielwelt.
     + WorldMatrix : Matrix
   Methods:
-    // 
+    // Gibt die Mitte des 3D-Modells zurück.
     + Center () : Vector3
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
-    // 
+    // Zeichnet das 3D-Modell in der angegebenen Spielwelt mit dem aktuellen RenderEffekt der Spielwelt.
     + Draw (GameTime GameTime) : void
-    // 
+    // Überprüft, ob der Mausstrahl das 3D-Modell schneidet.
     + Intersects (Ray Ray) : GameObjectDistance
-    // 
-    + GameModel (GameScreen, GameModelInfo) : void
+    // Erstellt ein neues 3D-Modell in dem angegebenen Spielzustand mit den angegebenen Modellinformationen.
+    + GameModel (GameScreen screen, GameModelInfo info) : void
 
-// 
+// Enthält Informationen über ein 3D-Modell wie den Dateinamen, die Rotation und die Skalierung.
 public class GameModelInfo : 
   Attributes:
-    // 
+    // Der Dateiname des Modells.
     + Modelname : String
-    // 
+    // Die Rotation des Modells.
     + Rotation : Angles3
-    // 
+    // Die Skalierung des Modells.
     + Scale : Vector3
   Methods:
-    // 
-    + GameModelInfo (String modelname, Angles3 rotation) : void
+    // Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angebenenen Informationen zu
+    // Dateiname, Rotation und Skalierung.
+    + GameModelInfo (String modelname, Angles3 rotation, Vector3 scale) : void
 
-// 
+// Enthält Informationen über ein 3D-Objekt wie die Position, Sichtbarkeit, Verschiebbarkeit und Auswählbarkeit.
 public class GameObjectInfo : 
   Attributes:
-    // 
+    // Die Verschiebbarkeit des Spielobjektes.
     + IsMovable : Boolean
-    // 
+    // Die Auswählbarkeit des Spielobjektes.
     + IsSelectable : Boolean
-    // 
+    // Die Sichtbarkeit des Spielobjektes.
     + IsVisible : Boolean
-    // 
+    // Die Position des Spielobjektes.
     + Position : Vector3
   Methods:
-    // 
+    // Vergleicht zwei Informationsobjekte für Spielobjekte.
     + Equals (GameObjectInfo GameObjectInfo) : Boolean
-    // 
+    // Vergleicht zwei Informationsobjekte für Spielobjekte.
     + Equals (T other) : Boolean
 
-// 
+// Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
 public class GameScreen : 
   Attributes:
-    // 
+    // Das Spiel, zu dem der Spielzustand gehört.
     + Game : Knot3Game
-    // 
+    // Der Inputhandler des Spielzustands.
     + Input : Input
-    // 
+    // Der aktuelle Postprocessing-Effekt des Spielzustands
     + PostProcessingEffect : RenderEffect
-    // 
+    // Ein Stack, der während dem Aufruf der Draw-Methoden der Spielkomponenten die jeweils aktuellen Rendereffekte enthält.
     + CurrentRenderEffects : RenderEffectStack
   Methods:
-    // 
+    // Beginnt mit dem Füllen der Spielkomponentenliste des XNA-Frameworks und fügt sowohl für Tastatur- als auch für
+    // Mauseingaben einen Inputhandler für Widgets hinzu. Wird Unterklassen von GameScreen reimplementiert und fügt zursätzlich weitere
+    // Spielkomponenten hinzu.
     + Entered (GameScreen previousScreen, GameTime time) : void
-    // 
+    // Leert die Spielkomponentenliste des XNA-Frameworks.
     + BeforeExit (GameScreen nextScreen, GameTime time) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // 
     + GameScreen (Knot3Game game) : void
-    // 
+    // Fügt die angegebenen Spielkomponenten und deren über die Methode SubComponents() ermittelten
+    // Unterkomponenten des Spielkomponentenliste des XNA-Frameworks hinzu.
     + AddGameComponents (IGameStateComponent[] components) : void
-    // 
+    // Entfernt die angegebenen Spiekomponenten und deren Unterkomponenten von der Spielkomponentenliste des XNA-Frameworks.
     + RemoveGameComponents (IGameStateComponent[] components) : void
 
-// 
+// Eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
 public class GameScreenComponent : 
   Attributes:
-    // 
+    // Die Zeichen- und Eingabepriorität.
     + Index : DisplayLayer
-    // 
+    // Der zugewiesene Spielzustand.
     + Screen : GameScreen
   Methods:
-    // 
+    // Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
     + SubComponents (GameTime GameTime) : IEnumerable
-    // 
+    // Erstellt eine neue Spielkomponente in dem angegebenen Spielzustand mit der angegebenen Priorität.
     + GameStateComponent (GameScreen screen, DisplayLayer index) : void
 
-// 
+// Der Spielzustand, der die Grafik-Einstellungen darstellt.
 public class GraphicsSettingsScreen : 
   Attributes:
-    // 
+    // Das Menu, das die Einstellungen enthält.
     # settingsMenu : void
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Fügt das Menu mit dem Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// 
+// Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
 public interface IChallengeIO : 
   Attributes:
   Methods:
-    // 
+    // Speichert eine Challenge.
     + Save (Challenge challenge) : void
-    // 
+    // Lädt eine Challenge.
     + Load (String filename) : Challenge
-    // 
+    // Lädt die Metadaten einer Challenge.
     + LoadMetaData (String filename) : ChallengeMetaData
 
 // 
@@ -626,81 +629,82 @@ public interface IEquatable1 :
     // 
     + Equals (T other) : Boolean
 
-// 
+// Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz auf die Spielwelt, in der sich das
+// Spielobjekt befindet, sowie Informationen zu dem Spielobjekt.
 public interface IGameObject : 
   Attributes:
-    // 
+    // Informationen über das Spielobjekt wie z.B. die Position.
     + Info : GameObjectInfo
-    // 
+    // Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
     + World : World
   Methods:
-    // 
+    // Die Mitte des Spielobjektes im 3D-Raum.
     + Center () : Vector3
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Zeichnet das Spielobjekt.
     + Draw (GameTime time) : void
-    // 
+    // Überprüft, ob der Mausstrahl das Spielobjekt schneidet.
     + Intersects (Ray ray) : GameObjectDistance
 
-// 
-public interface IGameStateComponent : 
+// Eine Schnittstelle für eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
+public interface IGameScreenComponent : 
   Attributes:
-    // 
+    // Die Zeichen- und Eingabepriorität.
     + Index : DisplayLayer
-    // 
+    // Der zugewiesene Spielzustand.
     + Screen : GameScreen
   Methods:
-    // 
+    // Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
     + SubComponents (GameTime time) : IEnumerable
 
-// 
+// Repräsentiert einen Übergang zwischen zwei Kanten.
 public interface IJunction : 
   Attributes:
-    // 
+    // Die Kante vor dem Übergang.
     + EdgeFrom : Edge
-    // 
+    // Die Kante nach dem Übergang.
     + EdgeTo : Edge
   Methods:
 
-// 
+// Eine Schnittstelle, die von Klassen inmplementiert wird, die auf Tastatureingaben reagieren.
 public interface IKeyEventListener : 
   Attributes:
-    // 
+    // Die Eingabepriorität.
     + Index : DisplayLayer
-    // 
+    // Ob die Klasse zur Zeit auf Tastatureingaben reagiert.
     + IsKeyEventEnabled : Boolean
-    // 
+    // Die Tasten, auf die die Klasse reagiert.
     + ValidKeys : List<Keys>
   Methods:
-    // 
+    // Die Reaktion auf eine Tasteneingabe.
     + OnKeyEvent () : void
 
-// 
+// Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten implementiert werden müssen.
 public interface IKnotIO : 
   Attributes:
   Methods:
-    // 
+    // Speichert einen Knoten.
     + Save (Knot knot) : void
-    // 
+    // Lädt einen Knoten.
     + Load (String filename) : Knot
-    // 
+    // Lädt die Metadaten eines Knotens.
     + LoadMetaData (String filename) : KnotMetaData
 
-// 
+// Eine Schnittstelle, die von Klassen inmplementiert wird, die auf Maus-Klicks reagieren.
 public interface IMouseEventListener : 
   Attributes:
-    // 
+    // Die Eingabepriorität.
     + Index : DisplayLayer
-    // 
+    // Ob die Klasse zur Zeit auf Mausklicks reagiert.
     + IsMouseEventEnabled : Boolean
   Methods:
-    // 
-    + OnLeftClick () : void
-    // 
-    + OnRightClick () : void
-    // 
+    // Die Ausmaße des von der Klasse repräsentierten Objektes.
     + Bounds () : Rectangle
+    // Die Reaktion auf einen Linksklick.
+    + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
+    // Die Reaktion auf einen Rechtsklick.
+    + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
 
 // 
 public class Input : 
@@ -977,11 +981,11 @@ public class MenuItem :
     + Text : String
   Methods:
     // 
-    + OnLeftClick () : void
-    // 
-    + OnRightClick () : void
-    // 
     + OnKeyEvent () : void
+    // 
+    + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
+    // 
+    + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
     // 
     + Bounds () : Rectangle
 
@@ -1294,22 +1298,22 @@ public class T :
   Methods:
 
 // 
-public interface T : 
-  Attributes:
-  Methods:
-
-// 
-public interface T : 
-  Attributes:
-  Methods:
-
-// 
 public class T : 
   Attributes:
   Methods:
 
 // 
 public class T : 
+  Attributes:
+  Methods:
+
+// 
+public interface T : 
+  Attributes:
+  Methods:
+
+// 
+public interface T : 
   Attributes:
   Methods:
 
