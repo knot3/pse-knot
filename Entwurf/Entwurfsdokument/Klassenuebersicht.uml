@@ -154,13 +154,13 @@ public class ChallengeFileIO :
     - startParser : KnotStringIO
     // 
     - targetParser : KnotStringIO
-    // 
-    + Meta : ChallengeMetaData
   Methods:
     // 
     + ChallengeFileIO (String path) : void
     // 
     + Save (Challenge challenge) : void
+    // 
+    + ChallengeFileIO (Challenge challenge) : void
 
 // 
 public class ChallengeLoadScreen : 
@@ -183,6 +183,8 @@ public class ChallengeMetaData :
     // 
     + File : IChallengeIO
   Methods:
+    // 
+    + ChallengeMetaData (IChallengeIO file) : void
 
 // 
 public class ChallengeMode : 
@@ -545,8 +547,6 @@ public interface IChallengeIO :
     + StartKnot : Knot
     // 
     + TargetKnot : Knot
-    // 
-    + Meta : ChallengeMetaData
   Methods:
     // 
     + Save (Challenge challenge) : void
@@ -669,7 +669,7 @@ public interface IKnotIO :
     // 
     + Name : String
     // 
-    + MetaData : KnotMetaData
+    + CountEdges : Integer
   Methods:
     // 
     + Save (Knot knot) : void
@@ -827,7 +827,7 @@ public class KnotFileIO :
     // 
     - parser : KnotStringIO
     // 
-    + MetaData : KnotMetaData
+    + CountEdges : Integer
   Methods:
     // 
     + KnotFileIO (String path) : void
@@ -855,6 +855,8 @@ public class KnotMetaData :
   Methods:
     // 
     + KnotMetaData (String name, Integer countEdges, IKnotIO file) : KnotMetaData
+    // 
+    + KnotMetaData (IKnotIO file) : KnotMetaData
 
 // 
 public class KnotRenderer : 
@@ -903,7 +905,7 @@ public class KnotStringIO :
     // 
     + Content : String
     // 
-    + MetaData : KnotMetaData
+    + CountEdges : Integer
   Methods:
     // 
     + Save (Knot knot) : void
@@ -1139,7 +1141,7 @@ public class PrinterIO :
     // 
     + Name : String
     // 
-    + MetaData : KnotMetaData
+    + CountEdges : Integer
   Methods:
     // 
     + Save (Knot knot) : void
