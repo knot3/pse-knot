@@ -209,11 +209,11 @@ Ein Objekt dieser Klasse repräsentiert eine Challenge.
 Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
 \item[\keyword{public} \ptype{Knot} \varname{Target}] \item[]
 Der Referenzknoten, in den der Spieler den Ausgangsknoten transformiert.
-\item[\keyword{private} \ptype{SortedList<Integer, String>} \varname{highscore}] \item[]
+\item[\keyword{private} \ptype{SortedList$<$Integer, String$>$} \varname{highscore}] \item[]
 Eine sortierte Bestenliste.
 \item[\keyword{private} \ptype{IChallengeIO} \varname{format}] \item[]
 Das Speicherformat der Challenge.
-\item[\keyword{public} \ptype{IEnumerator<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
+\item[\keyword{public} \ptype{IEnumerator$<$KeyValuePair$<$String, Integer$>$$>$} \varname{Highscore}] \item[]
 Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
 \item[\keyword{public} \ptype{ChallengeMetaData} \varname{MetaData}] \item[]
 Die Metadaten der Challenge.
@@ -288,7 +288,7 @@ Der Referenzknoten, in den der Spieler den Ausgangsknoten transformiert.
 Das Format, aus dem die Metadaten der Challenge gelesen wurden oder null.
 \item[\keyword{public} \ptype{String} \varname{Filename}] \item[]
 Der Dateiname, aus dem die Metadaten der Challenge gelesen wurden oder in den sie abgespeichert werden.
-\item[\keyword{public} \ptype{IEnumerator<KeyValuePair<String, Integer>>} \varname{Highscore}] \item[]
+\item[\keyword{public} \ptype{IEnumerator$<$KeyValuePair$<$String, Integer$>$$>$} \varname{Highscore}] \item[]
 Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
@@ -320,9 +320,9 @@ Der Controller, der aus dem Referenzknoten die 3D-Modelle erstellt.
 Der Controller, der aus dem Spielerknoten die 3D-Modelle erstellt.
 \item[\keyword{private} \ptype{PipeMovement} \varname{PlayerKnotMovement}] \item[]
 Der Inputhandler, der die Kantenverschiebungen des Spielerknotens durchführt.
-\item[\keyword{public} \ptype{Stack<Knot>} \varname{Undo}] \item[]
+\item[\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Undo}] \item[]
 Der Undo-Stack.
-\item[\keyword{public} \ptype{Stack<Knot>} \varname{Redo}] \item[]
+\item[\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Redo}] \item[]
 Der Redo-Stack.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
@@ -378,7 +378,7 @@ Entfernt diesen Listeneintrag und verknüft den vorherigen mit dem nächsten Ein
 Fügt nach diesem Listeneintrag einen neuen Listeneintrag ein.
 \item[\keyword{public} \ptype{void} \varname{InsertBefore} (\ptype{T} \varname{previous})] \item[]
 Fügt vor diesem Listeneintrag einen neuen Listeneintrag ein.
-\item[\keyword{public} \ptype{IEnumerator<T>} \varname{GetEnumerator} ()] \item[]
+\item[\keyword{public} \ptype{IEnumerator$<$T$>$} \varname{GetEnumerator} ()] \item[]
 Gibt einen Enumerator über die Liste zurück.
 \item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
 Gibt einen Enumerator über die Liste zurück.
@@ -510,9 +510,9 @@ Der Knoten, der vom Spieler bearbeitet wird.
 Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
 \item[\keyword{private} \ptype{KnotRenderer} \varname{KnotRenderer}] \item[]
 Der Controller, der aus dem Knoten die 3D-Modelle erstellt.
-\item[\keyword{public} \ptype{Stack<Knot>} \varname{Undo}] \item[]
+\item[\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Undo}] \item[]
 Der Undo-Stack.
-\item[\keyword{public} \ptype{Stack<Knot>} \varname{Redo}] \item[]
+\item[\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Redo}] \item[]
 Der Redo-Stack.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
@@ -575,13 +575,13 @@ Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen 
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{HashSet<string>} \varname{ValidValues}] \item[]
+\item[\keyword{public} \ptype{HashSet$<$string$>$} \varname{ValidValues}] \item[]
 
 \item[\keyword{public} \ptype{String} \varname{Value}] \item[]
 Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{DistinctOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{IEnumerable<string>} \varname{validValues}, \ptype{ConfigFile} \varname{configFile})] \item[]
+\item[\keyword{public} \varname{DistinctOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{IEnumerable$<$string$>$} \varname{validValues}, \ptype{ConfigFile} \varname{configFile})] \item[]
 Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
 angegebenen Abschnitt der angegebenen Einstellungsdatei.
 \end{description}
@@ -658,7 +658,7 @@ Eine Kante eines Knotens, die aus einer Richtung und einer Farbe, sowie optional
 Die Farbe der Kante.
 \item[\keyword{public} \ptype{Direction} \varname{Direction}] \item[]
 Die Richtung der Kante.
-\item[\keyword{public} \ptype{List<int>} \varname{Rectangles}] \item[]
+\item[\keyword{public} \ptype{List$<$int$>$} \varname{Rectangles}] \item[]
 Die Liste der Flächennummern, die an die Kante angrenzen.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
@@ -982,7 +982,7 @@ Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-M
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 Der Name des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
-Der Wert dieser Eigenschaft wird aus der \gflqq Name \grqq -Eigenschaft des Metadaten-Objektes geladen
+Der Wert dieser Eigenschaft wird aus der \glqq Name \grqq -Eigenschaft des Metadaten-Objektes geladen
 und bei Änderungen wieder in diesem gespeichert. Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
 \item[\keyword{private} \ptype{Circle} \varname{edges}] \item[]
 Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
@@ -990,13 +990,13 @@ Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert we
 Die Metadaten des Knotens.
 \item[\keyword{public} \ptype{Action} \varname{EdgesChanged}] \item[]
 Ein Ereignis, das in der Move-Methode ausgelöst wird, wenn sich die Struktur der Kanten geändert hat.
-\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{SelectedEdges}] \item[]
+\item[\keyword{public} \ptype{IEnumerable$<$Edge$>$} \varname{SelectedEdges}] \item[]
 Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{Knot} ()] \item[]
-Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält Eigenschaften, die das Speicherformat und den Dateinamen beinhalten, den Wert \gflqq null \grqq.
-\item[\keyword{public} \varname{Knot} (\ptype{KnotMetaData} \varname{meta}, \ptype{IEnumerable<Edge>} \varname{edges})] \item[]
+Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält Eigenschaften, die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null \grqq.
+\item[\keyword{public} \varname{Knot} (\ptype{KnotMetaData} \varname{meta}, \ptype{IEnumerable$<$Edge$>$} \varname{edges})] \item[]
 Erstellt einen neuen Knoten mit dem angegebenen Metadaten-Objekt und den angegebenen Kanten. Die Eigenschaft des Metadaten-Objektes, die die
 Anzahl der Kanten enthält, wird auf ein Delegate gesetzt, das die Anzahl der Kanten in der doppelt verketteten Liste zurückgibt, die auf Basis
 der angegebenen Kanten erstellt wird.
@@ -1004,14 +1004,14 @@ der angegebenen Kanten erstellt wird.
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} ()] \item[]
 Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
-oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
+oder beide den Wert \glqq null \grqq , dann wird eine IOException geworfen.
 \item[\keyword{public} \ptype{void} \varname{ClearSelection} ()] \item[]
 Hebt die aktuelle Kantenauswahl auf.
 \item[\keyword{public} \ptype{Boolean} \varname{IsValidMove} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})] \item[]
 Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
 \item[\keyword{public} \ptype{Boolean} \varname{Move} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})] \item[]
 Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebene Distanz.
-\item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} ()] \item[]
+\item[\keyword{public} \ptype{IEnumerator$<$Edge$>$} \varname{GetEnumerator} ()] \item[]
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
 \item[\keyword{public} \ptype{Object} \varname{Clone} ()] \item[]
 Erstellt eine tiefe Kopie des Knotens, inklusive der Kanten-Datentuktur und des Metadaten-Objekts.
@@ -1027,7 +1027,7 @@ Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})] \item[]
 Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
-oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
+oder beide den Wert \glqq null \grqq , dann wird eine IOException geworfen.
 \item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})] \item[]
 
 \end{description}
@@ -1044,7 +1044,7 @@ oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{Boolean} \varname{IsFullScreen}] \item[]
 
-\item[\keyword{public} \ptype{Stack<GameScreen>} \varname{Screens}] \item[]
+\item[\keyword{public} \ptype{Stack$<$GameScreen$>$} \varname{Screens}] \item[]
 
 \item[\keyword{public} \ptype{Boolean} \varname{VSync}] \item[]
 
@@ -1076,7 +1076,7 @@ oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable<string>} \varname{FileExtensions}] \item[]
+\item[\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
@@ -1125,7 +1125,7 @@ Wird ein neuer Anzeigename festgelegt, dann wird der Dateiname ebenfalls auf ein
 Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
 \item[\keyword{public} \ptype{IKnotIO} \varname{Format}] \item[]
 Das Format, aus dem die Metadaten geladen wurden. Es ist genau dann \glqq null \grqq , wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
-\item[\keyword{public} \ptype{Func<Integer>} \varname{CountEdges}] \item[]
+\item[\keyword{public} \ptype{Func$<$Integer$>$} \varname{CountEdges}] \item[]
 Ein Delegate, das die Anzahl der Kanten zurückliefert. Falls dieses Metadaten-Objekt Teil eines Knotens ist, gibt es dynamisch die Anzahl der
 Kanten des Knoten-Objektes zurück. Anderenfalls gibt es eine statische Zahl zurück, die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes
 gelesen wurde. Nur lesbar.
@@ -1133,7 +1133,7 @@ gelesen wurde. Nur lesbar.
 Falls die Metadaten aus einer datei eingelesen wurden, enthält dieses Attribut den Dateinamen, sonst \glqq null \grqq.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Func<Integer>} \varname{countEdges}, \ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})] \item[]
+\item[\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Func$<$Integer$>$} \varname{countEdges}, \ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})] \item[]
 Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knoten-Namen und einer angebenen Funktion, welche eine Kantenanzahl zurück gibt.
 \end{description}
 
@@ -1151,11 +1151,11 @@ Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knoten-Namen un
 
 \item[\keyword{public} \ptype{World} \varname{World}] \item[]
 
-\item[\keyword{private} \ptype{List<ArrowModel>} \varname{arrows}] \item[]
+\item[\keyword{private} \ptype{List$<$ArrowModel$>$} \varname{arrows}] \item[]
 
-\item[\keyword{private} \ptype{List<NodeModel>} \varname{nodes}] \item[]
+\item[\keyword{private} \ptype{List$<$NodeModel$>$} \varname{nodes}] \item[]
 
-\item[\keyword{private} \ptype{List<PipeModel>} \varname{pipes}] \item[]
+\item[\keyword{private} \ptype{List$<$PipeModel$>$} \varname{pipes}] \item[]
 
 \item[\keyword{public} \ptype{Knot} \varname{Knot}] \item[]
 
@@ -1196,7 +1196,7 @@ Knotens und die Kantenliste als Eigenschaften.
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 Der Name der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
-\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{Edges}] \item[]
+\item[\keyword{public} \ptype{IEnumerable$<$Edge$>$} \varname{Edges}] \item[]
 Die Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
 \item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
 Die Anzahl der Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
@@ -1238,13 +1238,13 @@ Erstellt ein neues Objekt und setzt die Name- und Kanten-Eigenschaften auf die i
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 
-\item[\keyword{public} \ptype{Func<int, Vector2>} \varname{RelativeItemSize}] \item[]
+\item[\keyword{public} \ptype{Func$<$int, Vector2$>$} \varname{RelativeItemSize}] \item[]
 
-\item[\keyword{public} \ptype{Func<int, Vector2>} \varname{RelativeItemPosition}] \item[]
+\item[\keyword{public} \ptype{Func$<$int, Vector2$>$} \varname{RelativeItemPosition}] \item[]
 
-\item[\keyword{public} \ptype{Func<ItemState, Vector2>} \varname{ItemForegroundColor}] \item[]
+\item[\keyword{public} \ptype{Func$<$ItemState, Vector2$>$} \varname{ItemForegroundColor}] \item[]
 
-\item[\keyword{public} \ptype{Func<ItemState, Vector2>} \varname{ItemBackgroundColor}] \item[]
+\item[\keyword{public} \ptype{Func$<$ItemState, Vector2$>$} \varname{ItemBackgroundColor}] \item[]
 
 \item[\keyword{public} \ptype{HorizontalAlignment} \varname{ItemAlignX}] \item[]
 
@@ -1336,13 +1336,13 @@ Wird für jeden Frame aufgerufen.
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{private} \ptype{Dictionary<GameModelInfo, GameModel>} \varname{cache}] \item[]
+\item[\keyword{private} \ptype{Dictionary$<$GameModelInfo, GameModel$>$} \varname{cache}] \item[]
 
-\item[\keyword{private} \ptype{Func<GameScreen, GameModelInfo, GameModel>} \varname{createModel}] \item[]
+\item[\keyword{private} \ptype{Func$<$GameScreen, GameModelInfo, GameModel$>$} \varname{createModel}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{ModelFactory} (\ptype{Func<GameScreen}, \ptype{GameModelInfo}, )] \item[]
+\item[\keyword{public} \varname{ModelFactory} (\ptype{Func$<$GameScreen}, \ptype{GameModelInfo}, )] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
@@ -1592,7 +1592,7 @@ Wird für jeden Frame aufgerufen.
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable<string>} \varname{FileExtensions}] \item[]
+\item[\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
@@ -1876,9 +1876,9 @@ Wird für jeden Frame aufgerufen.
 
 \item[\keyword{public} \ptype{bool} \varname{IsVisible}] \item[]
 
-\item[\keyword{public} \ptype{Func<Color>} \varname{BackgroundColor}] \item[]
+\item[\keyword{public} \ptype{Func$<$Color$>$} \varname{BackgroundColor}] \item[]
 
-\item[\keyword{public} \ptype{Func<Color>} \varname{ForegroundColor}] \item[]
+\item[\keyword{public} \ptype{Func$<$Color$>$} \varname{ForegroundColor}] \item[]
 
 \item[\keyword{public} \ptype{HorizontalAlignment} \varname{AlignX}] \item[]
 
@@ -1934,7 +1934,7 @@ Wird für jeden Frame aufgerufen.
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Camera}] \item[]
 
-\item[\keyword{public} \ptype{List<IGameObject>} \varname{Objects}] \item[]
+\item[\keyword{public} \ptype{List$<$IGameObject$>$} \varname{Objects}] \item[]
 
 \item[\keyword{public} \ptype{IGameObject} \varname{SelectedObject}] \item[]
 
@@ -2050,7 +2050,7 @@ Eine Schnittstelle, die von Klassen inmplementiert wird, welche auf Tastatureing
 Die Eingabepriorität.
 \item[\keyword{public} \ptype{Boolean} \varname{IsKeyEventEnabled}] \item[]
 Zeigt an, ob die Klasse zur Zeit auf Tastatureingaben reagiert.
-\item[\keyword{public} \ptype{List<Keys>} \varname{ValidKeys}] \item[]
+\item[\keyword{public} \ptype{List$<$Keys$>$} \varname{ValidKeys}] \item[]
 Die Tasten, auf die die Klasse reagiert.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
@@ -2068,7 +2068,7 @@ Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten impl
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{IEnumerable<string>} \varname{FileExtensions}] \item[]
+\item[\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}] \item[]
 
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 

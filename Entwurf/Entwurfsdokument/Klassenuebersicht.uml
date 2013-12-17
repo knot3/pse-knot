@@ -706,7 +706,7 @@ public class KeyInputItem :
 public class Knot : 
   Attributes:
     // Der Name des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
-    // Der Wert dieser Eigenschaft wird aus der \gflqq Name \grqq -Eigenschaft des Metadaten-Objektes geladen
+    // Der Wert dieser Eigenschaft wird aus der \glqq Name \grqq -Eigenschaft des Metadaten-Objektes geladen
     // und bei Änderungen wieder in diesem gespeichert. Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
     + Name : String
     // Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
@@ -718,10 +718,10 @@ public class Knot :
     // Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
     + SelectedEdges : IEnumerable<Edge>
   Methods:
-    // Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält Eigenschaften, die das Speicherformat und den Dateinamen beinhalten, den Wert \gflqq null \grqq.
+    // Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält Eigenschaften, die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null \grqq.
     + Knot () : void
     // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
-    // oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
+    // oder beide den Wert \glqq null \grqq , dann wird eine IOException geworfen.
     + Save () : void
     // Hebt die aktuelle Kantenauswahl auf.
     + ClearSelection () : void
@@ -748,7 +748,7 @@ public class Knot :
     // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
     + GetEnumerator () : IEnumerator
     // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
-    // oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
+    // oder beide den Wert \glqq null \grqq , dann wird eine IOException geworfen.
     + Save (IKnotIO format, String filename) : void
     // 
     + Equals (T other) : Boolean
