@@ -747,8 +747,7 @@ public class Knot :
     + IsSelected (Edge edge) : Boolean
     // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
     + GetEnumerator () : IEnumerator
-    // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
-    // oder beide den Wert \glqq null \grqq , dann wird eine IOException geworfen.
+    // Speichert den Knoten unter dem angegebenen Dateinamen in dem angebenenen Dateiformat.
     + Save (IKnotIO format, String filename) : void
     // 
     + Equals (T other) : Boolean
