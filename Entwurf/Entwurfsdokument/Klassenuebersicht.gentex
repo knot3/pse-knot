@@ -239,12 +239,6 @@ Implementiert das Speicherformat für Challenges.
 \end{wrapfigure}
 
 
-\paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{private} \ptype{KnotStringIO} \varname{startParser}] \item[]
-Der Parser für den Ausgangsknoten im Challenge-Format.
-\item[\keyword{private} \ptype{KnotStringIO} \varname{targetParser}] \item[]
-Der Parser für den Referenzknoten im Challenge-Format.
-\end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{ChallengeFileIO} ()] \item[]
 Erstellt ein ChallengeFileIO-Objekt.
@@ -720,6 +714,8 @@ Das Bildschirmfotoverzeichnis.
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String} \varname{name})] \item[]
 Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungüliger Zeichen.
+\item[\keyword{public} \ptype{String} \varname{GetHash} (\ptype{String} \varname{filename})] \item[]
+
 \end{description}
 
 \subsection{Klasse GameModel}
@@ -785,6 +781,22 @@ Die Skalierung des Modells.
 \item[\keyword{public} \varname{GameModelInfo} (\ptype{String} \varname{modelname}, \ptype{Angles3} \varname{rotation}, \ptype{Vector3} \varname{scale})] \item[]
 Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angebenenen Informationen zu
 Dateiname, Rotation und Skalierung.
+\end{description}
+
+\subsection{Klasse GameObjectDistance}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.2]{Klassen/GameObjectDistance}
+\end{wrapfigure}
+
+
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IGameObject} \varname{Object}] \item[]
+
+\item[\keyword{public} \ptype{float} \varname{Distance}] \item[]
+
 \end{description}
 
 \subsection{Klasse GameObjectInfo}
@@ -962,7 +974,7 @@ Wird für jeden Frame aufgerufen.
 
 \subsection{Klasse Knot}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Namen und einer doppelt-verketteten Liste von Kanten.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/Knot}
@@ -971,11 +983,13 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
+Der Name des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
+Der Wert dieser Eigenschaft wird aus der \gflqq Name \grqq -Eigenschaft des Metadaten-Objektes geladen
+und bei Änderungen in diesem gespeichert.
 \item[\keyword{private} \ptype{Circle} \varname{edges}] \item[]
-
+Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
 \item[\keyword{public} \ptype{KnotMetaData} \varname{MetaData}] \item[]
-
+Die Metadaten des Knotens.
 \item[\keyword{public} \ptype{Action} \varname{EdgesChanged}] \item[]
 
 \item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{SelectedEdges}] \item[]
@@ -1062,7 +1076,7 @@ Wird für jeden Frame aufgerufen.
 
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
-\item[\keyword{private} \ptype{KnotStringIO} \varname{parser}] \item[]
+\item[\keyword{public} \ptype{IEnumerable<string>} \varname{FileExtensions}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
@@ -1103,16 +1117,19 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
+Der Name des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
+Diese Eigenschaft kann gelesen und gesetzt werden.
 \item[\keyword{public} \ptype{IKnotIO} \varname{Format}] \item[]
-
-\item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
-
+Das Format, aus dem die Metadaten geladen wurden. Nur lesbar.
+\item[\keyword{public} \ptype{Func<Integer>} \varname{CountEdges}] \item[]
+Ein Delegate, das die Anzahl der Kanten zurückliefert. Falls dieses Metadaten-Objekt Teil eines Knotens ist, gibt es dynamisch die Anzahl der
+Kanten des Knoten-Objektes zurück. Anderenfalls gibt es eine statische Zahl zurück, die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes
+gelesen wurde.
 \item[\keyword{public} \ptype{String} \varname{Filename}] \item[]
 
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Integer} \varname{countEdges}, \ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})] \item[]
+\item[\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Func<Integer>} \varname{countEdges}, \ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})] \item[]
 
 \end{description}
 
@@ -1171,16 +1188,20 @@ Wird für jeden Frame aufgerufen.
 \end{wrapfigure}
 
 
-\paragraph{Konstruktoren:}\mbox{} \begin{description} 
-\item[\keyword{public} \varname{KnotStringIO} ()] \item[]
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{String} \varname{Name}] \item[]
+
+\item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{Edges}] \item[]
+
+\item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
+
+\item[\keyword{public} \ptype{String} \varname{Content}] \item[]
 
 \end{description}
-\paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
+\paragraph{Konstruktoren:}\mbox{} \begin{description} 
+\item[\keyword{public} \varname{KnotStringIO} (\ptype{String} \varname{content})] \item[]
 
-\item[\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})] \item[]
-
-\item[\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})] \item[]
+\item[\keyword{public} \varname{KnotStringIO} (\ptype{Knot} \varname{knot})] \item[]
 
 \end{description}
 
@@ -1563,6 +1584,10 @@ Wird für jeden Frame aufgerufen.
 \end{wrapfigure}
 
 
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable<string>} \varname{FileExtensions}] \item[]
+
+\end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{PrinterIO} ()] \item[]
 
@@ -2035,6 +2060,10 @@ Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten impl
 \end{wrapfigure}
 
 
+\paragraph{Eigenschaften:}\mbox{} \begin{description} 
+\item[\keyword{public} \ptype{IEnumerable<string>} \varname{FileExtensions}] \item[]
+
+\end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})] \item[]
 Speichert einen Knoten.

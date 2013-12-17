@@ -142,10 +142,6 @@ public class Challenge :
 // Implementiert das Speicherformat für Challenges.
 public class ChallengeFileIO : 
   Attributes:
-    // Der Parser für den Ausgangsknoten im Challenge-Format.
-    - startParser : KnotStringIO
-    // Der Parser für den Referenzknoten im Challenge-Format.
-    - targetParser : KnotStringIO
   Methods:
     // Erstellt ein ChallengeFileIO-Objekt.
     + ChallengeFileIO () : void
@@ -438,6 +434,8 @@ public class FileUtility :
   Methods:
     // Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungüliger Zeichen.
     + ConvertToFileName (String name) : String
+    // 
+    + GetHash (String filename) : String
 
 // Repräsentiert ein 3D-Modell in einer Spielwelt.
 public class GameModel : 
@@ -483,6 +481,15 @@ public class GameModelInfo :
     // Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angebenenen Informationen zu
     // Dateiname, Rotation und Skalierung.
     + GameModelInfo (String modelname, Angles3 rotation, Vector3 scale) : void
+
+// 
+public class GameObjectDistance : 
+  Attributes:
+    // 
+    + Object : IGameObject
+    // 
+    + Distance : float
+  Methods:
 
 // Enthält Informationen über ein 3D-Objekt wie die Position, Sichtbarkeit, Verschiebbarkeit und Auswählbarkeit.
 public class GameObjectInfo : 
@@ -618,6 +625,8 @@ public interface IKeyEventListener :
 // Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten implementiert werden müssen.
 public interface IKnotIO : 
   Attributes:
+    // 
+    + FileExtensions : IEnumerable<string>
   Methods:
     // Speichert einen Knoten.
     + Save (Knot knot) : void
@@ -695,51 +704,57 @@ public class KeyInputItem :
     // 
     + OnKeyEvent () : void
 
-// 
+// Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten.
 public class Knot : 
   Attributes:
-    // 
+    // Der Name des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
+    // Der Wert dieser Eigenschaft wird aus der \gflqq Name \grqq -Eigenschaft des Metadaten-Objektes geladen
+    // und bei Änderungen wieder in diesem gespeichert. Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
     + Name : String
-    // 
+    // Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
     - edges : Circle
-    // 
+    // Die Metadaten des Knotens.
     + MetaData : KnotMetaData
-    // 
+    // Ein Ereignis, das in der Move-Methode ausgelöst wird, wenn sich die Struktur der Kanten geändert hat.
     + EdgesChanged : Action
-    // 
+    // Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
     + SelectedEdges : IEnumerable<Edge>
   Methods:
-    // 
+    // Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält Eigenschaften, die das Speicherformat und den Dateinamen beinhalten, den Wert \gflqq null \grqq.
     + Knot () : void
-    // 
+    // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
+	// oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
     + Save () : void
-    // 
+    // Hebt die aktuelle Kantenauswahl auf.
     + ClearSelection () : void
-    // 
+    // Erstellt einen neuen Knoten mit dem angegebenen Metadaten-Objekt und den angegebenen Kanten. Die Eigenschaft des Metadaten-Objektes, die die
+	// Anzahl der Kanten enthält, wird auf ein Delegate gesetzt, das die Anzahl der Kanten in der doppelt verketteten Liste zurückgibt, die auf Basis
+	// der angegebenen Kanten erstellt wird.
     + Knot (KnotMetaData meta, IEnumerable<Edge> edges) : void
-    // 
+    // Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
     + IsValidMove (Direction dir, Integer distance) : Boolean
-    // 
+    // Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebene Distanz.
     + Move (Direction dir, Integer distance) : Boolean
     // 
     +  (Knot knotA, Knot knotB) : Boolean
     // 
     +  (Knot knotA, Knot knotB) : Boolean
-    // 
+    // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
     + GetEnumerator () : IEnumerator<Edge>
-    // 
+    // Erstellt eine tiefe Kopie des Knotens, inklusive der Kanten-Datentuktur und des Metadaten-Objekts.
     + Clone () : Object
-    // 
+    // Fügt die angegebene Kante zur aktuellen Kantenauswahl hinzu.
     + AddToSelection (Edge edge) : void
-    // 
+    // Entfernt die angegebene Kante von der aktuellen Kantenauswahl.
     + RemoveFromSelection (Edge edge) : void
-    // 
+    // Fügt den Bereich zwischen der zuletzt selektierten Kanten und der angegebenen Kante zur aktuellen Kantenauswahl hinzu.
     + AddRangeToSelection (Edge edge) : void
-    // 
+    // Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
     + IsSelected (Edge edge) : Boolean
-    // 
+    // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
     + GetEnumerator () : IEnumerator
-    // 
+    // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
+	// oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
     + Save (, IKnotIO format) : void
 
 // 
@@ -771,7 +786,7 @@ public class Knot3Game :
 public class KnotFileIO : 
   Attributes:
     // 
-    - parser : KnotStringIO
+    + FileExtensions : IEnumerable<string>
   Methods:
     // 
     + KnotFileIO () : void
@@ -789,20 +804,27 @@ public class KnotInputHandler :
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
-// 
+// Enthält Metadaten eines Knotens, die aus einer Spielstand-Datei schneller eingelesen werden können als der vollständige Knoten. Dieses Objekt enthält
+// keine Datenstruktur zur Repräsentation der Kanten, sondern nur Informationen über den Namen des Knoten und die Anzahl seiner Kanten. Es kann ohne ein
+// dazugehöriges Knoten-Objekt existieren, aber jedes Knoten-Objekt enthält genau ein Knoten-Metadaten-Objekt.
 public class KnotMetaData : 
   Attributes:
-    // 
+    // Der Anzeigename des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
+	// Wird ein neuer Anzeigename festgelegt, dann wird der Dateiname ebenfalls auf einen neuen Wert gesetzt, unabhängig davon ob er bereits einen Wert enthält oder
+	// \glqq null \grqq ist.
+    // Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
     + Name : String
-    // 
+    // Das Format, aus dem die Metadaten geladen wurden. Es ist genau dann \glqq null \grqq , wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
     + Format : IKnotIO
-    // 
-    + CountEdges : Integer
-    // 
+    // Ein Delegate, das die Anzahl der Kanten zurückliefert. Falls dieses Metadaten-Objekt Teil eines Knotens ist, gibt es dynamisch die Anzahl der
+    // Kanten des Knoten-Objektes zurück. Anderenfalls gibt es eine statische Zahl zurück, die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes
+    // gelesen wurde. Nur lesbar.
+    + CountEdges : Func<Integer>
+    // Falls die Metadaten aus einer datei eingelesen wurden, enthält dieses Attribut den Dateinamen, sonst \glqq null \grqq.
     + Filename : String
   Methods:
-    // 
-    + KnotMetaData (String name, Integer countEdges, IKnotIO format, String filename) : KnotMetaData
+    // Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knoten-Namen und einer angebenen Funktion, welche eine Kantenanzahl zurück gibt.
+    + KnotMetaData (String name, Func<Integer> countEdges, IKnotIO format, String filename) : KnotMetaData
 
 // 
 public class KnotRenderer : 
@@ -841,18 +863,25 @@ public class KnotRenderer :
     // 
     + GetEnumerator () : IEnumerator
 
-// 
+// Diese Klasse repräsentiert einen Parser für das Knoten-Austauschformat und enthält die eingelesenen Informationen wie den Namen des
+// Knotens und die Kantenliste als Eigenschaften.
 public class KnotStringIO : 
   Attributes:
+    // Der Name der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
+    + Name : String
+    // Die Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
+    + Edges : IEnumerable<Edge>
+    // Die Anzahl der Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
+    + CountEdges : Integer
+    // Erstellt aus den Name- und Kanten-Eigenschaften einen neuen String, der als Dateiinhalt in einer Spielstanddatei einen gültigen Knoten repräsentiert.
+    + Content : String
   Methods:
-    // 
-    + KnotStringIO () : void
-    // 
-    + Save (Knot knot) : void
-    // 
-    + Load (String filename) : Knot
-    // 
-    + LoadMetaData (String filename) : KnotMetaData
+    // Liest das in dem angegebenen String enthaltene Dateiformat ein. Enthält es einen gültigen Knoten,
+	// so werden die Namen- und Kanten-Eigenschaften auf die eingelesenen Werte gesetzt. Enthält es einen ungültigen Knoten,
+	// so wird eine IOException geworfen und das Objekt wird nicht erstellt.
+    + KnotStringIO (String content) : void
+    // Erstellt ein neues Objekt und setzt die Name- und Kanten-Eigenschaften auf die im angegebenen Knoten enthaltenen Werte.
+    + KnotStringIO (Knot knot) : void
 
 // 
 public class Localizer : 
@@ -1078,6 +1107,8 @@ public class PipeMovement :
 // 
 public class PrinterIO : 
   Attributes:
+    // 
+    + FileExtensions : IEnumerable<string>
   Methods:
     // 
     + PrinterIO () : void
