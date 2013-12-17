@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f41f99fa-0b9f-41ab-99af-7e57903e67ba" name="Effekte" linkedPackageId="298f3868-f371-4a7f-bf37-2c41bc718a50" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f41f99fa-0b9f-41ab-99af-7e57903e67ba" name="Effekte" linkedPackageId="298f3868-f371-4a7f-bf37-2c41bc718a50" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="98e4a96c-de44-46e4-a0c5-b33fc96fa240" name="IRenderEffect" isAbstract="false" isLeaf="false">
@@ -340,6 +340,34 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="58dae154-c053-4106-bd5f-85059a0db501" name="RenderEffectStack" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="bd8523cb-f1c6-4f44-80e0-f5cb3062f3d0" />
+        <targetEnds>
+          <association Id="3bde02b1-c7a2-46c6-94ad-7b34f78c7291" isDerived="false" sourceEndRoleName="RenderEffectStack" targetEndRoleName="IRenderEffect" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="98e4a96c-de44-46e4-a0c5-b33fc96fa240" LastKnownName="IRenderEffect" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5da17bb5-e914-4def-aa17-cf0539ffdd59" name="RenderEffectStack" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4aee6d5d-03df-48d2-96d8-ea3dcdc216c0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5b90f5f2-ab6d-4fb8-bd52-12998603e222" name="IRenderEffect" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="4aee4823-2c53-4add-a170-1ad7ae5e18fc" name="Lower" value="*">
+                      <elementDefinition Id="abbc71c0-fd36-45b7-b6c1-dd7e1b2e704d" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="cadbb0a9-03fe-4a09-9ae1-71d798a89a27" name="Upper" value="*">
+                      <elementDefinition Id="54fcf133-83ef-43c0-b9d7-99d4c27ff536" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="e101b365-7a5e-4a25-b6d6-01a4ad5aeb2c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6b981420-8a3b-4d4e-b20a-487f8d975ef6" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="0d93a924-f807-43b9-92ae-4238e387e61d" name="CurrentEffect" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="ef35a6ed-6730-4d38-b19f-4830c04b3e7c" />

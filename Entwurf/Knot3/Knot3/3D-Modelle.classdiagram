@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="1ed1b565-1f84-48cc-ba24-fb3e2d0daf1b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="1ed1b565-1f84-48cc-ba24-fb3e2d0daf1b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" name="IGameObject" isAbstract="false" isLeaf="false">
@@ -20,6 +20,22 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="9e2ca82d-90e5-4d01-9f5e-6741e11b6a93" />
+          </association>
+          <association Id="a0ef4017-414e-4af5-98cb-c0f9cad57119" isDerived="false" sourceEndRoleName="IGameObject" targetEndRoleName="GameObjectDistance" isLeaf="false" isAbstract="false">
+            <classMoniker Id="892158e0-88c8-428b-91d4-79f2f58359cc" LastKnownName="GameObjectDistance" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a7365878-888e-47cd-be3d-fc7a030735b2" name="IGameObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="02289ba3-5378-4b91-93bc-51bfeb74da50" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="18e7b274-b031-4dcf-b0a8-80ef962540c6" name="GameObjectDistance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="87bdb884-f2af-40fb-8e2a-35276f93e850" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0ef81525-c112-4c92-8054-32090ebea117" />
           </association>
         </targetEnds>
         <ownedAttributes>
@@ -1959,6 +1975,30 @@
     <packageHasNamedElement>
       <referencedType Id="61ee1675-0745-490b-b2d3-5cb2cf58f629" name="T" isAbstract="false" isLeaf="false" cachedFullName="T">
         <elementDefinition Id="b0cdc7a3-2fdd-40f6-ae13-2466cffa825b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="892158e0-88c8-428b-91d4-79f2f58359cc" name="GameObjectDistance" isAbstract="false" isLeaf="true" isActiveClass="false">
+        <elementDefinition Id="e0c602c2-ed8c-4773-a599-299144110e38" />
+        <ownedAttributesInternal>
+          <property Id="bc800cca-1793-4928-8fa8-e8753d394965" name="Object" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="729c65a2-4050-42e8-8cff-bcf06e1abf4c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="2e851af6-ca4e-4885-8aef-57d8cd4d9e1c" LastKnownName="IGameObject" />
+            </type_NamedElement>
+          </property>
+          <property Id="bdc1d3f0-0854-46d5-bf8e-b0aa5254018b" name="Distance" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1af7d369-ac1e-4c73-ac99-002bd80c7f7a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="718aba7c-0bff-4a06-b8d7-fc0ba871963f" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="718aba7c-0bff-4a06-b8d7-fc0ba871963f" name="float" isAbstract="false" isLeaf="false" cachedFullName="float">
+        <elementDefinition Id="e44563c0-4586-48dd-92e1-f7ad57248de3" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
