@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f41f99fa-0b9f-41ab-99af-7e57903e67ba" name="Effekte" linkedPackageId="298f3868-f371-4a7f-bf37-2c41bc718a50" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f41f99fa-0b9f-41ab-99af-7e57903e67ba" name="Effekte" linkedPackageId="298f3868-f371-4a7f-bf37-2c41bc718a50" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="98e4a96c-de44-46e4-a0c5-b33fc96fa240" name="IRenderEffect" isAbstract="false" isLeaf="false">
@@ -157,8 +157,11 @@
             <elementDefinition Id="2f6bcc0f-077b-4072-a83a-fcd6039b35bf" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="14cbf658-54a7-4f53-97d7-a04c21eeb7cc" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="9c9de010-a9fa-4f48-83d1-e1ae94518ea0" />
+                <parameter Id="2a59118d-fe46-4686-bf7e-1babf7e41f65" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="e0855840-fab7-49fe-af71-70c4be20e966" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cb55ea60-e062-4c0b-ac85-3edf3540b538" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -192,6 +195,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="f28aef5f-42b7-4137-ae84-5145ca40bdc9" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="7978626b-73a7-4e88-8bef-77b8d0bdbdfc" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cb55ea60-e062-4c0b-ac85-3edf3540b538" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -263,6 +269,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="90471c2f-fd50-40c6-b172-92581aa2bcd3" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="c5a2c537-3fd4-40f2-a630-4c3de3891de1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cb55ea60-e062-4c0b-ac85-3edf3540b538" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -286,6 +295,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="ddbee67c-50b0-4680-b7f6-d70b64851835" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="4e3a8a33-4839-46ed-872d-8d9141a314dd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cb55ea60-e062-4c0b-ac85-3edf3540b538" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -443,6 +455,11 @@
     <packageHasNamedElement>
       <referencedType Id="5757f19e-508c-4b79-a56d-43726d10f6d0" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
         <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="cb55ea60-e062-4c0b-ac85-3edf3540b538" name="GameTime" isAbstract="false" isLeaf="false" cachedFullName="GameTime">
+        <elementDefinition Id="7146062a-e956-4346-8427-37640e8bf8a1" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

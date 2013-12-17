@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="69c5ee0d-6553-4c47-b387-53350a33f9af" name="3D-Komponenten" linkedPackageId="6f805220-e236-4324-86f3-568565fa64b7" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="69c5ee0d-6553-4c47-b387-53350a33f9af" name="3D-Komponenten" linkedPackageId="6f805220-e236-4324-86f3-568565fa64b7" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="a520d8fc-3f4b-4649-8f1d-512f5a206b64" name="List&lt;IGameObject&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;IGameObject&gt;">
@@ -77,6 +77,9 @@
         <ownedAttributesInternal>
           <property Id="42d5e0f1-8dde-4242-a917-cb5078ddb825" name="Camera" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="acf1c781-91ea-47af-b1d6-32bb73743239" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3ce956e9-71eb-4e65-b10e-1c6fea3cef95" LastKnownName="Camera" />
+            </type_NamedElement>
           </property>
           <property Id="9ecdff7e-6912-4ad3-acd7-e22e98e40409" name="Objects" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="1466ac71-40b7-49a4-b4ff-57df9c87b869" />
@@ -475,6 +478,20 @@
             <elementDefinition Id="3569fae1-555b-43fa-b960-b25f5ed4aa19" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="235be2c7-a30d-48bd-8245-f4c49a5a6877" name="world" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2f02dac7-c132-4988-a97c-349d893f5dc5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1c0bf8ca-75d6-42e8-ae76-f973bf62d4c1" LastKnownName="World" />
+            </type_NamedElement>
+          </property>
+          <property Id="8ba7f32c-aedb-473d-b3bf-7bf53c1caefe" name="screen" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5af272cb-2655-47d5-8ffb-73ae4d3b2ee1" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" LastKnownName="GameScreen" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="782dd11c-5487-4301-81f5-41bc0b7f2fee" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="1407e748-31e1-4a16-af1b-0a60cb7c6f5b" />
@@ -484,6 +501,27 @@
                   <elementDefinition Id="7ac88c1a-ded0-4452-9ee1-d9cd0e2e62cf" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="63d36cf5-24ec-4390-9878-b25f850e92bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="fcf95ae8-3a40-43b2-ac6c-406860cd3ff4" name="KnotInputHandler" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="dff76cf0-f9be-4efa-baa8-21720da02537" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="040cb32f-46f6-4296-945e-b238fec7627e" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="9599e1b2-a0d2-4268-858b-dc28c2942c89" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" LastKnownName="GameScreen" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cfdf1b89-733f-4b36-ac95-67810bbb9306" name="world" direction="In" isUnique="false">
+                  <elementDefinition Id="bf1b1ce1-303e-4e65-ad95-eb05a0612c87" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1c0bf8ca-75d6-42e8-ae76-f973bf62d4c1" LastKnownName="World" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -540,8 +578,11 @@
             <elementDefinition Id="a53bd1bf-fcfe-4f3d-9f32-b1a91f8d2ee2" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="82bbc730-7b5d-4078-88d1-aa7c4d28c380" name="GameState" direction="In" isUnique="false">
-                  <elementDefinition Id="451b7c12-355b-46e4-949e-d0d040c88be4" />
+                <parameter Id="e6745cae-531c-4f64-b973-475e28f120bc" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="a4c40417-20d6-4b53-adda-9fea0202e37b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2e50f5e0-9c8f-471e-add5-cbeb8912b2cc" LastKnownName="GameScreen" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -558,8 +599,11 @@
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="d98c4549-b9ef-4aae-971f-e7e88472a137" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="12140217-bafb-479e-9d6b-aec397c432c8" />
+                <parameter Id="2b8e8245-b13f-49d7-a5ab-ae610d9ba7fc" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="96241d3f-29df-4b47-8b12-d31c42dbba7f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="63d36cf5-24ec-4390-9878-b25f850e92bd" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -925,6 +969,11 @@
     <packageHasNamedElement>
       <referencedType Id="832e9ff6-2cca-4eaf-988d-a56ca23a0d54" name="ClickState" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ClickState">
         <elementDefinition Id="708282e2-4a50-4a8d-8d27-9c919a03aad0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3ce956e9-71eb-4e65-b10e-1c6fea3cef95" name="Camera" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Camera">
+        <elementDefinition Id="dc6d386c-ecb4-4739-a308-e086d1507e61" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

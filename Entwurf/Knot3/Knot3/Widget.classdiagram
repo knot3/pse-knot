@@ -283,12 +283,6 @@
           </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="ee27a97c-7c4c-4861-9499-a484541cfaf7" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="852ffd35-d951-4c03-9205-52bfa9a64333" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
           <property Id="6fa50c61-f80c-449e-b6d1-4b535309fb46" name="RelativeItemSize" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="75d39e13-a7b1-43b1-9adc-7fab5dc3da39" />
             <type_NamedElement>
@@ -304,13 +298,13 @@
           <property Id="b07d2052-9004-4050-a536-137c3c93333f" name="ItemForegroundColor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="f07b1b3c-5f53-417a-bf04-cac606a4e671" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="f3104c55-e35f-483a-8d76-f27d40ec3868" LastKnownName="Func&lt;ItemState, Vector2&gt;" />
+              <referencedTypeMoniker Id="9f63492a-2fca-4a6c-88ec-c41dc84cadcc" LastKnownName="Func&lt;ItemState, Color&gt;" />
             </type_NamedElement>
           </property>
           <property Id="66808f37-177f-47e2-b6ac-2d78d5325ad7" name="ItemBackgroundColor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="73626c4b-6a24-4e06-9d97-964cdc6d02e4" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="f3104c55-e35f-483a-8d76-f27d40ec3868" LastKnownName="Func&lt;ItemState, Vector2&gt;" />
+              <referencedTypeMoniker Id="301d6c3e-d9d3-41af-b899-c9c22b3c2338" LastKnownName="Func&lt;ItemState, Color&gt;" />
             </type_NamedElement>
           </property>
           <property Id="88130479-6c13-4c41-9023-1c9d99e4666a" name="ItemAlignX" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -461,7 +455,7 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="ef1d9c16-4541-42e9-959b-78d7edbb3745" name="OnLeftClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="ef1d9c16-4541-42e9-959b-78d7edbb3745" name="OnLeftClick" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="b158cf9b-9f17-4981-b997-2048805f02fd" />
             <ownedParameters>
               <operationHasOwnedParameters>
@@ -490,7 +484,7 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="761a2ac7-f505-49f6-8787-a4281c0d19e6" name="OnRightClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="761a2ac7-f505-49f6-8787-a4281c0d19e6" name="OnRightClick" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a9f5bad9-55c3-4b17-bef9-a7fc2d1ba515" />
             <ownedParameters>
               <operationHasOwnedParameters>
@@ -519,10 +513,10 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="087075d8-623b-4498-ad07-775ffc518b05" name="OnKeyEvent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="087075d8-623b-4498-ad07-775ffc518b05" name="OnKeyEvent" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="4ddc0572-5746-416c-8d98-0392ac8ccd80" />
           </operation>
-          <operation Id="a7095c89-2ea1-4b46-be3c-26589bd28978" name="Bounds" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="a7095c89-2ea1-4b46-be3c-26589bd28978" name="Bounds" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="222c9fb5-4080-40ef-bbce-0e1ec359d250" />
             <ownedParameters>
               <operationHasOwnedParameters>
@@ -548,10 +542,10 @@
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
-          <property Id="2e70b486-6957-4def-b6f6-113faf8c767a" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="e2f3e476-1840-47a9-b64d-2c050eb1a6f9" />
+          <property Id="48cbd6be-e720-49ef-b07d-bfa416f2f8c1" name="OnClick" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="185b9a8f-f2b7-42a4-a5c8-583b82df3494" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+              <referencedTypeMoniker Id="bfc2ae56-eb14-43a3-980c-64c96490f1e3" LastKnownName="Action" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -560,10 +554,18 @@
             <elementDefinition Id="074813a0-9c48-4c34-bd36-7ad0d208e3e0" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a5a6e7fd-fd24-4434-9649-8bec2f3caac6" name="name" direction="In" isUnique="false">
-                  <elementDefinition Id="3ee29407-fab7-433c-a589-50e34ee550a0" />
+                <parameter Id="11aaa5be-c551-41db-991c-55600474e873" name="name" direction="In" isUnique="false">
+                  <elementDefinition Id="73f3c22b-b68a-474c-ade2-b2d7c76e513f" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b03c8e1d-0816-4d5d-b3e3-73011d897ef2" name="onClick" direction="In" isUnique="false">
+                  <elementDefinition Id="b08f13f2-8d99-4fc1-a2fd-65da37d2bdb2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bfc2ae56-eb14-43a3-980c-64c96490f1e3" LastKnownName="Action" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -573,7 +575,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="f72ef79c-6bdd-40bd-ae6c-af6715855891" name="SliderItem" isAbstract="true" isLeaf="false" isActiveClass="false">
+      <class Id="f72ef79c-6bdd-40bd-ae6c-af6715855891" name="SliderItem" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="2454aad4-624a-407e-97b9-4c83bc3d5329" />
         <generalsInternal>
           <generalization Id="4ab7c77a-84e0-4152-9717-90cc02ec7e35" isSubstitutable="false">
@@ -598,6 +600,12 @@
             <elementDefinition Id="8ead2fa1-108a-430e-a948-3bce50d1282c" />
             <type_NamedElement>
               <referencedTypeMoniker Id="839b305b-c778-4799-8aeb-d95fc963bf95" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="df01a282-800c-40a9-86cf-4e4a9283d068" name="Step" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c4cdc1ea-e56b-4d0f-8731-270aec6534dd" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="694d7ef4-838d-4048-be09-fa04bdab94b1" LastKnownName="Integer" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -1320,11 +1328,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="f3104c55-e35f-483a-8d76-f27d40ec3868" name="Func&lt;ItemState, Vector2&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;ItemState, Vector2&gt;">
-        <elementDefinition Id="3c04e34e-ed44-4edb-8469-2d04405068ce" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="8b905013-5e3f-408e-b82e-6532e1030e65" name="HorizontalAlignment" isAbstract="false" isLeaf="false" cachedFullName="HorizontalAlignment">
         <elementDefinition Id="e1fc1cbc-d939-4212-8282-ca690922d927" />
       </referencedType>
@@ -1718,6 +1721,21 @@
     <packageHasNamedElement>
       <referencedType Id="5b20c606-80f0-46e5-88fd-3a75f7bfee1d" name="ClickState" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ClickState">
         <elementDefinition Id="708282e2-4a50-4a8d-8d27-9c919a03aad0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="301d6c3e-d9d3-41af-b899-c9c22b3c2338" name="Func&lt;ItemState, Color&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;ItemState, Color&gt;">
+        <elementDefinition Id="0f312346-d64b-4ad5-9078-b4f555fad74f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="9f63492a-2fca-4a6c-88ec-c41dc84cadcc" name="Func&lt;ItemState, Color&gt;" isAbstract="false" isLeaf="false" cachedFullName="Func&lt;ItemState, Color&gt;">
+        <elementDefinition Id="0f312346-d64b-4ad5-9078-b4f555fad74f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="bfc2ae56-eb14-43a3-980c-64c96490f1e3" name="Action" isAbstract="false" isLeaf="false" cachedFullName="Action">
+        <elementDefinition Id="49d9005d-774f-4688-ab97-cc54a2486c0f" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4dd72b25-4e26-4c0d-aaae-647424dfac33" name="UMLClassDiagram1" linkedPackageId="1ad2dd4e-b09e-4bfe-901c-e03b155bb971" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4dd72b25-4e26-4c0d-aaae-647424dfac33" name="UMLClassDiagram1" linkedPackageId="1ad2dd4e-b09e-4bfe-901c-e03b155bb971" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
@@ -688,6 +688,35 @@
                   <elementDefinition Id="b3d3a4b6-3b2d-4488-bbd7-6cb675f3a311" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="16fc9a1a-951f-4dc2-8a5b-f8dd00aeaa72" name="KnotMetaData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f699f7bf-3568-4d33-ad79-e4e6b4b7f5aa" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3682dcfa-233a-4718-9c71-9fd34aa8342e" direction="Return" isUnique="false">
+                  <elementDefinition Id="21738374-b228-4dc4-bcf3-81142c4d0df0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="31160ae5-cf06-41fb-ab2f-f791de857985" LastKnownName="KnotMetaData" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="53be4b41-39ef-45ac-86ce-9fa7000b31b5" name="name" direction="In" isUnique="false">
+                  <elementDefinition Id="72da130e-6243-4ab7-aa2d-3733fddca405" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6cba8b70-3bb1-4c4e-b568-0364d5e50634" name="countEdges" direction="In" isUnique="false">
+                  <elementDefinition Id="83c7f500-3e93-42dd-a76c-b2c1c3cc875f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="688257ee-9e65-4ad9-bd12-1fa7abe1771a" LastKnownName="Func&lt;Integer&gt;" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>

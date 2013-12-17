@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="ea5cbf30-c01f-430a-b9d6-c8922c9c6c95" name="GameComponents" linkedPackageId="ce0cf89a-b7d4-4ae9-944d-994a2cf84c81" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="ea5cbf30-c01f-430a-b9d6-c8922c9c6c95" name="GameComponents" linkedPackageId="ce0cf89a-b7d4-4ae9-944d-994a2cf84c81" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameScreen">
@@ -377,17 +377,17 @@
             <elementDefinition Id="51e9b6fa-293e-4f5c-a52c-9fd00c6d2c63" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="baae19dd-0146-4d74-a69a-7ade0ad886ec" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="71894c89-86c9-459a-98f9-4c0740c04a7e" />
+                <parameter Id="c9d1e5f6-3c3a-4e59-ab59-ec30d325b033" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="136afbeb-23ac-40b3-aa31-14ea36a02788" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="10e1c04a-7090-4a37-ab8c-1ba1487db88b" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="9ecd8fdb-d248-4bc8-b73b-ddb8d277ebe2" name="Game" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="9ecd8fdb-d248-4bc8-b73b-ddb8d277ebe2" name="Knot3Game" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="bd4f62cd-4a4b-46dc-a3c3-9cdf4005aaad" />
-          </operation>
-          <operation Id="7b7e195a-c56f-4948-82d7-9ef15952183c" name="Initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="1ade705e-903d-4172-973f-f18c15d9b691" />
           </operation>
           <operation Id="6dc4e4fa-203b-4231-be0c-89eedae11a71" name="LoadContent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="c2425478-29d6-4370-b165-eb0f5b8eca84" />
@@ -401,6 +401,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="7a83632c-337d-4728-823f-cf1dfd020d47" name="GameTime" direction="In" isUnique="false">
                   <elementDefinition Id="431ada5d-cc07-4ba0-8095-aaa048a0d4da" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="10e1c04a-7090-4a37-ab8c-1ba1487db88b" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -415,9 +418,6 @@
           <operation Id="769c5ffd-a2f7-4af6-9b2c-ad6b29b72d39" name="Game" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="03540a7c-6179-419e-8dca-1a460542001b" />
           </operation>
-          <operation Id="3a2959f0-f660-4490-aebe-de95d5c6e574" name="Initialize" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="05b11538-d994-44aa-922c-f06e2bacefcd" />
-          </operation>
           <operation Id="e56bbe28-42d5-43f0-91aa-b486b26e6044" name="LoadContent" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="590fb5f1-537e-4946-867b-1cb46667e955" />
           </operation>
@@ -428,8 +428,11 @@
             <elementDefinition Id="1c6ab63a-6859-4380-9dd3-c7f8bb5e0f8c" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="4ccffdab-6752-4a9e-b695-a868d99b9089" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="efc3670d-d7dd-472f-8e90-70ee9cfdbd94" />
+                <parameter Id="80ab359e-3ef4-4fd9-a317-b6ce34aabc31" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="284473e1-a6de-42bc-8733-83ea840e42ee" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="10e1c04a-7090-4a37-ab8c-1ba1487db88b" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -438,8 +441,11 @@
             <elementDefinition Id="508d9203-5be7-43b6-a1e5-ccb820c8fdf9" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="d7b3c18b-df53-41d7-aa00-a4db20ffff31" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="4c3d74ec-3fd6-4459-981c-1b3d533258dc" />
+                <parameter Id="deeb9d91-0d76-4230-9f4d-376d34892962" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="6cdc833e-0812-4c42-a06c-6bf88e0a7e95" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="10e1c04a-7090-4a37-ab8c-1ba1487db88b" LastKnownName="GameTime" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="835db5d8-42d8-4388-803d-2a48148d5118" name="Settings" linkedPackageId="ae7e23b1-8258-49a9-a7ab-35086dad62d8" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="835db5d8-42d8-4388-803d-2a48148d5118" name="Settings" linkedPackageId="ae7e23b1-8258-49a9-a7ab-35086dad62d8" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="e6e9193f-6514-4cb7-9a14-aec0157d39b2" name="ConfigFile" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -441,6 +441,14 @@
             <elementDefinition Id="f936cdc7-d8eb-4438-b961-034311ce8a42" />
           </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="f66bfaa7-b6dc-404f-ba18-dea58d1eb2e6" name="localization" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6d733906-d73b-4ca7-bd28-9ea37fb2de2c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fd272920-b9f2-4863-aa09-0f7970dab9dd" LastKnownName="ConfigFile" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="21023450-93af-40fa-a57e-6a6690c289f0" name="Localize" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="11b2f124-1dc4-4da9-b71f-860135d75afa" />
@@ -474,6 +482,11 @@
     <packageHasNamedElement>
       <referencedType Id="993f17a0-c02a-48ca-b5e1-381c0ede4474" name="IEnumerable&lt;string&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerable&lt;string&gt;">
         <elementDefinition Id="a4d419fe-61e0-4dd2-9db8-65a3bc056b67" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fd272920-b9f2-4863-aa09-0f7970dab9dd" name="ConfigFile" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::ConfigFile">
+        <elementDefinition Id="77e92351-2e79-4508-bb61-683bae86c29d" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

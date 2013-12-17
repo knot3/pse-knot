@@ -66,7 +66,7 @@ public class BooleanOptionInfo :
 // Die Hauptfunktion der Kamera-Klasse ist das Berechnen der drei Matrizen, die für die Positionierung
 // und Skalierung von 3D-Objekten in einer bestimmten Spielwelt benötigt werden, der View-, World- und Projection-Matrix.
 // Um diese Matrizen zu berechnen, benötigt die Kamera unter Anderem Informationen über die aktuelle Kamera-Position,
-// das aktuelle Kamera-Target und das Field of View.
+// das aktuelle Kamera-Ziel und das Field of View.
 public class Camera : 
   Attributes:
     // Die Position der Kamera.
@@ -106,8 +106,8 @@ public class Camera :
 public class CelShadingEffect : 
   Attributes:
   Methods:
-    // Zeichnet das Rendertarget mithilfe eines Outline-Shaders.
-    # DrawRenderTarget (GameTime) : void
+    // 
+    # DrawRenderTarget (GameTime GameTime) : void
     // Zeichnet ein 3D-Modell auf das Rendertarget.
     + DrawModel (GameTime, GameModel GameModel) : void
     // Weist dem 3D-Modell den Cel-Shader zu.
@@ -419,8 +419,8 @@ public class FadeEffect :
   Methods:
     // Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
     + FadeEffect (GameScreen newScreen, GameScreen oldScreen) : void
-    // Zeichnet die Überblendung des zuletzt gerenderten Frames des bisherigen Spielzustands in das Rendertarget des aktuellen Spielzustands
-    # DrawRenderTarget (GameTime) : void
+    // 
+    # DrawRenderTarget (GameTime GameTime) : void
 
 // Eine Hilfsklasse für Dateioperationen.
 public class FileUtility : 
@@ -461,7 +461,7 @@ public class GameModel :
     + Center () : Vector3
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
-    // Zeichnet das 3D-Modell in der angegebenen Spielwelt mit dem aktuellen RenderEffekt der Spielwelt.
+    // Zeichnet das 3D-Modell in der angegebenen Spielwelt mit dem aktuellen Rendereffekt der Spielwelt.
     + Draw (GameTime GameTime) : void
     // Überprüft, ob der Mausstrahl das 3D-Modell schneidet.
     + Intersects (Ray Ray) : GameObjectDistance
@@ -648,66 +648,74 @@ public interface IMouseEventListener :
     // Die Reaktion auf einen Rechtsklick.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
 
-// 
+// Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet.
 public class Input : 
   Attributes:
-    // 
+    // Enthält den Klickzustand der rechten Maustaste.
     + RightMouseButton : ClickState
-    // 
+    // Enthält den Klickzustand der linken Maustaste.
     + LeftMouseButton : ClickState
-    // 
+    // Enthält den Mauszustand von XNA des aktuellen Frames.
     + CurrentMouseState : MouseState
-    // 
+    // Enthält den Tastaturzustand von XNA des aktuellen Frames.
     + CurrentKeyboardState : KeyboardState
-    // 
+    // Enthält den Mauszustand von XNA des vorherigen Frames.
     + PreviousMouseState : MouseState
-    // 
+    // Enthält den Tastaturzustand von XNA des vorherigen Frames.
     + PreviousKeyboardState : KeyboardState
-    // 
+    // Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
     + GrabMouseMovement : Boolean
   Methods:
-    // 
+    // Erstellt ein neues Input-Objekt, das an den übergebenen Spielzustand gebunden ist.
     + Input (GameScreen screen) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
-// 
+// Ein Menüeintrag, der Texteingaben vom Spieler annimmt.
 public class InputItem : 
   Attributes:
-    // 
+    // Beinhaltet den vom Spieler eingegebenen Text.
     + InputText : String
   Methods:
 
-// 
+// Stellt eine Schnittstelle für Klassen bereit, die Rendereffekte ermöglichen.
 public interface IRenderEffect : 
   Attributes:
-    // 
+    // Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
+    // weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
     + RenderTarget : RenderTarget2D
   Methods:
-    // 
+    // In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert
+    // und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
     + Begin (GameTime) : void
-    // 
+    // Das auf dem Stack gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
+    // das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
+    // auf dieses ubergeordnete Rendertarget gezeichnet.
     + End (GameTime) : void
-    // 
+    // Zeichnet das übergebene 3D-Modell auf das Rendertarget.
     + DrawModel (GameTime, GameModel model) : void
-    // 
+    // Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
+    // BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
+    // ein anderer Shader zugewiesen werden.
     + RemapModel (GameModel model) : void
 
-// 
+// Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Option als Zeichenkette speichert.
 public class KeyInputItem : 
   Attributes:
-    // 
+    // Die Option in einer Einstellungsdatei.
     - option : OptionInfo
   Methods:
-    // 
+    // Speichert die aktuell gedrückte Taste in der Option.
     + OnKeyEvent () : void
 
 // Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten.
 public class Knot : 
   Attributes:
-    // Der Name des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
+    // Der Name des Knotens, welcher auch leer sein kann.
+    // Beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
     // Der Wert dieser Eigenschaft wird aus der \glqq Name \grqq -Eigenschaft des Metadaten-Objektes geladen
-    // und bei Änderungen wieder in diesem gespeichert. Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
+    // und bei Änderungen wieder in diesem gespeichert.
+    // Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
     + Name : String
     // Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
     - edges : Circle
@@ -718,16 +726,19 @@ public class Knot :
     // Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
     + SelectedEdges : IEnumerable<Edge>
   Methods:
-    // Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält Eigenschaften, die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null \grqq.
+    // Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
+    // die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null \grqq.
     + Knot () : void
-    // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
+    // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
+    // Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
     // oder beide den Wert \glqq null \grqq , dann wird eine IOException geworfen.
     + Save () : void
     // Hebt die aktuelle Kantenauswahl auf.
     + ClearSelection () : void
-    // Erstellt einen neuen Knoten mit dem angegebenen Metadaten-Objekt und den angegebenen Kanten. Die Eigenschaft des Metadaten-Objektes, die die
-    // Anzahl der Kanten enthält, wird auf ein Delegate gesetzt, das die Anzahl der Kanten in der doppelt verketteten Liste zurückgibt, die auf Basis
-    // der angegebenen Kanten erstellt wird.
+    // Erstellt einen neuen Knoten mit dem angegebenen Metadaten-Objekt und den angegebenen Kanten,
+    // die in der doppelt verketteten Liste gespeichert werden.
+    // Die Eigenschaft des Metadaten-Objektes, die die Anzahl der Kanten enthält,
+    // wird auf ein Delegate gesetzt, welches jeweils die aktuelle Anzahl der Kanten dieses Knotens zurückgibt.
     + Knot (KnotMetaData meta, IEnumerable<Edge> edges) : void
     // Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
     + IsValidMove (Direction dir, Integer distance) : Boolean
@@ -735,13 +746,15 @@ public class Knot :
     + Move (Direction dir, Integer distance) : Boolean
     // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
     + GetEnumerator () : IEnumerator<Edge>
-    // Erstellt eine tiefe Kopie des Knotens, inklusive der Kanten-Datentuktur und des Metadaten-Objekts.
+    // Erstellt eine vollständige Kopie des Knotens, inklusive der Kanten-Datentuktur und des Metadaten-Objekts.
     + Clone () : Object
     // Fügt die angegebene Kante zur aktuellen Kantenauswahl hinzu.
     + AddToSelection (Edge edge) : void
     // Entfernt die angegebene Kante von der aktuellen Kantenauswahl.
     + RemoveFromSelection (Edge edge) : void
-    // Fügt den Bereich zwischen der zuletzt selektierten Kanten und der angegebenen Kante zur aktuellen Kantenauswahl hinzu.
+    // Fügt alle Kanten auf dem kürzesten Weg zwischen der zuletzt ausgewählten Kante und der angegebenen Kante
+    // zur aktuellen Kantenauswahl hinzu. Sind beide Wege gleich lang,
+    // wird der Weg in Richtung der ersten Kante ausgewählt.
     + AddRangeToSelection (Edge edge) : void
     // Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
     + IsSelected (Edge edge) : Boolean
@@ -749,117 +762,141 @@ public class Knot :
     + GetEnumerator () : IEnumerator
     // Speichert den Knoten unter dem angegebenen Dateinamen in dem angebenenen Dateiformat.
     + Save (IKnotIO format, String filename) : void
-    // 
+    // Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
     + Equals (T other) : Boolean
 
-// 
+// Die zentrale Spielklasse, die von der \glqq Game \grqq -Klasse des XNA-Frameworks erbt.
 public class Knot3Game : 
   Attributes:
-    // 
+    // Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
+    // ob sich das Spiel im Vollbildmodus befindet. Wird dieses Attribut auf einen Wert gesetzt,
+    // dann wird der Modus entweder gewechselt oder beibehalten, falls es auf den selben Wert gesetzt wird.
     + IsFullScreen : Boolean
-    // 
+    // Enthält als oberste Element den aktuellen Spielzustand und darunter die zuvor aktiven Spielzustände.
     + Screens : Stack<GameScreen>
-    // 
+    // Dieses Attribut dient sowohl zum Setzen des Aktivierungszustandes der vertikalen Synchronisation,
+    // als auch zum Auslesen dieses Zustandes.
     + VSync : Boolean
-    // 
+    // Der aktuelle Grafikgeräteverwalter des XNA-Frameworks.
     + Graphics : GraphicsDeviceManager
   Methods:
-    // 
-    + Game () : void
-    // 
-    + Initialize () : void
-    // 
+    // Erstellt ein neues zentrales Spielobjekt und setzt die Auflösung des BackBuffers auf
+    // die in der Einstelungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
+    // Bildschirmauflösung und wechselt in den Vollbildmodus.
+    + Knot3Game () : void
+    // Wird einmal beim Spielstart aufgerufen und lädt die Spielzustände.
     + LoadContent () : void
-    // 
+    // Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
     + UnloadContent () : void
-    // 
-    + Draw (GameTime) : void
-    // 
-    + Update (GameTime) : void
+    // Ruft die Draw()-Methode des aktuellen Spielzustands auf.
+    + Draw (GameTime time) : void
+    // Ruft die Update()-Methode des aktuellen Spielzustands auf und wechselt den Spielzustand bei Bedarf.
+    + Update (GameTime GameTime) : void
 
-// 
+// Implementiert das Speicherformat für Knoten.
 public class KnotFileIO : 
   Attributes:
-    // 
+    // Die für eine Knoten-Datei gültigen Dateiendungen.
     + FileExtensions : IEnumerable<string>
   Methods:
-    // 
+    // Erstellt ein KnotFileIO-Objekt.
     + KnotFileIO () : void
-    // 
+    // Speichert einen Knoten in dem Dateinamen, der in dem Knot-Objekt enthalten ist.
     + Save (Knot knot) : void
-    // 
+    // Lädt eines Knotens aus einer angebenenen Datei.
     + Load (String filename) : Knot
-    // 
+    // Lädt die Metadaten eines Knotens aus einer angegebenen Datei.
     + LoadMetaData (String filename) : KnotMetaData
 
-// 
+// Verarbeitet die Maus- und Tastatureingaben des Spielers und modifiziert die Kamera-Position
+// und das Kamera-Ziel.
 public class KnotInputHandler : 
   Attributes:
+    // Die Spielwelt.
+    - world : World
+    // Der Spielzustand.
+    - screen : GameScreen
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
+    // Erstellt einen neuen KnotInputHandler für den angegebenen Spielzustand und die angegebene Spielwelt.
+    + KnotInputHandler (GameScreen screen, World world) : void
 
-// Enthält Metadaten eines Knotens, die aus einer Spielstand-Datei schneller eingelesen werden können als der vollständige Knoten. Dieses Objekt enthält
-// keine Datenstruktur zur Repräsentation der Kanten, sondern nur Informationen über den Namen des Knoten und die Anzahl seiner Kanten. Es kann ohne ein
+// Enthält Metadaten eines Knotens, die aus einer Spielstand-Datei schneller eingelesen werden können,
+// als der vollständige Knoten. Dieses Objekt enthält keine Datenstruktur zur Repräsentation der Kanten,
+// sondern nur Informationen über den Namen des Knoten und die Anzahl seiner Kanten. Es kann ohne ein
 // dazugehöriges Knoten-Objekt existieren, aber jedes Knoten-Objekt enthält genau ein Knoten-Metadaten-Objekt.
 public class KnotMetaData : 
   Attributes:
-    // Der Anzeigename des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
-    // Wird ein neuer Anzeigename festgelegt, dann wird der Dateiname ebenfalls auf einen neuen Wert gesetzt, unabhängig davon ob er bereits einen Wert enthält oder
-    // \glqq null \grqq ist.
+    // Der Anzeigename des Knotens, welcher auch leer sein kann.
+    // Beim Speichern muss der Spieler in diesem Fall zwingend
+    // einen nichtleeren Namen wählen. Wird ein neuer Anzeigename festgelegt,
+    // dann wird der Dateiname ebenfalls auf einen neuen Wert gesetzt, unabhängig davon
+    // ob er bereits einen Wert enthält oder \glqq null \grqq ist.
     // Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
     + Name : String
-    // Das Format, aus dem die Metadaten geladen wurden. Es ist genau dann \glqq null \grqq , wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
+    // Das Format, aus dem die Metadaten geladen wurden.
+    // Es ist genau dann \glqq null \grqq , wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
     + Format : IKnotIO
-    // Ein Delegate, das die Anzahl der Kanten zurückliefert. Falls dieses Metadaten-Objekt Teil eines Knotens ist, gibt es dynamisch die Anzahl der
-    // Kanten des Knoten-Objektes zurück. Anderenfalls gibt es eine statische Zahl zurück, die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes
-    // gelesen wurde. Nur lesbar.
+    // Ein Delegate, das die Anzahl der Kanten zurückliefert.
+    // Falls dieses Metadaten-Objekt Teil eines Knotens ist, gibt es dynamisch die Anzahl der
+    // Kanten des Knoten-Objektes zurück. Anderenfalls gibt es eine statische Zahl zurück,
+    // die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes gelesen wurde. Nur lesbar.
     + CountEdges : Func<Integer>
-    // Falls die Metadaten aus einer datei eingelesen wurden, enthält dieses Attribut den Dateinamen, sonst \glqq null \grqq.
+    // Falls die Metadaten aus einer Datei eingelesen wurden, enthält dieses Attribut den Dateinamen,
+    // sonst \glqq null \grqq.
     + Filename : String
   Methods:
-    // Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knoten-Namen und einer angebenen Funktion, welche eine Kantenanzahl zurück gibt.
+    // Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
+    // und einer angebenen Funktion, welche eine Kantenanzahl zurück gibt.
+    // Zusätzlich wird der Dateiname oder das Speicherformat angegeben, aus dem die Metadaten gelesen wurden.
     + KnotMetaData (String name, Func<Integer> countEdges, IKnotIO format, String filename) : KnotMetaData
+    // Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
+    // und einer angebenen Funktion, welche eine Kantenanzahl zurück gibt.
+    + KnotMetaData (String name, Func<Integer> countEdges) : KnotMetaData
 
-// 
+// Erstellt aus einem Knoten-Objekt die zu dem Knoten gehörenden 3D-Modelle sowie die 3D-Modelle der Pfeile,
+// die nach einer Auswahl von Kanten durch den Spieler angezeigt werden.
 public class KnotRenderer : 
   Attributes:
-    // 
+    // Enthält Informationen über die Position des Knotens.
     + Info : GameObjectInfo
-    // 
+    // Die Spielwelt, in der die 3D-Modelle erstellt werden sollen.
     + World : World
-    // 
+    // Die Liste der 3D-Modelle der Pfeile,
+    // die nach einer Auswahl von Kanten durch den Spieler angezeigt werden.
     - arrows : List<ArrowModel>
-    // 
+    // Die Liste der 3D-Modelle der Kantenübergänge.
     - nodes : List<NodeModel>
-    // 
+    // Die Liste der 3D-Modelle der Kanten.
     - pipes : List<PipeModel>
-    // 
+    // Der Knoten, für den 3D-Modelle erstellt werden sollen.
     + Knot : Knot
-    // 
+    // Der Zwischenspeicher für die 3D-Modelle der Kanten. Hier wird das Fabrik-Entwurfsmuster verwendet.
     - pipeFactory : ModelFactory
-    // 
+    // Der Zwischenspeicher für die 3D-Modelle der Kantenübergänge. Hier wird das Fabrik-Entwurfsmuster verwendet.
     - nodeFactory : ModelFactory
-    // 
+    // Der Zwischenspeicher für die 3D-Modelle der Pfeile. Hier wird das Fabrik-Entwurfsmuster verwendet.
     - arrowFactory : ModelFactory
   Methods:
-    // 
+    // Gibt den Ursprung des Knotens zurück.
     + Center () : Vector3
-    // 
+    // Gibt immer \glqq null \grqq zurück.
     + Intersects (Ray Ray) : GameObjectDistance
-    // 
+    // Wird mit dem EdgesChanged-Event des Knotens verknüft.
     + OnEdgesChanged () : void
-    // 
-    + ModelRenderer (GameScreen screen, GameObjectInfo info) : void
+    // Erstellt ein neues KnotRenderer-Objekt für den angegebenen Spielzustand mit den angegebenen
+    // Spielobjekt-Informationen, die unter Anderem die Position des Knotenursprungs enthalten.
+    + KnotRenderer (GameScreen screen, GameObjectInfo info) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
-    // 
+    // Zeichnet nichts.
     + Draw (GameTime GameTime) : void
-    // 
+    // Gibt einen Enumerator der aktuell vorhandenen 3D-Modelle zurück.
     + GetEnumerator () : IEnumerator
 
-// Diese Klasse repräsentiert einen Parser für das Knoten-Austauschformat und enthält die eingelesenen Informationen wie den Namen des
-// Knotens und die Kantenliste als Eigenschaften.
+// Diese Klasse repräsentiert einen Parser für das Knoten-Austauschformat und enthält die
+// eingelesenen Informationen wie den Namen des Knotens und die Kantenliste als Eigenschaften.
 public class KnotStringIO : 
   Attributes:
     // Der Name der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
@@ -868,253 +905,262 @@ public class KnotStringIO :
     + Edges : IEnumerable<Edge>
     // Die Anzahl der Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
     + CountEdges : Integer
-    // Erstellt aus den Name- und Kanten-Eigenschaften einen neuen String, der als Dateiinhalt in einer Spielstanddatei einen gültigen Knoten repräsentiert.
+    // Erstellt aus den \glqq Name\grqq~- und \glqq Edges\grqq~-Eigenschaften einen neue Zeichenkette,
+    // die als Dateiinhalt in einer Datei eines Spielstandes einen gültigen Knoten repräsentiert.
     + Content : String
   Methods:
-    // Liest das in dem angegebenen String enthaltene Dateiformat ein. Enthält es einen gültigen Knoten,
-    // so werden die Namen- und Kanten-Eigenschaften auf die eingelesenen Werte gesetzt. Enthält es einen ungültigen Knoten,
-    // so wird eine IOException geworfen und das Objekt wird nicht erstellt.
+    // Liest das in der angegebenen Zeichenkette enthaltene Dateiformat ein. Enthält es einen gültigen Knoten,
+    // so werden die \glqq Name\grqq~- und \glqq Edges\grqq~-Eigenschaften auf die eingelesenen Werte gesetzt.
+    // Enthält es einen ungültigen Knoten, so wird eine IOException geworfen und das Objekt wird nicht erstellt.
     + KnotStringIO (String content) : void
-    // Erstellt ein neues Objekt und setzt die Name- und Kanten-Eigenschaften auf die im angegebenen Knoten enthaltenen Werte.
+    // Erstellt ein neues Objekt und setzt die \glqq Name\grqq~- und \glqq Edge\grqq~-Eigenschaften auf die
+    // im angegebenen Knoten enthaltenen Werte.
     + KnotStringIO (Knot knot) : void
 
-// 
+// Eine statische Klasse, die Bezeichner in lokalisierten Text umsetzen kann.
 public class Localizer : 
   Attributes:
-  Methods:
     // 
+    - localization : ConfigFile
+  Methods:
+    // Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
+    // aktuellen Sprache zurück, die dabei aus der Einstellungsdatei des Spiels gelesen wird.
     + Localize (String text) : String
 
-// 
+// Ein Menü enthält Bedienelemente zur Benutzerinteraktion. Diese Klasse bietet Standardwerte für
+// Positionen, Größen, Farben und Ausrichtungen der Menueinträge. Sie werden gesetzt, wenn die Werte
+// der Menüeinträge \glqq null\grqq~sind.
 public class Menu : 
   Attributes:
-    // 
-    + Name : String
-    // 
+    // Die von der Auflösung unabhängige Größe in Prozent.
     + RelativeItemSize : Func<int, Vector2>
-    // 
+    // Die von der Auflösung unabhängige Position in Prozent.
     + RelativeItemPosition : Func<int, Vector2>
-    // 
-    + ItemForegroundColor : Func<ItemState, Vector2>
-    // 
-    + ItemBackgroundColor : Func<ItemState, Vector2>
-    // 
+    // Die vom Zustand des Menüeintrags abhängige Vordergrundfarbe des Menüeintrags.
+    + ItemForegroundColor : Func<ItemState, Color>
+    // Die vom Zustand des Menüeintrags abhängige Hintergrundfarbe des Menüeintrags.
+    + ItemBackgroundColor : Func<ItemState, Color>
+    // Die horizontale Ausrichtung der Menüeinträge.
     + ItemAlignX : HorizontalAlignment
-    // 
+    // Die vertikale Ausrichtung der Menüeinträge.
     + ItemAlignY : VerticalAlignment
   Methods:
-    // 
+    // Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~ oder leere Werte für
+    // Position, Größe, Farbe oder Ausrichtung hat, werden die Werte mit denen des Menüs überschrieben.
     + Add (MenuItem item) : void
-    // 
+    // Entfernt einen Eintrag aus dem Menü.
     + Delete (MenuItem item) : void
-    // 
+    // Gibt einen Eintrag des Menüs zurück.
     + GetItem (Integer i) : MenuItem
-    // 
+    // Gibt die Anzahl der Einträge des Menüs zurück.
     + Size () : Integer
-    // 
+    // Gibt einen Enumerator über die Einträge des Menüs zurück.
     + GetEnumerator () : IEnumerator
 
-// 
+// Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagiert.
 public class MenuButton : 
   Attributes:
-    // 
-    + Name : String
+    // Die Aktion, die ausgeführt wird, wenn der Spieler auf die Schaltfläche klickt.
+    + OnClick : Action
   Methods:
-    // 
-    + MenuButton (String name) : void
+    // Erstellt eine neue Schaltfläche mit dem angegebenen Namen und der angegebenen Aktion.
+    + MenuButton (String name, Action onClick) : void
 
-// 
+// Ein abstrakte Klasse für Menüeinträge, die
 public class MenuItem : 
   Attributes:
-    // 
+    // Gibt an, ob die Maus sich über dem Eintrag befindet, ohne ihn anzuklicken, ob er ausgewählt ist
+    // oder nichts von beidem.
     + ItemState : ItemState
-    // 
+    // Die Zeichenreihenfolge.
     + ItemOrder : Integer
-    // 
+    // Der Anzeigetext der Schaltfläche.
     + Text : String
   Methods:
-    // 
+    // Reaktionen auf Tasteneíngaben.
     + OnKeyEvent () : void
-    // 
+    // Reaktionen auf einen Linksklick.
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
-    // 
+    // Reaktionen auf einen Rechtsklick.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
-    // 
+    // Gibt die Ausmaße des Eintrags zurück.
     + Bounds () : Rectangle
 
-// 
+// Eine abstrakte Klasse, von der alle Spielzutsände erben, die Menüs darstellen.
 public class MenuScreen : 
   Attributes:
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Wird aufgerufen, wenn in diesen Spielzustand gewechselt wird.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// 
+// Ein Zwischenspeicher für 3D-Modelle.
 public class ModelFactory : 
   Attributes:
-    // 
+    // Die Zuordnung zwischen den Modellinformationen zu den 3D-Modellen.
     - cache : Dictionary<GameModelInfo, GameModel>
-    // 
+    // Ein Delegate, das beim Erstellen eines Zwischenspeichers zugewiesen wird und aus den
+    // angegebenen Modellinformationen und dem angegebenen Spielzustand ein 3D-Modell erstellt.
     - createModel : Func<GameScreen, GameModelInfo, GameModel>
   Methods:
-    // 
+    // Falls das 3D-Modell zwischengespeichert ist, wird es zurückgegeben, sonst mit createModel() erstellt.
     + this (GameScreen state, GameModelInfo info) : GameModel
-    // 
-    + ModelFactory (Func<GameScreen, GameModelInfo, ) : void
+    // Erstellt einen neuen Zwischenspeicher.
+    + ModelFactory (GameModelInfo, GameModel>, Func<GameScreen createModel) : void
 
-// 
+// Ein Inputhandler, der Mauseingaben auf 3D-Modellen verarbeitet.
 public class ModelMouseHandler : 
   Attributes:
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
-// 
+// Repräsentiert einen Mauszeiger.
 public class MousePointer : 
   Attributes:
   Methods:
-    // 
-    + MousePointer (GameState) : void
-    // 
-    + Draw (GameTime) : void
+    // Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
+    + MousePointer (GameScreen screen) : void
+    // Zeichnet den Mauszeiger.
+    + Draw (GameTime time) : void
 
-// 
+// Eine Zuordnung zwischen Kanten und Kantenübergänge.
 public class NodeMap : 
   Attributes:
   Methods:
-    // 
+    // Gibt den Übergang am Anfang der Kante zurück.
     + From (Edge edge) : Node
-    // 
+    // Gibt den Übergang am Ende der Kante zurück.
     + To (Edge edge) : Node
-    // 
+    // Aktualisiert die Zuordnung, wenn sich die Kanten geändert haben.
     + OnEdgesChanged () : void
 
-// 
+// Ein 3D-Modell, das einen Kantenübergang darstellt.
 public class NodeModel : 
   Attributes:
-    // 
+    // Enthält Informationen über den darzustellende 3D-Modell des Kantenübergangs.
     + Info : NodeModelInfo
   Methods:
-    // 
+    // Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und dem angegebenen Informationsobjekt.
     + NodeModel (GameScreen screen, NodeModelInfo info) : void
-    // 
+    // Zeichnet das 3D-Modell mit dem aktuellen Rendereffekt.
     + Draw (GameTime GameTime) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
 
-// 
+// Enthält Informationen über ein 3D-Modell, das einen Kantenübergang darstellt.
 public class NodeModelInfo : 
   Attributes:
-    // 
+    // Die Kante vor dem Übergang.
     + EdgeFrom : Edge
-    // 
+    // Die Kante nach dem Übergang.
     + EdgeTo : Edge
-    // 
+    // Der Knoten, der die Kanten enthält.
     + Knot : Knot
-    // 
+    // Die Position des Übergangs.
     + Position : Vector3
   Methods:
-    // 
+    // Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
     + NodeModelInfo (Knot knot, Edge from, Edge to) : void
 
-// 
+// Enthält Informationen über einen Eintrag in einer Einstellungsdatei.
 public class OptionInfo : 
   Attributes:
-    // 
+    // Die Einstellungsdatei.
     - configFile : ConfigFile
-    // 
+    // Der Abschnitt der Einstellungsdatei.
     + Section : String
-    // 
+    // Der Name der Option.
     + Name : String
-    // 
+    // Der Standardwert der Option.
     + DefaultValue : String
-    // 
+    // Der Wert der Option.
     + Value : String
   Methods:
-    // 
+    // Erstellt ein neues OptionsInfo-Objekt aus den übergegebenen Werten.
     + OptionInfo (String section, String name, String defaultValue, ConfigFile configFile) : void
 
-// 
+// Eine statische Klasse, die eine Referenz auf die zentrale Einstellungsdatei des Spiels enthält.
 public class Options : 
   Attributes:
-    // 
+    // Die zentrale Einstellungsdatei des Spiels.
     + Default : ConfigFile
   Methods:
 
-// 
+// Pausiert ein Spieler im Creative- oder Challenge-Modus das Spiel,
+// wird dieser Dialog über anderen Spielkonmponenten angezeigt.
 public class PauseDialog : 
   Attributes:
-    // 
+    // Das Menü, das verschiedene Schaltflächen enthält.
     - pauseMenu : VerticalMenu
   Methods:
 
-// 
+// Ein 3D-Modell, das eine Kante darstellt.
 public class PipeModel : 
   Attributes:
-    // 
+    // Enthält Informationen über die darzustellende Kante.
     + Info : PipeModelInfo
   Methods:
-    // 
+    // Prüft, ob der angegebene Mausstrahl das 3D-Modell schneidet.
     + Intersects (Ray ray) : GameObjectDistance
-    // 
+    // Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und den angegebenen Spielinformationen.
     + PipeModel (GameScreen screen, PipeModelInfo info) : void
 
-// 
+// Enthält Informationen über ein 3D-Modell, das eine Kante darstellt.
 public class PipeModelInfo : 
   Attributes:
-    // 
+    // Die Kante, die durch das 3D-Modell dargestellt wird.
     + Edge : Edge
-    // 
+    // Der Knoten, der die Kante enthält.
     + Knot : Knot
-    // 
+    // Die Position, an der die Kante beginnt.
     + PositionFrom : Vector3
-    // 
+    // Die Position, an der die Kante endet.
     + PositionTo : Vector3
   Methods:
-    // 
+    // Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
     + PipeModelInfo (Knot knot, Edge edge) : void
 
-// 
+// Ein Inputhandler, der für das Verschieben der Kanten zuständig ist.
 public class PipeMovement : 
   Attributes:
-    // 
+    // Enthält Informationen über die Position des Knotens.
     + Info : GameObjectInfo
-    // 
+    // Der Knoten, dessen Kanten verschoben werden können.
     + Knot : Knot
-    // 
+    // Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
     + World : World
   Methods:
-    // 
+    // Gibt den Ursprung des Knotens zurück.
     + Center () : Vector3
-    // 
+    // Gibt immer \glqq null \grqq zurück.
     + Intersects (Ray Ray) : GameObjectDistance
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
     // 
-    + PipeMovement (GameState, World, GameObjectInfo) : void
-    // 
+    + PipeMovement (GameScreen screen, World world, GameObjectInfo info) : void
+    // Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
     + GetEnumerator () : IEnumerator
-    // 
+    // Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
     + Draw (GameTime GameTime) : void
 
-// 
+// Ein Exportformat für 3D-Drucker.
 public class PrinterIO : 
   Attributes:
-    // 
+    // Die gültigen Dateiendungen für das 3D-Drucker-Format.
     + FileExtensions : IEnumerable<string>
   Methods:
-    // 
+    // Erstellt ein neues PrinterIO-Objekt.
     + PrinterIO () : void
-    // 
+    // Exportiert den Knoten in einem gültigen 3D-Drucker-Format.
     + Save (Knot knot) : void
-    // 
+    // Gibt eine IOException zurück.
     + Load (String filename) : Knot
-    // 
+    // Gibt eine IOException zurück.
     + LoadMetaData (String filename) : KnotMetaData
 
-// 
+// Der Spielzustand, der die Profil-Einstellungen darstellt.
 public class ProfileSettingsScreen : 
   Attributes:
     // 
@@ -1122,207 +1168,218 @@ public class ProfileSettingsScreen :
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// 
+// Eine abstrakte Klasse, die eine Implementierung von IRenderEffect darstellt.
 public class RenderEffect : 
   Attributes:
-    // 
+    // Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
+    // weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
     + RenderTarget : RenderTarget2D
-    // 
+    // Der Spielzustand, in dem der Effekt verwendet wird.
     # screen : GameScreen
-    // 
+    // Ein Spritestapel, der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
     # spriteBatch : SpriteBatch
   Methods:
-    // 
+    // In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert
+    // und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
     + Begin (GameTime) : void
-    // 
+    // Das auf dem Stack gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
+    // das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
+    // auf dieses ubergeordnete Rendertarget gezeichnet.
     + End (GameTime) : void
-    // 
+    // Zeichnet das übergebene 3D-Modell auf das Rendertarget.
     + DrawModel (GameTime, GameModel GameModel) : void
-    // 
+    // Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
+    // BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
+    // ein anderer Shader zugewiesen werden.
     + RemapModel (GameModel GameModel) : void
     // 
-    # DrawRenderTarget (GameTime) : void
+    # DrawRenderTarget (GameTime time) : void
 
-// 
+// Ein Stapel, der während der Draw-Aufrufe die Hierarchie der aktuell verwendeten Rendereffekte verwaltet
+// und automatisch das aktuell von XNA verwendete Rendertarget auf das Rendertarget des obersten Rendereffekts
+// setzt.
 public class RenderEffectStack : 
   Attributes:
-    // 
+    // Der oberste Rendereffekt.
     + CurrentEffect : IRenderEffect
-    // 
+    // Der Standard-Rendereffekt, der verwendet wird, wenn der Stapel leer ist.
     - DefaultEffect : IRenderEffect
   Methods:
-    // 
+    // Entfernt den obersten Rendereffekt vom Stapel.
     + Pop () : IRenderEffect
-    // 
+    // Legt einen Rendereffekt auf den Stapel.
     + Push (IRenderEffect effect) : void
-    // 
+    // Erstellt einen neuen Rendereffekt-Stapel.
     + RenderEffectStack (IRenderEffect defaultEffect) : void
 
-// 
+// Ein Dialog, der angezeigt wird, wenn der Spieler einen Knoten speichern will.
 public class SaveDialog : 
   Attributes:
   Methods:
 
-// 
+// Ein Spielzustand, der das Haupt-Einstellungsmenü zeichnet.
 public class SettingsScreen : 
   Attributes:
-    // 
+    // Das Haupt-Einstellungsmenü.
     # navigation : void
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Fügt das Haupt-Einstellungsmenü in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime time) : void
 
-// 
+// Die 3D-Modelle, die während einer Verschiebung von Kanten die Vorschaumodelle repräsentieren.
 public class ShadowGameModel : 
   Attributes:
-    // 
+    // Die Farbe der Vorschaumodelle.
     + ShadowColor : Color
-    // 
+    // Die Transparenz der Vorschaumodelle.
     + ShadowAlpha : float
   Methods:
-    // 
+    // Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angegebene zu dekorierende Modell.
     + ShadowGameModel (GameScreen sreen, GameModel decoratedModel) : void
-    // 
+    // Zeichnet das Vorschaumodell.
     + Draw (GameTime GameTime) : void
 
-// 
+// Eine abstrakte Klasse, die ein Vorschau-Spielobjekt darstellt.
 public class ShadowGameObject : 
   Attributes:
-    // 
+    // Enthält Informationen über das Vorschau-Spielobjekt.
     + Info : GameObjectInfo
-    // 
+    // Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
     + World : World
-    // 
+    // Die Position, an der das Vorschau-Spielobjekt gezeichnet werden soll.
     + ShadowPosition : Vector3
-    // 
+    // Die Position, an der sich das zu dekorierende Objekt befindet.
     + OriginalPosition : Vector3
   Methods:
-    // 
+    // Die Position, an der das Vorschau-Spielobjekt gezeichnet werden soll.
     + Center () : Vector3
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
-    // 
+    // Zeichnet das Vorschau-Spielobjekt.
     + Draw (GameTime GameTime) : void
-    // 
+    // Prüft, ob der angegebene Mausstrahl das Vorschau-Spielobjekt schneidet.
     + Intersects (Ray Ray) : GameObjectDistance
-    // 
+    // Erstellt ein neues Vorschauobjekt in dem angegebenen Spielzustand für das angegebene zu dekorierende Objekt.
     + ShadowGameObject (GameScreen screen, IGameObject decoratedObj) : void
 
-// 
+// Ein Menüeintrag, der einen Schieberegler bereitstellt, mit dem man einen Wert zwischen einem minimalen
+// und einem maximalen Wert über Verschiebung einstellen kann.
 public class SliderItem : 
   Attributes:
-    // 
+    // Der aktuelle Wert.
     + Value : Integer
-    // 
+    // Der minimale Wert.
     + MinValue : Integer
-    // 
+    // Der maximale Wert.
     + MaxValue : Integer
+    // 
+    + Step : Integer
   Methods:
 
-// 
+// Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardmäßig zugewiesenen
+// BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
 public class StandardEffect : 
   Attributes:
   Methods:
     // 
-    # DrawRenderTarget (GameTime) : void
-    // 
+    # DrawRenderTarget (GameTime GameTime) : void
+    // Erstellt einen neuen Standardeffekt.
     + StandardEffect (GameScreen screen) : void
 
-// 
+// Der Startbildschirm.
 public class StartScreen : 
   Attributes:
+    // Die Schaltflächen des Startbildschirms.
+    - buttons : Menu
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Fügt die das Menü in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// 
-public class SubMenu : 
-  Attributes:
-  Methods:
-
-// 
+// Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
 public class TextInputDialog : 
   Attributes:
-    // 
+    // Der Text, der durch den Spieler eingegeben wurde.
     + InputText : String
   Methods:
 
-// 
-public class TutorialChallengeMode : 
+// Eine Einführung in das Spielen von Challenges.
+// Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangeführt.
+public class TutorialChallengeModeScreen : 
   Attributes:
   Methods:
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// 
+// Ein Menü, das alle Einträge vertikal anordnet.
 public class VerticalMenu : 
   Attributes:
   Methods:
-    // 
+    // Ordnet die Einträge vertikal an.
     + AlignItems () : void
 
-// 
+// Eine abstrakte Klasse, von der alle Element der grafischen Benutzeroberfläche erben.
 public class Widget : 
   Attributes:
-    // 
+    // Die von der Auflösung unabhängige Größe in Prozent.
     + RelativeSize : Vector2
-    // 
+    // Die von der Auflösung unabhängige Position in Prozent.
     + RelativePosition : Vector2
-    // 
+    // Gibt an, ob das grafische Element sichtbar ist.
     + IsVisible : bool
-    // 
+    // Die Hintergrundfarbe.
     + BackgroundColor : Func<Color>
-    // 
+    // Die Vordergrundfarbe.
     + ForegroundColor : Func<Color>
-    // 
+    // Die horizontale Ausrichtung.
     + AlignX : HorizontalAlignment
-    // 
+    // Die vertikale Ausrichtung.
     + AlignY : VerticalAlignment
   Methods:
-    // 
+    // Die Ausmaße des grafischen Elements
     + BoundingBox () : Rectangle
-    // 
+    // Erstellt ein neues grafisches Benutzerschnittstellenelement in dem angegebenen Spielzustand
+    // mit der angegebenen Zeichenreihenfolge.
     + Widget (GameScreen screen, DisplayLayer drawOrder) : void
 
-// 
+// Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
 public class WidgetKeyHandler : 
   Attributes:
   Methods:
     // 
     + Update () : void
 
-// 
+// Ein Inputhandler, der Mauseingaben auf Widgets verarbeitet.
 public class WidgetMouseHandler : 
   Attributes:
   Methods:
     // 
     + Update () : void
 
-// 
+// Repräsentiert eine Spielwelt, in der sich 3D-Modelle befinden und gezeichnet werden können.
 public class World : 
   Attributes:
-    // 
-    + Camera : void
-    // 
+    // Die Kamera dieser Spielwelt.
+    + Camera : Camera
+    // Die Liste von Spielobjekten.
     + Objects : List<IGameObject>
-    // 
+    // Das aktuell ausgewählte Spielobjekt.
     + SelectedObject : IGameObject
-    // 
+    // Der aktuell angewendete Rendereffekt.
     + CurrentEffect : IRenderEffect
   Methods:
-    // Wird für jeden Frame aufgerufen.
+    // Ruft auf allen Spielobjekten die Update()-Methode auf.
     + Update (GameTime GameTime) : void
-    // 
+    // Ruft auf allen Spielobjekten die Draw()-Methode auf.
     + Draw (GameTime GameTime) : void
-    // 
+    // Erstellt eine neue Spielwelt im angegebenen Spielzustand.
     + World (GameScreen screen) : void
-    // 
+    // Liefert einen Enumerator über die Spielobjekte dieser Spielwelt.
     + GetEnumerator () : IEnumerator
 
