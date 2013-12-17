@@ -819,9 +819,7 @@ Die Sichtbarkeit des Spielobjektes.
 Die Position des Spielobjektes.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
-\item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{GameObjectInfo} \varname{GameObjectInfo})] \item[]
-Vergleicht zwei Informationsobjekte für Spielobjekte.
-\item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})] \item[]
+\item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{C} \varname{other})] \item[]
 Vergleicht zwei Informationsobjekte für Spielobjekte.
 \end{description}
 
@@ -974,7 +972,7 @@ Wird für jeden Frame aufgerufen.
 
 \subsection{Klasse Knot}
 \paragraph{Beschreibung:}\mbox{}\\\\
-Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Namen und einer doppelt-verketteten Liste von Kanten.
+Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/Knot}
@@ -985,50 +983,52 @@ Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Namen un
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
 Der Name des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
 Der Wert dieser Eigenschaft wird aus der \gflqq Name \grqq -Eigenschaft des Metadaten-Objektes geladen
-und bei Änderungen in diesem gespeichert.
+und bei Änderungen wieder in diesem gespeichert. Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
 \item[\keyword{private} \ptype{Circle} \varname{edges}] \item[]
 Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
 \item[\keyword{public} \ptype{KnotMetaData} \varname{MetaData}] \item[]
 Die Metadaten des Knotens.
 \item[\keyword{public} \ptype{Action} \varname{EdgesChanged}] \item[]
-
+Ein Ereignis, das in der Move-Methode ausgelöst wird, wenn sich die Struktur der Kanten geändert hat.
 \item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{SelectedEdges}] \item[]
-
+Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{Knot} ()] \item[]
-
+Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält Eigenschaften, die das Speicherformat und den Dateinamen beinhalten, den Wert \gflqq null \grqq.
 \item[\keyword{public} \varname{Knot} (\ptype{KnotMetaData} \varname{meta}, \ptype{IEnumerable<Edge>} \varname{edges})] \item[]
-
+Erstellt einen neuen Knoten mit dem angegebenen Metadaten-Objekt und den angegebenen Kanten. Die Eigenschaft des Metadaten-Objektes, die die
+Anzahl der Kanten enthält, wird auf ein Delegate gesetzt, das die Anzahl der Kanten in der doppelt verketteten Liste zurückgibt, die auf Basis
+der angegebenen Kanten erstellt wird.
 \end{description}
 \paragraph{Methoden:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{void} \varname{Save} ()] \item[]
-
+Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
+oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
 \item[\keyword{public} \ptype{void} \varname{ClearSelection} ()] \item[]
-
+Hebt die aktuelle Kantenauswahl auf.
 \item[\keyword{public} \ptype{Boolean} \varname{IsValidMove} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})] \item[]
-
+Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
 \item[\keyword{public} \ptype{Boolean} \varname{Move} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})] \item[]
-
-\item[\keyword{public} \ptype{Boolean} \varname{} (\ptype{Knot} \varname{knotA}, \ptype{Knot} \varname{knotB})] \item[]
-
-\item[\keyword{public} \ptype{Boolean} \varname{} (\ptype{Knot} \varname{knotA}, \ptype{Knot} \varname{knotB})] \item[]
-
+Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebene Distanz.
 \item[\keyword{public} \ptype{IEnumerator<Edge>} \varname{GetEnumerator} ()] \item[]
-
+Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
 \item[\keyword{public} \ptype{Object} \varname{Clone} ()] \item[]
-
+Erstellt eine tiefe Kopie des Knotens, inklusive der Kanten-Datentuktur und des Metadaten-Objekts.
 \item[\keyword{public} \ptype{void} \varname{AddToSelection} (\ptype{Edge} \varname{edge})] \item[]
-
+Fügt die angegebene Kante zur aktuellen Kantenauswahl hinzu.
 \item[\keyword{public} \ptype{void} \varname{RemoveFromSelection} (\ptype{Edge} \varname{edge})] \item[]
-
+Entfernt die angegebene Kante von der aktuellen Kantenauswahl.
 \item[\keyword{public} \ptype{void} \varname{AddRangeToSelection} (\ptype{Edge} \varname{edge})] \item[]
-
+Fügt den Bereich zwischen der zuletzt selektierten Kanten und der angegebenen Kante zur aktuellen Kantenauswahl hinzu.
 \item[\keyword{public} \ptype{Boolean} \varname{IsSelected} (\ptype{Edge} \varname{edge})] \item[]
-
+Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
 \item[\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()] \item[]
-
-\item[\keyword{public} \ptype{void} \varname{Save} (, \ptype{IKnotIO} \varname{format})] \item[]
+Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
+\item[\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})] \item[]
+Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
+oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
+\item[\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})] \item[]
 
 \end{description}
 
@@ -1108,7 +1108,9 @@ Wird für jeden Frame aufgerufen.
 
 \subsection{Klasse KnotMetaData}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Enthält Metadaten eines Knotens, die aus einer Spielstand-Datei schneller eingelesen werden können als der vollständige Knoten. Dieses Objekt enthält
+keine Datenstruktur zur Repräsentation der Kanten, sondern nur Informationen über den Namen des Knoten und die Anzahl seiner Kanten. Es kann ohne ein
+dazugehöriges Knoten-Objekt existieren, aber jedes Knoten-Objekt enthält genau ein Knoten-Metadaten-Objekt.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/KnotMetaData}
@@ -1117,20 +1119,22 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-Der Name des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
-Diese Eigenschaft kann gelesen und gesetzt werden.
+Der Anzeigename des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
+Wird ein neuer Anzeigename festgelegt, dann wird der Dateiname ebenfalls auf einen neuen Wert gesetzt, unabhängig davon ob er bereits einen Wert enthält oder
+\glqq null \grqq ist.
+Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
 \item[\keyword{public} \ptype{IKnotIO} \varname{Format}] \item[]
-Das Format, aus dem die Metadaten geladen wurden. Nur lesbar.
+Das Format, aus dem die Metadaten geladen wurden. Es ist genau dann \glqq null \grqq , wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
 \item[\keyword{public} \ptype{Func<Integer>} \varname{CountEdges}] \item[]
 Ein Delegate, das die Anzahl der Kanten zurückliefert. Falls dieses Metadaten-Objekt Teil eines Knotens ist, gibt es dynamisch die Anzahl der
 Kanten des Knoten-Objektes zurück. Anderenfalls gibt es eine statische Zahl zurück, die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes
-gelesen wurde.
+gelesen wurde. Nur lesbar.
 \item[\keyword{public} \ptype{String} \varname{Filename}] \item[]
-
+Falls die Metadaten aus einer datei eingelesen wurden, enthält dieses Attribut den Dateinamen, sonst \glqq null \grqq.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Func<Integer>} \varname{countEdges}, \ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})] \item[]
-
+Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knoten-Namen und einer angebenen Funktion, welche eine Kantenanzahl zurück gibt.
 \end{description}
 
 \subsection{Klasse KnotRenderer}
@@ -1181,7 +1185,8 @@ Wird für jeden Frame aufgerufen.
 
 \subsection{Klasse KnotStringIO}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+Diese Klasse repräsentiert einen Parser für das Knoten-Austauschformat und enthält die eingelesenen Informationen wie den Namen des
+Knotens und die Kantenliste als Eigenschaften.
 \begin{wrapfigure}{R}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.2]{Klassen/KnotStringIO}
@@ -1190,19 +1195,21 @@ Wird für jeden Frame aufgerufen.
 
 \paragraph{Eigenschaften:}\mbox{} \begin{description} 
 \item[\keyword{public} \ptype{String} \varname{Name}] \item[]
-
+Der Name der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
 \item[\keyword{public} \ptype{IEnumerable<Edge>} \varname{Edges}] \item[]
-
+Die Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
 \item[\keyword{public} \ptype{Integer} \varname{CountEdges}] \item[]
-
+Die Anzahl der Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
 \item[\keyword{public} \ptype{String} \varname{Content}] \item[]
-
+Erstellt aus den Name- und Kanten-Eigenschaften einen neuen String, der als Dateiinhalt in einer Spielstanddatei einen gültigen Knoten repräsentiert.
 \end{description}
 \paragraph{Konstruktoren:}\mbox{} \begin{description} 
 \item[\keyword{public} \varname{KnotStringIO} (\ptype{String} \varname{content})] \item[]
-
+Liest das in dem angegebenen String enthaltene Dateiformat ein. Enthält es einen gültigen Knoten,
+so werden die Namen- und Kanten-Eigenschaften auf die eingelesenen Werte gesetzt. Enthält es einen ungültigen Knoten,
+so wird eine IOException geworfen und das Objekt wird nicht erstellt.
 \item[\keyword{public} \varname{KnotStringIO} (\ptype{Knot} \varname{knot})] \item[]
-
+Erstellt ein neues Objekt und setzt die Name- und Kanten-Eigenschaften auf die im angegebenen Knoten enthaltenen Werte.
 \end{description}
 
 \subsection{Klasse Localizer}

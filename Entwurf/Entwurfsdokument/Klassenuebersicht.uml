@@ -504,9 +504,7 @@ public class GameObjectInfo :
     + Position : Vector3
   Methods:
     // Vergleicht zwei Informationsobjekte für Spielobjekte.
-    + Equals (GameObjectInfo GameObjectInfo) : Boolean
-    // Vergleicht zwei Informationsobjekte für Spielobjekte.
-    + Equals (T other) : Boolean
+    + Equals (C other) : Boolean
 
 // Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
 public class GameScreen : 
@@ -723,22 +721,18 @@ public class Knot :
     // Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält Eigenschaften, die das Speicherformat und den Dateinamen beinhalten, den Wert \gflqq null \grqq.
     + Knot () : void
     // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
-	// oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
+    // oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
     + Save () : void
     // Hebt die aktuelle Kantenauswahl auf.
     + ClearSelection () : void
     // Erstellt einen neuen Knoten mit dem angegebenen Metadaten-Objekt und den angegebenen Kanten. Die Eigenschaft des Metadaten-Objektes, die die
-	// Anzahl der Kanten enthält, wird auf ein Delegate gesetzt, das die Anzahl der Kanten in der doppelt verketteten Liste zurückgibt, die auf Basis
-	// der angegebenen Kanten erstellt wird.
+    // Anzahl der Kanten enthält, wird auf ein Delegate gesetzt, das die Anzahl der Kanten in der doppelt verketteten Liste zurückgibt, die auf Basis
+    // der angegebenen Kanten erstellt wird.
     + Knot (KnotMetaData meta, IEnumerable<Edge> edges) : void
     // Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
     + IsValidMove (Direction dir, Integer distance) : Boolean
     // Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebene Distanz.
     + Move (Direction dir, Integer distance) : Boolean
-    // 
-    +  (Knot knotA, Knot knotB) : Boolean
-    // 
-    +  (Knot knotA, Knot knotB) : Boolean
     // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
     + GetEnumerator () : IEnumerator<Edge>
     // Erstellt eine tiefe Kopie des Knotens, inklusive der Kanten-Datentuktur und des Metadaten-Objekts.
@@ -754,8 +748,10 @@ public class Knot :
     // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
     + GetEnumerator () : IEnumerator
     // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das mit Metadaten-Objekt angegeben ist. Enthalten entweder die Dateinamen-Eigenschaft, die Metadaten-Eigenschaft
-	// oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
-    + Save (, IKnotIO format) : void
+    // oder beide den Wert \gflqq null \grqq , dann wird eine IOException geworfen.
+    + Save (IKnotIO format, String filename) : void
+    // 
+    + Equals (T other) : Boolean
 
 // 
 public class Knot3Game : 
@@ -810,8 +806,8 @@ public class KnotInputHandler :
 public class KnotMetaData : 
   Attributes:
     // Der Anzeigename des Knotens. Kann leer sein, beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
-	// Wird ein neuer Anzeigename festgelegt, dann wird der Dateiname ebenfalls auf einen neuen Wert gesetzt, unabhängig davon ob er bereits einen Wert enthält oder
-	// \glqq null \grqq ist.
+    // Wird ein neuer Anzeigename festgelegt, dann wird der Dateiname ebenfalls auf einen neuen Wert gesetzt, unabhängig davon ob er bereits einen Wert enthält oder
+    // \glqq null \grqq ist.
     // Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
     + Name : String
     // Das Format, aus dem die Metadaten geladen wurden. Es ist genau dann \glqq null \grqq , wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
@@ -877,8 +873,8 @@ public class KnotStringIO :
     + Content : String
   Methods:
     // Liest das in dem angegebenen String enthaltene Dateiformat ein. Enthält es einen gültigen Knoten,
-	// so werden die Namen- und Kanten-Eigenschaften auf die eingelesenen Werte gesetzt. Enthält es einen ungültigen Knoten,
-	// so wird eine IOException geworfen und das Objekt wird nicht erstellt.
+    // so werden die Namen- und Kanten-Eigenschaften auf die eingelesenen Werte gesetzt. Enthält es einen ungültigen Knoten,
+    // so wird eine IOException geworfen und das Objekt wird nicht erstellt.
     + KnotStringIO (String content) : void
     // Erstellt ein neues Objekt und setzt die Name- und Kanten-Eigenschaften auf die im angegebenen Knoten enthaltenen Werte.
     + KnotStringIO (Knot knot) : void
