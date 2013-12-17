@@ -7,11 +7,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="a921c86b-f457-4ee6-bb7c-46121e6808c5" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
-        <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" name="IKnotIO" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::IKnotIO">
         <elementDefinition Id="0b22d353-d1cd-4ef0-b4e0-9aaa60af844b" />
       </referencedType>
@@ -52,16 +47,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="deb3ea68-1d37-4fc1-ac50-cd75a8fe0964" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
-        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="327811ca-0ed2-4248-bbcf-367f0b941da3" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
-        <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="028a2455-2bf8-4ad3-bd50-8b6aeb37c6a5" name="Vector3" isAbstract="false" isLeaf="false" cachedFullName="Vector3">
         <elementDefinition Id="e1a78fd4-ffcf-412f-be00-4ec3bbfc43b3" />
       </referencedType>
@@ -77,6 +62,10 @@
           <interfaceRealization Id="eaad573f-0702-4dcd-999e-8aec74687e29">
             <interfaceMoniker Id="2524d8b9-86e9-4e92-97ce-28c6095e7538" LastKnownName="IEnumerable&lt;Edge&gt;" />
             <elementDefinition Id="8d2db3cb-db08-49aa-b572-63825f8f73cd" />
+          </interfaceRealization>
+          <interfaceRealization Id="7a1e27b2-def4-4ba3-aca2-fbadfad14591">
+            <interfaceMoniker Id="9c6b2b8b-3a3c-4c20-8c86-cb7a5adf412b" LastKnownName="IEquatable&lt;Knot&gt;" />
+            <elementDefinition Id="418caf72-96bb-4f15-ae49-198abdd5d821" />
           </interfaceRealization>
         </suppliersInternal>
         <targetEnds>
@@ -228,64 +217,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="7b6dda8d-2a64-4e21-9745-914752a7edb7" name="operator ==" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="9eb69396-03a3-49d5-83cc-63ca53433b02" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="54ab21bf-928b-4d3a-954c-fb8443e6408b" name="knotA" direction="In" isUnique="false">
-                  <elementDefinition Id="81f236a8-ac1d-43ba-a287-e4adddb184b0" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="a921c86b-f457-4ee6-bb7c-46121e6808c5" LastKnownName="Knot" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="b79f98b0-fb27-4d90-95ea-b735c2d3f497" name="knotB" direction="In" isUnique="false">
-                  <elementDefinition Id="7d4dc0fd-64e5-4dcf-a1c6-b514f0d8f7aa" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="a921c86b-f457-4ee6-bb7c-46121e6808c5" LastKnownName="Knot" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="5275d2ca-3fed-458f-b203-bad03aceb015" direction="Return" isUnique="false">
-                  <elementDefinition Id="852c3136-ffbe-453d-96e6-4b4360967f3a" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="34b84b13-28da-4864-b2bb-a59218d97c44" LastKnownName="Boolean" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="1e2829b8-5378-40c1-81bc-14ffd64c2354" name="operator !=" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="9019491f-5baa-4d46-a882-e9d6804a6b8a" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="765e4df9-c3b6-421d-ba28-a010f0761d22" direction="Return" isUnique="false">
-                  <elementDefinition Id="37e26575-f318-49e5-b7a5-3d37ac55a372" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="deb3ea68-1d37-4fc1-ac50-cd75a8fe0964" LastKnownName="Boolean" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="e4994135-26f2-4483-8364-a8d2ed8f581c" name="knotA" direction="In" isUnique="false">
-                  <elementDefinition Id="bd2c2dfa-7dd8-4a76-8374-fd10854fcc0a" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="327811ca-0ed2-4248-bbcf-367f0b941da3" LastKnownName="Knot" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="e17d6b26-dd38-4389-b6b0-5d1b6bab2c3e" name="knotB" direction="In" isUnique="false">
-                  <elementDefinition Id="f138e5af-be30-4581-8726-d1104bda7c6b" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="a921c86b-f457-4ee6-bb7c-46121e6808c5" LastKnownName="Knot" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
           <operation Id="20fa94a3-aa0c-4ca7-bbd6-85074f0c2b65" name="GetEnumerator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a2165eac-37a9-4477-ba29-2cdfb1fb5d16" />
             <ownedParameters>
@@ -395,16 +326,40 @@
             <elementDefinition Id="39be0e5d-dd34-443a-8ecd-2002d66ba9e5" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="7c875451-e8f9-44c4-bb6c-15940478e77a" name="format" direction="In" isUnique="false">
-                  <elementDefinition Id="0d195918-3d8a-405c-844b-4f192d8c78ea" />
+                <parameter Id="3af79b6f-5472-4078-9240-30d0ec82467f" name="format" direction="In" isUnique="false">
+                  <elementDefinition Id="7db67d81-f250-4a6a-ba95-e694aa28d9ee" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="1ab81918-2b28-4dbc-b7b9-477a37d129e1" LastKnownName="IKnotIO" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="499d5103-7797-46a1-9675-8d3fbbde2c41" name="string filename" direction="In" isUnique="false">
-                  <elementDefinition Id="8b6b6806-95d2-415b-94ae-73092be34320" />
+                <parameter Id="94df3990-b9b1-451b-83da-80c17ecace86" name="filename" direction="In" isUnique="false">
+                  <elementDefinition Id="9bd7c5d6-4f69-4656-87e3-9b613c8364a7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4506fa6f-cca1-49ba-b2c2-4c6cbe2ec3ba" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="42d50aae-07fa-409d-a91f-604031edcfbb" name="Equals" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8c7783f9-2193-4a68-aa19-2afe6005d606" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d3c86004-71f3-41e1-a5e8-124d91245744" name="other" direction="In" isUnique="false">
+                  <elementDefinition Id="83194b23-c8cd-4a57-ac61-cdf6af6249fa" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="83560c7f-e3e4-4872-b8d0-7ab75c3e922d" LastKnownName="T" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5e9db825-3972-4903-8223-4f6060f81d56" direction="Return" isUnique="false">
+                  <elementDefinition Id="0173153e-20bd-480c-99a7-6fe832996190" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="34b84b13-28da-4864-b2bb-a59218d97c44" LastKnownName="Boolean" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -959,6 +914,94 @@
         <elementDefinition Id="80e1a73d-93c7-4338-8bd7-41688049ef73" />
       </referencedType>
     </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="950cb279-26f5-4fa6-90fc-c415a16a5fc6" name="IEquatable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fcf1d7e9-05d2-4520-a8e9-f46c0dfbc4ee" />
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature Id="cf48cf15-97a4-4a85-b95b-965a6e90c34c" parameters="" isLeaf="false">
+            <elementDefinition Id="1b3f2462-27fc-4c71-80b2-792ffae59114" />
+            <ownedParameters>
+              <classifierTemplateParameter Id="cd7c80cc-6719-4284-9d8b-46f8d0f25874">
+                <elementDefinition Id="e2f0756e-1944-40e9-9bef-b7890b215bf7" />
+                <ownedParameterableElement>
+                  <class Id="173173ee-f7d1-4ec3-91f9-25f516dddd53" name="C" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <elementDefinition Id="fb009c07-4d2a-437a-acfc-105927ca1766" />
+                  </class>
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
+        <ownedOperations>
+          <operation Id="b3a0df8c-cf5b-4e55-93a7-30f96991e2ac" name="Equals" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e51c930b-b626-4a14-b7be-69ce99038289" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="78a9603b-1327-4b5a-9c85-b4b29bfba487" name="other" direction="In" isUnique="false">
+                  <elementDefinition Id="f0773812-ed3a-44bb-900c-130843eb4a5d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="827781b3-9686-4a83-a603-18a1429fd356" LastKnownName="C" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="14cecb93-1f42-4d53-bded-0d36f5b53ded" direction="Return" isUnique="false">
+                  <elementDefinition Id="d44c99b7-4ec6-4a24-80d8-1568e258b13d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="34b84b13-28da-4864-b2bb-a59218d97c44" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="83560c7f-e3e4-4872-b8d0-7ab75c3e922d" name="T" isAbstract="false" isLeaf="false" cachedFullName="T">
+        <elementDefinition Id="b0cdc7a3-2fdd-40f6-ae13-2466cffa825b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="9c6b2b8b-3a3c-4c20-8c86-cb7a5adf412b" name="IEquatable&lt;Knot&gt;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="409a7ea1-201d-4847-8c00-e519f7d607a2" />
+        <signatures>
+          <templateBinding Id="ea6c77d3-e4e0-4ddd-8add-35e87802b4fe">
+            <templateSignatureProxyMoniker Id="f434a142-8587-4d82-81cc-ca6e1735135e" />
+            <relationshipOwnedElementsInternal>
+              <templateBindingHasTemplateParameterSubstitution>
+                <templateParameterSubstitution Id="c9ead78a-e251-4d5d-a664-2820e087e73a">
+                  <elementDefinition Id="0f3c89a6-2bff-4445-8624-a17526f3e021" />
+                  <actuals>
+                    <referencedTypeMoniker Id="ad43d8c1-3bf2-4906-8656-906245e7cf38" LastKnownName="Knot" />
+                  </actuals>
+                  <formal>
+                    <templateParameterProxyMoniker Id="4edbaecc-4d52-47f5-a41f-f779288d8584" />
+                  </formal>
+                </templateParameterSubstitution>
+              </templateBindingHasTemplateParameterSubstitution>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4834fcec-4524-4d36-8d4c-6ee4b72a110d" />
+          </templateBinding>
+        </signatures>
+        <generalsInternal>
+          <generalization Id="baf430bc-d174-43e2-aa44-537b7f44d307" isSubstitutable="false">
+            <interfaceMoniker Id="950cb279-26f5-4fa6-90fc-c415a16a5fc6" LastKnownName="IEquatable" />
+            <elementDefinition Id="52ca5ce2-a035-41a7-9183-56260d2df30e" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="ad43d8c1-3bf2-4906-8656-906245e7cf38" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::Knot">
+        <elementDefinition Id="8e1aa097-f416-4abd-af60-4daddd5f633c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="827781b3-9686-4a83-a603-18a1429fd356" name="C" isAbstract="false" isLeaf="false" cachedFullName="C">
+        <elementDefinition Id="fb009c07-4d2a-437a-acfc-105927ca1766" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <templateSignatureProxies>
     <templateSignatureProxy Id="a86a24bb-0951-4151-a865-97a99d9d6534" parameters="" isLeaf="false" signatureId="7708d681-ff13-4505-8d5c-b010a9a7fda0">
@@ -966,6 +1009,14 @@
       <ownedParameters>
         <templateParameterProxy Id="a21b00e6-d987-437c-b288-17338a0ed9bb" parameterId="45614aa7-93ce-44f4-95f1-9a8a02444b94">
           <elementDefinition Id="45614aa7-93ce-44f4-95f1-9a8a02444b94" />
+        </templateParameterProxy>
+      </ownedParameters>
+    </templateSignatureProxy>
+    <templateSignatureProxy Id="f434a142-8587-4d82-81cc-ca6e1735135e" parameters="" isLeaf="false" signatureId="1b3f2462-27fc-4c71-80b2-792ffae59114">
+      <elementDefinition Id="1b3f2462-27fc-4c71-80b2-792ffae59114" />
+      <ownedParameters>
+        <templateParameterProxy Id="4edbaecc-4d52-47f5-a41f-f779288d8584" parameterId="e2f0756e-1944-40e9-9bef-b7890b215bf7">
+          <elementDefinition Id="e2f0756e-1944-40e9-9bef-b7890b215bf7" />
         </templateParameterProxy>
       </ownedParameters>
     </templateSignatureProxy>
