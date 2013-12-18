@@ -31,7 +31,7 @@ Der Rotationswinkel um die Y-Achse.
 Der Rotationswinkel um die Z-Achse.
 ~\\\\
 \textbf{\keyword{public} \ptype{Angles3} \varname{Zero}}\\~\\
-Eine statische Property mit dem Wert X = 0, Y = 0, Z = 0.
+Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{Angles3} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\\~\\
 Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
@@ -73,15 +73,15 @@ Wird für jeden Frame aufgerufen.
 \includegraphics[scale=0.5]{Klassen/ArrowModelInfo}
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\\\\
-Ein Objekt dieser Klasse hält alle Informationen, die zur Erstellung eines Pfeil-3D-Modelles (ArrowModel) notwendig sind.
+Ein Objekt der Klasse ArrowModelInfo hält alle Informationen, die zur Erstellung eines Pfeil-3D-Modelles (s. ArrowModel) notwendig sind.
 
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{Vector3} \varname{Direction}}\\~\\
-Die Richtung, die der Pfeil zeigen soll.
+Gibt die Richtung, in die der Pfeil zeigen soll an.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{ArrowModelInfo} (\ptype{Vector3} \varname{position}, \ptype{Vector3} \varname{direction})}\\~\\
-Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum, das in eine bestimmte Richtung zeigt.
+Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position position im 3D-Raum. Dieses zeigt in eine durch direction bestimmte Richtung.
 
 \subsection{Klasse AudioSettingsScreen}
 \begin{wrapfigure}{r}{9cm}
@@ -89,7 +89,7 @@ Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum
 \includegraphics[scale=0.5]{Klassen/AudioSettingsScreen}
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\\\\
-Der Spielzustand, der die Audio-Einstellungen darstellt.
+Die Klasse  AudioSettingsScreen steht für den Spielzustand, der die Audio-Einstellungen repräsentiert.
 
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
@@ -97,7 +97,7 @@ Der Spielzustand, der die Audio-Einstellungen darstellt.
 Das Menü, das die Einstellungen enthält.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{AudioSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-
+Erzeugt ein neues AudioSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -196,7 +196,7 @@ Ein Cel-Shading-Effekt.
 Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\\~\\
-
+!!!
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{GameModel})}\\~\\
 Zeichnet ein 3D-Modell auf das Rendertarget.
@@ -281,7 +281,7 @@ Wird für jeden Frame aufgerufen.
 Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{ChallengeModeScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-
+Erzeugt ein neues ChallengeModeScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 
 \subsection{Klasse ChallengeMetaData}
 \begin{wrapfigure}{r}{9cm}
@@ -371,7 +371,8 @@ Ein Menüeintrag, der einen Auswahlkasten darstellt.
 Die Option, die mit dem Auswahlkasten verknüpft ist.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{CheckBoxItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{BooleanOptionInfo} \varname{option})}\\~\\
-
+Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dies mit dem zugehörigen GameScreen-Objekt.
+Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 
 \subsection{Klasse Circle}
 \begin{wrapfigure}{r}{9cm}
