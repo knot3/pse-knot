@@ -164,7 +164,7 @@ public class ChallengeLoadScreen :
     + Update (GameTime time) : void
     // Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // Erzeugt ein neues ChallengeModeScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
+    // Erzeugt ein neues ChallengeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + ChallengeModeScreen (Knot3Game game) : void
 
 // Enthält Metadaten zu einer Challenge.
@@ -219,7 +219,7 @@ public class CheckBoxItem :
     // Die Option, die mit dem Auswahlkasten verknüpft ist.
     - option : BooleanOptionInfo
   Methods:
-    // Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dies mit dem zugehörigen GameScreen-Objekt.
+    // Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
     // Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
     + CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, BooleanOptionInfo option) : void
 
@@ -248,11 +248,11 @@ public class Circle :
 
 // Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
 public enum ClickState
-    // 
+    // Kein gültiger oder ein undefinierter Zustand.
     None=0
-    // 
+    // Ein Einzelklick.
     SingleClick=1
-    // 
+    // Ein Doppelklick.
     DoubleClick=2
 
 // Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
@@ -278,7 +278,8 @@ public class ColorPickItem :
     // Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
     - picker : ColorPicker
   Methods:
-    // 
+    // Erzeugt ein neues ColorPickItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+	// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
     + ColorPickItem (GameScreen screen, DisplayLayer drawOrder, Color color) : void
 
 // Repräsentiert eine Einstellungsdatei.
@@ -300,7 +301,8 @@ public class ConfirmDialog :
     // Das Menü, das Schaltflächen enthält.
     - buttons : Menu
   Methods:
-    // 
+    // Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+	// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
     + ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text) : void
 
 // Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
@@ -313,7 +315,7 @@ public class ControlSettingsScreen :
     + Update (GameTime time) : void
     // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // 
+    // Erzeugt ein neues ControlSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + ControlSettingsScreen (Knot3Game game) : void
 
 // Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
@@ -324,7 +326,7 @@ public class CreativeLoadScreen :
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Erzeugt ein neues CreativeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + CreativeLoadScreen (Knot3Game game) : void
 
 // Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv ist und für den Knoten eine 3D-Welt zeichnet.
@@ -372,7 +374,8 @@ public class Dialog :
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
     // Bei einem Rechtsklick geschieht nichts.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
-    // 
+    // Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+    // Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
     + Dialog (GameScreen screen, DisplayLayer drawOrder, String title, String text) : void
 
 // Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
