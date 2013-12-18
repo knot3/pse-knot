@@ -135,8 +135,8 @@ public class Challenge :
     // Der Name der Challenge.
     + Name : String
   Methods:
-    // Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
-    // Erstellt ein Challenge-Objekt aus einer gegebenenen Challenge-Datei.
+    // Erstellt ein Challenge-Objekt aus einem gegebenen Challenge-Metadaten-Objekt.
+    // Erstellt ein Challenge-Objekt aus einer gegebenen Challenge-Datei.
     + Challenge (ChallengeMetaData meta, Knot start, Knot target) : void
     // Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
     + AddToHighscore (String name, Integer time) : void
@@ -214,7 +214,7 @@ public class ChallengeModeScreen :
 // Ein Menüeintrag, der einen Auswahlkasten darstellt.
 public class CheckBoxItem : 
   Attributes:
-    // Die Option, die mit dem Auswahlkasten verknüft ist.
+    // Die Option, die mit dem Auswahlkasten verknüpft ist.
     - option : BooleanOptionInfo
   Methods:
     // 
@@ -230,7 +230,7 @@ public class Circle :
     // Der vorherige Listeneintrag.
     + Previous : Circle
   Methods:
-    // Entfernt diesen Listeneintrag und verknüft den vorherigen mit dem nächsten Eintrag.
+    // Entfernt diesen Listeneintrag und verknüpft den vorherigen mit dem nächsten Eintrag.
     + Remove () : void
     // Erstellt einen neuen Listeneintrag.
     + Circle (T content) : void
@@ -498,7 +498,7 @@ public class FileUtility :
     // Das Bildschirmfotoverzeichnis.
     + ScreenshotDirectory : String
   Methods:
-    // Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungüliger Zeichen.
+    // Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungültiger Zeichen.
     + ConvertToFileName (String name) : String
     // 
     + GetHash (String filename) : String
@@ -928,7 +928,7 @@ public class KnotMetaData :
     // Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
     + Name : String
     // Das Format, aus dem die Metadaten geladen wurden.
-    // Es ist genau dann \glqq null \grqq , wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
+    // Es ist genau dann \glqq null\grqq, wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
     + Format : IKnotIO
     // Ein Delegate, das die Anzahl der Kanten zurückliefert.
     // Falls dieses Metadaten-Objekt Teil eines Knotens ist, gibt es dynamisch die Anzahl der
@@ -936,7 +936,7 @@ public class KnotMetaData :
     // die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes gelesen wurde. Nur lesbar.
     + CountEdges : Func<Integer>
     // Falls die Metadaten aus einer Datei eingelesen wurden, enthält dieses Attribut den Dateinamen,
-    // sonst \glqq null \grqq.
+    // sonst \glqq null\grqq.
     + Filename : String
   Methods:
     // Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
@@ -973,7 +973,7 @@ public class KnotRenderer :
   Methods:
     // Gibt den Ursprung des Knotens zurück.
     + Center () : Vector3
-    // Gibt immer \glqq null \grqq zurück.
+    // Gibt immer \glqq null\grqq zurück.
     + Intersects (Ray Ray) : GameObjectDistance
     // Wird mit dem EdgesChanged-Event des Knotens verknüft.
     + OnEdgesChanged () : void
@@ -1020,7 +1020,7 @@ public class Localizer :
     + Localize (String text) : String
 
 // Ein Menü enthält Bedienelemente zur Benutzerinteraktion. Diese Klasse bietet Standardwerte für
-// Positionen, Größen, Farben und Ausrichtungen der Menueinträge. Sie werden gesetzt, wenn die Werte
+// Positionen, Größen, Farben und Ausrichtungen der Menüeinträge. Sie werden gesetzt, wenn die Werte
 // der Menüeinträge \glqq null\grqq~sind.
 public class Menu : 
   Attributes:
@@ -1071,7 +1071,7 @@ public class MenuItem :
     // Der Anzeigetext der Schaltfläche.
     + Text : String
   Methods:
-    // Reaktionen auf Tasteneíngaben.
+    // Reaktionen auf Tasteneingaben.
     + OnKeyEvent () : void
     // Reaktionen auf einen Linksklick.
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
@@ -1183,7 +1183,7 @@ public class Options :
   Methods:
 
 // Pausiert ein Spieler im Creative- oder Challenge-Modus das Spiel,
-// wird dieser Dialog über anderen Spielkonmponenten angezeigt.
+// wird dieser Dialog über anderen Spielkomponenten angezeigt.
 public class PauseDialog : 
   Attributes:
     // Das Menü, das verschiedene Schaltflächen enthält.
@@ -1228,7 +1228,7 @@ public class PipeMovement :
   Methods:
     // Gibt den Ursprung des Knotens zurück.
     + Center () : Vector3
-    // Gibt immer \glqq null \grqq zurück.
+    // Gibt immer \glqq null\grqq zurück.
     + Intersects (Ray Ray) : GameObjectDistance
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
