@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="79631b17-f65f-4e0b-9d1f-dc9e121fb7b1"
   name="Screens" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -1286,7 +1286,7 @@
         isActiveClass="false">
         <generalsInternal>
           <generalization
-            Id="f64bebbc-526b-44f0-a789-ff41decd42f2"
+            Id="b9fd97f2-16cf-4510-93ae-9f6053d56d35"
             isSubstitutable="false">
             <classMoniker
               Id="be0801d7-2d99-41ed-bd13-2f16b7c65405"
@@ -1424,7 +1424,15 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="51e9b6fa-293e-4f5c-a52c-9fd00c6d2c63"
+            Id="bd4f62cd-4a4b-46dc-a3c3-9cdf4005aaad"
+            name="Knot3Game"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="bedacd32-4d4a-4dc8-96f2-fe99273b39a4"
             name="Draw"
             isLeaf="false"
             isStatic="false"
@@ -1434,7 +1442,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="136afbeb-23ac-40b3-aa31-14ea36a02788"
+                  Id="0d71c657-e69f-4118-925d-83aaa4f5b96e"
                   name="time"
                   direction="In"
                   isUnique="false">
@@ -1449,23 +1457,15 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="bd4f62cd-4a4b-46dc-a3c3-9cdf4005aaad"
-            name="Knot3Game"
+            Id="6facc010-bc00-476c-97be-467efe4de256"
+            name="Initialize"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="c2425478-29d6-4370-b165-eb0f5b8eca84"
-            name="LoadContent"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="d2ad7e0b-f959-46b8-af9f-af50bbeb36c8"
+            Id="4a72fde3-7762-4159-bc1b-57ffcfddf646"
             name="UnloadContent"
             isLeaf="false"
             isStatic="false"
@@ -1473,7 +1473,7 @@
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="1d816251-1b8a-4185-8198-8d8d51c4e032"
+            Id="9852f5c2-a20a-412b-9a67-3d4d0dc407ff"
             name="Update"
             isLeaf="false"
             isStatic="false"
@@ -1483,8 +1483,8 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="431ada5d-cc07-4ba0-8095-aaa048a0d4da"
-                  name="GameTime"
+                  Id="079ce1f2-5c2c-44ba-9f15-2c66dbda46cb"
+                  name="time"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
@@ -1497,14 +1497,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation
-            Id="79d2f4c4-8ca9-47b4-8be8-8caf74ced0de"
-            name="&lt;&lt;create&gt;&gt;"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
