@@ -281,7 +281,7 @@ Wird für jeden Frame aufgerufen.
 Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{ChallengeModeScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-Erzeugt ein neues ChallengeModeScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
+Erzeugt ein neues ChallengeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 
 \subsection{Klasse ChallengeMetaData}
 \begin{wrapfigure}{r}{9cm}
@@ -371,7 +371,7 @@ Ein Menüeintrag, der einen Auswahlkasten darstellt.
 Die Option, die mit dem Auswahlkasten verknüpft ist.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{CheckBoxItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{BooleanOptionInfo} \varname{option})}\\~\\
-Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dies mit dem zugehörigen GameScreen-Objekt.
+Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 
 \subsection{Klasse Circle}
@@ -453,7 +453,8 @@ Die aktuelle Farbe.
 Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{ColorPickItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Color} \varname{color})}\\~\\
-
+Erzeugt ein neues ColorPickItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 
 \subsection{Klasse ConfigFile}
 \begin{wrapfigure}{r}{9cm}
@@ -491,7 +492,8 @@ Ein Dialog, der Schaltflächen zum Bestätigen einer Aktion anzeigt.
 Das Menü, das Schaltflächen enthält.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{ConfirmDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text})}\\~\\
-
+Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
 
 \subsection{Klasse ControlSettingsScreen}
 \begin{wrapfigure}{r}{9cm}
@@ -507,7 +509,7 @@ Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
 Das Menü, das die Einstellungen enthält.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{ControlSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-
+Erzeugt ein neues ControlSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -526,7 +528,7 @@ Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
 
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{CreativeLoadScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-
+Erzeugt ein neues CreativeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
 Fügt das Menü mit dem Spielständen in die Spielkomponentenliste ein.
@@ -598,7 +600,8 @@ Der Fenstertitel.
 Der angezeigte Text.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{Dialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text})}\\~\\
-
+Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
 Durch Drücken der Entertaste wird die ausgewählte Aktion ausgeführt. Durch Drücken der Escape-Taste wird der Dialog abgebrochen.
@@ -624,7 +627,7 @@ Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen 
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{HashSet$<$string$>$} \varname{ValidValues}}\\~\\
-
+Eine Menge von Texten, welche die für die Option gültigen Werte beschreiben.
 ~\\\\
 \textbf{\keyword{public} \ptype{String} \varname{Value}}\\~\\
 Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
@@ -682,7 +685,8 @@ Ein Menüeintrag, der den ausgewählten Wert anzeigt und bei einem Linksklick ei
 Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{DropDownMenuItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
-
+Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DistinctOptionInfo} \varname{option})}\\~\\
 Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
@@ -737,7 +741,7 @@ Der zuletzt gerenderte Frame im bisherigen Spielzustand.
 Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\\~\\
-
+!!!
 
 \subsection{Klasse FileUtility}
 \begin{wrapfigure}{r}{9cm}
@@ -762,7 +766,7 @@ Das Bildschirmfotoverzeichnis.
 Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungültiger Zeichen.
 ~\\\\
 \textbf{\keyword{public} \ptype{String} \varname{GetHash} (\ptype{String} \varname{filename})}\\~\\
-
+Liefert einen Hash-Wert zu der durch filename spezifizierten Datei.
 
 \subsection{Klasse GameModel}
 \begin{wrapfigure}{r}{9cm}
@@ -842,7 +846,7 @@ Dateiname, Rotation und Skalierung.
 \includegraphics[scale=0.5]{Klassen/GameObjectDistance}
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\\\\
-
+!!!
 
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
@@ -900,7 +904,7 @@ Der aktuelle Postprocessing-Effekt des Spielzustands
 Ein Stack, der während dem Aufruf der Draw-Methoden der Spielkomponenten die jeweils aktuellen Rendereffekte enthält.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{GameScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-
+Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})}\\~\\
 Beginnt mit dem Füllen der Spielkomponentenliste des XNA-Frameworks und fügt sowohl für Tastatur- als auch für
@@ -956,7 +960,7 @@ Der Spielzustand, der die Grafik-Einstellungen darstellt.
 Das Menü, das die Einstellungen enthält.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{GraphicsSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-
+Erzeugt ein neues GraphicsSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.

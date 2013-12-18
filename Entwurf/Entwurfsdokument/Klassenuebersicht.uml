@@ -249,6 +249,8 @@ public class Circle :
 // Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
 public enum ClickState
     // Kein gültiger oder ein undefinierter Zustand.
+    // Keine Reihenfolge.
+    // 
     None=0
     // Ein Einzelklick.
     SingleClick=1
@@ -279,7 +281,7 @@ public class ColorPickItem :
     - picker : ColorPicker
   Methods:
     // Erzeugt ein neues ColorPickItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
-	// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
+    // Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
     + ColorPickItem (GameScreen screen, DisplayLayer drawOrder, Color color) : void
 
 // Repräsentiert eine Einstellungsdatei.
@@ -302,7 +304,7 @@ public class ConfirmDialog :
     - buttons : Menu
   Methods:
     // Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
-	// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
+    // Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
     + ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text) : void
 
 // Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
@@ -381,26 +383,28 @@ public class Dialog :
 // Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
 // Wird benutzt, damit keine ungültigen Kantenrichtungen angegeben werden können.
 public enum Direction
-    // 
+    // Links.
     Left=1
-    // 
+    // Rechts.
     Right=2
-    // 
+    // Hoch.
     Up=3
-    // 
+    // Runter.
     Down=4
-    // 
+    // Vorwärts.
     Forward=5
-    // 
+    // Rückwärts.
     Backward=6
-    // 
+    // Keine Richtung.
     Zero=0
 
 // Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
 public enum DisplayLayer
+    // Kein gültiger oder ein undefinierter Zustand.
+    // Keine Reihenfolge.
     // 
     None=0
-    // 
+    // !!!
     Background=1
     // 
     GameWorld=2
@@ -422,7 +426,7 @@ public enum DisplayLayer
 // Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
 public class DistinctOptionInfo : 
   Attributes:
-    // 
+    // Eine Menge von Texten, welche die für die Option gültigen Werte beschreiben.
     + ValidValues : HashSet<string>
     // Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
     + Value : String
@@ -463,7 +467,8 @@ public class DropDownMenuItem :
     // Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
     // Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
     + AddEntries (DropDownEntry enties) : void
-    // 
+    // Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+    // Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
     + DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder) : void
 
 // Eine Kante eines Knotens, die aus einer Richtung und einer Farbe, sowie optional einer Liste von Flächennummern besteht.
@@ -491,7 +496,7 @@ public class FadeEffect :
   Methods:
     // Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
     + FadeEffect (GameScreen newScreen, GameScreen oldScreen) : void
-    // 
+    // !!!
     # DrawRenderTarget (GameTime GameTime) : void
 
 // Eine Hilfsklasse für Dateioperationen.
@@ -506,7 +511,7 @@ public class FileUtility :
   Methods:
     // Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungültiger Zeichen.
     + ConvertToFileName (String name) : String
-    // 
+    // Liefert einen Hash-Wert zu der durch filename spezifizierten Datei.
     + GetHash (String filename) : String
 
 // Repräsentiert ein 3D-Modell in einer Spielwelt.
@@ -554,7 +559,7 @@ public class GameModelInfo :
     // Dateiname, Rotation und Skalierung.
     + GameModelInfo (String modelname, Angles3 rotation, Vector3 scale) : void
 
-// 
+// !!!
 public class GameObjectDistance : 
   Attributes:
     // 
@@ -598,7 +603,7 @@ public class GameScreen :
     + BeforeExit (GameScreen nextScreen, GameTime time) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + GameScreen (Knot3Game game) : void
     // Fügt die angegebenen Spielkomponenten und deren über die Methode SubComponents() ermittelten
     // Unterkomponenten der Spielkomponentenliste des XNA-Frameworks hinzu.
@@ -629,16 +634,16 @@ public class GraphicsSettingsScreen :
     + Update (GameTime time) : void
     // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // 
+    // Erzeugt ein neues GraphicsSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + GraphicsSettingsScreen (Knot3Game game) : void
 
 // Eine horizontale Ausrichtung.
 public enum HorizontalAlignment
-    // 
+    // Links.
     Left=0
-    // 
+    // Mittig.
     Center=1
-    // 
+    // Rechts.
     Right=2
 
 // Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
@@ -790,6 +795,8 @@ public enum ItemState
     Selected=1
     // 
     Hovered=2
+    // Kein gültiger oder ein undefinierter Zustand.
+    // Keine Reihenfolge.
     // 
     None=0
 
