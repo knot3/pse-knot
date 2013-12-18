@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="79631b17-f65f-4e0b-9d1f-dc9e121fb7b1"
   name="Screens" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -95,6 +95,31 @@
                       Id="7146062a-e956-4346-8427-37640e8bf8a1"
                       LastKnownName="GameTime"
                       LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b46356d8-52dc-4951-8452-1696dc551c87"
+            name="ProfileSettingsScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5cb9b948-5f05-433c-831d-b182bb6c274c"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -259,6 +284,31 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="4097a559-d31a-44d1-8cff-74187e6c90f3"
+            name="GraphicsSettingsScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f653c890-14ef-44e2-a844-95b15aa6615d"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -358,6 +408,31 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="394fd093-ca63-4473-ba0e-3a115fee5a0f"
+            name="ControlSettingsScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1ffb6fa8-cb32-41cf-b721-8a8fe25b6b07"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -452,6 +527,31 @@
                       Id="7146062a-e956-4346-8427-37640e8bf8a1"
                       LastKnownName="GameTime"
                       LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="dd8dc21f-eac8-45d6-b8a9-7f7e25c49023"
+            name="AudioSettingsScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2c8ca1f5-47fc-48f4-9366-3cf2c2ae742c"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -627,6 +727,31 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="84cbbf08-011e-4526-b7d3-801175e14f44"
+            name="CreativeLoadScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4a435e4d-5da8-44db-aa2e-73f61b51c7c8"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -694,7 +819,7 @@
               <classMoniker
                 Id="fc1acae3-7da1-451e-9350-367e3504d6c5"
                 LastKnownName="KnotRenderer"
-                LastKnownLocation="Package_0050.uml" />
+                LastKnownLocation="GameObjects.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -896,7 +1021,7 @@
               <classMoniker
                 Id="fc1acae3-7da1-451e-9350-367e3504d6c5"
                 LastKnownName="KnotRenderer"
-                LastKnownLocation="Package_0050.uml" />
+                LastKnownLocation="GameObjects.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -915,7 +1040,7 @@
               <classMoniker
                 Id="fc1acae3-7da1-451e-9350-367e3504d6c5"
                 LastKnownName="KnotRenderer"
-                LastKnownLocation="Package_0050.uml" />
+                LastKnownLocation="GameObjects.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -934,7 +1059,7 @@
               <classMoniker
                 Id="483caf34-4e6e-4415-b1e7-eb247dcee902"
                 LastKnownName="PipeMovement"
-                LastKnownLocation="Package_0100.uml" />
+                LastKnownLocation="GameObjects.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -1119,6 +1244,31 @@
                       Id="7146062a-e956-4346-8427-37640e8bf8a1"
                       LastKnownName="GameTime"
                       LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d50218b3-8302-4b0f-8637-82a5bf76e421"
+            name="ChallengeModeScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="37b5d538-4211-4ac0-bd6f-6ad5c491454e"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -1347,6 +1497,14 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="79d2f4c4-8ca9-47b4-8be8-8caf74ced0de"
+            name="&lt;&lt;create&gt;&gt;"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1384,7 +1542,7 @@
               <classMoniker
                 Id="b4e6504e-28fd-4e43-8533-79b8e88964d8"
                 LastKnownName="Menu"
-                LastKnownLocation="Package_0106.uml" />
+                LastKnownLocation="Widgets.uml" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -1448,6 +1606,31 @@
                       Id="7146062a-e956-4346-8427-37640e8bf8a1"
                       LastKnownName="GameTime"
                       LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6ba7c53d-83e6-40c5-a7e5-7c4d109c1c6b"
+            name="StartScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8c6058cb-2a45-44ac-89d4-fa7f882293d8"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
