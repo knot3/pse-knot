@@ -9,7 +9,7 @@ public class Angles3 :
     + Y : float
     // Der Rotationswinkel um die Z-Achse.
     + Z : float
-    // Eine statische Property mit dem Wert X = 0, Y = 0, Z = 0.
+    // Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
     + Zero : Angles3
   Methods:
     // Konvertiert Grad in Bogenmaß.
@@ -19,10 +19,10 @@ public class Angles3 :
     // Konvertiert Bogenmaß in Grad.
     + ToDegrees (float X, float Y, float Z) : void
 
-// Diese Klasse repräsentiert ein 3D-Modell für einen Pfeil, der an selektierten Kanten erscheinen soll.
+// Diese Klasse ArrowModel repräsentiert ein 3D-Modell für einen Pfeil, zum Einblenden an selektierten Kanten (s. Edge).
 public class ArrowModel : 
   Attributes:
-    // Das Info-Objekt, das die Position und Richtung des Pfeils enthält.
+    // Das Info-Objekt, das die Position und Richtung des ArrowModel\grq s enthält.
     + Info : ArrowModelInfo
   Methods:
     // Zeichnet den Pfeil.
@@ -34,16 +34,16 @@ public class ArrowModel :
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
 
-// Ein Objekt dieser Klasse hält alle Informationen, die zur Erstellung eines Pfeil-3D-Modelles (ArrowModel) notwendig sind.
+// Ein Objekt der Klasse ArrowModelInfo hält alle Informationen, die zur Erstellung eines Pfeil-3D-Modelles (s. ArrowModel) notwendig sind.
 public class ArrowModelInfo : 
   Attributes:
-    // Die Richtung, die der Pfeil zeigen soll.
+    // Gibt die Richtung, in die der Pfeil zeigen soll an.
     + Direction : Vector3
   Methods:
-    // Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position im 3D-Raum, das in eine bestimmte Richtung zeigt.
+    // Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position position im 3D-Raum. Dieses zeigt in eine durch direction bestimmte Richtung.
     + ArrowModelInfo (Vector3 position, Vector3 direction) : void
 
-// Der Spielzustand, der die Audio-Einstellungen darstellt.
+// Die Klasse  AudioSettingsScreen steht für den Spielzustand, der die Audio-Einstellungen repräsentiert.
 public class AudioSettingsScreen : 
   Attributes:
     // Das Menü, das die Einstellungen enthält.
@@ -53,7 +53,7 @@ public class AudioSettingsScreen :
     + Update (GameTime time) : void
     // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // 
+    // Erzeugt ein neues AudioSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + AudioSettingsScreen (Knot3Game game) : void
 
 // Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann.
@@ -110,7 +110,7 @@ public class Camera :
 public class CelShadingEffect : 
   Attributes:
   Methods:
-    // 
+    // !!!
     # DrawRenderTarget (GameTime GameTime) : void
     // Zeichnet ein 3D-Modell auf das Rendertarget.
     + DrawModel (GameTime, GameModel GameModel) : void
@@ -164,7 +164,7 @@ public class ChallengeLoadScreen :
     + Update (GameTime time) : void
     // Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // 
+    // Erzeugt ein neues ChallengeModeScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + ChallengeModeScreen (Knot3Game game) : void
 
 // Enthält Metadaten zu einer Challenge.
@@ -219,7 +219,8 @@ public class CheckBoxItem :
     // Die Option, die mit dem Auswahlkasten verknüpft ist.
     - option : BooleanOptionInfo
   Methods:
-    // 
+    // Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dies mit dem zugehörigen GameScreen-Objekt.
+	// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
     + CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, BooleanOptionInfo option) : void
 
 // Eine doppelt verkettete Liste.
