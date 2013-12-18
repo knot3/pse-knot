@@ -584,7 +584,7 @@ public class GameScreen :
     // Entfernt die angegebenen Spiekomponenten und deren Unterkomponenten von der Spielkomponentenliste des XNA-Frameworks.
     + RemoveGameComponents (IGameStateComponent[] components) : void
 
-// Eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
+// Eine Spielkomponente, die in einem GameScreen verwendet wird und eine bestimmte Priorität hat.
 public class GameScreenComponent : 
   Attributes:
     // Die Zeichen- und Eingabepriorität.
@@ -628,8 +628,8 @@ public interface IChallengeIO :
     // Lädt die Metadaten einer Challenge.
     + LoadMetaData (String filename) : ChallengeMetaData
 
-// Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz auf die Spielwelt, in der sich das
-// Spielobjekt befindet, sowie Informationen zu dem Spielobjekt.
+// Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz auf die Spielwelt, in der sich dieses
+// Game befindet, sowie Informationen zu dem Game.
 public interface IGameObject : 
   Attributes:
     // Informationen über das Spielobjekt, wie z.B. die Position.
