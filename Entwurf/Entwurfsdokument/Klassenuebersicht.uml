@@ -239,9 +239,13 @@ public class Circle :
     // Gibt einen Enumerator über die Liste zurück.
     + GetEnumerator () : IEnumerator
 
+// 
 public enum ClickState
+    // 
     None=0
+    // 
     SingleClick=1
+    // 
     DoubleClick=2
 
 // Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
@@ -354,25 +358,44 @@ public class Dialog :
     // Bei einem Rechtsklick geschieht nichts.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
 
+// 
 public enum Direction
+    // 
     Left=1
+    // 
     Right=2
+    // 
     Up=3
+    // 
     Down=4
+    // 
     Forward=5
+    // 
     Backward=6
+    // 
     Zero=0
 
+// 
 public enum DisplayLayer
+    // 
     None=0
+    // 
     Background=1
+    // 
     GameWorld=2
+    // 
     Dialog=3
+    // 
     Menu=4
+    // 
     MenuItem=5
+    // 
     SubMenu=6
+    // 
     SubMenuItem=7
+    // 
     Overlay=8
+    // 
     Cursor=9
 
 // Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
@@ -584,9 +607,13 @@ public class GraphicsSettingsScreen :
     // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
+// 
 public enum HorizontalAlignment
+    // 
     Left=0
+    // 
     Center=1
+    // 
     Right=2
 
 // Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
@@ -730,9 +757,13 @@ public interface IRenderEffect :
     // ein anderer Shader zugewiesen werden.
     + RemapModel (GameModel model) : void
 
+// 
 public enum ItemState
+    // 
     Selected=1
+    // 
     Hovered=2
+    // 
     None=0
 
 // Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Option als Zeichenkette speichert.
