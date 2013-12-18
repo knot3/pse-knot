@@ -93,6 +93,9 @@ Der Spielzustand, der die Audio-Einstellungen darstellt.
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\\~\\
 Das Menü, das die Einstellungen enthält.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{AudioSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -254,7 +257,7 @@ Erstellt ein ChallengeFileIO-Objekt.
 Speichert eine Challenge in dem Dateinamen, der in dem Challenge-Objekt enthalten ist.
 ~\\\\
 \textbf{\keyword{public} \ptype{Challenge} \varname{Load} (\ptype{String} \varname{filename})}\\~\\
-Lädt eine Challenge aus einer angebenenen Datei.
+Lädt eine Challenge aus einer angegebenen Datei.
 ~\\\\
 \textbf{\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\\~\\
 Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
@@ -274,6 +277,9 @@ Wird für jeden Frame aufgerufen.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
 Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
+~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{ChallengeModeScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+
 
 \subsection{Klasse ChallengeMetaData}
 \begin{wrapfigure}{r}{9cm}
@@ -362,8 +368,8 @@ Ein Menüeintrag, der einen Auswahlkasten darstellt.
 \textbf{\keyword{private} \ptype{BooleanOptionInfo} \varname{option}}\\~\\
 Die Option, die mit dem Auswahlkasten verknüft ist.
 \paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{CheckBoxItem} (\ptype{BooleanOptionInfo} \varname{option})}\\~\\
-Erstellt einen Menüeintrag für die angegebene Option.
+\textbf{\keyword{public} \varname{CheckBoxItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{BooleanOptionInfo} \varname{option})}\\~\\
+
 
 \subsection{Klasse Circle}
 \begin{wrapfigure}{r}{9cm}
@@ -442,6 +448,9 @@ Die aktuelle Farbe.
 ~\\\\
 \textbf{\keyword{private} \ptype{ColorPicker} \varname{picker}}\\~\\
 Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{ColorPickItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Color} \varname{color})}\\~\\
+
 
 \subsection{Klasse ConfigFile}
 \begin{wrapfigure}{r}{9cm}
@@ -477,6 +486,9 @@ Ein Dialog, der Schaltflächen zum Bestätigen einer Aktion anzeigt.
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{private} \ptype{Menu} \varname{buttons}}\\~\\
 Das Menü, das Schaltflächen enthält.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{ConfirmDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text})}\\~\\
+
 
 \subsection{Klasse ControlSettingsScreen}
 \begin{wrapfigure}{r}{9cm}
@@ -490,6 +502,9 @@ Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\\~\\
 Das Menü, das die Einstellungen enthält.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{ControlSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -505,6 +520,9 @@ Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 \paragraph{Beschreibung:}\mbox{}\\\\
 Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
 
+
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{CreativeLoadScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
 
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
@@ -575,6 +593,9 @@ Der Fenstertitel.
 ~\\\\
 \textbf{\keyword{public} \ptype{String} \varname{Text}}\\~\\
 Der angezeigte Text.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{Dialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
 Durch Drücken der Entertaste wird die ausgewählte Aktion ausgeführt. Durch Drücken der Escape-Taste wird der Dialog abgebrochen.
@@ -656,6 +677,9 @@ Ein Menüeintrag, der den ausgewählten Wert anzeigt und bei einem Linksklick ei
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{private} \ptype{VerticalMenu} \varname{dropdown}}\\~\\
 Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{DropDownMenuItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DistinctOptionInfo} \varname{option})}\\~\\
 Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
@@ -806,7 +830,7 @@ Die Rotation des Modells.
 Die Skalierung des Modells.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{GameModelInfo} (\ptype{String} \varname{modelname}, \ptype{Angles3} \varname{rotation}, \ptype{Vector3} \varname{scale})}\\~\\
-Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angebenenen Informationen zu
+Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
 Dateiname, Rotation und Skalierung.
 
 \subsection{Klasse GameObjectDistance}
@@ -899,7 +923,7 @@ Entfernt die angegebenen Spiekomponenten und deren Unterkomponenten von der Spie
 \includegraphics[scale=0.5]{Klassen/GameScreenComponent}
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\\\\
-Eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
+Eine Spielkomponente, die in einem GameScreen verwendet wird und eine bestimmte Priorität hat.
 
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
@@ -927,6 +951,9 @@ Der Spielzustand, der die Grafik-Einstellungen darstellt.
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\\~\\
 Das Menü, das die Einstellungen enthält.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{GraphicsSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -951,16 +978,16 @@ Enthält den Klickzustand der rechten Maustaste.
 Enthält den Klickzustand der linken Maustaste.
 ~\\\\
 \textbf{\keyword{public} \ptype{MouseState} \varname{CurrentMouseState}}\\~\\
-Enthält den Mauszustand von XNA des aktuellen Frames.
+Enthält den Mauszustand von XNA zum aktuellen Frames.
 ~\\\\
 \textbf{\keyword{public} \ptype{KeyboardState} \varname{CurrentKeyboardState}}\\~\\
-Enthält den Tastaturzustand von XNA des aktuellen Frames.
+Enthält den Tastaturzustand von XNA zum aktuellen Frames.
 ~\\\\
 \textbf{\keyword{public} \ptype{MouseState} \varname{PreviousMouseState}}\\~\\
-Enthält den Mauszustand von XNA des vorherigen Frames.
+Enthält den Mauszustand von XNA zum vorherigen Frames.
 ~\\\\
 \textbf{\keyword{public} \ptype{KeyboardState} \varname{PreviousKeyboardState}}\\~\\
-Enthält den Tastaturzustand von XNA des vorherigen Frames.
+Enthält den Tastaturzustand von XNA zum vorherigen Frames.
 ~\\\\
 \textbf{\keyword{public} \ptype{Boolean} \varname{GrabMouseMovement}}\\~\\
 Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
@@ -983,6 +1010,9 @@ Ein Menüeintrag, der Texteingaben vom Spieler annimmt.
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{String} \varname{InputText}}\\~\\
 Beinhaltet den vom Spieler eingegebenen Text.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{InputItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{text})}\\~\\
+
 
 \subsection{Klasse KeyInputItem}
 \begin{wrapfigure}{r}{9cm}
@@ -996,6 +1026,9 @@ Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Opt
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{private} \ptype{OptionInfo} \varname{option}}\\~\\
 Die Option in einer Einstellungsdatei.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{KeyInputItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{OptionInfo} \varname{option})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
 Speichert die aktuell gedrückte Taste in der Option.
@@ -1012,8 +1045,8 @@ Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-M
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{String} \varname{Name}}\\~\\
 Der Name des Knotens, welcher auch leer sein kann.
-Beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
-Der Wert dieser Eigenschaft wird aus der \glqq Name \grqq -Eigenschaft des Metadaten-Objektes geladen
+Beim Speichern muss der Nutzer in diesem Fall zwingend einen nichtleeren Namen wählen.
+Der Wert dieser Eigenschaft wird aus der \glqq Name\grqq~-Eigenschaft des Metadaten-Objektes geladen
 und bei Änderungen wieder in diesem gespeichert.
 Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
 ~\\\\
@@ -1031,7 +1064,7 @@ Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der 
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{Knot} ()}\\~\\
 Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
-die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null \grqq.
+die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null\grqq.
 ~\\\\
 \textbf{\keyword{public} \varname{Knot} (\ptype{KnotMetaData} \varname{meta}, \ptype{IEnumerable$<$Edge$>$} \varname{edges})}\\~\\
 Erstellt einen neuen Knoten mit dem angegebenen Metadaten-Objekt und den angegebenen Kanten,
@@ -1042,7 +1075,7 @@ wird auf ein Delegate gesetzt, welches jeweils die aktuelle Anzahl der Kanten di
 \textbf{\keyword{public} \ptype{void} \varname{Save} ()}\\~\\
 Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
 Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
-oder beide den Wert \glqq null \grqq , dann wird eine IOException geworfen.
+oder beide den Wert \glqq null\grqq, dann wird eine IOException geworfen.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{ClearSelection} ()}\\~\\
 Hebt die aktuelle Kantenauswahl auf.
@@ -1077,7 +1110,7 @@ Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})}\\~\\
-Speichert den Knoten unter dem angegebenen Dateinamen in dem angebenenen Dateiformat.
+Speichert den Knoten unter dem angegebenen Dateinamen in dem angegebenen Dateiformat.
 ~\\\\
 \textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})}\\~\\
 Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
@@ -1095,7 +1128,7 @@ Die zentrale Spielklasse, die von der \glqq Game \grqq -Klasse des XNA-Framework
 \textbf{\keyword{public} \ptype{Boolean} \varname{IsFullScreen}}\\~\\
 Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
 ob sich das Spiel im Vollbildmodus befindet. Wird dieses Attribut auf einen Wert gesetzt,
-dann wird der Modus entweder gewechselt oder beibehalten, falls es auf den selben Wert gesetzt wird.
+dann wird der Modus entweder gewechselt oder beibehalten, falls es auf denselben Wert gesetzt wird.
 ~\\\\
 \textbf{\keyword{public} \ptype{Stack$<$GameScreen$>$} \varname{Screens}}\\~\\
 Enthält als oberste Element den aktuellen Spielzustand und darunter die zuvor aktiven Spielzustände.
@@ -1109,7 +1142,7 @@ Der aktuelle Grafikgeräteverwalter des XNA-Frameworks.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{Knot3Game} ()}\\~\\
 Erstellt ein neues zentrales Spielobjekt und setzt die Auflösung des BackBuffers auf
-die in der Einstelungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
+die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
 Bildschirmauflösung und wechselt in den Vollbildmodus.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{LoadContent} ()}\\~\\
@@ -1117,6 +1150,9 @@ Wird einmal beim Spielstart aufgerufen und lädt die Spielzustände.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{UnloadContent} ()}\\~\\
 Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
+~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{$<$$<$create$>$$>$} ()}\\~\\
+
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\\~\\
 Ruft die Draw()-Methode des aktuellen Spielzustands auf.
@@ -1144,7 +1180,7 @@ Erstellt ein KnotFileIO-Objekt.
 Speichert einen Knoten in dem Dateinamen, der in dem Knot-Objekt enthalten ist.
 ~\\\\
 \textbf{\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})}\\~\\
-Lädt eines Knotens aus einer angebenenen Datei.
+Lädt eines Knotens aus einer angegebenen Datei.
 ~\\\\
 \textbf{\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\\~\\
 Lädt die Metadaten eines Knotens aus einer angegebenen Datei.
@@ -1190,7 +1226,7 @@ Der Anzeigename des Knotens, welcher auch leer sein kann.
 Beim Speichern muss der Spieler in diesem Fall zwingend
 einen nichtleeren Namen wählen. Wird ein neuer Anzeigename festgelegt,
 dann wird der Dateiname ebenfalls auf einen neuen Wert gesetzt, unabhängig davon
-ob er bereits einen Wert enthält oder \glqq null \grqq ist.
+ob er bereits einen Wert enthält oder \glqq null\grqq~ist.
 Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
 ~\\\\
 \textbf{\keyword{public} \ptype{IKnotIO} \varname{Format}}\\~\\
@@ -1356,6 +1392,9 @@ Die horizontale Ausrichtung der Menüeinträge.
 ~\\\\
 \textbf{\keyword{public} \ptype{VerticalAlignment} \varname{ItemAlignY}}\\~\\
 Die vertikale Ausrichtung der Menüeinträge.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{Menu} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem} \varname{item})}\\~\\
 Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~ oder leere Werte für
@@ -1386,8 +1425,8 @@ Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagi
 \textbf{\keyword{public} \ptype{Action} \varname{OnClick}}\\~\\
 Die Aktion, die ausgeführt wird, wenn der Spieler auf die Schaltfläche klickt.
 \paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{MenuButton} (\ptype{String} \varname{name}, \ptype{Action} \varname{onClick})}\\~\\
-Erstellt eine neue Schaltfläche mit dem angegebenen Namen und der angegebenen Aktion.
+\textbf{\keyword{public} \varname{MenuButton} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{name}, \ptype{Action} \varname{onClick})}\\~\\
+
 
 \subsection{Klasse MenuItem}
 \begin{wrapfigure}{r}{9cm}
@@ -1728,6 +1767,9 @@ Der Spielzustand, der die Profil-Einstellungen darstellt.
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\\~\\
 
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{ProfileSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -1904,6 +1946,9 @@ Der maximale Wert.
 ~\\\\
 \textbf{\keyword{public} \ptype{Integer} \varname{Step}}\\~\\
 
+\paragraph{Methoden:}\mbox{} \\\\
+\textbf{\keyword{public} \ptype{void} \varname{} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Integer} \varname{max}, \ptype{Integer} \varname{min}, \ptype{Integer} \varname{step}, \ptype{Integer} \varname{value})}\\~\\
+
 
 \subsection{Klasse StandardEffect}
 \begin{wrapfigure}{r}{9cm}
@@ -1934,6 +1979,9 @@ Der Startbildschirm.
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{private} \ptype{Menu} \varname{buttons}}\\~\\
 Die Schaltflächen des Startbildschirms.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{StartScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -1953,6 +2001,9 @@ Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{String} \varname{InputText}}\\~\\
 Der Text, der durch den Spieler eingegeben wurde.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{TextInputDialog} (\ptype{Knot3-Entwurf::GameScreen} \varname{screen}, \ptype{Knot3-Entwurf::DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text}, \ptype{String} \varname{inputText})}\\~\\
+
 
 \subsection{Klasse TutorialChallengeModeScreen}
 \begin{wrapfigure}{r}{9cm}
@@ -1976,6 +2027,9 @@ Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangefü
 \paragraph{Beschreibung:}\mbox{}\\\\
 Ein Menü, das alle Einträge vertikal anordnet.
 
+
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{VerticalMenu} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
 
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{AlignItems} ()}\\~\\
@@ -2105,8 +2159,8 @@ Lädt die Metadaten einer Challenge.
 \includegraphics[scale=0.5]{Klassen/IGameObject}
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\\\\
-Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz auf die Spielwelt, in der sich das
-Spielobjekt befindet, sowie Informationen zu dem Spielobjekt.
+Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz auf die Spielwelt, in der sich dieses
+Game befindet, sowie Informationen zu dem Game.
 
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
@@ -2169,7 +2223,7 @@ Die Kante nach dem Übergang.
 \includegraphics[scale=0.5]{Klassen/IKeyEventListener}
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\\\\
-Eine Schnittstelle, die von Klassen inmplementiert wird, welche auf Tastatureingaben reagieren.
+Eine Schnittstelle, die von Klassen implementiert wird, welche auf Tastatureingaben reagieren.
 
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
@@ -2247,11 +2301,11 @@ Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode 
 weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Begin} (\ptype{GameTime})}\\~\\
-In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert
+In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stapel gesichert
 und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{End} (\ptype{GameTime})}\\~\\
-Das auf dem Stack gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
+Das auf dem Stapel gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
 das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
 auf dieses ubergeordnete Rendertarget gezeichnet.
 ~\\\\
@@ -2308,7 +2362,7 @@ Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
 
 \subsection{Enumeration HorizontalAlignment}
 \paragraph{Beschreibung:}\mbox{}\\\\
-Die horizontale Ausrichtung.
+Eine horizontale Ausrichtung.
 
 
 \paragraph{Werte:}\mbox{} \\\\

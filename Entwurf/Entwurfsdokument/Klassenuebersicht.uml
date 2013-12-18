@@ -51,6 +51,8 @@ public class AudioSettingsScreen :
     + Update (GameTime time) : void
     // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + AudioSettingsScreen (Knot3Game game) : void
 
 // Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann.
 public class BooleanOptionInfo : 
@@ -147,7 +149,7 @@ public class ChallengeFileIO :
     + ChallengeFileIO () : void
     // Speichert eine Challenge in dem Dateinamen, der in dem Challenge-Objekt enthalten ist.
     + Save (Challenge challenge) : void
-    // Lädt eine Challenge aus einer angebenenen Datei.
+    // Lädt eine Challenge aus einer angegebenen Datei.
     + Load (String filename) : Challenge
     // Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
     + LoadMetaData (String filename) : ChallengeMetaData
@@ -160,6 +162,8 @@ public class ChallengeLoadScreen :
     + Update (GameTime time) : void
     // Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + ChallengeModeScreen (Knot3Game game) : void
 
 // Enthält Metadaten zu einer Challenge.
 public class ChallengeMetaData : 
@@ -213,8 +217,8 @@ public class CheckBoxItem :
     // Die Option, die mit dem Auswahlkasten verknüft ist.
     - option : BooleanOptionInfo
   Methods:
-    // Erstellt einen Menüeintrag für die angegebene Option.
-    + CheckBoxItem (BooleanOptionInfo option) : void
+    // 
+    + CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, BooleanOptionInfo option) : void
 
 // Eine doppelt verkettete Liste.
 public class Circle : 
@@ -271,6 +275,8 @@ public class ColorPickItem :
     // Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
     - picker : ColorPicker
   Methods:
+    // 
+    + ColorPickItem (GameScreen screen, DisplayLayer drawOrder, Color color) : void
 
 // Repräsentiert eine Einstellungsdatei.
 public class ConfigFile : 
@@ -291,6 +297,8 @@ public class ConfirmDialog :
     // Das Menü, das Schaltflächen enthält.
     - buttons : Menu
   Methods:
+    // 
+    + ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text) : void
 
 // Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
 public class ControlSettingsScreen : 
@@ -302,6 +310,8 @@ public class ControlSettingsScreen :
     + Update (GameTime time) : void
     // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + ControlSettingsScreen (Knot3Game game) : void
 
 // Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
 public class CreativeLoadScreen : 
@@ -311,6 +321,8 @@ public class CreativeLoadScreen :
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
+    // 
+    + CreativeLoadScreen (Knot3Game game) : void
 
 // Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv ist und für den Knoten eine 3D-Welt zeichnet.
 public class CreativeModeScreen : 
@@ -357,6 +369,8 @@ public class Dialog :
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
     // Bei einem Rechtsklick geschieht nichts.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
+    // 
+    + Dialog (GameScreen screen, DisplayLayer drawOrder, String title, String text) : void
 
 // Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
 // Wird benutzt, damit keine ungültigen Kantenrichtungen angegeben werden können.
@@ -443,6 +457,8 @@ public class DropDownMenuItem :
     // Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
     // Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
     + AddEntries (DropDownEntry enties) : void
+    // 
+    + DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder) : void
 
 // Eine Kante eines Knotens, die aus einer Richtung und einer Farbe, sowie optional einer Liste von Flächennummern besteht.
 public class Edge : 
@@ -528,7 +544,7 @@ public class GameModelInfo :
     // Die Skalierung des Modells.
     + Scale : Vector3
   Methods:
-    // Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angebenenen Informationen zu
+    // Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
     // Dateiname, Rotation und Skalierung.
     + GameModelInfo (String modelname, Angles3 rotation, Vector3 scale) : void
 
@@ -607,6 +623,8 @@ public class GraphicsSettingsScreen :
     + Update (GameTime time) : void
     // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + GraphicsSettingsScreen (Knot3Game game) : void
 
 // Eine horizontale Ausrichtung.
 public enum HorizontalAlignment
@@ -736,6 +754,8 @@ public class InputItem :
     // Beinhaltet den vom Spieler eingegebenen Text.
     + InputText : String
   Methods:
+    // 
+    + InputItem (GameScreen screen, DisplayLayer drawOrder, String text) : void
 
 // Stellt eine Schnittstelle für Klassen bereit, die Rendereffekte ermöglichen.
 public interface IRenderEffect : 
@@ -775,6 +795,8 @@ public class KeyInputItem :
   Methods:
     // Speichert die aktuell gedrückte Taste in der Option.
     + OnKeyEvent () : void
+    // 
+    + KeyInputItem (GameScreen screen, DisplayLayer drawOrder, OptionInfo option) : void
 
 // Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten.
 public class Knot : 
@@ -799,7 +821,7 @@ public class Knot :
     + Knot () : void
     // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
     // Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
-    // oder beide den Wert \glqq null \grqq, dann wird eine IOException geworfen.
+    // oder beide den Wert \glqq null\grqq, dann wird eine IOException geworfen.
     + Save () : void
     // Hebt die aktuelle Kantenauswahl auf.
     + ClearSelection () : void
@@ -828,7 +850,7 @@ public class Knot :
     + IsSelected (Edge edge) : Boolean
     // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
     + GetEnumerator () : IEnumerator
-    // Speichert den Knoten unter dem angegebenen Dateinamen in dem angebenenen Dateiformat.
+    // Speichert den Knoten unter dem angegebenen Dateinamen in dem angegebenen Dateiformat.
     + Save (IKnotIO format, String filename) : void
     // Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
     + Equals (T other) : Boolean
@@ -838,7 +860,7 @@ public class Knot3Game :
   Attributes:
     // Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
     // ob sich das Spiel im Vollbildmodus befindet. Wird dieses Attribut auf einen Wert gesetzt,
-    // dann wird der Modus entweder gewechselt oder beibehalten, falls es auf den selben Wert gesetzt wird.
+    // dann wird der Modus entweder gewechselt oder beibehalten, falls es auf denselben Wert gesetzt wird.
     + IsFullScreen : Boolean
     // Enthält als oberste Element den aktuellen Spielzustand und darunter die zuvor aktiven Spielzustände.
     + Screens : Stack<GameScreen>
@@ -849,13 +871,15 @@ public class Knot3Game :
     + Graphics : GraphicsDeviceManager
   Methods:
     // Erstellt ein neues zentrales Spielobjekt und setzt die Auflösung des BackBuffers auf
-    // die in der Einstelungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
+    // die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
     // Bildschirmauflösung und wechselt in den Vollbildmodus.
     + Knot3Game () : void
     // Wird einmal beim Spielstart aufgerufen und lädt die Spielzustände.
     + LoadContent () : void
     // Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
     + UnloadContent () : void
+    // 
+    + <<create>> () : void
     // Ruft die Draw()-Methode des aktuellen Spielzustands auf.
     + Draw (GameTime time) : void
     // Ruft die Update()-Methode des aktuellen Spielzustands auf und wechselt den Spielzustand bei Bedarf.
@@ -871,7 +895,7 @@ public class KnotFileIO :
     + KnotFileIO () : void
     // Speichert einen Knoten in dem Dateinamen, der in dem Knot-Objekt enthalten ist.
     + Save (Knot knot) : void
-    // Lädt eines Knotens aus einer angebenenen Datei.
+    // Lädt eines Knotens aus einer angegebenen Datei.
     + Load (String filename) : Knot
     // Lädt die Metadaten eines Knotens aus einer angegebenen Datei.
     + LoadMetaData (String filename) : KnotMetaData
@@ -900,7 +924,7 @@ public class KnotMetaData :
     // Beim Speichern muss der Spieler in diesem Fall zwingend
     // einen nichtleeren Namen wählen. Wird ein neuer Anzeigename festgelegt,
     // dann wird der Dateiname ebenfalls auf einen neuen Wert gesetzt, unabhängig davon
-    // ob er bereits einen Wert enthält oder \glqq null \grqq ist.
+    // ob er bereits einen Wert enthält oder \glqq null\grqq~ist.
     // Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
     + Name : String
     // Das Format, aus dem die Metadaten geladen wurden.
@@ -1024,6 +1048,8 @@ public class Menu :
     + Size () : Integer
     // Gibt einen Enumerator über die Einträge des Menüs zurück.
     + GetEnumerator () : IEnumerator
+    // 
+    + Menu (GameScreen screen, DisplayLayer drawOrder) : void
 
 // Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagiert.
 public class MenuButton : 
@@ -1031,8 +1057,8 @@ public class MenuButton :
     // Die Aktion, die ausgeführt wird, wenn der Spieler auf die Schaltfläche klickt.
     + OnClick : Action
   Methods:
-    // Erstellt eine neue Schaltfläche mit dem angegebenen Namen und der angegebenen Aktion.
-    + MenuButton (String name, Action onClick) : void
+    // 
+    + MenuButton (GameScreen screen, DisplayLayer drawOrder, String name, Action onClick) : void
 
 // Ein abstrakte Klasse für Menüeinträge, die
 public class MenuItem : 
@@ -1238,6 +1264,8 @@ public class ProfileSettingsScreen :
     + Update (GameTime time) : void
     // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + ProfileSettingsScreen (Knot3Game game) : void
 
 // Eine abstrakte Klasse, die eine Implementierung von IRenderEffect darstellt.
 public class RenderEffect : 
@@ -1348,6 +1376,8 @@ public class SliderItem :
     // 
     + Step : Integer
   Methods:
+    // 
+    +  (GameScreen screen, DisplayLayer drawOrder, Integer max, Integer min, Integer step, Integer value) : void
 
 // Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardmäßig zugewiesenen
 // BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
@@ -1369,6 +1399,8 @@ public class StartScreen :
     + Update (GameTime time) : void
     // Fügt die das Menü in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + StartScreen (Knot3Game game) : void
 
 // Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
 public class TextInputDialog : 
@@ -1376,6 +1408,8 @@ public class TextInputDialog :
     // Der Text, der durch den Spieler eingegeben wurde.
     + InputText : String
   Methods:
+    // 
+    + TextInputDialog (Knot3-Entwurf::GameScreen screen, Knot3-Entwurf::DisplayLayer drawOrder, String title, String text, String inputText) : void
 
 // Eine Einführung in das Spielen von Challenges.
 // Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangeführt.
@@ -1400,6 +1434,8 @@ public class VerticalMenu :
   Methods:
     // Ordnet die Einträge vertikal an.
     + AlignItems () : void
+    // 
+    + VerticalMenu (GameScreen screen, DisplayLayer drawOrder) : void
 
 // Eine abstrakte Klasse, von der alle Element der grafischen Benutzeroberfläche erben.
 public class Widget : 
