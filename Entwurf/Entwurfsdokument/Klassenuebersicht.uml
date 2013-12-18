@@ -239,7 +239,7 @@ public class Circle :
     // Gibt einen Enumerator über die Liste zurück.
     + GetEnumerator () : IEnumerator
 
-// 
+// Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
 public enum ClickState
     // 
     None=0
@@ -358,7 +358,8 @@ public class Dialog :
     // Bei einem Rechtsklick geschieht nichts.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
 
-// 
+// Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
+// Wird benutzt, damit keine ungültigen Kantenrichtungen angegeben werden können.
 public enum Direction
     // 
     Left=1
@@ -375,7 +376,7 @@ public enum Direction
     // 
     Zero=0
 
-// 
+// Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
 public enum DisplayLayer
     // 
     None=0
@@ -607,7 +608,7 @@ public class GraphicsSettingsScreen :
     // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// 
+// Die horizontale Ausrichtung.
 public enum HorizontalAlignment
     // 
     Left=0
@@ -757,7 +758,7 @@ public interface IRenderEffect :
     // ein anderer Shader zugewiesen werden.
     + RemapModel (GameModel model) : void
 
-// 
+// Der Zustand eines Menüeintrags.
 public enum ItemState
     // 
     Selected=1
@@ -1384,13 +1385,13 @@ public class TutorialChallengeModeScreen :
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// a
+// Die vertikale Ausrichtung.
 public enum VerticalAlignment
-    // b
+    // 
     Top=1
-    // c
+    // 
     Center=0
-    // d
+    // 
     Bottom=2
 
 // Ein Menü, das alle Einträge vertikal anordnet.
