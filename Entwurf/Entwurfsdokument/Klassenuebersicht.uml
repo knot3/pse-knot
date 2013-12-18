@@ -608,7 +608,7 @@ public class GraphicsSettingsScreen :
     // Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
-// Die horizontale Ausrichtung.
+// Eine horizontale Ausrichtung.
 public enum HorizontalAlignment
     // 
     Left=0
@@ -666,7 +666,7 @@ public interface IJunction :
     + EdgeTo : Edge
   Methods:
 
-// Eine Schnittstelle, die von Klassen inmplementiert wird, welche auf Tastatureingaben reagieren.
+// Eine Schnittstelle, die von Klassen implementiert wird, welche auf Tastatureingaben reagieren.
 public interface IKeyEventListener : 
   Attributes:
     // Die Eingabepriorität.
@@ -714,13 +714,13 @@ public class Input :
     + RightMouseButton : ClickState
     // Enthält den Klickzustand der linken Maustaste.
     + LeftMouseButton : ClickState
-    // Enthält den Mauszustand von XNA des aktuellen Frames.
+    // Enthält den Mauszustand von XNA zum aktuellen Frames.
     + CurrentMouseState : MouseState
-    // Enthält den Tastaturzustand von XNA des aktuellen Frames.
+    // Enthält den Tastaturzustand von XNA zum aktuellen Frames.
     + CurrentKeyboardState : KeyboardState
-    // Enthält den Mauszustand von XNA des vorherigen Frames.
+    // Enthält den Mauszustand von XNA zum vorherigen Frames.
     + PreviousMouseState : MouseState
-    // Enthält den Tastaturzustand von XNA des vorherigen Frames.
+    // Enthält den Tastaturzustand von XNA zum vorherigen Frames.
     + PreviousKeyboardState : KeyboardState
     // Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
     + GrabMouseMovement : Boolean
@@ -744,10 +744,10 @@ public interface IRenderEffect :
     // weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
     + RenderTarget : RenderTarget2D
   Methods:
-    // In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert
+    // In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stapel gesichert
     // und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
     + Begin (GameTime) : void
-    // Das auf dem Stack gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
+    // Das auf dem Stapel gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
     // das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
     // auf dieses ubergeordnete Rendertarget gezeichnet.
     + End (GameTime) : void
@@ -780,8 +780,8 @@ public class KeyInputItem :
 public class Knot : 
   Attributes:
     // Der Name des Knotens, welcher auch leer sein kann.
-    // Beim Speichern muss der User in diesem Fall zwingend einen nichtleeren Namen wählen.
-    // Der Wert dieser Eigenschaft wird aus der \glqq Name \grqq -Eigenschaft des Metadaten-Objektes geladen
+    // Beim Speichern muss der Nutzer in diesem Fall zwingend einen nichtleeren Namen wählen.
+    // Der Wert dieser Eigenschaft wird aus der \glqq Name\grqq~-Eigenschaft des Metadaten-Objektes geladen
     // und bei Änderungen wieder in diesem gespeichert.
     // Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
     + Name : String
@@ -795,11 +795,11 @@ public class Knot :
     + SelectedEdges : IEnumerable<Edge>
   Methods:
     // Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
-    // die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null \grqq.
+    // die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null\grqq.
     + Knot () : void
     // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
     // Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
-    // oder beide den Wert \glqq null \grqq , dann wird eine IOException geworfen.
+    // oder beide den Wert \glqq null \grqq, dann wird eine IOException geworfen.
     + Save () : void
     // Hebt die aktuelle Kantenauswahl auf.
     + ClearSelection () : void
