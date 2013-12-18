@@ -234,8 +234,8 @@ Die Metadaten der Challenge.
 Der Name der Challenge.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{Challenge} (\ptype{ChallengeMetaData} \varname{meta}, \ptype{Knot} \varname{start}, \ptype{Knot} \varname{target})}\\~\\
-Erstellt ein Challenge-Objekt aus einem gegebenenen Challenge-Metadaten-Objekt.
-Erstellt ein Challenge-Objekt aus einer gegebenenen Challenge-Datei.
+Erstellt ein Challenge-Objekt aus einem gegebenen Challenge-Metadaten-Objekt.
+Erstellt ein Challenge-Objekt aus einer gegebenen Challenge-Datei.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{AddToHighscore} (\ptype{String} \varname{name}, \ptype{Integer} \varname{time})}\\~\\
 Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
@@ -366,7 +366,7 @@ Ein Menüeintrag, der einen Auswahlkasten darstellt.
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{private} \ptype{BooleanOptionInfo} \varname{option}}\\~\\
-Die Option, die mit dem Auswahlkasten verknüft ist.
+Die Option, die mit dem Auswahlkasten verknüpft ist.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{CheckBoxItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{BooleanOptionInfo} \varname{option})}\\~\\
 
@@ -394,7 +394,7 @@ Der vorherige Listeneintrag.
 Erstellt einen neuen Listeneintrag.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Remove} ()}\\~\\
-Entfernt diesen Listeneintrag und verknüft den vorherigen mit dem nächsten Eintrag.
+Entfernt diesen Listeneintrag und verknüpft den vorherigen mit dem nächsten Eintrag.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{InsertAfter} (\ptype{T} \varname{next})}\\~\\
 Fügt nach diesem Listeneintrag einen neuen Listeneintrag ein.
@@ -756,7 +756,7 @@ Das Spielstandverzeichnis.
 Das Bildschirmfotoverzeichnis.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String} \varname{name})}\\~\\
-Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungüliger Zeichen.
+Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungültiger Zeichen.
 ~\\\\
 \textbf{\keyword{public} \ptype{String} \varname{GetHash} (\ptype{String} \varname{filename})}\\~\\
 
@@ -901,7 +901,7 @@ Ein Stack, der während dem Aufruf der Draw-Methoden der Spielkomponenten die je
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})}\\~\\
 Beginnt mit dem Füllen der Spielkomponentenliste des XNA-Frameworks und fügt sowohl für Tastatur- als auch für
-Mauseingaben einen Inputhandler für Widgets hinzu. Wird in Unterklassen von GameScreen reimplementiert und fügt zursätzlich weitere
+Mauseingaben einen Inputhandler für Widgets hinzu. Wird in Unterklassen von GameScreen reimplementiert und fügt zusätzlich weitere
 Spielkomponenten hinzu.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{BeforeExit} (\ptype{GameScreen} \varname{nextScreen}, \ptype{GameTime} \varname{time})}\\~\\
@@ -1090,7 +1090,7 @@ Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebe
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{Object} \varname{Clone} ()}\\~\\
-Erstellt eine vollständige Kopie des Knotens, inklusive der Kanten-Datentuktur und des Metadaten-Objekts.
+Erstellt eine vollständige Kopie des Knotens, inklusive der Kanten-Datenstruktur und des Metadaten-Objekts.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{AddToSelection} (\ptype{Edge} \varname{edge})}\\~\\
 Fügt die angegebene Kante zur aktuellen Kantenauswahl hinzu.
@@ -1231,7 +1231,7 @@ Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
 ~\\\\
 \textbf{\keyword{public} \ptype{IKnotIO} \varname{Format}}\\~\\
 Das Format, aus dem die Metadaten geladen wurden.
-Es ist genau dann \glqq null \grqq , wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
+Es ist genau dann \glqq null\grqq, wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
 ~\\\\
 \textbf{\keyword{public} \ptype{Func$<$Integer$>$} \varname{CountEdges}}\\~\\
 Ein Delegate, das die Anzahl der Kanten zurückliefert.
@@ -1241,16 +1241,16 @@ die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes gelesen wurde.
 ~\\\\
 \textbf{\keyword{public} \ptype{String} \varname{Filename}}\\~\\
 Falls die Metadaten aus einer Datei eingelesen wurden, enthält dieses Attribut den Dateinamen,
-sonst \glqq null \grqq.
+sonst \glqq null\grqq.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Func$<$Integer$>$} \varname{countEdges}, \ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})}\\~\\
 Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
-und einer angebenen Funktion, welche eine Kantenanzahl zurück gibt.
+und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
 Zusätzlich wird der Dateiname oder das Speicherformat angegeben, aus dem die Metadaten gelesen wurden.
 ~\\\\
 \textbf{\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Func$<$Integer$>$} \varname{countEdges})}\\~\\
 Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
-und einer angebenen Funktion, welche eine Kantenanzahl zurück gibt.
+und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
 
 \subsection{Klasse KnotRenderer}
 \begin{wrapfigure}{r}{9cm}
@@ -1299,7 +1299,7 @@ Spielobjekt-Informationen, die unter Anderem die Position des Knotenursprungs en
 Gibt den Ursprung des Knotens zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\\~\\
-Gibt immer \glqq null \grqq zurück.
+Gibt immer \glqq null\grqq zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()}\\~\\
 Wird mit dem EdgesChanged-Event des Knotens verknüft.
@@ -1370,7 +1370,7 @@ aktuellen Sprache zurück, die dabei aus der Einstellungsdatei des Spiels gelese
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\\\\
 Ein Menü enthält Bedienelemente zur Benutzerinteraktion. Diese Klasse bietet Standardwerte für
-Positionen, Größen, Farben und Ausrichtungen der Menueinträge. Sie werden gesetzt, wenn die Werte
+Positionen, Größen, Farben und Ausrichtungen der Menüeinträge. Sie werden gesetzt, wenn die Werte
 der Menüeinträge \glqq null\grqq~sind.
 
 
@@ -1449,7 +1449,7 @@ Die Zeichenreihenfolge.
 Der Anzeigetext der Schaltfläche.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
-Reaktionen auf Tasteneíngaben.
+Reaktionen auf Tasteneingaben.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
 Reaktionen auf einen Linksklick.
@@ -1466,7 +1466,7 @@ Gibt die Ausmaße des Eintrags zurück.
 \includegraphics[scale=0.5]{Klassen/MenuScreen}
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\\\\
-Eine abstrakte Klasse, von der alle Spielzutsände erben, die Menüs darstellen.
+Eine abstrakte Klasse, von der alle Spielzustände erben, die Menüs darstellen.
 
 
 \paragraph{Methoden:}\mbox{} \\\\
@@ -1642,7 +1642,7 @@ Die zentrale Einstellungsdatei des Spiels.
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\\\\
 Pausiert ein Spieler im Creative- oder Challenge-Modus das Spiel,
-wird dieser Dialog über anderen Spielkonmponenten angezeigt.
+wird dieser Dialog über anderen Spielkomponenten angezeigt.
 
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
@@ -1719,7 +1719,7 @@ Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
 Gibt den Ursprung des Knotens zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\\~\\
-Gibt immer \glqq null \grqq zurück.
+Gibt immer \glqq null\grqq zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
 Wird für jeden Frame aufgerufen.
