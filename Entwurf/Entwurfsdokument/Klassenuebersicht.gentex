@@ -1019,7 +1019,8 @@ Ein Menüeintrag, der Texteingaben vom Spieler annimmt.
 Beinhaltet den vom Spieler eingegebenen Text.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{InputItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{text})}\\~\\
-
+Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
 
 \subsection{Klasse KeyInputItem}
 \begin{wrapfigure}{r}{9cm}
@@ -1035,7 +1036,8 @@ Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Opt
 Die Option in einer Einstellungsdatei.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{KeyInputItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{OptionInfo} \varname{option})}\\~\\
-
+Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem sind Angaben zur Zeichenreihenfolge und der Eingabeoption Pflicht.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
 Speichert die aktuell gedrückte Taste in der Option.
@@ -1152,20 +1154,17 @@ Erstellt ein neues zentrales Spielobjekt und setzt die Auflösung des BackBuffer
 die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
 Bildschirmauflösung und wechselt in den Vollbildmodus.
 \paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{LoadContent} ()}\\~\\
-Wird einmal beim Spielstart aufgerufen und lädt die Spielzustände.
+\textbf{\keyword{public} \ptype{void} \varname{Initialize} ()}\\~\\
+
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{UnloadContent} ()}\\~\\
 Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{$<$$<$create$>$$>$} ()}\\~\\
-
-~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\\~\\
 Ruft die Draw()-Methode des aktuellen Spielzustands auf.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
-Ruft die Update()-Methode des aktuellen Spielzustands auf und wechselt den Spielzustand bei Bedarf.
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+
 
 \subsection{Klasse KnotFileIO}
 \begin{wrapfigure}{r}{9cm}
@@ -1364,7 +1363,7 @@ Eine statische Klasse, die Bezeichner in lokalisierten Text umsetzen kann.
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{private} \ptype{ConfigFile} \varname{localization}}\\~\\
-
+Die Datei, welche Informationen für die Lokalisierung enthält.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{String} \varname{Localize} (\ptype{String} \varname{text})}\\~\\
 Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
@@ -1401,7 +1400,8 @@ Die horizontale Ausrichtung der Menüeinträge.
 Die vertikale Ausrichtung der Menüeinträge.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{Menu} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
-
+Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem} \varname{item})}\\~\\
 Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~ oder leere Werte für
@@ -1433,7 +1433,9 @@ Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagi
 Die Aktion, die ausgeführt wird, wenn der Spieler auf die Schaltfläche klickt.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{MenuButton} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{name}, \ptype{Action} \varname{onClick})}\\~\\
-
+Erzeugt ein neues MenuButton-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche
+und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
 
 \subsection{Klasse MenuItem}
 \begin{wrapfigure}{r}{9cm}
@@ -1720,7 +1722,7 @@ Der Knoten, dessen Kanten verschoben werden können.
 Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{PipeMovement} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world}, \ptype{GameObjectInfo} \varname{info})}\\~\\
-
+!!!
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\\~\\
 Gibt den Ursprung des Knotens zurück.
@@ -1773,10 +1775,10 @@ Der Spielzustand, der die Profil-Einstellungen darstellt.
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\\~\\
-
+!!!
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{ProfileSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-
+Erzeugt eine neue Instanz eines ProfileSettingsScreen-Objekts und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -1822,7 +1824,7 @@ BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann
 ein anderer Shader zugewiesen werden.
 ~\\\\
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{time})}\\~\\
-
+!!!
 
 \subsection{Klasse RenderEffectStack}
 \begin{wrapfigure}{r}{9cm}
@@ -1952,10 +1954,11 @@ Der minimale Wert.
 Der maximale Wert.
 ~\\\\
 \textbf{\keyword{public} \ptype{Integer} \varname{Step}}\\~\\
-
+Schrittweite zwischen zwei einstellbaren Werten.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Integer} \varname{max}, \ptype{Integer} \varname{min}, \ptype{Integer} \varname{step}, \ptype{Integer} \varname{value})}\\~\\
-
+Zudem ist die Angabe der Zeichenreihenfolge, dem minimalen einstellbaren Wert, dem maximalen einstellbaren Wert,
+der Schrittweite und dem voreingestellten Wert Pflicht.
 
 \subsection{Klasse StandardEffect}
 \begin{wrapfigure}{r}{9cm}
@@ -1972,7 +1975,7 @@ BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
 Erstellt einen neuen Standardeffekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\\~\\
-
+!!!
 
 \subsection{Klasse StartScreen}
 \begin{wrapfigure}{r}{9cm}
@@ -1988,7 +1991,7 @@ Der Startbildschirm.
 Die Schaltflächen des Startbildschirms.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{StartScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-
+Erzeugt eine neue Instanz eines StartScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -2257,7 +2260,7 @@ Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten impl
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}}\\~\\
-
+Aufzählung der Dateierweiterungen.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})}\\~\\
 Speichert einen Knoten.
@@ -2330,10 +2333,18 @@ ein anderer Shader zugewiesen werden.
 Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
 
 
-\paragraph{Werte:}\mbox{} \\\\
+\paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\ptype{None} \keyword{ = } \varname{0}}\\~\\
+Kein gültiger oder ein undefinierter Zustand.
+Keine Reihenfolge.
+
+~\\\\
 \textbf{\ptype{SingleClick} \keyword{ = } \varname{1}}\\~\\
+Ein Einzelklick.
+~\\\\
 \textbf{\ptype{DoubleClick} \keyword{ = } \varname{2}}\\~\\
+Ein Doppelklick.
+~\\\\
 
 \subsection{Enumeration Direction}
 \paragraph{Beschreibung:}\mbox{}\\\\
@@ -2341,59 +2352,115 @@ Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
 Wird benutzt, damit keine ungültigen Kantenrichtungen angegeben werden können.
 
 
-\paragraph{Werte:}\mbox{} \\\\
+\paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\ptype{Left} \keyword{ = } \varname{1}}\\~\\
+Links.
+~\\\\
 \textbf{\ptype{Right} \keyword{ = } \varname{2}}\\~\\
+Rechts.
+~\\\\
 \textbf{\ptype{Up} \keyword{ = } \varname{3}}\\~\\
+Hoch.
+~\\\\
 \textbf{\ptype{Down} \keyword{ = } \varname{4}}\\~\\
+Runter.
+~\\\\
 \textbf{\ptype{Forward} \keyword{ = } \varname{5}}\\~\\
+Vorwärts.
+~\\\\
 \textbf{\ptype{Backward} \keyword{ = } \varname{6}}\\~\\
+Rückwärts.
+~\\\\
 \textbf{\ptype{Zero} \keyword{ = } \varname{0}}\\~\\
+Keine Richtung.
+~\\\\
 
 \subsection{Enumeration DisplayLayer}
 \paragraph{Beschreibung:}\mbox{}\\\\
 Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
 
 
-\paragraph{Werte:}\mbox{} \\\\
+\paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\ptype{None} \keyword{ = } \varname{0}}\\~\\
+Kein gültiger oder ein undefinierter Zustand.
+Keine Reihenfolge.
+
+~\\\\
 \textbf{\ptype{Background} \keyword{ = } \varname{1}}\\~\\
+!!!
+~\\\\
 \textbf{\ptype{GameWorld} \keyword{ = } \varname{2}}\\~\\
+
+~\\\\
 \textbf{\ptype{Dialog} \keyword{ = } \varname{3}}\\~\\
+
+~\\\\
 \textbf{\ptype{Menu} \keyword{ = } \varname{4}}\\~\\
+
+~\\\\
 \textbf{\ptype{MenuItem} \keyword{ = } \varname{5}}\\~\\
+
+~\\\\
 \textbf{\ptype{SubMenu} \keyword{ = } \varname{6}}\\~\\
+
+~\\\\
 \textbf{\ptype{SubMenuItem} \keyword{ = } \varname{7}}\\~\\
+
+~\\\\
 \textbf{\ptype{Overlay} \keyword{ = } \varname{8}}\\~\\
+
+~\\\\
 \textbf{\ptype{Cursor} \keyword{ = } \varname{9}}\\~\\
+
+~\\\\
 
 \subsection{Enumeration HorizontalAlignment}
 \paragraph{Beschreibung:}\mbox{}\\\\
 Eine horizontale Ausrichtung.
 
 
-\paragraph{Werte:}\mbox{} \\\\
+\paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\ptype{Left} \keyword{ = } \varname{0}}\\~\\
+Links.
+~\\\\
 \textbf{\ptype{Center} \keyword{ = } \varname{1}}\\~\\
+Mittig.
+~\\\\
 \textbf{\ptype{Right} \keyword{ = } \varname{2}}\\~\\
+Rechts.
+~\\\\
 
 \subsection{Enumeration ItemState}
 \paragraph{Beschreibung:}\mbox{}\\\\
 Der Zustand eines Menüeintrags.
 
 
-\paragraph{Werte:}\mbox{} \\\\
+\paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\ptype{Selected} \keyword{ = } \varname{1}}\\~\\
+Ausgewählt.
+~\\\\
 \textbf{\ptype{Hovered} \keyword{ = } \varname{2}}\\~\\
+Die Maus wurde direkt über den Menüeintrag navigiert und verweilt dort.
+~\\\\
 \textbf{\ptype{None} \keyword{ = } \varname{0}}\\~\\
+Kein gültiger oder ein undefinierter Zustand.
+Keine Reihenfolge.
+
+~\\\\
 
 \subsection{Enumeration VerticalAlignment}
 \paragraph{Beschreibung:}\mbox{}\\\\
 Die vertikale Ausrichtung.
 
 
-\paragraph{Werte:}\mbox{} \\\\
+\paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\ptype{Top} \keyword{ = } \varname{1}}\\~\\
+
+~\\\\
 \textbf{\ptype{Center} \keyword{ = } \varname{0}}\\~\\
+
+~\\\\
 \textbf{\ptype{Bottom} \keyword{ = } \varname{2}}\\~\\
+
+~\\\\
 

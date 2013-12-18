@@ -766,7 +766,7 @@ public class InputItem :
     + InputText : String
   Methods:
     // Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
-	// Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
+    // Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
     + InputItem (GameScreen screen, DisplayLayer drawOrder, String text) : void
 
 // Stellt eine Schnittstelle für Klassen bereit, die Rendereffekte ermöglichen.
@@ -797,6 +797,8 @@ public enum ItemState
     // Die Maus wurde direkt über den Menüeintrag navigiert und verweilt dort.
     Hovered=2
     // Kein gültiger oder ein undefinierter Zustand.
+    // Keine Reihenfolge.
+    // 
     None=0
 
 // Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Option als Zeichenkette speichert.
@@ -887,16 +889,14 @@ public class Knot3Game :
     // die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
     // Bildschirmauflösung und wechselt in den Vollbildmodus.
     + Knot3Game () : void
-    // Wird einmal beim Spielstart aufgerufen und lädt die Spielzustände.
-    + LoadContent () : void
+    // 
+    + Initialize () : void
     // Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
     + UnloadContent () : void
-    // !!!
-    + <<create>> () : void
     // Ruft die Draw()-Methode des aktuellen Spielzustands auf.
     + Draw (GameTime time) : void
-    // Ruft die Update()-Methode des aktuellen Spielzustands auf und wechselt den Spielzustand bei Bedarf.
-    + Update (GameTime GameTime) : void
+    // 
+    + Update (GameTime time) : void
 
 // Implementiert das Speicherformat für Knoten.
 public class KnotFileIO : 
@@ -1072,8 +1072,8 @@ public class MenuButton :
     + OnClick : Action
   Methods:
     // Erzeugt ein neues MenuButton-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
-    // Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche 
-	// und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
+    // Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche
+    // und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
     + MenuButton (GameScreen screen, DisplayLayer drawOrder, String name, Action onClick) : void
 
 // Ein abstrakte Klasse für Menüeinträge, die
@@ -1392,9 +1392,8 @@ public class SliderItem :
     // Schrittweite zwischen zwei einstellbaren Werten.
     + Step : Integer
   Methods:
-    / Erzeugt ein neues SliderItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
-    // Zudem ist die Angabe der Zeichenreihenfolge, dem minimalen einstellbaren Wert, dem maximalen einstellbaren Wert, 
-	// der Schrittweite und dem voreingestellten Wert Pflicht.
+    // Zudem ist die Angabe der Zeichenreihenfolge, dem minimalen einstellbaren Wert, dem maximalen einstellbaren Wert,
+    // der Schrittweite und dem voreingestellten Wert Pflicht.
     +  (GameScreen screen, DisplayLayer drawOrder, Integer max, Integer min, Integer step, Integer value) : void
 
 // Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardmäßig zugewiesenen
