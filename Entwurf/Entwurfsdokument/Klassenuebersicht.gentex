@@ -1019,7 +1019,8 @@ Ein Menüeintrag, der Texteingaben vom Spieler annimmt.
 Beinhaltet den vom Spieler eingegebenen Text.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{InputItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{text})}\\~\\
-
+Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
 
 \subsection{Klasse KeyInputItem}
 \begin{wrapfigure}{r}{9cm}
@@ -1035,7 +1036,8 @@ Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Opt
 Die Option in einer Einstellungsdatei.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{KeyInputItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{OptionInfo} \varname{option})}\\~\\
-
+Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem sind Angaben zur Zeichenreihenfolge und der Eingabeoption Pflicht.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
 Speichert die aktuell gedrückte Taste in der Option.
@@ -1159,7 +1161,7 @@ Wird einmal beim Spielstart aufgerufen und lädt die Spielzustände.
 Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{$<$$<$create$>$$>$} ()}\\~\\
-
+!!!
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\\~\\
 Ruft die Draw()-Methode des aktuellen Spielzustands auf.
@@ -1364,7 +1366,7 @@ Eine statische Klasse, die Bezeichner in lokalisierten Text umsetzen kann.
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{private} \ptype{ConfigFile} \varname{localization}}\\~\\
-
+Die Datei, welche Informationen für die Lokalisierung enthält.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{String} \varname{Localize} (\ptype{String} \varname{text})}\\~\\
 Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
@@ -1401,7 +1403,8 @@ Die horizontale Ausrichtung der Menüeinträge.
 Die vertikale Ausrichtung der Menüeinträge.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{Menu} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
-
+Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem} \varname{item})}\\~\\
 Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~ oder leere Werte für
@@ -1433,7 +1436,9 @@ Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagi
 Die Aktion, die ausgeführt wird, wenn der Spieler auf die Schaltfläche klickt.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{MenuButton} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{name}, \ptype{Action} \varname{onClick})}\\~\\
-
+Erzeugt ein neues MenuButton-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche
+und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
 
 \subsection{Klasse MenuItem}
 \begin{wrapfigure}{r}{9cm}
@@ -1720,7 +1725,7 @@ Der Knoten, dessen Kanten verschoben werden können.
 Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{PipeMovement} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world}, \ptype{GameObjectInfo} \varname{info})}\\~\\
-
+!!!
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\\~\\
 Gibt den Ursprung des Knotens zurück.
@@ -1773,10 +1778,10 @@ Der Spielzustand, der die Profil-Einstellungen darstellt.
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\\~\\
-
+!!!
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{ProfileSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-
+Erzeugt eine neue Instanz eines ProfileSettingsScreen-Objekts und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -1822,7 +1827,7 @@ BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann
 ein anderer Shader zugewiesen werden.
 ~\\\\
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{time})}\\~\\
-
+!!!
 
 \subsection{Klasse RenderEffectStack}
 \begin{wrapfigure}{r}{9cm}
@@ -1952,10 +1957,11 @@ Der minimale Wert.
 Der maximale Wert.
 ~\\\\
 \textbf{\keyword{public} \ptype{Integer} \varname{Step}}\\~\\
-
+Schrittweite zwischen zwei einstellbaren Werten.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Integer} \varname{max}, \ptype{Integer} \varname{min}, \ptype{Integer} \varname{step}, \ptype{Integer} \varname{value})}\\~\\
-
+Zudem ist die Angabe der Zeichenreihenfolge, dem minimalen einstellbaren Wert, dem maximalen einstellbaren Wert,
+der Schrittweite und dem voreingestellten Wert Pflicht.
 
 \subsection{Klasse StandardEffect}
 \begin{wrapfigure}{r}{9cm}
@@ -1972,7 +1978,7 @@ BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
 Erstellt einen neuen Standardeffekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\\~\\
-
+!!!
 
 \subsection{Klasse StartScreen}
 \begin{wrapfigure}{r}{9cm}
@@ -1988,7 +1994,7 @@ Der Startbildschirm.
 Die Schaltflächen des Startbildschirms.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{StartScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-
+Erzeugt eine neue Instanz eines StartScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -2010,7 +2016,9 @@ Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
 Der Text, der durch den Spieler eingegeben wurde.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{TextInputDialog} (\ptype{Knot3-Entwurf::GameScreen} \varname{screen}, \ptype{Knot3-Entwurf::DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text}, \ptype{String} \varname{inputText})}\\~\\
-
+Erzeugt eine neue Instanz eines TextInputDialog-Objekts und initialisiert diese mit dem zugehörigen GameScreen-Objekt.
+Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenkette für den eingeblendeten Text Pflicht
+und eine Zeichenkette für bereits eingegebenen Text Pflicht.
 
 \subsection{Klasse TutorialChallengeModeScreen}
 \begin{wrapfigure}{r}{9cm}
@@ -2024,7 +2032,7 @@ Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangefü
 
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
-
+!!!
 
 \subsection{Klasse VerticalMenu}
 \begin{wrapfigure}{r}{9cm}
@@ -2037,7 +2045,8 @@ Ein Menü, das alle Einträge vertikal anordnet.
 
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{VerticalMenu} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
-
+Erzeugt eine neue Instanz eines VerticalMenu-Objekts und initialisiert diese mit dem zugehörigen GameScreen-Objekt.
+Zudem ist die Angaben der Zeichenreihenfolge Pflicht.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{AlignItems} ()}\\~\\
 Ordnet die Einträge vertikal an.
@@ -2091,7 +2100,7 @@ Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
 
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} ()}\\~\\
-
+!!!
 
 \subsection{Klasse WidgetMouseHandler}
 \begin{wrapfigure}{r}{9cm}
@@ -2104,7 +2113,7 @@ Ein Inputhandler, der Mauseingaben auf Widgets verarbeitet.
 
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} ()}\\~\\
-
+!!!
 
 \subsection{Klasse World}
 \begin{wrapfigure}{r}{9cm}
@@ -2257,7 +2266,7 @@ Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten impl
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}}\\~\\
-
+Aufzählung der Dateierweiterungen.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})}\\~\\
 Speichert einen Knoten.
