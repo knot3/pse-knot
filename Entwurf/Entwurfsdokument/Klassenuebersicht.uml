@@ -585,7 +585,7 @@ public class GameScreen :
     + CurrentRenderEffects : RenderEffectStack
   Methods:
     // Beginnt mit dem Füllen der Spielkomponentenliste des XNA-Frameworks und fügt sowohl für Tastatur- als auch für
-    // Mauseingaben einen Inputhandler für Widgets hinzu. Wird in Unterklassen von GameScreen reimplementiert und fügt zursätzlich weitere
+    // Mauseingaben einen Inputhandler für Widgets hinzu. Wird in Unterklassen von GameScreen reimplementiert und fügt zusätzlich weitere
     // Spielkomponenten hinzu.
     + Entered (GameScreen previousScreen, GameTime time) : void
     // Leert die Spielkomponentenliste des XNA-Frameworks.
@@ -836,7 +836,7 @@ public class Knot :
     + Move (Direction dir, Integer distance) : Boolean
     // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
     + GetEnumerator () : IEnumerator<Edge>
-    // Erstellt eine vollständige Kopie des Knotens, inklusive der Kanten-Datentuktur und des Metadaten-Objekts.
+    // Erstellt eine vollständige Kopie des Knotens, inklusive der Kanten-Datenstruktur und des Metadaten-Objekts.
     + Clone () : Object
     // Fügt die angegebene Kante zur aktuellen Kantenauswahl hinzu.
     + AddToSelection (Edge edge) : void
@@ -940,11 +940,11 @@ public class KnotMetaData :
     + Filename : String
   Methods:
     // Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
-    // und einer angebenen Funktion, welche eine Kantenanzahl zurück gibt.
+    // und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
     // Zusätzlich wird der Dateiname oder das Speicherformat angegeben, aus dem die Metadaten gelesen wurden.
     + KnotMetaData (String name, Func<Integer> countEdges, IKnotIO format, String filename) : KnotMetaData
     // Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
-    // und einer angebenen Funktion, welche eine Kantenanzahl zurück gibt.
+    // und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
     + KnotMetaData (String name, Func<Integer> countEdges) : KnotMetaData
 
 // Erstellt aus einem Knoten-Objekt die zu dem Knoten gehörenden 3D-Modelle sowie die 3D-Modelle der Pfeile,
@@ -1080,7 +1080,7 @@ public class MenuItem :
     // Gibt die Ausmaße des Eintrags zurück.
     + Bounds () : Rectangle
 
-// Eine abstrakte Klasse, von der alle Spielzutsände erben, die Menüs darstellen.
+// Eine abstrakte Klasse, von der alle Spielzustände erben, die Menüs darstellen.
 public class MenuScreen : 
   Attributes:
   Methods:
