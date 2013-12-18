@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="20ab710a-33d8-48fa-b17c-f3bf548e2638"
   name="Knot3" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -1352,7 +1352,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <interaction
         Id="fa11f208-54ee-4c9d-8c49-1ceb169b43d9"
-        name="Sequence1"
+        name="Spielstart"
         collapseFragmentsFlag="false"
         isActiveClass="false"
         isAbstract="false"
@@ -1680,22 +1680,22 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="b0542e42-6f39-47a2-8d67-237a4c869637"
-            name="MessageOccurrenceSpecification8">
-            <covered>
-              <lifelineMoniker
-                Id="f84930d9-24a1-4b94-88e5-6f2090efedf2"
-                LastKnownName="startScreen : StartScreen"
-                LastKnownLocation="Knot3.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="2d3cc71e-0ff0-4192-9ac7-b28e5badc02e"
             name="MessageOccurrenceSpecification7">
             <covered>
               <lifelineMoniker
                 Id="af4de2cc-21ce-466a-8843-b345a7bfffa1"
                 LastKnownName="knot3Game : Knot3Game"
+                LastKnownLocation="Knot3.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b0542e42-6f39-47a2-8d67-237a4c869637"
+            name="MessageOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="f84930d9-24a1-4b94-88e5-6f2090efedf2"
+                LastKnownName="startScreen : StartScreen"
                 LastKnownLocation="Knot3.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -3486,22 +3486,22 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="313352a5-cb1d-4ef7-a727-e8bceef7b4ce"
-            name="MessageOccurrenceSpecification42">
-            <covered>
-              <lifelineMoniker
-                Id="3d96b019-4180-400d-818a-c500970b667f"
-                LastKnownName="creativeButton : MenuButton"
-                LastKnownLocation="Knot3.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="f0dfcada-e186-4979-8ecb-6481928c0aaf"
             name="MessageOccurrenceSpecification41">
             <covered>
               <lifelineMoniker
                 Id="cbf89639-4299-4484-a48a-f36cc3e9cae0"
                 LastKnownName="knot3Game : Knot3Game"
+                LastKnownLocation="Knot3.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="313352a5-cb1d-4ef7-a727-e8bceef7b4ce"
+            name="MessageOccurrenceSpecification42">
+            <covered>
+              <lifelineMoniker
+                Id="3d96b019-4180-400d-818a-c500970b667f"
+                LastKnownName="creativeButton : MenuButton"
                 LastKnownLocation="Knot3.uml" />
             </covered>
           </messageOccurrenceSpecification>

@@ -889,16 +889,14 @@ public class Knot3Game :
     // die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
     // Bildschirmauflösung und wechselt in den Vollbildmodus.
     + Knot3Game () : void
-    // Wird einmal beim Spielstart aufgerufen und lädt die Spielzustände.
-    + LoadContent () : void
+    // 
+    + Initialize () : void
     // Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
     + UnloadContent () : void
-    // !!!
-    + <<create>> () : void
     // Ruft die Draw()-Methode des aktuellen Spielzustands auf.
     + Draw (GameTime time) : void
-    // Ruft die Update()-Methode des aktuellen Spielzustands auf und wechselt den Spielzustand bei Bedarf.
-    + Update (GameTime GameTime) : void
+    // 
+    + Update (GameTime time) : void
 
 // Implementiert das Speicherformat für Knoten.
 public class KnotFileIO : 

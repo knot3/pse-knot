@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="ea5cbf30-c01f-430a-b9d6-c8922c9c6c95" name="GameComponents" linkedPackageId="ce6b49cb-1a0b-4fa3-9523-53ad8e325153" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="ea5cbf30-c01f-430a-b9d6-c8922c9c6c95" name="GameComponents" linkedPackageId="ce6b49cb-1a0b-4fa3-9523-53ad8e325153" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameScreen">
@@ -313,9 +313,9 @@
       <class Id="3255e0f6-792a-4d1f-afef-eab8b9841a0a" name="Knot3Game" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="11fbb466-9655-4a46-8154-2ac99e569051" />
         <generalsInternal>
-          <generalization Id="6dd341bb-ee4a-4142-8a36-77d6652514ac" isSubstitutable="false">
+          <generalization Id="49edb6ae-593e-4acb-999a-0e9f804f44a4" isSubstitutable="false">
             <classMoniker Id="23f09771-d328-49f3-9cb1-30803f33fe46" LastKnownName="XNA.Game" />
-            <elementDefinition Id="f64bebbc-526b-44f0-a789-ff41decd42f2" />
+            <elementDefinition Id="b9fd97f2-16cf-4510-93ae-9f6053d56d35" />
           </generalization>
         </generalsInternal>
         <targetEnds>
@@ -373,34 +373,15 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="ee1fd672-7bdc-409c-b331-dd49050a721b" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="51e9b6fa-293e-4f5c-a52c-9fd00c6d2c63" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="c9d1e5f6-3c3a-4e59-ab59-ec30d325b033" name="time" direction="In" isUnique="false">
-                  <elementDefinition Id="136afbeb-23ac-40b3-aa31-14ea36a02788" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="10e1c04a-7090-4a37-ab8c-1ba1487db88b" LastKnownName="GameTime" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
           <operation Id="9ecd8fdb-d248-4bc8-b73b-ddb8d277ebe2" name="Knot3Game" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="bd4f62cd-4a4b-46dc-a3c3-9cdf4005aaad" />
           </operation>
-          <operation Id="6dc4e4fa-203b-4231-be0c-89eedae11a71" name="LoadContent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="c2425478-29d6-4370-b165-eb0f5b8eca84" />
-          </operation>
-          <operation Id="fd2c1f47-e07f-4ca6-8bc3-1753a9c33da7" name="UnloadContent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="d2ad7e0b-f959-46b8-af9f-af50bbeb36c8" />
-          </operation>
-          <operation Id="a09ebccc-7935-4f6a-8530-f4704909a847" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="1d816251-1b8a-4185-8198-8d8d51c4e032" />
+          <operation Id="baa794fa-3641-4c11-8094-89786c22278e" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bedacd32-4d4a-4dc8-96f2-fe99273b39a4" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="7a83632c-337d-4728-823f-cf1dfd020d47" name="GameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="431ada5d-cc07-4ba0-8095-aaa048a0d4da" />
+                <parameter Id="b2d938a6-e675-4665-8139-faa91dc0ad46" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="0d71c657-e69f-4118-925d-83aaa4f5b96e" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="10e1c04a-7090-4a37-ab8c-1ba1487db88b" LastKnownName="GameTime" />
                   </type_NamedElement>
@@ -408,8 +389,24 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="efa5157b-72bf-4a2b-9105-86fc9e12434f" name="&lt;&lt;create&gt;&gt;" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="79d2f4c4-8ca9-47b4-8be8-8caf74ced0de" />
+          <operation Id="2e726775-de37-42b2-9136-76c16c9d705c" name="Initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6facc010-bc00-476c-97be-467efe4de256" />
+          </operation>
+          <operation Id="e3ece547-59af-4706-8dea-1242ccafccce" name="UnloadContent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4a72fde3-7762-4159-bc1b-57ffcfddf646" />
+          </operation>
+          <operation Id="d83f9ed9-8423-47e7-9f4b-1132e119aff1" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9852f5c2-a20a-412b-9a67-3d4d0dc407ff" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b2cebba8-2754-4f60-a0c5-01f7774529a0" name="time" direction="In" isUnique="false">
+                  <elementDefinition Id="079ce1f2-5c2c-44ba-9f15-2c66dbda46cb" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="10e1c04a-7090-4a37-ab8c-1ba1487db88b" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
