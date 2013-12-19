@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Ein Objekt dieser Klasse repräsentiert eine Challenge.
     /// </summary>
-    public class Challenge : 
+    public class Challenge
     {
 
         #region Properties

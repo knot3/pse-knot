@@ -23,7 +23,7 @@ namespace GameObjects
     /// <summary>
     /// Ein Zwischenspeicher für 3D-Modelle.
     /// </summary>
-    public class ModelFactory : 
+    public class ModelFactory
     {
 
         #region Properties

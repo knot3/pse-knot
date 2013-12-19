@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Enthält Informationen über einen Eintrag in einer Einstellungsdatei.
     /// </summary>
-    public class OptionInfo : 
+    public class OptionInfo
     {
 
         #region Properties

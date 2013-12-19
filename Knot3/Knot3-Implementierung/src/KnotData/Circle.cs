@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Eine doppelt verkettete Liste.
     /// </summary>
-    public class Circle : 
+    public class Circle
     {
 
     }

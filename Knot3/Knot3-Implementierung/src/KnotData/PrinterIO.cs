@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Ein Exportformat für 3D-Drucker.
     /// </summary>
-    public class PrinterIO : 
+    public class PrinterIO
     {
 
         #region Properties

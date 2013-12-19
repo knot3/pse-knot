@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// 
     /// </summary>
-    public class Node : 
+    public class Node
     {
 
         #region Properties
@@ -53,7 +53,8 @@ namespace KnotData
         #region Constructors
 
         /// <summary>
-        /// 
+        /// Erzeugt eine neue Instanz eines Node-Objekts und initialisiert diese mit Werten
+        /// für die x-, y- und z-Koordinate.
         /// </summary>
         public void Node (Integer x, Integer y, Integer z)
         {

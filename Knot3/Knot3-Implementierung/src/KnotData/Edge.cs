@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Eine Kante eines Knotens, die aus einer Richtung und einer Farbe, sowie optional einer Liste von Flächennummern besteht.
     /// </summary>
-    public class Edge : 
+    public class Edge
     {
 
         #region Properties

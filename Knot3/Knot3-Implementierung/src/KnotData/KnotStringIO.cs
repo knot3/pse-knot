@@ -24,7 +24,7 @@ namespace KnotData
     /// Diese Klasse repräsentiert einen Parser für das Knoten-Austauschformat und enthält die
     /// eingelesenen Informationen wie den Namen des Knotens und die Kantenliste als Eigenschaften.
     /// </summary>
-    public class KnotStringIO : 
+    public class KnotStringIO
     {
 
         #region Properties

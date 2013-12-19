@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Implementiert das Speicherformat für Knoten.
     /// </summary>
-    public class KnotFileIO : 
+    public class KnotFileIO
     {
 
         #region Properties

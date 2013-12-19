@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Enthält Metadaten zu einer Challenge.
     /// </summary>
-    public class ChallengeMetaData : 
+    public class ChallengeMetaData
     {
 
         #region Properties

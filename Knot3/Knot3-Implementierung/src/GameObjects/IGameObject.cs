@@ -24,7 +24,7 @@ namespace GameObjects
     /// Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz auf die Spielwelt, in der sich dieses
     /// Game befindet, sowie Informationen zu dem Game.
     /// </summary>
-    public interface IGameObject : 
+    public interface IGameObject
     {
 
         #region Properties

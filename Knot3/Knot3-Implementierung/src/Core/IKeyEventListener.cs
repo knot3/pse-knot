@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Eine Schnittstelle, die von Klassen implementiert wird, welche auf Tastatureingaben reagieren.
     /// </summary>
-    public interface IKeyEventListener : 
+    public interface IKeyEventListener
     {
 
         #region Properties

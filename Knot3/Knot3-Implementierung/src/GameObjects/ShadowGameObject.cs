@@ -23,7 +23,7 @@ namespace GameObjects
     /// <summary>
     /// Eine abstrakte Klasse, die ein Vorschau-Spielobjekt darstellt.
     /// </summary>
-    public class ShadowGameObject : 
+    public class ShadowGameObject
     {
 
         #region Properties

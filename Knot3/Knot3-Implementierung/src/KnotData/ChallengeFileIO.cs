@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Implementiert das Speicherformat für Challenges.
     /// </summary>
-    public class ChallengeFileIO : 
+    public class ChallengeFileIO
     {
 
         #region Constructors

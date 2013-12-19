@@ -23,7 +23,7 @@ namespace RenderEffects
     /// <summary>
     /// Eine abstrakte Klasse, die eine Implementierung von IRenderEffect darstellt.
     /// </summary>
-    public class RenderEffect : 
+    public class RenderEffect
     {
 
         #region Properties

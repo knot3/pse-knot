@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Eine Schnittstelle, die von Klassen implementiert wird, die auf Maus-Klicks reagieren.
     /// </summary>
-    public interface IMouseEventListener : 
+    public interface IMouseEventListener
     {
 
         #region Properties

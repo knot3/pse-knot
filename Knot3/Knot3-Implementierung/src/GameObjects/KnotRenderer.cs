@@ -25,7 +25,7 @@ namespace GameObjects
     /// die nach einer Auswahl von Kanten durch den Spieler angezeigt werden. Ist außerdem ein IGameObject und ein
     /// Container für die erstellten Spielobjekte.
     /// </summary>
-    public class KnotRenderer : 
+    public class KnotRenderer
     {
 
         #region Properties

@@ -23,7 +23,7 @@ namespace GameObjects
     /// <summary>
     /// Repräsentiert einen Übergang zwischen zwei Kanten.
     /// </summary>
-    public interface IJunction : 
+    public interface IJunction
     {
 
         #region Properties

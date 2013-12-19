@@ -23,7 +23,7 @@ namespace RenderEffects
     /// <summary>
     /// Stellt eine Schnittstelle für Klassen bereit, die Rendereffekte ermöglichen.
     /// </summary>
-    public interface IRenderEffect : 
+    public interface IRenderEffect
     {
 
         #region Properties

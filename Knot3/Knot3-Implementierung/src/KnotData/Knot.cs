@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten.
     /// </summary>
-    public class Knot : 
+    public class Knot
     {
 
         #region Properties

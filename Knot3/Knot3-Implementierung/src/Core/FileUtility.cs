@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Eine Hilfsklasse für Dateioperationen.
     /// </summary>
-    public class FileUtility : 
+    public class FileUtility
     {
 
         #region Properties

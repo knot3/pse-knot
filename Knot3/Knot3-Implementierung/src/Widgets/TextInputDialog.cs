@@ -38,7 +38,9 @@ namespace Widgets
         #region Constructors
 
         /// <summary>
-        /// 
+        /// Erzeugt eine neue Instanz eines TextInputDialog-Objekts und ordnet dieser einen GameScreen zu.
+        /// Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenfolge
+        /// für den eingeblendeten Text und eine Zeichenkette für voreingestellten Text (welche leer sein darf) Pflicht.
         /// </summary>
         public void TextInputDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text, String inputText)
         {

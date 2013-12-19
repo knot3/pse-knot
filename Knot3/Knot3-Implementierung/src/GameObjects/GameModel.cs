@@ -23,7 +23,7 @@ namespace GameObjects
     /// <summary>
     /// Repräsentiert ein 3D-Modell in einer Spielwelt.
     /// </summary>
-    public class GameModel : 
+    public class GameModel
     {
 
         #region Properties

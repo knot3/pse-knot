@@ -26,7 +26,7 @@ namespace KnotData
     /// sondern nur Informationen über den Namen des Knoten und die Anzahl seiner Kanten. Es kann ohne ein
     /// dazugehöriges Knoten-Objekt existieren, aber jedes Knoten-Objekt enthält genau ein Knoten-Metadaten-Objekt.
     /// </summary>
-    public class KnotMetaData : 
+    public class KnotMetaData
     {
 
         #region Properties

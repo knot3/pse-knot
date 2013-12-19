@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
     /// </summary>
-    public class GameScreen : 
+    public class GameScreen
     {
 
         #region Properties

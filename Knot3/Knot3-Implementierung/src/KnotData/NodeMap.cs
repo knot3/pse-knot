@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Eine Zuordnung zwischen Kanten und Kantenübergänge.
     /// </summary>
-    public class NodeMap : 
+    public class NodeMap
     {
 
         #region Properties

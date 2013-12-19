@@ -23,7 +23,7 @@ namespace GameObjects
     /// <summary>
     /// Ein Inputhandler, der für das Verschieben der Kanten zuständig ist.
     /// </summary>
-    public class PipeMovement : 
+    public class PipeMovement
     {
 
         #region Properties
