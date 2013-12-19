@@ -32,7 +32,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Standardeffekt.
         /// </summary>
-        public void StandardEffect (GameScreen screen)
+        public virtual void StandardEffect (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }
@@ -44,7 +44,7 @@ namespace RenderEffects
         /// <summary>
         /// !!!
         /// </summary>
-        protected void DrawRenderTarget (GameTime GameTime)
+        protected virtual void DrawRenderTarget (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }

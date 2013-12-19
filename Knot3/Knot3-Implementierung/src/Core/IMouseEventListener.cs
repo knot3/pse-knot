@@ -31,12 +31,12 @@ namespace Core
         /// <summary>
         /// Die Eingabepriorität.
         /// </summary>
-        public DisplayLayer Index { get; set; }
+        public virtual DisplayLayer Index { get; set; }
 
         /// <summary>
         /// Ob die Klasse zur Zeit auf Mausklicks reagiert.
         /// </summary>
-        public Boolean IsMouseEventEnabled { get; set; }
+        public virtual Boolean IsMouseEventEnabled { get; set; }
 
         #endregion
 
@@ -45,7 +45,7 @@ namespace Core
         /// <summary>
         /// Die Ausmaße des von der Klasse repräsentierten Objektes.
         /// </summary>
-        public Rectangle Bounds ()
+        public virtual Rectangle Bounds ()
         {
             throw new System.NotImplementedException();
         }
@@ -53,7 +53,7 @@ namespace Core
         /// <summary>
         /// Die Reaktion auf einen Linksklick.
         /// </summary>
-        public void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+        public virtual void OnLeftClick (Vector2 position, ClickState state, GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -61,7 +61,7 @@ namespace Core
         /// <summary>
         /// Die Reaktion auf einen Rechtsklick.
         /// </summary>
-        public void OnRightClick (Vector2 position, ClickState state, GameTime time)
+        public virtual void OnRightClick (Vector2 position, ClickState state, GameTime time)
         {
             throw new System.NotImplementedException();
         }

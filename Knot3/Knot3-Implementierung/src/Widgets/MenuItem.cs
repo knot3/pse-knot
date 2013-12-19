@@ -32,17 +32,17 @@ namespace Widgets
         /// Gibt an, ob die Maus sich über dem Eintrag befindet, ohne ihn anzuklicken, ob er ausgewählt ist
         /// oder nichts von beidem.
         /// </summary>
-        public ItemState ItemState { get; set; }
+        public virtual ItemState ItemState { get; set; }
 
         /// <summary>
         /// Die Zeichenreihenfolge.
         /// </summary>
-        public Integer ItemOrder { get; set; }
+        public virtual Integer ItemOrder { get; set; }
 
         /// <summary>
         /// Der Anzeigetext der Schaltfläche.
         /// </summary>
-        public String Text { get; set; }
+        public virtual String Text { get; set; }
 
         #endregion
 
@@ -51,7 +51,7 @@ namespace Widgets
         /// <summary>
         /// Reaktionen auf einen Linksklick.
         /// </summary>
-        public void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+        public virtual void OnLeftClick (Vector2 position, ClickState state, GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -59,7 +59,7 @@ namespace Widgets
         /// <summary>
         /// Reaktionen auf einen Rechtsklick.
         /// </summary>
-        public void OnRightClick (Vector2 position, ClickState state, GameTime time)
+        public virtual void OnRightClick (Vector2 position, ClickState state, GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -67,7 +67,7 @@ namespace Widgets
         /// <summary>
         /// Reaktionen auf Tasteneingaben.
         /// </summary>
-        public void OnKeyEvent ()
+        public virtual void OnKeyEvent ()
         {
             throw new System.NotImplementedException();
         }
@@ -75,7 +75,7 @@ namespace Widgets
         /// <summary>
         /// Gibt die Ausmaße des Eintrags zurück.
         /// </summary>
-        public Rectangle Bounds ()
+        public virtual Rectangle Bounds ()
         {
             throw new System.NotImplementedException();
         }

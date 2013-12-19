@@ -31,7 +31,7 @@ namespace Core
         /// <summary>
         /// Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
         /// </summary>
-        public void MousePointer (GameScreen screen)
+        public virtual void MousePointer (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }
@@ -43,7 +43,7 @@ namespace Core
         /// <summary>
         /// Zeichnet den Mauszeiger.
         /// </summary>
-        public void Draw (GameTime time)
+        public virtual void Draw (GameTime time)
         {
             throw new System.NotImplementedException();
         }

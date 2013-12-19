@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// Die Schaltflächen des Startbildschirms.
         /// </summary>
-        private Menu buttons { get; set; }
+        private virtual Menu buttons { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace Screens
         /// <summary>
         /// Erzeugt eine neue Instanz eines StartScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt.
         /// </summary>
-        public void StartScreen (Knot3Game game)
+        public virtual void StartScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }
@@ -52,7 +52,7 @@ namespace Screens
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime time)
+        public virtual void Update (GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace Screens
         /// <summary>
         /// Fügt die das Menü in die Spielkomponentenliste ein.
         /// </summary>
-        public void Entered (GameScreen previousScreen, GameTime GameTime)
+        public virtual void Entered (GameScreen previousScreen, GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }

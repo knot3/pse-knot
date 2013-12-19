@@ -31,42 +31,42 @@ namespace GameObjects
         /// <summary>
         /// Die Transparenz des Modells.
         /// </summary>
-        public float Alpha { get; set; }
+        public virtual float Alpha { get; set; }
 
         /// <summary>
         /// Die Farbe des Modells.
         /// </summary>
-        public Color BaseColor { get; set; }
+        public virtual Color BaseColor { get; set; }
 
         /// <summary>
         /// Die Auswahlfarbe des Modells.
         /// </summary>
-        public Color HightlightColor { get; set; }
+        public virtual Color HightlightColor { get; set; }
 
         /// <summary>
         /// Die Intensität der Auswahlfarbe.
         /// </summary>
-        public float HighlightIntensity { get; set; }
+        public virtual float HighlightIntensity { get; set; }
 
         /// <summary>
         /// Die Modellinformationen wie Position, Skalierung und der Dateiname des 3D-Modells.
         /// </summary>
-        public GameModelInfo Info { get; set; }
+        public virtual GameModelInfo Info { get; set; }
 
         /// <summary>
         /// Die Klasse des XNA-Frameworks, die ein 3D-Modell repräsentiert.
         /// </summary>
-        public XNA.Model Model { get; set; }
+        public virtual XNA.Model Model { get; set; }
 
         /// <summary>
         /// Die Spielwelt, in der sich das 3D-Modell befindet.
         /// </summary>
-        public World World { get; set; }
+        public virtual World World { get; set; }
 
         /// <summary>
         /// Die Weltmatrix des 3D-Modells in der angegebenen Spielwelt.
         /// </summary>
-        public Matrix WorldMatrix { get; set; }
+        public virtual Matrix WorldMatrix { get; set; }
 
         #endregion
 
@@ -75,7 +75,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues 3D-Modell in dem angegebenen Spielzustand mit den angegebenen Modellinformationen.
         /// </summary>
-        public void GameModel (GameScreen screen, GameModelInfo info)
+        public virtual void GameModel (GameScreen screen, GameModelInfo info)
         {
             throw new System.NotImplementedException();
         }
@@ -87,7 +87,7 @@ namespace GameObjects
         /// <summary>
         /// Gibt die Mitte des 3D-Modells zurück.
         /// </summary>
-        public Vector3 Center ()
+        public virtual Vector3 Center ()
         {
             throw new System.NotImplementedException();
         }
@@ -95,7 +95,7 @@ namespace GameObjects
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime GameTime)
+        public virtual void Update (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -103,7 +103,7 @@ namespace GameObjects
         /// <summary>
         /// Zeichnet das 3D-Modell in der angegebenen Spielwelt mit dem aktuellen Rendereffekt der Spielwelt.
         /// </summary>
-        public void Draw (GameTime GameTime)
+        public virtual void Draw (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -111,7 +111,7 @@ namespace GameObjects
         /// <summary>
         /// Überprüft, ob der Mausstrahl das 3D-Modell schneidet.
         /// </summary>
-        public GameObjectDistance Intersects (Ray Ray)
+        public virtual GameObjectDistance Intersects (Ray Ray)
         {
             throw new System.NotImplementedException();
         }

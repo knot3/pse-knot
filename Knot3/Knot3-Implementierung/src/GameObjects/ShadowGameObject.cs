@@ -31,22 +31,22 @@ namespace GameObjects
         /// <summary>
         /// Enthält Informationen über das Vorschau-Spielobjekt.
         /// </summary>
-        public GameObjectInfo Info { get; set; }
+        public virtual GameObjectInfo Info { get; set; }
 
         /// <summary>
         /// Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
         /// </summary>
-        public World World { get; set; }
+        public virtual World World { get; set; }
 
         /// <summary>
         /// Die Position, an der das Vorschau-Spielobjekt gezeichnet werden soll.
         /// </summary>
-        public Vector3 ShadowPosition { get; set; }
+        public virtual Vector3 ShadowPosition { get; set; }
 
         /// <summary>
         /// Die Position, an der sich das zu dekorierende Objekt befindet.
         /// </summary>
-        public Vector3 OriginalPosition { get; set; }
+        public virtual Vector3 OriginalPosition { get; set; }
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Vorschauobjekt in dem angegebenen Spielzustand für das angegebene zu dekorierende Objekt.
         /// </summary>
-        public void ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
+        public virtual void ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
         {
             throw new System.NotImplementedException();
         }
@@ -67,7 +67,7 @@ namespace GameObjects
         /// <summary>
         /// Die Position, an der das Vorschau-Spielobjekt gezeichnet werden soll.
         /// </summary>
-        public Vector3 Center ()
+        public virtual Vector3 Center ()
         {
             throw new System.NotImplementedException();
         }
@@ -75,7 +75,7 @@ namespace GameObjects
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime GameTime)
+        public virtual void Update (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -83,7 +83,7 @@ namespace GameObjects
         /// <summary>
         /// Zeichnet das Vorschau-Spielobjekt.
         /// </summary>
-        public void Draw (GameTime GameTime)
+        public virtual void Draw (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -91,7 +91,7 @@ namespace GameObjects
         /// <summary>
         /// Prüft, ob der angegebene Mausstrahl das Vorschau-Spielobjekt schneidet.
         /// </summary>
-        public GameObjectDistance Intersects (Ray Ray)
+        public virtual GameObjectDistance Intersects (Ray Ray)
         {
             throw new System.NotImplementedException();
         }

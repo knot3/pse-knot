@@ -33,32 +33,32 @@ namespace Widgets
         /// <summary>
         /// Die von der Auflösung unabhängige Größe in Prozent.
         /// </summary>
-        public Func<int, Vector2> RelativeItemSize { get; set; }
+        public virtual Func<int, Vector2> RelativeItemSize { get; set; }
 
         /// <summary>
         /// Die von der Auflösung unabhängige Position in Prozent.
         /// </summary>
-        public Func<int, Vector2> RelativeItemPosition { get; set; }
+        public virtual Func<int, Vector2> RelativeItemPosition { get; set; }
 
         /// <summary>
         /// Die vom Zustand des Menüeintrags abhängige Vordergrundfarbe des Menüeintrags.
         /// </summary>
-        public Func<ItemState, Color> ItemForegroundColor { get; set; }
+        public virtual Func<ItemState, Color> ItemForegroundColor { get; set; }
 
         /// <summary>
         /// Die vom Zustand des Menüeintrags abhängige Hintergrundfarbe des Menüeintrags.
         /// </summary>
-        public Func<ItemState, Color> ItemBackgroundColor { get; set; }
+        public virtual Func<ItemState, Color> ItemBackgroundColor { get; set; }
 
         /// <summary>
         /// Die horizontale Ausrichtung der Menüeinträge.
         /// </summary>
-        public HorizontalAlignment ItemAlignX { get; set; }
+        public virtual HorizontalAlignment ItemAlignX { get; set; }
 
         /// <summary>
         /// Die vertikale Ausrichtung der Menüeinträge.
         /// </summary>
-        public VerticalAlignment ItemAlignY { get; set; }
+        public virtual VerticalAlignment ItemAlignY { get; set; }
 
         #endregion
 
@@ -68,7 +68,7 @@ namespace Widgets
         /// Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
         /// </summary>
-        public void Menu (GameScreen screen, DisplayLayer drawOrder)
+        public virtual void Menu (GameScreen screen, DisplayLayer drawOrder)
         {
             throw new System.NotImplementedException();
         }
@@ -81,7 +81,7 @@ namespace Widgets
         /// Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~ oder leere Werte für
         /// Position, Größe, Farbe oder Ausrichtung hat, werden die Werte mit denen des Menüs überschrieben.
         /// </summary>
-        public void Add (MenuItem item)
+        public virtual void Add (MenuItem item)
         {
             throw new System.NotImplementedException();
         }
@@ -89,7 +89,7 @@ namespace Widgets
         /// <summary>
         /// Entfernt einen Eintrag aus dem Menü.
         /// </summary>
-        public void Delete (MenuItem item)
+        public virtual void Delete (MenuItem item)
         {
             throw new System.NotImplementedException();
         }
@@ -97,7 +97,7 @@ namespace Widgets
         /// <summary>
         /// Gibt einen Eintrag des Menüs zurück.
         /// </summary>
-        public MenuItem GetItem (Integer i)
+        public virtual MenuItem GetItem (Integer i)
         {
             throw new System.NotImplementedException();
         }
@@ -105,7 +105,7 @@ namespace Widgets
         /// <summary>
         /// Gibt die Anzahl der Einträge des Menüs zurück.
         /// </summary>
-        public Integer Size ()
+        public virtual Integer Size ()
         {
             throw new System.NotImplementedException();
         }
@@ -113,7 +113,7 @@ namespace Widgets
         /// <summary>
         /// Gibt einen Enumerator über die Einträge des Menüs zurück.
         /// </summary>
-        public IEnumerator GetEnumerator ()
+        public virtual IEnumerator GetEnumerator ()
         {
             throw new System.NotImplementedException();
         }

@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// Die gültigen Dateiendungen für das 3D-Drucker-Format.
         /// </summary>
-        public IEnumerable<string> FileExtensions { get; set; }
+        public virtual IEnumerable<string> FileExtensions { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein neues PrinterIO-Objekt.
         /// </summary>
-        public void PrinterIO ()
+        public virtual void PrinterIO ()
         {
             throw new System.NotImplementedException();
         }
@@ -52,7 +52,7 @@ namespace KnotData
         /// <summary>
         /// Exportiert den Knoten in einem gültigen 3D-Drucker-Format.
         /// </summary>
-        public void Save (Knot knot)
+        public virtual void Save (Knot knot)
         {
             throw new System.NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace KnotData
         /// <summary>
         /// Gibt eine IOException zurück.
         /// </summary>
-        public Knot Load (String filename)
+        public virtual Knot Load (String filename)
         {
             throw new System.NotImplementedException();
         }
@@ -68,7 +68,7 @@ namespace KnotData
         /// <summary>
         /// Gibt eine IOException zurück.
         /// </summary>
-        public KnotMetaData LoadMetaData (String filename)
+        public virtual KnotMetaData LoadMetaData (String filename)
         {
             throw new System.NotImplementedException();
         }

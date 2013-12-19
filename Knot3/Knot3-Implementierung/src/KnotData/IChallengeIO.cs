@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// Speichert eine Challenge.
         /// </summary>
-        public void Save (Challenge challenge)
+        public virtual void Save (Challenge challenge)
         {
             throw new System.NotImplementedException();
         }
@@ -39,7 +39,7 @@ namespace KnotData
         /// <summary>
         /// Lädt eine Challenge.
         /// </summary>
-        public Challenge Load (String filename)
+        public virtual Challenge Load (String filename)
         {
             throw new System.NotImplementedException();
         }
@@ -47,7 +47,7 @@ namespace KnotData
         /// <summary>
         /// Lädt die Metadaten einer Challenge.
         /// </summary>
-        public ChallengeMetaData LoadMetaData (String filename)
+        public virtual ChallengeMetaData LoadMetaData (String filename)
         {
             throw new System.NotImplementedException();
         }

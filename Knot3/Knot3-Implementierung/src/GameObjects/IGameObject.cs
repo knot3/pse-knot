@@ -32,12 +32,12 @@ namespace GameObjects
         /// <summary>
         /// Informationen über das Spielobjekt, wie z.B. die Position.
         /// </summary>
-        public GameObjectInfo Info { get; set; }
+        public virtual GameObjectInfo Info { get; set; }
 
         /// <summary>
         /// Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
         /// </summary>
-        public World World { get; set; }
+        public virtual World World { get; set; }
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace GameObjects
         /// <summary>
         /// Die Mitte des Spielobjektes im 3D-Raum.
         /// </summary>
-        public Vector3 Center ()
+        public virtual Vector3 Center ()
         {
             throw new System.NotImplementedException();
         }
@@ -54,7 +54,7 @@ namespace GameObjects
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime time)
+        public virtual void Update (GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace GameObjects
         /// <summary>
         /// Zeichnet das Spielobjekt.
         /// </summary>
-        public void Draw (GameTime time)
+        public virtual void Draw (GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -70,7 +70,7 @@ namespace GameObjects
         /// <summary>
         /// Überprüft, ob der Mausstrahl das Spielobjekt schneidet.
         /// </summary>
-        public GameObjectDistance Intersects (Ray ray)
+        public virtual GameObjectDistance Intersects (Ray ray)
         {
             throw new System.NotImplementedException();
         }

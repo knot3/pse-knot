@@ -31,12 +31,12 @@ namespace Widgets
         /// <summary>
         /// Der Fenstertitel.
         /// </summary>
-        public String Title { get; set; }
+        public virtual String Title { get; set; }
 
         /// <summary>
         /// Der angezeigte Text.
         /// </summary>
-        public String Text { get; set; }
+        public virtual String Text { get; set; }
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace Widgets
         /// Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
         /// </summary>
-        public void Dialog (GameScreen screen, DisplayLayer drawOrder, String title, String text)
+        public virtual void Dialog (GameScreen screen, DisplayLayer drawOrder, String title, String text)
         {
             throw new System.NotImplementedException();
         }
@@ -59,7 +59,7 @@ namespace Widgets
         /// Durch Drücken der Entertaste wird die ausgewählte Aktion ausgeführt. Durch Drücken der Escape-Taste wird der Dialog abgebrochen.
         /// Mit Hilfe der Pfeiltasten kann zwischen den Aktionen gewechselt werden.
         /// </summary>
-        public void OnKeyEvent ()
+        public virtual void OnKeyEvent ()
         {
             throw new System.NotImplementedException();
         }
@@ -67,7 +67,7 @@ namespace Widgets
         /// <summary>
         /// Gibt die Ausmaße des Dialogs zurück.
         /// </summary>
-        public Rectangle Bounds ()
+        public virtual Rectangle Bounds ()
         {
             throw new System.NotImplementedException();
         }
@@ -75,7 +75,7 @@ namespace Widgets
         /// <summary>
         /// Bei einem Linksklick geschieht nichts.
         /// </summary>
-        public void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+        public virtual void OnLeftClick (Vector2 position, ClickState state, GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -83,7 +83,7 @@ namespace Widgets
         /// <summary>
         /// Bei einem Rechtsklick geschieht nichts.
         /// </summary>
-        public void OnRightClick (Vector2 position, ClickState state, GameTime time)
+        public virtual void OnRightClick (Vector2 position, ClickState state, GameTime time)
         {
             throw new System.NotImplementedException();
         }

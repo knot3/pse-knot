@@ -31,37 +31,37 @@ namespace Core
         /// <summary>
         /// Enthält den Klickzustand der rechten Maustaste.
         /// </summary>
-        public ClickState RightMouseButton { get; set; }
+        public virtual ClickState RightMouseButton { get; set; }
 
         /// <summary>
         /// Enthält den Klickzustand der linken Maustaste.
         /// </summary>
-        public ClickState LeftMouseButton { get; set; }
+        public virtual ClickState LeftMouseButton { get; set; }
 
         /// <summary>
         /// Enthält den Mauszustand von XNA zum aktuellen Frames.
         /// </summary>
-        public MouseState CurrentMouseState { get; set; }
+        public virtual MouseState CurrentMouseState { get; set; }
 
         /// <summary>
         /// Enthält den Tastaturzustand von XNA zum aktuellen Frames.
         /// </summary>
-        public KeyboardState CurrentKeyboardState { get; set; }
+        public virtual KeyboardState CurrentKeyboardState { get; set; }
 
         /// <summary>
         /// Enthält den Mauszustand von XNA zum vorherigen Frames.
         /// </summary>
-        public MouseState PreviousMouseState { get; set; }
+        public virtual MouseState PreviousMouseState { get; set; }
 
         /// <summary>
         /// Enthält den Tastaturzustand von XNA zum vorherigen Frames.
         /// </summary>
-        public KeyboardState PreviousKeyboardState { get; set; }
+        public virtual KeyboardState PreviousKeyboardState { get; set; }
 
         /// <summary>
         /// Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
         /// </summary>
-        public Boolean GrabMouseMovement { get; set; }
+        public virtual Boolean GrabMouseMovement { get; set; }
 
         #endregion
 
@@ -70,7 +70,7 @@ namespace Core
         /// <summary>
         /// Erstellt ein neues Input-Objekt, das an den übergebenen Spielzustand gebunden ist.
         /// </summary>
-        public void Input (GameScreen screen)
+        public virtual void Input (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }
@@ -82,7 +82,7 @@ namespace Core
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime time)
+        public virtual void Update (GameTime time)
         {
             throw new System.NotImplementedException();
         }

@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime time)
+        public virtual void Update (GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -39,7 +39,7 @@ namespace Screens
         /// <summary>
         /// Fügt das Menü mit den Mitwirkenden in die Spielkomponentenliste ein.
         /// </summary>
-        public void Entered (GameScreen previousScreen, GameTime GameTime)
+        public virtual void Entered (GameScreen previousScreen, GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }

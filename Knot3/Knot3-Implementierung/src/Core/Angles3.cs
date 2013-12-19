@@ -33,22 +33,22 @@ namespace Core
         /// <summary>
         /// Der Rotationswinkel um die X-Achse.
         /// </summary>
-        public float X { get; set; }
+        public virtual float X { get; set; }
 
         /// <summary>
         /// Der Rotationswinkel um die Y-Achse.
         /// </summary>
-        public float Y { get; set; }
+        public virtual float Y { get; set; }
 
         /// <summary>
         /// Der Rotationswinkel um die Z-Achse.
         /// </summary>
-        public float Z { get; set; }
+        public virtual float Z { get; set; }
 
         /// <summary>
         /// Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
         /// </summary>
-        public Angles3 Zero { get; set; }
+        public virtual Angles3 Zero { get; set; }
 
         #endregion
 
@@ -57,7 +57,7 @@ namespace Core
         /// <summary>
         /// Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
         /// </summary>
-        public void Angles3 (float X, float Y, float Z)
+        public virtual void Angles3 (float X, float Y, float Z)
         {
             throw new System.NotImplementedException();
         }
@@ -69,7 +69,7 @@ namespace Core
         /// <summary>
         /// Konvertiert Grad in Bogenmaß.
         /// </summary>
-        public Angles3 FromDegrees (float X, float Y, float Z)
+        public virtual Angles3 FromDegrees (float X, float Y, float Z)
         {
             throw new System.NotImplementedException();
         }
@@ -77,7 +77,7 @@ namespace Core
         /// <summary>
         /// Konvertiert Bogenmaß in Grad.
         /// </summary>
-        public void ToDegrees (float X, float Y, float Z)
+        public virtual void ToDegrees (float X, float Y, float Z)
         {
             throw new System.NotImplementedException();
         }

@@ -31,17 +31,17 @@ namespace KnotData
         /// <summary>
         /// Die Farbe der Kante.
         /// </summary>
-        public Color Color { get; set; }
+        public virtual Color Color { get; set; }
 
         /// <summary>
         /// Die Richtung der Kante.
         /// </summary>
-        public Direction Direction { get; set; }
+        public virtual Direction Direction { get; set; }
 
         /// <summary>
         /// Die Liste der Flächennummern, die an die Kante angrenzen.
         /// </summary>
-        public List<int> Rectangles { get; set; }
+        public virtual List<int> Rectangles { get; set; }
 
         #endregion
 
@@ -50,7 +50,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt eine neue Kante mit der angegebenen Richtung.
         /// </summary>
-        public void Edge (Direction direction)
+        public virtual void Edge (Direction direction)
         {
             throw new System.NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace KnotData
         /// <summary>
         /// Gibt die Richtung als normalisierten Vektor3 zurück.
         /// </summary>
-        public Vector3 Get3DDirection ()
+        public virtual Vector3 Get3DDirection ()
         {
             throw new System.NotImplementedException();
         }

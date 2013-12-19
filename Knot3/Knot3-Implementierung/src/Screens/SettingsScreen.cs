@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// Das Haupt-Einstellungsmenü.
         /// </summary>
-        protected void navigation { get; set; }
+        protected virtual void navigation { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace Screens
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime time)
+        public virtual void Update (GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -48,7 +48,7 @@ namespace Screens
         /// <summary>
         /// Fügt das Haupt-Einstellungsmenü in die Spielkomponentenliste ein.
         /// </summary>
-        public void Entered (GameScreen previousScreen, GameTime time)
+        public virtual void Entered (GameScreen previousScreen, GameTime time)
         {
             throw new System.NotImplementedException();
         }

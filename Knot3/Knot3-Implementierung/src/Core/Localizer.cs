@@ -31,7 +31,7 @@ namespace Core
         /// <summary>
         /// Die Datei, welche Informationen für die Lokalisierung enthält.
         /// </summary>
-        private ConfigFile localization { get; set; }
+        private virtual ConfigFile localization { get; set; }
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace Core
         /// Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
         /// aktuellen Sprache zurück, die dabei aus der Einstellungsdatei des Spiels gelesen wird.
         /// </summary>
-        public String Localize (String text)
+        public virtual String Localize (String text)
         {
             throw new System.NotImplementedException();
         }

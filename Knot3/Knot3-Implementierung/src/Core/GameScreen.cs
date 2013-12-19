@@ -31,22 +31,22 @@ namespace Core
         /// <summary>
         /// Das Spiel, zu dem der Spielzustand gehört.
         /// </summary>
-        public Knot3Game Game { get; set; }
+        public virtual Knot3Game Game { get; set; }
 
         /// <summary>
         /// Der Inputhandler des Spielzustands.
         /// </summary>
-        public Input Input { get; set; }
+        public virtual Input Input { get; set; }
 
         /// <summary>
         /// Der aktuelle Postprocessing-Effekt des Spielzustands
         /// </summary>
-        public RenderEffect PostProcessingEffect { get; set; }
+        public virtual RenderEffect PostProcessingEffect { get; set; }
 
         /// <summary>
         /// Ein Stack, der während dem Aufruf der Draw-Methoden der Spielkomponenten die jeweils aktuellen Rendereffekte enthält.
         /// </summary>
-        public RenderEffectStack CurrentRenderEffects { get; set; }
+        public virtual RenderEffectStack CurrentRenderEffects { get; set; }
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace Core
         /// <summary>
         /// Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
-        public void GameScreen (Knot3Game game)
+        public virtual void GameScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }
@@ -69,7 +69,7 @@ namespace Core
         /// Mauseingaben einen Inputhandler für Widgets hinzu. Wird in Unterklassen von GameScreen reimplementiert und fügt zusätzlich weitere
         /// Spielkomponenten hinzu.
         /// </summary>
-        public void Entered (GameScreen previousScreen, GameTime time)
+        public virtual void Entered (GameScreen previousScreen, GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -77,7 +77,7 @@ namespace Core
         /// <summary>
         /// Leert die Spielkomponentenliste des XNA-Frameworks.
         /// </summary>
-        public void BeforeExit (GameScreen nextScreen, GameTime time)
+        public virtual void BeforeExit (GameScreen nextScreen, GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -85,7 +85,7 @@ namespace Core
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime time)
+        public virtual void Update (GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -93,7 +93,7 @@ namespace Core
         /// <summary>
         /// 
         /// </summary>
-        public void AddGameComponents (IGameScreenComponent[] components)
+        public virtual void AddGameComponents (IGameScreenComponent[] components)
         {
             throw new System.NotImplementedException();
         }
@@ -101,7 +101,7 @@ namespace Core
         /// <summary>
         /// 
         /// </summary>
-        public void RemoveGameComponents (IGameScreenComponent[] components)
+        public virtual void RemoveGameComponents (IGameScreenComponent[] components)
         {
             throw new System.NotImplementedException();
         }

@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime time)
+        public virtual void Update (GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -39,7 +39,7 @@ namespace Screens
         /// <summary>
         /// Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
         /// </summary>
-        public void Entered (GameScreen previousScreen, GameTime GameTime)
+        public virtual void Entered (GameScreen previousScreen, GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -47,7 +47,7 @@ namespace Screens
         /// <summary>
         /// Erzeugt ein neues ChallengeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
-        public void ChallengeModeScreen (Knot3Game game)
+        public virtual void ChallengeModeScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

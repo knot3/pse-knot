@@ -32,7 +32,7 @@ namespace Widgets
         /// Erzeugt eine neue Instanz eines VerticalMenu-Objekts und initialisiert diese mit dem zugehörigen GameScreen-Objekt.
         /// Zudem ist die Angaben der Zeichenreihenfolge Pflicht.
         /// </summary>
-        public void VerticalMenu (GameScreen screen, DisplayLayer drawOrder)
+        public virtual void VerticalMenu (GameScreen screen, DisplayLayer drawOrder)
         {
             throw new System.NotImplementedException();
         }
@@ -44,7 +44,7 @@ namespace Widgets
         /// <summary>
         /// Ordnet die Einträge vertikal an.
         /// </summary>
-        public void AlignItems ()
+        public virtual void AlignItems ()
         {
             throw new System.NotImplementedException();
         }

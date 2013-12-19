@@ -31,7 +31,7 @@ namespace GameObjects
         /// <summary>
         /// Das Info-Objekt, das die Position und Richtung des ArrowModel\grq s enthält.
         /// </summary>
-        public ArrowModelInfo Info { get; set; }
+        public virtual ArrowModelInfo Info { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
         /// </summary>
-        public void ArrowModel (GameScreen screen, ArrowModelInfo info)
+        public virtual void ArrowModel (GameScreen screen, ArrowModelInfo info)
         {
             throw new System.NotImplementedException();
         }
@@ -52,7 +52,7 @@ namespace GameObjects
         /// <summary>
         /// Zeichnet den Pfeil.
         /// </summary>
-        public void Draw (GameTime GameTime)
+        public virtual void Draw (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace GameObjects
         /// <summary>
         /// Überprüft, ob der Mausstrahl den Pfeil schneidet.
         /// </summary>
-        public GameObjectDistance Intersects (Ray ray)
+        public virtual GameObjectDistance Intersects (Ray ray)
         {
             throw new System.NotImplementedException();
         }
@@ -68,7 +68,7 @@ namespace GameObjects
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime GameTime)
+        public virtual void Update (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }

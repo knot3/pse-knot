@@ -35,53 +35,53 @@ namespace Core
         /// <summary>
         /// Die Position der Kamera.
         /// </summary>
-        public Vector3 Position { get; set; }
+        public virtual Vector3 Position { get; set; }
 
         /// <summary>
         /// Das Ziel der Kamera.
         /// </summary>
-        public Vector3 Target { get; set; }
+        public virtual Vector3 Target { get; set; }
 
         /// <summary>
         /// Das Sichtfeld.
         /// </summary>
-        public float FoV { get; set; }
+        public virtual float FoV { get; set; }
 
         /// <summary>
         /// Die View-Matrix wird über die statische Methode CreateLookAt der Klasse Matrix des XNA-Frameworks
         /// mit Matrix.CreateLookAt (Position, Target, Vector3.Up) berechnet.
         /// </summary>
-        public Matrix ViewMatrix { get; set; }
+        public virtual Matrix ViewMatrix { get; set; }
 
         /// <summary>
         /// Die World-Matrix wird mit Matrix.CreateFromYawPitchRoll und den drei Rotationswinkeln berechnet.
         /// </summary>
-        public Matrix WorldMatrix { get; set; }
+        public virtual Matrix WorldMatrix { get; set; }
 
         /// <summary>
         /// Die Projektionsmatrix wird über die statische XNA-Methode Matrix.CreatePerspectiveFieldOfView berechnet.
         /// </summary>
-        public Matrix ProjectionMatrix { get; set; }
+        public virtual Matrix ProjectionMatrix { get; set; }
 
         /// <summary>
         /// Eine Position, um die rotiert werden soll, wenn der User die rechte Maustaste gedrückt hält und die Maus bewegt.
         /// </summary>
-        public Vector3 ArcballTarget { get; set; }
+        public virtual Vector3 ArcballTarget { get; set; }
 
         /// <summary>
         /// Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-Objekt sich im Blickfeld des Spielers befindet.
         /// </summary>
-        public BoundingFrustum ViewFrustum { get; set; }
+        public virtual BoundingFrustum ViewFrustum { get; set; }
 
         /// <summary>
         /// Eine Referenz auf die Spielwelt, für welche die Kamera zuständig ist.
         /// </summary>
-        private World World { get; set; }
+        private virtual World World { get; set; }
 
         /// <summary>
         /// Die Rotationswinkel.
         /// </summary>
-        public Angles3 Rotation { get; set; }
+        public virtual Angles3 Rotation { get; set; }
 
         #endregion
 
@@ -90,7 +90,7 @@ namespace Core
         /// <summary>
         /// Erstellt eine neue Kamera in einem bestimmten GameScreen für eine bestimmte Spielwelt.
         /// </summary>
-        public void Camera (GameScreen screen, World world)
+        public virtual void Camera (GameScreen screen, World world)
         {
             throw new System.NotImplementedException();
         }
@@ -102,7 +102,7 @@ namespace Core
         /// <summary>
         /// Die Blickrichtung.
         /// </summary>
-        public Vector3 TargetDirection ()
+        public virtual Vector3 TargetDirection ()
         {
             throw new System.NotImplementedException();
         }
@@ -110,7 +110,7 @@ namespace Core
         /// <summary>
         /// Der Abstand zwischen der Kamera und dem Kamera-Ziel.
         /// </summary>
-        public float TargetDistance ()
+        public virtual float TargetDistance ()
         {
             throw new System.NotImplementedException();
         }
@@ -118,7 +118,7 @@ namespace Core
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime GameTime)
+        public virtual void Update (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -126,7 +126,7 @@ namespace Core
         /// <summary>
         /// Berechnet einen Strahl für die angegebenene 2D-Mausposition.
         /// </summary>
-        public Ray GetMouseRay (Vector2 mousePosition)
+        public virtual Ray GetMouseRay (Vector2 mousePosition)
         {
             throw new System.NotImplementedException();
         }

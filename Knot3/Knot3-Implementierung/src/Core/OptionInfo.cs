@@ -31,27 +31,27 @@ namespace Core
         /// <summary>
         /// Die Einstellungsdatei.
         /// </summary>
-        private ConfigFile configFile { get; set; }
+        private virtual ConfigFile configFile { get; set; }
 
         /// <summary>
         /// Der Abschnitt der Einstellungsdatei.
         /// </summary>
-        public String Section { get; set; }
+        public virtual String Section { get; set; }
 
         /// <summary>
         /// Der Name der Option.
         /// </summary>
-        public String Name { get; set; }
+        public virtual String Name { get; set; }
 
         /// <summary>
         /// Der Standardwert der Option.
         /// </summary>
-        public String DefaultValue { get; set; }
+        public virtual String DefaultValue { get; set; }
 
         /// <summary>
         /// Der Wert der Option.
         /// </summary>
-        public String Value { get; set; }
+        public virtual String Value { get; set; }
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace Core
         /// <summary>
         /// Erstellt ein neues OptionsInfo-Objekt aus den übergegebenen Werten.
         /// </summary>
-        public void OptionInfo (String section, String name, String defaultValue, ConfigFile configFile)
+        public virtual void OptionInfo (String section, String name, String defaultValue, ConfigFile configFile)
         {
             throw new System.NotImplementedException();
         }

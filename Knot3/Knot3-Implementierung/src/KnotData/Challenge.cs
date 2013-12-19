@@ -31,37 +31,37 @@ namespace KnotData
         /// <summary>
         /// Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
         /// </summary>
-        public Knot Start { get; set; }
+        public virtual Knot Start { get; set; }
 
         /// <summary>
         /// Der Referenzknoten, in den der Spieler den Ausgangsknoten transformiert.
         /// </summary>
-        public Knot Target { get; set; }
+        public virtual Knot Target { get; set; }
 
         /// <summary>
         /// Eine sortierte Bestenliste.
         /// </summary>
-        private SortedList<Integer, String> highscore { get; set; }
+        private virtual SortedList<Integer, String> highscore { get; set; }
 
         /// <summary>
         /// Das Speicherformat der Challenge.
         /// </summary>
-        private IChallengeIO format { get; set; }
+        private virtual IChallengeIO format { get; set; }
 
         /// <summary>
         /// Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
         /// </summary>
-        public IEnumerator<KeyValuePair<String, Integer>> Highscore { get; set; }
+        public virtual IEnumerator<KeyValuePair<String, Integer>> Highscore { get; set; }
 
         /// <summary>
         /// Die Metadaten der Challenge.
         /// </summary>
-        public ChallengeMetaData MetaData { get; set; }
+        public virtual ChallengeMetaData MetaData { get; set; }
 
         /// <summary>
         /// Der Name der Challenge.
         /// </summary>
-        public String Name { get; set; }
+        public virtual String Name { get; set; }
 
         #endregion
 
@@ -71,7 +71,7 @@ namespace KnotData
         /// Erstellt ein Challenge-Objekt aus einem gegebenen Challenge-Metadaten-Objekt.
         /// Erstellt ein Challenge-Objekt aus einer gegebenen Challenge-Datei.
         /// </summary>
-        public void Challenge (ChallengeMetaData meta, Knot start, Knot target)
+        public virtual void Challenge (ChallengeMetaData meta, Knot start, Knot target)
         {
             throw new System.NotImplementedException();
         }
@@ -83,7 +83,7 @@ namespace KnotData
         /// <summary>
         /// Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
         /// </summary>
-        public void AddToHighscore (String name, Integer time)
+        public virtual void AddToHighscore (String name, Integer time)
         {
             throw new System.NotImplementedException();
         }

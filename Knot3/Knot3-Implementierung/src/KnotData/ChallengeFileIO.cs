@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein ChallengeFileIO-Objekt.
         /// </summary>
-        public void ChallengeFileIO ()
+        public virtual void ChallengeFileIO ()
         {
             throw new System.NotImplementedException();
         }
@@ -43,7 +43,7 @@ namespace KnotData
         /// <summary>
         /// Speichert eine Challenge in dem Dateinamen, der in dem Challenge-Objekt enthalten ist.
         /// </summary>
-        public void Save (Challenge challenge)
+        public virtual void Save (Challenge challenge)
         {
             throw new System.NotImplementedException();
         }
@@ -51,7 +51,7 @@ namespace KnotData
         /// <summary>
         /// Lädt eine Challenge aus einer angegebenen Datei.
         /// </summary>
-        public Challenge Load (String filename)
+        public virtual Challenge Load (String filename)
         {
             throw new System.NotImplementedException();
         }
@@ -59,7 +59,7 @@ namespace KnotData
         /// <summary>
         /// Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
         /// </summary>
-        public ChallengeMetaData LoadMetaData (String filename)
+        public virtual ChallengeMetaData LoadMetaData (String filename)
         {
             throw new System.NotImplementedException();
         }

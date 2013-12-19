@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// Die für eine Knoten-Datei gültigen Dateiendungen.
         /// </summary>
-        public IEnumerable<string> FileExtensions { get; set; }
+        public virtual IEnumerable<string> FileExtensions { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein KnotFileIO-Objekt.
         /// </summary>
-        public void KnotFileIO ()
+        public virtual void KnotFileIO ()
         {
             throw new System.NotImplementedException();
         }
@@ -52,7 +52,7 @@ namespace KnotData
         /// <summary>
         /// Speichert einen Knoten in dem Dateinamen, der in dem Knot-Objekt enthalten ist.
         /// </summary>
-        public void Save (Knot knot)
+        public virtual void Save (Knot knot)
         {
             throw new System.NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace KnotData
         /// <summary>
         /// Lädt eines Knotens aus einer angegebenen Datei.
         /// </summary>
-        public Knot Load (String filename)
+        public virtual Knot Load (String filename)
         {
             throw new System.NotImplementedException();
         }
@@ -68,7 +68,7 @@ namespace KnotData
         /// <summary>
         /// Lädt die Metadaten eines Knotens aus einer angegebenen Datei.
         /// </summary>
-        public KnotMetaData LoadMetaData (String filename)
+        public virtual KnotMetaData LoadMetaData (String filename)
         {
             throw new System.NotImplementedException();
         }

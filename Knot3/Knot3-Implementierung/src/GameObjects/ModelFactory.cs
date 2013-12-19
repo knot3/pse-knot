@@ -31,13 +31,13 @@ namespace GameObjects
         /// <summary>
         /// Die Zuordnung zwischen den Modellinformationen zu den 3D-Modellen.
         /// </summary>
-        private Dictionary<GameModelInfo, GameModel> cache { get; set; }
+        private virtual Dictionary<GameModelInfo, GameModel> cache { get; set; }
 
         /// <summary>
         /// Ein Delegate, das beim Erstellen eines Zwischenspeichers zugewiesen wird und aus den
         /// angegebenen Modellinformationen und dem angegebenen Spielzustand ein 3D-Modell erstellt.
         /// </summary>
-        private Func<GameScreen, GameModelInfo, GameModel> createModel { get; set; }
+        private virtual Func<GameScreen, GameModelInfo, GameModel> createModel { get; set; }
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt einen neuen Zwischenspeicher.
         /// </summary>
-        public void ModelFactory (GameModelInfo, GameModel>, Func<GameScreen createModel)
+        public virtual void ModelFactory (GameModelInfo, GameModel>, Func<GameScreen createModel)
         {
             throw new System.NotImplementedException();
         }
@@ -58,7 +58,7 @@ namespace GameObjects
         /// <summary>
         /// Falls das 3D-Modell zwischengespeichert ist, wird es zurückgegeben, sonst mit createModel() erstellt.
         /// </summary>
-        public GameModel this (GameScreen state, GameModelInfo info)
+        public virtual GameModel this (GameScreen state, GameModelInfo info)
         {
             throw new System.NotImplementedException();
         }

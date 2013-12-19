@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// 
         /// </summary>
-        public Integer Scale { get; set; }
+        public virtual Integer Scale { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Gibt den Übergang am Anfang der Kante zurück.
         /// </summary>
-        public Node From (Edge edge)
+        public virtual Node From (Edge edge)
         {
             throw new System.NotImplementedException();
         }
@@ -48,7 +48,7 @@ namespace KnotData
         /// <summary>
         /// Gibt den Übergang am Ende der Kante zurück.
         /// </summary>
-        public Node To (Edge edge)
+        public virtual Node To (Edge edge)
         {
             throw new System.NotImplementedException();
         }
@@ -56,7 +56,7 @@ namespace KnotData
         /// <summary>
         /// Aktualisiert die Zuordnung, wenn sich die Kanten geändert haben.
         /// </summary>
-        public void OnEdgesChanged ()
+        public virtual void OnEdgesChanged ()
         {
             throw new System.NotImplementedException();
         }

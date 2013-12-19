@@ -31,22 +31,22 @@ namespace GameObjects
         /// <summary>
         /// Die Kante vor dem Übergang.
         /// </summary>
-        public Edge EdgeFrom { get; set; }
+        public virtual Edge EdgeFrom { get; set; }
 
         /// <summary>
         /// Die Kante nach dem Übergang.
         /// </summary>
-        public Edge EdgeTo { get; set; }
+        public virtual Edge EdgeTo { get; set; }
 
         /// <summary>
         /// Der Knoten, der die Kanten enthält.
         /// </summary>
-        public Knot Knot { get; set; }
+        public virtual Knot Knot { get; set; }
 
         /// <summary>
         /// Die Position des Übergangs.
         /// </summary>
-        public Vector3 Position { get; set; }
+        public virtual Vector3 Position { get; set; }
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
         /// </summary>
-        public void NodeModelInfo (Knot knot, Edge from, Edge to)
+        public virtual void NodeModelInfo (Knot knot, Edge from, Edge to)
         {
             throw new System.NotImplementedException();
         }

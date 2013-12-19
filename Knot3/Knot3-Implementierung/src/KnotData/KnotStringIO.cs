@@ -32,23 +32,23 @@ namespace KnotData
         /// <summary>
         /// Der Name der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
         /// </summary>
-        public String Name { get; set; }
+        public virtual String Name { get; set; }
 
         /// <summary>
         /// Die Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
         /// </summary>
-        public IEnumerable<Edge> Edges { get; set; }
+        public virtual IEnumerable<Edge> Edges { get; set; }
 
         /// <summary>
         /// Die Anzahl der Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
         /// </summary>
-        public Integer CountEdges { get; set; }
+        public virtual Integer CountEdges { get; set; }
 
         /// <summary>
         /// Erstellt aus den \glqq Name\grqq~- und \glqq Edges\grqq~-Eigenschaften einen neue Zeichenkette,
         /// die als Dateiinhalt in einer Datei eines Spielstandes einen gültigen Knoten repräsentiert.
         /// </summary>
-        public String Content { get; set; }
+        public virtual String Content { get; set; }
 
         #endregion
 
@@ -59,7 +59,7 @@ namespace KnotData
         /// so werden die \glqq Name\grqq~- und \glqq Edges\grqq~-Eigenschaften auf die eingelesenen Werte gesetzt.
         /// Enthält es einen ungültigen Knoten, so wird eine IOException geworfen und das Objekt wird nicht erstellt.
         /// </summary>
-        public void KnotStringIO (String content)
+        public virtual void KnotStringIO (String content)
         {
             throw new System.NotImplementedException();
         }
@@ -68,7 +68,7 @@ namespace KnotData
         /// Erstellt ein neues Objekt und setzt die \glqq Name\grqq~- und \glqq Edge\grqq~-Eigenschaften auf die
         /// im angegebenen Knoten enthaltenen Werte.
         /// </summary>
-        public void KnotStringIO (Knot knot)
+        public virtual void KnotStringIO (Knot knot)
         {
             throw new System.NotImplementedException();
         }

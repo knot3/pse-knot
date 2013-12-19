@@ -31,12 +31,12 @@ namespace GameObjects
         /// <summary>
         /// 
         /// </summary>
-        public IGameObject Object { get; set; }
+        public virtual IGameObject Object { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public float Distance { get; set; }
+        public virtual float Distance { get; set; }
 
         #endregion
 

@@ -31,22 +31,22 @@ namespace Core
         /// <summary>
         /// Die Kamera dieser Spielwelt.
         /// </summary>
-        public Camera Camera { get; set; }
+        public virtual Camera Camera { get; set; }
 
         /// <summary>
         /// Die Liste von Spielobjekten.
         /// </summary>
-        public List<IGameObject> Objects { get; set; }
+        public virtual List<IGameObject> Objects { get; set; }
 
         /// <summary>
         /// Das aktuell ausgewählte Spielobjekt.
         /// </summary>
-        public IGameObject SelectedObject { get; set; }
+        public virtual IGameObject SelectedObject { get; set; }
 
         /// <summary>
         /// Der aktuell angewendete Rendereffekt.
         /// </summary>
-        public IRenderEffect CurrentEffect { get; set; }
+        public virtual IRenderEffect CurrentEffect { get; set; }
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace Core
         /// <summary>
         /// Erstellt eine neue Spielwelt im angegebenen Spielzustand.
         /// </summary>
-        public void World (GameScreen screen)
+        public virtual void World (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }
@@ -67,7 +67,7 @@ namespace Core
         /// <summary>
         /// Ruft auf allen Spielobjekten die Update()-Methode auf.
         /// </summary>
-        public void Update (GameTime GameTime)
+        public virtual void Update (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -75,7 +75,7 @@ namespace Core
         /// <summary>
         /// Ruft auf allen Spielobjekten die Draw()-Methode auf.
         /// </summary>
-        public void Draw (GameTime GameTime)
+        public virtual void Draw (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -83,7 +83,7 @@ namespace Core
         /// <summary>
         /// Liefert einen Enumerator über die Spielobjekte dieser Spielwelt.
         /// </summary>
-        public IEnumerator GetEnumerator ()
+        public virtual IEnumerator GetEnumerator ()
         {
             throw new System.NotImplementedException();
         }

@@ -31,7 +31,7 @@ namespace GameObjects
         /// <summary>
         /// Enthält Informationen über den darzustellende 3D-Modell des Kantenübergangs.
         /// </summary>
-        public NodeModelInfo Info { get; set; }
+        public virtual NodeModelInfo Info { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und dem angegebenen Informationsobjekt.
         /// </summary>
-        public void NodeModel (GameScreen screen, NodeModelInfo info)
+        public virtual void NodeModel (GameScreen screen, NodeModelInfo info)
         {
             throw new System.NotImplementedException();
         }
@@ -52,7 +52,7 @@ namespace GameObjects
         /// <summary>
         /// Zeichnet das 3D-Modell mit dem aktuellen Rendereffekt.
         /// </summary>
-        public void Draw (GameTime GameTime)
+        public virtual void Draw (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace GameObjects
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime GameTime)
+        public virtual void Update (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }

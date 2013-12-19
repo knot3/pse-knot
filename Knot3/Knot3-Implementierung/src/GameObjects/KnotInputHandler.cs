@@ -32,12 +32,12 @@ namespace GameObjects
         /// <summary>
         /// Die Spielwelt.
         /// </summary>
-        private World world { get; set; }
+        private virtual World world { get; set; }
 
         /// <summary>
         /// Der Spielzustand.
         /// </summary>
-        private GameScreen screen { get; set; }
+        private virtual GameScreen screen { get; set; }
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt einen neuen KnotInputHandler für den angegebenen Spielzustand und die angegebene Spielwelt.
         /// </summary>
-        public void KnotInputHandler (GameScreen screen, World world)
+        public virtual void KnotInputHandler (GameScreen screen, World world)
         {
             throw new System.NotImplementedException();
         }
@@ -58,7 +58,7 @@ namespace GameObjects
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime time)
+        public virtual void Update (GameTime time)
         {
             throw new System.NotImplementedException();
         }

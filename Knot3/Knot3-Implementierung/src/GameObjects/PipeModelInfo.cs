@@ -31,22 +31,22 @@ namespace GameObjects
         /// <summary>
         /// Die Kante, die durch das 3D-Modell dargestellt wird.
         /// </summary>
-        public Edge Edge { get; set; }
+        public virtual Edge Edge { get; set; }
 
         /// <summary>
         /// Der Knoten, der die Kante enthält.
         /// </summary>
-        public Knot Knot { get; set; }
+        public virtual Knot Knot { get; set; }
 
         /// <summary>
         /// Die Position, an der die Kante beginnt.
         /// </summary>
-        public Vector3 PositionFrom { get; set; }
+        public virtual Vector3 PositionFrom { get; set; }
 
         /// <summary>
         /// Die Position, an der die Kante endet.
         /// </summary>
-        public Vector3 PositionTo { get; set; }
+        public virtual Vector3 PositionTo { get; set; }
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
         /// </summary>
-        public void PipeModelInfo (Knot knot, Edge edge)
+        public virtual void PipeModelInfo (Knot knot, Edge edge)
         {
             throw new System.NotImplementedException();
         }

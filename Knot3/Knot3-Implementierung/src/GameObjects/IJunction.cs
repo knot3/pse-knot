@@ -31,12 +31,12 @@ namespace GameObjects
         /// <summary>
         /// Die Kante vor dem Übergang.
         /// </summary>
-        public Edge EdgeFrom { get; set; }
+        public virtual Edge EdgeFrom { get; set; }
 
         /// <summary>
         /// Die Kante nach dem Übergang.
         /// </summary>
-        public Edge EdgeTo { get; set; }
+        public virtual Edge EdgeTo { get; set; }
 
         #endregion
 

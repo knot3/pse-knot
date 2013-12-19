@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Der Text des Eintrags.
         /// </summary>
-        public String Text { get; set; }
+        public virtual String Text { get; set; }
 
         #endregion
 

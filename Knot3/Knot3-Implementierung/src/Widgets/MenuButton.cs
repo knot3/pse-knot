@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Die Aktion, die ausgeführt wird, wenn der Spieler auf die Schaltfläche klickt.
         /// </summary>
-        public Action OnClick { get; set; }
+        public virtual Action OnClick { get; set; }
 
         #endregion
 
@@ -42,7 +42,7 @@ namespace Widgets
         /// Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche
         /// und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
         /// </summary>
-        public void MenuButton (GameScreen screen, DisplayLayer drawOrder, String name, Action onClick)
+        public virtual void MenuButton (GameScreen screen, DisplayLayer drawOrder, String name, Action onClick)
         {
             throw new System.NotImplementedException();
         }

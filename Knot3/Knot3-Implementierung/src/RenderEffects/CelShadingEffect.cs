@@ -31,7 +31,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
         /// </summary>
-        public void CelShadingEffect (GameScreen screen)
+        public virtual void CelShadingEffect (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }
@@ -43,7 +43,7 @@ namespace RenderEffects
         /// <summary>
         /// !!!
         /// </summary>
-        protected void DrawRenderTarget (GameTime GameTime)
+        protected virtual void DrawRenderTarget (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -51,7 +51,7 @@ namespace RenderEffects
         /// <summary>
         /// Zeichnet ein 3D-Modell auf das Rendertarget.
         /// </summary>
-        public void DrawModel (GameTime, GameModel GameModel)
+        public virtual void DrawModel (GameTime, GameModel GameModel)
         {
             throw new System.NotImplementedException();
         }
@@ -59,7 +59,7 @@ namespace RenderEffects
         /// <summary>
         /// Weist dem 3D-Modell den Cel-Shader zu.
         /// </summary>
-        public void RemapModel (GameModel GameModel)
+        public virtual void RemapModel (GameModel GameModel)
         {
             throw new System.NotImplementedException();
         }

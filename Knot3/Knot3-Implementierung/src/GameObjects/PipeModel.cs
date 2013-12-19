@@ -31,7 +31,7 @@ namespace GameObjects
         /// <summary>
         /// Enthält Informationen über die darzustellende Kante.
         /// </summary>
-        public PipeModelInfo Info { get; set; }
+        public virtual PipeModelInfo Info { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und den angegebenen Spielinformationen.
         /// </summary>
-        public void PipeModel (GameScreen screen, PipeModelInfo info)
+        public virtual void PipeModel (GameScreen screen, PipeModelInfo info)
         {
             throw new System.NotImplementedException();
         }
@@ -52,7 +52,7 @@ namespace GameObjects
         /// <summary>
         /// Prüft, ob der angegebene Mausstrahl das 3D-Modell schneidet.
         /// </summary>
-        public GameObjectDistance Intersects (Ray ray)
+        public virtual GameObjectDistance Intersects (Ray ray)
         {
             throw new System.NotImplementedException();
         }

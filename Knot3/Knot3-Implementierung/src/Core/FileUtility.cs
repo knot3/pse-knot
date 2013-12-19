@@ -31,17 +31,17 @@ namespace Core
         /// <summary>
         /// Das Einstellungsverzeichnis.
         /// </summary>
-        public String SettingsDirectory { get; set; }
+        public virtual String SettingsDirectory { get; set; }
 
         /// <summary>
         /// Das Spielstandverzeichnis.
         /// </summary>
-        public String SavegameDirectory { get; set; }
+        public virtual String SavegameDirectory { get; set; }
 
         /// <summary>
         /// Das Bildschirmfotoverzeichnis.
         /// </summary>
-        public String ScreenshotDirectory { get; set; }
+        public virtual String ScreenshotDirectory { get; set; }
 
         #endregion
 
@@ -50,7 +50,7 @@ namespace Core
         /// <summary>
         /// Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungültiger Zeichen.
         /// </summary>
-        public String ConvertToFileName (String name)
+        public virtual String ConvertToFileName (String name)
         {
             throw new System.NotImplementedException();
         }
@@ -58,7 +58,7 @@ namespace Core
         /// <summary>
         /// Liefert einen Hash-Wert zu der durch filename spezifizierten Datei.
         /// </summary>
-        public String GetHash (String filename)
+        public virtual String GetHash (String filename)
         {
             throw new System.NotImplementedException();
         }

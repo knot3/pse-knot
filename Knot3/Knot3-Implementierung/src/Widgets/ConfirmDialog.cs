@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Das Menü, das Schaltflächen enthält.
         /// </summary>
-        private Menu buttons { get; set; }
+        private virtual Menu buttons { get; set; }
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace Widgets
         /// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
         /// </summary>
-        public void ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text)
+        public virtual void ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text)
         {
             throw new System.NotImplementedException();
         }

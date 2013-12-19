@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Die ausgewählte Farbe.
         /// </summary>
-        public Color Color { get; set; }
+        public virtual Color Color { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace Widgets
         /// <summary>
         /// Reagiert auf Tastatureingaben.
         /// </summary>
-        public void OnKeyEvent ()
+        public virtual void OnKeyEvent ()
         {
             throw new System.NotImplementedException();
         }
@@ -48,7 +48,7 @@ namespace Widgets
         /// <summary>
         /// Gibt die Ausmaße des ColorPickers zurück.
         /// </summary>
-        public Rectangle Bounds ()
+        public virtual Rectangle Bounds ()
         {
             throw new System.NotImplementedException();
         }
@@ -56,7 +56,7 @@ namespace Widgets
         /// <summary>
         /// Bei einem Linksklick wird eine Farbe ausgewählt und im Attribut Color abgespeichert.
         /// </summary>
-        public void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+        public virtual void OnLeftClick (Vector2 position, ClickState state, GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -64,7 +64,7 @@ namespace Widgets
         /// <summary>
         /// Bei einem Rechtsklick geschieht nichts.
         /// </summary>
-        public void OnRightClick (Vector2 position, ClickState state, GameTime time)
+        public virtual void OnRightClick (Vector2 position, ClickState state, GameTime time)
         {
             throw new System.NotImplementedException();
         }

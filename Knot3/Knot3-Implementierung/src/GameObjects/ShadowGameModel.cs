@@ -31,12 +31,12 @@ namespace GameObjects
         /// <summary>
         /// Die Farbe der Vorschaumodelle.
         /// </summary>
-        public Color ShadowColor { get; set; }
+        public virtual Color ShadowColor { get; set; }
 
         /// <summary>
         /// Die Transparenz der Vorschaumodelle.
         /// </summary>
-        public float ShadowAlpha { get; set; }
+        public virtual float ShadowAlpha { get; set; }
 
         #endregion
 
@@ -45,7 +45,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angegebene zu dekorierende Modell.
         /// </summary>
-        public void ShadowGameModel (GameScreen sreen, GameModel decoratedModel)
+        public virtual void ShadowGameModel (GameScreen sreen, GameModel decoratedModel)
         {
             throw new System.NotImplementedException();
         }
@@ -57,7 +57,7 @@ namespace GameObjects
         /// <summary>
         /// Zeichnet das Vorschaumodell.
         /// </summary>
-        public void Draw (GameTime GameTime)
+        public virtual void Draw (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }

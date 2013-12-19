@@ -31,27 +31,27 @@ namespace Screens
         /// <summary>
         /// Der Knoten, der vom Spieler bearbeitet wird.
         /// </summary>
-        public void Knot { get; set; }
+        public virtual void Knot { get; set; }
 
         /// <summary>
         /// Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
         /// </summary>
-        private World World { get; set; }
+        private virtual World World { get; set; }
 
         /// <summary>
         /// Der Controller, der aus dem Knoten die 3D-Modelle erstellt.
         /// </summary>
-        private KnotRenderer KnotRenderer { get; set; }
+        private virtual KnotRenderer KnotRenderer { get; set; }
 
         /// <summary>
         /// Der Undo-Stack.
         /// </summary>
-        public Stack<Knot> Undo { get; set; }
+        public virtual Stack<Knot> Undo { get; set; }
 
         /// <summary>
         /// Der Redo-Stack.
         /// </summary>
-        public Stack<Knot> Redo { get; set; }
+        public virtual Stack<Knot> Redo { get; set; }
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace Screens
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime time)
+        public virtual void Update (GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -68,7 +68,7 @@ namespace Screens
         /// <summary>
         /// Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
         /// </summary>
-        public void Entered (GameScreen previousScreen, GameTime time)
+        public virtual void Entered (GameScreen previousScreen, GameTime time)
         {
             throw new System.NotImplementedException();
         }

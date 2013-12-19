@@ -33,23 +33,23 @@ namespace Screens
         /// ob sich das Spiel im Vollbildmodus befindet. Wird dieses Attribut auf einen Wert gesetzt,
         /// dann wird der Modus entweder gewechselt oder beibehalten, falls es auf denselben Wert gesetzt wird.
         /// </summary>
-        public Boolean IsFullScreen { get; set; }
+        public virtual Boolean IsFullScreen { get; set; }
 
         /// <summary>
         /// Enthält als oberste Element den aktuellen Spielzustand und darunter die zuvor aktiven Spielzustände.
         /// </summary>
-        public Stack<GameScreen> Screens { get; set; }
+        public virtual Stack<GameScreen> Screens { get; set; }
 
         /// <summary>
         /// Dieses Attribut dient sowohl zum Setzen des Aktivierungszustandes der vertikalen Synchronisation,
         /// als auch zum Auslesen dieses Zustandes.
         /// </summary>
-        public Boolean VSync { get; set; }
+        public virtual Boolean VSync { get; set; }
 
         /// <summary>
         /// Der aktuelle Grafikgeräteverwalter des XNA-Frameworks.
         /// </summary>
-        public GraphicsDeviceManager Graphics { get; set; }
+        public virtual GraphicsDeviceManager Graphics { get; set; }
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace Screens
         /// die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
         /// Bildschirmauflösung und wechselt in den Vollbildmodus.
         /// </summary>
-        public void Knot3Game ()
+        public virtual void Knot3Game ()
         {
             throw new System.NotImplementedException();
         }
@@ -72,7 +72,7 @@ namespace Screens
         /// <summary>
         /// Ruft die Draw()-Methode des aktuellen Spielzustands auf.
         /// </summary>
-        public void Draw (GameTime time)
+        public virtual void Draw (GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -80,7 +80,7 @@ namespace Screens
         /// <summary>
         /// 
         /// </summary>
-        public void Initialize ()
+        public virtual void Initialize ()
         {
             throw new System.NotImplementedException();
         }
@@ -88,7 +88,7 @@ namespace Screens
         /// <summary>
         /// Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
         /// </summary>
-        public void UnloadContent ()
+        public virtual void UnloadContent ()
         {
             throw new System.NotImplementedException();
         }
@@ -96,7 +96,7 @@ namespace Screens
         /// <summary>
         /// 
         /// </summary>
-        public void Update (GameTime time)
+        public virtual void Update (GameTime time)
         {
             throw new System.NotImplementedException();
         }

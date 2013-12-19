@@ -33,12 +33,12 @@ namespace RenderEffects
         /// <summary>
         /// Der oberste Rendereffekt.
         /// </summary>
-        public IRenderEffect CurrentEffect { get; set; }
+        public virtual IRenderEffect CurrentEffect { get; set; }
 
         /// <summary>
         /// Der Standard-Rendereffekt, der verwendet wird, wenn der Stapel leer ist.
         /// </summary>
-        private IRenderEffect DefaultEffect { get; set; }
+        private virtual IRenderEffect DefaultEffect { get; set; }
 
         #endregion
 
@@ -47,7 +47,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Rendereffekt-Stapel.
         /// </summary>
-        public void RenderEffectStack (IRenderEffect defaultEffect)
+        public virtual void RenderEffectStack (IRenderEffect defaultEffect)
         {
             throw new System.NotImplementedException();
         }
@@ -59,7 +59,7 @@ namespace RenderEffects
         /// <summary>
         /// Entfernt den obersten Rendereffekt vom Stapel.
         /// </summary>
-        public IRenderEffect Pop ()
+        public virtual IRenderEffect Pop ()
         {
             throw new System.NotImplementedException();
         }
@@ -67,7 +67,7 @@ namespace RenderEffects
         /// <summary>
         /// Legt einen Rendereffekt auf den Stapel.
         /// </summary>
-        public void Push (IRenderEffect effect)
+        public virtual void Push (IRenderEffect effect)
         {
             throw new System.NotImplementedException();
         }

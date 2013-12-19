@@ -32,7 +32,7 @@ namespace Screens
         /// <summary>
         /// !!!
         /// </summary>
-        public void Entered (GameScreen previousScreen, GameTime GameTime)
+        public virtual void Entered (GameScreen previousScreen, GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }

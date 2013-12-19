@@ -31,17 +31,17 @@ namespace GameObjects
         /// <summary>
         /// Enthält Informationen über die Position des Knotens.
         /// </summary>
-        public GameObjectInfo Info { get; set; }
+        public virtual GameObjectInfo Info { get; set; }
 
         /// <summary>
         /// Der Knoten, dessen Kanten verschoben werden können.
         /// </summary>
-        public Knot Knot { get; set; }
+        public virtual Knot Knot { get; set; }
 
         /// <summary>
         /// Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
         /// </summary>
-        public World World { get; set; }
+        public virtual World World { get; set; }
 
         #endregion
 
@@ -50,7 +50,7 @@ namespace GameObjects
         /// <summary>
         /// !!!
         /// </summary>
-        public void PipeMovement (GameScreen screen, World world, GameObjectInfo info)
+        public virtual void PipeMovement (GameScreen screen, World world, GameObjectInfo info)
         {
             throw new System.NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace GameObjects
         /// <summary>
         /// Gibt den Ursprung des Knotens zurück.
         /// </summary>
-        public Vector3 Center ()
+        public virtual Vector3 Center ()
         {
             throw new System.NotImplementedException();
         }
@@ -70,7 +70,7 @@ namespace GameObjects
         /// <summary>
         /// Gibt immer \glqq null\grqq zurück.
         /// </summary>
-        public GameObjectDistance Intersects (Ray Ray)
+        public virtual GameObjectDistance Intersects (Ray Ray)
         {
             throw new System.NotImplementedException();
         }
@@ -78,7 +78,7 @@ namespace GameObjects
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        public void Update (GameTime GameTime)
+        public virtual void Update (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
@@ -86,7 +86,7 @@ namespace GameObjects
         /// <summary>
         /// Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
         /// </summary>
-        public IEnumerator GetEnumerator ()
+        public virtual IEnumerator GetEnumerator ()
         {
             throw new System.NotImplementedException();
         }
@@ -94,7 +94,7 @@ namespace GameObjects
         /// <summary>
         /// Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
         /// </summary>
-        public void Draw (GameTime GameTime)
+        public virtual void Draw (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }

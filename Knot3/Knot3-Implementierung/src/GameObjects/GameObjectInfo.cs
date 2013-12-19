@@ -31,22 +31,22 @@ namespace GameObjects
         /// <summary>
         /// Die Verschiebbarkeit des Spielobjektes.
         /// </summary>
-        public Boolean IsMovable { get; set; }
+        public virtual Boolean IsMovable { get; set; }
 
         /// <summary>
         /// Die Auswählbarkeit des Spielobjektes.
         /// </summary>
-        public Boolean IsSelectable { get; set; }
+        public virtual Boolean IsSelectable { get; set; }
 
         /// <summary>
         /// Die Sichtbarkeit des Spielobjektes.
         /// </summary>
-        public Boolean IsVisible { get; set; }
+        public virtual Boolean IsVisible { get; set; }
 
         /// <summary>
         /// Die Position des Spielobjektes.
         /// </summary>
-        public Vector3 Position { get; set; }
+        public virtual Vector3 Position { get; set; }
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace GameObjects
         /// <summary>
         /// Vergleicht zwei Informationsobjekte für Spielobjekte.
         /// </summary>
-        public Boolean Equals (C other)
+        public virtual Boolean Equals (C other)
         {
             throw new System.NotImplementedException();
         }
