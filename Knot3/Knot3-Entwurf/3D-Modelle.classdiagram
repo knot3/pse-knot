@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="8c38fa47-6dad-49a3-8551-5d5bd5f2f409" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="8c38fa47-6dad-49a3-8551-5d5bd5f2f409" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" name="IGameObject" isAbstract="false" isLeaf="false">
@@ -4222,7 +4222,7 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <class Id="4f2e8f10-2db4-470e-ac79-68d9f3b72914" name="PipeMovement" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="4f2e8f10-2db4-470e-ac79-68d9f3b72914" name="EdgeMovement" isAbstract="false" isLeaf="false" isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance Id="62e3c4a3-f1ad-419c-9888-d053331204e2" name="class" profile="CSharpProfile">
             <elementDefinition Id="9bafdcd5-37c0-4b7d-b932-0fef7c429c64" />
@@ -4615,7 +4615,7 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="8b95112f-48e3-46f4-86da-fd1adde8b0b7" name="PipeMovement" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="8b95112f-48e3-46f4-86da-fd1adde8b0b7" name="EdgeMovement" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="d0ab37f9-ebd0-438a-82c9-410f79bebf97" name="method" profile="CSharpProfile">
                 <elementDefinition Id="52f39727-9bd2-455b-8eba-5ff10a060a56" />
@@ -4662,24 +4662,24 @@
             <elementDefinition Id="38929896-37dc-436c-aa49-bce20098c4f1" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a23b9914-292c-4fc1-b32a-6d6645600ae4" name="screen" direction="In" isUnique="false">
-                  <elementDefinition Id="7e6c3d19-da15-40f2-ace0-c1cc00c5afbb" />
+                <parameter Id="ff8517e0-4855-4baf-bc47-c49e83e94961" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="8febb88d-3554-4c6f-8ef5-f1dd86a642ae" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="9d9376c5-615a-4897-89e3-b8017df0a73d" LastKnownName="GameScreen" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="60e8bbe6-4a3e-49a8-9c9b-a4665601caaf" name="world" direction="In" isUnique="false">
-                  <elementDefinition Id="8f82749f-156a-4077-a9eb-5a93c7c087f2" />
+                <parameter Id="71347156-0253-4617-bb67-a956a404d160" name="world" direction="In" isUnique="false">
+                  <elementDefinition Id="82ec581d-931b-43e8-bde8-4be5f5fd1ed1" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="4c4a389c-0c41-4575-872f-15f3f10e6a03" LastKnownName="World" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="384844c4-7958-457a-b17a-ea3aea76e668" name="info" direction="In" isUnique="false">
-                  <elementDefinition Id="fce2e4c8-f275-4880-b698-bfe7a9bfff70" />
+                <parameter Id="4d99299d-77cf-4dce-920c-0c17eee1804c" name="info" direction="In" isUnique="false">
+                  <elementDefinition Id="d7b6e31b-afe9-4fe5-a63f-a6208024aa50" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="4a9b7a55-ff4d-43df-a9fc-351b579adfe5" LastKnownName="GameObjectInfo" />
                   </type_NamedElement>
