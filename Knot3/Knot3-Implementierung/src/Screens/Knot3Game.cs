@@ -78,7 +78,7 @@ namespace Screens
         }
 
         /// <summary>
-        /// 
+        /// Initialisiert die Attribute dieser Klasse.
         /// </summary>
         public virtual void Initialize ()
         {
@@ -94,7 +94,7 @@ namespace Screens
         }
 
         /// <summary>
-        /// 
+        /// Wird für jeden Frame aufgerufen.
         /// </summary>
         public virtual void Update (GameTime time)
         {

@@ -26,6 +26,18 @@ namespace Screens
     public class CreditsScreen : MenuScreen
     {
 
+        #region Constructors
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public  CreditsScreen (Knot3Game game)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>

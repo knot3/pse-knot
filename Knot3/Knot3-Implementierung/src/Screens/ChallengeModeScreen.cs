@@ -75,6 +75,19 @@ namespace Screens
 
         #endregion
 
+        #region Constructors
+
+        /// <summary>
+        /// Erstellt eine neue Instanz eines ChallengeModeScreen-Objekts und
+        /// initialisiert diese mit einem Knot3Game-Objekt.
+        /// </summary>
+        public  ChallengeModeScreen (Knot3Game game)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>

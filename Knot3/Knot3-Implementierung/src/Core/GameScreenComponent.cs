@@ -40,20 +40,24 @@ namespace Core
 
         #endregion
 
+        #region Constructors
+
+        /// <summary>
+        /// Erzeugt eine neue Instanz eines GameScreenComponent-Objekts und initialisiert diese mit dem zugehörigen GameScreen und der zugehörigen Zeichenreihenfolge. Diese Spielkomponente kann nur in dem zugehörigen GameScreen verwendet werden.
+        /// </summary>
+        public  GameScreenComponent (GameScreen screen, DisplayLayer index)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
         /// Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
         /// </summary>
         public virtual IEnumerable SubComponents (GameTime GameTime)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
-        /// Erstellt eine neue Spielkomponente in dem angegebenen Spielzustand mit der angegebenen Priorität.
-        /// </summary>
-        public virtual void GameStateComponent (GameScreen screen, DisplayLayer index)
         {
             throw new System.NotImplementedException();
         }

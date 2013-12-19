@@ -40,20 +40,24 @@ namespace Core
 
         #endregion
 
+        #region Constructors
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public  DrawableGameScreenComponent (GameScreen screen, DisplayLayer index)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
         /// Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
         /// </summary>
         public virtual IEnumerable SubComponents (GameTime GameTime)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
-        /// Erstellt eine neue zeichenbare Spielkomponente in dem angegebenen Spielzustand mit der angegebenen Priorität.
-        /// </summary>
-        public virtual void DrawableGameStateComponent (GameScreen screen, DisplayLayer index)
         {
             throw new System.NotImplementedException();
         }

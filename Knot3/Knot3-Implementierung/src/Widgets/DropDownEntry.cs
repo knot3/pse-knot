@@ -33,6 +33,23 @@ namespace Widgets
         /// </summary>
         public String Text { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public Action OnSelect { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public  DropDownEntry (String text, Action onSelect)
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion
 
     }

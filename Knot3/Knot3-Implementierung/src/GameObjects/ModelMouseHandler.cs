@@ -26,6 +26,18 @@ namespace GameObjects
     public class ModelMouseHandler : GameScreenComponent
     {
 
+        #region Constructors
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public  ModelMouseHandler (GameScreen screen, World world)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>

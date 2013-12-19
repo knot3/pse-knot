@@ -21,7 +21,7 @@ using Widgets;
 namespace Core
 {
     /// <summary>
-    /// Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet.
+    /// Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet. Zusätzlich wird die aktuelle Eingabeaktion berechnet.
     /// </summary>
     public class Input : GameScreenComponent
     {
@@ -62,6 +62,11 @@ namespace Core
         /// Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
         /// </summary>
         public Boolean GrabMouseMovement { get; set; }
+
+        /// <summary>
+        /// Gibt die aktuelle Eingabeaktion an, die von den verschiedenen Inputhandlern genutzt werden können.
+        /// </summary>
+        public InputAction CurrentInputAction { get; set; }
 
         #endregion
 

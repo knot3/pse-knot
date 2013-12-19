@@ -91,7 +91,7 @@ namespace Core
         }
 
         /// <summary>
-        /// 
+        /// Fügt die angegebenen GameComponents in die Components-Liste des Games ein.
         /// </summary>
         public virtual void AddGameComponents (IGameScreenComponent[] components)
         {
@@ -99,7 +99,7 @@ namespace Core
         }
 
         /// <summary>
-        /// 
+        /// Entfernt die angegebenen GameComponents aus der Components-Liste des Games.
         /// </summary>
         public virtual void RemoveGameComponents (IGameScreenComponent[] components)
         {

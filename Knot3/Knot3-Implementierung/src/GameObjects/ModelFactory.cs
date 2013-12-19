@@ -46,7 +46,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt einen neuen Zwischenspeicher.
         /// </summary>
-        public ModelFactory (Func<GameScreen, GameModelInfo, GameModel> createModel)
+        public  ModelFactory (, , Func<GameScreen createModel)
         {
             throw new System.NotImplementedException();
         }

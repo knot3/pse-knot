@@ -55,6 +55,18 @@ namespace Screens
 
         #endregion
 
+        #region Constructors
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public  CreativeModeScreen (Knot3Game game)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>

@@ -21,22 +21,38 @@ using Widgets;
 namespace Core
 {
     /// <summary>
-    /// Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
+    /// 
     /// </summary>
-    public enum ClickState
+    public enum InputAction
     {
         /// <summary>
-        /// Wenn der Klickzustand nicht zugeordnet werden konnte. Undefiniert.
+        /// 
         /// </summary>
         None=0,
         /// <summary>
-        /// Ein Einzelklick.
+        /// 
         /// </summary>
-        SingleClick=1,
+        CameraTargetMove,
         /// <summary>
-        /// Ein Doppelklick.
+        /// 
         /// </summary>
-        DoubleClick=2,
+        ArcballMove,
+        /// <summary>
+        /// 
+        /// </summary>
+        FreeMouse,
+        /// <summary>
+        /// 
+        /// </summary>
+        FirstPersonCameraMove,
+        /// <summary>
+        /// 
+        /// </summary>
+        SelectedObjectMove,
+        /// <summary>
+        /// 
+        /// </summary>
+        SelectedObjectShadowMove,
     }
 }
 

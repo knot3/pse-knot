@@ -26,6 +26,19 @@ namespace Screens
     public class ChallengeLoadScreen : MenuScreen
     {
 
+        #region Constructors
+
+        /// <summary>
+        /// Erstellt eine neue Instanz eines ChallengeLoadScreen-Objekts und
+        /// initialisiert diese mit einem Knot3Game-Objekt.
+        /// </summary>
+        public  ChallengeLoadScreen (Knot3Game game)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -40,14 +53,6 @@ namespace Screens
         /// Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
         /// </summary>
         public virtual void Entered (GameScreen previousScreen, GameTime GameTime)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
-        /// Erzeugt ein neues ChallengeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-        /// </summary>
-        public virtual void ChallengeModeScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

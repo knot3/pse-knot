@@ -51,7 +51,7 @@ namespace RenderEffects
         /// <summary>
         /// Zeichnet ein 3D-Modell auf das Rendertarget.
         /// </summary>
-        public virtual void DrawModel (GameTime, GameModel GameModel)
+        public virtual void DrawModel (, GameModel GameModel)
         {
             throw new System.NotImplementedException();
         }

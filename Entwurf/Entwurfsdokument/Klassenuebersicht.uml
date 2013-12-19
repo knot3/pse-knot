@@ -234,10 +234,7 @@ public class KnotData.Circle :
 
 // Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
 public enum Core.ClickState
-    // Steht für einen ungültigen oder einen undefinierten Zustand. Keine Reihenfolge.
-    // Kein gültiger oder ein undefinierter Zustand.
-    // Keine Reihenfolge.
-    // 
+    // Wenn der Klickzustand nicht zugeordnet werden konnte. Undefiniert.
     None=0
     // Ein Einzelklick.
     SingleClick=1
@@ -393,29 +390,30 @@ public enum KnotData.Direction
 
 // Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
 public enum Core.DisplayLayer
-    // Steht für einen ungültigen oder einen undefinierten Zustand. Keine Reihenfolge.
-    // Kein gültiger oder ein undefinierter Zustand.
-    // Keine Reihenfolge.
-    // 
+    // Steht für die hinterste Ebene bei der Zeichenreihenfolge.
     None=0
-    // !!!
-    Background=1
-    // 
-    GameWorld=2
-    // 
-    Dialog=3
-    // 
-    Menu=4
-    // 
-    MenuItem=5
-    // 
-    SubMenu=6
-    // 
-    SubMenuItem=7
-    // 
-    Overlay=8
-    // 
-    Cursor=9
+    // Steht für eine Ebene hinter der Spielwelt, z.B. um
+    // Hintergrundbilder darzustellen.
+    Background=10
+    // Steht für die Ebene in der die Spielwelt dargestellt wird.
+    GameWorld=20
+    // Steht für die Ebene in der die Dialoge dargestellt werden.
+    // Dialoge werden vor der Spielwelt gezeichnet, damit der Spieler damit interagieren kann.
+    Dialog=30
+    // Steht für die Ebene in der Menüs gezeichnet werden. Menüs werden innerhalb von Dialogen angezeigt, müssen also davor gezeichnet werden, damit sie nicht vom Hintergrund des Dialogs verdeckt werden.
+    Menu=40
+    // Steht für die Ebene in der Menüeinträge gezeichnet werden. Menüeinträge werden vor Menüs gezeichnet.
+    MenuItem=50
+    // Steht für die Ebene in der Submenüs gezeichnet werden. Submenüs befinden sich in einer Ebene vor Menüeinträgen.
+    SubMenu=60
+    // Steht für die Ebene in der Submenüeinträge gezeichnet werden. Submenüeinträge befinden sich in einer Ebene vor Submenüs.
+    SubMenuItem=70
+    // Zum Anzeigen zusätzlicher Informationen bei der (Weiter-)Entwicklung oder beim Testen (z.B. ein FPS-Counter).
+    Overlay=80
+    // Die Maus ist das Hauptinteraktionswerkzeug, welches der Spieler
+    // ständig verwendet. Daher muss die Maus bei der Interaktion immer
+    // im Vordergrund sein. Cursor steht für die vorderste Ebene.
+    Cursor=90
 
 // Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
 public class Core.DistinctOptionInfo : OptionInfo
@@ -483,6 +481,29 @@ public class KnotData.Edge :
     + Edge (Direction direction) : void
     // Gibt die Richtung als normalisierten Vektor3 zurück.
     + Get3DDirection () : Vector3
+
+// Ein Inputhandler, der für das Verschieben der Kanten zuständig ist.
+public class GameObjects.EdgeMovement : 
+  Attributes:
+    // Enthält Informationen über die Position des Knotens.
+    + Info : GameObjectInfo
+    // Der Knoten, dessen Kanten verschoben werden können.
+    + Knot : Knot
+    // Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
+    + World : World
+  Methods:
+    // Gibt den Ursprung des Knotens zurück.
+    + Center () : Vector3
+    // Gibt immer \glqq null\grqq zurück.
+    + Intersects (Ray Ray) : GameObjectDistance
+    // Wird für jeden Frame aufgerufen.
+    + Update (GameTime GameTime) : void
+    // !!!
+    + EdgeMovement (GameScreen screen, World world, GameObjectInfo info) : void
+    // Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
+    + GetEnumerator () : IEnumerator
+    // Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
+    + Draw (GameTime GameTime) : void
 
 // Ein Postprocessing-Effekt, der eine Überblendung zwischen zwei Spielzuständen darstellt.
 public class RenderEffects.FadeEffect : RenderEffect
@@ -733,7 +754,7 @@ public interface Core.IMouseEventListener :
     // Die Reaktion auf einen Rechtsklick.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
 
-// Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet.
+// Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet. Zusätzlich wird die aktuelle Eingabeaktion berechnet.
 public class Core.Input : GameScreenComponent
   Attributes:
     // Enthält den Klickzustand der rechten Maustaste.
@@ -750,11 +771,30 @@ public class Core.Input : GameScreenComponent
     + PreviousKeyboardState : KeyboardState
     // Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
     + GrabMouseMovement : Boolean
+    // Gibt die aktuelle Eingabeaktion an, die von den verschiedenen Inputhandlern genutzt werden können.
+    + CurrentInputAction : InputAction
   Methods:
     // Erstellt ein neues Input-Objekt, das an den übergebenen Spielzustand gebunden ist.
     + Input (GameScreen screen) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
+
+// 
+public enum Core.InputAction
+    // 
+    None=0
+    // 
+    CameraTargetMove
+    // 
+    ArcballMove
+    // 
+    FreeMouse
+    // 
+    FirstPersonCameraMove
+    // 
+    SelectedObjectMove
+    // 
+    SelectedObjectShadowMove
 
 // Ein Menüeintrag, der Texteingaben vom Spieler annimmt.
 public class Widgets.InputItem : MenuItem
@@ -793,10 +833,7 @@ public enum Widgets.ItemState
     Selected=1
     // Die Maus wurde direkt über den Menüeintrag navigiert und verweilt dort.
     Hovered=2
-    // Steht für einen ungültigen oder einen undefinierten Zustand. Keine Reihenfolge.
-    // Kein gültiger oder ein undefinierter Zustand.
-    // Keine Reihenfolge.
-    // 
+    // Ein undefinierter Zustand.
     None=0
 
 // Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Option als Zeichenkette speichert.
@@ -889,11 +926,11 @@ public class Screens.Knot3Game : XNA.Game
     + Knot3Game () : void
     // Ruft die Draw()-Methode des aktuellen Spielzustands auf.
     + Draw (GameTime time) : void
-    // 
+    // Initialisiert die Attribute dieser Klasse.
     + Initialize () : void
     // Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
     + UnloadContent () : void
-    // 
+    // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
 // Implementiert das Speicherformat für Knoten.
@@ -1124,6 +1161,8 @@ public class GameObjects.ModelMouseHandler : GameScreenComponent
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
+    // 
+    + ModelMouseHandler (GameScreen screen, World world) : void
 
 // Repräsentiert einen Mauszeiger.
 public class Core.MousePointer : DrawableGameScreenComponent
@@ -1250,29 +1289,6 @@ public class GameObjects.PipeModelInfo : GameModelInfo
   Methods:
     // Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
     + PipeModelInfo (Knot knot, Edge edge) : void
-
-// Ein Inputhandler, der für das Verschieben der Kanten zuständig ist.
-public class GameObjects.PipeMovement : 
-  Attributes:
-    // Enthält Informationen über die Position des Knotens.
-    + Info : GameObjectInfo
-    // Der Knoten, dessen Kanten verschoben werden können.
-    + Knot : Knot
-    // Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
-    + World : World
-  Methods:
-    // Gibt den Ursprung des Knotens zurück.
-    + Center () : Vector3
-    // Gibt immer \glqq null\grqq zurück.
-    + Intersects (Ray Ray) : GameObjectDistance
-    // Wird für jeden Frame aufgerufen.
-    + Update (GameTime GameTime) : void
-    // !!!
-    + PipeMovement (GameScreen screen, World world, GameObjectInfo info) : void
-    // Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
-    + GetEnumerator () : IEnumerator
-    // Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
-    + Draw (GameTime GameTime) : void
 
 // Ein Exportformat für 3D-Drucker.
 public class KnotData.PrinterIO : 

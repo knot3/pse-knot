@@ -52,7 +52,7 @@ namespace RenderEffects
         /// In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert
         /// und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
         /// </summary>
-        public virtual void Begin (GameTime)
+        public virtual void Begin ()
         {
             throw new System.NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace RenderEffects
         /// das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
         /// auf dieses ubergeordnete Rendertarget gezeichnet.
         /// </summary>
-        public virtual void End (GameTime)
+        public virtual void End ()
         {
             throw new System.NotImplementedException();
         }
@@ -70,7 +70,7 @@ namespace RenderEffects
         /// <summary>
         /// Zeichnet das übergebene 3D-Modell auf das Rendertarget.
         /// </summary>
-        public virtual void DrawModel (GameTime, GameModel GameModel)
+        public virtual void DrawModel (, GameModel GameModel)
         {
             throw new System.NotImplementedException();
         }

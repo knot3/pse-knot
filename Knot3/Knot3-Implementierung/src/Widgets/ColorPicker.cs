@@ -35,6 +35,18 @@ namespace Widgets
 
         #endregion
 
+        #region Constructors
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public  ColorPicker (Color default)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>

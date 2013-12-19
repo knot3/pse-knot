@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="fcbdaac2-862f-4580-8887-58a60bb54f68"
   name="Core" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -4444,31 +4444,31 @@
             name="None = 0" />
           <enumerationLiteral
             Id="5e8d87df-eeb6-4910-829b-5da4ed7502ca"
-            name="Background = 1" />
+            name="Background = 10" />
           <enumerationLiteral
             Id="109234d5-9d71-4e01-b5ea-cb98c882da47"
-            name="GameWorld = 2" />
+            name="GameWorld = 20" />
           <enumerationLiteral
             Id="22b9f34a-3280-41c5-abbd-fd151581a4a5"
-            name="Dialog = 3" />
+            name="Dialog = 30" />
           <enumerationLiteral
             Id="3aeb4629-83c9-4ffa-a14c-1ee342b2921b"
-            name="Menu = 4" />
+            name="Menu = 40" />
           <enumerationLiteral
             Id="1d917b89-622a-4391-9e11-89f6fe16de28"
-            name="MenuItem = 5" />
+            name="MenuItem = 50" />
           <enumerationLiteral
             Id="6d3210ee-2175-4e76-940b-6778e5b8e33c"
-            name="SubMenu = 6" />
+            name="SubMenu = 60" />
           <enumerationLiteral
             Id="04fa290f-d6f7-45f1-86eb-518e43051cd4"
-            name="SubMenuItem = 7" />
+            name="SubMenuItem = 70" />
           <enumerationLiteral
             Id="66d7777d-2a43-4fd3-85e5-1075bf56b3ca"
-            name="Overlay = 8" />
+            name="Overlay = 80" />
           <enumerationLiteral
             Id="e75cf369-f2c2-4a1a-9efc-042b0b8b3ed2"
-            name="Cursor = 9" />
+            name="Cursor = 90" />
         </ownedLiterals>
       </enumeration>
     </packageHasNamedElement>
@@ -4582,6 +4582,45 @@
                       value="2" />
                   </upperValueInternal>
                 </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b5bc7a79-838e-4d85-bd75-d97f71c420d6"
+            isDerived="false"
+            sourceEndRoleName="Input"
+            targetEndRoleName="InputAction"
+            isLeaf="false"
+            isAbstract="false">
+            <enumerationMoniker
+              Id="1c5e8462-964d-49ee-b9df-524fd99fd06b"
+              LastKnownName="InputAction"
+              LastKnownLocation="Core.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f7595f99-2557-4ab9-b051-f51988f7d48e"
+                  name="Input"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8d46d2b5-1be5-4244-a9f0-c9a7a9476c2b"
+                  name="InputAction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -5110,6 +5149,24 @@
                 Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
                 LastKnownName="Boolean"
                 LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="c1f787ca-c395-44b3-a358-9352f8c4b557"
+            name="CurrentInputAction"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="1c5e8462-964d-49ee-b9df-524fd99fd06b"
+                LastKnownName="InputAction"
+                LastKnownLocation="Core.uml" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -9207,6 +9264,37 @@
           </operation>
         </ownedOperations>
       </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="1c5e8462-964d-49ee-b9df-524fd99fd06b"
+        name="InputAction"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="23f1261a-6c4d-4dd8-8205-59065336231a"
+            name="None = 0" />
+          <enumerationLiteral
+            Id="e761dd64-b3ec-47cc-a23d-69f12969c2b4"
+            name="CameraTargetMove" />
+          <enumerationLiteral
+            Id="19961f28-a374-4711-92e1-312e2c2bd7ac"
+            name="ArcballMove" />
+          <enumerationLiteral
+            Id="756bede0-a8bf-4438-8fea-e82b06badb41"
+            name="FreeMouse" />
+          <enumerationLiteral
+            Id="5f035b00-d19f-4012-9e80-6363f89f4e88"
+            name="FirstPersonCameraMove" />
+          <enumerationLiteral
+            Id="38580227-ff1b-4c8f-a02c-a7c182ed8fb3"
+            name="SelectedObjectMove" />
+          <enumerationLiteral
+            Id="61ec7b66-7ed4-43e8-ad00-c1844bad6d08"
+            name="SelectedObjectShadowMove" />
+        </ownedLiterals>
+      </enumeration>
     </packageHasNamedElement>
   </packagedElements>
 </package>
