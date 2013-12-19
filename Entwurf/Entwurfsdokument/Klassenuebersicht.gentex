@@ -374,42 +374,7 @@ Die Option, die mit dem Auswahlkasten verknüpft ist.
 Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 
-\subsection{Klasse Circle}
-\begin{wrapfigure}{r}{9cm}
-\centering
-\includegraphics[scale=0.5]{Klassen/Circle}
-\end{wrapfigure}
-\paragraph{Beschreibung:}\mbox{}\\\\
-Eine doppelt verkettete Liste.
 
-
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{T} \varname{Content}}\\~\\
-Der Wert dieses Listeneintrags.
-~\\\\
-\textbf{\keyword{public} \ptype{Circle} \varname{Next}}\\~\\
-Der nächste Listeneintrag.
-~\\\\
-\textbf{\keyword{public} \ptype{Circle} \varname{Previous}}\\~\\
-Der vorherige Listeneintrag.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Circle} (\ptype{T} \varname{content})}\\~\\
-Erstellt einen neuen Listeneintrag.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Remove} ()}\\~\\
-Entfernt diesen Listeneintrag und verknüpft den vorherigen mit dem nächsten Eintrag.
-~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{InsertAfter} (\ptype{T} \varname{next})}\\~\\
-Fügt nach diesem Listeneintrag einen neuen Listeneintrag ein.
-~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{InsertBefore} (\ptype{T} \varname{previous})}\\~\\
-Fügt vor diesem Listeneintrag einen neuen Listeneintrag ein.
-~\\\\
-\textbf{\keyword{public} \ptype{IEnumerator$<$T$>$} \varname{GetEnumerator} ()}\\~\\
-Gibt einen Enumerator über die Liste zurück.
-~\\\\
-\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\\~\\
-Gibt einen Enumerator über die Liste zurück.
 
 \subsection{Klasse ColorPicker}
 \begin{wrapfigure}{r}{9cm}
@@ -917,12 +882,11 @@ Leert die Spielkomponentenliste des XNA-Frameworks.
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{AddGameComponents} (\ptype{IGameStateComponent[]} \varname{components})}\\~\\
-Fügt die angegebenen Spielkomponenten und deren über die Methode SubComponents() ermittelten
-Unterkomponenten der Spielkomponentenliste des XNA-Frameworks hinzu.
+\textbf{\keyword{public} \ptype{void} \varname{AddGameComponents} (\ptype{IGameScreenComponent[]} \varname{components})}\\~\\
+
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{RemoveGameComponents} (\ptype{IGameStateComponent[]} \varname{components})}\\~\\
-Entfernt die angegebenen Spiekomponenten und deren Unterkomponenten von der Spielkomponentenliste des XNA-Frameworks.
+\textbf{\keyword{public} \ptype{void} \varname{RemoveGameComponents} (\ptype{IGameScreenComponent[]} \varname{components})}\\~\\
+
 
 \subsection{Klasse GameScreenComponent}
 \begin{wrapfigure}{r}{9cm}
@@ -1081,14 +1045,6 @@ die in der doppelt verketteten Liste gespeichert werden.
 Die Eigenschaft des Metadaten-Objektes, die die Anzahl der Kanten enthält,
 wird auf ein Delegate gesetzt, welches jeweils die aktuelle Anzahl der Kanten dieses Knotens zurückgibt.
 \paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Save} ()}\\~\\
-Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
-Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
-oder beide den Wert \glqq null\grqq, dann wird eine IOException geworfen.
-~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{ClearSelection} ()}\\~\\
-Hebt die aktuelle Kantenauswahl auf.
-~\\\\
 \textbf{\keyword{public} \ptype{Boolean} \varname{IsValidMove} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})}\\~\\
 Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
 ~\\\\
@@ -1098,6 +1054,11 @@ Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebe
 \textbf{\keyword{public} \ptype{IEnumerator$<$Edge$>$} \varname{GetEnumerator} ()}\\~\\
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
 ~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{Save} ()}\\~\\
+Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
+Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
+oder beide den Wert \glqq null\grqq, dann wird eine IOException geworfen.
+~\\\\
 \textbf{\keyword{public} \ptype{Object} \varname{Clone} ()}\\~\\
 Erstellt eine vollständige Kopie des Knotens, inklusive der Kanten-Datenstruktur und des Metadaten-Objekts.
 ~\\\\
@@ -1106,6 +1067,9 @@ Fügt die angegebene Kante zur aktuellen Kantenauswahl hinzu.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{RemoveFromSelection} (\ptype{Edge} \varname{edge})}\\~\\
 Entfernt die angegebene Kante von der aktuellen Kantenauswahl.
+~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{ClearSelection} ()}\\~\\
+Hebt die aktuelle Kantenauswahl auf.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{AddRangeToSelection} (\ptype{Edge} \varname{edge})}\\~\\
 Fügt alle Kanten auf dem kürzesten Weg zwischen der zuletzt ausgewählten Kante und der angegebenen Kante
@@ -1154,14 +1118,14 @@ Erstellt ein neues zentrales Spielobjekt und setzt die Auflösung des BackBuffer
 die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
 Bildschirmauflösung und wechselt in den Vollbildmodus.
 \paragraph{Methoden:}\mbox{} \\\\
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\\~\\
+Ruft die Draw()-Methode des aktuellen Spielzustands auf.
+~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Initialize} ()}\\~\\
 
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{UnloadContent} ()}\\~\\
 Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
-~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\\~\\
-Ruft die Draw()-Methode des aktuellen Spielzustands auf.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 
@@ -1265,7 +1229,8 @@ und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\\\\
 Erstellt aus einem Knoten-Objekt die zu dem Knoten gehörenden 3D-Modelle sowie die 3D-Modelle der Pfeile,
-die nach einer Auswahl von Kanten durch den Spieler angezeigt werden.
+die nach einer Auswahl von Kanten durch den Spieler angezeigt werden. Ist außerdem ein IGameObject und ein
+Container für die erstellten Spielobjekte.
 
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
@@ -1311,10 +1276,10 @@ Gibt immer \glqq null\grqq zurück.
 Wird mit dem EdgesChanged-Event des Knotens verknüft.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
-Wird für jeden Frame aufgerufen.
+Ruft die Update()-Methoden der Kanten, Übergänge und Pfeile auf.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\\~\\
-Zeichnet nichts.
+Ruft die Draw()-Methoden der Kanten, Übergänge und Pfeile auf.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\\~\\
 Gibt einen Enumerator der aktuell vorhandenen 3D-Modelle zurück.
@@ -1457,14 +1422,14 @@ Die Zeichenreihenfolge.
 \textbf{\keyword{public} \ptype{String} \varname{Text}}\\~\\
 Der Anzeigetext der Schaltfläche.
 \paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
-Reaktionen auf Tasteneingaben.
-~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
 Reaktionen auf einen Linksklick.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
 Reaktionen auf einen Rechtsklick.
+~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
+Reaktionen auf Tasteneingaben.
 ~\\\\
 \textbf{\keyword{public} \ptype{Rectangle} \varname{Bounds} ()}\\~\\
 Gibt die Ausmaße des Eintrags zurück.
@@ -1537,6 +1502,34 @@ Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\\~\\
 Zeichnet den Mauszeiger.
 
+\subsection{Klasse Node}
+\begin{wrapfigure}{r}{9cm}
+\centering
+\includegraphics[scale=0.5]{Klassen/Node}
+\end{wrapfigure}
+\paragraph{Beschreibung:}\mbox{}\\\\
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \\\\
+\textbf{\keyword{public} \ptype{Integer} \varname{X}}\\~\\
+
+~\\\\
+\textbf{\keyword{public} \ptype{Integer} \varname{Y}}\\~\\
+
+~\\\\
+\textbf{\keyword{public} \ptype{Integer} \varname{Z}}\\~\\
+
+~\\\\
+\textbf{\keyword{private} \ptype{Integer} \varname{scale}}\\~\\
+
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{Node} (\ptype{Integer} \varname{x}, \ptype{Integer} \varname{y}, \ptype{Integer} \varname{z})}\\~\\
+
+\paragraph{Methoden:}\mbox{} \\\\
+\textbf{\keyword{public} \ptype{Vector3} \varname{ToVector} ()}\\~\\
+
+
 \subsection{Klasse NodeMap}
 \begin{wrapfigure}{r}{9cm}
 \centering
@@ -1545,6 +1538,9 @@ Zeichnet den Mauszeiger.
 \paragraph{Beschreibung:}\mbox{}\\\\
 Eine Zuordnung zwischen Kanten und Kantenübergänge.
 
+
+\paragraph{Eigenschaften:}\mbox{} \\\\
+\textbf{\keyword{public} \ptype{Integer} \varname{Scale}}\\~\\
 
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{Node} \varname{From} (\ptype{Edge} \varname{edge})}\\~\\
@@ -1955,10 +1951,9 @@ Der maximale Wert.
 ~\\\\
 \textbf{\keyword{public} \ptype{Integer} \varname{Step}}\\~\\
 Schrittweite zwischen zwei einstellbaren Werten.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Integer} \varname{max}, \ptype{Integer} \varname{min}, \ptype{Integer} \varname{step}, \ptype{Integer} \varname{value})}\\~\\
-Zudem ist die Angabe der Zeichenreihenfolge, dem minimalen einstellbaren Wert, dem maximalen einstellbaren Wert,
-der Schrittweite und dem voreingestellten Wert Pflicht.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{SliderItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Integer} \varname{max}, \ptype{Integer} \varname{min}, \ptype{Integer} \varname{step}, \ptype{Integer} \varname{value})}\\~\\
+
 
 \subsection{Klasse StandardEffect}
 \begin{wrapfigure}{r}{9cm}
@@ -2012,10 +2007,8 @@ Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
 \textbf{\keyword{public} \ptype{String} \varname{InputText}}\\~\\
 Der Text, der durch den Spieler eingegeben wurde.
 \paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{TextInputDialog} (\ptype{Knot3-Entwurf::GameScreen} \varname{screen}, \ptype{Knot3-Entwurf::DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text}, \ptype{String} \varname{inputText})}\\~\\
-Erzeugt eine neue Instanz eines TextInputDialog-Objekts und initialisiert diese mit dem zugehörigen GameScreen-Objekt.
-Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenkette für den eingeblendeten Text Pflicht
-und eine Zeichenkette für bereits eingegebenen Text Pflicht.
+\textbf{\keyword{public} \varname{TextInputDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text}, \ptype{String} \varname{inputText})}\\~\\
+
 
 \subsection{Klasse TutorialChallengeModeScreen}
 \begin{wrapfigure}{r}{9cm}

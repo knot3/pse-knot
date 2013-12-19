@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A7093300-1D0E-462B-83E2-A5DC7C3D145B}</ProjectGuid>
+    <ProjectTypeGuids>{9B831FEF-F496-498F-9FE8-180DA5CB4258};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Knot3</RootNamespace>
+    <MonoGamePlatform>Linux</MonoGamePlatform>
+    <AssemblyName>Knot3</AssemblyName>
+    <StartupObject>Knot3.Program</StartupObject>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="MonoGame.Framework, Version=3.0.1.0, Culture=neutral">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Core\Angles3.cs" />
+    <Compile Include="src\Core\BooleanOptionInfo.cs" />
+    <Compile Include="src\Core\Camera.cs" />
+    <Compile Include="src\Core\ClickState.cs" />
+    <Compile Include="src\Core\ConfigFile.cs" />
+    <Compile Include="src\Core\DisplayLayer.cs" />
+    <Compile Include="src\Core\DistinctOptionInfo.cs" />
+    <Compile Include="src\Core\DrawableGameScreenComponent.cs" />
+    <Compile Include="src\Core\FileUtility.cs" />
+    <Compile Include="src\Core\GameScreen.cs" />
+    <Compile Include="src\Core\GameScreenComponent.cs" />
+    <Compile Include="src\Core\IGameScreenComponent.cs" />
+    <Compile Include="src\Core\IKeyEventListener.cs" />
+    <Compile Include="src\Core\IMouseEventListener.cs" />
+    <Compile Include="src\Core\Input.cs" />
+    <Compile Include="src\Core\Localizer.cs" />
+    <Compile Include="src\Core\MousePointer.cs" />
+    <Compile Include="src\Core\OptionInfo.cs" />
+    <Compile Include="src\Core\Options.cs" />
+    <Compile Include="src\Core\World.cs" />
+    <Compile Include="src\GameObjects\ArrowModel.cs" />
+    <Compile Include="src\GameObjects\ArrowModelInfo.cs" />
+    <Compile Include="src\GameObjects\GameModel.cs" />
+    <Compile Include="src\GameObjects\GameModelInfo.cs" />
+    <Compile Include="src\GameObjects\GameObjectDistance.cs" />
+    <Compile Include="src\GameObjects\GameObjectInfo.cs" />
+    <Compile Include="src\GameObjects\IGameObject.cs" />
+    <Compile Include="src\GameObjects\IJunction.cs" />
+    <Compile Include="src\GameObjects\KnotInputHandler.cs" />
+    <Compile Include="src\GameObjects\KnotRenderer.cs" />
+    <Compile Include="src\GameObjects\ModelFactory.cs" />
+    <Compile Include="src\GameObjects\ModelMouseHandler.cs" />
+    <Compile Include="src\GameObjects\NodeModel.cs" />
+    <Compile Include="src\GameObjects\NodeModelInfo.cs" />
+    <Compile Include="src\GameObjects\PipeModel.cs" />
+    <Compile Include="src\GameObjects\PipeModelInfo.cs" />
+    <Compile Include="src\GameObjects\PipeMovement.cs" />
+    <Compile Include="src\GameObjects\ShadowGameModel.cs" />
+    <Compile Include="src\GameObjects\ShadowGameObject.cs" />
+    <Compile Include="src\KnotData\Challenge.cs" />
+    <Compile Include="src\KnotData\ChallengeFileIO.cs" />
+    <Compile Include="src\KnotData\ChallengeMetaData.cs" />
+    <Compile Include="src\KnotData\Circle_T.cs" />
+    <Compile Include="src\KnotData\Direction.cs" />
+    <Compile Include="src\KnotData\Edge.cs" />
+    <Compile Include="src\KnotData\IChallengeIO.cs" />
+    <Compile Include="src\KnotData\IKnotIO.cs" />
+    <Compile Include="src\KnotData\Knot.cs" />
+    <Compile Include="src\KnotData\KnotFileIO.cs" />
+    <Compile Include="src\KnotData\KnotMetaData.cs" />
+    <Compile Include="src\KnotData\KnotStringIO.cs" />
+    <Compile Include="src\KnotData\Node.cs" />
+    <Compile Include="src\KnotData\NodeMap.cs" />
+    <Compile Include="src\KnotData\PrinterIO.cs" />
+    <Compile Include="src\RenderEffects\CelShadingEffect.cs" />
+    <Compile Include="src\RenderEffects\FadeEffect.cs" />
+    <Compile Include="src\RenderEffects\IRenderEffect.cs" />
+    <Compile Include="src\RenderEffects\RenderEffect.cs" />
+    <Compile Include="src\RenderEffects\RenderEffectStack.cs" />
+    <Compile Include="src\RenderEffects\StandardEffect.cs" />
+    <Compile Include="src\Screens\AudioSettingsScreen.cs" />
+    <Compile Include="src\Screens\ChallengeLoadScreen.cs" />
+    <Compile Include="src\Screens\ChallengeModeScreen.cs" />
+    <Compile Include="src\Screens\ControlSettingsScreen.cs" />
+    <Compile Include="src\Screens\CreativeLoadScreen.cs" />
+    <Compile Include="src\Screens\CreativeModeScreen.cs" />
+    <Compile Include="src\Screens\CreditsScreen.cs" />
+    <Compile Include="src\Screens\GraphicsSettingsScreen.cs" />
+    <Compile Include="src\Screens\Knot3Game.cs" />
+    <Compile Include="src\Screens\MenuScreen.cs" />
+    <Compile Include="src\Screens\ProfileSettingsScreen.cs" />
+    <Compile Include="src\Screens\SettingsScreen.cs" />
+    <Compile Include="src\Screens\StartScreen.cs" />
+    <Compile Include="src\Screens\TutorialChallengeModeScreen.cs" />
+    <Compile Include="src\Widgets\CheckBoxItem.cs" />
+    <Compile Include="src\Widgets\ColorPicker.cs" />
+    <Compile Include="src\Widgets\ColorPickItem.cs" />
+    <Compile Include="src\Widgets\ConfirmDialog.cs" />
+    <Compile Include="src\Widgets\Dialog.cs" />
+    <Compile Include="src\Widgets\DropDownEntry.cs" />
+    <Compile Include="src\Widgets\DropDownMenuItem.cs" />
+    <Compile Include="src\Widgets\HorizontalAlignment.cs" />
+    <Compile Include="src\Widgets\InputItem.cs" />
+    <Compile Include="src\Widgets\ItemState.cs" />
+    <Compile Include="src\Widgets\KeyInputItem.cs" />
+    <Compile Include="src\Widgets\Menu.cs" />
+    <Compile Include="src\Widgets\MenuButton.cs" />
+    <Compile Include="src\Widgets\MenuItem.cs" />
+    <Compile Include="src\Widgets\PauseDialog.cs" />
+    <Compile Include="src\Widgets\SaveDialog.cs" />
+    <Compile Include="src\Widgets\SliderItem.cs" />
+    <Compile Include="src\Widgets\TextInputDialog.cs" />
+    <Compile Include="src\Widgets\VerticalAlignment.cs" />
+    <Compile Include="src\Widgets\VerticalMenu.cs" />
+    <Compile Include="src\Widgets\Widget.cs" />
+    <Compile Include="src\Widgets\WidgetKeyHandler.cs" />
+    <Compile Include="src\Widgets\WidgetMouseHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="Content\Font.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Test3D.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\cursor.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\image1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\floor.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\enemy_0.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\pipe1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MenuFont.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\knot1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\logo.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\ColorMap.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\CelMap.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\CelShader.mgfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\OutlineShader.mgfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\knot1-low.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\pipe1-low.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameShader Include="Content\blur.mgfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </MonoGameShader>
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="Hierarchical" ResourceNamePolicy="FileFormatDefault" />
+          <TextStylePolicy inheritsSet="null" scope="text/x-csharp" />
+          <CSharpFormattingPolicy inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <None Include="Content\instances.mgfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

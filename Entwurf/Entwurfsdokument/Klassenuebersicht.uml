@@ -226,25 +226,7 @@ public class CheckBoxItem :
 // Eine doppelt verkettete Liste.
 public class Circle : 
   Attributes:
-    // Der Wert dieses Listeneintrags.
-    + Content : T
-    // Der nächste Listeneintrag.
-    + Next : Circle
-    // Der vorherige Listeneintrag.
-    + Previous : Circle
   Methods:
-    // Entfernt diesen Listeneintrag und verknüpft den vorherigen mit dem nächsten Eintrag.
-    + Remove () : void
-    // Erstellt einen neuen Listeneintrag.
-    + Circle (T content) : void
-    // Fügt nach diesem Listeneintrag einen neuen Listeneintrag ein.
-    + InsertAfter (T next) : void
-    // Fügt vor diesem Listeneintrag einen neuen Listeneintrag ein.
-    + InsertBefore (T previous) : void
-    // Gibt einen Enumerator über die Liste zurück.
-    + GetEnumerator () : IEnumerator<T>
-    // Gibt einen Enumerator über die Liste zurück.
-    + GetEnumerator () : IEnumerator
 
 // Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
 public enum ClickState
@@ -605,11 +587,10 @@ public class GameScreen :
     + Update (GameTime time) : void
     // Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + GameScreen (Knot3Game game) : void
-    // Fügt die angegebenen Spielkomponenten und deren über die Methode SubComponents() ermittelten
-    // Unterkomponenten der Spielkomponentenliste des XNA-Frameworks hinzu.
-    + AddGameComponents (IGameStateComponent[] components) : void
-    // Entfernt die angegebenen Spiekomponenten und deren Unterkomponenten von der Spielkomponentenliste des XNA-Frameworks.
-    + RemoveGameComponents (IGameStateComponent[] components) : void
+    // 
+    + AddGameComponents (IGameScreenComponent[] components) : void
+    // 
+    + RemoveGameComponents (IGameScreenComponent[] components) : void
 
 // Eine Spielkomponente, die in einem GameScreen verwendet wird und eine bestimmte Priorität hat.
 public class GameScreenComponent : 
@@ -834,12 +815,6 @@ public class Knot :
     // Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
     // die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null\grqq.
     + Knot () : void
-    // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
-    // Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
-    // oder beide den Wert \glqq null\grqq, dann wird eine IOException geworfen.
-    + Save () : void
-    // Hebt die aktuelle Kantenauswahl auf.
-    + ClearSelection () : void
     // Erstellt einen neuen Knoten mit dem angegebenen Metadaten-Objekt und den angegebenen Kanten,
     // die in der doppelt verketteten Liste gespeichert werden.
     // Die Eigenschaft des Metadaten-Objektes, die die Anzahl der Kanten enthält,
@@ -851,12 +826,18 @@ public class Knot :
     + Move (Direction dir, Integer distance) : Boolean
     // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
     + GetEnumerator () : IEnumerator<Edge>
+    // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
+    // Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
+    // oder beide den Wert \glqq null\grqq, dann wird eine IOException geworfen.
+    + Save () : void
     // Erstellt eine vollständige Kopie des Knotens, inklusive der Kanten-Datenstruktur und des Metadaten-Objekts.
     + Clone () : Object
     // Fügt die angegebene Kante zur aktuellen Kantenauswahl hinzu.
     + AddToSelection (Edge edge) : void
     // Entfernt die angegebene Kante von der aktuellen Kantenauswahl.
     + RemoveFromSelection (Edge edge) : void
+    // Hebt die aktuelle Kantenauswahl auf.
+    + ClearSelection () : void
     // Fügt alle Kanten auf dem kürzesten Weg zwischen der zuletzt ausgewählten Kante und der angegebenen Kante
     // zur aktuellen Kantenauswahl hinzu. Sind beide Wege gleich lang,
     // wird der Weg in Richtung der ersten Kante ausgewählt.
@@ -889,12 +870,12 @@ public class Knot3Game :
     // die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
     // Bildschirmauflösung und wechselt in den Vollbildmodus.
     + Knot3Game () : void
+    // Ruft die Draw()-Methode des aktuellen Spielzustands auf.
+    + Draw (GameTime time) : void
     // 
     + Initialize () : void
     // Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
     + UnloadContent () : void
-    // Ruft die Draw()-Methode des aktuellen Spielzustands auf.
-    + Draw (GameTime time) : void
     // 
     + Update (GameTime time) : void
 
@@ -1088,12 +1069,12 @@ public class MenuItem :
     // Der Anzeigetext der Schaltfläche.
     + Text : String
   Methods:
-    // Reaktionen auf Tasteneingaben.
-    + OnKeyEvent () : void
     // Reaktionen auf einen Linksklick.
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
     // Reaktionen auf einen Rechtsklick.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
+    // Reaktionen auf Tasteneingaben.
+    + OnKeyEvent () : void
     // Gibt die Ausmaße des Eintrags zurück.
     + Bounds () : Rectangle
 
@@ -1136,9 +1117,28 @@ public class MousePointer :
     // Zeichnet den Mauszeiger.
     + Draw (GameTime time) : void
 
+// 
+public class Node : 
+  Attributes:
+    // 
+    + X : Integer
+    // 
+    + Y : Integer
+    // 
+    + Z : Integer
+    // 
+    - scale : Integer
+  Methods:
+    // 
+    + ToVector () : Vector3
+    // 
+    + Node (Integer x, Integer y, Integer z) : void
+
 // Eine Zuordnung zwischen Kanten und Kantenübergänge.
 public class NodeMap : 
   Attributes:
+    // 
+    + Scale : Integer
   Methods:
     // Gibt den Übergang am Anfang der Kante zurück.
     + From (Edge edge) : Node
@@ -1393,9 +1393,8 @@ public class SliderItem :
     // Schrittweite zwischen zwei einstellbaren Werten.
     + Step : Integer
   Methods:
-    // Zudem ist die Angabe der Zeichenreihenfolge, dem minimalen einstellbaren Wert, dem maximalen einstellbaren Wert,
-    // der Schrittweite und dem voreingestellten Wert Pflicht.
-    +  (GameScreen screen, DisplayLayer drawOrder, Integer max, Integer min, Integer step, Integer value) : void
+    // 
+    + SliderItem (GameScreen screen, DisplayLayer drawOrder, Integer max, Integer min, Integer step, Integer value) : void
 
 // Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardmäßig zugewiesenen
 // BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
@@ -1426,10 +1425,8 @@ public class TextInputDialog :
     // Der Text, der durch den Spieler eingegeben wurde.
     + InputText : String
   Methods:
-    // Erzeugt eine neue Instanz eines TextInputDialog-Objekts und initialisiert diese mit dem zugehörigen GameScreen-Objekt.
-    // Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenkette für den eingeblendeten Text Pflicht
-    // und eine Zeichenkette für bereits eingegebenen Text Pflicht.
-    + TextInputDialog (Knot3-Entwurf::GameScreen screen, Knot3-Entwurf::DisplayLayer drawOrder, String title, String text, String inputText) : void
+    // 
+    + TextInputDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text, String inputText) : void
 
 // Eine Einführung in das Spielen von Challenges.
 // Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangeführt.
