@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein ChallengeFileIO-Objekt.
         /// </summary>
-        public void ChallengeFileIO ()
+        public  ChallengeFileIO ()
         {
             throw new System.NotImplementedException();
         }

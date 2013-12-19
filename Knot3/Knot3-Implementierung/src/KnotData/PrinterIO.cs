@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein neues PrinterIO-Objekt.
         /// </summary>
-        public void PrinterIO ()
+        public  PrinterIO ()
         {
             throw new System.NotImplementedException();
         }

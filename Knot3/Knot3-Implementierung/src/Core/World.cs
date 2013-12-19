@@ -55,7 +55,7 @@ namespace Core
         /// <summary>
         /// Erstellt eine neue Spielwelt im angegebenen Spielzustand.
         /// </summary>
-        public void World (GameScreen screen)
+        public  World (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

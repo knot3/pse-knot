@@ -65,7 +65,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metadaten des Ausgangs- und Referenzknotens.
         /// </summary>
-        public void ChallengeMetaData (String name, KnotMetaData start, KnotMetaData target, String filename, IChallengeIO format)
+        public  ChallengeMetaData (String name, KnotMetaData start, KnotMetaData target, String filename, IChallengeIO format)
         {
             throw new System.NotImplementedException();
         }

@@ -40,7 +40,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
         /// </summary>
-        public void ArrowModel (GameScreen screen, ArrowModelInfo info)
+        public  ArrowModel (GameScreen screen, ArrowModelInfo info)
         {
             throw new System.NotImplementedException();
         }

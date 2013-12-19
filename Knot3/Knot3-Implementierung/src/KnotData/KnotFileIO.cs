@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein KnotFileIO-Objekt.
         /// </summary>
-        public void KnotFileIO ()
+        public  KnotFileIO ()
         {
             throw new System.NotImplementedException();
         }

@@ -41,7 +41,7 @@ namespace Widgets
         /// Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
         /// </summary>
-        public void InputItem (GameScreen screen, DisplayLayer drawOrder, String text)
+        public  InputItem (GameScreen screen, DisplayLayer drawOrder, String text)
         {
             throw new System.NotImplementedException();
         }

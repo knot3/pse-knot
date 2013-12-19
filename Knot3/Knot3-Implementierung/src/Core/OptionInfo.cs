@@ -60,7 +60,7 @@ namespace Core
         /// <summary>
         /// Erstellt ein neues OptionsInfo-Objekt aus den übergegebenen Werten.
         /// </summary>
-        public void OptionInfo (String section, String name, String defaultValue, ConfigFile configFile)
+        public  OptionInfo (String section, String name, String defaultValue, ConfigFile configFile)
         {
             throw new System.NotImplementedException();
         }

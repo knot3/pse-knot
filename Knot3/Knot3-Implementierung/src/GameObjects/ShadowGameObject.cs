@@ -55,7 +55,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Vorschauobjekt in dem angegebenen Spielzustand für das angegebene zu dekorierende Objekt.
         /// </summary>
-        public void ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
+        public  ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
         {
             throw new System.NotImplementedException();
         }

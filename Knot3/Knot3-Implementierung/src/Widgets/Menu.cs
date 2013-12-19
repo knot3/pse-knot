@@ -68,7 +68,7 @@ namespace Widgets
         /// Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
         /// </summary>
-        public void Menu (GameScreen screen, DisplayLayer drawOrder)
+        public  Menu (GameScreen screen, DisplayLayer drawOrder)
         {
             throw new System.NotImplementedException();
         }

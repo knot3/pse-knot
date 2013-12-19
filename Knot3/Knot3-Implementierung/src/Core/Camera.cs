@@ -90,7 +90,7 @@ namespace Core
         /// <summary>
         /// Erstellt eine neue Kamera in einem bestimmten GameScreen für eine bestimmte Spielwelt.
         /// </summary>
-        public void Camera (GameScreen screen, World world)
+        public  Camera (GameScreen screen, World world)
         {
             throw new System.NotImplementedException();
         }

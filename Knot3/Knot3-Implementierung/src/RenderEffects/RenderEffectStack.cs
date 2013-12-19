@@ -47,7 +47,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Rendereffekt-Stapel.
         /// </summary>
-        public void RenderEffectStack (IRenderEffect defaultEffect)
+        public  RenderEffectStack (IRenderEffect defaultEffect)
         {
             throw new System.NotImplementedException();
         }

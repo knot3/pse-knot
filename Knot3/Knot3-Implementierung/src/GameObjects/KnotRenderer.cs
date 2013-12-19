@@ -84,7 +84,7 @@ namespace GameObjects
         /// Erstellt ein neues KnotRenderer-Objekt für den angegebenen Spielzustand mit den angegebenen
         /// Spielobjekt-Informationen, die unter Anderem die Position des Knotenursprungs enthalten.
         /// </summary>
-        public void KnotRenderer (GameScreen screen, GameObjectInfo info)
+        public  KnotRenderer (GameScreen screen, GameObjectInfo info)
         {
             throw new System.NotImplementedException();
         }

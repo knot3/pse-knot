@@ -71,7 +71,7 @@ namespace KnotData
         /// Erstellt ein Challenge-Objekt aus einem gegebenen Challenge-Metadaten-Objekt.
         /// Erstellt ein Challenge-Objekt aus einer gegebenen Challenge-Datei.
         /// </summary>
-        public void Challenge (ChallengeMetaData meta, Knot start, Knot target)
+        public  Challenge (ChallengeMetaData meta, Knot start, Knot target)
         {
             throw new System.NotImplementedException();
         }

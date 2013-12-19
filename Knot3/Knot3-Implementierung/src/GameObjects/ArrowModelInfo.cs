@@ -40,7 +40,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position position im 3D-Raum. Dieses zeigt in eine durch direction bestimmte Richtung.
         /// </summary>
-        public void ArrowModelInfo (Vector3 position, Vector3 direction)
+        public  ArrowModelInfo (Vector3 position, Vector3 direction)
         {
             throw new System.NotImplementedException();
         }

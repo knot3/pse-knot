@@ -50,7 +50,7 @@ namespace GameObjects
         /// <summary>
         /// !!!
         /// </summary>
-        public void PipeMovement (GameScreen screen, World world, GameObjectInfo info)
+        public  PipeMovement (GameScreen screen, World world, GameObjectInfo info)
         {
             throw new System.NotImplementedException();
         }

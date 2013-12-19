@@ -46,7 +46,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt einen neuen Zwischenspeicher.
         /// </summary>
-        public void ModelFactory (GameModelInfo, GameModel>, Func<GameScreen createModel)
+        public ModelFactory (Func<GameScreen, GameModelInfo, GameModel> createModel)
         {
             throw new System.NotImplementedException();
         }
@@ -58,9 +58,10 @@ namespace GameObjects
         /// <summary>
         /// Falls das 3D-Modell zwischengespeichert ist, wird es zurückgegeben, sonst mit createModel() erstellt.
         /// </summary>
-        public virtual GameModel this (GameScreen state, GameModelInfo info)
+        public virtual GameModel this [GameScreen state, GameModelInfo info]
         {
-            throw new System.NotImplementedException();
+            get { throw new System.NotImplementedException(); }
+            set { throw new System.NotImplementedException(); }
         }
 
         #endregion

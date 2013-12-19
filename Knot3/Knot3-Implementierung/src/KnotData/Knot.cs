@@ -65,7 +65,7 @@ namespace KnotData
         /// Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
         /// die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null\grqq.
         /// </summary>
-        public void Knot ()
+        public  Knot ()
         {
             throw new System.NotImplementedException();
         }
@@ -76,7 +76,7 @@ namespace KnotData
         /// Die Eigenschaft des Metadaten-Objektes, die die Anzahl der Kanten enthält,
         /// wird auf ein Delegate gesetzt, welches jeweils die aktuelle Anzahl der Kanten dieses Knotens zurückgibt.
         /// </summary>
-        public void Knot (KnotMetaData meta, IEnumerable<Edge> edges)
+        public  Knot (KnotMetaData meta, IEnumerable<Edge> edges)
         {
             throw new System.NotImplementedException();
         }

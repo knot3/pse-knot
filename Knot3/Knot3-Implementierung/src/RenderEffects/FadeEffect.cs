@@ -45,7 +45,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
         /// </summary>
-        public void FadeEffect (GameScreen newScreen, GameScreen oldScreen)
+        public  FadeEffect (GameScreen newScreen, GameScreen oldScreen)
         {
             throw new System.NotImplementedException();
         }

@@ -75,7 +75,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues 3D-Modell in dem angegebenen Spielzustand mit den angegebenen Modellinformationen.
         /// </summary>
-        public void GameModel (GameScreen screen, GameModelInfo info)
+        public  GameModel (GameScreen screen, GameModelInfo info)
         {
             throw new System.NotImplementedException();
         }

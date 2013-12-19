@@ -57,7 +57,7 @@ namespace Core
         /// <summary>
         /// Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
         /// </summary>
-        public void Angles3 (float X, float Y, float Z)
+        public  Angles3 (float X, float Y, float Z)
         {
             throw new System.NotImplementedException();
         }

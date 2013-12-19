@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// Erzeugt ein neues CreativeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
-        public void CreativeLoadScreen (Knot3Game game)
+        public  CreativeLoadScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

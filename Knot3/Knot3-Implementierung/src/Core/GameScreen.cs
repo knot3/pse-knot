@@ -55,7 +55,7 @@ namespace Core
         /// <summary>
         /// Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
-        public void GameScreen (Knot3Game game)
+        public  GameScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

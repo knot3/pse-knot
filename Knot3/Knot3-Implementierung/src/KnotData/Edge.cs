@@ -50,7 +50,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt eine neue Kante mit der angegebenen Richtung.
         /// </summary>
-        public void Edge (Direction direction)
+        public  Edge (Direction direction)
         {
             throw new System.NotImplementedException();
         }

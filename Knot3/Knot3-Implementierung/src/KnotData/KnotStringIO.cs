@@ -59,7 +59,7 @@ namespace KnotData
         /// so werden die \glqq Name\grqq~- und \glqq Edges\grqq~-Eigenschaften auf die eingelesenen Werte gesetzt.
         /// Enthält es einen ungültigen Knoten, so wird eine IOException geworfen und das Objekt wird nicht erstellt.
         /// </summary>
-        public void KnotStringIO (String content)
+        public  KnotStringIO (String content)
         {
             throw new System.NotImplementedException();
         }
@@ -68,7 +68,7 @@ namespace KnotData
         /// Erstellt ein neues Objekt und setzt die \glqq Name\grqq~- und \glqq Edge\grqq~-Eigenschaften auf die
         /// im angegebenen Knoten enthaltenen Werte.
         /// </summary>
-        public void KnotStringIO (Knot knot)
+        public  KnotStringIO (Knot knot)
         {
             throw new System.NotImplementedException();
         }
