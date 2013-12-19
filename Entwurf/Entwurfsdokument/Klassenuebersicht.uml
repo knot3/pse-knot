@@ -232,7 +232,7 @@ public class KnotData.Circle :
 public enum Core.ClickState
     // Kein gültiger oder ein undefinierter Zustand.
     // Keine Reihenfolge.
-    // 
+    // Steht für einen undefinierten Zustand.
     None=0
     // Ein Einzelklick.
     SingleClick=1
@@ -779,7 +779,6 @@ public enum Widgets.ItemState
     Hovered=2
     // Kein gültiger oder ein undefinierter Zustand.
     // Keine Reihenfolge.
-    // 
     None=0
 
 // Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Option als Zeichenkette speichert.
@@ -1131,7 +1130,8 @@ public class KnotData.Node :
   Methods:
     // 
     + ToVector () : Vector3
-    // 
+    // Erzeugt eine neue Instanz eines Node-Objekts und initialisiert diese mit Werten
+	// für die x-, y- und z-Koordinate.
     + Node (Integer x, Integer y, Integer z) : void
 
 // Eine Zuordnung zwischen Kanten und Kantenübergänge.
@@ -1393,7 +1393,9 @@ public class Widgets.SliderItem : MenuItem
     // Schrittweite zwischen zwei einstellbaren Werten.
     + Step : Integer
   Methods:
-    // 
+    // Erzeugt eine neue Instanz eines SliderItem-Objekts und initialisiert diese
+	// mit dem zugehörigen GameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
+	// einem minimalen einstellbaren Wert, einem maximalen einstellbaren Wert und einem Standardwert Pflicht.
     + SliderItem (GameScreen screen, DisplayLayer drawOrder, Integer max, Integer min, Integer step, Integer value) : void
 
 // Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardmäßig zugewiesenen
@@ -1425,7 +1427,9 @@ public class Widgets.TextInputDialog : ConfirmDialog
     // Der Text, der durch den Spieler eingegeben wurde.
     + InputText : String
   Methods:
-    // 
+    // Erzeugt eine neue Instanz eines TextInputDialog-Objekts und ordnet dieser einen GameScreen zu.
+	// Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenfolge
+	// für den eingeblendeten Text und eine Zeichenkette für voreingestellten Text (welche leer sein darf) Pflicht.
     + TextInputDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text, String inputText) : void
 
 // Eine Einführung in das Spielen von Challenges.
