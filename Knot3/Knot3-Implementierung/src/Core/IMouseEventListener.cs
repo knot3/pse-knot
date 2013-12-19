@@ -31,12 +31,12 @@ namespace Core
         /// <summary>
         /// Die Eingabepriorität.
         /// </summary>
-        public virtual DisplayLayer Index { get; set; }
+        public DisplayLayer Index { get; set; }
 
         /// <summary>
         /// Ob die Klasse zur Zeit auf Mausklicks reagiert.
         /// </summary>
-        public virtual Boolean IsMouseEventEnabled { get; set; }
+        public Boolean IsMouseEventEnabled { get; set; }
 
         #endregion
 

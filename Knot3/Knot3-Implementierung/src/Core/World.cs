@@ -31,22 +31,22 @@ namespace Core
         /// <summary>
         /// Die Kamera dieser Spielwelt.
         /// </summary>
-        public virtual Camera Camera { get; set; }
+        public Camera Camera { get; set; }
 
         /// <summary>
         /// Die Liste von Spielobjekten.
         /// </summary>
-        public virtual List<IGameObject> Objects { get; set; }
+        public List<IGameObject> Objects { get; set; }
 
         /// <summary>
         /// Das aktuell ausgewählte Spielobjekt.
         /// </summary>
-        public virtual IGameObject SelectedObject { get; set; }
+        public IGameObject SelectedObject { get; set; }
 
         /// <summary>
         /// Der aktuell angewendete Rendereffekt.
         /// </summary>
-        public virtual IRenderEffect CurrentEffect { get; set; }
+        public IRenderEffect CurrentEffect { get; set; }
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace Core
         /// <summary>
         /// Erstellt eine neue Spielwelt im angegebenen Spielzustand.
         /// </summary>
-        public virtual void World (GameScreen screen)
+        public void World (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

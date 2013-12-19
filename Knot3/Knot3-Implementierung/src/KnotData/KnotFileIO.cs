@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// Die für eine Knoten-Datei gültigen Dateiendungen.
         /// </summary>
-        public virtual IEnumerable<string> FileExtensions { get; set; }
+        public IEnumerable<string> FileExtensions { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein KnotFileIO-Objekt.
         /// </summary>
-        public virtual void KnotFileIO ()
+        public void KnotFileIO ()
         {
             throw new System.NotImplementedException();
         }

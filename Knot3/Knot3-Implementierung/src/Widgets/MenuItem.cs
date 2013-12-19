@@ -32,17 +32,17 @@ namespace Widgets
         /// Gibt an, ob die Maus sich über dem Eintrag befindet, ohne ihn anzuklicken, ob er ausgewählt ist
         /// oder nichts von beidem.
         /// </summary>
-        public virtual ItemState ItemState { get; set; }
+        public ItemState ItemState { get; set; }
 
         /// <summary>
         /// Die Zeichenreihenfolge.
         /// </summary>
-        public virtual Integer ItemOrder { get; set; }
+        public Integer ItemOrder { get; set; }
 
         /// <summary>
         /// Der Anzeigetext der Schaltfläche.
         /// </summary>
-        public virtual String Text { get; set; }
+        public String Text { get; set; }
 
         #endregion
 

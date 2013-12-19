@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// Das Haupt-Einstellungsmenü.
         /// </summary>
-        protected virtual void navigation { get; set; }
+        protected void navigation { get; set; }
 
         #endregion
 

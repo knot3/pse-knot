@@ -31,12 +31,12 @@ namespace Widgets
         /// <summary>
         /// Die aktuelle Farbe.
         /// </summary>
-        public virtual Color Color { get; set; }
+        public Color Color { get; set; }
 
         /// <summary>
         /// Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
         /// </summary>
-        private virtual ColorPicker picker { get; set; }
+        private ColorPicker picker { get; set; }
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace Widgets
         /// Erzeugt ein neues ColorPickItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
         /// </summary>
-        public virtual void ColorPickItem (GameScreen screen, DisplayLayer drawOrder, Color color)
+        public void ColorPickItem (GameScreen screen, DisplayLayer drawOrder, Color color)
         {
             throw new System.NotImplementedException();
         }

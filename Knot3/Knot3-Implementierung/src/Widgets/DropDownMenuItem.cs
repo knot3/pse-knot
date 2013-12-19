@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
         /// </summary>
-        private virtual VerticalMenu dropdown { get; set; }
+        private VerticalMenu dropdown { get; set; }
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace Widgets
         /// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
         /// </summary>
-        public virtual void DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder)
+        public void DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder)
         {
             throw new System.NotImplementedException();
         }

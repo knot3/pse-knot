@@ -31,12 +31,12 @@ namespace RenderEffects
         /// <summary>
         /// Gibt an, ob die Überblendung abgeschlossen ist und das RenderTarget nur noch den neuen Spielzustand darstellt.
         /// </summary>
-        private virtual Boolean IsFinished { get; set; }
+        private Boolean IsFinished { get; set; }
 
         /// <summary>
         /// Der zuletzt gerenderte Frame im bisherigen Spielzustand.
         /// </summary>
-        private virtual RenderTarget2D PreviousRenderTarget { get; set; }
+        private RenderTarget2D PreviousRenderTarget { get; set; }
 
         #endregion
 
@@ -45,7 +45,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
         /// </summary>
-        public virtual void FadeEffect (GameScreen newScreen, GameScreen oldScreen)
+        public void FadeEffect (GameScreen newScreen, GameScreen oldScreen)
         {
             throw new System.NotImplementedException();
         }

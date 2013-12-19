@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// Die Schaltflächen des Startbildschirms.
         /// </summary>
-        private virtual Menu buttons { get; set; }
+        private Menu buttons { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace Screens
         /// <summary>
         /// Erzeugt eine neue Instanz eines StartScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt.
         /// </summary>
-        public virtual void StartScreen (Knot3Game game)
+        public void StartScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

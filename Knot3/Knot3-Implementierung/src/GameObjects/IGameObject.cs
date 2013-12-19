@@ -32,12 +32,12 @@ namespace GameObjects
         /// <summary>
         /// Informationen über das Spielobjekt, wie z.B. die Position.
         /// </summary>
-        public virtual GameObjectInfo Info { get; set; }
+        public GameObjectInfo Info { get; set; }
 
         /// <summary>
         /// Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
         /// </summary>
-        public virtual World World { get; set; }
+        public World World { get; set; }
 
         #endregion
 

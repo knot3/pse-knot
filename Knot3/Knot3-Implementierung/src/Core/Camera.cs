@@ -35,53 +35,53 @@ namespace Core
         /// <summary>
         /// Die Position der Kamera.
         /// </summary>
-        public virtual Vector3 Position { get; set; }
+        public Vector3 Position { get; set; }
 
         /// <summary>
         /// Das Ziel der Kamera.
         /// </summary>
-        public virtual Vector3 Target { get; set; }
+        public Vector3 Target { get; set; }
 
         /// <summary>
         /// Das Sichtfeld.
         /// </summary>
-        public virtual float FoV { get; set; }
+        public float FoV { get; set; }
 
         /// <summary>
         /// Die View-Matrix wird über die statische Methode CreateLookAt der Klasse Matrix des XNA-Frameworks
         /// mit Matrix.CreateLookAt (Position, Target, Vector3.Up) berechnet.
         /// </summary>
-        public virtual Matrix ViewMatrix { get; set; }
+        public Matrix ViewMatrix { get; set; }
 
         /// <summary>
         /// Die World-Matrix wird mit Matrix.CreateFromYawPitchRoll und den drei Rotationswinkeln berechnet.
         /// </summary>
-        public virtual Matrix WorldMatrix { get; set; }
+        public Matrix WorldMatrix { get; set; }
 
         /// <summary>
         /// Die Projektionsmatrix wird über die statische XNA-Methode Matrix.CreatePerspectiveFieldOfView berechnet.
         /// </summary>
-        public virtual Matrix ProjectionMatrix { get; set; }
+        public Matrix ProjectionMatrix { get; set; }
 
         /// <summary>
         /// Eine Position, um die rotiert werden soll, wenn der User die rechte Maustaste gedrückt hält und die Maus bewegt.
         /// </summary>
-        public virtual Vector3 ArcballTarget { get; set; }
+        public Vector3 ArcballTarget { get; set; }
 
         /// <summary>
         /// Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-Objekt sich im Blickfeld des Spielers befindet.
         /// </summary>
-        public virtual BoundingFrustum ViewFrustum { get; set; }
+        public BoundingFrustum ViewFrustum { get; set; }
 
         /// <summary>
         /// Eine Referenz auf die Spielwelt, für welche die Kamera zuständig ist.
         /// </summary>
-        private virtual World World { get; set; }
+        private World World { get; set; }
 
         /// <summary>
         /// Die Rotationswinkel.
         /// </summary>
-        public virtual Angles3 Rotation { get; set; }
+        public Angles3 Rotation { get; set; }
 
         #endregion
 
@@ -90,7 +90,7 @@ namespace Core
         /// <summary>
         /// Erstellt eine neue Kamera in einem bestimmten GameScreen für eine bestimmte Spielwelt.
         /// </summary>
-        public virtual void Camera (GameScreen screen, World world)
+        public void Camera (GameScreen screen, World world)
         {
             throw new System.NotImplementedException();
         }

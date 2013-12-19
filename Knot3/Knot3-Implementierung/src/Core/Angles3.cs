@@ -33,22 +33,22 @@ namespace Core
         /// <summary>
         /// Der Rotationswinkel um die X-Achse.
         /// </summary>
-        public virtual float X { get; set; }
+        public float X { get; set; }
 
         /// <summary>
         /// Der Rotationswinkel um die Y-Achse.
         /// </summary>
-        public virtual float Y { get; set; }
+        public float Y { get; set; }
 
         /// <summary>
         /// Der Rotationswinkel um die Z-Achse.
         /// </summary>
-        public virtual float Z { get; set; }
+        public float Z { get; set; }
 
         /// <summary>
         /// Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
         /// </summary>
-        public virtual Angles3 Zero { get; set; }
+        public Angles3 Zero { get; set; }
 
         #endregion
 
@@ -57,7 +57,7 @@ namespace Core
         /// <summary>
         /// Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
         /// </summary>
-        public virtual void Angles3 (float X, float Y, float Z)
+        public void Angles3 (float X, float Y, float Z)
         {
             throw new System.NotImplementedException();
         }

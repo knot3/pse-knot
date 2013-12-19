@@ -31,7 +31,7 @@ namespace GameObjects
         /// <summary>
         /// Das Info-Objekt, das die Position und Richtung des ArrowModel\grq s enthält.
         /// </summary>
-        public virtual ArrowModelInfo Info { get; set; }
+        public ArrowModelInfo Info { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
         /// </summary>
-        public virtual void ArrowModel (GameScreen screen, ArrowModelInfo info)
+        public void ArrowModel (GameScreen screen, ArrowModelInfo info)
         {
             throw new System.NotImplementedException();
         }

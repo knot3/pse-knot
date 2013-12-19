@@ -31,17 +31,17 @@ namespace GameObjects
         /// <summary>
         /// Enthält Informationen über die Position des Knotens.
         /// </summary>
-        public virtual GameObjectInfo Info { get; set; }
+        public GameObjectInfo Info { get; set; }
 
         /// <summary>
         /// Der Knoten, dessen Kanten verschoben werden können.
         /// </summary>
-        public virtual Knot Knot { get; set; }
+        public Knot Knot { get; set; }
 
         /// <summary>
         /// Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
         /// </summary>
-        public virtual World World { get; set; }
+        public World World { get; set; }
 
         #endregion
 
@@ -50,7 +50,7 @@ namespace GameObjects
         /// <summary>
         /// !!!
         /// </summary>
-        public virtual void PipeMovement (GameScreen screen, World world, GameObjectInfo info)
+        public void PipeMovement (GameScreen screen, World world, GameObjectInfo info)
         {
             throw new System.NotImplementedException();
         }

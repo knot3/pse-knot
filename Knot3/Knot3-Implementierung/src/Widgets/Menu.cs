@@ -33,32 +33,32 @@ namespace Widgets
         /// <summary>
         /// Die von der Auflösung unabhängige Größe in Prozent.
         /// </summary>
-        public virtual Func<int, Vector2> RelativeItemSize { get; set; }
+        public Func<int, Vector2> RelativeItemSize { get; set; }
 
         /// <summary>
         /// Die von der Auflösung unabhängige Position in Prozent.
         /// </summary>
-        public virtual Func<int, Vector2> RelativeItemPosition { get; set; }
+        public Func<int, Vector2> RelativeItemPosition { get; set; }
 
         /// <summary>
         /// Die vom Zustand des Menüeintrags abhängige Vordergrundfarbe des Menüeintrags.
         /// </summary>
-        public virtual Func<ItemState, Color> ItemForegroundColor { get; set; }
+        public Func<ItemState, Color> ItemForegroundColor { get; set; }
 
         /// <summary>
         /// Die vom Zustand des Menüeintrags abhängige Hintergrundfarbe des Menüeintrags.
         /// </summary>
-        public virtual Func<ItemState, Color> ItemBackgroundColor { get; set; }
+        public Func<ItemState, Color> ItemBackgroundColor { get; set; }
 
         /// <summary>
         /// Die horizontale Ausrichtung der Menüeinträge.
         /// </summary>
-        public virtual HorizontalAlignment ItemAlignX { get; set; }
+        public HorizontalAlignment ItemAlignX { get; set; }
 
         /// <summary>
         /// Die vertikale Ausrichtung der Menüeinträge.
         /// </summary>
-        public virtual VerticalAlignment ItemAlignY { get; set; }
+        public VerticalAlignment ItemAlignY { get; set; }
 
         #endregion
 
@@ -68,7 +68,7 @@ namespace Widgets
         /// Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
         /// </summary>
-        public virtual void Menu (GameScreen screen, DisplayLayer drawOrder)
+        public void Menu (GameScreen screen, DisplayLayer drawOrder)
         {
             throw new System.NotImplementedException();
         }

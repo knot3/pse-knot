@@ -35,27 +35,27 @@ namespace KnotData
         /// und bei Änderungen wieder in diesem gespeichert.
         /// Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
         /// </summary>
-        public virtual String Name { get; set; }
+        public String Name { get; set; }
 
         /// <summary>
         /// Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
         /// </summary>
-        private virtual Circle edges { get; set; }
+        private Circle edges { get; set; }
 
         /// <summary>
         /// Die Metadaten des Knotens.
         /// </summary>
-        public virtual KnotMetaData MetaData { get; set; }
+        public KnotMetaData MetaData { get; set; }
 
         /// <summary>
         /// Ein Ereignis, das in der Move-Methode ausgelöst wird, wenn sich die Struktur der Kanten geändert hat.
         /// </summary>
-        public virtual Action EdgesChanged { get; set; }
+        public Action EdgesChanged { get; set; }
 
         /// <summary>
         /// Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
         /// </summary>
-        public virtual IEnumerable<Edge> SelectedEdges { get; set; }
+        public IEnumerable<Edge> SelectedEdges { get; set; }
 
         #endregion
 
@@ -65,7 +65,7 @@ namespace KnotData
         /// Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
         /// die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null\grqq.
         /// </summary>
-        public virtual void Knot ()
+        public void Knot ()
         {
             throw new System.NotImplementedException();
         }
@@ -76,7 +76,7 @@ namespace KnotData
         /// Die Eigenschaft des Metadaten-Objektes, die die Anzahl der Kanten enthält,
         /// wird auf ein Delegate gesetzt, welches jeweils die aktuelle Anzahl der Kanten dieses Knotens zurückgibt.
         /// </summary>
-        public virtual void Knot (KnotMetaData meta, IEnumerable<Edge> edges)
+        public void Knot (KnotMetaData meta, IEnumerable<Edge> edges)
         {
             throw new System.NotImplementedException();
         }

@@ -39,13 +39,13 @@ namespace KnotData
         /// ob er bereits einen Wert enthält oder \glqq null\grqq~ist.
         /// Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
         /// </summary>
-        public virtual String Name { get; set; }
+        public String Name { get; set; }
 
         /// <summary>
         /// Das Format, aus dem die Metadaten geladen wurden.
         /// Es ist genau dann \glqq null\grqq, wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
         /// </summary>
-        public virtual IKnotIO Format { get; set; }
+        public IKnotIO Format { get; set; }
 
         /// <summary>
         /// Ein Delegate, das die Anzahl der Kanten zurückliefert.
@@ -53,13 +53,13 @@ namespace KnotData
         /// Kanten des Knoten-Objektes zurück. Anderenfalls gibt es eine statische Zahl zurück,
         /// die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes gelesen wurde. Nur lesbar.
         /// </summary>
-        public virtual Func<Integer> CountEdges { get; set; }
+        public Func<Integer> CountEdges { get; set; }
 
         /// <summary>
         /// Falls die Metadaten aus einer Datei eingelesen wurden, enthält dieses Attribut den Dateinamen,
         /// sonst \glqq null\grqq.
         /// </summary>
-        public virtual String Filename { get; set; }
+        public String Filename { get; set; }
 
         #endregion
 
@@ -70,7 +70,7 @@ namespace KnotData
         /// und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
         /// Zusätzlich wird der Dateiname oder das Speicherformat angegeben, aus dem die Metadaten gelesen wurden.
         /// </summary>
-        public virtual KnotMetaData KnotMetaData (String name, Func<Integer> countEdges, IKnotIO format, String filename)
+        public KnotMetaData KnotMetaData (String name, Func<Integer> countEdges, IKnotIO format, String filename)
         {
             throw new System.NotImplementedException();
         }
@@ -79,7 +79,7 @@ namespace KnotData
         /// Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
         /// und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
         /// </summary>
-        public virtual KnotMetaData KnotMetaData (String name, Func<Integer> countEdges)
+        public KnotMetaData KnotMetaData (String name, Func<Integer> countEdges)
         {
             throw new System.NotImplementedException();
         }

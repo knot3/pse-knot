@@ -31,37 +31,37 @@ namespace Core
         /// <summary>
         /// Enthält den Klickzustand der rechten Maustaste.
         /// </summary>
-        public virtual ClickState RightMouseButton { get; set; }
+        public ClickState RightMouseButton { get; set; }
 
         /// <summary>
         /// Enthält den Klickzustand der linken Maustaste.
         /// </summary>
-        public virtual ClickState LeftMouseButton { get; set; }
+        public ClickState LeftMouseButton { get; set; }
 
         /// <summary>
         /// Enthält den Mauszustand von XNA zum aktuellen Frames.
         /// </summary>
-        public virtual MouseState CurrentMouseState { get; set; }
+        public MouseState CurrentMouseState { get; set; }
 
         /// <summary>
         /// Enthält den Tastaturzustand von XNA zum aktuellen Frames.
         /// </summary>
-        public virtual KeyboardState CurrentKeyboardState { get; set; }
+        public KeyboardState CurrentKeyboardState { get; set; }
 
         /// <summary>
         /// Enthält den Mauszustand von XNA zum vorherigen Frames.
         /// </summary>
-        public virtual MouseState PreviousMouseState { get; set; }
+        public MouseState PreviousMouseState { get; set; }
 
         /// <summary>
         /// Enthält den Tastaturzustand von XNA zum vorherigen Frames.
         /// </summary>
-        public virtual KeyboardState PreviousKeyboardState { get; set; }
+        public KeyboardState PreviousKeyboardState { get; set; }
 
         /// <summary>
         /// Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
         /// </summary>
-        public virtual Boolean GrabMouseMovement { get; set; }
+        public Boolean GrabMouseMovement { get; set; }
 
         #endregion
 
@@ -70,7 +70,7 @@ namespace Core
         /// <summary>
         /// Erstellt ein neues Input-Objekt, das an den übergebenen Spielzustand gebunden ist.
         /// </summary>
-        public virtual void Input (GameScreen screen)
+        public void Input (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

@@ -31,12 +31,12 @@ namespace Widgets
         /// <summary>
         /// Der Fenstertitel.
         /// </summary>
-        public virtual String Title { get; set; }
+        public String Title { get; set; }
 
         /// <summary>
         /// Der angezeigte Text.
         /// </summary>
-        public virtual String Text { get; set; }
+        public String Text { get; set; }
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace Widgets
         /// Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
         /// </summary>
-        public virtual void Dialog (GameScreen screen, DisplayLayer drawOrder, String title, String text)
+        public void Dialog (GameScreen screen, DisplayLayer drawOrder, String title, String text)
         {
             throw new System.NotImplementedException();
         }

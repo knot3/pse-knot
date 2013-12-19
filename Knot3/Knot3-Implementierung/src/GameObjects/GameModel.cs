@@ -31,42 +31,42 @@ namespace GameObjects
         /// <summary>
         /// Die Transparenz des Modells.
         /// </summary>
-        public virtual float Alpha { get; set; }
+        public float Alpha { get; set; }
 
         /// <summary>
         /// Die Farbe des Modells.
         /// </summary>
-        public virtual Color BaseColor { get; set; }
+        public Color BaseColor { get; set; }
 
         /// <summary>
         /// Die Auswahlfarbe des Modells.
         /// </summary>
-        public virtual Color HightlightColor { get; set; }
+        public Color HightlightColor { get; set; }
 
         /// <summary>
         /// Die Intensität der Auswahlfarbe.
         /// </summary>
-        public virtual float HighlightIntensity { get; set; }
+        public float HighlightIntensity { get; set; }
 
         /// <summary>
         /// Die Modellinformationen wie Position, Skalierung und der Dateiname des 3D-Modells.
         /// </summary>
-        public virtual GameModelInfo Info { get; set; }
+        public GameModelInfo Info { get; set; }
 
         /// <summary>
         /// Die Klasse des XNA-Frameworks, die ein 3D-Modell repräsentiert.
         /// </summary>
-        public virtual XNA.Model Model { get; set; }
+        public XNA.Model Model { get; set; }
 
         /// <summary>
         /// Die Spielwelt, in der sich das 3D-Modell befindet.
         /// </summary>
-        public virtual World World { get; set; }
+        public World World { get; set; }
 
         /// <summary>
         /// Die Weltmatrix des 3D-Modells in der angegebenen Spielwelt.
         /// </summary>
-        public virtual Matrix WorldMatrix { get; set; }
+        public Matrix WorldMatrix { get; set; }
 
         #endregion
 
@@ -75,7 +75,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues 3D-Modell in dem angegebenen Spielzustand mit den angegebenen Modellinformationen.
         /// </summary>
-        public virtual void GameModel (GameScreen screen, GameModelInfo info)
+        public void GameModel (GameScreen screen, GameModelInfo info)
         {
             throw new System.NotImplementedException();
         }

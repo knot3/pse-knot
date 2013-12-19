@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// Aufzählung der Dateierweiterungen.
         /// </summary>
-        public virtual IEnumerable<string> FileExtensions { get; set; }
+        public IEnumerable<string> FileExtensions { get; set; }
 
         #endregion
 

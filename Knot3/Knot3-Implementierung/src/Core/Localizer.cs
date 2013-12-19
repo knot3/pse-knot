@@ -31,7 +31,7 @@ namespace Core
         /// <summary>
         /// Die Datei, welche Informationen für die Lokalisierung enthält.
         /// </summary>
-        private virtual ConfigFile localization { get; set; }
+        private ConfigFile localization { get; set; }
 
         #endregion
 

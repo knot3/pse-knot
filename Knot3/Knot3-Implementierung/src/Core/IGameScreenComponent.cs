@@ -31,12 +31,12 @@ namespace Core
         /// <summary>
         /// Die Zeichen- und Eingabepriorität.
         /// </summary>
-        public virtual DisplayLayer Index { get; set; }
+        public DisplayLayer Index { get; set; }
 
         /// <summary>
         /// Der zugewiesene Spielzustand.
         /// </summary>
-        public virtual GameScreen Screen { get; set; }
+        public GameScreen Screen { get; set; }
 
         #endregion
 

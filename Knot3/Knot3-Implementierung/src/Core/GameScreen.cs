@@ -31,22 +31,22 @@ namespace Core
         /// <summary>
         /// Das Spiel, zu dem der Spielzustand gehört.
         /// </summary>
-        public virtual Knot3Game Game { get; set; }
+        public Knot3Game Game { get; set; }
 
         /// <summary>
         /// Der Inputhandler des Spielzustands.
         /// </summary>
-        public virtual Input Input { get; set; }
+        public Input Input { get; set; }
 
         /// <summary>
         /// Der aktuelle Postprocessing-Effekt des Spielzustands
         /// </summary>
-        public virtual RenderEffect PostProcessingEffect { get; set; }
+        public RenderEffect PostProcessingEffect { get; set; }
 
         /// <summary>
         /// Ein Stack, der während dem Aufruf der Draw-Methoden der Spielkomponenten die jeweils aktuellen Rendereffekte enthält.
         /// </summary>
-        public virtual RenderEffectStack CurrentRenderEffects { get; set; }
+        public RenderEffectStack CurrentRenderEffects { get; set; }
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace Core
         /// <summary>
         /// Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
-        public virtual void GameScreen (Knot3Game game)
+        public void GameScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

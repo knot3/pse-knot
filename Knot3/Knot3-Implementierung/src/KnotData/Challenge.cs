@@ -31,37 +31,37 @@ namespace KnotData
         /// <summary>
         /// Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
         /// </summary>
-        public virtual Knot Start { get; set; }
+        public Knot Start { get; set; }
 
         /// <summary>
         /// Der Referenzknoten, in den der Spieler den Ausgangsknoten transformiert.
         /// </summary>
-        public virtual Knot Target { get; set; }
+        public Knot Target { get; set; }
 
         /// <summary>
         /// Eine sortierte Bestenliste.
         /// </summary>
-        private virtual SortedList<Integer, String> highscore { get; set; }
+        private SortedList<Integer, String> highscore { get; set; }
 
         /// <summary>
         /// Das Speicherformat der Challenge.
         /// </summary>
-        private virtual IChallengeIO format { get; set; }
+        private IChallengeIO format { get; set; }
 
         /// <summary>
         /// Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
         /// </summary>
-        public virtual IEnumerator<KeyValuePair<String, Integer>> Highscore { get; set; }
+        public IEnumerator<KeyValuePair<String, Integer>> Highscore { get; set; }
 
         /// <summary>
         /// Die Metadaten der Challenge.
         /// </summary>
-        public virtual ChallengeMetaData MetaData { get; set; }
+        public ChallengeMetaData MetaData { get; set; }
 
         /// <summary>
         /// Der Name der Challenge.
         /// </summary>
-        public virtual String Name { get; set; }
+        public String Name { get; set; }
 
         #endregion
 
@@ -71,7 +71,7 @@ namespace KnotData
         /// Erstellt ein Challenge-Objekt aus einem gegebenen Challenge-Metadaten-Objekt.
         /// Erstellt ein Challenge-Objekt aus einer gegebenen Challenge-Datei.
         /// </summary>
-        public virtual void Challenge (ChallengeMetaData meta, Knot start, Knot target)
+        public void Challenge (ChallengeMetaData meta, Knot start, Knot target)
         {
             throw new System.NotImplementedException();
         }

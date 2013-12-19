@@ -31,17 +31,17 @@ namespace Core
         /// <summary>
         /// Das Einstellungsverzeichnis.
         /// </summary>
-        public virtual String SettingsDirectory { get; set; }
+        public String SettingsDirectory { get; set; }
 
         /// <summary>
         /// Das Spielstandverzeichnis.
         /// </summary>
-        public virtual String SavegameDirectory { get; set; }
+        public String SavegameDirectory { get; set; }
 
         /// <summary>
         /// Das Bildschirmfotoverzeichnis.
         /// </summary>
-        public virtual String ScreenshotDirectory { get; set; }
+        public String ScreenshotDirectory { get; set; }
 
         #endregion
 

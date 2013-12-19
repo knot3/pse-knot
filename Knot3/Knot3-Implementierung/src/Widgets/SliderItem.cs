@@ -32,22 +32,22 @@ namespace Widgets
         /// <summary>
         /// Der aktuelle Wert.
         /// </summary>
-        public virtual Integer Value { get; set; }
+        public Integer Value { get; set; }
 
         /// <summary>
         /// Der minimale Wert.
         /// </summary>
-        public virtual Integer MinValue { get; set; }
+        public Integer MinValue { get; set; }
 
         /// <summary>
         /// Der maximale Wert.
         /// </summary>
-        public virtual Integer MaxValue { get; set; }
+        public Integer MaxValue { get; set; }
 
         /// <summary>
         /// Schrittweite zwischen zwei einstellbaren Werten.
         /// </summary>
-        public virtual Integer Step { get; set; }
+        public Integer Step { get; set; }
 
         #endregion
 
@@ -56,7 +56,7 @@ namespace Widgets
         /// <summary>
         /// 
         /// </summary>
-        public virtual void SliderItem (GameScreen screen, DisplayLayer drawOrder, Integer max, Integer min, Integer step, Integer value)
+        public void SliderItem (GameScreen screen, DisplayLayer drawOrder, Integer max, Integer min, Integer step, Integer value)
         {
             throw new System.NotImplementedException();
         }

@@ -31,12 +31,12 @@ namespace Core
         /// <summary>
         /// Eine Menge von Texten, welche die für die Option gültigen Werte beschreiben.
         /// </summary>
-        public virtual HashSet<string> ValidValues { get; set; }
+        public HashSet<string> ValidValues { get; set; }
 
         /// <summary>
         /// Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
         /// </summary>
-        public virtual String Value { get; set; }
+        public String Value { get; set; }
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace Core
         /// Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
         /// angegebenen Abschnitt der angegebenen Einstellungsdatei.
         /// </summary>
-        public virtual void DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile)
+        public void DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile)
         {
             throw new System.NotImplementedException();
         }

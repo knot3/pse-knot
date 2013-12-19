@@ -32,17 +32,17 @@ namespace RenderEffects
         /// Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
         /// weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
         /// </summary>
-        public virtual RenderTarget2D RenderTarget { get; set; }
+        public RenderTarget2D RenderTarget { get; set; }
 
         /// <summary>
         /// Der Spielzustand, in dem der Effekt verwendet wird.
         /// </summary>
-        protected virtual GameScreen screen { get; set; }
+        protected GameScreen screen { get; set; }
 
         /// <summary>
         /// Ein Spritestapel, der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
         /// </summary>
-        protected virtual SpriteBatch spriteBatch { get; set; }
+        protected SpriteBatch spriteBatch { get; set; }
 
         #endregion
 

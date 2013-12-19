@@ -33,23 +33,23 @@ namespace Screens
         /// ob sich das Spiel im Vollbildmodus befindet. Wird dieses Attribut auf einen Wert gesetzt,
         /// dann wird der Modus entweder gewechselt oder beibehalten, falls es auf denselben Wert gesetzt wird.
         /// </summary>
-        public virtual Boolean IsFullScreen { get; set; }
+        public Boolean IsFullScreen { get; set; }
 
         /// <summary>
         /// Enthält als oberste Element den aktuellen Spielzustand und darunter die zuvor aktiven Spielzustände.
         /// </summary>
-        public virtual Stack<GameScreen> Screens { get; set; }
+        public Stack<GameScreen> Screens { get; set; }
 
         /// <summary>
         /// Dieses Attribut dient sowohl zum Setzen des Aktivierungszustandes der vertikalen Synchronisation,
         /// als auch zum Auslesen dieses Zustandes.
         /// </summary>
-        public virtual Boolean VSync { get; set; }
+        public Boolean VSync { get; set; }
 
         /// <summary>
         /// Der aktuelle Grafikgeräteverwalter des XNA-Frameworks.
         /// </summary>
-        public virtual GraphicsDeviceManager Graphics { get; set; }
+        public GraphicsDeviceManager Graphics { get; set; }
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace Screens
         /// die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
         /// Bildschirmauflösung und wechselt in den Vollbildmodus.
         /// </summary>
-        public virtual void Knot3Game ()
+        public void Knot3Game ()
         {
             throw new System.NotImplementedException();
         }

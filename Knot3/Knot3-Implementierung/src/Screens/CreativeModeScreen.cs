@@ -31,27 +31,27 @@ namespace Screens
         /// <summary>
         /// Der Knoten, der vom Spieler bearbeitet wird.
         /// </summary>
-        public virtual void Knot { get; set; }
+        public void Knot { get; set; }
 
         /// <summary>
         /// Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
         /// </summary>
-        private virtual World World { get; set; }
+        private World World { get; set; }
 
         /// <summary>
         /// Der Controller, der aus dem Knoten die 3D-Modelle erstellt.
         /// </summary>
-        private virtual KnotRenderer KnotRenderer { get; set; }
+        private KnotRenderer KnotRenderer { get; set; }
 
         /// <summary>
         /// Der Undo-Stack.
         /// </summary>
-        public virtual Stack<Knot> Undo { get; set; }
+        public Stack<Knot> Undo { get; set; }
 
         /// <summary>
         /// Der Redo-Stack.
         /// </summary>
-        public virtual Stack<Knot> Redo { get; set; }
+        public Stack<Knot> Redo { get; set; }
 
         #endregion
 

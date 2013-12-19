@@ -31,22 +31,22 @@ namespace GameObjects
         /// <summary>
         /// Die Verschiebbarkeit des Spielobjektes.
         /// </summary>
-        public virtual Boolean IsMovable { get; set; }
+        public Boolean IsMovable { get; set; }
 
         /// <summary>
         /// Die Auswählbarkeit des Spielobjektes.
         /// </summary>
-        public virtual Boolean IsSelectable { get; set; }
+        public Boolean IsSelectable { get; set; }
 
         /// <summary>
         /// Die Sichtbarkeit des Spielobjektes.
         /// </summary>
-        public virtual Boolean IsVisible { get; set; }
+        public Boolean IsVisible { get; set; }
 
         /// <summary>
         /// Die Position des Spielobjektes.
         /// </summary>
-        public virtual Vector3 Position { get; set; }
+        public Vector3 Position { get; set; }
 
         #endregion
 

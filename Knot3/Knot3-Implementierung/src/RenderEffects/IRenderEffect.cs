@@ -32,7 +32,7 @@ namespace RenderEffects
         /// Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
         /// weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
         /// </summary>
-        public virtual RenderTarget2D RenderTarget { get; set; }
+        public RenderTarget2D RenderTarget { get; set; }
 
         #endregion
 

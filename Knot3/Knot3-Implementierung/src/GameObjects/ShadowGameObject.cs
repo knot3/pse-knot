@@ -31,22 +31,22 @@ namespace GameObjects
         /// <summary>
         /// Enthält Informationen über das Vorschau-Spielobjekt.
         /// </summary>
-        public virtual GameObjectInfo Info { get; set; }
+        public GameObjectInfo Info { get; set; }
 
         /// <summary>
         /// Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
         /// </summary>
-        public virtual World World { get; set; }
+        public World World { get; set; }
 
         /// <summary>
         /// Die Position, an der das Vorschau-Spielobjekt gezeichnet werden soll.
         /// </summary>
-        public virtual Vector3 ShadowPosition { get; set; }
+        public Vector3 ShadowPosition { get; set; }
 
         /// <summary>
         /// Die Position, an der sich das zu dekorierende Objekt befindet.
         /// </summary>
-        public virtual Vector3 OriginalPosition { get; set; }
+        public Vector3 OriginalPosition { get; set; }
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Vorschauobjekt in dem angegebenen Spielzustand für das angegebene zu dekorierende Objekt.
         /// </summary>
-        public virtual void ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
+        public void ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
         {
             throw new System.NotImplementedException();
         }

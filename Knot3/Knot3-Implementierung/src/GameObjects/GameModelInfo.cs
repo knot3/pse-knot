@@ -31,17 +31,17 @@ namespace GameObjects
         /// <summary>
         /// Der Dateiname des Modells.
         /// </summary>
-        public virtual String Modelname { get; set; }
+        public String Modelname { get; set; }
 
         /// <summary>
         /// Die Rotation des Modells.
         /// </summary>
-        public virtual Angles3 Rotation { get; set; }
+        public Angles3 Rotation { get; set; }
 
         /// <summary>
         /// Die Skalierung des Modells.
         /// </summary>
-        public virtual Vector3 Scale { get; set; }
+        public Vector3 Scale { get; set; }
 
         #endregion
 
@@ -51,7 +51,7 @@ namespace GameObjects
         /// Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
         /// Dateiname, Rotation und Skalierung.
         /// </summary>
-        public virtual void GameModelInfo (String modelname, Angles3 rotation, Vector3 scale)
+        public void GameModelInfo (String modelname, Angles3 rotation, Vector3 scale)
         {
             throw new System.NotImplementedException();
         }

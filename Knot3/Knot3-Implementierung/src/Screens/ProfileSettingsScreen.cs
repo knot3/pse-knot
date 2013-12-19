@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// !!!
         /// </summary>
-        protected virtual void settingsMenu { get; set; }
+        protected void settingsMenu { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace Screens
         /// <summary>
         /// Erzeugt eine neue Instanz eines ProfileSettingsScreen-Objekts und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
-        public virtual void ProfileSettingsScreen (Knot3Game game)
+        public void ProfileSettingsScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

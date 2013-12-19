@@ -33,12 +33,12 @@ namespace RenderEffects
         /// <summary>
         /// Der oberste Rendereffekt.
         /// </summary>
-        public virtual IRenderEffect CurrentEffect { get; set; }
+        public IRenderEffect CurrentEffect { get; set; }
 
         /// <summary>
         /// Der Standard-Rendereffekt, der verwendet wird, wenn der Stapel leer ist.
         /// </summary>
-        private virtual IRenderEffect DefaultEffect { get; set; }
+        private IRenderEffect DefaultEffect { get; set; }
 
         #endregion
 
@@ -47,7 +47,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Rendereffekt-Stapel.
         /// </summary>
-        public virtual void RenderEffectStack (IRenderEffect defaultEffect)
+        public void RenderEffectStack (IRenderEffect defaultEffect)
         {
             throw new System.NotImplementedException();
         }

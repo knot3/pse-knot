@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Die ausgewählte Farbe.
         /// </summary>
-        public virtual Color Color { get; set; }
+        public Color Color { get; set; }
 
         #endregion
 

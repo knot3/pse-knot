@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Die Option, die mit dem Auswahlkasten verknüpft ist.
         /// </summary>
-        private virtual BooleanOptionInfo option { get; set; }
+        private BooleanOptionInfo option { get; set; }
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace Widgets
         /// Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
         /// </summary>
-        public virtual void CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, BooleanOptionInfo option)
+        public void CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, BooleanOptionInfo option)
         {
             throw new System.NotImplementedException();
         }

@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// 
         /// </summary>
-        public virtual Integer Scale { get; set; }
+        public Integer Scale { get; set; }
 
         #endregion
 

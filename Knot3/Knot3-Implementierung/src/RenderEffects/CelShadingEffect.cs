@@ -31,7 +31,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
         /// </summary>
-        public virtual void CelShadingEffect (GameScreen screen)
+        public void CelShadingEffect (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

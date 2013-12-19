@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Beinhaltet den vom Spieler eingegebenen Text.
         /// </summary>
-        public virtual String InputText { get; set; }
+        public String InputText { get; set; }
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace Widgets
         /// Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
         /// </summary>
-        public virtual void InputItem (GameScreen screen, DisplayLayer drawOrder, String text)
+        public void InputItem (GameScreen screen, DisplayLayer drawOrder, String text)
         {
             throw new System.NotImplementedException();
         }

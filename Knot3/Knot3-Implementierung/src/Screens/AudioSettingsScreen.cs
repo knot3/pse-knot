@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// Das Menü, das die Einstellungen enthält.
         /// </summary>
-        protected virtual void settingsMenu { get; set; }
+        protected void settingsMenu { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace Screens
         /// <summary>
         /// Erzeugt ein neues AudioSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
-        public virtual void AudioSettingsScreen (Knot3Game game)
+        public void AudioSettingsScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

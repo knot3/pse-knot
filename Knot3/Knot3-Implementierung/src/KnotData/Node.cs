@@ -31,22 +31,22 @@ namespace KnotData
         /// <summary>
         /// 
         /// </summary>
-        public virtual Integer X { get; set; }
+        public Integer X { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual Integer Y { get; set; }
+        public Integer Y { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual Integer Z { get; set; }
+        public Integer Z { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        private virtual Integer scale { get; set; }
+        private Integer scale { get; set; }
 
         #endregion
 
@@ -55,7 +55,7 @@ namespace KnotData
         /// <summary>
         /// 
         /// </summary>
-        public virtual void Node (Integer x, Integer y, Integer z)
+        public void Node (Integer x, Integer y, Integer z)
         {
             throw new System.NotImplementedException();
         }

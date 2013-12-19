@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// Die gültigen Dateiendungen für das 3D-Drucker-Format.
         /// </summary>
-        public virtual IEnumerable<string> FileExtensions { get; set; }
+        public IEnumerable<string> FileExtensions { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein neues PrinterIO-Objekt.
         /// </summary>
-        public virtual void PrinterIO ()
+        public void PrinterIO ()
         {
             throw new System.NotImplementedException();
         }

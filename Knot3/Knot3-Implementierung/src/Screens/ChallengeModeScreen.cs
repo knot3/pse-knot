@@ -31,47 +31,47 @@ namespace Screens
         /// <summary>
         /// Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
         /// </summary>
-        public virtual void PlayerKnot { get; set; }
+        public void PlayerKnot { get; set; }
 
         /// <summary>
         /// Der Referenzknoten.
         /// </summary>
-        public virtual void ChallengeKnot { get; set; }
+        public void ChallengeKnot { get; set; }
 
         /// <summary>
         /// Die Spielwelt in der die 3D-Modelle des dargestellten Referenzknotens enthalten sind.
         /// </summary>
-        private virtual World ChallengeWorld { get; set; }
+        private World ChallengeWorld { get; set; }
 
         /// <summary>
         /// Die Spielwelt in der die 3D-Modelle des dargestellten Spielerknotens enthalten sind.
         /// </summary>
-        private virtual World PlayerWorld { get; set; }
+        private World PlayerWorld { get; set; }
 
         /// <summary>
         /// Der Controller, der aus dem Referenzknoten die 3D-Modelle erstellt.
         /// </summary>
-        private virtual KnotRenderer ChallengeKnotRenderer { get; set; }
+        private KnotRenderer ChallengeKnotRenderer { get; set; }
 
         /// <summary>
         /// Der Controller, der aus dem Spielerknoten die 3D-Modelle erstellt.
         /// </summary>
-        private virtual KnotRenderer PlayerKnotRenderer { get; set; }
+        private KnotRenderer PlayerKnotRenderer { get; set; }
 
         /// <summary>
         /// Der Inputhandler, der die Kantenverschiebungen des Spielerknotens durchführt.
         /// </summary>
-        private virtual PipeMovement PlayerKnotMovement { get; set; }
+        private PipeMovement PlayerKnotMovement { get; set; }
 
         /// <summary>
         /// Der Undo-Stack.
         /// </summary>
-        public virtual Stack<Knot> Undo { get; set; }
+        public Stack<Knot> Undo { get; set; }
 
         /// <summary>
         /// Der Redo-Stack.
         /// </summary>
-        public virtual Stack<Knot> Redo { get; set; }
+        public Stack<Knot> Redo { get; set; }
 
         #endregion
 

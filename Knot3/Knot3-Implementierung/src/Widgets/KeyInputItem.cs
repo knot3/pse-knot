@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Die Option in einer Einstellungsdatei.
         /// </summary>
-        private virtual OptionInfo option { get; set; }
+        private OptionInfo option { get; set; }
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace Widgets
         /// Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge und der Eingabeoption Pflicht.
         /// </summary>
-        public virtual void KeyInputItem (GameScreen screen, DisplayLayer drawOrder, OptionInfo option)
+        public void KeyInputItem (GameScreen screen, DisplayLayer drawOrder, OptionInfo option)
         {
             throw new System.NotImplementedException();
         }

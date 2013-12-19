@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Der Text, der durch den Spieler eingegeben wurde.
         /// </summary>
-        public virtual String InputText { get; set; }
+        public String InputText { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace Widgets
         /// <summary>
         /// 
         /// </summary>
-        public virtual void TextInputDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text, String inputText)
+        public void TextInputDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text, String inputText)
         {
             throw new System.NotImplementedException();
         }

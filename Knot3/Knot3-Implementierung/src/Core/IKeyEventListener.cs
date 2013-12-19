@@ -31,17 +31,17 @@ namespace Core
         /// <summary>
         /// Die Eingabepriorität.
         /// </summary>
-        public virtual DisplayLayer Index { get; set; }
+        public DisplayLayer Index { get; set; }
 
         /// <summary>
         /// Zeigt an, ob die Klasse zur Zeit auf Tastatureingaben reagiert.
         /// </summary>
-        public virtual Boolean IsKeyEventEnabled { get; set; }
+        public Boolean IsKeyEventEnabled { get; set; }
 
         /// <summary>
         /// Die Tasten, auf die die Klasse reagiert.
         /// </summary>
-        public virtual List<Keys> ValidKeys { get; set; }
+        public List<Keys> ValidKeys { get; set; }
 
         #endregion
 

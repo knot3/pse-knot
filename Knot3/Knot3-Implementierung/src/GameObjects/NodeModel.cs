@@ -31,7 +31,7 @@ namespace GameObjects
         /// <summary>
         /// Enthält Informationen über den darzustellende 3D-Modell des Kantenübergangs.
         /// </summary>
-        public virtual NodeModelInfo Info { get; set; }
+        public NodeModelInfo Info { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und dem angegebenen Informationsobjekt.
         /// </summary>
-        public virtual void NodeModel (GameScreen screen, NodeModelInfo info)
+        public void NodeModel (GameScreen screen, NodeModelInfo info)
         {
             throw new System.NotImplementedException();
         }

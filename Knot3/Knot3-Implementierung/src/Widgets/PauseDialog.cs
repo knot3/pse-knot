@@ -32,7 +32,7 @@ namespace Widgets
         /// <summary>
         /// Das Menü, das verschiedene Schaltflächen enthält.
         /// </summary>
-        private virtual VerticalMenu pauseMenu { get; set; }
+        private VerticalMenu pauseMenu { get; set; }
 
         #endregion
 

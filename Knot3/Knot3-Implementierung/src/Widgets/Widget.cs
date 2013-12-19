@@ -31,37 +31,37 @@ namespace Widgets
         /// <summary>
         /// Die von der Auflösung unabhängige Größe in Prozent.
         /// </summary>
-        public virtual Vector2 RelativeSize { get; set; }
+        public Vector2 RelativeSize { get; set; }
 
         /// <summary>
         /// Die von der Auflösung unabhängige Position in Prozent.
         /// </summary>
-        public virtual Vector2 RelativePosition { get; set; }
+        public Vector2 RelativePosition { get; set; }
 
         /// <summary>
         /// Gibt an, ob das grafische Element sichtbar ist.
         /// </summary>
-        public virtual bool IsVisible { get; set; }
+        public bool IsVisible { get; set; }
 
         /// <summary>
         /// Die Hintergrundfarbe.
         /// </summary>
-        public virtual Func<Color> BackgroundColor { get; set; }
+        public Func<Color> BackgroundColor { get; set; }
 
         /// <summary>
         /// Die Vordergrundfarbe.
         /// </summary>
-        public virtual Func<Color> ForegroundColor { get; set; }
+        public Func<Color> ForegroundColor { get; set; }
 
         /// <summary>
         /// Die horizontale Ausrichtung.
         /// </summary>
-        public virtual HorizontalAlignment AlignX { get; set; }
+        public HorizontalAlignment AlignX { get; set; }
 
         /// <summary>
         /// Die vertikale Ausrichtung.
         /// </summary>
-        public virtual VerticalAlignment AlignY { get; set; }
+        public VerticalAlignment AlignY { get; set; }
 
         #endregion
 
@@ -71,7 +71,7 @@ namespace Widgets
         /// Erstellt ein neues grafisches Benutzerschnittstellenelement in dem angegebenen Spielzustand
         /// mit der angegebenen Zeichenreihenfolge.
         /// </summary>
-        public virtual void Widget (GameScreen screen, DisplayLayer drawOrder)
+        public void Widget (GameScreen screen, DisplayLayer drawOrder)
         {
             throw new System.NotImplementedException();
         }
