@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
     /// </summary>
-    public interface IChallengeIO : 
+    public interface IChallengeIO
     {
 
         #region Methods

@@ -46,7 +46,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt einen neuen KnotInputHandler für den angegebenen Spielzustand und die angegebene Spielwelt.
         /// </summary>
-        public void KnotInputHandler (GameScreen screen, World world)
+        public  KnotInputHandler (GameScreen screen, World world)
         {
             throw new System.NotImplementedException();
         }

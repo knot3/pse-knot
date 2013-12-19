@@ -55,7 +55,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
         /// </summary>
-        public void NodeModelInfo (Knot knot, Edge from, Edge to)
+        public  NodeModelInfo (Knot knot, Edge from, Edge to)
         {
             throw new System.NotImplementedException();
         }

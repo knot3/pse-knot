@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Eine Kante eines Knotens, die aus einer Richtung und einer Farbe, sowie optional einer Liste von Flächennummern besteht.
     /// </summary>
-    public class Edge : 
+    public class Edge
     {
 
         #region Properties
@@ -50,7 +50,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt eine neue Kante mit der angegebenen Richtung.
         /// </summary>
-        public void Edge (Direction direction)
+        public  Edge (Direction direction)
         {
             throw new System.NotImplementedException();
         }

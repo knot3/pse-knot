@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Eine statische Klasse, die eine Referenz auf die zentrale Einstellungsdatei des Spiels enthält.
     /// </summary>
-    public class Options : 
+    public class Options
     {
 
         #region Properties

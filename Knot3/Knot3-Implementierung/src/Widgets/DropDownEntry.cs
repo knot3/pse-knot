@@ -23,7 +23,7 @@ namespace Widgets
     /// <summary>
     /// Repräsentiert einen Eintrag in einem Dropdown-Menü.
     /// </summary>
-    public class DropDownEntry : 
+    public class DropDownEntry
     {
 
         #region Properties

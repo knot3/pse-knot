@@ -23,7 +23,7 @@ namespace GameObjects
     /// <summary>
     /// Ein Inputhandler, der für das Verschieben der Kanten zuständig ist.
     /// </summary>
-    public class PipeMovement : 
+    public class PipeMovement
     {
 
         #region Properties
@@ -50,7 +50,7 @@ namespace GameObjects
         /// <summary>
         /// !!!
         /// </summary>
-        public void PipeMovement (GameScreen screen, World world, GameObjectInfo info)
+        public  PipeMovement (GameScreen screen, World world, GameObjectInfo info)
         {
             throw new System.NotImplementedException();
         }

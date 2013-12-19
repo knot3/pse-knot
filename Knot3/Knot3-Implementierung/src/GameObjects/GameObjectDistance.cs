@@ -23,7 +23,7 @@ namespace GameObjects
     /// <summary>
     /// !!!
     /// </summary>
-    public class GameObjectDistance : 
+    public class GameObjectDistance
     {
 
         #region Properties

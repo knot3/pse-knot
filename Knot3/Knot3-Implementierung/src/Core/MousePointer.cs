@@ -31,7 +31,7 @@ namespace Core
         /// <summary>
         /// Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
         /// </summary>
-        public void MousePointer (GameScreen screen)
+        public  MousePointer (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

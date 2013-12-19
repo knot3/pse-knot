@@ -23,7 +23,7 @@ namespace GameObjects
     /// <summary>
     /// Eine abstrakte Klasse, die ein Vorschau-Spielobjekt darstellt.
     /// </summary>
-    public class ShadowGameObject : 
+    public class ShadowGameObject
     {
 
         #region Properties
@@ -55,7 +55,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Vorschauobjekt in dem angegebenen Spielzustand für das angegebene zu dekorierende Objekt.
         /// </summary>
-        public void ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
+        public  ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
         {
             throw new System.NotImplementedException();
         }

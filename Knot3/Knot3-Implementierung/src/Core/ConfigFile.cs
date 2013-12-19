@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Repräsentiert eine Einstellungsdatei.
     /// </summary>
-    public class ConfigFile : 
+    public class ConfigFile
     {
 
         #region Methods

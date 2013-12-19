@@ -41,7 +41,7 @@ namespace Widgets
         /// Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge und der Eingabeoption Pflicht.
         /// </summary>
-        public void KeyInputItem (GameScreen screen, DisplayLayer drawOrder, OptionInfo option)
+        public  KeyInputItem (GameScreen screen, DisplayLayer drawOrder, OptionInfo option)
         {
             throw new System.NotImplementedException();
         }

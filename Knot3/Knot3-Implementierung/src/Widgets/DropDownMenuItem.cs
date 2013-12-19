@@ -41,7 +41,7 @@ namespace Widgets
         /// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
         /// </summary>
-        public void DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder)
+        public  DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder)
         {
             throw new System.NotImplementedException();
         }

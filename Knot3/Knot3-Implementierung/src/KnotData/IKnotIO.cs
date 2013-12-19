@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten implementiert werden müssen.
     /// </summary>
-    public interface IKnotIO : 
+    public interface IKnotIO
     {
 
         #region Properties

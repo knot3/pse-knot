@@ -45,7 +45,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angegebene zu dekorierende Modell.
         /// </summary>
-        public void ShadowGameModel (GameScreen sreen, GameModel decoratedModel)
+        public  ShadowGameModel (GameScreen sreen, GameModel decoratedModel)
         {
             throw new System.NotImplementedException();
         }

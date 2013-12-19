@@ -40,7 +40,7 @@ namespace Screens
         /// <summary>
         /// Erzeugt ein neues GraphicsSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
-        public void GraphicsSettingsScreen (Knot3Game game)
+        public  GraphicsSettingsScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

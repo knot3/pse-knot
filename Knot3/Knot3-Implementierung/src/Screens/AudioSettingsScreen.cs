@@ -40,7 +40,7 @@ namespace Screens
         /// <summary>
         /// Erzeugt ein neues AudioSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
-        public void AudioSettingsScreen (Knot3Game game)
+        public  AudioSettingsScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

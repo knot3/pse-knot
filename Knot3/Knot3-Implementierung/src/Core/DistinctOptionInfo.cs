@@ -46,7 +46,7 @@ namespace Core
         /// Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
         /// angegebenen Abschnitt der angegebenen Einstellungsdatei.
         /// </summary>
-        public void DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile)
+        public  DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile)
         {
             throw new System.NotImplementedException();
         }

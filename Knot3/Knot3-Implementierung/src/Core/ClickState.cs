@@ -26,6 +26,7 @@ namespace Core
     public enum ClickState
     {
         /// <summary>
+        /// Steht für einen ungültigen oder einen undefinierten Zustand. Keine Reihenfolge.
         /// Kein gültiger oder ein undefinierter Zustand.
         /// Keine Reihenfolge.
         /// 

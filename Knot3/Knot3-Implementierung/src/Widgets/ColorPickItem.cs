@@ -46,7 +46,7 @@ namespace Widgets
         /// Erzeugt ein neues ColorPickItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
         /// </summary>
-        public void ColorPickItem (GameScreen screen, DisplayLayer drawOrder, Color color)
+        public  ColorPickItem (GameScreen screen, DisplayLayer drawOrder, Color color)
         {
             throw new System.NotImplementedException();
         }

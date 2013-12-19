@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Implementiert das Speicherformat für Knoten.
     /// </summary>
-    public class KnotFileIO : 
+    public class KnotFileIO
     {
 
         #region Properties
@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein KnotFileIO-Objekt.
         /// </summary>
-        public void KnotFileIO ()
+        public  KnotFileIO ()
         {
             throw new System.NotImplementedException();
         }

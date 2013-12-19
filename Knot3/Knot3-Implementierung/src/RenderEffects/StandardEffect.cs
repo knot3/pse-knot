@@ -32,7 +32,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Standardeffekt.
         /// </summary>
-        public void StandardEffect (GameScreen screen)
+        public  StandardEffect (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

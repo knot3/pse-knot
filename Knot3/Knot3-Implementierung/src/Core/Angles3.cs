@@ -25,7 +25,7 @@ namespace Core
     /// Sie bietet Möglichkeit vordefinierte Winkelwerte zu verwenden, z.B. stellt Zero den Nullvektor dar.
     /// Die Umwandlung zwischen verschiedenen Winkelmaßen wie Grad- und Bogenmaß unterstützt sie durch entsprechende Methoden.
     /// </summary>
-    public class Angles3 : 
+    public class Angles3
     {
 
         #region Properties
@@ -57,7 +57,7 @@ namespace Core
         /// <summary>
         /// Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
         /// </summary>
-        public void Angles3 (float X, float Y, float Z)
+        public  Angles3 (float X, float Y, float Z)
         {
             throw new System.NotImplementedException();
         }

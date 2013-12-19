@@ -25,7 +25,7 @@ namespace RenderEffects
     /// und automatisch das aktuell von XNA verwendete Rendertarget auf das Rendertarget des obersten Rendereffekts
     /// setzt.
     /// </summary>
-    public class RenderEffectStack : 
+    public class RenderEffectStack
     {
 
         #region Properties
@@ -47,7 +47,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Rendereffekt-Stapel.
         /// </summary>
-        public void RenderEffectStack (IRenderEffect defaultEffect)
+        public  RenderEffectStack (IRenderEffect defaultEffect)
         {
             throw new System.NotImplementedException();
         }

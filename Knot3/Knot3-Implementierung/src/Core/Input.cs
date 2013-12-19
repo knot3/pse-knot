@@ -70,7 +70,7 @@ namespace Core
         /// <summary>
         /// Erstellt ein neues Input-Objekt, das an den übergebenen Spielzustand gebunden ist.
         /// </summary>
-        public void Input (GameScreen screen)
+        public  Input (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

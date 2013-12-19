@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Eine statische Klasse, die Bezeichner in lokalisierten Text umsetzen kann.
     /// </summary>
-    public class Localizer : 
+    public class Localizer
     {
 
         #region Properties

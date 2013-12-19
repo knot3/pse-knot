@@ -23,7 +23,7 @@ namespace KnotData
     /// <summary>
     /// Ein Exportformat für 3D-Drucker.
     /// </summary>
-    public class PrinterIO : 
+    public class PrinterIO
     {
 
         #region Properties
@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein neues PrinterIO-Objekt.
         /// </summary>
-        public void PrinterIO ()
+        public  PrinterIO ()
         {
             throw new System.NotImplementedException();
         }
