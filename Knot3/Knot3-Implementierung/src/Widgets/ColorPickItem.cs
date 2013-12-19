@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -12,12 +13,9 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+
 namespace Widgets
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
 
 	public class ColorPickItem : MenuItem
 	{

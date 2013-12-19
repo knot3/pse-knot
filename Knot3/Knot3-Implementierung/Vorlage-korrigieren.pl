@@ -1,4 +1,9 @@
-using System;
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $header = q[using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,13 +19,17 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
 
-namespace Widgets
-{
+namespace];
 
-	public enum ItemState : int
-	{
-		Selected = 1,
-		Hovered = 2,
-		None = 0,
-	}
+while (my $filename = <STDIN>) {
+	chomp $filename;
+	open my $f, "<", $filename;
+	my $content = join("", grep {!/^\tusing System/} <$f>);
+	close $f;
+
+	$content =~ s/^.*?namespace/$header/igms;
+	
+	open my $f, ">", $filename;
+	print $f $content;
+	close $f;
 }

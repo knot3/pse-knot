@@ -961,7 +961,8 @@ public class KnotMetaData :
     + KnotMetaData (String name, Func<Integer> countEdges) : KnotMetaData
 
 // Erstellt aus einem Knoten-Objekt die zu dem Knoten gehörenden 3D-Modelle sowie die 3D-Modelle der Pfeile,
-// die nach einer Auswahl von Kanten durch den Spieler angezeigt werden.
+// die nach einer Auswahl von Kanten durch den Spieler angezeigt werden. Ist außerdem ein IGameObject und ein
+// Container für die erstellten Spielobjekte.
 public class KnotRenderer : 
   Attributes:
     // Enthält Informationen über die Position des Knotens.
@@ -993,9 +994,9 @@ public class KnotRenderer :
     // Erstellt ein neues KnotRenderer-Objekt für den angegebenen Spielzustand mit den angegebenen
     // Spielobjekt-Informationen, die unter Anderem die Position des Knotenursprungs enthalten.
     + KnotRenderer (GameScreen screen, GameObjectInfo info) : void
-    // Wird für jeden Frame aufgerufen.
+    // Ruft die Update()-Methoden der Kanten, Übergänge und Pfeile auf.
     + Update (GameTime GameTime) : void
-    // Zeichnet nichts.
+    // Ruft die Draw()-Methoden der Kanten, Übergänge und Pfeile auf.
     + Draw (GameTime GameTime) : void
     // Gibt einen Enumerator der aktuell vorhandenen 3D-Modelle zurück.
     + GetEnumerator () : IEnumerator
