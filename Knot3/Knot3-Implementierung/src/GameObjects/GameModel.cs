@@ -50,7 +50,7 @@ namespace GameObjects
 			set;
 		}
 
-		public virtual XNA.Model Model
+		public virtual Model Model
 		{
 			get;
 			set;

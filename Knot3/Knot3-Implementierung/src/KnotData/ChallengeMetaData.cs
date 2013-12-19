@@ -49,7 +49,7 @@ namespace KnotData
 			set;
 		}
 
-		public virtual IEnumerator<KeyValuePair<String, Integer>> Highscore
+        public virtual IEnumerator<KeyValuePair<String, int>> Highscore
 		{
 			get;
 			set;

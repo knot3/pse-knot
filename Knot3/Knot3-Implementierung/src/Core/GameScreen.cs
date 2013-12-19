@@ -69,12 +69,12 @@ namespace Core
 		{
 		}
 
-		public virtual void AddGameComponents(IGameStateComponent[] components)
+        public virtual void AddGameComponents(params IGameScreenComponent[] components)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void RemoveGameComponents(IGameStateComponent[] components)
+        public virtual void RemoveGameComponents(params IGameScreenComponent[] components)
 		{
 			throw new System.NotImplementedException();
 		}

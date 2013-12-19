@@ -17,13 +17,13 @@ using Microsoft.Xna.Framework.Storage;
 namespace Core
 {
 
-	public interface IGameScreenComponent  : XNA.IGameComponent
+	public interface IGameScreenComponent  : IGameComponent
 	{
 		DisplayLayer Index { get;set; }
 
 		GameScreen Screen { get;set; }
 
-		IEnumerable<T> SubComponents(GameTime time);
+        IEnumerable<IGameScreenComponent> SubComponents(GameTime time);
 
 	}
 }

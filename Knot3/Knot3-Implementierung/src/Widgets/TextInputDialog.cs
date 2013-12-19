@@ -16,6 +16,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Widgets
 {
+    using Core;
 
 	public class TextInputDialog : ConfirmDialog
 	{
@@ -26,6 +27,7 @@ namespace Widgets
 		}
 
 		public TextInputDialog(GameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
+             : base(screen, drawOrder, title, text)
 		{
 		}
 

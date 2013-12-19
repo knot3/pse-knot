@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace Core
 	using GameObjects;
 	using RenderEffects;
 
-	public class World : DrawableGameScreenComponent, IEnumerable1<IGameObject>
+	public class World : DrawableGameScreenComponent, IEnumerable<IGameObject>
 	{
 		public virtual Camera Camera
 		{
@@ -59,10 +60,15 @@ namespace Core
 		{
 		}
 
-		public virtual IEnumerator GetEnumerator()
-		{
-			throw new System.NotImplementedException();
-		}
+        public virtual IEnumerator<IGameObject> GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator ()
+        {
+            return GetEnumerator ();
+        }
 
 	}
 }

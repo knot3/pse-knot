@@ -17,7 +17,7 @@ using Microsoft.Xna.Framework.Storage;
 namespace Core
 {
 
-	public abstract class DrawableGameScreenComponent : XNA.DrawableGameComponent, IGameScreenComponent
+	public abstract class DrawableGameScreenComponent : DrawableGameComponent, IGameScreenComponent
 	{
 		public virtual GameScreen Screen
 		{
@@ -31,7 +31,7 @@ namespace Core
 			set;
 		}
 
-		public virtual IEnumerable<T> SubComponents(GameTime GameTime)
+        public virtual IEnumerable<IGameScreenComponent> SubComponents(GameTime GameTime)
 		{
 			throw new System.NotImplementedException();
 		}

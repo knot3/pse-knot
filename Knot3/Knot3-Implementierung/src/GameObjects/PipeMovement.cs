@@ -19,7 +19,7 @@ namespace GameObjects
 	using Core;
 	using KnotData;
 
-	public class PipeMovement : IGameObject, IEnumerable1<IGameObject>
+	public class PipeMovement : IGameObject, IEnumerable<IGameObject>
 	{
 		public virtual GameObjectInfo Info
 		{
@@ -58,7 +58,7 @@ namespace GameObjects
 		{
 		}
 
-		public virtual IEnumerator GetEnumerator()
+		public virtual IEnumerator<IGameObject> GetEnumerator()
 		{
 			throw new System.NotImplementedException();
 		}

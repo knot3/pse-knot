@@ -16,6 +16,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Widgets
 {
+    using Core;
 
 	public class ColorPickItem : MenuItem
 	{

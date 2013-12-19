@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,6 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace KnotData
 {
-
 	public class Knot : ICloneable, IEnumerable<Edge>, IEquatable<Knot>
 	{
 		public virtual string Name
@@ -25,7 +25,7 @@ namespace KnotData
 			set;
 		}
 
-		private Circle<T> edges
+		private Circle<Edge> edges
 		{
 			get;
 			private set;
@@ -50,12 +50,6 @@ namespace KnotData
 		}
 
 		public virtual KnotMetaData KnotInfo
-		{
-			get;
-			set;
-		}
-
-		public virtual Circle<T> Circle
 		{
 			get;
 			set;
@@ -119,17 +113,12 @@ namespace KnotData
 			throw new System.NotImplementedException();
 		}
 
-		public virtual IEnumerator GetEnumerator()
-		{
-			throw new System.NotImplementedException();
-		}
-
 		public virtual void Save(IKnotIO format, string filename)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual bool Equals(T other)
+		public virtual bool Equals(Knot other)
 		{
 			throw new System.NotImplementedException();
 		}

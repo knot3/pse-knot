@@ -16,7 +16,6 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace KnotData
 {
-
 	public class NodeMap
 	{
 		public virtual Node From(Edge edge)

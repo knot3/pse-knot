@@ -18,6 +18,7 @@ namespace Screens
 {
 	using Core;
 	using GameObjects;
+    using KnotData;
 
 	public class ChallengeModeScreen : GameScreen
 	{

@@ -42,12 +42,6 @@ namespace Widgets
 			set;
 		}
 
-		public virtual ItemState ItemState
-		{
-			get;
-			set;
-		}
-
 		public abstract void OnLeftClick(Vector2 position, ClickState state, GameTime time);
 
 		public abstract void OnRightClick(Vector2 position, ClickState state, GameTime time);

@@ -562,10 +562,10 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="64abfe96-848d-4e9d-bee0-4c704b807df7" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="844c7f69-6ac6-46d3-9c4e-5e0432b67822" name="components" direction="In" isUnique="false">
-                  <elementDefinition Id="6f9ac577-29cf-4f91-9682-6bc2146c1695" />
+                <parameter Id="dbbc403f-3430-4a95-91d9-345c8786b803" name="components" direction="In" isUnique="false">
+                  <elementDefinition Id="7e5101f5-4acf-4754-8501-1190489d8ce7" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="695ac93b-876b-4f3a-87ae-593f97fa2cb4" LastKnownName="IGameStateComponent[]" />
+                    <referencedTypeMoniker Id="5ca173b4-280a-4663-8b51-9f1e029b0ced" LastKnownName="IGameScreenComponent[]" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -618,10 +618,10 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             <elementDefinition Id="67396a69-e90a-428d-8d3f-0811d9934cb5" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="29ec9c26-053f-448a-817d-679f8e44b272" name="components" direction="In" isUnique="false">
-                  <elementDefinition Id="52fade4f-36f8-42f3-8f59-532e16176c09" />
+                <parameter Id="802cfe01-5d5e-4e16-91fc-f7a5367e76f8" name="components" direction="In" isUnique="false">
+                  <elementDefinition Id="4b0e71ac-6756-46e8-9cd9-9c34cf64ea0a" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="695ac93b-876b-4f3a-87ae-593f97fa2cb4" LastKnownName="IGameStateComponent[]" />
+                    <referencedTypeMoniker Id="5ca173b4-280a-4663-8b51-9f1e029b0ced" LastKnownName="IGameScreenComponent[]" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -4443,11 +4443,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="695ac93b-876b-4f3a-87ae-593f97fa2cb4" name="IGameStateComponent[]" isAbstract="false" isLeaf="false" cachedFullName="IGameStateComponent[]">
-        <elementDefinition Id="1131b2d9-90fe-4729-a468-2165d53ae203" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" name="GameTime" isAbstract="false" isLeaf="false" cachedFullName="GameTime">
         <elementDefinition Id="7146062a-e956-4346-8427-37640e8bf8a1" />
       </referencedType>
@@ -4470,6 +4465,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <referencedType Id="a97b8947-b4a3-4f82-b074-392d20162f07" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot">
         <elementDefinition Id="52e0f35d-59bb-49a0-b8cf-c1c6648be901" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5ca173b4-280a-4663-8b51-9f1e029b0ced" name="IGameScreenComponent[]" isAbstract="false" isLeaf="false" cachedFullName="IGameScreenComponent[]">
+        <elementDefinition Id="24361ae2-5032-4ce5-8296-253500c812cf" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

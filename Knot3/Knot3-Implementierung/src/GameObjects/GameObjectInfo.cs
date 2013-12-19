@@ -43,7 +43,7 @@ namespace GameObjects
 			set;
 		}
 
-		public virtual bool Equals(C other)
+        public virtual bool Equals(GameObjectInfo other)
 		{
 			throw new System.NotImplementedException();
 		}

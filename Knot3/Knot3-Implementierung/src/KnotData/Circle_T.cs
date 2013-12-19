@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -67,11 +68,6 @@ namespace KnotData
 		}
 
 		public virtual IEnumerator<T> GetEnumerator()
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public virtual IEnumerator GetEnumerator()
 		{
 			throw new System.NotImplementedException();
 		}

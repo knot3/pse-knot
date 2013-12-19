@@ -31,7 +31,7 @@ namespace KnotData
 			private set;
 		}
 
-		public virtual Func<Integer> CountEdges
+        public virtual Func<int> CountEdges
 		{
 			get;
 			private set;
@@ -43,11 +43,11 @@ namespace KnotData
 			private set;
 		}
 
-		public KnotMetaData(string name, Func<Integer> countEdges, IKnotIO format, string filename)
+        public KnotMetaData(string name, Func<int> countEdges, IKnotIO format, string filename)
 		{
 		}
 
-		public KnotMetaData(string name, Func<Integer> countEdges)
+        public KnotMetaData(string name, Func<int> countEdges)
 		{
 		}
 

@@ -20,13 +20,9 @@ namespace GameObjects
 
 	public interface IGameObject 
 	{
-		GameObjectInfo Info { get;set; }
+		GameObjectInfo Info { get; }
 
-		World World { get;set; }
-
-		GameObjectInfo GameObjectInfo { get;set; }
-
-		GameObjectDistance GameObjectDistance { get;set; }
+		World World { get; }
 
 		Vector3 Center();
 

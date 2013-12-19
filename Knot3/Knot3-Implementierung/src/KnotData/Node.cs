@@ -1,6 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 
 using Microsoft.Xna.Framework;
@@ -14,31 +12,41 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
 
-namespace Core
+namespace KnotData
 {
-
-	public abstract class GameScreenComponent : GameComponent, IGameScreenComponent
+	public class Node
 	{
-		public virtual DisplayLayer Index
+		public virtual int X
 		{
 			get;
 			set;
 		}
 
-		public virtual GameScreen Screen
+		public virtual int Y
 		{
 			get;
 			set;
 		}
 
-		public virtual IEnumerable<IGameScreenComponent> SubComponents(GameTime GameTime)
+		public virtual int Z
+		{
+			get;
+			set;
+		}
+
+		private int scale
+		{
+			get;
+			set;
+		}
+
+		public virtual Vector3 ToVector()
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void GameStateComponent(GameScreen screen, DisplayLayer index)
+		public Node(int x, int y, int z)
 		{
-			throw new System.NotImplementedException();
 		}
 
 	}

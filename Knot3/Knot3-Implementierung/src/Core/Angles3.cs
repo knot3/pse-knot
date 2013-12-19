@@ -57,6 +57,11 @@ namespace Core
 			throw new System.NotImplementedException();
 		}
 
+        public bool Equals(Angles3 other)
+        {
+            throw new System.NotImplementedException();
+        }
+
 	}
 }
 

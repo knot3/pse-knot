@@ -31,7 +31,7 @@ namespace Screens
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void Entered(GameScreen previousScreen, GameTime time)
+		public override void Entered(GameScreen previousScreen, GameTime time)
 		{
 			throw new System.NotImplementedException();
 		}

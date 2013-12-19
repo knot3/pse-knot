@@ -18,7 +18,7 @@ namespace Screens
 {
 	using Core;
 
-	public class Knot3Game : XNA.Game
+	public class Knot3Game : Game
 	{
 		public virtual bool IsFullScreen
 		{

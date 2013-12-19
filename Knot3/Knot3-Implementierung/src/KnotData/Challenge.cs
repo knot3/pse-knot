@@ -31,7 +31,7 @@ namespace KnotData
 			private set;
 		}
 
-		private SortedList<Integer, String> highscore
+		private SortedList<int, String> highscore
 		{
 			get;
 			set;
@@ -43,7 +43,7 @@ namespace KnotData
 			set;
 		}
 
-		public virtual IEnumerator<KeyValuePair<String, Integer>> Highscore
+        public virtual IEnumerator<KeyValuePair<String, int>> Highscore
 		{
 			get;
 			set;

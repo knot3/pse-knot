@@ -92,7 +92,7 @@ namespace Widgets
 			throw new System.NotImplementedException();
 		}
 
-		public virtual IEnumerator GetEnumerator()
+		public virtual IEnumerator<MenuItem> GetEnumerator()
 		{
 			throw new System.NotImplementedException();
 		}
