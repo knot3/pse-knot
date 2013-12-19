@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,18 +15,48 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using Widgets;
 
 namespace KnotData
 {
+    /// <summary>
+    /// Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
+    /// </summary>
+    public interface IChallengeIO : 
+    {
 
-	public interface IChallengeIO 
-	{
-		void Save(Challenge challenge);
+        #region Methods
 
-		Challenge Load(string filename);
+        /// <summary>
+        /// Speichert eine Challenge.
+        /// </summary>
+        public void Save (Challenge challenge)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		ChallengeMetaData LoadMetaData(string filename);
+        /// <summary>
+        /// Lädt eine Challenge.
+        /// </summary>
+        public Challenge Load (String filename)
+        {
+            throw new System.NotImplementedException();
+        }
 
-	}
+        /// <summary>
+        /// Lädt die Metadaten einer Challenge.
+        /// </summary>
+        public ChallengeMetaData LoadMetaData (String filename)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

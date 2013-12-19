@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,32 +15,56 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace Core
 {
+    /// <summary>
+    /// Repräsentiert eine Einstellungsdatei.
+    /// </summary>
+    public class ConfigFile : 
+    {
 
-	public class ConfigFile
-	{
-		public virtual void SetOption(string section, string option, string value)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Methods
 
-		public virtual bool GetOption(string section, string option, bool defaultValue)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
+        /// </summary>
+        public void SetOption (String section, String option, String value)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual string GetOption(string section, string option, string defaultValue)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Gibt den aktuell in der Datei vorhandenen Wert für die angegebene Option in dem angegebenen Abschnitt zurück.
+        /// </summary>
+        public Boolean GetOption (String section, String option, Boolean defaultValue)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual void SetOption(string section, string option, bool _value)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Gibt den aktuell in der Datei vorhandenen Wert für die angegebene Option in dem angegebenen Abschnitt zurück.
+        /// </summary>
+        public String GetOption (String section, String option, String defaultValue)
+        {
+            throw new System.NotImplementedException();
+        }
 
-	}
+        /// <summary>
+        /// Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
+        /// </summary>
+        public void SetOption (String section, String option, Boolean _value)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

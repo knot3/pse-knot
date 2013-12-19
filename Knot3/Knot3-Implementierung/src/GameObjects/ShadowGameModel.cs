@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,34 +15,58 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace GameObjects
 {
-	using Core;
+    /// <summary>
+    /// Die 3D-Modelle, die während einer Verschiebung von Kanten die Vorschaumodelle repräsentieren.
+    /// </summary>
+    public class ShadowGameModel : ShadowGameObject
+    {
 
-	public class ShadowGameModel : ShadowGameObject
-	{
-		public virtual Color ShadowColor
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual float ShadowAlpha
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Farbe der Vorschaumodelle.
+        /// </summary>
+        public Color ShadowColor { get; set; }
 
-		public ShadowGameModel(GameScreen sreen, GameModel decoratedModel)
-		{
-		}
+        /// <summary>
+        /// Die Transparenz der Vorschaumodelle.
+        /// </summary>
+        public float ShadowAlpha { get; set; }
 
-		public override void Draw(GameTime GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-	}
+        #region Constructors
+
+        /// <summary>
+        /// Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angegebene zu dekorierende Modell.
+        /// </summary>
+        public void ShadowGameModel (GameScreen sreen, GameModel decoratedModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Zeichnet das Vorschaumodell.
+        /// </summary>
+        public void Draw (GameTime GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

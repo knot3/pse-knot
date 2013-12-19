@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,28 +15,47 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace Core
 {
+    /// <summary>
+    /// Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
+    /// </summary>
+    public class DistinctOptionInfo : OptionInfo
+    {
 
-	public class DistinctOptionInfo : OptionInfo
-	{
-		public virtual HashSet<string> ValidValues
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public override string Value
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Eine Menge von Texten, welche die für die Option gültigen Werte beschreiben.
+        /// </summary>
+        public HashSet<string> ValidValues { get; set; }
 
-		public DistinctOptionInfo(string section, string name, string defaultValue, IEnumerable<string> validValues, ConfigFile configFile)
-		{
-		}
+        /// <summary>
+        /// Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
+        /// </summary>
+        public String Value { get; set; }
 
-	}
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
+        /// angegebenen Abschnitt der angegebenen Einstellungsdatei.
+        /// </summary>
+        public void DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,41 +15,56 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace GameObjects
 {
-	using KnotData;
+    /// <summary>
+    /// Enthält Informationen über ein 3D-Modell, das einen Kantenübergang darstellt.
+    /// </summary>
+    public class NodeModelInfo : GameModelInfo
+    {
 
-	public class NodeModelInfo : GameModelInfo, IJunction
-	{
-		public virtual Edge EdgeFrom
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual Edge EdgeTo
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Kante vor dem Übergang.
+        /// </summary>
+        public Edge EdgeFrom { get; set; }
 
-		public virtual Knot Knot
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Kante nach dem Übergang.
+        /// </summary>
+        public Edge EdgeTo { get; set; }
 
-		public virtual Vector3 Position
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Knoten, der die Kanten enthält.
+        /// </summary>
+        public Knot Knot { get; set; }
 
-		public NodeModelInfo(Knot knot, Edge from, Edge to)
-		{
-		}
+        /// <summary>
+        /// Die Position des Übergangs.
+        /// </summary>
+        public Vector3 Position { get; set; }
 
-	}
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
+        /// </summary>
+        public void NodeModelInfo (Knot knot, Edge from, Edge to)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

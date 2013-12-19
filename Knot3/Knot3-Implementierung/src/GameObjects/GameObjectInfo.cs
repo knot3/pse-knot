@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,41 +15,56 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace GameObjects
 {
+    /// <summary>
+    /// Enthält Informationen über ein 3D-Objekt wie die Position, Sichtbarkeit, Verschiebbarkeit und Auswählbarkeit.
+    /// </summary>
+    public class GameObjectInfo : 
+    {
 
-	public abstract class GameObjectInfo : IEquatable<GameObjectInfo>
-	{
-		public virtual bool IsMovable
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual bool IsSelectable
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Verschiebbarkeit des Spielobjektes.
+        /// </summary>
+        public Boolean IsMovable { get; set; }
 
-		public virtual bool IsVisible
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Auswählbarkeit des Spielobjektes.
+        /// </summary>
+        public Boolean IsSelectable { get; set; }
 
-		public virtual Vector3 Position
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Sichtbarkeit des Spielobjektes.
+        /// </summary>
+        public Boolean IsVisible { get; set; }
 
-        public virtual bool Equals(GameObjectInfo other)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Die Position des Spielobjektes.
+        /// </summary>
+        public Vector3 Position { get; set; }
 
-	}
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Vergleicht zwei Informationsobjekte für Spielobjekte.
+        /// </summary>
+        public Boolean Equals (C other)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

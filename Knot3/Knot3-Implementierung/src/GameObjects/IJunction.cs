@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,17 +15,34 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace GameObjects
 {
-	using KnotData;
+    /// <summary>
+    /// Repräsentiert einen Übergang zwischen zwei Kanten.
+    /// </summary>
+    public interface IJunction : 
+    {
 
-	public interface IJunction 
-	{
-		Edge EdgeFrom { get;set; }
+        #region Properties
 
-		Edge EdgeTo { get;set; }
+        /// <summary>
+        /// Die Kante vor dem Übergang.
+        /// </summary>
+        public Edge EdgeFrom { get; set; }
 
-	}
+        /// <summary>
+        /// Die Kante nach dem Übergang.
+        /// </summary>
+        public Edge EdgeTo { get; set; }
+
+        #endregion
+
+    }
 }
 

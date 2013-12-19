@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,34 +15,53 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace GameObjects
 {
-	using Core;
+    /// <summary>
+    /// Ein 3D-Modell, das eine Kante darstellt.
+    /// </summary>
+    public class PipeModel : GameModel
+    {
 
-	public class PipeModel : GameModel
-	{
-		public virtual PipeModelInfo Info
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual PipeModelInfo PipeModelInfo
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Enthält Informationen über die darzustellende Kante.
+        /// </summary>
+        public PipeModelInfo Info { get; set; }
 
-		public virtual GameObjectDistance Intersects(Ray ray)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public PipeModel(GameScreen screen, PipeModelInfo info)
-		{
-		}
+        #region Constructors
 
-	}
+        /// <summary>
+        /// Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und den angegebenen Spielinformationen.
+        /// </summary>
+        public void PipeModel (GameScreen screen, PipeModelInfo info)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Prüft, ob der angegebene Mausstrahl das 3D-Modell schneidet.
+        /// </summary>
+        public GameObjectDistance Intersects (Ray ray)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

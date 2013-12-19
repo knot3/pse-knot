@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,33 +15,60 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using KnotData;
+using Widgets;
 
 namespace RenderEffects
 {
-	using Core;
-	using GameObjects;
+    /// <summary>
+    /// Ein Cel-Shading-Effekt.
+    /// </summary>
+    public class CelShadingEffect : RenderEffect
+    {
 
-	public class CelShadingEffect : RenderEffect
-	{
-		protected virtual void DrawRenderTarget(GameTime GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Constructors
 
-		public override void DrawModel(GameModel GameModel, object GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
+        /// </summary>
+        public void CelShadingEffect (GameScreen screen)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public override void RemapModel(GameModel GameModel)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public CelShadingEffect(GameScreen screen)
-		{
-		}
+        #region Methods
 
-	}
+        /// <summary>
+        /// !!!
+        /// </summary>
+        protected void DrawRenderTarget (GameTime GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Zeichnet ein 3D-Modell auf das Rendertarget.
+        /// </summary>
+        public void DrawModel (GameTime, GameModel GameModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Weist dem 3D-Modell den Cel-Shader zu.
+        /// </summary>
+        public void RemapModel (GameModel GameModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

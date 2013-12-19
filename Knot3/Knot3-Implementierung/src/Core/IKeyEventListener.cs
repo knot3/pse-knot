@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,22 +15,51 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace Core
 {
+    /// <summary>
+    /// Eine Schnittstelle, die von Klassen implementiert wird, welche auf Tastatureingaben reagieren.
+    /// </summary>
+    public interface IKeyEventListener : 
+    {
 
-	public interface IKeyEventListener 
-	{
-		DisplayLayer Index { get;set; }
+        #region Properties
 
-		bool IsKeyEventEnabled { get;set; }
+        /// <summary>
+        /// Die Eingabepriorität.
+        /// </summary>
+        public DisplayLayer Index { get; set; }
 
-		List<Keys> ValidKeys { get;set; }
+        /// <summary>
+        /// Zeigt an, ob die Klasse zur Zeit auf Tastatureingaben reagiert.
+        /// </summary>
+        public Boolean IsKeyEventEnabled { get; set; }
 
-		DisplayLayer DisplayLayer { get;set; }
+        /// <summary>
+        /// Die Tasten, auf die die Klasse reagiert.
+        /// </summary>
+        public List<Keys> ValidKeys { get; set; }
 
-		void OnKeyEvent();
+        #endregion
 
-	}
+        #region Methods
+
+        /// <summary>
+        /// Die Reaktion auf eine Tasteneingabe.
+        /// </summary>
+        public void OnKeyEvent ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

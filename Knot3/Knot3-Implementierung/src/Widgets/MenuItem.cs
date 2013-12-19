@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,43 +15,76 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
 
 namespace Widgets
 {
-	using Core;
+    /// <summary>
+    /// Ein abstrakte Klasse für Menüeinträge, die
+    /// </summary>
+    public class MenuItem : Widget
+    {
 
-	/// <remarks>
-	/// Kompositum
-	/// 
-	/// </remarks>
-	public abstract class MenuItem : Widget, IKeyEventListener, IMouseEventListener
-	{
-		public virtual ItemState ItemState
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual int ItemOrder
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Gibt an, ob die Maus sich über dem Eintrag befindet, ohne ihn anzuklicken, ob er ausgewählt ist
+        /// oder nichts von beidem.
+        /// </summary>
+        public ItemState ItemState { get; set; }
 
-		public virtual string Text
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Zeichenreihenfolge.
+        /// </summary>
+        public Integer ItemOrder { get; set; }
 
-		public abstract void OnLeftClick(Vector2 position, ClickState state, GameTime time);
+        /// <summary>
+        /// Der Anzeigetext der Schaltfläche.
+        /// </summary>
+        public String Text { get; set; }
 
-		public abstract void OnRightClick(Vector2 position, ClickState state, GameTime time);
+        #endregion
 
-		public abstract void OnKeyEvent();
+        #region Methods
 
-		public abstract Rectangle Bounds();
+        /// <summary>
+        /// Reaktionen auf einen Linksklick.
+        /// </summary>
+        public void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+        {
+            throw new System.NotImplementedException();
+        }
 
-	}
+        /// <summary>
+        /// Reaktionen auf einen Rechtsklick.
+        /// </summary>
+        public void OnRightClick (Vector2 position, ClickState state, GameTime time)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Reaktionen auf Tasteneingaben.
+        /// </summary>
+        public void OnKeyEvent ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gibt die Ausmaße des Eintrags zurück.
+        /// </summary>
+        public Rectangle Bounds ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

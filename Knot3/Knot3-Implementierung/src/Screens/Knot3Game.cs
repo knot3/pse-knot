@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,67 +15,97 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace Screens
 {
-	using Core;
+    /// <summary>
+    /// Die zentrale Spielklasse, die von der \glqq Game \grqq -Klasse des XNA-Frameworks erbt.
+    /// </summary>
+    public class Knot3Game : XNA.Game
+    {
 
-	public class Knot3Game : Game
-	{
-		public virtual bool IsFullScreen
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual Stack<GameScreen> Screens
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
+        /// ob sich das Spiel im Vollbildmodus befindet. Wird dieses Attribut auf einen Wert gesetzt,
+        /// dann wird der Modus entweder gewechselt oder beibehalten, falls es auf denselben Wert gesetzt wird.
+        /// </summary>
+        public Boolean IsFullScreen { get; set; }
 
-		public virtual bool VSync
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Enthält als oberste Element den aktuellen Spielzustand und darunter die zuvor aktiven Spielzustände.
+        /// </summary>
+        public Stack<GameScreen> Screens { get; set; }
 
-		public virtual GraphicsDeviceManager Graphics
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Dieses Attribut dient sowohl zum Setzen des Aktivierungszustandes der vertikalen Synchronisation,
+        /// als auch zum Auslesen dieses Zustandes.
+        /// </summary>
+        public Boolean VSync { get; set; }
 
-		public virtual IEnumerable<GameScreen> GameScreen
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der aktuelle Grafikgeräteverwalter des XNA-Frameworks.
+        /// </summary>
+        public GraphicsDeviceManager Graphics { get; set; }
 
-		public Knot3Game()
-		{
-		}
+        #endregion
 
-		public override void Draw(GameTime time)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Constructors
 
-		public override void Initialize()
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Erstellt ein neues zentrales Spielobjekt und setzt die Auflösung des BackBuffers auf
+        /// die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
+        /// Bildschirmauflösung und wechselt in den Vollbildmodus.
+        /// </summary>
+        public void Knot3Game ()
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public override void UnloadContent()
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public override void Update(GameTime time)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Methods
 
-	}
+        /// <summary>
+        /// Ruft die Draw()-Methode des aktuellen Spielzustands auf.
+        /// </summary>
+        public void Draw (GameTime time)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Initialize ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
+        /// </summary>
+        public void UnloadContent ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Update (GameTime time)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

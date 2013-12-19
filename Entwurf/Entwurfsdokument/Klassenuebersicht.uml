@@ -1,7 +1,7 @@
 // Diese Klasse repräsentiert die Rotationswinkel der drei Achsen X, Y und Z.
 // Sie bietet Möglichkeit vordefinierte Winkelwerte zu verwenden, z.B. stellt Zero den Nullvektor dar.
 // Die Umwandlung zwischen verschiedenen Winkelmaßen wie Grad- und Bogenmaß unterstützt sie durch entsprechende Methoden.
-public class Angles3 : 
+public class Core.Angles3 : 
   Attributes:
     // Der Rotationswinkel um die X-Achse.
     + X : float
@@ -20,7 +20,7 @@ public class Angles3 :
     + ToDegrees (float X, float Y, float Z) : void
 
 // Diese Klasse ArrowModel repräsentiert ein 3D-Modell für einen Pfeil, zum Einblenden an selektierten Kanten (s. Edge).
-public class ArrowModel : GameModel
+public class GameObjects.ArrowModel : GameModel
   Attributes:
     // Das Info-Objekt, das die Position und Richtung des ArrowModel\grq s enthält.
     + Info : ArrowModelInfo
@@ -35,7 +35,7 @@ public class ArrowModel : GameModel
     + Update (GameTime GameTime) : void
 
 // Ein Objekt der Klasse ArrowModelInfo hält alle Informationen, die zur Erstellung eines Pfeil-3D-Modelles (s. ArrowModel) notwendig sind.
-public class ArrowModelInfo : GameModelInfo
+public class GameObjects.ArrowModelInfo : GameModelInfo
   Attributes:
     // Gibt die Richtung, in die der Pfeil zeigen soll an.
     + Direction : Vector3
@@ -44,7 +44,7 @@ public class ArrowModelInfo : GameModelInfo
     + ArrowModelInfo (Vector3 position, Vector3 direction) : void
 
 // Die Klasse  AudioSettingsScreen steht für den Spielzustand, der die Audio-Einstellungen repräsentiert.
-public class AudioSettingsScreen : SettingsScreen
+public class Screens.AudioSettingsScreen : SettingsScreen
   Attributes:
     // Das Menü, das die Einstellungen enthält.
     # settingsMenu : void
@@ -57,7 +57,7 @@ public class AudioSettingsScreen : SettingsScreen
     + AudioSettingsScreen (Knot3Game game) : void
 
 // Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann.
-public class BooleanOptionInfo : DistinctOptionInfo
+public class Core.BooleanOptionInfo : DistinctOptionInfo
   Attributes:
     // Ein Property, das den aktuell abgespeicherten Wert zurückgibt.
     + Value : bool
@@ -71,7 +71,7 @@ public class BooleanOptionInfo : DistinctOptionInfo
 // und Skalierung von 3D-Objekten in einer bestimmten Spielwelt benötigt werden, der View-, World- und Projection-Matrix.
 // Um diese Matrizen zu berechnen, benötigt die Kamera unter Anderem Informationen über die aktuelle Kamera-Position,
 // das aktuelle Kamera-Ziel und das Field of View.
-public class Camera : GameScreenComponent
+public class Core.Camera : GameScreenComponent
   Attributes:
     // Die Position der Kamera.
     + Position : Vector3
@@ -107,7 +107,7 @@ public class Camera : GameScreenComponent
     + GetMouseRay (Vector2 mousePosition) : Ray
 
 // Ein Cel-Shading-Effekt.
-public class CelShadingEffect : RenderEffect
+public class RenderEffects.CelShadingEffect : RenderEffect
   Attributes:
   Methods:
     // !!!
@@ -120,7 +120,7 @@ public class CelShadingEffect : RenderEffect
     + CelShadingEffect (GameScreen screen) : void
 
 // Ein Objekt dieser Klasse repräsentiert eine Challenge.
-public class Challenge : 
+public class KnotData.Challenge : 
   Attributes:
     // Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
     + Start : Knot
@@ -144,7 +144,7 @@ public class Challenge :
     + AddToHighscore (String name, Integer time) : void
 
 // Implementiert das Speicherformat für Challenges.
-public class ChallengeFileIO : 
+public class KnotData.ChallengeFileIO : 
   Attributes:
   Methods:
     // Erstellt ein ChallengeFileIO-Objekt.
@@ -157,7 +157,7 @@ public class ChallengeFileIO :
     + LoadMetaData (String filename) : ChallengeMetaData
 
 // Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
-public class ChallengeLoadScreen : MenuScreen
+public class Screens.ChallengeLoadScreen : MenuScreen
   Attributes:
   Methods:
     // Wird für jeden Frame aufgerufen.
@@ -168,7 +168,7 @@ public class ChallengeLoadScreen : MenuScreen
     + ChallengeModeScreen (Knot3Game game) : void
 
 // Enthält Metadaten zu einer Challenge.
-public class ChallengeMetaData : 
+public class KnotData.ChallengeMetaData : 
   Attributes:
     // Der Name der Challenge.
     + Name : String
@@ -187,7 +187,7 @@ public class ChallengeMetaData :
     + ChallengeMetaData (String name, KnotMetaData start, KnotMetaData target, String filename, IChallengeIO format) : void
 
 // Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für den Ausgangs- und Referenzknoten je eine 3D-Welt zeichnet.
-public class ChallengeModeScreen : GameScreen
+public class Screens.ChallengeModeScreen : GameScreen
   Attributes:
     // Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
     + PlayerKnot : void
@@ -214,7 +214,7 @@ public class ChallengeModeScreen : GameScreen
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Ein Menüeintrag, der einen Auswahlkasten darstellt.
-public class CheckBoxItem : MenuItem
+public class Widgets.CheckBoxItem : MenuItem
   Attributes:
     // Die Option, die mit dem Auswahlkasten verknüpft ist.
     - option : BooleanOptionInfo
@@ -224,12 +224,12 @@ public class CheckBoxItem : MenuItem
     + CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, BooleanOptionInfo option) : void
 
 // Eine doppelt verkettete Liste.
-public class Circle : 
+public class KnotData.Circle : 
   Attributes:
   Methods:
 
 // Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
-public enum ClickState
+public enum Core.ClickState
     // Kein gültiger oder ein undefinierter Zustand.
     // Keine Reihenfolge.
     // 
@@ -240,7 +240,7 @@ public enum ClickState
     DoubleClick=2
 
 // Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
-public class ColorPicker : Widget
+public class Widgets.ColorPicker : Widget
   Attributes:
     // Die ausgewählte Farbe.
     + Color : Color
@@ -255,7 +255,7 @@ public class ColorPicker : Widget
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
 
 // Ein Menüeintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
-public class ColorPickItem : MenuItem
+public class Widgets.ColorPickItem : MenuItem
   Attributes:
     // Die aktuelle Farbe.
     + Color : Color
@@ -267,7 +267,7 @@ public class ColorPickItem : MenuItem
     + ColorPickItem (GameScreen screen, DisplayLayer drawOrder, Color color) : void
 
 // Repräsentiert eine Einstellungsdatei.
-public class ConfigFile : 
+public class Core.ConfigFile : 
   Attributes:
   Methods:
     // Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
@@ -280,7 +280,7 @@ public class ConfigFile :
     + SetOption (String section, String option, Boolean _value) : void
 
 // Ein Dialog, der Schaltflächen zum Bestätigen einer Aktion anzeigt.
-public class ConfirmDialog : Dialog
+public class Widgets.ConfirmDialog : Dialog
   Attributes:
     // Das Menü, das Schaltflächen enthält.
     - buttons : Menu
@@ -290,7 +290,7 @@ public class ConfirmDialog : Dialog
     + ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text) : void
 
 // Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
-public class ControlSettingsScreen : SettingsScreen
+public class Screens.ControlSettingsScreen : SettingsScreen
   Attributes:
     // Das Menü, das die Einstellungen enthält.
     # settingsMenu : void
@@ -303,7 +303,7 @@ public class ControlSettingsScreen : SettingsScreen
     + ControlSettingsScreen (Knot3Game game) : void
 
 // Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
-public class CreativeLoadScreen : MenuScreen
+public class Screens.CreativeLoadScreen : MenuScreen
   Attributes:
   Methods:
     // Fügt das Menü mit dem Spielständen in die Spielkomponentenliste ein.
@@ -314,7 +314,7 @@ public class CreativeLoadScreen : MenuScreen
     + CreativeLoadScreen (Knot3Game game) : void
 
 // Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv ist und für den Knoten eine 3D-Welt zeichnet.
-public class CreativeModeScreen : GameScreen
+public class Screens.CreativeModeScreen : GameScreen
   Attributes:
     // Der Knoten, der vom Spieler bearbeitet wird.
     + Knot : void
@@ -333,7 +333,7 @@ public class CreativeModeScreen : GameScreen
     + Entered (GameScreen previousScreen, GameTime time) : void
 
 // Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
-public class CreditsScreen : MenuScreen
+public class Screens.CreditsScreen : MenuScreen
   Attributes:
   Methods:
     // Wird für jeden Frame aufgerufen.
@@ -342,7 +342,7 @@ public class CreditsScreen : MenuScreen
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
-public class Dialog : Widget
+public class Widgets.Dialog : Widget
   Attributes:
     // Der Fenstertitel.
     + Title : String
@@ -364,7 +364,7 @@ public class Dialog : Widget
 
 // Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
 // Wird benutzt, damit keine ungültigen Kantenrichtungen angegeben werden können.
-public enum Direction
+public enum KnotData.Direction
     // Links.
     Left=1
     // Rechts.
@@ -381,7 +381,7 @@ public enum Direction
     Zero=0
 
 // Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
-public enum DisplayLayer
+public enum Core.DisplayLayer
     // Kein gültiger oder ein undefinierter Zustand.
     // Keine Reihenfolge.
     // 
@@ -406,7 +406,7 @@ public enum DisplayLayer
     Cursor=9
 
 // Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
-public class DistinctOptionInfo : OptionInfo
+public class Core.DistinctOptionInfo : OptionInfo
   Attributes:
     // Eine Menge von Texten, welche die für die Option gültigen Werte beschreiben.
     + ValidValues : HashSet<string>
@@ -418,7 +418,7 @@ public class DistinctOptionInfo : OptionInfo
     + DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile) : void
 
 // Eine zeichenbare Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
-public class DrawableGameScreenComponent : XNA.DrawableGameComponent
+public class Core.DrawableGameScreenComponent : XNA.DrawableGameComponent
   Attributes:
     // Der zugewiesene Spielzustand.
     + Screen : GameScreen
@@ -431,14 +431,14 @@ public class DrawableGameScreenComponent : XNA.DrawableGameComponent
     + DrawableGameStateComponent (GameScreen screen, DisplayLayer index) : void
 
 // Repräsentiert einen Eintrag in einem Dropdown-Menü.
-public class DropDownEntry : 
+public class Widgets.DropDownEntry : 
   Attributes:
     // Der Text des Eintrags.
     + Text : String
   Methods:
 
 // Ein Menüeintrag, der den ausgewählten Wert anzeigt und bei einem Linksklick ein Dropdown-Menü zur Auswahl eines neuen Wertes ein- oder ausblendet.
-public class DropDownMenuItem : MenuItem
+public class Widgets.DropDownMenuItem : MenuItem
   Attributes:
     // Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
     - dropdown : VerticalMenu
@@ -454,7 +454,7 @@ public class DropDownMenuItem : MenuItem
     + DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder) : void
 
 // Eine Kante eines Knotens, die aus einer Richtung und einer Farbe, sowie optional einer Liste von Flächennummern besteht.
-public class Edge : 
+public class KnotData.Edge : 
   Attributes:
     // Die Farbe der Kante.
     + Color : Color
@@ -469,7 +469,7 @@ public class Edge :
     + Get3DDirection () : Vector3
 
 // Ein Postprocessing-Effekt, der eine Überblendung zwischen zwei Spielzuständen darstellt.
-public class FadeEffect : RenderEffect
+public class RenderEffects.FadeEffect : RenderEffect
   Attributes:
     // Gibt an, ob die Überblendung abgeschlossen ist und das RenderTarget nur noch den neuen Spielzustand darstellt.
     - IsFinished : Boolean
@@ -482,7 +482,7 @@ public class FadeEffect : RenderEffect
     # DrawRenderTarget (GameTime GameTime) : void
 
 // Eine Hilfsklasse für Dateioperationen.
-public class FileUtility : 
+public class Core.FileUtility : 
   Attributes:
     // Das Einstellungsverzeichnis.
     + SettingsDirectory : String
@@ -497,7 +497,7 @@ public class FileUtility :
     + GetHash (String filename) : String
 
 // Repräsentiert ein 3D-Modell in einer Spielwelt.
-public class GameModel : 
+public class GameObjects.GameModel : 
   Attributes:
     // Die Transparenz des Modells.
     + Alpha : float
@@ -528,7 +528,7 @@ public class GameModel :
     + GameModel (GameScreen screen, GameModelInfo info) : void
 
 // Enthält Informationen über ein 3D-Modell wie den Dateinamen, die Rotation und die Skalierung.
-public class GameModelInfo : GameObjectInfo
+public class GameObjects.GameModelInfo : GameObjectInfo
   Attributes:
     // Der Dateiname des Modells.
     + Modelname : String
@@ -542,7 +542,7 @@ public class GameModelInfo : GameObjectInfo
     + GameModelInfo (String modelname, Angles3 rotation, Vector3 scale) : void
 
 // !!!
-public class GameObjectDistance : 
+public class GameObjects.GameObjectDistance : 
   Attributes:
     // 
     + Object : IGameObject
@@ -551,7 +551,7 @@ public class GameObjectDistance :
   Methods:
 
 // Enthält Informationen über ein 3D-Objekt wie die Position, Sichtbarkeit, Verschiebbarkeit und Auswählbarkeit.
-public class GameObjectInfo : 
+public class GameObjects.GameObjectInfo : 
   Attributes:
     // Die Verschiebbarkeit des Spielobjektes.
     + IsMovable : Boolean
@@ -566,7 +566,7 @@ public class GameObjectInfo :
     + Equals (C other) : Boolean
 
 // Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
-public class GameScreen : 
+public class Core.GameScreen : 
   Attributes:
     // Das Spiel, zu dem der Spielzustand gehört.
     + Game : Knot3Game
@@ -593,7 +593,7 @@ public class GameScreen :
     + RemoveGameComponents (IGameScreenComponent[] components) : void
 
 // Eine Spielkomponente, die in einem GameScreen verwendet wird und eine bestimmte Priorität hat.
-public class GameScreenComponent : XNA.GameComponent
+public class Core.GameScreenComponent : XNA.GameComponent
   Attributes:
     // Die Zeichen- und Eingabepriorität.
     + Index : DisplayLayer
@@ -606,7 +606,7 @@ public class GameScreenComponent : XNA.GameComponent
     + GameStateComponent (GameScreen screen, DisplayLayer index) : void
 
 // Der Spielzustand, der die Grafik-Einstellungen darstellt.
-public class GraphicsSettingsScreen : SettingsScreen
+public class Screens.GraphicsSettingsScreen : SettingsScreen
   Attributes:
     // Das Menü, das die Einstellungen enthält.
     # settingsMenu : void
@@ -619,7 +619,7 @@ public class GraphicsSettingsScreen : SettingsScreen
     + GraphicsSettingsScreen (Knot3Game game) : void
 
 // Eine horizontale Ausrichtung.
-public enum HorizontalAlignment
+public enum Widgets.HorizontalAlignment
     // Links.
     Left=0
     // Mittig.
@@ -628,7 +628,7 @@ public enum HorizontalAlignment
     Right=2
 
 // Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
-public interface IChallengeIO : 
+public interface KnotData.IChallengeIO : 
   Attributes:
   Methods:
     // Speichert eine Challenge.
@@ -640,7 +640,7 @@ public interface IChallengeIO :
 
 // Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz auf die Spielwelt, in der sich dieses
 // Game befindet, sowie Informationen zu dem Game.
-public interface IGameObject : 
+public interface GameObjects.IGameObject : 
   Attributes:
     // Informationen über das Spielobjekt, wie z.B. die Position.
     + Info : GameObjectInfo
@@ -657,7 +657,7 @@ public interface IGameObject :
     + Intersects (Ray ray) : GameObjectDistance
 
 // Eine Schnittstelle für eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
-public interface IGameScreenComponent : XNA.IGameComponent
+public interface Core.IGameScreenComponent : XNA.IGameComponent
   Attributes:
     // Die Zeichen- und Eingabepriorität.
     + Index : DisplayLayer
@@ -668,7 +668,7 @@ public interface IGameScreenComponent : XNA.IGameComponent
     + SubComponents (GameTime time) : IEnumerable
 
 // Repräsentiert einen Übergang zwischen zwei Kanten.
-public interface IJunction : 
+public interface GameObjects.IJunction : 
   Attributes:
     // Die Kante vor dem Übergang.
     + EdgeFrom : Edge
@@ -677,7 +677,7 @@ public interface IJunction :
   Methods:
 
 // Eine Schnittstelle, die von Klassen implementiert wird, welche auf Tastatureingaben reagieren.
-public interface IKeyEventListener : 
+public interface Core.IKeyEventListener : 
   Attributes:
     // Die Eingabepriorität.
     + Index : DisplayLayer
@@ -690,7 +690,7 @@ public interface IKeyEventListener :
     + OnKeyEvent () : void
 
 // Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten implementiert werden müssen.
-public interface IKnotIO : 
+public interface KnotData.IKnotIO : 
   Attributes:
     // Aufzählung der Dateierweiterungen.
     + FileExtensions : IEnumerable<string>
@@ -703,7 +703,7 @@ public interface IKnotIO :
     + LoadMetaData (String filename) : KnotMetaData
 
 // Eine Schnittstelle, die von Klassen implementiert wird, die auf Maus-Klicks reagieren.
-public interface IMouseEventListener : 
+public interface Core.IMouseEventListener : 
   Attributes:
     // Die Eingabepriorität.
     + Index : DisplayLayer
@@ -718,7 +718,7 @@ public interface IMouseEventListener :
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
 
 // Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet.
-public class Input : GameScreenComponent
+public class Core.Input : GameScreenComponent
   Attributes:
     // Enthält den Klickzustand der rechten Maustaste.
     + RightMouseButton : ClickState
@@ -741,7 +741,7 @@ public class Input : GameScreenComponent
     + Update (GameTime time) : void
 
 // Ein Menüeintrag, der Texteingaben vom Spieler annimmt.
-public class InputItem : MenuItem
+public class Widgets.InputItem : MenuItem
   Attributes:
     // Beinhaltet den vom Spieler eingegebenen Text.
     + InputText : String
@@ -751,7 +751,7 @@ public class InputItem : MenuItem
     + InputItem (GameScreen screen, DisplayLayer drawOrder, String text) : void
 
 // Stellt eine Schnittstelle für Klassen bereit, die Rendereffekte ermöglichen.
-public interface IRenderEffect : 
+public interface RenderEffects.IRenderEffect : 
   Attributes:
     // Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
     // weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
@@ -772,7 +772,7 @@ public interface IRenderEffect :
     + RemapModel (GameModel model) : void
 
 // Der Zustand eines Menüeintrags.
-public enum ItemState
+public enum Widgets.ItemState
     // Ausgewählt.
     Selected=1
     // Die Maus wurde direkt über den Menüeintrag navigiert und verweilt dort.
@@ -783,7 +783,7 @@ public enum ItemState
     None=0
 
 // Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Option als Zeichenkette speichert.
-public class KeyInputItem : InputItem
+public class Widgets.KeyInputItem : InputItem
   Attributes:
     // Die Option in einer Einstellungsdatei.
     - option : OptionInfo
@@ -795,7 +795,7 @@ public class KeyInputItem : InputItem
     + KeyInputItem (GameScreen screen, DisplayLayer drawOrder, OptionInfo option) : void
 
 // Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten.
-public class Knot : 
+public class KnotData.Knot : 
   Attributes:
     // Der Name des Knotens, welcher auch leer sein kann.
     // Beim Speichern muss der Nutzer in diesem Fall zwingend einen nichtleeren Namen wählen.
@@ -852,7 +852,7 @@ public class Knot :
     + Equals (T other) : Boolean
 
 // Die zentrale Spielklasse, die von der \glqq Game \grqq -Klasse des XNA-Frameworks erbt.
-public class Knot3Game : XNA.Game
+public class Screens.Knot3Game : XNA.Game
   Attributes:
     // Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
     // ob sich das Spiel im Vollbildmodus befindet. Wird dieses Attribut auf einen Wert gesetzt,
@@ -880,7 +880,7 @@ public class Knot3Game : XNA.Game
     + Update (GameTime time) : void
 
 // Implementiert das Speicherformat für Knoten.
-public class KnotFileIO : 
+public class KnotData.KnotFileIO : 
   Attributes:
     // Die für eine Knoten-Datei gültigen Dateiendungen.
     + FileExtensions : IEnumerable<string>
@@ -896,7 +896,7 @@ public class KnotFileIO :
 
 // Verarbeitet die Maus- und Tastatureingaben des Spielers und modifiziert die Kamera-Position
 // und das Kamera-Ziel.
-public class KnotInputHandler : GameScreenComponent
+public class GameObjects.KnotInputHandler : GameScreenComponent
   Attributes:
     // Die Spielwelt.
     - world : World
@@ -912,7 +912,7 @@ public class KnotInputHandler : GameScreenComponent
 // als der vollständige Knoten. Dieses Objekt enthält keine Datenstruktur zur Repräsentation der Kanten,
 // sondern nur Informationen über den Namen des Knoten und die Anzahl seiner Kanten. Es kann ohne ein
 // dazugehöriges Knoten-Objekt existieren, aber jedes Knoten-Objekt enthält genau ein Knoten-Metadaten-Objekt.
-public class KnotMetaData : 
+public class KnotData.KnotMetaData : 
   Attributes:
     // Der Anzeigename des Knotens, welcher auch leer sein kann.
     // Beim Speichern muss der Spieler in diesem Fall zwingend
@@ -944,7 +944,7 @@ public class KnotMetaData :
 // Erstellt aus einem Knoten-Objekt die zu dem Knoten gehörenden 3D-Modelle sowie die 3D-Modelle der Pfeile,
 // die nach einer Auswahl von Kanten durch den Spieler angezeigt werden. Ist außerdem ein IGameObject und ein
 // Container für die erstellten Spielobjekte.
-public class KnotRenderer : 
+public class GameObjects.KnotRenderer : 
   Attributes:
     // Enthält Informationen über die Position des Knotens.
     + Info : GameObjectInfo
@@ -984,7 +984,7 @@ public class KnotRenderer :
 
 // Diese Klasse repräsentiert einen Parser für das Knoten-Austauschformat und enthält die
 // eingelesenen Informationen wie den Namen des Knotens und die Kantenliste als Eigenschaften.
-public class KnotStringIO : 
+public class KnotData.KnotStringIO : 
   Attributes:
     // Der Name der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
     + Name : String
@@ -1005,7 +1005,7 @@ public class KnotStringIO :
     + KnotStringIO (Knot knot) : void
 
 // Eine statische Klasse, die Bezeichner in lokalisierten Text umsetzen kann.
-public class Localizer : 
+public class Core.Localizer : 
   Attributes:
     // Die Datei, welche Informationen für die Lokalisierung enthält.
     - localization : ConfigFile
@@ -1017,7 +1017,7 @@ public class Localizer :
 // Ein Menü enthält Bedienelemente zur Benutzerinteraktion. Diese Klasse bietet Standardwerte für
 // Positionen, Größen, Farben und Ausrichtungen der Menüeinträge. Sie werden gesetzt, wenn die Werte
 // der Menüeinträge \glqq null\grqq~sind.
-public class Menu : Widget
+public class Widgets.Menu : Widget
   Attributes:
     // Die von der Auflösung unabhängige Größe in Prozent.
     + RelativeItemSize : Func<int, Vector2>
@@ -1048,7 +1048,7 @@ public class Menu : Widget
     + Menu (GameScreen screen, DisplayLayer drawOrder) : void
 
 // Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagiert.
-public class MenuButton : MenuItem
+public class Widgets.MenuButton : MenuItem
   Attributes:
     // Die Aktion, die ausgeführt wird, wenn der Spieler auf die Schaltfläche klickt.
     + OnClick : Action
@@ -1059,7 +1059,7 @@ public class MenuButton : MenuItem
     + MenuButton (GameScreen screen, DisplayLayer drawOrder, String name, Action onClick) : void
 
 // Ein abstrakte Klasse für Menüeinträge, die
-public class MenuItem : Widget
+public class Widgets.MenuItem : Widget
   Attributes:
     // Gibt an, ob die Maus sich über dem Eintrag befindet, ohne ihn anzuklicken, ob er ausgewählt ist
     // oder nichts von beidem.
@@ -1079,7 +1079,7 @@ public class MenuItem : Widget
     + Bounds () : Rectangle
 
 // Eine abstrakte Klasse, von der alle Spielzustände erben, die Menüs darstellen.
-public class MenuScreen : GameScreen
+public class Screens.MenuScreen : GameScreen
   Attributes:
   Methods:
     // Wird für jeden Frame aufgerufen.
@@ -1088,7 +1088,7 @@ public class MenuScreen : GameScreen
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Ein Zwischenspeicher für 3D-Modelle.
-public class ModelFactory : 
+public class GameObjects.ModelFactory : 
   Attributes:
     // Die Zuordnung zwischen den Modellinformationen zu den 3D-Modellen.
     - cache : Dictionary<GameModelInfo, GameModel>
@@ -1102,14 +1102,14 @@ public class ModelFactory :
     + ModelFactory (GameModelInfo, GameModel>, Func<GameScreen createModel) : void
 
 // Ein Inputhandler, der Mauseingaben auf 3D-Modellen verarbeitet.
-public class ModelMouseHandler : GameScreenComponent
+public class GameObjects.ModelMouseHandler : GameScreenComponent
   Attributes:
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
 // Repräsentiert einen Mauszeiger.
-public class MousePointer : DrawableGameScreenComponent
+public class Core.MousePointer : DrawableGameScreenComponent
   Attributes:
   Methods:
     // Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
@@ -1118,7 +1118,7 @@ public class MousePointer : DrawableGameScreenComponent
     + Draw (GameTime time) : void
 
 // 
-public class Node : 
+public class KnotData.Node : 
   Attributes:
     // 
     + X : Integer
@@ -1135,7 +1135,7 @@ public class Node :
     + Node (Integer x, Integer y, Integer z) : void
 
 // Eine Zuordnung zwischen Kanten und Kantenübergänge.
-public class NodeMap : 
+public class KnotData.NodeMap : 
   Attributes:
     // 
     + Scale : Integer
@@ -1148,7 +1148,7 @@ public class NodeMap :
     + OnEdgesChanged () : void
 
 // Ein 3D-Modell, das einen Kantenübergang darstellt.
-public class NodeModel : GameModel
+public class GameObjects.NodeModel : GameModel
   Attributes:
     // Enthält Informationen über den darzustellende 3D-Modell des Kantenübergangs.
     + Info : NodeModelInfo
@@ -1161,7 +1161,7 @@ public class NodeModel : GameModel
     + Update (GameTime GameTime) : void
 
 // Enthält Informationen über ein 3D-Modell, das einen Kantenübergang darstellt.
-public class NodeModelInfo : GameModelInfo
+public class GameObjects.NodeModelInfo : GameModelInfo
   Attributes:
     // Die Kante vor dem Übergang.
     + EdgeFrom : Edge
@@ -1176,7 +1176,7 @@ public class NodeModelInfo : GameModelInfo
     + NodeModelInfo (Knot knot, Edge from, Edge to) : void
 
 // Enthält Informationen über einen Eintrag in einer Einstellungsdatei.
-public class OptionInfo : 
+public class Core.OptionInfo : 
   Attributes:
     // Die Einstellungsdatei.
     - configFile : ConfigFile
@@ -1193,7 +1193,7 @@ public class OptionInfo :
     + OptionInfo (String section, String name, String defaultValue, ConfigFile configFile) : void
 
 // Eine statische Klasse, die eine Referenz auf die zentrale Einstellungsdatei des Spiels enthält.
-public class Options : 
+public class Core.Options : 
   Attributes:
     // Die zentrale Einstellungsdatei des Spiels.
     + Default : ConfigFile
@@ -1201,14 +1201,14 @@ public class Options :
 
 // Pausiert ein Spieler im Creative- oder Challenge-Modus das Spiel,
 // wird dieser Dialog über anderen Spielkomponenten angezeigt.
-public class PauseDialog : Dialog
+public class Widgets.PauseDialog : Dialog
   Attributes:
     // Das Menü, das verschiedene Schaltflächen enthält.
     - pauseMenu : VerticalMenu
   Methods:
 
 // Ein 3D-Modell, das eine Kante darstellt.
-public class PipeModel : GameModel
+public class GameObjects.PipeModel : GameModel
   Attributes:
     // Enthält Informationen über die darzustellende Kante.
     + Info : PipeModelInfo
@@ -1219,7 +1219,7 @@ public class PipeModel : GameModel
     + PipeModel (GameScreen screen, PipeModelInfo info) : void
 
 // Enthält Informationen über ein 3D-Modell, das eine Kante darstellt.
-public class PipeModelInfo : GameModelInfo
+public class GameObjects.PipeModelInfo : GameModelInfo
   Attributes:
     // Die Kante, die durch das 3D-Modell dargestellt wird.
     + Edge : Edge
@@ -1234,7 +1234,7 @@ public class PipeModelInfo : GameModelInfo
     + PipeModelInfo (Knot knot, Edge edge) : void
 
 // Ein Inputhandler, der für das Verschieben der Kanten zuständig ist.
-public class PipeMovement : 
+public class GameObjects.PipeMovement : 
   Attributes:
     // Enthält Informationen über die Position des Knotens.
     + Info : GameObjectInfo
@@ -1257,7 +1257,7 @@ public class PipeMovement :
     + Draw (GameTime GameTime) : void
 
 // Ein Exportformat für 3D-Drucker.
-public class PrinterIO : 
+public class KnotData.PrinterIO : 
   Attributes:
     // Die gültigen Dateiendungen für das 3D-Drucker-Format.
     + FileExtensions : IEnumerable<string>
@@ -1272,7 +1272,7 @@ public class PrinterIO :
     + LoadMetaData (String filename) : KnotMetaData
 
 // Der Spielzustand, der die Profil-Einstellungen darstellt.
-public class ProfileSettingsScreen : SettingsScreen
+public class Screens.ProfileSettingsScreen : SettingsScreen
   Attributes:
     // !!!
     # settingsMenu : void
@@ -1285,7 +1285,7 @@ public class ProfileSettingsScreen : SettingsScreen
     + ProfileSettingsScreen (Knot3Game game) : void
 
 // Eine abstrakte Klasse, die eine Implementierung von IRenderEffect darstellt.
-public class RenderEffect : 
+public class RenderEffects.RenderEffect : 
   Attributes:
     // Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
     // weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
@@ -1314,7 +1314,7 @@ public class RenderEffect :
 // Ein Stapel, der während der Draw-Aufrufe die Hierarchie der aktuell verwendeten Rendereffekte verwaltet
 // und automatisch das aktuell von XNA verwendete Rendertarget auf das Rendertarget des obersten Rendereffekts
 // setzt.
-public class RenderEffectStack : 
+public class RenderEffects.RenderEffectStack : 
   Attributes:
     // Der oberste Rendereffekt.
     + CurrentEffect : IRenderEffect
@@ -1329,12 +1329,12 @@ public class RenderEffectStack :
     + RenderEffectStack (IRenderEffect defaultEffect) : void
 
 // Ein Dialog, der angezeigt wird, wenn der Spieler einen Knoten speichern will.
-public class SaveDialog : TextInputDialog
+public class Widgets.SaveDialog : TextInputDialog
   Attributes:
   Methods:
 
 // Ein Spielzustand, der das Haupt-Einstellungsmenü zeichnet.
-public class SettingsScreen : MenuScreen
+public class Screens.SettingsScreen : MenuScreen
   Attributes:
     // Das Haupt-Einstellungsmenü.
     # navigation : void
@@ -1345,7 +1345,7 @@ public class SettingsScreen : MenuScreen
     + Entered (GameScreen previousScreen, GameTime time) : void
 
 // Die 3D-Modelle, die während einer Verschiebung von Kanten die Vorschaumodelle repräsentieren.
-public class ShadowGameModel : ShadowGameObject
+public class GameObjects.ShadowGameModel : ShadowGameObject
   Attributes:
     // Die Farbe der Vorschaumodelle.
     + ShadowColor : Color
@@ -1358,7 +1358,7 @@ public class ShadowGameModel : ShadowGameObject
     + Draw (GameTime GameTime) : void
 
 // Eine abstrakte Klasse, die ein Vorschau-Spielobjekt darstellt.
-public class ShadowGameObject : 
+public class GameObjects.ShadowGameObject : 
   Attributes:
     // Enthält Informationen über das Vorschau-Spielobjekt.
     + Info : GameObjectInfo
@@ -1382,7 +1382,7 @@ public class ShadowGameObject :
 
 // Ein Menüeintrag, der einen Schieberegler bereitstellt, mit dem man einen Wert zwischen einem minimalen
 // und einem maximalen Wert über Verschiebung einstellen kann.
-public class SliderItem : MenuItem
+public class Widgets.SliderItem : MenuItem
   Attributes:
     // Der aktuelle Wert.
     + Value : Integer
@@ -1398,7 +1398,7 @@ public class SliderItem : MenuItem
 
 // Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardmäßig zugewiesenen
 // BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
-public class StandardEffect : RenderEffect
+public class RenderEffects.StandardEffect : RenderEffect
   Attributes:
   Methods:
     // !!!
@@ -1407,7 +1407,7 @@ public class StandardEffect : RenderEffect
     + StandardEffect (GameScreen screen) : void
 
 // Der Startbildschirm.
-public class StartScreen : MenuScreen
+public class Screens.StartScreen : MenuScreen
   Attributes:
     // Die Schaltflächen des Startbildschirms.
     - buttons : Menu
@@ -1420,7 +1420,7 @@ public class StartScreen : MenuScreen
     + StartScreen (Knot3Game game) : void
 
 // Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
-public class TextInputDialog : ConfirmDialog
+public class Widgets.TextInputDialog : ConfirmDialog
   Attributes:
     // Der Text, der durch den Spieler eingegeben wurde.
     + InputText : String
@@ -1430,14 +1430,14 @@ public class TextInputDialog : ConfirmDialog
 
 // Eine Einführung in das Spielen von Challenges.
 // Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangeführt.
-public class TutorialChallengeModeScreen : ChallengeModeScreen
+public class Screens.TutorialChallengeModeScreen : ChallengeModeScreen
   Attributes:
   Methods:
     // !!!
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Die vertikale Ausrichtung.
-public enum VerticalAlignment
+public enum Widgets.VerticalAlignment
     // Oben.
     Top=1
     // Mittig.
@@ -1446,7 +1446,7 @@ public enum VerticalAlignment
     Bottom=2
 
 // Ein Menü, das alle Einträge vertikal anordnet.
-public class VerticalMenu : Menu
+public class Widgets.VerticalMenu : Menu
   Attributes:
   Methods:
     // Ordnet die Einträge vertikal an.
@@ -1456,7 +1456,7 @@ public class VerticalMenu : Menu
     + VerticalMenu (GameScreen screen, DisplayLayer drawOrder) : void
 
 // Eine abstrakte Klasse, von der alle Element der grafischen Benutzeroberfläche erben.
-public class Widget : DrawableGameScreenComponent
+public class Widgets.Widget : DrawableGameScreenComponent
   Attributes:
     // Die von der Auflösung unabhängige Größe in Prozent.
     + RelativeSize : Vector2
@@ -1480,21 +1480,21 @@ public class Widget : DrawableGameScreenComponent
     + Widget (GameScreen screen, DisplayLayer drawOrder) : void
 
 // Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
-public class WidgetKeyHandler : GameScreenComponent
+public class Widgets.WidgetKeyHandler : GameScreenComponent
   Attributes:
   Methods:
     // !!!
     + Update () : void
 
 // Ein Inputhandler, der Mauseingaben auf Widgets verarbeitet.
-public class WidgetMouseHandler : GameScreenComponent
+public class Widgets.WidgetMouseHandler : GameScreenComponent
   Attributes:
   Methods:
     // !!!
     + Update () : void
 
 // Repräsentiert eine Spielwelt, in der sich 3D-Modelle befinden und gezeichnet werden können.
-public class World : DrawableGameScreenComponent
+public class Core.World : DrawableGameScreenComponent
   Attributes:
     // Die Kamera dieser Spielwelt.
     + Camera : Camera

@@ -1,9 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -14,115 +15,189 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using Widgets;
 
 namespace KnotData
 {
-	public class Knot : ICloneable, IEnumerable<Edge>, IEquatable<Knot>
-	{
-		public virtual string Name
-		{
-			get;
-			set;
-		}
+    /// <summary>
+    /// Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten.
+    /// </summary>
+    public class Knot : 
+    {
 
-		private Circle<Edge> edges
-		{
-			get;
-			private set;
-		}
+        #region Properties
 
-		public virtual KnotMetaData MetaData
-		{
-			get;
-			private set;
-		}
+        /// <summary>
+        /// Der Name des Knotens, welcher auch leer sein kann.
+        /// Beim Speichern muss der Nutzer in diesem Fall zwingend einen nichtleeren Namen wählen.
+        /// Der Wert dieser Eigenschaft wird aus der \glqq Name\grqq~-Eigenschaft des Metadaten-Objektes geladen
+        /// und bei Änderungen wieder in diesem gespeichert.
+        /// Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
+        /// </summary>
+        public String Name { get; set; }
 
-		public virtual Action EdgesChanged
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
+        /// </summary>
+        private Circle edges { get; set; }
 
-		public virtual IEnumerable<Edge> SelectedEdges
-		{
-			get;
-			private set;
-		}
+        /// <summary>
+        /// Die Metadaten des Knotens.
+        /// </summary>
+        public KnotMetaData MetaData { get; set; }
 
-		public virtual KnotMetaData KnotInfo
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Ein Ereignis, das in der Move-Methode ausgelöst wird, wenn sich die Struktur der Kanten geändert hat.
+        /// </summary>
+        public Action EdgesChanged { get; set; }
 
-		public Knot()
-		{
-		}
+        /// <summary>
+        /// Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
+        /// </summary>
+        public IEnumerable<Edge> SelectedEdges { get; set; }
 
-		public Knot(KnotMetaData meta, IEnumerable<Edge> edges)
-		{
-		}
+        #endregion
 
-		public virtual bool IsValidMove(Direction dir, int distance)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Constructors
 
-		public virtual bool Move(Direction dir, int distance)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
+        /// die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null\grqq.
+        /// </summary>
+        public void Knot ()
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual IEnumerator<Edge> GetEnumerator()
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Erstellt einen neuen Knoten mit dem angegebenen Metadaten-Objekt und den angegebenen Kanten,
+        /// die in der doppelt verketteten Liste gespeichert werden.
+        /// Die Eigenschaft des Metadaten-Objektes, die die Anzahl der Kanten enthält,
+        /// wird auf ein Delegate gesetzt, welches jeweils die aktuelle Anzahl der Kanten dieses Knotens zurückgibt.
+        /// </summary>
+        public void Knot (KnotMetaData meta, IEnumerable<Edge> edges)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual void Save()
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public virtual Object Clone()
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Methods
 
-		public virtual void AddToSelection(Edge edge)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
+        /// </summary>
+        public Boolean IsValidMove (Direction dir, Integer distance)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual void RemoveFromSelection(Edge edge)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebene Distanz.
+        /// </summary>
+        public Boolean Move (Direction dir, Integer distance)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual void ClearSelection()
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
+        /// </summary>
+        public IEnumerator<Edge> GetEnumerator ()
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual void AddRangeToSelection(Edge edge)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
+        /// Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
+        /// oder beide den Wert \glqq null\grqq, dann wird eine IOException geworfen.
+        /// </summary>
+        public void Save ()
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual bool IsSelected(Edge edge)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Erstellt eine vollständige Kopie des Knotens, inklusive der Kanten-Datenstruktur und des Metadaten-Objekts.
+        /// </summary>
+        public Object Clone ()
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual void Save(IKnotIO format, string filename)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Fügt die angegebene Kante zur aktuellen Kantenauswahl hinzu.
+        /// </summary>
+        public void AddToSelection (Edge edge)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual bool Equals(Knot other)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Entfernt die angegebene Kante von der aktuellen Kantenauswahl.
+        /// </summary>
+        public void RemoveFromSelection (Edge edge)
+        {
+            throw new System.NotImplementedException();
+        }
 
-	}
+        /// <summary>
+        /// Hebt die aktuelle Kantenauswahl auf.
+        /// </summary>
+        public void ClearSelection ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Fügt alle Kanten auf dem kürzesten Weg zwischen der zuletzt ausgewählten Kante und der angegebenen Kante
+        /// zur aktuellen Kantenauswahl hinzu. Sind beide Wege gleich lang,
+        /// wird der Weg in Richtung der ersten Kante ausgewählt.
+        /// </summary>
+        public void AddRangeToSelection (Edge edge)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
+        /// </summary>
+        public Boolean IsSelected (Edge edge)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
+        /// </summary>
+        public IEnumerator GetEnumerator ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Speichert den Knoten unter dem angegebenen Dateinamen in dem angegebenen Dateiformat.
+        /// </summary>
+        public void Save (IKnotIO format, String filename)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
+        /// </summary>
+        public Boolean Equals (T other)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

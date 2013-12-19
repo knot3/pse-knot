@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,43 +15,69 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using Widgets;
 
 namespace KnotData
 {
+    /// <summary>
+    /// Implementiert das Speicherformat für Knoten.
+    /// </summary>
+    public class KnotFileIO : 
+    {
 
-	public class KnotFileIO : IKnotIO
-	{
-		public virtual IEnumerable<string> FileExtensions
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual IEnumerable<KnotStringIO> KnotStringIO
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die für eine Knoten-Datei gültigen Dateiendungen.
+        /// </summary>
+        public IEnumerable<string> FileExtensions { get; set; }
 
-		public KnotFileIO()
-		{
-		}
+        #endregion
 
-		public virtual void Save(Knot knot)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Constructors
 
-		public virtual Knot Load(string filename)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Erstellt ein KnotFileIO-Objekt.
+        /// </summary>
+        public void KnotFileIO ()
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual KnotMetaData LoadMetaData(string filename)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-	}
+        #region Methods
+
+        /// <summary>
+        /// Speichert einen Knoten in dem Dateinamen, der in dem Knot-Objekt enthalten ist.
+        /// </summary>
+        public void Save (Knot knot)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Lädt eines Knotens aus einer angegebenen Datei.
+        /// </summary>
+        public Knot Load (String filename)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Lädt die Metadaten eines Knotens aus einer angegebenen Datei.
+        /// </summary>
+        public KnotMetaData LoadMetaData (String filename)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,61 +15,95 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace GameObjects
 {
-	using Core;
-	using KnotData;
+    /// <summary>
+    /// Ein Inputhandler, der für das Verschieben der Kanten zuständig ist.
+    /// </summary>
+    public class PipeMovement : 
+    {
 
-	public class PipeMovement : IGameObject, IEnumerable<IGameObject>
-	{
-		public virtual GameObjectInfo Info
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual Knot Knot
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Enthält Informationen über die Position des Knotens.
+        /// </summary>
+        public GameObjectInfo Info { get; set; }
 
-		public virtual World World
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Knoten, dessen Kanten verschoben werden können.
+        /// </summary>
+        public Knot Knot { get; set; }
 
-		public virtual Vector3 Center()
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
+        /// </summary>
+        public World World { get; set; }
 
-		public virtual GameObjectDistance Intersects(Ray Ray)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public virtual void Update(GameTime GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Constructors
 
-		public PipeMovement(GameScreen screen, World world, GameObjectInfo info)
-		{
-		}
+        /// <summary>
+        /// !!!
+        /// </summary>
+        public void PipeMovement (GameScreen screen, World world, GameObjectInfo info)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual IEnumerator<IGameObject> GetEnumerator()
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public virtual void Draw(GameTime GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Methods
 
-	}
+        /// <summary>
+        /// Gibt den Ursprung des Knotens zurück.
+        /// </summary>
+        public Vector3 Center ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gibt immer \glqq null\grqq zurück.
+        /// </summary>
+        public GameObjectDistance Intersects (Ray Ray)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Wird für jeden Frame aufgerufen.
+        /// </summary>
+        public void Update (GameTime GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
+        /// </summary>
+        public IEnumerator GetEnumerator ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
+        /// </summary>
+        public void Draw (GameTime GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

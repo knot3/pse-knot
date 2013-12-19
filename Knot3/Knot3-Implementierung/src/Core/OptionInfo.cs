@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,52 +15,61 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace Core
 {
+    /// <summary>
+    /// Enthält Informationen über einen Eintrag in einer Einstellungsdatei.
+    /// </summary>
+    public class OptionInfo : 
+    {
 
-	public class OptionInfo
-	{
-		private ConfigFile configFile
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual string Section
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Einstellungsdatei.
+        /// </summary>
+        private ConfigFile configFile { get; set; }
 
-		public virtual string Name
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Abschnitt der Einstellungsdatei.
+        /// </summary>
+        public String Section { get; set; }
 
-		public virtual string DefaultValue
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Name der Option.
+        /// </summary>
+        public String Name { get; set; }
 
-		public virtual string Value
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Standardwert der Option.
+        /// </summary>
+        public String DefaultValue { get; set; }
 
-		public virtual ConfigFile ConfigFile
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Wert der Option.
+        /// </summary>
+        public String Value { get; set; }
 
-		public OptionInfo(string section, string name, string defaultValue, ConfigFile configFile)
-		{
-		}
+        #endregion
 
-	}
+        #region Constructors
+
+        /// <summary>
+        /// Erstellt ein neues OptionsInfo-Objekt aus den übergegebenen Werten.
+        /// </summary>
+        public void OptionInfo (String section, String name, String defaultValue, ConfigFile configFile)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

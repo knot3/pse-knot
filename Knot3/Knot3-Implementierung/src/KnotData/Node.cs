@@ -1,6 +1,10 @@
-﻿using System.Linq;
-using System.Text;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -11,44 +15,68 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using Widgets;
 
 namespace KnotData
 {
-	public class Node
-	{
-		public virtual int X
-		{
-			get;
-			set;
-		}
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Node : 
+    {
 
-		public virtual int Y
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual int Z
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public Integer X { get; set; }
 
-		private int scale
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public Integer Y { get; set; }
 
-		public virtual Vector3 ToVector()
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public Integer Z { get; set; }
 
-		public Node(int x, int y, int z)
-		{
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        private Integer scale { get; set; }
 
-	}
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Node (Integer x, Integer y, Integer z)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Vector3 ToVector ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

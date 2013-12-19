@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,88 +15,112 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace GameObjects
 {
-	using Core;
+    /// <summary>
+    /// Repräsentiert ein 3D-Modell in einer Spielwelt.
+    /// </summary>
+    public class GameModel : 
+    {
 
-	public abstract class GameModel : IGameObject
-	{
-		public virtual float Alpha
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual Color BaseColor
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Transparenz des Modells.
+        /// </summary>
+        public float Alpha { get; set; }
 
-		public virtual Color HightlightColor
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Farbe des Modells.
+        /// </summary>
+        public Color BaseColor { get; set; }
 
-		public virtual float HighlightIntensity
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Auswahlfarbe des Modells.
+        /// </summary>
+        public Color HightlightColor { get; set; }
 
-		public virtual GameModelInfo Info
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Intensität der Auswahlfarbe.
+        /// </summary>
+        public float HighlightIntensity { get; set; }
 
-		public virtual Model Model
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Modellinformationen wie Position, Skalierung und der Dateiname des 3D-Modells.
+        /// </summary>
+        public GameModelInfo Info { get; set; }
 
-		public virtual World World
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Klasse des XNA-Frameworks, die ein 3D-Modell repräsentiert.
+        /// </summary>
+        public XNA.Model Model { get; set; }
 
-		public virtual Matrix WorldMatrix
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Spielwelt, in der sich das 3D-Modell befindet.
+        /// </summary>
+        public World World { get; set; }
 
-		public virtual GameModelInfo GameModelInfo
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Weltmatrix des 3D-Modells in der angegebenen Spielwelt.
+        /// </summary>
+        public Matrix WorldMatrix { get; set; }
 
-		public virtual Vector3 Center()
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public abstract void Update(GameTime GameTime);
+        #region Constructors
 
-		public virtual void Draw(GameTime GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Erstellt ein neues 3D-Modell in dem angegebenen Spielzustand mit den angegebenen Modellinformationen.
+        /// </summary>
+        public void GameModel (GameScreen screen, GameModelInfo info)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual GameObjectDistance Intersects(Ray Ray)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public GameModel(GameScreen screen, GameModelInfo info)
-		{
-		}
+        #region Methods
 
-	}
+        /// <summary>
+        /// Gibt die Mitte des 3D-Modells zurück.
+        /// </summary>
+        public Vector3 Center ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Wird für jeden Frame aufgerufen.
+        /// </summary>
+        public void Update (GameTime GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Zeichnet das 3D-Modell in der angegebenen Spielwelt mit dem aktuellen Rendereffekt der Spielwelt.
+        /// </summary>
+        public void Draw (GameTime GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Überprüft, ob der Mausstrahl das 3D-Modell schneidet.
+        /// </summary>
+        public GameObjectDistance Intersects (Ray Ray)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

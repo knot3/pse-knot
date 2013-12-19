@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,34 +15,58 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using KnotData;
+using Widgets;
 
 namespace RenderEffects
 {
-	using Core;
+    /// <summary>
+    /// Ein Postprocessing-Effekt, der eine Überblendung zwischen zwei Spielzuständen darstellt.
+    /// </summary>
+    public class FadeEffect : RenderEffect
+    {
 
-	public class FadeEffect : RenderEffect
-	{
-		private bool IsFinished
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		private RenderTarget2D PreviousRenderTarget
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Gibt an, ob die Überblendung abgeschlossen ist und das RenderTarget nur noch den neuen Spielzustand darstellt.
+        /// </summary>
+        private Boolean IsFinished { get; set; }
 
-		public FadeEffect(GameScreen newScreen, GameScreen oldScreen)
-		{
-		}
+        /// <summary>
+        /// Der zuletzt gerenderte Frame im bisherigen Spielzustand.
+        /// </summary>
+        private RenderTarget2D PreviousRenderTarget { get; set; }
 
-		protected virtual void DrawRenderTarget(GameTime GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-	}
+        #region Constructors
+
+        /// <summary>
+        /// Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
+        /// </summary>
+        public void FadeEffect (GameScreen newScreen, GameScreen oldScreen)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// !!!
+        /// </summary>
+        protected void DrawRenderTarget (GameTime GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

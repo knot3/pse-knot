@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,39 +15,64 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
 
 namespace Widgets
 {
-	using Core;
+    /// <summary>
+    /// Ein Menüeintrag, der den ausgewählten Wert anzeigt und bei einem Linksklick ein Dropdown-Menü zur Auswahl eines neuen Wertes ein- oder ausblendet.
+    /// </summary>
+    public class DropDownMenuItem : MenuItem
+    {
 
-	public class DropDownMenuItem : MenuItem
-	{
-		private VerticalMenu dropdown
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual IEnumerable<DropDownEntry> DropDownEntry
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
+        /// </summary>
+        private VerticalMenu dropdown { get; set; }
 
-		public virtual void AddEntries(DistinctOptionInfo option)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public virtual void AddEntries(DropDownEntry enties)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Constructors
 
-		public DropDownMenuItem(GameScreen screen, DisplayLayer drawOrder)
-		{
-		}
+        /// <summary>
+        /// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+        /// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
+        /// </summary>
+        public void DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder)
+        {
+            throw new System.NotImplementedException();
+        }
 
-	}
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
+        /// Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
+        /// </summary>
+        public void AddEntries (DistinctOptionInfo option)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
+        /// Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
+        /// </summary>
+        public void AddEntries (DropDownEntry enties)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

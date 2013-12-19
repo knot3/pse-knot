@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,80 +15,84 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
 
 namespace Widgets
 {
-	using Core;
+    /// <summary>
+    /// Eine abstrakte Klasse, von der alle Element der grafischen Benutzeroberfläche erben.
+    /// </summary>
+    public class Widget : DrawableGameScreenComponent
+    {
 
-	/// <remarks>
-	/// Komponente
-	/// 
-	/// </remarks>
-	public abstract class Widget : DrawableGameScreenComponent
-	{
-		public virtual Vector2 RelativeSize
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual Vector2 RelativePosition
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die von der Auflösung unabhängige Größe in Prozent.
+        /// </summary>
+        public Vector2 RelativeSize { get; set; }
 
-		public virtual bool IsVisible
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die von der Auflösung unabhängige Position in Prozent.
+        /// </summary>
+        public Vector2 RelativePosition { get; set; }
 
-		public virtual Func<Color> BackgroundColor
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Gibt an, ob das grafische Element sichtbar ist.
+        /// </summary>
+        public bool IsVisible { get; set; }
 
-		public virtual Func<Color> ForegroundColor
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Hintergrundfarbe.
+        /// </summary>
+        public Func<Color> BackgroundColor { get; set; }
 
-		public virtual HorizontalAlignment AlignX
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die Vordergrundfarbe.
+        /// </summary>
+        public Func<Color> ForegroundColor { get; set; }
 
-		public virtual VerticalAlignment AlignY
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die horizontale Ausrichtung.
+        /// </summary>
+        public HorizontalAlignment AlignX { get; set; }
 
-		public virtual HorizontalAlignment HorizontalAlignment
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Die vertikale Ausrichtung.
+        /// </summary>
+        public VerticalAlignment AlignY { get; set; }
 
-		public virtual VerticalAlignment VerticalAlignment
-		{
-			get;
-			set;
-		}
+        #endregion
 
-		public virtual Rectangle BoundingBox()
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Constructors
 
-		public Widget(GameScreen screen, DisplayLayer drawOrder)
-		{
-		}
+        /// <summary>
+        /// Erstellt ein neues grafisches Benutzerschnittstellenelement in dem angegebenen Spielzustand
+        /// mit der angegebenen Zeichenreihenfolge.
+        /// </summary>
+        public void Widget (GameScreen screen, DisplayLayer drawOrder)
+        {
+            throw new System.NotImplementedException();
+        }
 
-	}
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Die Ausmaße des grafischen Elements
+        /// </summary>
+        public Rectangle BoundingBox ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

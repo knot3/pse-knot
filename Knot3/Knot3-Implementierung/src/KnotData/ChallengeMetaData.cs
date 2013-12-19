@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,52 +15,66 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using Widgets;
 
 namespace KnotData
 {
+    /// <summary>
+    /// Enthält Metadaten zu einer Challenge.
+    /// </summary>
+    public class ChallengeMetaData : 
+    {
 
-	public class ChallengeMetaData
-	{
-		public virtual string Name
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual KnotMetaData Start
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Name der Challenge.
+        /// </summary>
+        public String Name { get; set; }
 
-		public virtual KnotMetaData Target
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
+        /// </summary>
+        public KnotMetaData Start { get; set; }
 
-		public virtual IChallengeIO Format
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Referenzknoten, in den der Spieler den Ausgangsknoten transformiert.
+        /// </summary>
+        public KnotMetaData Target { get; set; }
 
-		public virtual string Filename
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Das Format, aus dem die Metadaten der Challenge gelesen wurden oder null.
+        /// </summary>
+        public IChallengeIO Format { get; set; }
 
-        public virtual IEnumerator<KeyValuePair<String, int>> Highscore
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Dateiname, aus dem die Metadaten der Challenge gelesen wurden oder in den sie abgespeichert werden.
+        /// </summary>
+        public String Filename { get; set; }
 
-		public ChallengeMetaData(string name, KnotMetaData start, KnotMetaData target, string filename, IChallengeIO format)
-		{
-		}
+        /// <summary>
+        /// Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
+        /// </summary>
+        public IEnumerator<KeyValuePair<String, Integer>> Highscore { get; set; }
 
-	}
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metadaten des Ausgangs- und Referenzknotens.
+        /// </summary>
+        public void ChallengeMetaData (String name, KnotMetaData start, KnotMetaData target, String filename, IChallengeIO format)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

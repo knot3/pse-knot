@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,40 +15,59 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace Core
 {
+    /// <summary>
+    /// Eine Hilfsklasse für Dateioperationen.
+    /// </summary>
+    public class FileUtility : 
+    {
 
-	public class FileUtility
-	{
-		public static string SettingsDirectory
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public static string SavegameDirectory
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Das Einstellungsverzeichnis.
+        /// </summary>
+        public String SettingsDirectory { get; set; }
 
-		public static string ScreenshotDirectory
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Das Spielstandverzeichnis.
+        /// </summary>
+        public String SavegameDirectory { get; set; }
 
-		public static string ConvertToFileName(string name)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Das Bildschirmfotoverzeichnis.
+        /// </summary>
+        public String ScreenshotDirectory { get; set; }
 
-		public virtual string GetHash(string filename)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-	}
+        #region Methods
+
+        /// <summary>
+        /// Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungültiger Zeichen.
+        /// </summary>
+        public String ConvertToFileName (String name)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Liefert einen Hash-Wert zu der durch filename spezifizierten Datei.
+        /// </summary>
+        public String GetHash (String filename)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

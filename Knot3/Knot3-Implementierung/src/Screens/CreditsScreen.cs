@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,23 +15,40 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace Screens
 {
-	using Core;
+    /// <summary>
+    /// Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
+    /// </summary>
+    public class CreditsScreen : MenuScreen
+    {
 
-	public class CreditsScreen : MenuScreen
-	{
-		public override void Update(GameTime time)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Methods
 
-		public override void Entered(GameScreen previousScreen, GameTime GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Wird für jeden Frame aufgerufen.
+        /// </summary>
+        public void Update (GameTime time)
+        {
+            throw new System.NotImplementedException();
+        }
 
-	}
+        /// <summary>
+        /// Fügt das Menü mit den Mitwirkenden in die Spielkomponentenliste ein.
+        /// </summary>
+        public void Entered (GameScreen previousScreen, GameTime GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

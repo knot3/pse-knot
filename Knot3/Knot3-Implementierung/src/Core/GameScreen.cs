@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,72 +15,102 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace Core
 {
-	using RenderEffects;
-	using Screens;
+    /// <summary>
+    /// Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
+    /// </summary>
+    public class GameScreen : 
+    {
 
-	/// <remarks>
-	/// Zustands-Muster (EN: state pattern)
-	/// 
-	/// Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Oberfläche und eigenes Verhalten.
-	/// </remarks>
-	public abstract class GameScreen
-	{
-		public virtual Knot3Game Game
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public virtual Input Input
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Das Spiel, zu dem der Spielzustand gehört.
+        /// </summary>
+        public Knot3Game Game { get; set; }
 
-		public virtual RenderEffect PostProcessingEffect
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Inputhandler des Spielzustands.
+        /// </summary>
+        public Input Input { get; set; }
 
-		public virtual RenderEffectStack CurrentRenderEffects
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der aktuelle Postprocessing-Effekt des Spielzustands
+        /// </summary>
+        public RenderEffect PostProcessingEffect { get; set; }
 
-		public virtual void Entered(GameScreen previousScreen, GameTime time)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Ein Stack, der während dem Aufruf der Draw-Methoden der Spielkomponenten die jeweils aktuellen Rendereffekte enthält.
+        /// </summary>
+        public RenderEffectStack CurrentRenderEffects { get; set; }
 
-		public virtual void BeforeExit(GameScreen nextScreen, GameTime time)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public virtual void Update(GameTime time)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Constructors
 
-		public GameScreen(Knot3Game game)
-		{
-		}
+        /// <summary>
+        /// Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
+        /// </summary>
+        public void GameScreen (Knot3Game game)
+        {
+            throw new System.NotImplementedException();
+        }
 
-        public virtual void AddGameComponents(params IGameScreenComponent[] components)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-        public virtual void RemoveGameComponents(params IGameScreenComponent[] components)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Methods
 
-	}
+        /// <summary>
+        /// Beginnt mit dem Füllen der Spielkomponentenliste des XNA-Frameworks und fügt sowohl für Tastatur- als auch für
+        /// Mauseingaben einen Inputhandler für Widgets hinzu. Wird in Unterklassen von GameScreen reimplementiert und fügt zusätzlich weitere
+        /// Spielkomponenten hinzu.
+        /// </summary>
+        public void Entered (GameScreen previousScreen, GameTime time)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Leert die Spielkomponentenliste des XNA-Frameworks.
+        /// </summary>
+        public void BeforeExit (GameScreen nextScreen, GameTime time)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Wird für jeden Frame aufgerufen.
+        /// </summary>
+        public void Update (GameTime time)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void AddGameComponents (IGameScreenComponent[] components)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void RemoveGameComponents (IGameScreenComponent[] components)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

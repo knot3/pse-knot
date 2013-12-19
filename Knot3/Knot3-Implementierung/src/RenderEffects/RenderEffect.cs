@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,54 +15,89 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using KnotData;
+using Widgets;
 
 namespace RenderEffects
 {
-	using Core;
-	using GameObjects;
+    /// <summary>
+    /// Eine abstrakte Klasse, die eine Implementierung von IRenderEffect darstellt.
+    /// </summary>
+    public class RenderEffect : 
+    {
 
-	public abstract class RenderEffect : IRenderEffect
-	{
-		public virtual RenderTarget2D RenderTarget
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		protected virtual GameScreen screen
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
+        /// weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
+        /// </summary>
+        public RenderTarget2D RenderTarget { get; set; }
 
-		protected virtual SpriteBatch spriteBatch
-		{
-			get;
-			set;
-		}
+        /// <summary>
+        /// Der Spielzustand, in dem der Effekt verwendet wird.
+        /// </summary>
+        protected GameScreen screen { get; set; }
 
-		public virtual void Begin(object GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Ein Spritestapel, der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
+        /// </summary>
+        protected SpriteBatch spriteBatch { get; set; }
 
-		public virtual void End(object GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public virtual void DrawModel(GameModel GameModel, object GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Methods
 
-		public virtual void RemapModel(GameModel GameModel)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert
+        /// und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
+        /// </summary>
+        public void Begin (GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
 
-		protected abstract void DrawRenderTarget(GameTime time);
+        /// <summary>
+        /// Das auf dem Stack gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
+        /// das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
+        /// auf dieses ubergeordnete Rendertarget gezeichnet.
+        /// </summary>
+        public void End (GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
 
-	}
+        /// <summary>
+        /// Zeichnet das übergebene 3D-Modell auf das Rendertarget.
+        /// </summary>
+        public void DrawModel (GameTime, GameModel GameModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
+        /// BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
+        /// ein anderer Shader zugewiesen werden.
+        /// </summary>
+        public void RemapModel (GameModel GameModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// !!!
+        /// </summary>
+        protected void DrawRenderTarget (GameTime time)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

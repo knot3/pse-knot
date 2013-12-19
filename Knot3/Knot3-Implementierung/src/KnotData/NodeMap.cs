@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,26 +15,57 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using Widgets;
 
 namespace KnotData
 {
-	public class NodeMap
-	{
-		public virtual Node From(Edge edge)
-		{
-			throw new System.NotImplementedException();
-		}
+    /// <summary>
+    /// Eine Zuordnung zwischen Kanten und Kantenübergänge.
+    /// </summary>
+    public class NodeMap : 
+    {
 
-		public virtual Node To(Edge edge)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Properties
 
-		public virtual void OnEdgesChanged()
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public Integer Scale { get; set; }
 
-	}
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Gibt den Übergang am Anfang der Kante zurück.
+        /// </summary>
+        public Node From (Edge edge)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gibt den Übergang am Ende der Kante zurück.
+        /// </summary>
+        public Node To (Edge edge)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Aktualisiert die Zuordnung, wenn sich die Kanten geändert haben.
+        /// </summary>
+        public void OnEdgesChanged ()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

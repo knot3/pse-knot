@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,34 +15,61 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using RenderEffects;
+using KnotData;
+using Widgets;
 
 namespace Screens
 {
-	using Core;
-	using Widgets;
+    /// <summary>
+    /// Der Startbildschirm.
+    /// </summary>
+    public class StartScreen : MenuScreen
+    {
 
-	public class StartScreen : MenuScreen
-	{
-		private Menu buttons
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public override void Update(GameTime time)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Die Schaltflächen des Startbildschirms.
+        /// </summary>
+        private Menu buttons { get; set; }
 
-		public override void Entered(GameScreen previousScreen, GameTime GameTime)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public StartScreen(Knot3Game game)
-		{
-		}
+        #region Constructors
 
-	}
+        /// <summary>
+        /// Erzeugt eine neue Instanz eines StartScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt.
+        /// </summary>
+        public void StartScreen (Knot3Game game)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Wird für jeden Frame aufgerufen.
+        /// </summary>
+        public void Update (GameTime time)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Fügt die das Menü in die Spielkomponentenliste ein.
+        /// </summary>
+        public void Entered (GameScreen previousScreen, GameTime GameTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,23 +15,42 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
 
 namespace Widgets
 {
-	using Core;
+    /// <summary>
+    /// Ein Menüeintrag, der einen Auswahlkasten darstellt.
+    /// </summary>
+    public class CheckBoxItem : MenuItem
+    {
 
-	public class CheckBoxItem : MenuItem
-	{
-		private BooleanOptionInfo option
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public CheckBoxItem(GameScreen screen, DisplayLayer drawOrder, BooleanOptionInfo option)
-		{
-		}
+        /// <summary>
+        /// Die Option, die mit dem Auswahlkasten verknüpft ist.
+        /// </summary>
+        private BooleanOptionInfo option { get; set; }
 
-	}
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+        /// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
+        /// </summary>
+        public void CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, BooleanOptionInfo option)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

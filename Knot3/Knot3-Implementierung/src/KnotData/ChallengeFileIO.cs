@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,37 +15,60 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using Widgets;
 
 namespace KnotData
 {
+    /// <summary>
+    /// Implementiert das Speicherformat für Challenges.
+    /// </summary>
+    public class ChallengeFileIO : 
+    {
 
-	public class ChallengeFileIO : IChallengeIO
-	{
-		public virtual IEnumerable<KnotStringIO> KnotStringIO
-		{
-			get;
-			set;
-		}
+        #region Constructors
 
-		public ChallengeFileIO()
-		{
-		}
+        /// <summary>
+        /// Erstellt ein ChallengeFileIO-Objekt.
+        /// </summary>
+        public void ChallengeFileIO ()
+        {
+            throw new System.NotImplementedException();
+        }
 
-		public virtual void Save(Challenge challenge)
-		{
-			throw new System.NotImplementedException();
-		}
+        #endregion
 
-		public virtual Challenge Load(string filename)
-		{
-			throw new System.NotImplementedException();
-		}
+        #region Methods
 
-		public virtual ChallengeMetaData LoadMetaData(string filename)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// Speichert eine Challenge in dem Dateinamen, der in dem Challenge-Objekt enthalten ist.
+        /// </summary>
+        public void Save (Challenge challenge)
+        {
+            throw new System.NotImplementedException();
+        }
 
-	}
+        /// <summary>
+        /// Lädt eine Challenge aus einer angegebenen Datei.
+        /// </summary>
+        public Challenge Load (String filename)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
+        /// </summary>
+        public ChallengeMetaData LoadMetaData (String filename)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 

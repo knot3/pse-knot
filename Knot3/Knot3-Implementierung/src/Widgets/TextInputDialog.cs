@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,24 +15,41 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Core;
+using GameObjects;
+using Screens;
+using RenderEffects;
+using KnotData;
 
 namespace Widgets
 {
-    using Core;
+    /// <summary>
+    /// Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
+    /// </summary>
+    public class TextInputDialog : ConfirmDialog
+    {
 
-	public class TextInputDialog : ConfirmDialog
-	{
-		public virtual string InputText
-		{
-			get;
-			set;
-		}
+        #region Properties
 
-		public TextInputDialog(GameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
-             : base(screen, drawOrder, title, text)
-		{
-		}
+        /// <summary>
+        /// Der Text, der durch den Spieler eingegeben wurde.
+        /// </summary>
+        public String InputText { get; set; }
 
-	}
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void TextInputDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text, String inputText)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
 
