@@ -439,8 +439,8 @@ public class Core.DrawableGameScreenComponent : XNA.DrawableGameComponent
   Methods:
     // Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
     + SubComponents (GameTime GameTime) : IEnumerable
-    // Erstellt eine neue zeichenbare Spielkomponente in dem angegebenen Spielzustand mit der angegebenen Priorität.
-    + DrawableGameStateComponent (GameScreen screen, DisplayLayer index) : void
+    // 
+    + DrawableGameScreenComponent (GameScreen screen, DisplayLayer index) : void
 
 // Repräsentiert einen Eintrag in einem Dropdown-Menü.
 public class Widgets.DropDownEntry : 
@@ -603,9 +603,9 @@ public class Core.GameScreen :
     + Update (GameTime time) : void
     // Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + GameScreen (Knot3Game game) : void
-    // 
+    // Fügt die angegebenen GameComponents in die Components-Liste des Games ein.
     + AddGameComponents (IGameScreenComponent[] components) : void
-    // 
+    // Entfernt die angegebenen GameComponents aus der Components-Liste des Games.
     + RemoveGameComponents (IGameScreenComponent[] components) : void
 
 // Eine Spielkomponente, die in einem GameScreen verwendet wird und eine bestimmte Priorität hat.
@@ -618,8 +618,8 @@ public class Core.GameScreenComponent : XNA.GameComponent
   Methods:
     // Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
     + SubComponents (GameTime GameTime) : IEnumerable
-    // Erstellt eine neue Spielkomponente in dem angegebenen Spielzustand mit der angegebenen Priorität.
-    + GameStateComponent (GameScreen screen, DisplayLayer index) : void
+    // Erzeugt eine neue Instanz eines GameScreenComponent-Objekts und initialisiert diese mit dem zugehörigen GameScreen und der zugehörigen Zeichenreihenfolge. Diese Spielkomponente kann nur in dem zugehörigen GameScreen verwendet werden.
+    + GameScreenComponent (GameScreen screen, DisplayLayer index) : void
 
 // Der Spielzustand, der die Grafik-Einstellungen darstellt.
 public class Screens.GraphicsSettingsScreen : SettingsScreen

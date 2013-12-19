@@ -20,26 +20,26 @@ Sie bietet Möglichkeit vordefinierte Winkelwerte zu verwenden, z.B. stellt Zero
 Die Umwandlung zwischen verschiedenen Winkelmaßen wie Grad- und Bogenmaß unterstützt sie durch entsprechende Methoden.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{float} \varname{X}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{float} \varname{X}}\newline\newline
 Der Rotationswinkel um die X-Achse.
 ~\\\\
-\textbf{\keyword{public} \ptype{float} \varname{Y}}\\~\\
+\textbf{\keyword{public} \ptype{float} \varname{Y}}\newline\newline
 Der Rotationswinkel um die Y-Achse.
 ~\\\\
-\textbf{\keyword{public} \ptype{float} \varname{Z}}\\~\\
+\textbf{\keyword{public} \ptype{float} \varname{Z}}\newline\newline
 Der Rotationswinkel um die Z-Achse.
 ~\\\\
-\textbf{\keyword{public} \ptype{Angles3} \varname{Zero}}\\~\\
+\textbf{\keyword{public} \ptype{Angles3} \varname{Zero}}\newline\newline
 Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Angles3} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Angles3} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\newline\newline
 Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Angles3} \varname{FromDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Angles3} \varname{FromDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\newline\newline
 Konvertiert Grad in Bogenmaß.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{ToDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{ToDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\newline\newline
 Konvertiert Bogenmaß in Grad.
 
 \subsection{Klasse ArrowModel}
@@ -51,20 +51,20 @@ Konvertiert Bogenmaß in Grad.
 Diese Klasse ArrowModel repräsentiert ein 3D-Modell für einen Pfeil, zum Einblenden an selektierten Kanten (s. Edge).
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{ArrowModelInfo} \varname{Info}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{ArrowModelInfo} \varname{Info}}\newline\newline
 Das Info-Objekt, das die Position und Richtung des ArrowModel\grq s enthält.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ArrowModel} (\ptype{GameScreen} \varname{screen}, \ptype{ArrowModelInfo} \varname{info})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ArrowModel} (\ptype{GameScreen} \varname{screen}, \ptype{ArrowModelInfo} \varname{info})}\newline\newline
 Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet den Pfeil.
 ~\\\\
-\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})}\\~\\
+\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})}\newline\newline
 Überprüft, ob der Mausstrahl den Pfeil schneidet.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
 \subsection{Klasse ArrowModelInfo}
@@ -76,12 +76,12 @@ Wird für jeden Frame aufgerufen.
 Ein Objekt der Klasse ArrowModelInfo hält alle Informationen, die zur Erstellung eines Pfeil-3D-Modelles (s. ArrowModel) notwendig sind.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Direction}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector3} \varname{Direction}}\newline\newline
 Gibt die Richtung, in die der Pfeil zeigen soll an.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ArrowModelInfo} (\ptype{Vector3} \varname{position}, \ptype{Vector3} \varname{direction})}\\~\\
-Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position position im 3D-Raum. Dieses zeigt in eine durch direction bestimmte Richtung.
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ArrowModelInfo} (\ptype{Vector3} \varname{position}, \ptype{Vector3} \varname{direction})}\newline\newline
+Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position \param{position} im 3D-Raum. Dieses zeigt in eine durch \param{direction} bestimmte Richtung.
 
 \subsection{Klasse AudioSettingsScreen}
 \begin{wrapfigure}{r}{9cm}
@@ -92,17 +92,17 @@ Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position position i
 Die Klasse  AudioSettingsScreen steht für den Spielzustand, der die Audio-Einstellungen repräsentiert.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\newline\newline
 Das Menü, das die Einstellungen enthält.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{AudioSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{AudioSettingsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erzeugt ein neues AudioSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 
 \subsection{Klasse BooleanOptionInfo}
@@ -114,11 +114,11 @@ Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{bool} \varname{Value}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{bool} \varname{Value}}\newline\newline
 Ein Property, das den aktuell abgespeicherten Wert zurückgibt.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{BooleanOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{BooleanOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})}\newline\newline
 Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
 angegebenen Abschnitt der angegebenen Einstellungsdatei.
 
@@ -135,51 +135,51 @@ Um diese Matrizen zu berechnen, benötigt die Kamera unter Anderem Informationen
 das aktuelle Kamera-Ziel und das Field of View.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Position}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector3} \varname{Position}}\newline\newline
 Die Position der Kamera.
 ~\\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Target}}\\~\\
+\textbf{\keyword{public} \ptype{Vector3} \varname{Target}}\newline\newline
 Das Ziel der Kamera.
 ~\\\\
-\textbf{\keyword{public} \ptype{float} \varname{FoV}}\\~\\
+\textbf{\keyword{public} \ptype{float} \varname{FoV}}\newline\newline
 Das Sichtfeld.
 ~\\\\
-\textbf{\keyword{public} \ptype{Matrix} \varname{ViewMatrix}}\\~\\
+\textbf{\keyword{public} \ptype{Matrix} \varname{ViewMatrix}}\newline\newline
 Die View-Matrix wird über die statische Methode CreateLookAt der Klasse Matrix des XNA-Frameworks
 mit Matrix.CreateLookAt (Position, Target, Vector3.Up) berechnet.
 ~\\\\
-\textbf{\keyword{public} \ptype{Matrix} \varname{WorldMatrix}}\\~\\
+\textbf{\keyword{public} \ptype{Matrix} \varname{WorldMatrix}}\newline\newline
 Die World-Matrix wird mit Matrix.CreateFromYawPitchRoll und den drei Rotationswinkeln berechnet.
 ~\\\\
-\textbf{\keyword{public} \ptype{Matrix} \varname{ProjectionMatrix}}\\~\\
+\textbf{\keyword{public} \ptype{Matrix} \varname{ProjectionMatrix}}\newline\newline
 Die Projektionsmatrix wird über die statische XNA-Methode Matrix.CreatePerspectiveFieldOfView berechnet.
 ~\\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{ArcballTarget}}\\~\\
+\textbf{\keyword{public} \ptype{Vector3} \varname{ArcballTarget}}\newline\newline
 Eine Position, um die rotiert werden soll, wenn der User die rechte Maustaste gedrückt hält und die Maus bewegt.
 ~\\\\
-\textbf{\keyword{public} \ptype{BoundingFrustum} \varname{ViewFrustum}}\\~\\
+\textbf{\keyword{public} \ptype{BoundingFrustum} \varname{ViewFrustum}}\newline\newline
 Berechnet ein Bounding-Frustum, das benötigt wird, um festzustellen, ob ein 3D-Objekt sich im Blickfeld des Spielers befindet.
 ~\\\\
-\textbf{\keyword{private} \ptype{World} \varname{World}}\\~\\
+\textbf{\keyword{private} \ptype{World} \varname{World}}\newline\newline
 Eine Referenz auf die Spielwelt, für welche die Kamera zuständig ist.
 ~\\\\
-\textbf{\keyword{public} \ptype{Angles3} \varname{Rotation}}\\~\\
+\textbf{\keyword{public} \ptype{Angles3} \varname{Rotation}}\newline\newline
 Die Rotationswinkel.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Camera} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Camera} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world})}\newline\newline
 Erstellt eine neue Kamera in einem bestimmten GameScreen für eine bestimmte Spielwelt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{TargetDirection} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector3} \varname{TargetDirection} ()}\newline\newline
 Die Blickrichtung.
 ~\\\\
-\textbf{\keyword{public} \ptype{float} \varname{TargetDistance} ()}\\~\\
+\textbf{\keyword{public} \ptype{float} \varname{TargetDistance} ()}\newline\newline
 Der Abstand zwischen der Kamera und dem Kamera-Ziel.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{Ray} \varname{GetMouseRay} (\ptype{Vector2} \varname{mousePosition})}\\~\\
+\textbf{\keyword{public} \ptype{Ray} \varname{GetMouseRay} (\ptype{Vector2} \varname{mousePosition})}\newline\newline
 Berechnet einen Strahl für die angegebenene 2D-Mausposition.
 
 \subsection{Klasse CelShadingEffect}
@@ -191,17 +191,17 @@ Berechnet einen Strahl für die angegebenene 2D-Mausposition.
 Ein Cel-Shading-Effekt.
 
 
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{CelShadingEffect} (\ptype{GameScreen} \varname{screen})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{CelShadingEffect} (\ptype{GameScreen} \varname{screen})}\newline\newline
 Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 !!!
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{GameModel})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{GameModel})}\newline\newline
 Zeichnet ein 3D-Modell auf das Rendertarget.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})}\newline\newline
 Weist dem 3D-Modell den Cel-Shader zu.
 
 \subsection{Klasse Challenge}
@@ -213,33 +213,33 @@ Weist dem 3D-Modell den Cel-Shader zu.
 Ein Objekt dieser Klasse repräsentiert eine Challenge.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Knot} \varname{Start}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Knot} \varname{Start}}\newline\newline
 Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
 ~\\\\
-\textbf{\keyword{public} \ptype{Knot} \varname{Target}}\\~\\
+\textbf{\keyword{public} \ptype{Knot} \varname{Target}}\newline\newline
 Der Referenzknoten, in den der Spieler den Ausgangsknoten transformiert.
 ~\\\\
-\textbf{\keyword{private} \ptype{SortedList$<$Integer, String$>$} \varname{highscore}}\\~\\
+\textbf{\keyword{private} \ptype{SortedList$<$Integer, String$>$} \varname{highscore}}\newline\newline
 Eine sortierte Bestenliste.
 ~\\\\
-\textbf{\keyword{private} \ptype{IChallengeIO} \varname{format}}\\~\\
+\textbf{\keyword{private} \ptype{IChallengeIO} \varname{format}}\newline\newline
 Das Speicherformat der Challenge.
 ~\\\\
-\textbf{\keyword{public} \ptype{IEnumerator$<$KeyValuePair$<$String, Integer$>$$>$} \varname{Highscore}}\\~\\
+\textbf{\keyword{public} \ptype{IEnumerator$<$KeyValuePair$<$String, Integer$>$$>$} \varname{Highscore}}\newline\newline
 Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
 ~\\\\
-\textbf{\keyword{public} \ptype{ChallengeMetaData} \varname{MetaData}}\\~\\
+\textbf{\keyword{public} \ptype{ChallengeMetaData} \varname{MetaData}}\newline\newline
 Die Metadaten der Challenge.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{Name}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{Name}}\newline\newline
 Der Name der Challenge.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Challenge} (\ptype{ChallengeMetaData} \varname{meta}, \ptype{Knot} \varname{start}, \ptype{Knot} \varname{target})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Challenge} (\ptype{ChallengeMetaData} \varname{meta}, \ptype{Knot} \varname{start}, \ptype{Knot} \varname{target})}\newline\newline
 Erstellt ein Challenge-Objekt aus einem gegebenen Challenge-Metadaten-Objekt.
 Erstellt ein Challenge-Objekt aus einer gegebenen Challenge-Datei.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{AddToHighscore} (\ptype{String} \varname{name}, \ptype{Integer} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{AddToHighscore} (\ptype{String} \varname{name}, \ptype{Integer} \varname{time})}\newline\newline
 Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
 
 \subsection{Klasse ChallengeFileIO}
@@ -251,17 +251,17 @@ Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
 Implementiert das Speicherformat für Challenges.
 
 
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ChallengeFileIO} ()}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ChallengeFileIO} ()}\newline\newline
 Erstellt ein ChallengeFileIO-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Challenge} \varname{challenge})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Challenge} \varname{challenge})}\newline\newline
 Speichert eine Challenge in dem Dateinamen, der in dem Challenge-Objekt enthalten ist.
 ~\\\\
-\textbf{\keyword{public} \ptype{Challenge} \varname{Load} (\ptype{String} \varname{filename})}\\~\\
+\textbf{\keyword{public} \ptype{Challenge} \varname{Load} (\ptype{String} \varname{filename})}\newline\newline
 Lädt eine Challenge aus einer angegebenen Datei.
 ~\\\\
-\textbf{\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\\~\\
+\textbf{\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\newline\newline
 Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
 
 \subsection{Klasse ChallengeLoadScreen}
@@ -273,15 +273,15 @@ Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
 Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
 
 
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ChallengeLoadScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ChallengeLoadScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erstellt eine neue Instanz eines ChallengeLoadScreen-Objekts und
 initialisiert diese mit einem Knot3Game-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
 
 \subsection{Klasse ChallengeMetaData}
@@ -293,26 +293,26 @@ Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
 Enthält Metadaten zu einer Challenge.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{Name}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{Name}}\newline\newline
 Der Name der Challenge.
 ~\\\\
-\textbf{\keyword{public} \ptype{KnotMetaData} \varname{Start}}\\~\\
+\textbf{\keyword{public} \ptype{KnotMetaData} \varname{Start}}\newline\newline
 Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
 ~\\\\
-\textbf{\keyword{public} \ptype{KnotMetaData} \varname{Target}}\\~\\
+\textbf{\keyword{public} \ptype{KnotMetaData} \varname{Target}}\newline\newline
 Der Referenzknoten, in den der Spieler den Ausgangsknoten transformiert.
 ~\\\\
-\textbf{\keyword{public} \ptype{IChallengeIO} \varname{Format}}\\~\\
+\textbf{\keyword{public} \ptype{IChallengeIO} \varname{Format}}\newline\newline
 Das Format, aus dem die Metadaten der Challenge gelesen wurden oder null.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{Filename}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{Filename}}\newline\newline
 Der Dateiname, aus dem die Metadaten der Challenge gelesen wurden oder in den sie abgespeichert werden.
 ~\\\\
-\textbf{\keyword{public} \ptype{IEnumerator$<$KeyValuePair$<$String, Integer$>$$>$} \varname{Highscore}}\\~\\
+\textbf{\keyword{public} \ptype{IEnumerator$<$KeyValuePair$<$String, Integer$>$$>$} \varname{Highscore}}\newline\newline
 Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ChallengeMetaData} (\ptype{String} \varname{name}, \ptype{KnotMetaData} \varname{start}, \ptype{KnotMetaData} \varname{target}, \ptype{String} \varname{filename}, \ptype{IChallengeIO} \varname{format})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ChallengeMetaData} (\ptype{String} \varname{name}, \ptype{KnotMetaData} \varname{start}, \ptype{KnotMetaData} \varname{target}, \ptype{String} \varname{filename}, \ptype{IChallengeIO} \varname{format})}\newline\newline
 Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metadaten des Ausgangs- und Referenzknotens.
 
 \subsection{Klasse ChallengeModeScreen}
@@ -324,42 +324,42 @@ Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metada
 Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für den Ausgangs- und Referenzknoten je eine 3D-Welt zeichnet.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{PlayerKnot}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{PlayerKnot}}\newline\newline
 Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{ChallengeKnot}}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{ChallengeKnot}}\newline\newline
 Der Referenzknoten.
 ~\\\\
-\textbf{\keyword{private} \ptype{World} \varname{ChallengeWorld}}\\~\\
+\textbf{\keyword{private} \ptype{World} \varname{ChallengeWorld}}\newline\newline
 Die Spielwelt in der die 3D-Modelle des dargestellten Referenzknotens enthalten sind.
 ~\\\\
-\textbf{\keyword{private} \ptype{World} \varname{PlayerWorld}}\\~\\
+\textbf{\keyword{private} \ptype{World} \varname{PlayerWorld}}\newline\newline
 Die Spielwelt in der die 3D-Modelle des dargestellten Spielerknotens enthalten sind.
 ~\\\\
-\textbf{\keyword{private} \ptype{KnotRenderer} \varname{ChallengeKnotRenderer}}\\~\\
+\textbf{\keyword{private} \ptype{KnotRenderer} \varname{ChallengeKnotRenderer}}\newline\newline
 Der Controller, der aus dem Referenzknoten die 3D-Modelle erstellt.
 ~\\\\
-\textbf{\keyword{private} \ptype{KnotRenderer} \varname{PlayerKnotRenderer}}\\~\\
+\textbf{\keyword{private} \ptype{KnotRenderer} \varname{PlayerKnotRenderer}}\newline\newline
 Der Controller, der aus dem Spielerknoten die 3D-Modelle erstellt.
 ~\\\\
-\textbf{\keyword{private} \ptype{PipeMovement} \varname{PlayerKnotMovement}}\\~\\
+\textbf{\keyword{private} \ptype{PipeMovement} \varname{PlayerKnotMovement}}\newline\newline
 Der Inputhandler, der die Kantenverschiebungen des Spielerknotens durchführt.
 ~\\\\
-\textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Undo}}\\~\\
+\textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Undo}}\newline\newline
 Der Undo-Stack.
 ~\\\\
-\textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Redo}}\\~\\
+\textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Redo}}\newline\newline
 Der Redo-Stack.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ChallengeModeScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ChallengeModeScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erstellt eine neue Instanz eines ChallengeModeScreen-Objekts und
 initialisiert diese mit einem Knot3Game-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
 
 \subsection{Klasse CheckBoxItem}
@@ -371,13 +371,13 @@ Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
 Ein Menüeintrag, der einen Auswahlkasten darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{BooleanOptionInfo} \varname{option}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{BooleanOptionInfo} \varname{option}}\newline\newline
 Die Option, die mit dem Auswahlkasten verknüpft ist.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{CheckBoxItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{BooleanOptionInfo} \varname{option})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{CheckBoxItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{BooleanOptionInfo} \varname{option})}\newline\newline
 Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
-Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
+Zudem sind Angaben zur Zeichenreihenfolge und der Auswahl\param{option} Pflicht.
 
 
 
@@ -390,23 +390,23 @@ Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Color} \varname{Color}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Color} \varname{Color}}\newline\newline
 Die ausgewählte Farbe.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ColorPicker} (\ptype{Color} \varname{default})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ColorPicker} (\ptype{Color} \varname{default})}\newline\newline
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Reagiert auf Tastatureingaben.
 ~\\\\
-\textbf{\keyword{public} \ptype{Rectangle} \varname{Bounds} ()}\\~\\
+\textbf{\keyword{public} \ptype{Rectangle} \varname{Bounds} ()}\newline\newline
 Gibt die Ausmaße des ColorPickers zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Bei einem Linksklick wird eine Farbe ausgewählt und im Attribut Color abgespeichert.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Bei einem Rechtsklick geschieht nichts.
 
 \subsection{Klasse ColorPickItem}
@@ -418,14 +418,14 @@ Bei einem Rechtsklick geschieht nichts.
 Ein Menüeintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Color} \varname{Color}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Color} \varname{Color}}\newline\newline
 Die aktuelle Farbe.
 ~\\\\
-\textbf{\keyword{private} \ptype{ColorPicker} \varname{picker}}\\~\\
+\textbf{\keyword{private} \ptype{ColorPicker} \varname{picker}}\newline\newline
 Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ColorPickItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Color} \varname{color})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ColorPickItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Color} \varname{color})}\newline\newline
 Erzeugt ein neues ColorPickItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 
@@ -438,17 +438,17 @@ Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 Repräsentiert eine Einstellungsdatei.
 
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{String} \varname{value})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{String} \varname{value})}\newline\newline
 Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
 ~\\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{GetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{Boolean} \varname{defaultValue})}\\~\\
+\textbf{\keyword{public} \ptype{Boolean} \varname{GetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{Boolean} \varname{defaultValue})}\newline\newline
 Gibt den aktuell in der Datei vorhandenen Wert für die angegebene Option in dem angegebenen Abschnitt zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{GetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{String} \varname{defaultValue})}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{GetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{String} \varname{defaultValue})}\newline\newline
 Gibt den aktuell in der Datei vorhandenen Wert für die angegebene Option in dem angegebenen Abschnitt zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{Boolean} \varname{value})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{Boolean} \varname{value})}\newline\newline
 Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
 
 \subsection{Klasse ConfirmDialog}
@@ -460,11 +460,11 @@ Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt
 Ein Dialog, der Schaltflächen zum Bestätigen einer Aktion anzeigt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{Menu} \varname{buttons}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{Menu} \varname{buttons}}\newline\newline
 Das Menü, das Schaltflächen enthält.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ConfirmDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ConfirmDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text})}\newline\newline
 Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
 
@@ -477,17 +477,17 @@ Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und
 Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\newline\newline
 Das Menü, das die Einstellungen enthält.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ControlSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ControlSettingsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erzeugt ein neues ControlSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 
 \subsection{Klasse CreativeLoadScreen}
@@ -499,14 +499,14 @@ Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
 
 
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{CreativeLoadScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{CreativeLoadScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erzeugt ein neues CreativeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit dem Spielständen in die Spielkomponentenliste ein.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
 \subsection{Klasse CreativeModeScreen}
@@ -518,29 +518,29 @@ Wird für jeden Frame aufgerufen.
 Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv ist und für den Knoten eine 3D-Welt zeichnet.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Knot}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Knot}}\newline\newline
 Der Knoten, der vom Spieler bearbeitet wird.
 ~\\\\
-\textbf{\keyword{private} \ptype{World} \varname{World}}\\~\\
+\textbf{\keyword{private} \ptype{World} \varname{World}}\newline\newline
 Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
 ~\\\\
-\textbf{\keyword{private} \ptype{KnotRenderer} \varname{KnotRenderer}}\\~\\
+\textbf{\keyword{private} \ptype{KnotRenderer} \varname{KnotRenderer}}\newline\newline
 Der Controller, der aus dem Knoten die 3D-Modelle erstellt.
 ~\\\\
-\textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Undo}}\\~\\
+\textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Undo}}\newline\newline
 Der Undo-Stack.
 ~\\\\
-\textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Redo}}\\~\\
+\textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Redo}}\newline\newline
 Der Redo-Stack.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{CreativeModeScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{CreativeModeScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})}\newline\newline
 Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
 
 \subsection{Klasse CreditsScreen}
@@ -552,14 +552,14 @@ Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
 Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
 
 
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{CreditsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{CreditsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Mitwirkenden in die Spielkomponentenliste ein.
 
 \subsection{Klasse Dialog}
@@ -571,28 +571,28 @@ Fügt das Menü mit den Mitwirkenden in die Spielkomponentenliste ein.
 Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{Title}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{Title}}\newline\newline
 Der Fenstertitel.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{Text}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{Text}}\newline\newline
 Der angezeigte Text.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Dialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Dialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text})}\newline\newline
 Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Durch Drücken der Entertaste wird die ausgewählte Aktion ausgeführt. Durch Drücken der Escape-Taste wird der Dialog abgebrochen.
 Mit Hilfe der Pfeiltasten kann zwischen den Aktionen gewechselt werden.
 ~\\\\
-\textbf{\keyword{public} \ptype{Rectangle} \varname{Bounds} ()}\\~\\
+\textbf{\keyword{public} \ptype{Rectangle} \varname{Bounds} ()}\newline\newline
 Gibt die Ausmaße des Dialogs zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Bei einem Linksklick geschieht nichts.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Bei einem Rechtsklick geschieht nichts.
 
 \subsection{Klasse DistinctOptionInfo}
@@ -604,14 +604,14 @@ Bei einem Rechtsklick geschieht nichts.
 Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{HashSet$<$string$>$} \varname{ValidValues}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{HashSet$<$string$>$} \varname{ValidValues}}\newline\newline
 Eine Menge von Texten, welche die für die Option gültigen Werte beschreiben.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{Value}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{Value}}\newline\newline
 Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{DistinctOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{IEnumerable$<$string$>$} \varname{validValues}, \ptype{ConfigFile} \varname{configFile})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{DistinctOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{IEnumerable$<$string$>$} \varname{validValues}, \ptype{ConfigFile} \varname{configFile})}\newline\newline
 Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
 angegebenen Abschnitt der angegebenen Einstellungsdatei.
 
@@ -624,18 +624,18 @@ angegebenen Abschnitt der angegebenen Einstellungsdatei.
 Eine zeichenbare Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{GameScreen} \varname{Screen}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{GameScreen} \varname{Screen}}\newline\newline
 Der zugewiesene Spielzustand.
 ~\\\\
-\textbf{\keyword{public} \ptype{DisplayLayer} \varname{Index}}\\~\\
+\textbf{\keyword{public} \ptype{DisplayLayer} \varname{Index}}\newline\newline
 Die Zeichen- und Eingabepriorität.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{DrawableGameScreenComponent} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{index})}\newline\newline
+
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
-~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{DrawableGameStateComponent} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{index})}\\~\\
-Erstellt eine neue zeichenbare Spielkomponente in dem angegebenen Spielzustand mit der angegebenen Priorität.
 
 \subsection{Klasse DropDownEntry}
 \begin{wrapfigure}{r}{9cm}
@@ -646,14 +646,14 @@ Erstellt eine neue zeichenbare Spielkomponente in dem angegebenen Spielzustand m
 Repräsentiert einen Eintrag in einem Dropdown-Menü.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{Text}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{Text}}\newline\newline
 Der Text des Eintrags.
 ~\\\\
-\textbf{\keyword{public} \ptype{Action} \varname{OnSelect}}\\~\\
+\textbf{\keyword{public} \ptype{Action} \varname{OnSelect}}\newline\newline
 
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{DropDownEntry} (\ptype{String} \varname{text}, \ptype{Action} \varname{onSelect})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{DropDownEntry} (\ptype{String} \varname{text}, \ptype{Action} \varname{onSelect})}\newline\newline
 
 
 \subsection{Klasse DropDownMenuItem}
@@ -665,19 +665,19 @@ Der Text des Eintrags.
 Ein Menüeintrag, der den ausgewählten Wert anzeigt und bei einem Linksklick ein Dropdown-Menü zur Auswahl eines neuen Wertes ein- oder ausblendet.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{VerticalMenu} \varname{dropdown}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{VerticalMenu} \varname{dropdown}}\newline\newline
 Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{DropDownMenuItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{DropDownMenuItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\newline\newline
 Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DistinctOptionInfo} \varname{option})}\\~\\
-Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
-Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DistinctOptionInfo} \varname{option})}\newline\newline
+Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungs\param{option}en basieren.
+Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungs\param{option}en basieren.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DropDownEntry} \varname{enties})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{AddEntries} (\ptype{DropDownEntry} \varname{enties})}\newline\newline
 Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
 Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
 
@@ -690,20 +690,20 @@ Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen ba
 Eine Kante eines Knotens, die aus einer Richtung und einer Farbe, sowie optional einer Liste von Flächennummern besteht.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Color} \varname{Color}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Color} \varname{Color}}\newline\newline
 Die Farbe der Kante.
 ~\\\\
-\textbf{\keyword{public} \ptype{Direction} \varname{Direction}}\\~\\
+\textbf{\keyword{public} \ptype{Direction} \varname{Direction}}\newline\newline
 Die Richtung der Kante.
 ~\\\\
-\textbf{\keyword{public} \ptype{List$<$int$>$} \varname{Rectangles}}\\~\\
+\textbf{\keyword{public} \ptype{List$<$int$>$} \varname{Rectangles}}\newline\newline
 Die Liste der Flächennummern, die an die Kante angrenzen.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Edge} (\ptype{Direction} \varname{direction})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Edge} (\ptype{Direction} \varname{direction})}\newline\newline
 Erstellt eine neue Kante mit der angegebenen Richtung.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Get3DDirection} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector3} \varname{Get3DDirection} ()}\newline\newline
 Gibt die Richtung als normalisierten Vektor3 zurück.
 
 \subsection{Klasse FadeEffect}
@@ -715,17 +715,17 @@ Gibt die Richtung als normalisierten Vektor3 zurück.
 Ein Postprocessing-Effekt, der eine Überblendung zwischen zwei Spielzuständen darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{Boolean} \varname{IsFinished}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{Boolean} \varname{IsFinished}}\newline\newline
 Gibt an, ob die Überblendung abgeschlossen ist und das RenderTarget nur noch den neuen Spielzustand darstellt.
 ~\\\\
-\textbf{\keyword{private} \ptype{RenderTarget2D} \varname{PreviousRenderTarget}}\\~\\
+\textbf{\keyword{private} \ptype{RenderTarget2D} \varname{PreviousRenderTarget}}\newline\newline
 Der zuletzt gerenderte Frame im bisherigen Spielzustand.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{FadeEffect} (\ptype{GameScreen} \varname{newScreen}, \ptype{GameScreen} \varname{oldScreen})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{FadeEffect} (\ptype{GameScreen} \varname{newScreen}, \ptype{GameScreen} \varname{oldScreen})}\newline\newline
 Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 !!!
 
 \subsection{Klasse FileUtility}
@@ -737,21 +737,21 @@ Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
 Eine Hilfsklasse für Dateioperationen.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{SettingsDirectory}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{SettingsDirectory}}\newline\newline
 Das Einstellungsverzeichnis.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{SavegameDirectory}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{SavegameDirectory}}\newline\newline
 Das Spielstandverzeichnis.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{ScreenshotDirectory}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{ScreenshotDirectory}}\newline\newline
 Das Bildschirmfotoverzeichnis.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String} \varname{name})}\\~\\
-Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungültiger Zeichen.
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String} \varname{name})}\newline\newline
+Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Datei\param{name}n durch Weglassen ungültiger Zeichen.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{GetHash} (\ptype{String} \varname{filename})}\\~\\
-Liefert einen Hash-Wert zu der durch filename spezifizierten Datei.
+\textbf{\keyword{public} \ptype{String} \varname{GetHash} (\ptype{String} \varname{filename})}\newline\newline
+Liefert einen Hash-Wert zu der durch \param{filename} spezifizierten Datei.
 
 \subsection{Klasse GameModel}
 \begin{wrapfigure}{r}{9cm}
@@ -762,44 +762,44 @@ Liefert einen Hash-Wert zu der durch filename spezifizierten Datei.
 Repräsentiert ein 3D-Modell in einer Spielwelt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{float} \varname{Alpha}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{float} \varname{Alpha}}\newline\newline
 Die Transparenz des Modells.
 ~\\\\
-\textbf{\keyword{public} \ptype{Color} \varname{BaseColor}}\\~\\
+\textbf{\keyword{public} \ptype{Color} \varname{BaseColor}}\newline\newline
 Die Farbe des Modells.
 ~\\\\
-\textbf{\keyword{public} \ptype{Color} \varname{HightlightColor}}\\~\\
+\textbf{\keyword{public} \ptype{Color} \varname{HightlightColor}}\newline\newline
 Die Auswahlfarbe des Modells.
 ~\\\\
-\textbf{\keyword{public} \ptype{float} \varname{HighlightIntensity}}\\~\\
+\textbf{\keyword{public} \ptype{float} \varname{HighlightIntensity}}\newline\newline
 Die Intensität der Auswahlfarbe.
 ~\\\\
-\textbf{\keyword{public} \ptype{GameModelInfo} \varname{Info}}\\~\\
+\textbf{\keyword{public} \ptype{GameModelInfo} \varname{Info}}\newline\newline
 Die Modellinformationen wie Position, Skalierung und der Dateiname des 3D-Modells.
 ~\\\\
-\textbf{\keyword{public} \ptype{XNA.Model} \varname{Model}}\\~\\
+\textbf{\keyword{public} \ptype{XNA.Model} \varname{Model}}\newline\newline
 Die Klasse des XNA-Frameworks, die ein 3D-Modell repräsentiert.
 ~\\\\
-\textbf{\keyword{public} \ptype{World} \varname{World}}\\~\\
+\textbf{\keyword{public} \ptype{World} \varname{World}}\newline\newline
 Die Spielwelt, in der sich das 3D-Modell befindet.
 ~\\\\
-\textbf{\keyword{public} \ptype{Matrix} \varname{WorldMatrix}}\\~\\
+\textbf{\keyword{public} \ptype{Matrix} \varname{WorldMatrix}}\newline\newline
 Die Weltmatrix des 3D-Modells in der angegebenen Spielwelt.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{GameModel} (\ptype{GameScreen} \varname{screen}, \ptype{GameModelInfo} \varname{info})}\\~\\
-Erstellt ein neues 3D-Modell in dem angegebenen Spielzustand mit den angegebenen Modellinformationen.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{GameModel} (\ptype{GameScreen} \varname{screen}, \ptype{GameModelInfo} \varname{info})}\newline\newline
+Erstellt ein neues 3D-Modell in dem angegebenen Spielzustand mit den angegebenen Modell\param{info}rmationen.
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\newline\newline
 Gibt die Mitte des 3D-Modells zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet das 3D-Modell in der angegebenen Spielwelt mit dem aktuellen Rendereffekt der Spielwelt.
 ~\\\\
-\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\\~\\
+\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\newline\newline
 Überprüft, ob der Mausstrahl das 3D-Modell schneidet.
 
 \subsection{Klasse GameModelInfo}
@@ -811,17 +811,17 @@ Zeichnet das 3D-Modell in der angegebenen Spielwelt mit dem aktuellen Rendereffe
 Enthält Informationen über ein 3D-Modell wie den Dateinamen, die Rotation und die Skalierung.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{Modelname}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{Modelname}}\newline\newline
 Der Dateiname des Modells.
 ~\\\\
-\textbf{\keyword{public} \ptype{Angles3} \varname{Rotation}}\\~\\
+\textbf{\keyword{public} \ptype{Angles3} \varname{Rotation}}\newline\newline
 Die Rotation des Modells.
 ~\\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Scale}}\\~\\
+\textbf{\keyword{public} \ptype{Vector3} \varname{Scale}}\newline\newline
 Die Skalierung des Modells.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{GameModelInfo} (\ptype{String} \varname{modelname}, \ptype{Angles3} \varname{rotation}, \ptype{Vector3} \varname{scale})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{GameModelInfo} (\ptype{String} \varname{modelname}, \ptype{Angles3} \varname{rotation}, \ptype{Vector3} \varname{scale})}\newline\newline
 Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
 Dateiname, Rotation und Skalierung.
 
@@ -834,11 +834,11 @@ Dateiname, Rotation und Skalierung.
 !!!
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{IGameObject} \varname{Object}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{IGameObject} \varname{Object}}\newline\newline
 
 ~\\\\
-\textbf{\keyword{public} \ptype{float} \varname{Distance}}\\~\\
+\textbf{\keyword{public} \ptype{float} \varname{Distance}}\newline\newline
 
 
 \subsection{Klasse GameObjectInfo}
@@ -850,20 +850,20 @@ Dateiname, Rotation und Skalierung.
 Enthält Informationen über ein 3D-Objekt wie die Position, Sichtbarkeit, Verschiebbarkeit und Auswählbarkeit.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{IsMovable}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Boolean} \varname{IsMovable}}\newline\newline
 Die Verschiebbarkeit des Spielobjektes.
 ~\\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{IsSelectable}}\\~\\
+\textbf{\keyword{public} \ptype{Boolean} \varname{IsSelectable}}\newline\newline
 Die Auswählbarkeit des Spielobjektes.
 ~\\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{IsVisible}}\\~\\
+\textbf{\keyword{public} \ptype{Boolean} \varname{IsVisible}}\newline\newline
 Die Sichtbarkeit des Spielobjektes.
 ~\\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Position}}\\~\\
+\textbf{\keyword{public} \ptype{Vector3} \varname{Position}}\newline\newline
 Die Position des Spielobjektes.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{C} \varname{other})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{C} \varname{other})}\newline\newline
 Vergleicht zwei Informationsobjekte für Spielobjekte.
 
 \subsection{Klasse GameScreen}
@@ -875,38 +875,38 @@ Vergleicht zwei Informationsobjekte für Spielobjekte.
 Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Knot3Game} \varname{Game}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Knot3Game} \varname{Game}}\newline\newline
 Das Spiel, zu dem der Spielzustand gehört.
 ~\\\\
-\textbf{\keyword{public} \ptype{Input} \varname{Input}}\\~\\
+\textbf{\keyword{public} \ptype{Input} \varname{Input}}\newline\newline
 Der Inputhandler des Spielzustands.
 ~\\\\
-\textbf{\keyword{public} \ptype{RenderEffect} \varname{PostProcessingEffect}}\\~\\
+\textbf{\keyword{public} \ptype{RenderEffect} \varname{PostProcessingEffect}}\newline\newline
 Der aktuelle Postprocessing-Effekt des Spielzustands
 ~\\\\
-\textbf{\keyword{public} \ptype{RenderEffectStack} \varname{CurrentRenderEffects}}\\~\\
+\textbf{\keyword{public} \ptype{RenderEffectStack} \varname{CurrentRenderEffects}}\newline\newline
 Ein Stack, der während dem Aufruf der Draw-Methoden der Spielkomponenten die jeweils aktuellen Rendereffekte enthält.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{GameScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{GameScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})}\newline\newline
 Beginnt mit dem Füllen der Spielkomponentenliste des XNA-Frameworks und fügt sowohl für Tastatur- als auch für
 Mauseingaben einen Inputhandler für Widgets hinzu. Wird in Unterklassen von GameScreen reimplementiert und fügt zusätzlich weitere
 Spielkomponenten hinzu.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{BeforeExit} (\ptype{GameScreen} \varname{nextScreen}, \ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{BeforeExit} (\ptype{GameScreen} \varname{nextScreen}, \ptype{GameTime} \varname{time})}\newline\newline
 Leert die Spielkomponentenliste des XNA-Frameworks.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{AddGameComponents} (\ptype{IGameScreenComponent[]} \varname{components})}\\~\\
-
+\textbf{\keyword{public} \ptype{void} \varname{AddGameComponents} (\ptype{IGameScreenComponent[]} \varname{components})}\newline\newline
+Fügt die angegebenen GameComponents in die Components-Liste des Games ein.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{RemoveGameComponents} (\ptype{IGameScreenComponent[]} \varname{components})}\\~\\
-
+\textbf{\keyword{public} \ptype{void} \varname{RemoveGameComponents} (\ptype{IGameScreenComponent[]} \varname{components})}\newline\newline
+Entfernt die angegebenen GameComponents aus der Components-Liste des Games.
 
 \subsection{Klasse GameScreenComponent}
 \begin{wrapfigure}{r}{9cm}
@@ -917,18 +917,18 @@ Wird für jeden Frame aufgerufen.
 Eine Spielkomponente, die in einem GameScreen verwendet wird und eine bestimmte Priorität hat.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{DisplayLayer} \varname{Index}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{DisplayLayer} \varname{Index}}\newline\newline
 Die Zeichen- und Eingabepriorität.
 ~\\\\
-\textbf{\keyword{public} \ptype{GameScreen} \varname{Screen}}\\~\\
+\textbf{\keyword{public} \ptype{GameScreen} \varname{Screen}}\newline\newline
 Der zugewiesene Spielzustand.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{GameScreenComponent} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{index})}\newline\newline
+Erzeugt eine neue Instanz eines GameScreenComponent-Objekts und initialisiert diese mit dem zugehörigen GameScreen und der zugehörigen Zeichenreihenfolge. Diese Spielkomponente kann nur in dem zugehörigen GameScreen verwendet werden.
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
-~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{GameStateComponent} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{index})}\\~\\
-Erstellt eine neue Spielkomponente in dem angegebenen Spielzustand mit der angegebenen Priorität.
 
 \subsection{Klasse GraphicsSettingsScreen}
 \begin{wrapfigure}{r}{9cm}
@@ -939,17 +939,17 @@ Erstellt eine neue Spielkomponente in dem angegebenen Spielzustand mit der angeg
 Der Spielzustand, der die Grafik-Einstellungen darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\newline\newline
 Das Menü, das die Einstellungen enthält.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{GraphicsSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{GraphicsSettingsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erzeugt ein neues GraphicsSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 
 \subsection{Klasse Input}
@@ -961,32 +961,32 @@ Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{ClickState} \varname{RightMouseButton}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{ClickState} \varname{RightMouseButton}}\newline\newline
 Enthält den Klickzustand der rechten Maustaste.
 ~\\\\
-\textbf{\keyword{public} \ptype{ClickState} \varname{LeftMouseButton}}\\~\\
+\textbf{\keyword{public} \ptype{ClickState} \varname{LeftMouseButton}}\newline\newline
 Enthält den Klickzustand der linken Maustaste.
 ~\\\\
-\textbf{\keyword{public} \ptype{MouseState} \varname{CurrentMouseState}}\\~\\
+\textbf{\keyword{public} \ptype{MouseState} \varname{CurrentMouseState}}\newline\newline
 Enthält den Mauszustand von XNA zum aktuellen Frames.
 ~\\\\
-\textbf{\keyword{public} \ptype{KeyboardState} \varname{CurrentKeyboardState}}\\~\\
+\textbf{\keyword{public} \ptype{KeyboardState} \varname{CurrentKeyboardState}}\newline\newline
 Enthält den Tastaturzustand von XNA zum aktuellen Frames.
 ~\\\\
-\textbf{\keyword{public} \ptype{MouseState} \varname{PreviousMouseState}}\\~\\
+\textbf{\keyword{public} \ptype{MouseState} \varname{PreviousMouseState}}\newline\newline
 Enthält den Mauszustand von XNA zum vorherigen Frames.
 ~\\\\
-\textbf{\keyword{public} \ptype{KeyboardState} \varname{PreviousKeyboardState}}\\~\\
+\textbf{\keyword{public} \ptype{KeyboardState} \varname{PreviousKeyboardState}}\newline\newline
 Enthält den Tastaturzustand von XNA zum vorherigen Frames.
 ~\\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{GrabMouseMovement}}\\~\\
+\textbf{\keyword{public} \ptype{Boolean} \varname{GrabMouseMovement}}\newline\newline
 Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Input} (\ptype{GameScreen} \varname{screen})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Input} (\ptype{GameScreen} \varname{screen})}\newline\newline
 Erstellt ein neues Input-Objekt, das an den übergebenen Spielzustand gebunden ist.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
 \subsection{Klasse InputItem}
@@ -998,11 +998,11 @@ Wird für jeden Frame aufgerufen.
 Ein Menüeintrag, der Texteingaben vom Spieler annimmt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{InputText}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{InputText}}\newline\newline
 Beinhaltet den vom Spieler eingegebenen Text.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{InputItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{text})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{InputItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{text})}\newline\newline
 Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
 
@@ -1015,15 +1015,15 @@ Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragen
 Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Option als Zeichenkette speichert.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{OptionInfo} \varname{option}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{OptionInfo} \varname{option}}\newline\newline
 Die Option in einer Einstellungsdatei.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{KeyInputItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{OptionInfo} \varname{option})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{KeyInputItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{OptionInfo} \varname{option})}\newline\newline
 Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
-Zudem sind Angaben zur Zeichenreihenfolge und der Eingabeoption Pflicht.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
+Zudem sind Angaben zur Zeichenreihenfolge und der Eingabe\param{option} Pflicht.
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Speichert die aktuell gedrückte Taste in der Option.
 
 \subsection{Klasse Knot}
@@ -1035,77 +1035,77 @@ Speichert die aktuell gedrückte Taste in der Option.
 Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{Name}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{Name}}\newline\newline
 Der Name des Knotens, welcher auch leer sein kann.
 Beim Speichern muss der Nutzer in diesem Fall zwingend einen nichtleeren Namen wählen.
 Der Wert dieser Eigenschaft wird aus der \glqq Name\grqq~-Eigenschaft des Metadaten-Objektes geladen
 und bei Änderungen wieder in diesem gespeichert.
 Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
 ~\\\\
-\textbf{\keyword{private} \ptype{Circle} \varname{edges}}\\~\\
+\textbf{\keyword{private} \ptype{Circle} \varname{edges}}\newline\newline
 Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
 ~\\\\
-\textbf{\keyword{public} \ptype{KnotMetaData} \varname{MetaData}}\\~\\
+\textbf{\keyword{public} \ptype{KnotMetaData} \varname{MetaData}}\newline\newline
 Die Metadaten des Knotens.
 ~\\\\
-\textbf{\keyword{public} \ptype{Action} \varname{EdgesChanged}}\\~\\
+\textbf{\keyword{public} \ptype{Action} \varname{EdgesChanged}}\newline\newline
 Ein Ereignis, das in der Move-Methode ausgelöst wird, wenn sich die Struktur der Kanten geändert hat.
 ~\\\\
-\textbf{\keyword{public} \ptype{IEnumerable$<$Edge$>$} \varname{SelectedEdges}}\\~\\
+\textbf{\keyword{public} \ptype{IEnumerable$<$Edge$>$} \varname{SelectedEdges}}\newline\newline
 Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Knot} ()}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Knot} ()}\newline\newline
 Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
 die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null\grqq.
 ~\\\\
-\textbf{\keyword{public} \varname{Knot} (\ptype{KnotMetaData} \varname{meta}, \ptype{IEnumerable$<$Edge$>$} \varname{edges})}\\~\\
+\textbf{\keyword{public} \varname{Knot} (\ptype{KnotMetaData} \varname{meta}, \ptype{IEnumerable$<$Edge$>$} \varname{edges})}\newline\newline
 Erstellt einen neuen Knoten mit dem angegebenen Metadaten-Objekt und den angegebenen Kanten,
 die in der doppelt verketteten Liste gespeichert werden.
 Die Eigenschaft des Metadaten-Objektes, die die Anzahl der Kanten enthält,
 wird auf ein Delegate gesetzt, welches jeweils die aktuelle Anzahl der Kanten dieses Knotens zurückgibt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{IsValidMove} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Boolean} \varname{IsValidMove} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})}\newline\newline
 Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
 ~\\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{Move} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})}\\~\\
+\textbf{\keyword{public} \ptype{Boolean} \varname{Move} (\ptype{Direction} \varname{dir}, \ptype{Integer} \varname{distance})}\newline\newline
 Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebene Distanz.
 ~\\\\
-\textbf{\keyword{public} \ptype{IEnumerator$<$Edge$>$} \varname{GetEnumerator} ()}\\~\\
+\textbf{\keyword{public} \ptype{IEnumerator$<$Edge$>$} \varname{GetEnumerator} ()}\newline\newline
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Save} ()}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Save} ()}\newline\newline
 Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
 Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
 oder beide den Wert \glqq null\grqq, dann wird eine IOException geworfen.
 ~\\\\
-\textbf{\keyword{public} \ptype{Object} \varname{Clone} ()}\\~\\
+\textbf{\keyword{public} \ptype{Object} \varname{Clone} ()}\newline\newline
 Erstellt eine vollständige Kopie des Knotens, inklusive der Kanten-Datenstruktur und des Metadaten-Objekts.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{AddToSelection} (\ptype{Edge} \varname{edge})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{AddToSelection} (\ptype{Edge} \varname{edge})}\newline\newline
 Fügt die angegebene Kante zur aktuellen Kantenauswahl hinzu.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{RemoveFromSelection} (\ptype{Edge} \varname{edge})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{RemoveFromSelection} (\ptype{Edge} \varname{edge})}\newline\newline
 Entfernt die angegebene Kante von der aktuellen Kantenauswahl.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{ClearSelection} ()}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{ClearSelection} ()}\newline\newline
 Hebt die aktuelle Kantenauswahl auf.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{AddRangeToSelection} (\ptype{Edge} \varname{edge})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{AddRangeToSelection} (\ptype{Edge} \varname{edge})}\newline\newline
 Fügt alle Kanten auf dem kürzesten Weg zwischen der zuletzt ausgewählten Kante und der angegebenen Kante
 zur aktuellen Kantenauswahl hinzu. Sind beide Wege gleich lang,
 wird der Weg in Richtung der ersten Kante ausgewählt.
 ~\\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{IsSelected} (\ptype{Edge} \varname{edge})}\\~\\
+\textbf{\keyword{public} \ptype{Boolean} \varname{IsSelected} (\ptype{Edge} \varname{edge})}\newline\newline
 Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
 ~\\\\
-\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\\~\\
+\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})}\\~\\
-Speichert den Knoten unter dem angegebenen Dateinamen in dem angegebenen Dateiformat.
+\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})}\newline\newline
+Speichert den Knoten unter dem angegebenen Dateinamen in dem angegebenen Datei\param{format}.
 ~\\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})}\\~\\
+\textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})}\newline\newline
 Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
 
 \subsection{Klasse Knot3Game}
@@ -1117,37 +1117,37 @@ Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt
 Die zentrale Spielklasse, die von der \glqq Game \grqq -Klasse des XNA-Frameworks erbt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{IsFullScreen}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Boolean} \varname{IsFullScreen}}\newline\newline
 Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
 ob sich das Spiel im Vollbildmodus befindet. Wird dieses Attribut auf einen Wert gesetzt,
 dann wird der Modus entweder gewechselt oder beibehalten, falls es auf denselben Wert gesetzt wird.
 ~\\\\
-\textbf{\keyword{public} \ptype{Stack$<$GameScreen$>$} \varname{Screens}}\\~\\
+\textbf{\keyword{public} \ptype{Stack$<$GameScreen$>$} \varname{Screens}}\newline\newline
 Enthält als oberste Element den aktuellen Spielzustand und darunter die zuvor aktiven Spielzustände.
 ~\\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{VSync}}\\~\\
+\textbf{\keyword{public} \ptype{Boolean} \varname{VSync}}\newline\newline
 Dieses Attribut dient sowohl zum Setzen des Aktivierungszustandes der vertikalen Synchronisation,
 als auch zum Auslesen dieses Zustandes.
 ~\\\\
-\textbf{\keyword{public} \ptype{GraphicsDeviceManager} \varname{Graphics}}\\~\\
+\textbf{\keyword{public} \ptype{GraphicsDeviceManager} \varname{Graphics}}\newline\newline
 Der aktuelle Grafikgeräteverwalter des XNA-Frameworks.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Knot3Game} ()}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Knot3Game} ()}\newline\newline
 Erstellt ein neues zentrales Spielobjekt und setzt die Auflösung des BackBuffers auf
 die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
 Bildschirmauflösung und wechselt in den Vollbildmodus.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\newline\newline
 Ruft die Draw()-Methode des aktuellen Spielzustands auf.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Initialize} ()}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Initialize} ()}\newline\newline
 
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{UnloadContent} ()}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{UnloadContent} ()}\newline\newline
 Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 
 
 \subsection{Klasse KnotFileIO}
@@ -1159,20 +1159,20 @@ Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherber
 Implementiert das Speicherformat für Knoten.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}}\newline\newline
 Die für eine Knoten-Datei gültigen Dateiendungen.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{KnotFileIO} ()}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{KnotFileIO} ()}\newline\newline
 Erstellt ein KnotFileIO-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})}\newline\newline
 Speichert einen Knoten in dem Dateinamen, der in dem Knot-Objekt enthalten ist.
 ~\\\\
-\textbf{\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})}\\~\\
+\textbf{\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})}\newline\newline
 Lädt eines Knotens aus einer angegebenen Datei.
 ~\\\\
-\textbf{\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\\~\\
+\textbf{\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\newline\newline
 Lädt die Metadaten eines Knotens aus einer angegebenen Datei.
 
 \subsection{Klasse KnotInputHandler}
@@ -1185,17 +1185,17 @@ Verarbeitet die Maus- und Tastatureingaben des Spielers und modifiziert die Kame
 und das Kamera-Ziel.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{World} \varname{world}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{World} \varname{world}}\newline\newline
 Die Spielwelt.
 ~\\\\
-\textbf{\keyword{private} \ptype{GameScreen} \varname{screen}}\\~\\
+\textbf{\keyword{private} \ptype{GameScreen} \varname{screen}}\newline\newline
 Der Spielzustand.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{KnotInputHandler} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{KnotInputHandler} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world})}\newline\newline
 Erstellt einen neuen KnotInputHandler für den angegebenen Spielzustand und die angegebene Spielwelt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
 \subsection{Klasse KnotMetaData}
@@ -1210,8 +1210,8 @@ sondern nur Informationen über den Namen des Knoten und die Anzahl seiner Kante
 dazugehöriges Knoten-Objekt existieren, aber jedes Knoten-Objekt enthält genau ein Knoten-Metadaten-Objekt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{Name}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{Name}}\newline\newline
 Der Anzeigename des Knotens, welcher auch leer sein kann.
 Beim Speichern muss der Spieler in diesem Fall zwingend
 einen nichtleeren Namen wählen. Wird ein neuer Anzeigename festgelegt,
@@ -1219,27 +1219,27 @@ dann wird der Dateiname ebenfalls auf einen neuen Wert gesetzt, unabhängig davo
 ob er bereits einen Wert enthält oder \glqq null\grqq~ist.
 Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
 ~\\\\
-\textbf{\keyword{public} \ptype{IKnotIO} \varname{Format}}\\~\\
+\textbf{\keyword{public} \ptype{IKnotIO} \varname{Format}}\newline\newline
 Das Format, aus dem die Metadaten geladen wurden.
 Es ist genau dann \glqq null\grqq, wenn die Metadaten nicht aus einer Datei gelesen wurden. Nur lesbar.
 ~\\\\
-\textbf{\keyword{public} \ptype{Func$<$Integer$>$} \varname{CountEdges}}\\~\\
+\textbf{\keyword{public} \ptype{Func$<$Integer$>$} \varname{CountEdges}}\newline\newline
 Ein Delegate, das die Anzahl der Kanten zurückliefert.
 Falls dieses Metadaten-Objekt Teil eines Knotens ist, gibt es dynamisch die Anzahl der
 Kanten des Knoten-Objektes zurück. Anderenfalls gibt es eine statische Zahl zurück,
 die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes gelesen wurde. Nur lesbar.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{Filename}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{Filename}}\newline\newline
 Falls die Metadaten aus einer Datei eingelesen wurden, enthält dieses Attribut den Dateinamen,
 sonst \glqq null\grqq.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Func$<$Integer$>$} \varname{countEdges}, \ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})}\\~\\
-Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Func$<$Integer$>$} \varname{countEdges}, \ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})}\newline\newline
+Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knoten\param{name}n
 und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
-Zusätzlich wird der Dateiname oder das Speicherformat angegeben, aus dem die Metadaten gelesen wurden.
+Zusätzlich wird der Datei\param{name} oder das Speicher\param{format} angegeben, aus dem die Metadaten gelesen wurden.
 ~\\\\
-\textbf{\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Func$<$Integer$>$} \varname{countEdges})}\\~\\
-Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
+\textbf{\keyword{public} \varname{KnotMetaData} (\ptype{String} \varname{name}, \ptype{Func$<$Integer$>$} \varname{countEdges})}\newline\newline
+Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knoten\param{name}n
 und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
 
 \subsection{Klasse KnotRenderer}
@@ -1253,55 +1253,55 @@ die nach einer Auswahl von Kanten durch den Spieler angezeigt werden. Ist außer
 Container für die erstellten Spielobjekte.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{GameObjectInfo} \varname{Info}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{GameObjectInfo} \varname{Info}}\newline\newline
 Enthält Informationen über die Position des Knotens.
 ~\\\\
-\textbf{\keyword{public} \ptype{World} \varname{World}}\\~\\
+\textbf{\keyword{public} \ptype{World} \varname{World}}\newline\newline
 Die Spielwelt, in der die 3D-Modelle erstellt werden sollen.
 ~\\\\
-\textbf{\keyword{private} \ptype{List$<$ArrowModel$>$} \varname{arrows}}\\~\\
+\textbf{\keyword{private} \ptype{List$<$ArrowModel$>$} \varname{arrows}}\newline\newline
 Die Liste der 3D-Modelle der Pfeile,
 die nach einer Auswahl von Kanten durch den Spieler angezeigt werden.
 ~\\\\
-\textbf{\keyword{private} \ptype{List$<$NodeModel$>$} \varname{nodes}}\\~\\
+\textbf{\keyword{private} \ptype{List$<$NodeModel$>$} \varname{nodes}}\newline\newline
 Die Liste der 3D-Modelle der Kantenübergänge.
 ~\\\\
-\textbf{\keyword{private} \ptype{List$<$PipeModel$>$} \varname{pipes}}\\~\\
+\textbf{\keyword{private} \ptype{List$<$PipeModel$>$} \varname{pipes}}\newline\newline
 Die Liste der 3D-Modelle der Kanten.
 ~\\\\
-\textbf{\keyword{public} \ptype{Knot} \varname{Knot}}\\~\\
+\textbf{\keyword{public} \ptype{Knot} \varname{Knot}}\newline\newline
 Der Knoten, für den 3D-Modelle erstellt werden sollen.
 ~\\\\
-\textbf{\keyword{private} \ptype{ModelFactory} \varname{pipeFactory}}\\~\\
+\textbf{\keyword{private} \ptype{ModelFactory} \varname{pipeFactory}}\newline\newline
 Der Zwischenspeicher für die 3D-Modelle der Kanten. Hier wird das Fabrik-Entwurfsmuster verwendet.
 ~\\\\
-\textbf{\keyword{private} \ptype{ModelFactory} \varname{nodeFactory}}\\~\\
+\textbf{\keyword{private} \ptype{ModelFactory} \varname{nodeFactory}}\newline\newline
 Der Zwischenspeicher für die 3D-Modelle der Kantenübergänge. Hier wird das Fabrik-Entwurfsmuster verwendet.
 ~\\\\
-\textbf{\keyword{private} \ptype{ModelFactory} \varname{arrowFactory}}\\~\\
+\textbf{\keyword{private} \ptype{ModelFactory} \varname{arrowFactory}}\newline\newline
 Der Zwischenspeicher für die 3D-Modelle der Pfeile. Hier wird das Fabrik-Entwurfsmuster verwendet.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{KnotRenderer} (\ptype{GameScreen} \varname{screen}, \ptype{GameObjectInfo} \varname{info})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{KnotRenderer} (\ptype{GameScreen} \varname{screen}, \ptype{GameObjectInfo} \varname{info})}\newline\newline
 Erstellt ein neues KnotRenderer-Objekt für den angegebenen Spielzustand mit den angegebenen
 Spielobjekt-Informationen, die unter Anderem die Position des Knotenursprungs enthalten.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\newline\newline
 Gibt den Ursprung des Knotens zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\\~\\
+\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\newline\newline
 Gibt immer \glqq null\grqq zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()}\newline\newline
 Wird mit dem EdgesChanged-Event des Knotens verknüft.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Ruft die Update()-Methoden der Kanten, Übergänge und Pfeile auf.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Ruft die Draw()-Methoden der Kanten, Übergänge und Pfeile auf.
 ~\\\\
-\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\\~\\
+\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator der aktuell vorhandenen 3D-Modelle zurück.
 
 \subsection{Klasse KnotStringIO}
@@ -1314,26 +1314,26 @@ Diese Klasse repräsentiert einen Parser für das Knoten-Austauschformat und ent
 eingelesenen Informationen wie den Namen des Knotens und die Kantenliste als Eigenschaften.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{Name}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{Name}}\newline\newline
 Der Name der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
 ~\\\\
-\textbf{\keyword{public} \ptype{IEnumerable$<$Edge$>$} \varname{Edges}}\\~\\
+\textbf{\keyword{public} \ptype{IEnumerable$<$Edge$>$} \varname{Edges}}\newline\newline
 Die Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
 ~\\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{CountEdges}}\\~\\
+\textbf{\keyword{public} \ptype{Integer} \varname{CountEdges}}\newline\newline
 Die Anzahl der Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{Content}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{Content}}\newline\newline
 Erstellt aus den \glqq Name\grqq~- und \glqq Edges\grqq~-Eigenschaften einen neue Zeichenkette,
 die als Dateiinhalt in einer Datei eines Spielstandes einen gültigen Knoten repräsentiert.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{KnotStringIO} (\ptype{String} \varname{content})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{KnotStringIO} (\ptype{String} \varname{content})}\newline\newline
 Liest das in der angegebenen Zeichenkette enthaltene Dateiformat ein. Enthält es einen gültigen Knoten,
 so werden die \glqq Name\grqq~- und \glqq Edges\grqq~-Eigenschaften auf die eingelesenen Werte gesetzt.
 Enthält es einen ungültigen Knoten, so wird eine IOException geworfen und das Objekt wird nicht erstellt.
 ~\\\\
-\textbf{\keyword{public} \varname{KnotStringIO} (\ptype{Knot} \varname{knot})}\\~\\
+\textbf{\keyword{public} \varname{KnotStringIO} (\ptype{Knot} \varname{knot})}\newline\newline
 Erstellt ein neues Objekt und setzt die \glqq Name\grqq~- und \glqq Edge\grqq~-Eigenschaften auf die
 im angegebenen Knoten enthaltenen Werte.
 
@@ -1346,11 +1346,11 @@ im angegebenen Knoten enthaltenen Werte.
 Eine statische Klasse, die Bezeichner in lokalisierten Text umsetzen kann.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{ConfigFile} \varname{localization}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{ConfigFile} \varname{localization}}\newline\newline
 Die Datei, welche Informationen für die Lokalisierung enthält.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{Localize} (\ptype{String} \varname{text})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{Localize} (\ptype{String} \varname{text})}\newline\newline
 Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
 aktuellen Sprache zurück, die dabei aus der Einstellungsdatei des Spiels gelesen wird.
 
@@ -1365,43 +1365,43 @@ Positionen, Größen, Farben und Ausrichtungen der Menüeinträge. Sie werden ge
 der Menüeinträge \glqq null\grqq~sind.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Func$<$int, Vector2$>$} \varname{RelativeItemSize}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Func$<$int, Vector2$>$} \varname{RelativeItemSize}}\newline\newline
 Die von der Auflösung unabhängige Größe in Prozent.
 ~\\\\
-\textbf{\keyword{public} \ptype{Func$<$int, Vector2$>$} \varname{RelativeItemPosition}}\\~\\
+\textbf{\keyword{public} \ptype{Func$<$int, Vector2$>$} \varname{RelativeItemPosition}}\newline\newline
 Die von der Auflösung unabhängige Position in Prozent.
 ~\\\\
-\textbf{\keyword{public} \ptype{Func$<$ItemState, Color$>$} \varname{ItemForegroundColor}}\\~\\
+\textbf{\keyword{public} \ptype{Func$<$ItemState, Color$>$} \varname{ItemForegroundColor}}\newline\newline
 Die vom Zustand des Menüeintrags abhängige Vordergrundfarbe des Menüeintrags.
 ~\\\\
-\textbf{\keyword{public} \ptype{Func$<$ItemState, Color$>$} \varname{ItemBackgroundColor}}\\~\\
+\textbf{\keyword{public} \ptype{Func$<$ItemState, Color$>$} \varname{ItemBackgroundColor}}\newline\newline
 Die vom Zustand des Menüeintrags abhängige Hintergrundfarbe des Menüeintrags.
 ~\\\\
-\textbf{\keyword{public} \ptype{HorizontalAlignment} \varname{ItemAlignX}}\\~\\
+\textbf{\keyword{public} \ptype{HorizontalAlignment} \varname{ItemAlignX}}\newline\newline
 Die horizontale Ausrichtung der Menüeinträge.
 ~\\\\
-\textbf{\keyword{public} \ptype{VerticalAlignment} \varname{ItemAlignY}}\\~\\
+\textbf{\keyword{public} \ptype{VerticalAlignment} \varname{ItemAlignY}}\newline\newline
 Die vertikale Ausrichtung der Menüeinträge.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Menu} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Menu} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\newline\newline
 Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem} \varname{item})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem} \varname{item})}\newline\newline
 Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~ oder leere Werte für
 Position, Größe, Farbe oder Ausrichtung hat, werden die Werte mit denen des Menüs überschrieben.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Delete} (\ptype{MenuItem} \varname{item})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Delete} (\ptype{MenuItem} \varname{item})}\newline\newline
 Entfernt einen Eintrag aus dem Menü.
 ~\\\\
-\textbf{\keyword{public} \ptype{MenuItem} \varname{GetItem} (\ptype{Integer} \varname{i})}\\~\\
-Gibt einen Eintrag des Menüs zurück.
+\textbf{\keyword{public} \ptype{MenuItem} \varname{GetItem} (\ptype{Integer} \varname{i})}\newline\newline
+G\param{i}bt e\param{i}nen E\param{i}ntrag des Menüs zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{Size} ()}\\~\\
+\textbf{\keyword{public} \ptype{Integer} \varname{Size} ()}\newline\newline
 Gibt die Anzahl der Einträge des Menüs zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\\~\\
+\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator über die Einträge des Menüs zurück.
 
 \subsection{Klasse MenuButton}
@@ -1413,11 +1413,11 @@ Gibt einen Enumerator über die Einträge des Menüs zurück.
 Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagiert.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Action} \varname{OnClick}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Action} \varname{OnClick}}\newline\newline
 Die Aktion, die ausgeführt wird, wenn der Spieler auf die Schaltfläche klickt.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{MenuButton} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{name}, \ptype{Action} \varname{onClick})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{MenuButton} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{name}, \ptype{Action} \varname{onClick})}\newline\newline
 Erzeugt ein neues MenuButton-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche
 und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
@@ -1431,27 +1431,27 @@ und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
 Ein abstrakte Klasse für Menüeinträge, die
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{ItemState} \varname{ItemState}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{ItemState} \varname{ItemState}}\newline\newline
 Gibt an, ob die Maus sich über dem Eintrag befindet, ohne ihn anzuklicken, ob er ausgewählt ist
 oder nichts von beidem.
 ~\\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{ItemOrder}}\\~\\
+\textbf{\keyword{public} \ptype{Integer} \varname{ItemOrder}}\newline\newline
 Die Zeichenreihenfolge.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{Text}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{Text}}\newline\newline
 Der Anzeigetext der Schaltfläche.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Reaktionen auf einen Linksklick.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Reaktionen auf einen Rechtsklick.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Reaktionen auf Tasteneingaben.
 ~\\\\
-\textbf{\keyword{public} \ptype{Rectangle} \varname{Bounds} ()}\\~\\
+\textbf{\keyword{public} \ptype{Rectangle} \varname{Bounds} ()}\newline\newline
 Gibt die Ausmaße des Eintrags zurück.
 
 \subsection{Klasse MenuScreen}
@@ -1463,11 +1463,11 @@ Gibt die Ausmaße des Eintrags zurück.
 Eine abstrakte Klasse, von der alle Spielzustände erben, die Menüs darstellen.
 
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Wird aufgerufen, wenn in diesen Spielzustand gewechselt wird.
 
 \subsection{Klasse ModelFactory}
@@ -1479,18 +1479,18 @@ Wird aufgerufen, wenn in diesen Spielzustand gewechselt wird.
 Ein Zwischenspeicher für 3D-Modelle.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{Dictionary$<$GameModelInfo, GameModel$>$} \varname{cache}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{Dictionary$<$GameModelInfo, GameModel$>$} \varname{cache}}\newline\newline
 Die Zuordnung zwischen den Modellinformationen zu den 3D-Modellen.
 ~\\\\
-\textbf{\keyword{private} \ptype{Func$<$GameScreen, GameModelInfo, GameModel$>$} \varname{createModel}}\\~\\
+\textbf{\keyword{private} \ptype{Func$<$GameScreen, GameModelInfo, GameModel$>$} \varname{createModel}}\newline\newline
 Ein Delegate, das beim Erstellen eines Zwischenspeichers zugewiesen wird und aus den
 angegebenen Modellinformationen und dem angegebenen Spielzustand ein 3D-Modell erstellt.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ModelFactory} (\ptype{GameModelInfo}, \ptype{GameModel$>$}, \ptype{Func$<$GameScreen} \varname{createModel})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ModelFactory} (\ptype{GameModelInfo}, \ptype{GameModel$>$}, \ptype{Func$<$GameScreen} \varname{createModel})}\newline\newline
 Erstellt einen neuen Zwischenspeicher.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{GameModel} \varname{this} (\ptype{GameScreen} \varname{state}, \ptype{GameModelInfo} \varname{info})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{GameModel} \varname{this} (\ptype{GameScreen} \varname{state}, \ptype{GameModelInfo} \varname{info})}\newline\newline
 Falls das 3D-Modell zwischengespeichert ist, wird es zurückgegeben, sonst mit createModel() erstellt.
 
 \subsection{Klasse ModelMouseHandler}
@@ -1502,8 +1502,8 @@ Falls das 3D-Modell zwischengespeichert ist, wird es zurückgegeben, sonst mit c
 Ein Inputhandler, der Mauseingaben auf 3D-Modellen verarbeitet.
 
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
 \subsection{Klasse MousePointer}
@@ -1515,11 +1515,11 @@ Wird für jeden Frame aufgerufen.
 Repräsentiert einen Mauszeiger.
 
 
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{MousePointer} (\ptype{GameScreen} \varname{screen})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{MousePointer} (\ptype{GameScreen} \varname{screen})}\newline\newline
 Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\newline\newline
 Zeichnet den Mauszeiger.
 
 \subsection{Klasse Node}
@@ -1531,24 +1531,24 @@ Zeichnet den Mauszeiger.
 
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{X}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Integer} \varname{X}}\newline\newline
 
 ~\\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{Y}}\\~\\
+\textbf{\keyword{public} \ptype{Integer} \varname{Y}}\newline\newline
 
 ~\\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{Z}}\\~\\
+\textbf{\keyword{public} \ptype{Integer} \varname{Z}}\newline\newline
 
 ~\\\\
-\textbf{\keyword{private} \ptype{Integer} \varname{scale}}\\~\\
+\textbf{\keyword{private} \ptype{Integer} \varname{scale}}\newline\newline
 
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Node} (\ptype{Integer} \varname{x}, \ptype{Integer} \varname{y}, \ptype{Integer} \varname{z})}\\~\\
-Erzeugt eine neue Instanz eines Node-Objekts und initialisiert diese mit Werten
-für die x-, y- und z-Koordinate.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{ToVector} ()}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Node} (\ptype{Integer} \varname{x}, \ptype{Integer} \varname{y}, \ptype{Integer} \varname{z})}\newline\newline
+Er\param{z}eugt eine neue Instan\param{z} eines Node-Objekts und initialisiert diese mit Werten
+für die \param{x}-, \param{y}- und \param{z}-Koordinate.
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector3} \varname{ToVector} ()}\newline\newline
 
 
 \subsection{Klasse NodeMap}
@@ -1560,17 +1560,17 @@ für die x-, y- und z-Koordinate.
 Eine Zuordnung zwischen Kanten und Kantenübergänge.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{Scale}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Integer} \varname{Scale}}\newline\newline
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Node} \varname{From} (\ptype{Edge} \varname{edge})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Node} \varname{From} (\ptype{Edge} \varname{edge})}\newline\newline
 Gibt den Übergang am Anfang der Kante zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{Node} \varname{To} (\ptype{Edge} \varname{edge})}\\~\\
+\textbf{\keyword{public} \ptype{Node} \varname{To} (\ptype{Edge} \varname{edge})}\newline\newline
 Gibt den Übergang am Ende der Kante zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()}\newline\newline
 Aktualisiert die Zuordnung, wenn sich die Kanten geändert haben.
 
 \subsection{Klasse NodeModel}
@@ -1582,17 +1582,17 @@ Aktualisiert die Zuordnung, wenn sich die Kanten geändert haben.
 Ein 3D-Modell, das einen Kantenübergang darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{NodeModelInfo} \varname{Info}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{NodeModelInfo} \varname{Info}}\newline\newline
 Enthält Informationen über den darzustellende 3D-Modell des Kantenübergangs.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{NodeModel} (\ptype{GameScreen} \varname{screen}, \ptype{NodeModelInfo} \varname{info})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{NodeModel} (\ptype{GameScreen} \varname{screen}, \ptype{NodeModelInfo} \varname{info})}\newline\newline
 Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und dem angegebenen Informationsobjekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet das 3D-Modell mit dem aktuellen Rendereffekt.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
 \subsection{Klasse NodeModelInfo}
@@ -1604,20 +1604,20 @@ Wird für jeden Frame aufgerufen.
 Enthält Informationen über ein 3D-Modell, das einen Kantenübergang darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Edge} \varname{EdgeFrom}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Edge} \varname{EdgeFrom}}\newline\newline
 Die Kante vor dem Übergang.
 ~\\\\
-\textbf{\keyword{public} \ptype{Edge} \varname{EdgeTo}}\\~\\
+\textbf{\keyword{public} \ptype{Edge} \varname{EdgeTo}}\newline\newline
 Die Kante nach dem Übergang.
 ~\\\\
-\textbf{\keyword{public} \ptype{Knot} \varname{Knot}}\\~\\
+\textbf{\keyword{public} \ptype{Knot} \varname{Knot}}\newline\newline
 Der Knoten, der die Kanten enthält.
 ~\\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Position}}\\~\\
+\textbf{\keyword{public} \ptype{Vector3} \varname{Position}}\newline\newline
 Die Position des Übergangs.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{NodeModelInfo} (\ptype{Knot} \varname{knot}, \ptype{Edge} \varname{from}, \ptype{Edge} \varname{to})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{NodeModelInfo} (\ptype{Knot} \varname{knot}, \ptype{Edge} \varname{from}, \ptype{Edge} \varname{to})}\newline\newline
 Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
 
 \subsection{Klasse OptionInfo}
@@ -1629,23 +1629,23 @@ Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenüberg
 Enthält Informationen über einen Eintrag in einer Einstellungsdatei.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{ConfigFile} \varname{configFile}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{ConfigFile} \varname{configFile}}\newline\newline
 Die Einstellungsdatei.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{Section}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{Section}}\newline\newline
 Der Abschnitt der Einstellungsdatei.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{Name}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{Name}}\newline\newline
 Der Name der Option.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{DefaultValue}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{DefaultValue}}\newline\newline
 Der Standardwert der Option.
 ~\\\\
-\textbf{\keyword{public} \ptype{String} \varname{Value}}\\~\\
+\textbf{\keyword{public} \ptype{String} \varname{Value}}\newline\newline
 Der Wert der Option.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{OptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{OptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})}\newline\newline
 Erstellt ein neues OptionsInfo-Objekt aus den übergegebenen Werten.
 
 \subsection{Klasse Options}
@@ -1657,8 +1657,8 @@ Erstellt ein neues OptionsInfo-Objekt aus den übergegebenen Werten.
 Eine statische Klasse, die eine Referenz auf die zentrale Einstellungsdatei des Spiels enthält.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{ConfigFile} \varname{Default}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{ConfigFile} \varname{Default}}\newline\newline
 Die zentrale Einstellungsdatei des Spiels.
 
 \subsection{Klasse PauseDialog}
@@ -1671,8 +1671,8 @@ Pausiert ein Spieler im Creative- oder Challenge-Modus das Spiel,
 wird dieser Dialog über anderen Spielkomponenten angezeigt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{VerticalMenu} \varname{pauseMenu}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{VerticalMenu} \varname{pauseMenu}}\newline\newline
 Das Menü, das verschiedene Schaltflächen enthält.
 
 \subsection{Klasse PipeModel}
@@ -1684,14 +1684,14 @@ Das Menü, das verschiedene Schaltflächen enthält.
 Ein 3D-Modell, das eine Kante darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{PipeModelInfo} \varname{Info}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{PipeModelInfo} \varname{Info}}\newline\newline
 Enthält Informationen über die darzustellende Kante.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{PipeModel} (\ptype{GameScreen} \varname{screen}, \ptype{PipeModelInfo} \varname{info})}\\~\\
-Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und den angegebenen Spielinformationen.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{PipeModel} (\ptype{GameScreen} \varname{screen}, \ptype{PipeModelInfo} \varname{info})}\newline\newline
+Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und den angegebenen Spiel\param{info}rmationen.
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})}\newline\newline
 Prüft, ob der angegebene Mausstrahl das 3D-Modell schneidet.
 
 \subsection{Klasse PipeModelInfo}
@@ -1703,20 +1703,20 @@ Prüft, ob der angegebene Mausstrahl das 3D-Modell schneidet.
 Enthält Informationen über ein 3D-Modell, das eine Kante darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Edge} \varname{Edge}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Edge} \varname{Edge}}\newline\newline
 Die Kante, die durch das 3D-Modell dargestellt wird.
 ~\\\\
-\textbf{\keyword{public} \ptype{Knot} \varname{Knot}}\\~\\
+\textbf{\keyword{public} \ptype{Knot} \varname{Knot}}\newline\newline
 Der Knoten, der die Kante enthält.
 ~\\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{PositionFrom}}\\~\\
+\textbf{\keyword{public} \ptype{Vector3} \varname{PositionFrom}}\newline\newline
 Die Position, an der die Kante beginnt.
 ~\\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{PositionTo}}\\~\\
+\textbf{\keyword{public} \ptype{Vector3} \varname{PositionTo}}\newline\newline
 Die Position, an der die Kante endet.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{PipeModelInfo} (\ptype{Knot} \varname{knot}, \ptype{Edge} \varname{edge})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{PipeModelInfo} (\ptype{Knot} \varname{knot}, \ptype{Edge} \varname{edge})}\newline\newline
 Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
 
 \subsection{Klasse PipeMovement}
@@ -1728,32 +1728,32 @@ Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstel
 Ein Inputhandler, der für das Verschieben der Kanten zuständig ist.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{GameObjectInfo} \varname{Info}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{GameObjectInfo} \varname{Info}}\newline\newline
 Enthält Informationen über die Position des Knotens.
 ~\\\\
-\textbf{\keyword{public} \ptype{Knot} \varname{Knot}}\\~\\
+\textbf{\keyword{public} \ptype{Knot} \varname{Knot}}\newline\newline
 Der Knoten, dessen Kanten verschoben werden können.
 ~\\\\
-\textbf{\keyword{public} \ptype{World} \varname{World}}\\~\\
+\textbf{\keyword{public} \ptype{World} \varname{World}}\newline\newline
 Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{PipeMovement} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world}, \ptype{GameObjectInfo} \varname{info})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{PipeMovement} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world}, \ptype{GameObjectInfo} \varname{info})}\newline\newline
 !!!
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\newline\newline
 Gibt den Ursprung des Knotens zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\\~\\
+\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\newline\newline
 Gibt immer \glqq null\grqq zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\\~\\
+\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
 
 \subsection{Klasse PrinterIO}
@@ -1765,20 +1765,20 @@ Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
 Ein Exportformat für 3D-Drucker.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}}\newline\newline
 Die gültigen Dateiendungen für das 3D-Drucker-Format.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{PrinterIO} ()}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{PrinterIO} ()}\newline\newline
 Erstellt ein neues PrinterIO-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})}\newline\newline
 Exportiert den Knoten in einem gültigen 3D-Drucker-Format.
 ~\\\\
-\textbf{\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})}\\~\\
+\textbf{\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})}\newline\newline
 Gibt eine IOException zurück.
 ~\\\\
-\textbf{\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\\~\\
+\textbf{\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\newline\newline
 Gibt eine IOException zurück.
 
 \subsection{Klasse ProfileSettingsScreen}
@@ -1790,17 +1790,17 @@ Gibt eine IOException zurück.
 Der Spielzustand, der die Profil-Einstellungen darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\newline\newline
 !!!
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ProfileSettingsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ProfileSettingsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erzeugt eine neue Instanz eines ProfileSettingsScreen-Objekts und initialisiert dieses mit einem Knot3Game-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 
 \subsection{Klasse RenderEffect}
@@ -1812,35 +1812,35 @@ Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 Eine abstrakte Klasse, die eine Implementierung von IRenderEffect darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{RenderTarget2D} \varname{RenderTarget}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{RenderTarget2D} \varname{RenderTarget}}\newline\newline
 Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
 weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
 ~\\\\
-\textbf{\keyword{protected} \ptype{GameScreen} \varname{screen}}\\~\\
+\textbf{\keyword{protected} \ptype{GameScreen} \varname{screen}}\newline\newline
 Der Spielzustand, in dem der Effekt verwendet wird.
 ~\\\\
-\textbf{\keyword{protected} \ptype{SpriteBatch} \varname{spriteBatch}}\\~\\
+\textbf{\keyword{protected} \ptype{SpriteBatch} \varname{spriteBatch}}\newline\newline
 Ein Spritestapel, der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Begin} (\ptype{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Begin} (\ptype{GameTime})}\newline\newline
 In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert
 und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{End} (\ptype{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{End} (\ptype{GameTime})}\newline\newline
 Das auf dem Stack gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
 das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
 auf dieses ubergeordnete Rendertarget gezeichnet.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{GameModel})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{GameModel})}\newline\newline
 Zeichnet das übergebene 3D-Modell auf das Rendertarget.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})}\newline\newline
 Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
 BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
 ein anderer Shader zugewiesen werden.
 ~\\\\
-\textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{time})}\newline\newline
 !!!
 
 \subsection{Klasse RenderEffectStack}
@@ -1854,20 +1854,20 @@ und automatisch das aktuell von XNA verwendete Rendertarget auf das Rendertarget
 setzt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{IRenderEffect} \varname{CurrentEffect}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{IRenderEffect} \varname{CurrentEffect}}\newline\newline
 Der oberste Rendereffekt.
 ~\\\\
-\textbf{\keyword{private} \ptype{IRenderEffect} \varname{DefaultEffect}}\\~\\
+\textbf{\keyword{private} \ptype{IRenderEffect} \varname{DefaultEffect}}\newline\newline
 Der Standard-Rendereffekt, der verwendet wird, wenn der Stapel leer ist.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{RenderEffectStack} (\ptype{IRenderEffect} \varname{defaultEffect})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{RenderEffectStack} (\ptype{IRenderEffect} \varname{defaultEffect})}\newline\newline
 Erstellt einen neuen Rendereffekt-Stapel.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{IRenderEffect} \varname{Pop} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{IRenderEffect} \varname{Pop} ()}\newline\newline
 Entfernt den obersten Rendereffekt vom Stapel.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Push} (\ptype{IRenderEffect} \varname{effect})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Push} (\ptype{IRenderEffect} \varname{effect})}\newline\newline
 Legt einen Rendereffekt auf den Stapel.
 
 
@@ -1881,14 +1881,14 @@ Legt einen Rendereffekt auf den Stapel.
 Ein Spielzustand, der das Haupt-Einstellungsmenü zeichnet.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{protected} \ptype{void} \varname{navigation}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{protected} \ptype{void} \varname{navigation}}\newline\newline
 Das Haupt-Einstellungsmenü.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})}\newline\newline
 Fügt das Haupt-Einstellungsmenü in die Spielkomponentenliste ein.
 
 \subsection{Klasse ShadowGameModel}
@@ -1900,17 +1900,17 @@ Fügt das Haupt-Einstellungsmenü in die Spielkomponentenliste ein.
 Die 3D-Modelle, die während einer Verschiebung von Kanten die Vorschaumodelle repräsentieren.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Color} \varname{ShadowColor}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Color} \varname{ShadowColor}}\newline\newline
 Die Farbe der Vorschaumodelle.
 ~\\\\
-\textbf{\keyword{public} \ptype{float} \varname{ShadowAlpha}}\\~\\
+\textbf{\keyword{public} \ptype{float} \varname{ShadowAlpha}}\newline\newline
 Die Transparenz der Vorschaumodelle.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ShadowGameModel} (\ptype{GameScreen} \varname{sreen}, \ptype{GameModel} \varname{decoratedModel})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ShadowGameModel} (\ptype{GameScreen} \varname{sreen}, \ptype{GameModel} \varname{decoratedModel})}\newline\newline
 Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angegebene zu dekorierende Modell.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet das Vorschaumodell.
 
 \subsection{Klasse ShadowGameObject}
@@ -1922,32 +1922,32 @@ Zeichnet das Vorschaumodell.
 Eine abstrakte Klasse, die ein Vorschau-Spielobjekt darstellt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{GameObjectInfo} \varname{Info}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{GameObjectInfo} \varname{Info}}\newline\newline
 Enthält Informationen über das Vorschau-Spielobjekt.
 ~\\\\
-\textbf{\keyword{public} \ptype{World} \varname{World}}\\~\\
+\textbf{\keyword{public} \ptype{World} \varname{World}}\newline\newline
 Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
 ~\\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{ShadowPosition}}\\~\\
+\textbf{\keyword{public} \ptype{Vector3} \varname{ShadowPosition}}\newline\newline
 Die Position, an der das Vorschau-Spielobjekt gezeichnet werden soll.
 ~\\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{OriginalPosition}}\\~\\
+\textbf{\keyword{public} \ptype{Vector3} \varname{OriginalPosition}}\newline\newline
 Die Position, an der sich das zu dekorierende Objekt befindet.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{ShadowGameObject} (\ptype{GameScreen} \varname{screen}, \ptype{IGameObject} \varname{decoratedObj})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ShadowGameObject} (\ptype{GameScreen} \varname{screen}, \ptype{IGameObject} \varname{decoratedObj})}\newline\newline
 Erstellt ein neues Vorschauobjekt in dem angegebenen Spielzustand für das angegebene zu dekorierende Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\newline\newline
 Die Position, an der das Vorschau-Spielobjekt gezeichnet werden soll.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet das Vorschau-Spielobjekt.
 ~\\\\
-\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\\~\\
+\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\newline\newline
 Prüft, ob der angegebene Mausstrahl das Vorschau-Spielobjekt schneidet.
 
 \subsection{Klasse SliderItem}
@@ -1960,23 +1960,23 @@ Ein Menüeintrag, der einen Schieberegler bereitstellt, mit dem man einen Wert z
 und einem maximalen Wert über Verschiebung einstellen kann.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{Value}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Integer} \varname{Value}}\newline\newline
 Der aktuelle Wert.
 ~\\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{MinValue}}\\~\\
+\textbf{\keyword{public} \ptype{Integer} \varname{MinValue}}\newline\newline
 Der minimale Wert.
 ~\\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{MaxValue}}\\~\\
+\textbf{\keyword{public} \ptype{Integer} \varname{MaxValue}}\newline\newline
 Der maximale Wert.
 ~\\\\
-\textbf{\keyword{public} \ptype{Integer} \varname{Step}}\\~\\
+\textbf{\keyword{public} \ptype{Integer} \varname{Step}}\newline\newline
 Schrittweite zwischen zwei einstellbaren Werten.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{SliderItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Integer} \varname{max}, \ptype{Integer} \varname{min}, \ptype{Integer} \varname{step}, \ptype{Integer} \varname{value})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{SliderItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Integer} \varname{max}, \ptype{Integer} \varname{min}, \ptype{Integer} \varname{step}, \ptype{Integer} \varname{value})}\newline\newline
 Erzeugt eine neue Instanz eines SliderItem-Objekts und initialisiert diese
 mit dem zugehörigen GameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
-einem minimalen einstellbaren Wert, einem maximalen einstellbaren Wert und einem Standardwert Pflicht.
+einem \param{min}imalen einstellbaren Wert, einem \param{max}imalen einstellbaren Wert und einem Standardwert Pflicht.
 
 \subsection{Klasse StandardEffect}
 \begin{wrapfigure}{r}{9cm}
@@ -1988,11 +1988,11 @@ Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardm�
 BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
 
 
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{StandardEffect} (\ptype{GameScreen} \varname{screen})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{StandardEffect} (\ptype{GameScreen} \varname{screen})}\newline\newline
 Erstellt einen neuen Standardeffekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 !!!
 
 \subsection{Klasse StartScreen}
@@ -2004,17 +2004,17 @@ Erstellt einen neuen Standardeffekt.
 Der Startbildschirm.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{private} \ptype{Menu} \varname{buttons}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{private} \ptype{Menu} \varname{buttons}}\newline\newline
 Die Schaltflächen des Startbildschirms.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{StartScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{StartScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erzeugt eine neue Instanz eines StartScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt die das Menü in die Spielkomponentenliste ein.
 
 \subsection{Klasse TextInputDialog}
@@ -2026,11 +2026,11 @@ Fügt die das Menü in die Spielkomponentenliste ein.
 Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{String} \varname{InputText}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{String} \varname{InputText}}\newline\newline
 Der Text, der durch den Spieler eingegeben wurde.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{TextInputDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text}, \ptype{String} \varname{inputText})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{TextInputDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text}, \ptype{String} \varname{inputText})}\newline\newline
 Erzeugt eine neue Instanz eines TextInputDialog-Objekts und ordnet dieser einen GameScreen zu.
 Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenfolge
 für den eingeblendeten Text und eine Zeichenkette für voreingestellten Text (welche leer sein darf) Pflicht.
@@ -2045,8 +2045,8 @@ Eine Einführung in das Spielen von Challenges.
 Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangeführt.
 
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 !!!
 
 \subsection{Klasse VerticalMenu}
@@ -2058,12 +2058,12 @@ Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangefü
 Ein Menü, das alle Einträge vertikal anordnet.
 
 
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{VerticalMenu} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{VerticalMenu} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\newline\newline
 Erzeugt eine neue Instanz eines VerticalMenu-Objekts und initialisiert diese mit dem zugehörigen GameScreen-Objekt.
 Zudem ist die Angaben der Zeichenreihenfolge Pflicht.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{AlignItems} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{AlignItems} ()}\newline\newline
 Ordnet die Einträge vertikal an.
 
 \subsection{Klasse Widget}
@@ -2075,33 +2075,33 @@ Ordnet die Einträge vertikal an.
 Eine abstrakte Klasse, von der alle Element der grafischen Benutzeroberfläche erben.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector2} \varname{RelativeSize}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector2} \varname{RelativeSize}}\newline\newline
 Die von der Auflösung unabhängige Größe in Prozent.
 ~\\\\
-\textbf{\keyword{public} \ptype{Vector2} \varname{RelativePosition}}\\~\\
+\textbf{\keyword{public} \ptype{Vector2} \varname{RelativePosition}}\newline\newline
 Die von der Auflösung unabhängige Position in Prozent.
 ~\\\\
-\textbf{\keyword{public} \ptype{bool} \varname{IsVisible}}\\~\\
+\textbf{\keyword{public} \ptype{bool} \varname{IsVisible}}\newline\newline
 Gibt an, ob das grafische Element sichtbar ist.
 ~\\\\
-\textbf{\keyword{public} \ptype{Func$<$Color$>$} \varname{BackgroundColor}}\\~\\
+\textbf{\keyword{public} \ptype{Func$<$Color$>$} \varname{BackgroundColor}}\newline\newline
 Die Hintergrundfarbe.
 ~\\\\
-\textbf{\keyword{public} \ptype{Func$<$Color$>$} \varname{ForegroundColor}}\\~\\
+\textbf{\keyword{public} \ptype{Func$<$Color$>$} \varname{ForegroundColor}}\newline\newline
 Die Vordergrundfarbe.
 ~\\\\
-\textbf{\keyword{public} \ptype{HorizontalAlignment} \varname{AlignX}}\\~\\
+\textbf{\keyword{public} \ptype{HorizontalAlignment} \varname{AlignX}}\newline\newline
 Die horizontale Ausrichtung.
 ~\\\\
-\textbf{\keyword{public} \ptype{VerticalAlignment} \varname{AlignY}}\\~\\
+\textbf{\keyword{public} \ptype{VerticalAlignment} \varname{AlignY}}\newline\newline
 Die vertikale Ausrichtung.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{Widget} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{Widget} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder})}\newline\newline
 Erstellt ein neues grafisches Benutzerschnittstellenelement in dem angegebenen Spielzustand
 mit der angegebenen Zeichenreihenfolge.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Rectangle} \varname{BoundingBox} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Rectangle} \varname{BoundingBox} ()}\newline\newline
 Die Ausmaße des grafischen Elements
 
 \subsection{Klasse WidgetKeyHandler}
@@ -2113,8 +2113,8 @@ Die Ausmaße des grafischen Elements
 Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
 
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} ()}\newline\newline
 !!!
 
 \subsection{Klasse WidgetMouseHandler}
@@ -2126,8 +2126,8 @@ Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
 Ein Inputhandler, der Mauseingaben auf Widgets verarbeitet.
 
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} ()}\newline\newline
 !!!
 
 \subsection{Klasse World}
@@ -2139,29 +2139,29 @@ Ein Inputhandler, der Mauseingaben auf Widgets verarbeitet.
 Repräsentiert eine Spielwelt, in der sich 3D-Modelle befinden und gezeichnet werden können.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Camera} \varname{Camera}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Camera} \varname{Camera}}\newline\newline
 Die Kamera dieser Spielwelt.
 ~\\\\
-\textbf{\keyword{public} \ptype{List$<$IGameObject$>$} \varname{Objects}}\\~\\
+\textbf{\keyword{public} \ptype{List$<$IGameObject$>$} \varname{Objects}}\newline\newline
 Die Liste von Spielobjekten.
 ~\\\\
-\textbf{\keyword{public} \ptype{IGameObject} \varname{SelectedObject}}\\~\\
+\textbf{\keyword{public} \ptype{IGameObject} \varname{SelectedObject}}\newline\newline
 Das aktuell ausgewählte Spielobjekt.
 ~\\\\
-\textbf{\keyword{public} \ptype{IRenderEffect} \varname{CurrentEffect}}\\~\\
+\textbf{\keyword{public} \ptype{IRenderEffect} \varname{CurrentEffect}}\newline\newline
 Der aktuell angewendete Rendereffekt.
-\paragraph{Konstruktoren:}\mbox{} \\\\
-\textbf{\keyword{public} \varname{World} (\ptype{GameScreen} \varname{screen})}\\~\\
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{World} (\ptype{GameScreen} \varname{screen})}\newline\newline
 Erstellt eine neue Spielwelt im angegebenen Spielzustand.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Ruft auf allen Spielobjekten die Update()-Methode auf.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Ruft auf allen Spielobjekten die Draw()-Methode auf.
 ~\\\\
-\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\\~\\
+\textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Liefert einen Enumerator über die Spielobjekte dieser Spielwelt.
 
 \section{Schnittstellen}
@@ -2174,14 +2174,14 @@ Liefert einen Enumerator über die Spielobjekte dieser Spielwelt.
 Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
 
 
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Challenge} \varname{challenge})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Challenge} \varname{challenge})}\newline\newline
 Speichert eine Challenge.
 ~\\\\
-\textbf{\keyword{public} \ptype{Challenge} \varname{Load} (\ptype{String} \varname{filename})}\\~\\
+\textbf{\keyword{public} \ptype{Challenge} \varname{Load} (\ptype{String} \varname{filename})}\newline\newline
 Lädt eine Challenge.
 ~\\\\
-\textbf{\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\\~\\
+\textbf{\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\newline\newline
 Lädt die Metadaten einer Challenge.
 
 \subsection{Schnittstelle IGameObject}
@@ -2194,23 +2194,23 @@ Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz au
 Game befindet, sowie Informationen zu dem Game.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{GameObjectInfo} \varname{Info}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{GameObjectInfo} \varname{Info}}\newline\newline
 Informationen über das Spielobjekt, wie z.B. die Position.
 ~\\\\
-\textbf{\keyword{public} \ptype{World} \varname{World}}\\~\\
+\textbf{\keyword{public} \ptype{World} \varname{World}}\newline\newline
 Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\newline\newline
 Die Mitte des Spielobjektes im 3D-Raum.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\newline\newline
 Zeichnet das Spielobjekt.
 ~\\\\
-\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})}\\~\\
+\textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})}\newline\newline
 Überprüft, ob der Mausstrahl das Spielobjekt schneidet.
 
 \subsection{Schnittstelle IGameScreenComponent}
@@ -2222,14 +2222,14 @@ Zeichnet das Spielobjekt.
 Eine Schnittstelle für eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{DisplayLayer} \varname{Index}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{DisplayLayer} \varname{Index}}\newline\newline
 Die Zeichen- und Eingabepriorität.
 ~\\\\
-\textbf{\keyword{public} \ptype{GameScreen} \varname{Screen}}\\~\\
+\textbf{\keyword{public} \ptype{GameScreen} \varname{Screen}}\newline\newline
 Der zugewiesene Spielzustand.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{time})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{time})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
 
 \subsection{Schnittstelle IJunction}
@@ -2241,11 +2241,11 @@ Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
 Repräsentiert einen Übergang zwischen zwei Kanten.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Edge} \varname{EdgeFrom}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Edge} \varname{EdgeFrom}}\newline\newline
 Die Kante vor dem Übergang.
 ~\\\\
-\textbf{\keyword{public} \ptype{Edge} \varname{EdgeTo}}\\~\\
+\textbf{\keyword{public} \ptype{Edge} \varname{EdgeTo}}\newline\newline
 Die Kante nach dem Übergang.
 
 \subsection{Schnittstelle IKeyEventListener}
@@ -2257,17 +2257,17 @@ Die Kante nach dem Übergang.
 Eine Schnittstelle, die von Klassen implementiert wird, welche auf Tastatureingaben reagieren.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{DisplayLayer} \varname{Index}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{DisplayLayer} \varname{Index}}\newline\newline
 Die Eingabepriorität.
 ~\\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{IsKeyEventEnabled}}\\~\\
+\textbf{\keyword{public} \ptype{Boolean} \varname{IsKeyEventEnabled}}\newline\newline
 Zeigt an, ob die Klasse zur Zeit auf Tastatureingaben reagiert.
 ~\\\\
-\textbf{\keyword{public} \ptype{List$<$Keys$>$} \varname{ValidKeys}}\\~\\
+\textbf{\keyword{public} \ptype{List$<$Keys$>$} \varname{ValidKeys}}\newline\newline
 Die Tasten, auf die die Klasse reagiert.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Die Reaktion auf eine Tasteneingabe.
 
 \subsection{Schnittstelle IKnotIO}
@@ -2279,17 +2279,17 @@ Die Reaktion auf eine Tasteneingabe.
 Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten implementiert werden müssen.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{IEnumerable$<$string$>$} \varname{FileExtensions}}\newline\newline
 Aufzählung der Dateierweiterungen.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{Knot} \varname{knot})}\newline\newline
 Speichert einen Knoten.
 ~\\\\
-\textbf{\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})}\\~\\
+\textbf{\keyword{public} \ptype{Knot} \varname{Load} (\ptype{String} \varname{filename})}\newline\newline
 Lädt einen Knoten.
 ~\\\\
-\textbf{\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\\~\\
+\textbf{\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\newline\newline
 Lädt die Metadaten eines Knotens.
 
 \subsection{Schnittstelle IMouseEventListener}
@@ -2301,20 +2301,20 @@ Lädt die Metadaten eines Knotens.
 Eine Schnittstelle, die von Klassen implementiert wird, die auf Maus-Klicks reagieren.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{DisplayLayer} \varname{Index}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{DisplayLayer} \varname{Index}}\newline\newline
 Die Eingabepriorität.
 ~\\\\
-\textbf{\keyword{public} \ptype{Boolean} \varname{IsMouseEventEnabled}}\\~\\
+\textbf{\keyword{public} \ptype{Boolean} \varname{IsMouseEventEnabled}}\newline\newline
 Ob die Klasse zur Zeit auf Mausklicks reagiert.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{Rectangle} \varname{Bounds} ()}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{Rectangle} \varname{Bounds} ()}\newline\newline
 Die Ausmaße des von der Klasse repräsentierten Objektes.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{OnLeftClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Die Reaktion auf einen Linksklick.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Die Reaktion auf einen Rechtsklick.
 
 \subsection{Schnittstelle IRenderEffect}
@@ -2326,24 +2326,24 @@ Die Reaktion auf einen Rechtsklick.
 Stellt eine Schnittstelle für Klassen bereit, die Rendereffekte ermöglichen.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{RenderTarget2D} \varname{RenderTarget}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{RenderTarget2D} \varname{RenderTarget}}\newline\newline
 Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
 weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
-\paragraph{Methoden:}\mbox{} \\\\
-\textbf{\keyword{public} \ptype{void} \varname{Begin} (\ptype{GameTime})}\\~\\
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Begin} (\ptype{GameTime})}\newline\newline
 In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stapel gesichert
 und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{End} (\ptype{GameTime})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{End} (\ptype{GameTime})}\newline\newline
 Das auf dem Stapel gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
 das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
 auf dieses ubergeordnete Rendertarget gezeichnet.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{model})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{model})}\newline\newline
 Zeichnet das übergebene 3D-Modell auf das Rendertarget.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{model})}\\~\\
+\textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{model})}\newline\newline
 Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
 BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
 ein anderer Shader zugewiesen werden.

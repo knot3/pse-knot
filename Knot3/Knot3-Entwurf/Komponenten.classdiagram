@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="ea5cbf30-c01f-430a-b9d6-c8922c9c6c95" name="GameComponents" linkedPackageId="ce6b49cb-1a0b-4fa3-9523-53ad8e325153" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="ea5cbf30-c01f-430a-b9d6-c8922c9c6c95" name="GameComponents" linkedPackageId="ce6b49cb-1a0b-4fa3-9523-53ad8e325153" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="8e963b2f-7c46-4613-90cf-ccf3339e561b">
       <elementDefinition Id="762fa75e-6484-459f-ae46-2f2757fb0a80" />
@@ -847,7 +847,7 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="ab6e95fe-95bb-449e-85bc-3eb15132fb62" name="DrawableGameStateComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="ab6e95fe-95bb-449e-85bc-3eb15132fb62" name="DrawableGameScreenComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="dba30e3b-0c8e-438c-bc11-4e6b352fc29a" name="method" profile="CSharpProfile">
                 <elementDefinition Id="e1b1cd7a-9339-4b69-8179-0f119523acac" />
@@ -894,16 +894,16 @@
             <elementDefinition Id="49c00fab-e36e-4ce2-8ff0-fb6ca1dd9dd9" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c1b51ae5-18a1-406a-afe5-2f5050009ccd" name="screen" direction="In" isUnique="false">
-                  <elementDefinition Id="f7cfbfb9-1c17-4403-b53c-199bc5062894" />
+                <parameter Id="28c0aff2-8c55-47d1-b9dd-0985be56b859" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="75d04aa9-f1de-4b19-ac0a-1cf6835ddb72" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" LastKnownName="GameScreen" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a98a35d6-dd34-4c27-842a-6786f1cbe7cf" name="index" direction="In" isUnique="false">
-                  <elementDefinition Id="16775391-38f6-4716-935a-625941161948" />
+                <parameter Id="70e1512c-8e24-47b0-a1c6-5a815e2ef5a2" name="index" direction="In" isUnique="false">
+                  <elementDefinition Id="2ca42c43-33f2-4983-88e3-2e2b17f7a765" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="d7352e32-e6ce-48f4-af5f-ed6017eaac70" LastKnownName="DisplayLayer" />
                   </type_NamedElement>
@@ -1148,7 +1148,7 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="f6b5310f-e433-4479-8b91-f21426d53617" name="GameStateComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="f6b5310f-e433-4479-8b91-f21426d53617" name="GameScreenComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="a7289f0e-e066-4b01-83a5-a697b2927439" name="method" profile="CSharpProfile">
                 <elementDefinition Id="5225be81-3082-4a44-9d91-066578f274bd" />
@@ -1195,16 +1195,16 @@
             <elementDefinition Id="828e6417-0908-426c-98a7-8a8206b2c546" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="18741a3d-3195-4ef2-bb4d-ec797363577c" name="screen" direction="In" isUnique="false">
-                  <elementDefinition Id="f73a01b6-3bd1-4410-bbe8-9bbe3fa29517" />
+                <parameter Id="792ffcd4-938e-4d9b-a2cb-9ae8c75dfcff" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="4d980299-cc3b-4f92-90f1-06bdb0c9388c" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="db0a7181-36e5-4f33-b1dc-6971b5cd9875" LastKnownName="GameScreen" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="e09a751c-9257-4d61-98f7-f4c567ef5b8a" name="index" direction="In" isUnique="false">
-                  <elementDefinition Id="059a9811-c599-4fd7-8648-100519ac02da" />
+                <parameter Id="e3f3dc17-e296-4a9f-a498-bd7a56299bbe" name="index" direction="In" isUnique="false">
+                  <elementDefinition Id="17273287-2263-45ca-b2b0-307728ec1f3f" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="d7352e32-e6ce-48f4-af5f-ed6017eaac70" LastKnownName="DisplayLayer" />
                   </type_NamedElement>
