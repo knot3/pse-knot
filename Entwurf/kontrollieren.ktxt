@@ -8,22 +8,6 @@ Das Men ¨, das Schaltfl ¨chen enth ¨lt.
 public Knot (KnotMetaData meta, IEnumerable¡Edge¿ edges)
 
 
---- ChallengeLoadScreen, ChallengeModeScreen
-
-// Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
-public class Screens.ChallengeLoadScreen : MenuScreen
-  Attributes:
-  Methods:
-    // Wird für jeden Frame aufgerufen.
-    + Update (GameTime time) : void
-    // Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
-    + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // Erzeugt ein neues ChallengeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-    + ChallengeModeScreen (Knot3Game game) : void
-
---- Fehlernder Konstruktor
-
-public class Screens.ChallengeModeScreen : GameScreen
 
 --- Fehlender Klasseninhalt
 
@@ -32,26 +16,7 @@ public class KnotData.Circle :
   Attributes:
   Methods:
 
---- Fehlender Konstruktor
 
-public class Widgets.ColorPicker : Widget
-
-
---- Wie ist das in C# mit default-Konstruktoren? Gibts da sowas?
-
-
---- Fehlender Konstruktor
-
-public class Screens.CreativeModeScreen : GameScreen
-
---- Fehlender Konstruktor
-
-public class Screens.CreditsScreen : MenuScreen
-
-
---- nicht fertig
-
-public class Widgets.DropDownEntry :
 
 --- fehlender Konstruktor
 

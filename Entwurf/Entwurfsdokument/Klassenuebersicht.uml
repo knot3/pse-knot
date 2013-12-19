@@ -164,8 +164,9 @@ public class Screens.ChallengeLoadScreen : MenuScreen
     + Update (GameTime time) : void
     // Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // Erzeugt ein neues ChallengeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-    + ChallengeModeScreen (Knot3Game game) : void
+    // Erstellt eine neue Instanz eines ChallengeLoadScreen-Objekts und
+    // initialisiert diese mit einem Knot3Game-Objekt.
+    + ChallengeLoadScreen (Knot3Game game) : void
 
 // Enthält Metadaten zu einer Challenge.
 public class KnotData.ChallengeMetaData : 
@@ -212,6 +213,9 @@ public class Screens.ChallengeModeScreen : GameScreen
     + Update (GameTime time) : void
     // Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
+    // Erstellt eine neue Instanz eines ChallengeModeScreen-Objekts und
+    // initialisiert diese mit einem Knot3Game-Objekt.
+    + ChallengeModeScreen (Knot3Game game) : void
 
 // Ein Menüeintrag, der einen Auswahlkasten darstellt.
 public class Widgets.CheckBoxItem : MenuItem
@@ -231,6 +235,9 @@ public class KnotData.Circle :
 // Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
 public enum Core.ClickState
     // Steht für einen ungültigen oder einen undefinierten Zustand. Keine Reihenfolge.
+    // Kein gültiger oder ein undefinierter Zustand.
+    // Keine Reihenfolge.
+    // 
     None=0
     // Ein Einzelklick.
     SingleClick=1
@@ -251,6 +258,8 @@ public class Widgets.ColorPicker : Widget
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
     // Bei einem Rechtsklick geschieht nichts.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
+    // 
+    + ColorPicker (Color default) : void
 
 // Ein Menüeintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
 public class Widgets.ColorPickItem : MenuItem
@@ -329,6 +338,8 @@ public class Screens.CreativeModeScreen : GameScreen
     + Update (GameTime time) : void
     // Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime time) : void
+    // 
+    + CreativeModeScreen (Knot3Game game) : void
 
 // Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
 public class Screens.CreditsScreen : MenuScreen
@@ -338,6 +349,8 @@ public class Screens.CreditsScreen : MenuScreen
     + Update (GameTime time) : void
     // Fügt das Menü mit den Mitwirkenden in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + CreditsScreen (Knot3Game game) : void
 
 // Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
 public class Widgets.Dialog : Widget
@@ -380,6 +393,7 @@ public enum KnotData.Direction
 
 // Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
 public enum Core.DisplayLayer
+    // Steht für einen ungültigen oder einen undefinierten Zustand. Keine Reihenfolge.
     // Kein gültiger oder ein undefinierter Zustand.
     // Keine Reihenfolge.
     // 
@@ -433,7 +447,11 @@ public class Widgets.DropDownEntry :
   Attributes:
     // Der Text des Eintrags.
     + Text : String
+    // 
+    + OnSelect : Action
   Methods:
+    // 
+    + DropDownEntry (String text, Action onSelect) : void
 
 // Ein Menüeintrag, der den ausgewählten Wert anzeigt und bei einem Linksklick ein Dropdown-Menü zur Auswahl eines neuen Wertes ein- oder ausblendet.
 public class Widgets.DropDownMenuItem : MenuItem
@@ -775,8 +793,10 @@ public enum Widgets.ItemState
     Selected=1
     // Die Maus wurde direkt über den Menüeintrag navigiert und verweilt dort.
     Hovered=2
+    // Steht für einen ungültigen oder einen undefinierten Zustand. Keine Reihenfolge.
     // Kein gültiger oder ein undefinierter Zustand.
     // Keine Reihenfolge.
+    // 
     None=0
 
 // Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Option als Zeichenkette speichert.
@@ -1129,7 +1149,7 @@ public class KnotData.Node :
     // 
     + ToVector () : Vector3
     // Erzeugt eine neue Instanz eines Node-Objekts und initialisiert diese mit Werten
-	// für die x-, y- und z-Koordinate.
+    // für die x-, y- und z-Koordinate.
     + Node (Integer x, Integer y, Integer z) : void
 
 // Eine Zuordnung zwischen Kanten und Kantenübergänge.
@@ -1392,8 +1412,8 @@ public class Widgets.SliderItem : MenuItem
     + Step : Integer
   Methods:
     // Erzeugt eine neue Instanz eines SliderItem-Objekts und initialisiert diese
-	// mit dem zugehörigen GameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
-	// einem minimalen einstellbaren Wert, einem maximalen einstellbaren Wert und einem Standardwert Pflicht.
+    // mit dem zugehörigen GameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
+    // einem minimalen einstellbaren Wert, einem maximalen einstellbaren Wert und einem Standardwert Pflicht.
     + SliderItem (GameScreen screen, DisplayLayer drawOrder, Integer max, Integer min, Integer step, Integer value) : void
 
 // Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardmäßig zugewiesenen
@@ -1426,8 +1446,8 @@ public class Widgets.TextInputDialog : ConfirmDialog
     + InputText : String
   Methods:
     // Erzeugt eine neue Instanz eines TextInputDialog-Objekts und ordnet dieser einen GameScreen zu.
-	// Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenfolge
-	// für den eingeblendeten Text und eine Zeichenkette für voreingestellten Text (welche leer sein darf) Pflicht.
+    // Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenfolge
+    // für den eingeblendeten Text und eine Zeichenkette für voreingestellten Text (welche leer sein darf) Pflicht.
     + TextInputDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text, String inputText) : void
 
 // Eine Einführung in das Spielen von Challenges.

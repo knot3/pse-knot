@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="a18a71a1-9363-4899-aab8-364f81ffffa7"
   name="Widgets" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -5577,6 +5577,31 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="40675d39-4e7d-4552-9e70-cc7c99cd9d0f"
+            name="ColorPicker"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="85fddf87-84df-4490-a4a3-2e9ddd34c42b"
+                  name="default"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="8c01338a-807f-45aa-ad96-802ff2e82de1"
+                      LastKnownName="Color"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -6168,41 +6193,41 @@
         isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance
-            Id="a5b6061a-4f25-4e4c-b486-997787527f29"
+            Id="94d89527-75bd-43df-9790-c37720b6b6a4"
             name="class"
             profile="CSharpProfile">
             <propertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="5d010809-cc4d-4d89-aef0-cff64f5ddee2">
+                Id="875c3355-7396-41b7-84fd-63da65deaaea">
                 <propertyInstance
-                  Id="76db890e-8d76-47bd-b110-2f23a215228e"
+                  Id="e3984237-692c-4049-9da6-b51968d9809d"
                   name="ClrAttributes" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="61b66b06-ae48-4e52-9200-ecc6ecd6fd7e">
+                Id="987b24f2-2f5a-46b6-a19b-05cf6d85f581">
                 <propertyInstance
-                  Id="8908e837-38a9-47d0-8975-bce3fb6a6a74"
+                  Id="a6dc8bd1-346d-4675-8cff-7903a3349845"
                   name="IsPartial"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="ffc287c0-b5af-41ff-a6da-dcaad9c5a3ac">
+                Id="870e55ae-f56c-4a66-824b-fc348ee881b6">
                 <propertyInstance
-                  Id="ae2e03cb-8230-4b85-bf5d-14f4368d2317"
+                  Id="986fa4ed-4aab-4e32-b92d-14c0bfc75881"
                   name="IsStatic"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="dbb82139-cbce-47d6-ab84-b02f536a1ac1">
+                Id="a81d0f4c-fb68-42ea-9ff6-e6053e44c629">
                 <propertyInstance
-                  Id="bb3945f4-8487-4421-82fb-1411da29baf6"
+                  Id="4c96942b-2768-4bcf-bf9e-fd5f68855299"
                   name="IsUnsafe"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="7de2c743-6b33-460e-8b69-f155d108d769">
+                Id="f4895e89-6a33-40b7-b1b6-dfc0c6323211">
                 <propertyInstance
-                  Id="2b91a975-42ff-4269-870a-ef995235a946"
+                  Id="5f16ba53-c48e-45ec-82e9-458bf90107ef"
                   name="PackageVisibility"
                   value="internal" />
               </stereotypeInstanceHasPropertyInstances>
@@ -6285,7 +6310,66 @@
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="05c5b5ea-e877-4877-add2-624df79c6236"
+            name="OnSelect"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="49d9005d-774f-4688-ab97-cc54a2486c0f"
+                LastKnownName="Action"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="4c7a3762-6c12-4f98-bf26-b723f1ba930d"
+            name="DropDownEntry"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d2144948-f204-4c5a-a10c-a4204f8f7c9a"
+                  name="text"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6e4af468-f742-4201-bbb1-c81695be0f7a"
+                  name="onSelect"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="49d9005d-774f-4688-ab97-cc54a2486c0f"
+                      LastKnownName="Action"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>

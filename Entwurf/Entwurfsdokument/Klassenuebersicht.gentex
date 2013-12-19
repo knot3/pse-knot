@@ -273,15 +273,16 @@ Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
 Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
 
 
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{ChallengeLoadScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+Erstellt eine neue Instanz eines ChallengeLoadScreen-Objekts und
+initialisiert diese mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\\~\\
 Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
-~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{ChallengeModeScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
-Erzeugt ein neues ChallengeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 
 \subsection{Klasse ChallengeMetaData}
 \begin{wrapfigure}{r}{9cm}
@@ -350,6 +351,10 @@ Der Undo-Stack.
 ~\\\\
 \textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Redo}}\\~\\
 Der Redo-Stack.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{ChallengeModeScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+Erstellt eine neue Instanz eines ChallengeModeScreen-Objekts und
+initialisiert diese mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -388,6 +393,9 @@ Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farbe
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{Color} \varname{Color}}\\~\\
 Die ausgewählte Farbe.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{ColorPicker} (\ptype{Color} \varname{default})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\\~\\
 Reagiert auf Tastatureingaben.
@@ -525,6 +533,9 @@ Der Undo-Stack.
 ~\\\\
 \textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Redo}}\\~\\
 Der Redo-Stack.
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{CreativeModeScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
+
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
 Wird für jeden Frame aufgerufen.
@@ -540,6 +551,9 @@ Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
 \paragraph{Beschreibung:}\mbox{}\\\\
 Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
 
+
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{CreditsScreen} (\ptype{Knot3Game} \varname{game})}\\~\\
 
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\\~\\
@@ -635,6 +649,12 @@ Repräsentiert einen Eintrag in einem Dropdown-Menü.
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{String} \varname{Text}}\\~\\
 Der Text des Eintrags.
+~\\\\
+\textbf{\keyword{public} \ptype{Action} \varname{OnSelect}}\\~\\
+
+\paragraph{Konstruktoren:}\mbox{} \\\\
+\textbf{\keyword{public} \varname{DropDownEntry} (\ptype{String} \varname{text}, \ptype{Action} \varname{onSelect})}\\~\\
+
 
 \subsection{Klasse DropDownMenuItem}
 \begin{wrapfigure}{r}{9cm}
@@ -1525,7 +1545,8 @@ Zeichnet den Mauszeiger.
 
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{Node} (\ptype{Integer} \varname{x}, \ptype{Integer} \varname{y}, \ptype{Integer} \varname{z})}\\~\\
-
+Erzeugt eine neue Instanz eines Node-Objekts und initialisiert diese mit Werten
+für die x-, y- und z-Koordinate.
 \paragraph{Methoden:}\mbox{} \\\\
 \textbf{\keyword{public} \ptype{Vector3} \varname{ToVector} ()}\\~\\
 
@@ -1953,7 +1974,9 @@ Der maximale Wert.
 Schrittweite zwischen zwei einstellbaren Werten.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{SliderItem} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Integer} \varname{max}, \ptype{Integer} \varname{min}, \ptype{Integer} \varname{step}, \ptype{Integer} \varname{value})}\\~\\
-
+Erzeugt eine neue Instanz eines SliderItem-Objekts und initialisiert diese
+mit dem zugehörigen GameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
+einem minimalen einstellbaren Wert, einem maximalen einstellbaren Wert und einem Standardwert Pflicht.
 
 \subsection{Klasse StandardEffect}
 \begin{wrapfigure}{r}{9cm}
@@ -2008,7 +2031,9 @@ Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
 Der Text, der durch den Spieler eingegeben wurde.
 \paragraph{Konstruktoren:}\mbox{} \\\\
 \textbf{\keyword{public} \varname{TextInputDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text}, \ptype{String} \varname{inputText})}\\~\\
-
+Erzeugt eine neue Instanz eines TextInputDialog-Objekts und ordnet dieser einen GameScreen zu.
+Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenfolge
+für den eingeblendeten Text und eine Zeichenkette für voreingestellten Text (welche leer sein darf) Pflicht.
 
 \subsection{Klasse TutorialChallengeModeScreen}
 \begin{wrapfigure}{r}{9cm}
@@ -2331,6 +2356,7 @@ Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\ptype{None} \keyword{ = } \varname{0}}\\~\\
+Steht für einen ungültigen oder einen undefinierten Zustand. Keine Reihenfolge.
 Kein gültiger oder ein undefinierter Zustand.
 Keine Reihenfolge.
 
@@ -2378,6 +2404,7 @@ Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
 
 \paragraph{Eigenschaften:}\mbox{} \\\\
 \textbf{\ptype{None} \keyword{ = } \varname{0}}\\~\\
+Steht für einen ungültigen oder einen undefinierten Zustand. Keine Reihenfolge.
 Kein gültiger oder ein undefinierter Zustand.
 Keine Reihenfolge.
 
@@ -2439,6 +2466,7 @@ Ausgewählt.
 Die Maus wurde direkt über den Menüeintrag navigiert und verweilt dort.
 ~\\\\
 \textbf{\ptype{None} \keyword{ = } \varname{0}}\\~\\
+Steht für einen ungültigen oder einen undefinierten Zustand. Keine Reihenfolge.
 Kein gültiger oder ein undefinierter Zustand.
 Keine Reihenfolge.
 

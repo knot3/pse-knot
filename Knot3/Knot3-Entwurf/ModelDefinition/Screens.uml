@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="79631b17-f65f-4e0b-9d1f-dc9e121fb7b1"
   name="Screens" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -2786,6 +2786,31 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="c9338f87-c11b-4759-b58e-162c585cbc13"
+            name="CreativeModeScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="87d731ba-9b8b-41f3-91d2-c829a61a2598"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3684,6 +3709,81 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="e8b08741-1715-4f9f-89aa-d6440ae176b9"
+            name="ChallengeModeScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="eb312896-af81-4e9f-9843-04cc4e40dd5c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dbcf6f7f-9f75-4733-ba2c-8c562a3bb30f">
+                    <propertyInstance
+                      Id="828e3d12-748b-488f-837d-a8f83f7b0435"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ebf6931b-8842-4813-b1ab-48196d0d4703">
+                    <propertyInstance
+                      Id="9d10660d-79de-43a9-a3d0-36501427e5aa"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9364d7d6-2de7-46cd-8654-e10131e76e0e">
+                    <propertyInstance
+                      Id="0d419a9b-4733-4ca7-8836-1e65d36a4918"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15d92892-3a43-4e7b-8ff3-30ca2a92b10d">
+                    <propertyInstance
+                      Id="5ca146a6-a3cd-4843-b8e5-1c45ecf14518"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c463b743-dc75-46e5-9f0e-148c21564550">
+                    <propertyInstance
+                      Id="2fcaa954-deb2-4431-b021-f617d3598ee1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8cce7473-9286-43bd-ac47-96de0c1132af">
+                    <propertyInstance
+                      Id="83a4f929-0e14-4327-96d7-460f3d2209b7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6bacdfe4-bba8-4abd-9f44-6dad6ccdb792"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3914,7 +4014,7 @@
           </operation>
           <operation
             Id="d50218b3-8302-4b0f-8637-82a5bf76e421"
-            name="ChallengeModeScreen"
+            name="ChallengeLoadScreen"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -3973,7 +4073,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="37b5d538-4211-4ac0-bd6f-6ad5c491454e"
+                  Id="93b694a5-8755-4037-9363-aa50d3fd4831"
                   name="game"
                   direction="In"
                   isUnique="false">
@@ -5638,6 +5738,31 @@
                       Id="7146062a-e956-4346-8427-37640e8bf8a1"
                       LastKnownName="GameTime"
                       LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e243dfa7-3813-471e-b763-2b103dd34be9"
+            name="CreditsScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a0687193-1e67-4c43-9e22-afe41b4df372"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
