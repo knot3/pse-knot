@@ -481,87 +481,87 @@ Die Reaktion auf einen Rechtsklick.
 
 \subsection{Enumerationen}
 \subsubsection{Enumeration ClickState}
-\paragraph{Beschreibung:}\mbox{}\\\\
+\paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\ptype{None} \keyword{ = } \varname{0}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\ptype{None} \keyword{ = } \varname{0}}\newline\newline
 Wenn der Klickzustand nicht zugeordnet werden konnte. Undefiniert.
 ~\\\\
-\textbf{\ptype{SingleClick} \keyword{ = } \varname{1}}\\~\\
+\textbf{\ptype{SingleClick} \keyword{ = } \varname{1}}\newline\newline
 Ein Einzelklick.
 ~\\\\
-\textbf{\ptype{DoubleClick} \keyword{ = } \varname{2}}\\~\\
+\textbf{\ptype{DoubleClick} \keyword{ = } \varname{2}}\newline\newline
 Ein Doppelklick.
 ~\\\\
 
 \subsubsection{Enumeration DisplayLayer}
-\paragraph{Beschreibung:}\mbox{}\\\\
+\paragraph{Beschreibung:}\mbox{}\newline\newline
 Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\ptype{None} \keyword{ = } \varname{0}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\ptype{None} \keyword{ = } \varname{0}}\newline\newline
 Steht für die hinterste Ebene bei der Zeichenreihenfolge.
 ~\\\\
-\textbf{\ptype{Background} \keyword{ = } \varname{10}}\\~\\
+\textbf{\ptype{Background} \keyword{ = } \varname{10}}\newline\newline
 Steht für eine Ebene hinter der Spielwelt, z.B. um
 Hintergrundbilder darzustellen.
 ~\\\\
-\textbf{\ptype{GameWorld} \keyword{ = } \varname{20}}\\~\\
+\textbf{\ptype{GameWorld} \keyword{ = } \varname{20}}\newline\newline
 Steht für die Ebene in der die Spielwelt dargestellt wird.
 ~\\\\
-\textbf{\ptype{Dialog} \keyword{ = } \varname{30}}\\~\\
+\textbf{\ptype{Dialog} \keyword{ = } \varname{30}}\newline\newline
 Steht für die Ebene in der die Dialoge dargestellt werden.
 Dialoge werden vor der Spielwelt gezeichnet, damit der Spieler damit interagieren kann.
 ~\\\\
-\textbf{\ptype{Menu} \keyword{ = } \varname{40}}\\~\\
+\textbf{\ptype{Menu} \keyword{ = } \varname{40}}\newline\newline
 Steht für die Ebene in der Menüs gezeichnet werden. Menüs werden innerhalb von Dialogen angezeigt, müssen also davor gezeichnet werden, damit sie nicht vom Hintergrund des Dialogs verdeckt werden.
 ~\\\\
-\textbf{\ptype{MenuItem} \keyword{ = } \varname{50}}\\~\\
+\textbf{\ptype{MenuItem} \keyword{ = } \varname{50}}\newline\newline
 Steht für die Ebene in der Menüeinträge gezeichnet werden. Menüeinträge werden vor Menüs gezeichnet.
 ~\\\\
-\textbf{\ptype{SubMenu} \keyword{ = } \varname{60}}\\~\\
+\textbf{\ptype{SubMenu} \keyword{ = } \varname{60}}\newline\newline
 Steht für die Ebene in der Submenüs gezeichnet werden. Submenüs befinden sich in einer Ebene vor Menüeinträgen.
 ~\\\\
-\textbf{\ptype{SubMenuItem} \keyword{ = } \varname{70}}\\~\\
+\textbf{\ptype{SubMenuItem} \keyword{ = } \varname{70}}\newline\newline
 Steht für die Ebene in der Submenüeinträge gezeichnet werden. Submenüeinträge befinden sich in einer Ebene vor Submenüs.
 ~\\\\
-\textbf{\ptype{Overlay} \keyword{ = } \varname{80}}\\~\\
+\textbf{\ptype{Overlay} \keyword{ = } \varname{80}}\newline\newline
 Zum Anzeigen zusätzlicher Informationen bei der (Weiter-)Entwicklung oder beim Testen (z.B. ein FPS-Counter).
 ~\\\\
-\textbf{\ptype{Cursor} \keyword{ = } \varname{90}}\\~\\
+\textbf{\ptype{Cursor} \keyword{ = } \varname{90}}\newline\newline
 Die Maus ist das Hauptinteraktionswerkzeug, welches der Spieler
 ständig verwendet. Daher muss die Maus bei der Interaktion immer
 im Vordergrund sein. Cursor steht für die vorderste Ebene.
 ~\\\\
 
 \subsubsection{Enumeration InputAction}
-\paragraph{Beschreibung:}\mbox{}\\\\
+\paragraph{Beschreibung:}\mbox{}\newline\newline
 
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\ptype{None} \keyword{ = } \varname{0}}\\~\\
-
-~\\\\
-\textbf{\ptype{CameraTargetMove}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\ptype{None} \keyword{ = } \varname{0}}\newline\newline
 
 ~\\\\
-\textbf{\ptype{ArcballMove}}\\~\\
+\textbf{\ptype{CameraTargetMove}}\newline\newline
 
 ~\\\\
-\textbf{\ptype{FreeMouse}}\\~\\
+\textbf{\ptype{ArcballMove}}\newline\newline
 
 ~\\\\
-\textbf{\ptype{FirstPersonCameraMove}}\\~\\
+\textbf{\ptype{FreeMouse}}\newline\newline
 
 ~\\\\
-\textbf{\ptype{SelectedObjectMove}}\\~\\
+\textbf{\ptype{FirstPersonCameraMove}}\newline\newline
 
 ~\\\\
-\textbf{\ptype{SelectedObjectShadowMove}}\\~\\
+\textbf{\ptype{SelectedObjectMove}}\newline\newline
+
+~\\\\
+\textbf{\ptype{SelectedObjectShadowMove}}\newline\newline
 
 ~\\\\
 
@@ -2011,31 +2011,31 @@ Lädt die Metadaten eines Knotens.
 
 \subsection{Enumerationen}
 \subsubsection{Enumeration Direction}
-\paragraph{Beschreibung:}\mbox{}\\\\
+\paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
 Wird benutzt, damit keine ungültigen Kantenrichtungen angegeben werden können.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\ptype{Left} \keyword{ = } \varname{1}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\ptype{Left} \keyword{ = } \varname{1}}\newline\newline
 Links.
 ~\\\\
-\textbf{\ptype{Right} \keyword{ = } \varname{2}}\\~\\
+\textbf{\ptype{Right} \keyword{ = } \varname{2}}\newline\newline
 Rechts.
 ~\\\\
-\textbf{\ptype{Up} \keyword{ = } \varname{3}}\\~\\
+\textbf{\ptype{Up} \keyword{ = } \varname{3}}\newline\newline
 Hoch.
 ~\\\\
-\textbf{\ptype{Down} \keyword{ = } \varname{4}}\\~\\
+\textbf{\ptype{Down} \keyword{ = } \varname{4}}\newline\newline
 Runter.
 ~\\\\
-\textbf{\ptype{Forward} \keyword{ = } \varname{5}}\\~\\
+\textbf{\ptype{Forward} \keyword{ = } \varname{5}}\newline\newline
 Vorwärts.
 ~\\\\
-\textbf{\ptype{Backward} \keyword{ = } \varname{6}}\\~\\
+\textbf{\ptype{Backward} \keyword{ = } \varname{6}}\newline\newline
 Rückwärts.
 ~\\\\
-\textbf{\ptype{Zero} \keyword{ = } \varname{0}}\\~\\
+\textbf{\ptype{Zero} \keyword{ = } \varname{0}}\newline\newline
 Keine Richtung.
 ~\\\\
 
@@ -2485,50 +2485,50 @@ Ein Inputhandler, der Mauseingaben auf Widgets verarbeitet.
 \subsection{Schnittstellen}
 \subsection{Enumerationen}
 \subsubsection{Enumeration HorizontalAlignment}
-\paragraph{Beschreibung:}\mbox{}\\\\
+\paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine horizontale Ausrichtung.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\ptype{Left} \keyword{ = } \varname{0}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\ptype{Left} \keyword{ = } \varname{0}}\newline\newline
 Links.
 ~\\\\
-\textbf{\ptype{Center} \keyword{ = } \varname{1}}\\~\\
+\textbf{\ptype{Center} \keyword{ = } \varname{1}}\newline\newline
 Mittig.
 ~\\\\
-\textbf{\ptype{Right} \keyword{ = } \varname{2}}\\~\\
+\textbf{\ptype{Right} \keyword{ = } \varname{2}}\newline\newline
 Rechts.
 ~\\\\
 
 \subsubsection{Enumeration ItemState}
-\paragraph{Beschreibung:}\mbox{}\\\\
+\paragraph{Beschreibung:}\mbox{}\newline\newline
 Der Zustand eines Menüeintrags.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\ptype{Selected} \keyword{ = } \varname{1}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\ptype{Selected} \keyword{ = } \varname{1}}\newline\newline
 Ausgewählt.
 ~\\\\
-\textbf{\ptype{Hovered} \keyword{ = } \varname{2}}\\~\\
+\textbf{\ptype{Hovered} \keyword{ = } \varname{2}}\newline\newline
 Die Maus wurde direkt über den Menüeintrag navigiert und verweilt dort.
 ~\\\\
-\textbf{\ptype{None} \keyword{ = } \varname{0}}\\~\\
+\textbf{\ptype{None} \keyword{ = } \varname{0}}\newline\newline
 Ein undefinierter Zustand.
 ~\\\\
 
 \subsubsection{Enumeration VerticalAlignment}
-\paragraph{Beschreibung:}\mbox{}\\\\
+\paragraph{Beschreibung:}\mbox{}\newline\newline
 Die vertikale Ausrichtung.
 
 
-\paragraph{Eigenschaften:}\mbox{} \\\\
-\textbf{\ptype{Top} \keyword{ = } \varname{1}}\\~\\
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+\textbf{\ptype{Top} \keyword{ = } \varname{1}}\newline\newline
 Oben.
 ~\\\\
-\textbf{\ptype{Center} \keyword{ = } \varname{0}}\\~\\
+\textbf{\ptype{Center} \keyword{ = } \varname{0}}\newline\newline
 Mittig.
 ~\\\\
-\textbf{\ptype{Bottom} \keyword{ = } \varname{2}}\\~\\
+\textbf{\ptype{Bottom} \keyword{ = } \varname{2}}\newline\newline
 Unten.
 ~\\\\
 
