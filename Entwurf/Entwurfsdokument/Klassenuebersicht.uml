@@ -291,6 +291,7 @@ public class Widgets.ConfirmDialog : Dialog
   Methods:
     // Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
     // Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
+    // [base=screen, drawOrder, title, text]
     + ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text) : void
 
 // Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
@@ -368,6 +369,7 @@ public class Widgets.Dialog : Widget, IKeyEventListener, IMouseEventListener
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
     // Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
     // Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
+    // [base=screen, drawOrder]
     + Dialog (GameScreen screen, DisplayLayer drawOrder, String title, String text) : void
 
 // Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
@@ -1287,6 +1289,7 @@ public class GameObjects.PipeModel : GameModel
     // Prüft, ob der angegebene Mausstrahl das 3D-Modell schneidet.
     + Intersects (Ray ray) : GameObjectDistance
     // Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und den angegebenen Spielinformationen.
+    // [base=screen, info]
     + PipeModel (GameScreen screen, PipeModelInfo info) : void
 
 // Enthält Informationen über ein 3D-Modell, das eine Kante darstellt.

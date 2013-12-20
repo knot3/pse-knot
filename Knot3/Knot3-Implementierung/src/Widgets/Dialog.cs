@@ -46,8 +46,10 @@ namespace Widgets
         /// <summary>
         /// Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
+        /// [base=screen, drawOrder]
         /// </summary>
         public Dialog (GameScreen screen, DisplayLayer drawOrder, string title, string text)
+            : base(screen, drawOrder)
         {
             throw new System.NotImplementedException();
         }

@@ -40,8 +40,10 @@ namespace GameObjects
 
         /// <summary>
         /// Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und den angegebenen Spielinformationen.
+        /// [base=screen, info]
         /// </summary>
         public PipeModel (GameScreen screen, PipeModelInfo info)
+            : base(screen, info)
         {
             throw new System.NotImplementedException();
         }
