@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein neues PrinterIO-Objekt.
         /// </summary>
-        public  PrinterIO ()
+        public  PrinterIO ( )
         {
             throw new System.NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace KnotData
         /// <summary>
         /// Gibt eine IOException zurück.
         /// </summary>
-        public virtual Knot Load (String filename)
+        public virtual Knot Load (string filename)
         {
             throw new System.NotImplementedException();
         }
@@ -68,7 +68,7 @@ namespace KnotData
         /// <summary>
         /// Gibt eine IOException zurück.
         /// </summary>
-        public virtual KnotMetaData LoadMetaData (String filename)
+        public virtual KnotMetaData LoadMetaData (string filename)
         {
             throw new System.NotImplementedException();
         }

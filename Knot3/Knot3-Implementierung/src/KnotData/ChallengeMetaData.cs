@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// Der Name der Challenge.
         /// </summary>
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
@@ -51,7 +51,7 @@ namespace KnotData
         /// <summary>
         /// Der Dateiname, aus dem die Metadaten der Challenge gelesen wurden oder in den sie abgespeichert werden.
         /// </summary>
-        public String Filename { get; set; }
+        public string Filename { get; set; }
 
         /// <summary>
         /// Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
@@ -65,7 +65,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metadaten des Ausgangs- und Referenzknotens.
         /// </summary>
-        public  ChallengeMetaData (String name, KnotMetaData start, KnotMetaData target, String filename, IChallengeIO format)
+        public  ChallengeMetaData (string name, KnotMetaData start, KnotMetaData target, string filename, IChallengeIO format)
         {
             throw new System.NotImplementedException();
         }

@@ -60,7 +60,7 @@ namespace Screens
         /// die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
         /// Bildschirmauflösung und wechselt in den Vollbildmodus.
         /// </summary>
-        public  Knot3Game ()
+        public  Knot3Game ( )
         {
             throw new System.NotImplementedException();
         }
@@ -80,7 +80,7 @@ namespace Screens
         /// <summary>
         /// Initialisiert die Attribute dieser Klasse.
         /// </summary>
-        public virtual void Initialize ()
+        public virtual void Initialize ( )
         {
             throw new System.NotImplementedException();
         }
@@ -88,7 +88,7 @@ namespace Screens
         /// <summary>
         /// Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherbereinigung übernommen.
         /// </summary>
-        public virtual void UnloadContent ()
+        public virtual void UnloadContent ( )
         {
             throw new System.NotImplementedException();
         }

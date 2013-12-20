@@ -83,7 +83,7 @@ namespace Widgets
         /// <summary>
         /// Die Ausmaße des grafischen Elements
         /// </summary>
-        public virtual Rectangle BoundingBox ()
+        public virtual Rectangle BoundingBox ( )
         {
             throw new System.NotImplementedException();
         }

@@ -45,7 +45,7 @@ namespace Core
         /// <summary>
         /// Die Ausmaße des von der Klasse repräsentierten Objektes.
         /// </summary>
-        public virtual Rectangle Bounds ()
+        public virtual Rectangle Bounds ( )
         {
             throw new System.NotImplementedException();
         }

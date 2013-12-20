@@ -39,7 +39,7 @@ namespace KnotData
         /// ob er bereits einen Wert enthält oder \glqq null\grqq~ist.
         /// Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
         /// </summary>
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Das Format, aus dem die Metadaten geladen wurden.
@@ -59,7 +59,7 @@ namespace KnotData
         /// Falls die Metadaten aus einer Datei eingelesen wurden, enthält dieses Attribut den Dateinamen,
         /// sonst \glqq null\grqq.
         /// </summary>
-        public String Filename { get; set; }
+        public string Filename { get; set; }
 
         #endregion
 
@@ -70,7 +70,7 @@ namespace KnotData
         /// und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
         /// Zusätzlich wird der Dateiname oder das Speicherformat angegeben, aus dem die Metadaten gelesen wurden.
         /// </summary>
-        public  KnotMetaData (String name, Func<Integer> countEdges, IKnotIO format, String filename)
+        public  KnotMetaData (string name, Func<Integer> countEdges, IKnotIO format, string filename)
         {
             throw new System.NotImplementedException();
         }
@@ -79,7 +79,7 @@ namespace KnotData
         /// Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
         /// und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
         /// </summary>
-        public  KnotMetaData (String name, Func<Integer> countEdges)
+        public  KnotMetaData (string name, Func<Integer> countEdges)
         {
             throw new System.NotImplementedException();
         }

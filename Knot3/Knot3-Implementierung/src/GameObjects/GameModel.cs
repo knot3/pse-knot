@@ -87,7 +87,7 @@ namespace GameObjects
         /// <summary>
         /// Gibt die Mitte des 3D-Modells zurück.
         /// </summary>
-        public virtual Vector3 Center ()
+        public virtual Vector3 Center ( )
         {
             throw new System.NotImplementedException();
         }

@@ -31,7 +31,7 @@ namespace GameObjects
         /// <summary>
         /// Der Dateiname des Modells.
         /// </summary>
-        public String Modelname { get; set; }
+        public string Modelname { get; set; }
 
         /// <summary>
         /// Die Rotation des Modells.
@@ -51,7 +51,7 @@ namespace GameObjects
         /// Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
         /// Dateiname, Rotation und Skalierung.
         /// </summary>
-        public  GameModelInfo (String modelname, Angles3 rotation, Vector3 scale)
+        public  GameModelInfo (string modelname, Angles3 rotation, Vector3 scale)
         {
             throw new System.NotImplementedException();
         }

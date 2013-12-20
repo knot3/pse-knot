@@ -37,12 +37,12 @@ namespace Widgets
         /// <summary>
         /// Die Zeichenreihenfolge.
         /// </summary>
-        public Integer ItemOrder { get; set; }
+        public int ItemOrder { get; set; }
 
         /// <summary>
         /// Der Anzeigetext der Schaltfläche.
         /// </summary>
-        public String Text { get; set; }
+        public string Text { get; set; }
 
         #endregion
 
@@ -67,7 +67,7 @@ namespace Widgets
         /// <summary>
         /// Reaktionen auf Tasteneingaben.
         /// </summary>
-        public virtual void OnKeyEvent ()
+        public virtual void OnKeyEvent ( )
         {
             throw new System.NotImplementedException();
         }
@@ -75,7 +75,7 @@ namespace Widgets
         /// <summary>
         /// Gibt die Ausmaße des Eintrags zurück.
         /// </summary>
-        public virtual Rectangle Bounds ()
+        public virtual Rectangle Bounds ( )
         {
             throw new System.NotImplementedException();
         }

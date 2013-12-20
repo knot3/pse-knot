@@ -46,7 +46,7 @@ namespace GameObjects
         /// <summary>
         /// Die Mitte des Spielobjektes im 3D-Raum.
         /// </summary>
-        public virtual Vector3 Center ()
+        public virtual Vector3 Center ( )
         {
             throw new System.NotImplementedException();
         }

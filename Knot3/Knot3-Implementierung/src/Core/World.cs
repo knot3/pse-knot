@@ -83,7 +83,7 @@ namespace Core
         /// <summary>
         /// Liefert einen Enumerator über die Spielobjekte dieser Spielwelt.
         /// </summary>
-        public virtual IEnumerator GetEnumerator ()
+        public virtual IEnumerator GetEnumerator ( )
         {
             throw new System.NotImplementedException();
         }

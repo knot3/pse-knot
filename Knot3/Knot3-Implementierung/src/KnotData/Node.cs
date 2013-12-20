@@ -31,22 +31,22 @@ namespace KnotData
         /// <summary>
         /// 
         /// </summary>
-        public Integer X { get; set; }
+        public int X { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public Integer Y { get; set; }
+        public int Y { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public Integer Z { get; set; }
+        public int Z { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        private Integer scale { get; set; }
+        private int scale { get; set; }
 
         #endregion
 
@@ -56,7 +56,7 @@ namespace KnotData
         /// Erzeugt eine neue Instanz eines Node-Objekts und initialisiert diese mit Werten
         /// für die x-, y- und z-Koordinate.
         /// </summary>
-        public  Node (Integer x, Integer y, Integer z)
+        public  Node (int x, int y, int z)
         {
             throw new System.NotImplementedException();
         }
@@ -68,7 +68,7 @@ namespace KnotData
         /// <summary>
         /// 
         /// </summary>
-        public virtual Vector3 ToVector ()
+        public virtual Vector3 ToVector ( )
         {
             throw new System.NotImplementedException();
         }

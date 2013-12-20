@@ -52,7 +52,7 @@ namespace Widgets
         /// <summary>
         /// Reagiert auf Tastatureingaben.
         /// </summary>
-        public virtual void OnKeyEvent ()
+        public virtual void OnKeyEvent ( )
         {
             throw new System.NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace Widgets
         /// <summary>
         /// Gibt die Ausmaße des ColorPickers zurück.
         /// </summary>
-        public virtual Rectangle Bounds ()
+        public virtual Rectangle Bounds ( )
         {
             throw new System.NotImplementedException();
         }

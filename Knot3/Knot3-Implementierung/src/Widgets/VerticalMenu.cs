@@ -44,7 +44,7 @@ namespace Widgets
         /// <summary>
         /// Ordnet die Einträge vertikal an.
         /// </summary>
-        public virtual void AlignItems ()
+        public virtual void AlignItems ( )
         {
             throw new System.NotImplementedException();
         }

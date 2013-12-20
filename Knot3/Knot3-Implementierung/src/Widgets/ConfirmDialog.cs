@@ -41,7 +41,7 @@ namespace Widgets
         /// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
         /// </summary>
-        public  ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text)
+        public  ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text)
         {
             throw new System.NotImplementedException();
         }

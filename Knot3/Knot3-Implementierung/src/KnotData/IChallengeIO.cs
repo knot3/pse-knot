@@ -39,7 +39,7 @@ namespace KnotData
         /// <summary>
         /// Lädt eine Challenge.
         /// </summary>
-        public virtual Challenge Load (String filename)
+        public virtual Challenge Load (string filename)
         {
             throw new System.NotImplementedException();
         }
@@ -47,7 +47,7 @@ namespace KnotData
         /// <summary>
         /// Lädt die Metadaten einer Challenge.
         /// </summary>
-        public virtual ChallengeMetaData LoadMetaData (String filename)
+        public virtual ChallengeMetaData LoadMetaData (string filename)
         {
             throw new System.NotImplementedException();
         }

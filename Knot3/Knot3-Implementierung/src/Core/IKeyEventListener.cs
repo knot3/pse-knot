@@ -50,7 +50,7 @@ namespace Core
         /// <summary>
         /// Die Reaktion auf eine Tasteneingabe.
         /// </summary>
-        public virtual void OnKeyEvent ()
+        public virtual void OnKeyEvent ( )
         {
             throw new System.NotImplementedException();
         }

@@ -31,12 +31,12 @@ namespace Widgets
         /// <summary>
         /// Der Fenstertitel.
         /// </summary>
-        public String Title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Der angezeigte Text.
         /// </summary>
-        public String Text { get; set; }
+        public string Text { get; set; }
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace Widgets
         /// Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
         /// </summary>
-        public  Dialog (GameScreen screen, DisplayLayer drawOrder, String title, String text)
+        public  Dialog (GameScreen screen, DisplayLayer drawOrder, string title, string text)
         {
             throw new System.NotImplementedException();
         }
@@ -59,7 +59,7 @@ namespace Widgets
         /// Durch Drücken der Entertaste wird die ausgewählte Aktion ausgeführt. Durch Drücken der Escape-Taste wird der Dialog abgebrochen.
         /// Mit Hilfe der Pfeiltasten kann zwischen den Aktionen gewechselt werden.
         /// </summary>
-        public virtual void OnKeyEvent ()
+        public virtual void OnKeyEvent ( )
         {
             throw new System.NotImplementedException();
         }
@@ -67,7 +67,7 @@ namespace Widgets
         /// <summary>
         /// Gibt die Ausmaße des Dialogs zurück.
         /// </summary>
-        public virtual Rectangle Bounds ()
+        public virtual Rectangle Bounds ( )
         {
             throw new System.NotImplementedException();
         }

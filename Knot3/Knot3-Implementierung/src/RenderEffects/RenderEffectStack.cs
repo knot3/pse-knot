@@ -59,7 +59,7 @@ namespace RenderEffects
         /// <summary>
         /// Entfernt den obersten Rendereffekt vom Stapel.
         /// </summary>
-        public virtual IRenderEffect Pop ()
+        public virtual IRenderEffect Pop ( )
         {
             throw new System.NotImplementedException();
         }

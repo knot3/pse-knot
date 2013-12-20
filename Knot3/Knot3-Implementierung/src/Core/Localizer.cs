@@ -41,7 +41,7 @@ namespace Core
         /// Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
         /// aktuellen Sprache zurück, die dabei aus der Einstellungsdatei des Spiels gelesen wird.
         /// </summary>
-        public virtual String Localize (String text)
+        public virtual string Localize (string text)
         {
             throw new System.NotImplementedException();
         }

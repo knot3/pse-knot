@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// Der Text des Eintrags.
         /// </summary>
-        public String Text { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
         /// Die Aktion, welche bei der Auswahl ausgeführt wird.
@@ -47,7 +47,7 @@ namespace Widgets
         /// text bezeichnet den Text für den Eintrag,
         /// onSelect ist die Aktion, welche bei der Auswahl des Eintrags auzuführen ist (s. Action).
         /// </summary>
-        public  DropDownEntry (String text, Action onSelect)
+        public  DropDownEntry (string text, Action onSelect)
         {
             throw new System.NotImplementedException();
         }

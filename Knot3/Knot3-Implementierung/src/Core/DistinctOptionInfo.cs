@@ -36,7 +36,7 @@ namespace Core
         /// <summary>
         /// Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
         /// </summary>
-        public String Value { get; set; }
+        public string Value { get; set; }
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace Core
         /// Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
         /// angegebenen Abschnitt der angegebenen Einstellungsdatei.
         /// </summary>
-        public  DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile)
+        public  DistinctOptionInfo (string section, string name, string defaultValue, IEnumerable<string> validValues, ConfigFile configFile)
         {
             throw new System.NotImplementedException();
         }

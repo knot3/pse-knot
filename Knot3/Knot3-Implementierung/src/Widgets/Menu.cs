@@ -97,7 +97,7 @@ namespace Widgets
         /// <summary>
         /// Gibt einen Eintrag des Menüs zurück.
         /// </summary>
-        public virtual MenuItem GetItem (Integer i)
+        public virtual MenuItem GetItem (int i)
         {
             throw new System.NotImplementedException();
         }
@@ -105,7 +105,7 @@ namespace Widgets
         /// <summary>
         /// Gibt die Anzahl der Einträge des Menüs zurück.
         /// </summary>
-        public virtual Integer Size ()
+        public virtual int Size ( )
         {
             throw new System.NotImplementedException();
         }
@@ -113,7 +113,7 @@ namespace Widgets
         /// <summary>
         /// Gibt einen Enumerator über die Einträge des Menüs zurück.
         /// </summary>
-        public virtual IEnumerator GetEnumerator ()
+        public virtual IEnumerator GetEnumerator ( )
         {
             throw new System.NotImplementedException();
         }

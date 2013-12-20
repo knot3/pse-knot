@@ -61,7 +61,7 @@ namespace KnotData
         /// <summary>
         /// Der Name der Challenge.
         /// </summary>
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         #endregion
 
@@ -83,7 +83,7 @@ namespace KnotData
         /// <summary>
         /// Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
         /// </summary>
-        public virtual void AddToHighscore (String name, Integer time)
+        public virtual void AddToHighscore (string name, int time)
         {
             throw new System.NotImplementedException();
         }

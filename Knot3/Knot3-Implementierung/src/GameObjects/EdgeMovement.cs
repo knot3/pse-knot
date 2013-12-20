@@ -62,13 +62,13 @@ namespace GameObjects
         /// <summary>
         /// Gibt den Ursprung des Knotens zurück.
         /// </summary>
-        public virtual Vector3 Center ()
+        public virtual Vector3 Center ( )
         {
             throw new System.NotImplementedException();
         }
 
         /// <summary>
-        /// Gibt immer \glqq null\grqq zurück.
+        /// Gibt immer \glqq null\grqq~zurück.
         /// </summary>
         public virtual GameObjectDistance Intersects (Ray Ray)
         {
@@ -86,7 +86,7 @@ namespace GameObjects
         /// <summary>
         /// Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
         /// </summary>
-        public virtual IEnumerator GetEnumerator ()
+        public virtual IEnumerator GetEnumerator ( )
         {
             throw new System.NotImplementedException();
         }

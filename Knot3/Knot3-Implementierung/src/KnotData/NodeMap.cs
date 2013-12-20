@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// 
         /// </summary>
-        public Integer Scale { get; set; }
+        public int Scale { get; set; }
 
         #endregion
 
@@ -56,7 +56,7 @@ namespace KnotData
         /// <summary>
         /// Aktualisiert die Zuordnung, wenn sich die Kanten geändert haben.
         /// </summary>
-        public virtual void OnEdgesChanged ()
+        public virtual void OnEdgesChanged ( )
         {
             throw new System.NotImplementedException();
         }

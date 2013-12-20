@@ -62,7 +62,7 @@ namespace KnotData
         /// <summary>
         /// Gibt die Richtung als normalisierten Vektor3 zurück.
         /// </summary>
-        public virtual Vector3 Get3DDirection ()
+        public virtual Vector3 Get3DDirection ( )
         {
             throw new System.NotImplementedException();
         }

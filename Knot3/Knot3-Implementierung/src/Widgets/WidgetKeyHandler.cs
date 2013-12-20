@@ -31,7 +31,7 @@ namespace Widgets
         /// <summary>
         /// !!!
         /// </summary>
-        public virtual void Update ()
+        public virtual void Update ( )
         {
             throw new System.NotImplementedException();
         }

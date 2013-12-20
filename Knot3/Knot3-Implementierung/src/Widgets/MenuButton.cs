@@ -42,7 +42,7 @@ namespace Widgets
         /// Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche
         /// und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
         /// </summary>
-        public  MenuButton (GameScreen screen, DisplayLayer drawOrder, String name, Action onClick)
+        public  MenuButton (GameScreen screen, DisplayLayer drawOrder, string name, Action onClick)
         {
             throw new System.NotImplementedException();
         }

@@ -53,7 +53,7 @@ namespace Widgets
         /// <summary>
         /// Speichert die aktuell gedrückte Taste in der Option.
         /// </summary>
-        public virtual void OnKeyEvent ()
+        public virtual void OnKeyEvent ( )
         {
             throw new System.NotImplementedException();
         }

@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein KnotFileIO-Objekt.
         /// </summary>
-        public  KnotFileIO ()
+        public  KnotFileIO ( )
         {
             throw new System.NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace KnotData
         /// <summary>
         /// Lädt eines Knotens aus einer angegebenen Datei.
         /// </summary>
-        public virtual Knot Load (String filename)
+        public virtual Knot Load (string filename)
         {
             throw new System.NotImplementedException();
         }
@@ -68,7 +68,7 @@ namespace KnotData
         /// <summary>
         /// Lädt die Metadaten eines Knotens aus einer angegebenen Datei.
         /// </summary>
-        public virtual KnotMetaData LoadMetaData (String filename)
+        public virtual KnotMetaData LoadMetaData (string filename)
         {
             throw new System.NotImplementedException();
         }

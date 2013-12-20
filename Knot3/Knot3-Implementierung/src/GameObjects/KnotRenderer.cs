@@ -96,13 +96,13 @@ namespace GameObjects
         /// <summary>
         /// Gibt den Ursprung des Knotens zurück.
         /// </summary>
-        public virtual Vector3 Center ()
+        public virtual Vector3 Center ( )
         {
             throw new System.NotImplementedException();
         }
 
         /// <summary>
-        /// Gibt immer \glqq null\grqq zurück.
+        /// Gibt immer \glqq null\grqq~zurück.
         /// </summary>
         public virtual GameObjectDistance Intersects (Ray Ray)
         {
@@ -112,7 +112,7 @@ namespace GameObjects
         /// <summary>
         /// Wird mit dem EdgesChanged-Event des Knotens verknüft.
         /// </summary>
-        public virtual void OnEdgesChanged ()
+        public virtual void OnEdgesChanged ( )
         {
             throw new System.NotImplementedException();
         }
@@ -136,7 +136,7 @@ namespace GameObjects
         /// <summary>
         /// Gibt einen Enumerator der aktuell vorhandenen 3D-Modelle zurück.
         /// </summary>
-        public virtual IEnumerator GetEnumerator ()
+        public virtual IEnumerator GetEnumerator ( )
         {
             throw new System.NotImplementedException();
         }

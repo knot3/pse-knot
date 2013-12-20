@@ -67,7 +67,7 @@ namespace GameObjects
         /// <summary>
         /// Die Position, an der das Vorschau-Spielobjekt gezeichnet werden soll.
         /// </summary>
-        public virtual Vector3 Center ()
+        public virtual Vector3 Center ( )
         {
             throw new System.NotImplementedException();
         }

@@ -32,7 +32,7 @@ namespace KnotData
         /// <summary>
         /// Der Name der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
         /// </summary>
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Die Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
@@ -42,13 +42,13 @@ namespace KnotData
         /// <summary>
         /// Die Anzahl der Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
         /// </summary>
-        public Integer CountEdges { get; set; }
+        public int CountEdges { get; set; }
 
         /// <summary>
         /// Erstellt aus den \glqq Name\grqq~- und \glqq Edges\grqq~-Eigenschaften einen neue Zeichenkette,
         /// die als Dateiinhalt in einer Datei eines Spielstandes einen gültigen Knoten repräsentiert.
         /// </summary>
-        public String Content { get; set; }
+        public string Content { get; set; }
 
         #endregion
 
@@ -59,7 +59,7 @@ namespace KnotData
         /// so werden die \glqq Name\grqq~- und \glqq Edges\grqq~-Eigenschaften auf die eingelesenen Werte gesetzt.
         /// Enthält es einen ungültigen Knoten, so wird eine IOException geworfen und das Objekt wird nicht erstellt.
         /// </summary>
-        public  KnotStringIO (String content)
+        public  KnotStringIO (string content)
         {
             throw new System.NotImplementedException();
         }

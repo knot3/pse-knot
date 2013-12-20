@@ -35,7 +35,7 @@ namespace KnotData
         /// und bei Änderungen wieder in diesem gespeichert.
         /// Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
         /// </summary>
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
@@ -65,7 +65,7 @@ namespace KnotData
         /// Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
         /// die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null\grqq.
         /// </summary>
-        public  Knot ()
+        public  Knot ( )
         {
             throw new System.NotImplementedException();
         }
@@ -88,7 +88,7 @@ namespace KnotData
         /// <summary>
         /// Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
         /// </summary>
-        public virtual Boolean IsValidMove (Direction dir, Integer distance)
+        public virtual Boolean IsValidMove (Direction dir, int distance)
         {
             throw new System.NotImplementedException();
         }
@@ -96,7 +96,7 @@ namespace KnotData
         /// <summary>
         /// Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebene Distanz.
         /// </summary>
-        public virtual Boolean Move (Direction dir, Integer distance)
+        public virtual Boolean Move (Direction dir, int distance)
         {
             throw new System.NotImplementedException();
         }
@@ -104,7 +104,7 @@ namespace KnotData
         /// <summary>
         /// Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
         /// </summary>
-        public virtual IEnumerator<Edge> GetEnumerator ()
+        public virtual IEnumerator<Edge> GetEnumerator ( )
         {
             throw new System.NotImplementedException();
         }
@@ -114,7 +114,7 @@ namespace KnotData
         /// Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
         /// oder beide den Wert \glqq null\grqq, dann wird eine IOException geworfen.
         /// </summary>
-        public virtual void Save ()
+        public virtual void Save ( )
         {
             throw new System.NotImplementedException();
         }
@@ -122,7 +122,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt eine vollständige Kopie des Knotens, inklusive der Kanten-Datenstruktur und des Metadaten-Objekts.
         /// </summary>
-        public virtual Object Clone ()
+        public virtual Object Clone ( )
         {
             throw new System.NotImplementedException();
         }
@@ -146,7 +146,7 @@ namespace KnotData
         /// <summary>
         /// Hebt die aktuelle Kantenauswahl auf.
         /// </summary>
-        public virtual void ClearSelection ()
+        public virtual void ClearSelection ( )
         {
             throw new System.NotImplementedException();
         }
@@ -172,7 +172,7 @@ namespace KnotData
         /// <summary>
         /// Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
         /// </summary>
-        public virtual IEnumerator GetEnumerator ()
+        public virtual IEnumerator GetEnumerator ( )
         {
             throw new System.NotImplementedException();
         }
@@ -180,7 +180,7 @@ namespace KnotData
         /// <summary>
         /// Speichert den Knoten unter dem angegebenen Dateinamen in dem angegebenen Dateiformat.
         /// </summary>
-        public virtual void Save (IKnotIO format, String filename)
+        public virtual void Save (IKnotIO format, string filename)
         {
             throw new System.NotImplementedException();
         }

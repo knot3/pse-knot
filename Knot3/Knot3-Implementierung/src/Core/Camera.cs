@@ -102,7 +102,7 @@ namespace Core
         /// <summary>
         /// Die Blickrichtung.
         /// </summary>
-        public virtual Vector3 TargetDirection ()
+        public virtual Vector3 TargetDirection ( )
         {
             throw new System.NotImplementedException();
         }
@@ -110,7 +110,7 @@ namespace Core
         /// <summary>
         /// Der Abstand zwischen der Kamera und dem Kamera-Ziel.
         /// </summary>
-        public virtual float TargetDistance ()
+        public virtual float TargetDistance ( )
         {
             throw new System.NotImplementedException();
         }

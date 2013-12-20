@@ -31,7 +31,7 @@ namespace Core
         /// <summary>
         /// Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
         /// </summary>
-        public virtual void SetOption (String section, String option, String value)
+        public virtual void SetOption (string section, string option, string value)
         {
             throw new System.NotImplementedException();
         }
@@ -39,7 +39,7 @@ namespace Core
         /// <summary>
         /// Gibt den aktuell in der Datei vorhandenen Wert für die angegebene Option in dem angegebenen Abschnitt zurück.
         /// </summary>
-        public virtual Boolean GetOption (String section, String option, Boolean defaultValue)
+        public virtual Boolean GetOption (string section, string option, Boolean defaultValue)
         {
             throw new System.NotImplementedException();
         }
@@ -47,7 +47,7 @@ namespace Core
         /// <summary>
         /// Gibt den aktuell in der Datei vorhandenen Wert für die angegebene Option in dem angegebenen Abschnitt zurück.
         /// </summary>
-        public virtual String GetOption (String section, String option, String defaultValue)
+        public virtual string GetOption (string section, string option, string defaultValue)
         {
             throw new System.NotImplementedException();
         }
@@ -55,7 +55,7 @@ namespace Core
         /// <summary>
         /// Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
         /// </summary>
-        public virtual void SetOption (String section, String option, Boolean _value)
+        public virtual void SetOption (string section, string option, Boolean _value)
         {
             throw new System.NotImplementedException();
         }

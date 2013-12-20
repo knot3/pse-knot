@@ -48,7 +48,7 @@ namespace KnotData
         /// <summary>
         /// Lädt einen Knoten.
         /// </summary>
-        public virtual Knot Load (String filename)
+        public virtual Knot Load (string filename)
         {
             throw new System.NotImplementedException();
         }
@@ -56,7 +56,7 @@ namespace KnotData
         /// <summary>
         /// Lädt die Metadaten eines Knotens.
         /// </summary>
-        public virtual KnotMetaData LoadMetaData (String filename)
+        public virtual KnotMetaData LoadMetaData (string filename)
         {
             throw new System.NotImplementedException();
         }
