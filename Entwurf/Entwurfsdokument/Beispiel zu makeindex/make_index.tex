@@ -1,0 +1,40 @@
+\documentclass{scrreprt}
+
+% Wichtig:
+%
+% 1. Wie gewohnt übersetzen.
+% 2. MakeIndex (TexStudio: Tools -> Befehle -> MakeIndex)
+% 3. Nochmal übersetzen, jetzt wird der Index angezeigt.
+%
+
+% Kein Paket nach hyperref laden!
+\usepackage{makeidx}
+\makeindex
+
+% Überschrift im Inhaltsverzeichnis festlegen.
+%\renewcommand{\indexname}{IVZ}
+%\addcontentsline{toc}{section}{IVZ}
+
+% Weitere Pakete
+
+\usepackage[top=1.5in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[hidelinks]{hyperref}
+
+
+\begin{document}
+
+\tableofcontents
+
+\chapter{Eintrag 1}
+Das ist Eintrag 1\index{Eintrag 1}.
+
+\chapter{Eintrag 2}
+Das ist Eintrag 2\index{Eintrag 2}.
+
+\clearpage
+
+\printindex
+
+\end{document}
