@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="20ab710a-33d8-48fa-b17c-f3bf548e2638"
   name="Knot3" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -5646,6 +5646,14 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 LastKnownName="ExecutionOccurrenceSpecification"
                 LastKnownLocation="Knot3.uml" />
               <messageOccurrenceSpecificationMoniker
+                Id="057b9522-c8a4-472c-8684-ee3ea862ed49"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="Knot3.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="66de784b-5298-49b2-a1b9-45039428ff61"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="Knot3.uml" />
+              <messageOccurrenceSpecificationMoniker
                 Id="42531a83-b759-400a-babd-0a549790f5f6"
                 LastKnownName="MessageOccurrenceSpecification"
                 LastKnownLocation="Knot3.uml" />
@@ -5726,14 +5734,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 Id="87003a22-f0a7-40f1-82da-d5e2b772e4aa"
                 LastKnownName="MessageOccurrenceSpecification"
                 LastKnownLocation="Knot3.uml" />
-              <messageOccurrenceSpecificationMoniker
-                Id="fd4b3998-deaa-475f-b042-d295d755828a"
-                LastKnownName="MessageOccurrenceSpecification"
-                LastKnownLocation="Knot3.uml" />
-              <messageOccurrenceSpecificationMoniker
-                Id="8356379b-7f6d-418b-8b63-a4505f7bc852"
-                LastKnownName="MessageOccurrenceSpecification"
-                LastKnownLocation="Knot3.uml" />
             </nestedOccurrences>
           </behaviorExecutionSpecification>
           <executionOccurrenceSpecification
@@ -5764,114 +5764,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
                 LastKnownLocation="Knot3.uml" />
             </covered>
           </messageOccurrenceSpecification>
-          <behaviorExecutionSpecification
-            Id="1528227b-19b3-4c08-8cb6-c16b2f26e9b9"
-            name="BehaviorExecutionSpecification">
-            <coveredLifelines>
-              <lifelineMoniker
-                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
-                LastKnownName="source : Knot"
-                LastKnownLocation="Knot3.uml" />
-            </coveredLifelines>
-            <finish>
-              <executionOccurrenceSpecificationMoniker
-                Id="e1d53fa1-a538-4f38-8cfd-6e52ae68201a"
-                LastKnownName="ExecutionOccurrenceSpecification"
-                LastKnownLocation="Knot3.uml" />
-            </finish>
-            <start>
-              <executionOccurrenceSpecificationMoniker
-                Id="3402ca15-f7de-45ab-8b92-1b0f0975d045"
-                LastKnownName="ExecutionOccurrenceSpecification"
-                LastKnownLocation="Knot3.uml" />
-            </start>
-            <nestedOccurrences>
-              <messageOccurrenceSpecificationMoniker
-                Id="2ee4be1e-a0d0-4da9-b731-1d0d4771763e"
-                LastKnownName="MessageOccurrenceSpecification"
-                LastKnownLocation="Knot3.uml" />
-              <messageOccurrenceSpecificationMoniker
-                Id="910b0cd8-0334-4700-8efc-1e8e686dda48"
-                LastKnownName="MessageOccurrenceSpecification"
-                LastKnownLocation="Knot3.uml" />
-            </nestedOccurrences>
-          </behaviorExecutionSpecification>
-          <executionOccurrenceSpecification
-            Id="3402ca15-f7de-45ab-8b92-1b0f0975d045"
-            name="ExecutionOccurrenceSpecification">
-            <event>
-              <executionOccurrenceSpecificationReferencesEvent>
-                <executionEventMoniker
-                  Id="2958b7fa-d5f4-4aed-a449-4b073df7b253"
-                  LastKnownName="ExecutionEvent"
-                  LastKnownLocation="Knot3.uml" />
-              </executionOccurrenceSpecificationReferencesEvent>
-            </event>
-            <covered>
-              <lifelineMoniker
-                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
-                LastKnownName="source : Knot"
-                LastKnownLocation="Knot3.uml" />
-            </covered>
-          </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification
-            Id="fd4b3998-deaa-475f-b042-d295d755828a"
-            name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker
-                Id="f8882dab-889e-454b-92a5-a568f321571d"
-                LastKnownName="this : EdgeMovement"
-                LastKnownLocation="Knot3.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
-            Id="2ee4be1e-a0d0-4da9-b731-1d0d4771763e"
-            name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker
-                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
-                LastKnownName="source : Knot"
-                LastKnownLocation="Knot3.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
-            Id="910b0cd8-0334-4700-8efc-1e8e686dda48"
-            name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker
-                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
-                LastKnownName="source : Knot"
-                LastKnownLocation="Knot3.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
-            Id="8356379b-7f6d-418b-8b63-a4505f7bc852"
-            name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker
-                Id="f8882dab-889e-454b-92a5-a568f321571d"
-                LastKnownName="this : EdgeMovement"
-                LastKnownLocation="Knot3.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <executionOccurrenceSpecification
-            Id="e1d53fa1-a538-4f38-8cfd-6e52ae68201a"
-            name="ExecutionOccurrenceSpecification">
-            <event>
-              <executionOccurrenceSpecificationReferencesEvent>
-                <executionEventMoniker
-                  Id="32d347cb-6fea-4e18-b3f6-c70a99d25301"
-                  LastKnownName="ExecutionEvent"
-                  LastKnownLocation="Knot3.uml" />
-              </executionOccurrenceSpecificationReferencesEvent>
-            </event>
-            <covered>
-              <lifelineMoniker
-                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
-                LastKnownName="source : Knot"
-                LastKnownLocation="Knot3.uml" />
-            </covered>
-          </executionOccurrenceSpecification>
           <executionOccurrenceSpecification
             Id="3e3c823e-2d8e-495f-ad35-5c70d2816aff"
             name="ExecutionOccurrenceSpecification">
@@ -5887,6 +5779,114 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
               <lifelineMoniker
                 Id="f8882dab-889e-454b-92a5-a568f321571d"
                 LastKnownName="this : EdgeMovement"
+                LastKnownLocation="Knot3.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="68833ede-8af9-4542-8740-ec81e40802a9"
+            name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
+                LastKnownName="source : Knot"
+                LastKnownLocation="Knot3.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="0a20c9b3-b554-49ea-a77c-4bf351ba4ec2"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="Knot3.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="0ee8abd3-bdfd-4f23-bca9-1d474e25f2b1"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="Knot3.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="c4c4a926-7dea-428a-9ff5-ce835c8b2f69"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="Knot3.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="5804e1ae-7114-43f3-8cad-1d4d0d88e64e"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="Knot3.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="0ee8abd3-bdfd-4f23-bca9-1d474e25f2b1"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="ceee9f84-131e-4c4a-bbd8-2d7270f4f5bb"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="Knot3.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
+                LastKnownName="source : Knot"
+                LastKnownLocation="Knot3.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="c4c4a926-7dea-428a-9ff5-ce835c8b2f69"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
+                LastKnownName="source : Knot"
+                LastKnownLocation="Knot3.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="057b9522-c8a4-472c-8684-ee3ea862ed49"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="f8882dab-889e-454b-92a5-a568f321571d"
+                LastKnownName="this : EdgeMovement"
+                LastKnownLocation="Knot3.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5804e1ae-7114-43f3-8cad-1d4d0d88e64e"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
+                LastKnownName="source : Knot"
+                LastKnownLocation="Knot3.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="66de784b-5298-49b2-a1b9-45039428ff61"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="f8882dab-889e-454b-92a5-a568f321571d"
+                LastKnownName="this : EdgeMovement"
+                LastKnownLocation="Knot3.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="0a20c9b3-b554-49ea-a77c-4bf351ba4ec2"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="4c6340bc-6aff-41e5-a0f5-180d4bf939b9"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="Knot3.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
+                LastKnownName="source : Knot"
                 LastKnownLocation="Knot3.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -6697,22 +6697,22 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="8e3ee9b6-37c9-473b-b421-21e15f0388ec"
-            name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker
-                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
-                LastKnownName="source : Knot"
-                LastKnownLocation="Knot3.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="910db8d8-9406-43c9-bf2d-90664e055893"
             name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker
                 Id="f8882dab-889e-454b-92a5-a568f321571d"
                 LastKnownName="this : EdgeMovement"
+                LastKnownLocation="Knot3.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="8e3ee9b6-37c9-473b-b421-21e15f0388ec"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="0b1d1fbe-f087-457a-ba39-060fa816400a"
+                LastKnownName="source : Knot"
                 LastKnownLocation="Knot3.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -6823,22 +6823,22 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="121d337c-fa32-4edf-afca-c44bee90decc"
-            name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker
-                Id="fc86408b-6d2d-412f-8190-d1200bdbc1ef"
-                LastKnownName="this.shadowObjects : List&lt;ShadowGameObject&gt;"
-                LastKnownLocation="Knot3.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="03c757ee-ab09-43cb-a1fe-26e9d81981e3"
             name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker
                 Id="f8882dab-889e-454b-92a5-a568f321571d"
                 LastKnownName="this : EdgeMovement"
+                LastKnownLocation="Knot3.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="121d337c-fa32-4edf-afca-c44bee90decc"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="fc86408b-6d2d-412f-8190-d1200bdbc1ef"
+                LastKnownName="this.shadowObjects : List&lt;ShadowGameObject&gt;"
                 LastKnownLocation="Knot3.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -6945,11 +6945,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             referencedType="Knot3‎.KnotData‎.Knot">
             <topLevelOccurrences>
               <executionOccurrenceSpecificationMoniker
-                Id="3402ca15-f7de-45ab-8b92-1b0f0975d045"
+                Id="0ee8abd3-bdfd-4f23-bca9-1d474e25f2b1"
                 LastKnownName="ExecutionOccurrenceSpecification"
                 LastKnownLocation="Knot3.uml" />
               <executionOccurrenceSpecificationMoniker
-                Id="e1d53fa1-a538-4f38-8cfd-6e52ae68201a"
+                Id="0a20c9b3-b554-49ea-a77c-4bf351ba4ec2"
                 LastKnownName="ExecutionOccurrenceSpecification"
                 LastKnownLocation="Knot3.uml" />
               <executionOccurrenceSpecificationMoniker
@@ -7040,7 +7040,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </receiveEvent>
           </message>
           <message
-            Id="70d6cf37-d45d-4208-a420-d2c7919c502b"
+            Id="dd9d50ef-a044-49db-bf03-cdfc0d74eb83"
             name="AddToSelection"
             messageKind="Complete"
             messageSort="SynchCall"
@@ -7048,32 +7048,32 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             signatureText="Knot.AddToSelection(selectedEdge)">
             <sendEvent>
               <messageOccurrenceSpecificationMoniker
-                Id="fd4b3998-deaa-475f-b042-d295d755828a"
+                Id="057b9522-c8a4-472c-8684-ee3ea862ed49"
                 LastKnownName="MessageOccurrenceSpecification"
                 LastKnownLocation="Knot3.uml" />
             </sendEvent>
             <receiveEvent>
               <messageOccurrenceSpecificationMoniker
-                Id="2ee4be1e-a0d0-4da9-b731-1d0d4771763e"
+                Id="c4c4a926-7dea-428a-9ff5-ce835c8b2f69"
                 LastKnownName="MessageOccurrenceSpecification"
                 LastKnownLocation="Knot3.uml" />
             </receiveEvent>
           </message>
           <message
-            Id="27c9d18d-e960-4eeb-bc9f-77c7990523f7"
+            Id="7fe189f2-b7ca-4e0f-8fe9-f2c957cffd40"
             name="&lt;&lt;return&gt;&gt;"
             messageKind="Complete"
             messageSort="Reply"
             createSelfMessage="false">
             <sendEvent>
               <messageOccurrenceSpecificationMoniker
-                Id="910b0cd8-0334-4700-8efc-1e8e686dda48"
+                Id="5804e1ae-7114-43f3-8cad-1d4d0d88e64e"
                 LastKnownName="MessageOccurrenceSpecification"
                 LastKnownLocation="Knot3.uml" />
             </sendEvent>
             <receiveEvent>
               <messageOccurrenceSpecificationMoniker
-                Id="8356379b-7f6d-418b-8b63-a4505f7bc852"
+                Id="66de784b-5298-49b2-a1b9-45039428ff61"
                 LastKnownName="MessageOccurrenceSpecification"
                 LastKnownLocation="Knot3.uml" />
             </receiveEvent>
@@ -7380,16 +7380,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     </packageHasNamedElement>
     <packageHasNamedElement>
       <executionEvent
-        Id="2958b7fa-d5f4-4aed-a449-4b073df7b253"
-        name="ExecutionEvent" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <executionEvent
-        Id="32d347cb-6fea-4e18-b3f6-c70a99d25301"
-        name="ExecutionEvent" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <executionEvent
         Id="e3360cb9-996c-4021-a3cf-927ab90cb7a3"
         name="ExecutionEvent" />
     </packageHasNamedElement>
@@ -7473,6 +7463,16 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
         Id="bd5a8d80-2a4a-4b99-b8db-604ff654a3b7"
         LastKnownName="SequenceDiagram"
         LastKnownLocation="SequenceDiagram.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="ceee9f84-131e-4c4a-bbd8-2d7270f4f5bb"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="4c6340bc-6aff-41e5-a0f5-180d4bf939b9"
+        name="ExecutionEvent" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
