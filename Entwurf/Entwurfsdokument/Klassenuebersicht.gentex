@@ -1092,7 +1092,7 @@ Die Klasse  AudioSettingsScreen steht für den Spielzustand, der die Audio-Einst
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\newline\newline
+\textbf{\keyword{private} \ptype{VerticalMenu} \varname{settingsMenu}}\newline\newline
 Das Menü, das die Einstellungen enthält.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{AudioSettingsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
@@ -1152,7 +1152,7 @@ Der Controller, der aus dem Referenzknoten die 3D-Modelle erstellt.
 \textbf{\keyword{private} \ptype{KnotRenderer} \varname{PlayerKnotRenderer}}\newline\newline
 Der Controller, der aus dem Spielerknoten die 3D-Modelle erstellt.
 ~\\\\
-\textbf{\keyword{private} \ptype{PipeMovement} \varname{PlayerKnotMovement}}\newline\newline
+\textbf{\keyword{private} \ptype{EdgeMovement} \varname{PlayerKnotMovement}}\newline\newline
 Der Inputhandler, der die Kantenverschiebungen des Spielerknotens durchführt.
 ~\\\\
 \textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Undo}}\newline\newline
@@ -1181,7 +1181,7 @@ Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\newline\newline
+\textbf{\keyword{private} \ptype{VerticalMenu} \varname{settingsMenu}}\newline\newline
 Das Menü, das die Einstellungen enthält.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ControlSettingsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
@@ -1275,7 +1275,7 @@ Der Spielzustand, der die Grafik-Einstellungen darstellt.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\newline\newline
+\textbf{\keyword{private} \ptype{VerticalMenu} \varname{settingsMenu}}\newline\newline
 Das Menü, das die Einstellungen enthält.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{GraphicsSettingsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
@@ -1355,7 +1355,7 @@ Der Spielzustand, der die Profil-Einstellungen darstellt.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-\textbf{\keyword{protected} \ptype{void} \varname{settingsMenu}}\newline\newline
+\textbf{\keyword{private} \ptype{VerticalMenu} \varname{settingsMenu}}\newline\newline
 !!!
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ProfileSettingsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
@@ -1377,8 +1377,8 @@ Ein Spielzustand, der das Haupt-Einstellungsmenü zeichnet.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-\textbf{\keyword{protected} \ptype{void} \varname{navigation}}\newline\newline
-Das Haupt-Einstellungsmenü.
+\textbf{\keyword{private} \ptype{VerticalMenu} \varname{navigationMenu}}\newline\newline
+
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.

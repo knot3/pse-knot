@@ -47,7 +47,7 @@ public class GameObjects.ArrowModelInfo : GameModelInfo
 public class Screens.AudioSettingsScreen : SettingsScreen
   Attributes:
     // Das Menü, das die Einstellungen enthält.
-    # settingsMenu : void
+    - settingsMenu : VerticalMenu
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
@@ -203,7 +203,7 @@ public class Screens.ChallengeModeScreen : GameScreen
     // Der Controller, der aus dem Spielerknoten die 3D-Modelle erstellt.
     - PlayerKnotRenderer : KnotRenderer
     // Der Inputhandler, der die Kantenverschiebungen des Spielerknotens durchführt.
-    - PlayerKnotMovement : PipeMovement
+    - PlayerKnotMovement : EdgeMovement
     // Der Undo-Stack.
     + Undo : Stack<Knot>
     // Der Redo-Stack.
@@ -297,7 +297,7 @@ public class Widgets.ConfirmDialog : Dialog
 public class Screens.ControlSettingsScreen : SettingsScreen
   Attributes:
     // Das Menü, das die Einstellungen enthält.
-    # settingsMenu : void
+    - settingsMenu : VerticalMenu
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
@@ -649,7 +649,7 @@ public class Core.GameScreenComponent : XNA.GameComponent
 public class Screens.GraphicsSettingsScreen : SettingsScreen
   Attributes:
     // Das Menü, das die Einstellungen enthält.
-    # settingsMenu : void
+    - settingsMenu : VerticalMenu
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
@@ -1313,7 +1313,7 @@ public class KnotData.PrinterIO :
 public class Screens.ProfileSettingsScreen : SettingsScreen
   Attributes:
     // !!!
-    # settingsMenu : void
+    - settingsMenu : VerticalMenu
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
@@ -1374,8 +1374,8 @@ public class Widgets.SaveDialog : TextInputDialog
 // Ein Spielzustand, der das Haupt-Einstellungsmenü zeichnet.
 public class Screens.SettingsScreen : MenuScreen
   Attributes:
-    // Das Haupt-Einstellungsmenü.
-    # navigation : void
+    // 
+    - navigationMenu : VerticalMenu
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void

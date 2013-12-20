@@ -29,9 +29,9 @@ namespace Screens
         #region Properties
 
         /// <summary>
-        /// Das Haupt-Einstellungsmenü.
+        /// 
         /// </summary>
-        protected void navigation { get; set; }
+        private VerticalMenu navigationMenu { get; set; }
 
         #endregion
 

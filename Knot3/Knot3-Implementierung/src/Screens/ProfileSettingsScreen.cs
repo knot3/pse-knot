@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// !!!
         /// </summary>
-        protected void settingsMenu { get; set; }
+        private VerticalMenu settingsMenu { get; set; }
 
         #endregion
 

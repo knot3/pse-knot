@@ -31,7 +31,7 @@ namespace Screens
         /// <summary>
         /// Das Menü, das die Einstellungen enthält.
         /// </summary>
-        protected void settingsMenu { get; set; }
+        private VerticalMenu settingsMenu { get; set; }
 
         #endregion
 
