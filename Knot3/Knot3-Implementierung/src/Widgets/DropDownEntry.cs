@@ -34,7 +34,7 @@ namespace Widgets
         public String Text { get; set; }
 
         /// <summary>
-        /// 
+        /// Die Aktion, welche bei der Auswahl ausgeführt wird.
         /// </summary>
         public Action OnSelect { get; set; }
 
@@ -43,7 +43,9 @@ namespace Widgets
         #region Constructors
 
         /// <summary>
-        /// 
+        /// Erzeugt eine neue Instanz eines DropDownEntry-Objekts.
+        /// text bezeichnet den Text für den Eintrag,
+        /// onSelect ist die Aktion, welche bei der Auswahl des Eintrags auzuführen ist (s. Action).
         /// </summary>
         public  DropDownEntry (String text, Action onSelect)
         {

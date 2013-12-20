@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Eine zeichenbare Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
     /// </summary>
-    public class DrawableGameScreenComponent : XNA.DrawableGameComponent
+    public class DrawableGameScreenComponent : DrawableGameComponent
     {
 
         #region Properties
@@ -43,7 +43,8 @@ namespace Core
         #region Constructors
 
         /// <summary>
-        /// 
+        /// Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet dieser ein GameScreen-Objekt zu.
+        /// index bezeichnet die Zeichenebene, auf welche die Komponente zu zeichnen ist.
         /// </summary>
         public  DrawableGameScreenComponent (GameScreen screen, DisplayLayer index)
         {

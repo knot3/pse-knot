@@ -112,8 +112,8 @@ public class RenderEffects.CelShadingEffect : RenderEffect
   Methods:
     // !!!
     # DrawRenderTarget (GameTime GameTime) : void
-    // Zeichnet ein 3D-Modell auf das Rendertarget.
-    + DrawModel (GameTime, GameModel GameModel) : void
+    // 
+    + DrawModel (GameModel GameModel, GameTime GameTime) : void
     // Weist dem 3D-Modell den Cel-Shader zu.
     + RemapModel (GameModel GameModel) : void
     // Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
@@ -255,8 +255,8 @@ public class Widgets.ColorPicker : Widget
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
     // Bei einem Rechtsklick geschieht nichts.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
-    // Erzeugt eine neue Instanz eines ColorPicker-Objekts. default bezeichnet die voreingestellte Farbe, welche der Farbwähler dem Spieler anzeigt.
-    + ColorPicker (Color default) : void
+    // 
+    + ColorPicker (Color def) : void
 
 // Ein Menüeintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
 public class Widgets.ColorPickItem : MenuItem
@@ -823,8 +823,8 @@ public interface RenderEffects.IRenderEffect :
     // das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
     // auf dieses ubergeordnete Rendertarget gezeichnet.
     + End (GameTime) : void
-    // Zeichnet das übergebene 3D-Modell auf das Rendertarget.
-    + DrawModel (GameTime, GameModel model) : void
+    // 
+    + DrawModel (GameModel model, GameTime time) : void
     // Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
     // BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
     // ein anderer Shader zugewiesen werden.
@@ -1340,8 +1340,8 @@ public class RenderEffects.RenderEffect :
     // das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
     // auf dieses ubergeordnete Rendertarget gezeichnet.
     + End (GameTime) : void
-    // Zeichnet das übergebene 3D-Modell auf das Rendertarget.
-    + DrawModel (GameTime, GameModel GameModel) : void
+    // 
+    + DrawModel (GameModel GameModel, GameTime GameTime) : void
     // Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
     // BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
     // ein anderer Shader zugewiesen werden.

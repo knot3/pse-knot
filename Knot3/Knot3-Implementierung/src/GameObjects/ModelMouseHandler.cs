@@ -29,7 +29,8 @@ namespace GameObjects
         #region Constructors
 
         /// <summary>
-        /// 
+        /// Erzeugt eine neue Instanz eines ModelMouseHandler-Objekts und ordnet dieser ein GameScreen-Objekt screen zu,
+        /// sowie eine Spielwelt world.
         /// </summary>
         public  ModelMouseHandler (GameScreen screen, World world)
         {

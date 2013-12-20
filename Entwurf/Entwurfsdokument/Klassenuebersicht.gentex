@@ -1442,8 +1442,8 @@ Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 !!!
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{GameModel})}\newline\newline
-Zeichnet ein 3D-Modell auf das Rendertarget.
+\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel} \varname{GameModel}, \ptype{GameTime} \varname{GameTime})}\newline\newline
+
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})}\newline\newline
 Weist dem 3D-Modell den Cel-Shader zu.
@@ -1499,8 +1499,8 @@ Das auf dem Stack gesicherte, vorher genutzte Rendertarget wird wiederhergestell
 das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
 auf dieses ubergeordnete Rendertarget gezeichnet.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{GameModel})}\newline\newline
-Zeichnet das übergebene 3D-Modell auf das Rendertarget.
+\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel} \varname{GameModel}, \ptype{GameTime} \varname{GameTime})}\newline\newline
+
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})}\newline\newline
 Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
@@ -1578,8 +1578,8 @@ Das auf dem Stapel gesicherte, vorher genutzte Rendertarget wird wiederhergestel
 das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
 auf dieses ubergeordnete Rendertarget gezeichnet.
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameTime}, \ptype{GameModel} \varname{model})}\newline\newline
-Zeichnet das übergebene 3D-Modell auf das Rendertarget.
+\textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel} \varname{model}, \ptype{GameTime} \varname{time})}\newline\newline
+
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{model})}\newline\newline
 Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
@@ -2071,8 +2071,8 @@ Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farbe
 \textbf{\keyword{public} \ptype{Color} \varname{Color}}\newline\newline
 Die ausgewählte Farbe.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
-\textbf{\keyword{public} \varname{ColorPicker} (\ptype{Color} \varname{default})}\newline\newline
-Erzeugt eine neue Instanz eines ColorPicker-Objekts. \param{default} bezeichnet die voreingestellte Farbe, welche der Farbwähler dem Spieler anzeigt.
+\textbf{\keyword{public} \varname{ColorPicker} (\ptype{Color} \varname{def})}\newline\newline
+
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Reagiert auf Tastatureingaben.

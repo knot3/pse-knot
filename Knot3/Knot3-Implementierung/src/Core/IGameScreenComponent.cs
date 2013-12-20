@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Eine Schnittstelle für eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
     /// </summary>
-    public interface IGameScreenComponent : XNA.IGameComponent
+    public interface IGameScreenComponent : IGameComponent
     {
 
         #region Properties

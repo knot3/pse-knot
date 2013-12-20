@@ -23,7 +23,7 @@ namespace Screens
     /// <summary>
     /// Die zentrale Spielklasse, die von der \glqq Game \grqq -Klasse des XNA-Frameworks erbt.
     /// </summary>
-    public class Knot3Game : XNA.Game
+    public class Knot3Game : Game
     {
 
         #region Properties
