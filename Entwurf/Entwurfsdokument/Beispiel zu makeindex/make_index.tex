@@ -8,12 +8,8 @@
 %
 
 % Kein Paket nach hyperref laden!
-\usepackage{makeidx}
-\makeindex
-
-% Überschrift im Inhaltsverzeichnis festlegen.
-%\renewcommand{\indexname}{IVZ}
-%\addcontentsline{toc}{section}{IVZ}
+\usepackage{imakeidx}
+\makeindex[title=Index-Ueberschrift,columns=2,intoc]
 
 % Weitere Pakete
 
@@ -27,10 +23,10 @@
 
 \tableofcontents
 
-\chapter{Eintrag 1}
+\chapter{Überschrift 1}
 Das ist Eintrag 1\index{Eintrag 1}.
 
-\chapter{Eintrag 2}
+\chapter{Überschrift 2}
 Das ist Eintrag 2\index{Eintrag 2}.
 
 \clearpage
