@@ -179,7 +179,8 @@ Der zugewiesene Spielzustand.
 Die Zeichen- und Eingabepriorität.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{DrawableGameScreenComponent} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{index})}\newline\newline
-
+Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet dieser ein GameScreen-Objekt zu.
+\param{index} bezeichnet die Zeichenebene, auf welche die Komponente zu zeichnen ist.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
@@ -886,7 +887,8 @@ Ein Inputhandler, der Mauseingaben auf 3D-Modellen verarbeitet.
 
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ModelMouseHandler} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world})}\newline\newline
-
+Erzeugt eine neue Instanz eines ModelMouseHandler-Objekts und ordnet dieser ein GameScreen-Objekt \param{screen} zu,
+sowie eine Spielwelt \param{world}.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
@@ -1246,7 +1248,7 @@ Der Undo-Stack.
 Der Redo-Stack.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{CreativeModeScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
-
+Erzeugt ein neues CreativeModeScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
@@ -1265,7 +1267,7 @@ Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
 
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{CreditsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
-
+Erzeugt ein neues CreditsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
@@ -2080,7 +2082,7 @@ Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farbe
 Die ausgewählte Farbe.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ColorPicker} (\ptype{Color} \varname{default})}\newline\newline
-
+Erzeugt eine neue Instanz eines ColorPicker-Objekts. \param{default} bezeichnet die voreingestellte Farbe, welche der Farbwähler dem Spieler anzeigt.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Reagiert auf Tastatureingaben.
@@ -2178,10 +2180,12 @@ Repräsentiert einen Eintrag in einem Dropdown-Menü.
 Der Text des Eintrags.
 ~\\\\
 \textbf{\keyword{public} \ptype{Action} \varname{OnSelect}}\newline\newline
-
+Die Aktion, welche bei der Auswahl ausgeführt wird.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{DropDownEntry} (\ptype{String} \varname{text}, \ptype{Action} \varname{onSelect})}\newline\newline
-
+Erzeugt eine neue Instanz eines DropDownEntry-Objekts.
+\param{text} bezeichnet den Text für den Eintrag,
+\param{onSelect} ist die Aktion, welche bei der Auswahl des Eintrags auzuführen ist (s. Action).
 
 \subsubsection{Klasse DropDownMenuItem}\index{Widgets!DropDownMenuItem}
 \begin{wrapfigure}{r}{9cm}{0}

@@ -255,7 +255,7 @@ public class Widgets.ColorPicker : Widget
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
     // Bei einem Rechtsklick geschieht nichts.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
-    // 
+    // Erzeugt eine neue Instanz eines ColorPicker-Objekts. default bezeichnet die voreingestellte Farbe, welche der Farbwähler dem Spieler anzeigt.
     + ColorPicker (Color default) : void
 
 // Ein Menüeintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
@@ -335,7 +335,7 @@ public class Screens.CreativeModeScreen : GameScreen
     + Update (GameTime time) : void
     // Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime time) : void
-    // 
+    // Erzeugt ein neues CreativeModeScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + CreativeModeScreen (Knot3Game game) : void
 
 // Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
@@ -346,7 +346,7 @@ public class Screens.CreditsScreen : MenuScreen
     + Update (GameTime time) : void
     // Fügt das Menü mit den Mitwirkenden in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // 
+    // Erzeugt ein neues CreditsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + CreditsScreen (Knot3Game game) : void
 
 // Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
@@ -437,7 +437,8 @@ public class Core.DrawableGameScreenComponent : XNA.DrawableGameComponent
   Methods:
     // Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
     + SubComponents (GameTime GameTime) : IEnumerable
-    // 
+    // Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet dieser ein GameScreen-Objekt zu.
+    // index bezeichnet die Zeichenebene, auf welche die Komponente zu zeichnen ist.
     + DrawableGameScreenComponent (GameScreen screen, DisplayLayer index) : void
 
 // Repräsentiert einen Eintrag in einem Dropdown-Menü.
@@ -445,10 +446,12 @@ public class Widgets.DropDownEntry :
   Attributes:
     // Der Text des Eintrags.
     + Text : String
-    // 
+    // Die Aktion, welche bei der Auswahl ausgeführt wird.
     + OnSelect : Action
   Methods:
-    // 
+    // Erzeugt eine neue Instanz eines DropDownEntry-Objekts.
+    // text bezeichnet den Text für den Eintrag,
+    // onSelect ist die Aktion, welche bei der Auswahl des Eintrags auzuführen ist (s. Action).
     + DropDownEntry (String text, Action onSelect) : void
 
 // Ein Menüeintrag, der den ausgewählten Wert anzeigt und bei einem Linksklick ein Dropdown-Menü zur Auswahl eines neuen Wertes ein- oder ausblendet.
@@ -1161,7 +1164,8 @@ public class GameObjects.ModelMouseHandler : GameScreenComponent
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
-    // 
+    // Erzeugt eine neue Instanz eines ModelMouseHandler-Objekts und ordnet dieser ein GameScreen-Objekt screen zu,
+    // sowie eine Spielwelt world.
     + ModelMouseHandler (GameScreen screen, World world) : void
 
 // Repräsentiert einen Mauszeiger.
