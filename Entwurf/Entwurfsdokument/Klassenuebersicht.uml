@@ -59,7 +59,7 @@ public class Screens.AudioSettingsScreen : SettingsScreen
 // Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann.
 public class Core.BooleanOptionInfo : DistinctOptionInfo
   Attributes:
-    // Ein Property, das den aktuell abgespeicherten Wert zurückgibt.
+    // Eine Eigenschaft, die den aktuell abgespeicherten Wert zurückgibt.
     + Value : bool
   Methods:
     // Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
@@ -420,7 +420,7 @@ public class Core.DistinctOptionInfo : OptionInfo
   Attributes:
     // Eine Menge von Texten, welche die für die Option gültigen Werte beschreiben.
     + ValidValues : HashSet<string>
-    // Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
+    // Eine Eigenschaft, die den aktuell abgespeicherten Wert zurück gibt.
     + Value : String
   Methods:
     // Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
@@ -908,7 +908,7 @@ public class KnotData.Knot :
     // Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
     + Equals (T other) : Boolean
 
-// Die zentrale Spielklasse, die von der \glqq Game \grqq -Klasse des XNA-Frameworks erbt.
+// Die zentrale Spielklasse, die von der \glqq Game\grqq~-Klasse des XNA-Frameworks erbt.
 public class Screens.Knot3Game : XNA.Game
   Attributes:
     // Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
@@ -1089,7 +1089,7 @@ public class Widgets.Menu : Widget
     // Die vertikale Ausrichtung der Menüeinträge.
     + ItemAlignY : VerticalAlignment
   Methods:
-    // Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~ oder leere Werte für
+    // Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~oder leere Werte für
     // Position, Größe, Farbe oder Ausrichtung hat, werden die Werte mit denen des Menüs überschrieben.
     + Add (MenuItem item) : void
     // Entfernt einen Eintrag aus dem Menü.
