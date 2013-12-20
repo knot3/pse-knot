@@ -23,7 +23,7 @@ namespace Core
     /// <summary>
     /// Eine Spielkomponente, die in einem GameScreen verwendet wird und eine bestimmte Priorität hat.
     /// </summary>
-    public class GameScreenComponent : XNA.GameComponent
+    public class GameScreenComponent : GameComponent
     {
 
         #region Properties

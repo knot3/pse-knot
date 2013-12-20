@@ -40,7 +40,7 @@ namespace Widgets
         /// <summary>
         /// 
         /// </summary>
-        public  ColorPicker (Color default)
+        public  ColorPicker (Color def)
         {
             throw new System.NotImplementedException();
         }

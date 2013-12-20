@@ -61,7 +61,7 @@ namespace Screens
         /// <summary>
         /// Der Inputhandler, der die Kantenverschiebungen des Spielerknotens durchführt.
         /// </summary>
-        private PipeMovement PlayerKnotMovement { get; set; }
+        private EdgeMovement PlayerKnotMovement { get; set; }
 
         /// <summary>
         /// Der Undo-Stack.
