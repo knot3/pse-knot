@@ -31,7 +31,7 @@ namespace KnotData
         /// <summary>
         /// Aufzählung der Dateierweiterungen.
         /// </summary>
-        public IEnumerable<string> FileExtensions { get; set; }
+        IEnumerable<string> FileExtensions { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace KnotData
         /// <summary>
         /// Speichert einen Knoten.
         /// </summary>
-        public virtual void Save (Knot knot)
+        void Save (Knot knot)
         {
             throw new System.NotImplementedException();
         }
@@ -48,7 +48,7 @@ namespace KnotData
         /// <summary>
         /// Lädt einen Knoten.
         /// </summary>
-        public virtual Knot Load (string filename)
+        Knot Load (string filename)
         {
             throw new System.NotImplementedException();
         }
@@ -56,7 +56,7 @@ namespace KnotData
         /// <summary>
         /// Lädt die Metadaten eines Knotens.
         /// </summary>
-        public virtual KnotMetaData LoadMetaData (string filename)
+        KnotMetaData LoadMetaData (string filename)
         {
             throw new System.NotImplementedException();
         }

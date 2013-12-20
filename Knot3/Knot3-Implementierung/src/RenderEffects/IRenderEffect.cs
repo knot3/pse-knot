@@ -32,7 +32,7 @@ namespace RenderEffects
         /// Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
         /// weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
         /// </summary>
-        public RenderTarget2D RenderTarget { get; set; }
+        RenderTarget2D RenderTarget { get; set; }
 
         #endregion
 
@@ -42,7 +42,7 @@ namespace RenderEffects
         /// In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stapel gesichert
         /// und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
         /// </summary>
-        public virtual void Begin (GameTime gametime)
+        void Begin (GameTime gametime)
         {
             throw new System.NotImplementedException();
         }
@@ -52,7 +52,7 @@ namespace RenderEffects
         /// das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
         /// auf dieses ubergeordnete Rendertarget gezeichnet.
         /// </summary>
-        public virtual void End (GameTime gametime)
+        void End (GameTime gametime)
         {
             throw new System.NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace RenderEffects
         /// <summary>
         /// 
         /// </summary>
-        public virtual void DrawModel (GameModel model, GameTime time)
+        void DrawModel (GameModel model, GameTime time)
         {
             throw new System.NotImplementedException();
         }
@@ -70,7 +70,7 @@ namespace RenderEffects
         /// BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
         /// ein anderer Shader zugewiesen werden.
         /// </summary>
-        public virtual void RemapModel (GameModel model)
+        void RemapModel (GameModel model)
         {
             throw new System.NotImplementedException();
         }

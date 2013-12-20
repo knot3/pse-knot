@@ -56,7 +56,7 @@ namespace KnotData
         /// <summary>
         /// Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
         /// </summary>
-        public IEnumerator<KeyValuePair<String, Integer>> Highscore { get; set; }
+        public IEnumerator<KeyValuePair<string, int>> Highscore { get; set; }
 
         #endregion
 

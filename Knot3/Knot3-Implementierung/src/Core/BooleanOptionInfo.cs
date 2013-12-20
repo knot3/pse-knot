@@ -29,7 +29,7 @@ namespace Core
         #region Properties
 
         /// <summary>
-        /// Ein Property, das den aktuell abgespeicherten Wert zurückgibt.
+        /// Eine Eigenschaft, die den aktuell abgespeicherten Wert zurückgibt.
         /// </summary>
         public bool Value { get; set; }
 

@@ -78,7 +78,7 @@ namespace Widgets
         #region Methods
 
         /// <summary>
-        /// Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~ oder leere Werte für
+        /// Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~oder leere Werte für
         /// Position, Größe, Farbe oder Ausrichtung hat, werden die Werte mit denen des Menüs überschrieben.
         /// </summary>
         public virtual void Add (MenuItem item)

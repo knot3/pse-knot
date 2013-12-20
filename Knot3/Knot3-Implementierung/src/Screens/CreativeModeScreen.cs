@@ -29,11 +29,6 @@ namespace Screens
         #region Properties
 
         /// <summary>
-        /// Der Knoten, der vom Spieler bearbeitet wird.
-        /// </summary>
-        public void Knot { get; set; }
-
-        /// <summary>
         /// Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
         /// </summary>
         private World World { get; set; }
@@ -52,6 +47,11 @@ namespace Screens
         /// Der Redo-Stack.
         /// </summary>
         public Stack<Knot> Redo { get; set; }
+
+        /// <summary>
+        /// Der Knoten, der vom Spieler bearbeitet wird.
+        /// </summary>
+        public Knot Knot { get; set; }
 
         #endregion
 

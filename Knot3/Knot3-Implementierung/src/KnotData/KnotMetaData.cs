@@ -53,7 +53,7 @@ namespace KnotData
         /// Kanten des Knoten-Objektes zurück. Anderenfalls gibt es eine statische Zahl zurück,
         /// die beim Einlesen der Metadaten vor dem Erstellen dieses Objektes gelesen wurde. Nur lesbar.
         /// </summary>
-        public Func<Integer> CountEdges { get; set; }
+        public Func<int> CountEdges { get; set; }
 
         /// <summary>
         /// Falls die Metadaten aus einer Datei eingelesen wurden, enthält dieses Attribut den Dateinamen,
@@ -70,7 +70,7 @@ namespace KnotData
         /// und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
         /// Zusätzlich wird der Dateiname oder das Speicherformat angegeben, aus dem die Metadaten gelesen wurden.
         /// </summary>
-        public  KnotMetaData (string name, Func<Integer> countEdges, IKnotIO format, string filename)
+        public  KnotMetaData (string name, Func<int> countEdges, IKnotIO format, string filename)
         {
             throw new System.NotImplementedException();
         }
@@ -79,7 +79,7 @@ namespace KnotData
         /// Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
         /// und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
         /// </summary>
-        public  KnotMetaData (string name, Func<Integer> countEdges)
+        public  KnotMetaData (string name, Func<int> countEdges)
         {
             throw new System.NotImplementedException();
         }

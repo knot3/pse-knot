@@ -31,12 +31,12 @@ namespace Core
         /// <summary>
         /// Die Zeichen- und Eingabepriorität.
         /// </summary>
-        public DisplayLayer Index { get; set; }
+        DisplayLayer Index { get; set; }
 
         /// <summary>
         /// Der zugewiesene Spielzustand.
         /// </summary>
-        public GameScreen Screen { get; set; }
+        GameScreen Screen { get; set; }
 
         #endregion
 
@@ -45,7 +45,7 @@ namespace Core
         /// <summary>
         /// Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
         /// </summary>
-        public virtual IEnumerable SubComponents (GameTime time)
+        IEnumerable SubComponents (GameTime time)
         {
             throw new System.NotImplementedException();
         }

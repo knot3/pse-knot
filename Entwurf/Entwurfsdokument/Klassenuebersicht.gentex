@@ -44,7 +44,7 @@ Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{bool} \varname{Value}}\newline\newline
-Ein Property, das den aktuell abgespeicherten Wert zurückgibt.
+Eine Eigenschaft, die den aktuell abgespeicherten Wert zurückgibt.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{BooleanOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})}\newline\newline
 Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
@@ -146,7 +146,7 @@ Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen 
 Eine Menge von Texten, welche die für die Option gültigen Werte beschreiben.
 ~\\\\
 \textbf{\keyword{public} \ptype{String} \varname{Value}}\newline\newline
-Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
+Eine Eigenschaft, die den aktuell abgespeicherten Wert zurück gibt.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{DistinctOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{IEnumerable$<$string$>$} \varname{validValues}, \ptype{ConfigFile} \varname{configFile})}\newline\newline
 Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
@@ -1134,12 +1134,6 @@ Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für de
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-\textbf{\keyword{public} \ptype{void} \varname{PlayerKnot}}\newline\newline
-Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
-~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{ChallengeKnot}}\newline\newline
-Der Referenzknoten.
-~\\\\
 \textbf{\keyword{private} \ptype{World} \varname{ChallengeWorld}}\newline\newline
 Die Spielwelt in der die 3D-Modelle des dargestellten Referenzknotens enthalten sind.
 ~\\\\
@@ -1160,6 +1154,12 @@ Der Undo-Stack.
 ~\\\\
 \textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Redo}}\newline\newline
 Der Redo-Stack.
+~\\\\
+\textbf{\keyword{public} \ptype{Knot} \varname{ChallengeKnot}}\newline\newline
+Der Referenzknoten.
+~\\\\
+\textbf{\keyword{public} \ptype{Knot} \varname{PlayerKnot}}\newline\newline
+Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ChallengeModeScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erstellt eine neue Instanz eines ChallengeModeScreen-Objekts und
@@ -1222,9 +1222,6 @@ Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv 
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-\textbf{\keyword{public} \ptype{void} \varname{Knot}}\newline\newline
-Der Knoten, der vom Spieler bearbeitet wird.
-~\\\\
 \textbf{\keyword{private} \ptype{World} \varname{World}}\newline\newline
 Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
 ~\\\\
@@ -1236,6 +1233,9 @@ Der Undo-Stack.
 ~\\\\
 \textbf{\keyword{public} \ptype{Stack$<$Knot$>$} \varname{Redo}}\newline\newline
 Der Redo-Stack.
+~\\\\
+\textbf{\keyword{public} \ptype{Knot} \varname{Knot}}\newline\newline
+Der Knoten, der vom Spieler bearbeitet wird.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{CreativeModeScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erzeugt ein neues CreativeModeScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
@@ -1293,7 +1293,7 @@ Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 \includegraphics[scale=0.5]{Klassen/Knot3Game}
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-Die zentrale Spielklasse, die von der \glqq Game \grqq -Klasse des XNA-Frameworks erbt.
+Die zentrale Spielklasse, die von der \glqq Game\grqq~-Klasse des XNA-Frameworks erbt.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
@@ -2274,7 +2274,7 @@ Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen Game
 Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Add} (\ptype{MenuItem} \varname{item})}\newline\newline
-Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~ oder leere Werte für
+Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~oder leere Werte für
 Position, Größe, Farbe oder Ausrichtung hat, werden die Werte mit denen des Menüs überschrieben.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Delete} (\ptype{MenuItem} \varname{item})}\newline\newline

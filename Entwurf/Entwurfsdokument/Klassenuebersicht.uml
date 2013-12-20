@@ -190,10 +190,6 @@ public class KnotData.ChallengeMetaData :
 // Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für den Ausgangs- und Referenzknoten je eine 3D-Welt zeichnet.
 public class Screens.ChallengeModeScreen : GameScreen
   Attributes:
-    // Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
-    + PlayerKnot : void
-    // Der Referenzknoten.
-    + ChallengeKnot : void
     // Die Spielwelt in der die 3D-Modelle des dargestellten Referenzknotens enthalten sind.
     - ChallengeWorld : World
     // Die Spielwelt in der die 3D-Modelle des dargestellten Spielerknotens enthalten sind.
@@ -208,6 +204,10 @@ public class Screens.ChallengeModeScreen : GameScreen
     + Undo : Stack<Knot>
     // Der Redo-Stack.
     + Redo : Stack<Knot>
+    // Der Referenzknoten.
+    + ChallengeKnot : Knot
+    // Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
+    + PlayerKnot : Knot
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
@@ -320,8 +320,6 @@ public class Screens.CreativeLoadScreen : MenuScreen
 // Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv ist und für den Knoten eine 3D-Welt zeichnet.
 public class Screens.CreativeModeScreen : GameScreen
   Attributes:
-    // Der Knoten, der vom Spieler bearbeitet wird.
-    + Knot : void
     // Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
     - World : World
     // Der Controller, der aus dem Knoten die 3D-Modelle erstellt.
@@ -330,6 +328,8 @@ public class Screens.CreativeModeScreen : GameScreen
     + Undo : Stack<Knot>
     // Der Redo-Stack.
     + Redo : Stack<Knot>
+    // Der Knoten, der vom Spieler bearbeitet wird.
+    + Knot : Knot
   Methods:
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void

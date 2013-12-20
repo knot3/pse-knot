@@ -41,7 +41,7 @@ namespace KnotData
         /// <summary>
         /// Eine sortierte Bestenliste.
         /// </summary>
-        private SortedList<Integer, String> highscore { get; set; }
+        private SortedList<int, string> highscore { get; set; }
 
         /// <summary>
         /// Das Speicherformat der Challenge.
@@ -51,7 +51,7 @@ namespace KnotData
         /// <summary>
         /// Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
         /// </summary>
-        public IEnumerator<KeyValuePair<String, Integer>> Highscore { get; set; }
+        public IEnumerator<KeyValuePair<string, int>> Highscore { get; set; }
 
         /// <summary>
         /// Die Metadaten der Challenge.

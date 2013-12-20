@@ -29,16 +29,6 @@ namespace Screens
         #region Properties
 
         /// <summary>
-        /// Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
-        /// </summary>
-        public void PlayerKnot { get; set; }
-
-        /// <summary>
-        /// Der Referenzknoten.
-        /// </summary>
-        public void ChallengeKnot { get; set; }
-
-        /// <summary>
         /// Die Spielwelt in der die 3D-Modelle des dargestellten Referenzknotens enthalten sind.
         /// </summary>
         private World ChallengeWorld { get; set; }
@@ -72,6 +62,16 @@ namespace Screens
         /// Der Redo-Stack.
         /// </summary>
         public Stack<Knot> Redo { get; set; }
+
+        /// <summary>
+        /// Der Referenzknoten.
+        /// </summary>
+        public Knot ChallengeKnot { get; set; }
+
+        /// <summary>
+        /// Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
+        /// </summary>
+        public Knot PlayerKnot { get; set; }
 
         #endregion
 

@@ -21,7 +21,7 @@ using Widgets;
 namespace Screens
 {
     /// <summary>
-    /// Die zentrale Spielklasse, die von der \glqq Game \grqq -Klasse des XNA-Frameworks erbt.
+    /// Die zentrale Spielklasse, die von der \glqq Game\grqq~-Klasse des XNA-Frameworks erbt.
     /// </summary>
     public class Knot3Game : Game
     {

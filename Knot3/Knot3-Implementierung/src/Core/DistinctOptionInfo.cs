@@ -34,7 +34,7 @@ namespace Core
         public HashSet<string> ValidValues { get; set; }
 
         /// <summary>
-        /// Ein Property, das den aktuell abgespeicherten Wert zurück gibt.
+        /// Eine Eigenschaft, die den aktuell abgespeicherten Wert zurück gibt.
         /// </summary>
         public string Value { get; set; }
 
