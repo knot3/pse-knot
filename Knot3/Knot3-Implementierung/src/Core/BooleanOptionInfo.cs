@@ -41,8 +41,10 @@ namespace Core
         /// <summary>
         /// Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
         /// angegebenen Abschnitt der angegebenen Einstellungsdatei.
+        /// [base=section, name, defaultValue?ConfigFile.True:ConfigFile.False, ValidValues, configFile]
         /// </summary>
-        public BooleanOptionInfo (string section, string name, string defaultValue, ConfigFile configFile)
+        public BooleanOptionInfo (string section, string name, bool defaultValue, ConfigFile configFile)
+            : base(section, name, defaultValue?ConfigFile.True:ConfigFile.False, ValidValues, configFile)
         {
             throw new System.NotImplementedException();
         }

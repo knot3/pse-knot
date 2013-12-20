@@ -64,7 +64,8 @@ public class Core.BooleanOptionInfo : DistinctOptionInfo
   Methods:
     // Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
     // angegebenen Abschnitt der angegebenen Einstellungsdatei.
-    + BooleanOptionInfo (String section, String name, String defaultValue, ConfigFile configFile) : void
+    // [base=section, name, defaultValue?ConfigFile.True:ConfigFile.False, ValidValues, configFile]
+    + BooleanOptionInfo (String section, String name, bool defaultValue, ConfigFile configFile) : void
 
 // Jede Instanz der World-Klasse hält eine für diese Spielwelt verwendete Kamera als Attribut.
 // Die Hauptfunktion der Kamera-Klasse ist das Berechnen der drei Matrizen, die für die Positionierung
@@ -427,6 +428,7 @@ public class Core.DistinctOptionInfo : OptionInfo
   Methods:
     // Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
     // angegebenen Abschnitt der angegebenen Einstellungsdatei.
+    // [base=section, name, defaultValue, configFile]
     + DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile) : void
 
 // Eine zeichenbare Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
