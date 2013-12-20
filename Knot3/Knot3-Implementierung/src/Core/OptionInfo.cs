@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -60,7 +61,7 @@ namespace Core
         /// <summary>
         /// Erstellt ein neues OptionsInfo-Objekt aus den übergegebenen Werten.
         /// </summary>
-        public  OptionInfo (string section, string name, string defaultValue, ConfigFile configFile)
+        public OptionInfo (string section, string name, string defaultValue, ConfigFile configFile)
         {
             throw new System.NotImplementedException();
         }

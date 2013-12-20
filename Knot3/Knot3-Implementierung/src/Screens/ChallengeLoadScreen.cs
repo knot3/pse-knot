@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,7 +33,7 @@ namespace Screens
         /// Erstellt eine neue Instanz eines ChallengeLoadScreen-Objekts und
         /// initialisiert diese mit einem Knot3Game-Objekt.
         /// </summary>
-        public  ChallengeLoadScreen (Knot3Game game)
+        public ChallengeLoadScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -51,7 +52,7 @@ namespace GameObjects
         /// Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
         /// Dateiname, Rotation und Skalierung.
         /// </summary>
-        public  GameModelInfo (string modelname, Angles3 rotation, Vector3 scale)
+        public GameModelInfo (string modelname, Angles3 rotation, Vector3 scale)
         {
             throw new System.NotImplementedException();
         }

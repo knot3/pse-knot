@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -45,26 +46,17 @@ namespace Core
         /// <summary>
         /// Die Ausmaße des von der Klasse repräsentierten Objektes.
         /// </summary>
-        Rectangle Bounds ( )
-        {
-            throw new System.NotImplementedException();
-        }
+        Rectangle Bounds ( );
 
         /// <summary>
         /// Die Reaktion auf einen Linksklick.
         /// </summary>
-        void OnLeftClick (Vector2 position, ClickState state, GameTime time)
-        {
-            throw new System.NotImplementedException();
-        }
+        void OnLeftClick (Vector2 position, ClickState state, GameTime time);
 
         /// <summary>
         /// Die Reaktion auf einen Rechtsklick.
         /// </summary>
-        void OnRightClick (Vector2 position, ClickState state, GameTime time)
-        {
-            throw new System.NotImplementedException();
-        }
+        void OnRightClick (Vector2 position, ClickState state, GameTime time);
 
         #endregion
 

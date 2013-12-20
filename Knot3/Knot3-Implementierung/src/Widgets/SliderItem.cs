@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -58,7 +59,7 @@ namespace Widgets
         /// mit dem zugehörigen GameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
         /// einem minimalen einstellbaren Wert, einem maximalen einstellbaren Wert und einem Standardwert Pflicht.
         /// </summary>
-        public  SliderItem (GameScreen screen, DisplayLayer drawOrder, int max, int min, int step, int value)
+        public SliderItem (GameScreen screen, DisplayLayer drawOrder, int max, int min, int step, int value)
         {
             throw new System.NotImplementedException();
         }

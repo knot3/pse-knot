@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace KnotData
     /// <summary>
     /// Implementiert das Speicherformat für Challenges.
     /// </summary>
-    public class ChallengeFileIO
+    public class ChallengeFileIO : IChallengeIO
     {
 
         #region Constructors
@@ -31,7 +32,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein ChallengeFileIO-Objekt.
         /// </summary>
-        public  ChallengeFileIO ( )
+        public ChallengeFileIO ( )
         {
             throw new System.NotImplementedException();
         }

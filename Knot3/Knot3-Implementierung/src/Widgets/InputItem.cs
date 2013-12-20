@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -41,7 +42,7 @@ namespace Widgets
         /// Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
         /// </summary>
-        public  InputItem (GameScreen screen, DisplayLayer drawOrder, string text)
+        public InputItem (GameScreen screen, DisplayLayer drawOrder, string text)
         {
             throw new System.NotImplementedException();
         }

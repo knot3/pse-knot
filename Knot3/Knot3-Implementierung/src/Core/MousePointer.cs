@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,7 +32,7 @@ namespace Core
         /// <summary>
         /// Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
         /// </summary>
-        public  MousePointer (GameScreen screen)
+        public MousePointer (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

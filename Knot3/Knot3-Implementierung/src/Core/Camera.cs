@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -90,7 +91,7 @@ namespace Core
         /// <summary>
         /// Erstellt eine neue Kamera in einem bestimmten GameScreen für eine bestimmte Spielwelt.
         /// </summary>
-        public  Camera (GameScreen screen, World world)
+        public Camera (GameScreen screen, World world)
         {
             throw new System.NotImplementedException();
         }

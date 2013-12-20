@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace KnotData
     /// <summary>
     /// Implementiert das Speicherformat für Knoten.
     /// </summary>
-    public class KnotFileIO
+    public class KnotFileIO : IKnotIO
     {
 
         #region Properties
@@ -40,7 +41,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein KnotFileIO-Objekt.
         /// </summary>
-        public  KnotFileIO ( )
+        public KnotFileIO ( )
         {
             throw new System.NotImplementedException();
         }

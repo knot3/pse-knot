@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace Core
     /// <summary>
     /// Repräsentiert eine Spielwelt, in der sich 3D-Modelle befinden und gezeichnet werden können.
     /// </summary>
-    public class World : DrawableGameScreenComponent
+    public class World : DrawableGameScreenComponent, IEnumerable<IGameObject>
     {
 
         #region Properties
@@ -55,7 +56,7 @@ namespace Core
         /// <summary>
         /// Erstellt eine neue Spielwelt im angegebenen Spielzustand.
         /// </summary>
-        public  World (GameScreen screen)
+        public World (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

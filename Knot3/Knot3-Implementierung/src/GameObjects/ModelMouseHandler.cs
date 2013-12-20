@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,7 +33,7 @@ namespace GameObjects
         /// Erzeugt eine neue Instanz eines ModelMouseHandler-Objekts und ordnet dieser ein GameScreen-Objekt screen zu,
         /// sowie eine Spielwelt world.
         /// </summary>
-        public  ModelMouseHandler (GameScreen screen, World world)
+        public ModelMouseHandler (GameScreen screen, World world)
         {
             throw new System.NotImplementedException();
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -41,7 +42,7 @@ namespace Core
         /// Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
         /// angegebenen Abschnitt der angegebenen Einstellungsdatei.
         /// </summary>
-        public  BooleanOptionInfo (string section, string name, string defaultValue, ConfigFile configFile)
+        public BooleanOptionInfo (string section, string name, string defaultValue, ConfigFile configFile)
         {
             throw new System.NotImplementedException();
         }

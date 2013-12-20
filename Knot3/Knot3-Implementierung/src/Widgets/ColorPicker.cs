@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace Widgets
     /// <summary>
     /// Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
     /// </summary>
-    public class ColorPicker : Widget
+    public class ColorPicker : Widget, IKeyEventListener, IMouseEventListener
     {
 
         #region Properties
@@ -40,7 +41,7 @@ namespace Widgets
         /// <summary>
         /// 
         /// </summary>
-        public  ColorPicker (Color def)
+        public ColorPicker (Color def)
         {
             throw new System.NotImplementedException();
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -41,7 +42,7 @@ namespace Widgets
         /// Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
         /// </summary>
-        public  CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, BooleanOptionInfo option)
+        public CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, BooleanOptionInfo option)
         {
             throw new System.NotImplementedException();
         }

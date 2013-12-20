@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -47,7 +48,7 @@ namespace Widgets
         /// text bezeichnet den Text für den Eintrag,
         /// onSelect ist die Aktion, welche bei der Auswahl des Eintrags auzuführen ist (s. Action).
         /// </summary>
-        public  DropDownEntry (string text, Action onSelect)
+        public DropDownEntry (string text, Action onSelect)
         {
             throw new System.NotImplementedException();
         }

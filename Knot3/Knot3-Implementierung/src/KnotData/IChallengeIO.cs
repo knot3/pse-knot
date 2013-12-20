@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,26 +32,17 @@ namespace KnotData
         /// <summary>
         /// Speichert eine Challenge.
         /// </summary>
-        void Save (Challenge challenge)
-        {
-            throw new System.NotImplementedException();
-        }
+        void Save (Challenge challenge);
 
         /// <summary>
         /// Lädt eine Challenge.
         /// </summary>
-        Challenge Load (string filename)
-        {
-            throw new System.NotImplementedException();
-        }
+        Challenge Load (string filename);
 
         /// <summary>
         /// Lädt die Metadaten einer Challenge.
         /// </summary>
-        ChallengeMetaData LoadMetaData (string filename)
-        {
-            throw new System.NotImplementedException();
-        }
+        ChallengeMetaData LoadMetaData (string filename);
 
         #endregion
 

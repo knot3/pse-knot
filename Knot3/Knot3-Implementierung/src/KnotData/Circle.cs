@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace KnotData
     /// <summary>
     /// Eine doppelt verkettete Liste.
     /// </summary>
-    public class Circle
+    public class Circle : IEnumerable
     {
 
     }

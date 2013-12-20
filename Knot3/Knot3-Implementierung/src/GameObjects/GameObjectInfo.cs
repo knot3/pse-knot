@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace GameObjects
     /// <summary>
     /// Enthält Informationen über ein 3D-Objekt wie die Position, Sichtbarkeit, Verschiebbarkeit und Auswählbarkeit.
     /// </summary>
-    public class GameObjectInfo
+    public class GameObjectInfo : IEquatable<GameObjectInfo>
     {
 
         #region Properties

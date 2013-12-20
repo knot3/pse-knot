@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -71,7 +72,7 @@ namespace Widgets
         /// Erstellt ein neues grafisches Benutzerschnittstellenelement in dem angegebenen Spielzustand
         /// mit der angegebenen Zeichenreihenfolge.
         /// </summary>
-        public  Widget (GameScreen screen, DisplayLayer drawOrder)
+        public Widget (GameScreen screen, DisplayLayer drawOrder)
         {
             throw new System.NotImplementedException();
         }

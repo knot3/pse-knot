@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -55,7 +56,7 @@ namespace Core
         /// <summary>
         /// Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
-        public  GameScreen (Knot3Game game)
+        public GameScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

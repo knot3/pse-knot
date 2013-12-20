@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -50,7 +51,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt eine neue Kante mit der angegebenen Richtung.
         /// </summary>
-        public  Edge (Direction direction)
+        public Edge (Direction direction)
         {
             throw new System.NotImplementedException();
         }

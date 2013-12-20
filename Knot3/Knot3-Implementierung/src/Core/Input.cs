@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -75,7 +76,7 @@ namespace Core
         /// <summary>
         /// Erstellt ein neues Input-Objekt, das an den übergebenen Spielzustand gebunden ist.
         /// </summary>
-        public  Input (GameScreen screen)
+        public Input (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

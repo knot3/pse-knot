@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace Widgets
     /// <summary>
     /// Ein abstrakte Klasse für Menüeinträge, die
     /// </summary>
-    public class MenuItem : Widget
+    public class MenuItem : Widget, IKeyEventListener, IMouseEventListener
     {
 
         #region Properties

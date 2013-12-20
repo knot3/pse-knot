@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace RenderEffects
     /// <summary>
     /// Eine abstrakte Klasse, die eine Implementierung von IRenderEffect darstellt.
     /// </summary>
-    public class RenderEffect
+    public class RenderEffect : IRenderEffect
     {
 
         #region Properties

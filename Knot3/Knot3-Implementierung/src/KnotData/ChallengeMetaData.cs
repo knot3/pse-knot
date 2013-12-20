@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -65,7 +66,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metadaten des Ausgangs- und Referenzknotens.
         /// </summary>
-        public  ChallengeMetaData (string name, KnotMetaData start, KnotMetaData target, string filename, IChallengeIO format)
+        public ChallengeMetaData (string name, KnotMetaData start, KnotMetaData target, string filename, IChallengeIO format)
         {
             throw new System.NotImplementedException();
         }

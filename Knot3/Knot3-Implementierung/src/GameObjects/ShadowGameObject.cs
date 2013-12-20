@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace GameObjects
     /// <summary>
     /// Eine abstrakte Klasse, die ein Vorschau-Spielobjekt darstellt.
     /// </summary>
-    public class ShadowGameObject
+    public class ShadowGameObject : IGameObject
     {
 
         #region Properties
@@ -55,7 +56,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Vorschauobjekt in dem angegebenen Spielzustand für das angegebene zu dekorierende Objekt.
         /// </summary>
-        public  ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
+        public ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
         {
             throw new System.NotImplementedException();
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -56,7 +57,7 @@ namespace KnotData
         /// Erzeugt eine neue Instanz eines Node-Objekts und initialisiert diese mit Werten
         /// für die x-, y- und z-Koordinate.
         /// </summary>
-        public  Node (int x, int y, int z)
+        public Node (int x, int y, int z)
         {
             throw new System.NotImplementedException();
         }

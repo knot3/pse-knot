@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace GameObjects
     /// <summary>
     /// Ein Inputhandler, der für das Verschieben der Kanten zuständig ist.
     /// </summary>
-    public class EdgeMovement
+    public class EdgeMovement : IGameObject, IEnumerable<IGameObject>
     {
 
         #region Properties
@@ -50,7 +51,7 @@ namespace GameObjects
         /// <summary>
         /// !!!
         /// </summary>
-        public  EdgeMovement (GameScreen screen, World world, GameObjectInfo info)
+        public EdgeMovement (GameScreen screen, World world, GameObjectInfo info)
         {
             throw new System.NotImplementedException();
         }

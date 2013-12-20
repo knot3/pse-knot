@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace Core
     /// <summary>
     /// Eine zeichenbare Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
     /// </summary>
-    public class DrawableGameScreenComponent : DrawableGameComponent
+    public class DrawableGameScreenComponent : DrawableGameComponent, IGameScreenComponent
     {
 
         #region Properties
@@ -46,7 +47,7 @@ namespace Core
         /// Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet dieser ein GameScreen-Objekt zu.
         /// index bezeichnet die Zeichenebene, auf welche die Komponente zu zeichnen ist.
         /// </summary>
-        public  DrawableGameScreenComponent (GameScreen screen, DisplayLayer index)
+        public DrawableGameScreenComponent (GameScreen screen, DisplayLayer index)
         {
             throw new System.NotImplementedException();
         }

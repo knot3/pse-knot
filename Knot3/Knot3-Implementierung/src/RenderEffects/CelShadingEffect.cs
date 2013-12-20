@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,7 +32,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
         /// </summary>
-        public  CelShadingEffect (GameScreen screen)
+        public CelShadingEffect (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -45,7 +46,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angegebene zu dekorierende Modell.
         /// </summary>
-        public  ShadowGameModel (GameScreen sreen, GameModel decoratedModel)
+        public ShadowGameModel (GameScreen sreen, GameModel decoratedModel)
         {
             throw new System.NotImplementedException();
         }

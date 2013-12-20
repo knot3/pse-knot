@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -50,10 +51,7 @@ namespace Core
         /// <summary>
         /// Die Reaktion auf eine Tasteneingabe.
         /// </summary>
-        void OnKeyEvent ( )
-        {
-            throw new System.NotImplementedException();
-        }
+        void OnKeyEvent ( );
 
         #endregion
 

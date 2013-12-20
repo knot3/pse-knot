@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -40,26 +41,17 @@ namespace KnotData
         /// <summary>
         /// Speichert einen Knoten.
         /// </summary>
-        void Save (Knot knot)
-        {
-            throw new System.NotImplementedException();
-        }
+        void Save (Knot knot);
 
         /// <summary>
         /// Lädt einen Knoten.
         /// </summary>
-        Knot Load (string filename)
-        {
-            throw new System.NotImplementedException();
-        }
+        Knot Load (string filename);
 
         /// <summary>
         /// Lädt die Metadaten eines Knotens.
         /// </summary>
-        KnotMetaData LoadMetaData (string filename)
-        {
-            throw new System.NotImplementedException();
-        }
+        KnotMetaData LoadMetaData (string filename);
 
         #endregion
 

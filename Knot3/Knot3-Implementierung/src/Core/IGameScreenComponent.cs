@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,10 +47,7 @@ namespace Core
         /// Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
         /// [returntype=IEnumerable<IGameScreenComponent>]
         /// </summary>
-        IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
-        {
-            throw new System.NotImplementedException();
-        }
+        IEnumerable<IGameScreenComponent> SubComponents (GameTime time);
 
         #endregion
 

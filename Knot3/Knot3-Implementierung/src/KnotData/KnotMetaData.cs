@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -70,7 +71,7 @@ namespace KnotData
         /// und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
         /// Zusätzlich wird der Dateiname oder das Speicherformat angegeben, aus dem die Metadaten gelesen wurden.
         /// </summary>
-        public  KnotMetaData (string name, Func<int> countEdges, IKnotIO format, string filename)
+        public KnotMetaData (string name, Func<int> countEdges, IKnotIO format, string filename)
         {
             throw new System.NotImplementedException();
         }
@@ -79,7 +80,7 @@ namespace KnotData
         /// Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
         /// und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
         /// </summary>
-        public  KnotMetaData (string name, Func<int> countEdges)
+        public KnotMetaData (string name, Func<int> countEdges)
         {
             throw new System.NotImplementedException();
         }

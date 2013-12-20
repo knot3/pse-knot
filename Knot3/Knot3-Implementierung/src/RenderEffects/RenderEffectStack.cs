@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -47,7 +48,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Rendereffekt-Stapel.
         /// </summary>
-        public  RenderEffectStack (IRenderEffect defaultEffect)
+        public RenderEffectStack (IRenderEffect defaultEffect)
         {
             throw new System.NotImplementedException();
         }

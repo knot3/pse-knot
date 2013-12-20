@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace KnotData
     /// <summary>
     /// Diese Klasse repräsentiert einen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten. Ein Knoten ist eine zyklische Kantenfolge, bei der keine zwei Kanten Kanten den gleichen Raum einnehmen.
     /// </summary>
-    public class Knot
+    public class Knot : ICloneable, IEnumerable<Edge>, IEquatable<Knot>
     {
 
         #region Properties
@@ -65,7 +66,7 @@ namespace KnotData
         /// Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
         /// die das Speicherformat und den Dateinamen beinhalten, den Wert \glqq null\grqq.
         /// </summary>
-        public  Knot ( )
+        public Knot ( )
         {
             throw new System.NotImplementedException();
         }
@@ -76,7 +77,7 @@ namespace KnotData
         /// Die Eigenschaft des Metadaten-Objektes, die die Anzahl der Kanten enthält,
         /// wird auf ein Delegate gesetzt, welches jeweils die aktuelle Anzahl der Kanten dieses Knotens zurückgibt.
         /// </summary>
-        public  Knot (KnotMetaData meta, IEnumerable<Edge> edges)
+        public Knot (KnotMetaData meta, IEnumerable<Edge> edges)
         {
             throw new System.NotImplementedException();
         }
@@ -103,7 +104,6 @@ namespace KnotData
 
         /// <summary>
         /// Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
-        /// [returntype=IEnumerator<Edge>]
         /// </summary>
         public virtual IEnumerator<Edge> GetEnumerator ( )
         {
@@ -172,9 +172,10 @@ namespace KnotData
 
         /// <summary>
         /// Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
-        /// [returntype=IEnumerator<Edge>]
+        /// [name=IEnumerable.GetEnumerator]
+        /// [keywords= ]
         /// </summary>
-        public virtual IEnumerator<Edge> GetEnumerator ( )
+        IEnumerator IEnumerable.GetEnumerator ( )
         {
             throw new System.NotImplementedException();
         }

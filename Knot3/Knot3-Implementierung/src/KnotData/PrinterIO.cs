@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace KnotData
     /// <summary>
     /// Ein Exportformat für 3D-Drucker.
     /// </summary>
-    public class PrinterIO
+    public class PrinterIO : IKnotIO
     {
 
         #region Properties
@@ -40,7 +41,7 @@ namespace KnotData
         /// <summary>
         /// Erstellt ein neues PrinterIO-Objekt.
         /// </summary>
-        public  PrinterIO ( )
+        public PrinterIO ( )
         {
             throw new System.NotImplementedException();
         }

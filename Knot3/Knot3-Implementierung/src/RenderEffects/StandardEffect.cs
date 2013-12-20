@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,7 +33,7 @@ namespace RenderEffects
         /// <summary>
         /// Erstellt einen neuen Standardeffekt.
         /// </summary>
-        public  StandardEffect (GameScreen screen)
+        public StandardEffect (GameScreen screen)
         {
             throw new System.NotImplementedException();
         }

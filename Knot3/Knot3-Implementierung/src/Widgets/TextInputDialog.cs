@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -42,7 +43,7 @@ namespace Widgets
         /// Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenfolge
         /// für den eingeblendeten Text und eine Zeichenkette für voreingestellten Text (welche leer sein darf) Pflicht.
         /// </summary>
-        public  TextInputDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
+        public TextInputDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
         {
             throw new System.NotImplementedException();
         }

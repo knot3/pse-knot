@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,7 +26,7 @@ namespace Widgets
     /// Positionen, Größen, Farben und Ausrichtungen der Menüeinträge. Sie werden gesetzt, wenn die Werte
     /// der Menüeinträge \glqq null\grqq~sind.
     /// </summary>
-    public class Menu : Widget
+    public class Menu : Widget, IEnumerable<MenuItem>
     {
 
         #region Properties
@@ -68,7 +69,7 @@ namespace Widgets
         /// Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
         /// </summary>
-        public  Menu (GameScreen screen, DisplayLayer drawOrder)
+        public Menu (GameScreen screen, DisplayLayer drawOrder)
         {
             throw new System.NotImplementedException();
         }

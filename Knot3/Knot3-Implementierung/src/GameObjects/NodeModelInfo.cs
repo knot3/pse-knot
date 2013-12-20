@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace GameObjects
     /// <summary>
     /// Enthält Informationen über ein 3D-Modell, das einen Kantenübergang darstellt.
     /// </summary>
-    public class NodeModelInfo : GameModelInfo
+    public class NodeModelInfo : GameModelInfo, IJunction
     {
 
         #region Properties
@@ -55,7 +56,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
         /// </summary>
-        public  NodeModelInfo (Knot knot, Edge from, Edge to)
+        public NodeModelInfo (Knot knot, Edge from, Edge to)
         {
             throw new System.NotImplementedException();
         }

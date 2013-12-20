@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -42,38 +43,26 @@ namespace RenderEffects
         /// In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stapel gesichert
         /// und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
         /// </summary>
-        void Begin (GameTime gametime)
-        {
-            throw new System.NotImplementedException();
-        }
+        void Begin (GameTime gametime);
 
         /// <summary>
         /// Das auf dem Stapel gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
         /// das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
         /// auf dieses ubergeordnete Rendertarget gezeichnet.
         /// </summary>
-        void End (GameTime gametime)
-        {
-            throw new System.NotImplementedException();
-        }
+        void End (GameTime gametime);
 
         /// <summary>
         /// 
         /// </summary>
-        void DrawModel (GameModel model, GameTime time)
-        {
-            throw new System.NotImplementedException();
-        }
+        void DrawModel (GameModel model, GameTime time);
 
         /// <summary>
         /// Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
         /// BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
         /// ein anderer Shader zugewiesen werden.
         /// </summary>
-        void RemapModel (GameModel model)
-        {
-            throw new System.NotImplementedException();
-        }
+        void RemapModel (GameModel model);
 
         #endregion
 

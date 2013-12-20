@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,7 +33,7 @@ namespace Widgets
         /// Erzeugt eine neue Instanz eines VerticalMenu-Objekts und initialisiert diese mit dem zugehörigen GameScreen-Objekt.
         /// Zudem ist die Angaben der Zeichenreihenfolge Pflicht.
         /// </summary>
-        public  VerticalMenu (GameScreen screen, DisplayLayer drawOrder)
+        public VerticalMenu (GameScreen screen, DisplayLayer drawOrder)
         {
             throw new System.NotImplementedException();
         }

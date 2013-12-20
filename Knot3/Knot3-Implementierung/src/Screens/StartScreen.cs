@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -40,7 +41,7 @@ namespace Screens
         /// <summary>
         /// Erzeugt eine neue Instanz eines StartScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt.
         /// </summary>
-        public  StartScreen (Knot3Game game)
+        public StartScreen (Knot3Game game)
         {
             throw new System.NotImplementedException();
         }

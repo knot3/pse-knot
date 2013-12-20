@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -60,7 +61,7 @@ namespace Screens
         /// die in der Einstellungsdatei gespeicherte Auflösung oder falls nicht vorhanden auf die aktuelle
         /// Bildschirmauflösung und wechselt in den Vollbildmodus.
         /// </summary>
-        public  Knot3Game ( )
+        public Knot3Game ( )
         {
             throw new System.NotImplementedException();
         }

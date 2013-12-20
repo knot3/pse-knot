@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,34 +47,22 @@ namespace GameObjects
         /// <summary>
         /// Die Mitte des Spielobjektes im 3D-Raum.
         /// </summary>
-        Vector3 Center ( )
-        {
-            throw new System.NotImplementedException();
-        }
+        Vector3 Center ( );
 
         /// <summary>
         /// Wird für jeden Frame aufgerufen.
         /// </summary>
-        void Update (GameTime time)
-        {
-            throw new System.NotImplementedException();
-        }
+        void Update (GameTime time);
 
         /// <summary>
         /// Zeichnet das Spielobjekt.
         /// </summary>
-        void Draw (GameTime time)
-        {
-            throw new System.NotImplementedException();
-        }
+        void Draw (GameTime time);
 
         /// <summary>
         /// Überprüft, ob der Mausstrahl das Spielobjekt schneidet.
         /// </summary>
-        GameObjectDistance Intersects (Ray ray)
-        {
-            throw new System.NotImplementedException();
-        }
+        GameObjectDistance Intersects (Ray ray);
 
         #endregion
 

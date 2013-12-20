@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace Widgets
     /// <summary>
     /// Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
     /// </summary>
-    public class Dialog : Widget
+    public class Dialog : Widget, IKeyEventListener, IMouseEventListener
     {
 
         #region Properties
@@ -46,7 +47,7 @@ namespace Widgets
         /// Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
         /// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
         /// </summary>
-        public  Dialog (GameScreen screen, DisplayLayer drawOrder, string title, string text)
+        public Dialog (GameScreen screen, DisplayLayer drawOrder, string title, string text)
         {
             throw new System.NotImplementedException();
         }

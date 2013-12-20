@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -55,7 +56,7 @@ namespace GameObjects
         /// <summary>
         /// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
         /// </summary>
-        public  PipeModelInfo (Knot knot, Edge edge)
+        public PipeModelInfo (Knot knot, Edge edge)
         {
             throw new System.NotImplementedException();
         }

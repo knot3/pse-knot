@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace Core
     /// <summary>
     /// Eine Spielkomponente, die in einem GameScreen verwendet wird und eine bestimmte Priorität hat.
     /// </summary>
-    public class GameScreenComponent : GameComponent
+    public class GameScreenComponent : GameComponent, IGameScreenComponent
     {
 
         #region Properties
@@ -45,7 +46,7 @@ namespace Core
         /// <summary>
         /// Erzeugt eine neue Instanz eines GameScreenComponent-Objekts und initialisiert diese mit dem zugehörigen GameScreen und der zugehörigen Zeichenreihenfolge. Diese Spielkomponente kann nur in dem zugehörigen GameScreen verwendet werden.
         /// </summary>
-        public  GameScreenComponent (GameScreen screen, DisplayLayer index)
+        public GameScreenComponent (GameScreen screen, DisplayLayer index)
         {
             throw new System.NotImplementedException();
         }
