@@ -32,7 +32,7 @@ namespace Core
         /// <summary>
         /// Die zentrale Einstellungsdatei des Spiels.
         /// </summary>
-        public ConfigFile Default { get; set; }
+        public static ConfigFile Default { get; set; }
 
         #endregion
 

@@ -10,10 +10,10 @@ public class Core.Angles3 : IEquatable<Angles3>
     // Der Winkel im Bogenmaß für das Rollen um die Z-Achse. Siehe statische Methode Matrix.CreateRotationZ(float) des XNA-Frameworks.
     + Z : float
     // Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
-    + Zero : Angles3
+    + Zero : Angles3 static
   Methods:
     // Eine statische Methode, die Grad in Bogenmaß konvertiert.
-    + FromDegrees (float X, float Y, float Z) : Angles3
+    + FromDegrees (float X, float Y, float Z) : Angles3 static
     // Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln im Bogenmaß.
     + Angles3 (float X, float Y, float Z) : void
     // Konvertiert Bogenmaß in Grad.
@@ -529,14 +529,14 @@ public class RenderEffects.FadeEffect : RenderEffect
 public class Core.FileUtility : 
   Attributes:
     // Das Einstellungsverzeichnis.
-    + SettingsDirectory : String
+    + SettingsDirectory : String static
     // Das Spielstandverzeichnis.
-    + SavegameDirectory : String
+    + SavegameDirectory : String static
     // Das Bildschirmfotoverzeichnis.
-    + ScreenshotDirectory : String
+    + ScreenshotDirectory : String static
   Methods:
     // Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungültiger Zeichen.
-    + ConvertToFileName (String name) : String
+    + ConvertToFileName (String name) : String static
     // Liefert einen Hash-Wert zu der durch filename spezifizierten Datei.
     + GetHash (String filename) : String
 
@@ -973,6 +973,7 @@ public class GameObjects.KnotInputHandler : GameScreenComponent
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
     // Erstellt einen neuen KnotInputHandler für den angegebenen Spielzustand und die angegebene Spielwelt.
+    // [base=screen]
     + KnotInputHandler (GameScreen screen, World world) : void
 
 // Enthält Metadaten eines Knotens, die aus einer Spielstand-Datei schneller eingelesen werden können,
@@ -1076,11 +1077,11 @@ public class KnotData.KnotStringIO :
 public class Core.Localizer : 
   Attributes:
     // Die Datei, welche Informationen für die Lokalisierung enthält.
-    - localization : ConfigFile
+    - localization : ConfigFile static
   Methods:
     // Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
     // aktuellen Sprache zurück, die dabei aus der Einstellungsdatei des Spiels gelesen wird.
-    + Localize (String text) : String
+    + Localize (String text) : String static
 
 // Ein Menü enthält Bedienelemente zur Benutzerinteraktion. Diese Klasse bietet Standardwerte für
 // Positionen, Größen, Farben und Ausrichtungen der Menüeinträge. Sie werden gesetzt, wenn die Werte
@@ -1227,6 +1228,7 @@ public class GameObjects.NodeModel : GameModel
     + Info : NodeModelInfo
   Methods:
     // Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und dem angegebenen Informationsobjekt.
+    // [base=screen, info]
     + NodeModel (GameScreen screen, NodeModelInfo info) : void
     // Zeichnet das 3D-Modell mit dem aktuellen Rendereffekt.
     + Draw (GameTime GameTime) : void
@@ -1246,6 +1248,7 @@ public class GameObjects.NodeModelInfo : GameModelInfo, IJunction
     + Position : Vector3
   Methods:
     // Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
+    // [base="node1", Angles3.Zero, 1]
     + NodeModelInfo (Knot knot, Edge from, Edge to) : void
 
 // Enthält Informationen über einen Eintrag in einer Einstellungsdatei.
@@ -1269,7 +1272,7 @@ public class Core.OptionInfo :
 public class Core.Options : 
   Attributes:
     // Die zentrale Einstellungsdatei des Spiels.
-    + Default : ConfigFile
+    + Default : ConfigFile static
   Methods:
 
 // Pausiert ein Spieler im Creative- oder Challenge-Modus das Spiel,
@@ -1305,6 +1308,7 @@ public class GameObjects.PipeModelInfo : GameModelInfo
     + PositionTo : Vector3
   Methods:
     // Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
+    // [base="pipe1", Angles3.Zero, 10]
     + PipeModelInfo (Knot knot, Edge edge) : void
 
 // Ein Exportformat für 3D-Drucker.

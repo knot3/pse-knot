@@ -40,8 +40,10 @@ namespace GameObjects
 
         /// <summary>
         /// Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und dem angegebenen Informationsobjekt.
+        /// [base=screen, info]
         /// </summary>
         public NodeModel (GameScreen screen, NodeModelInfo info)
+            : base(screen, info)
         {
             throw new System.NotImplementedException();
         }

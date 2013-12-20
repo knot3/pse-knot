@@ -49,7 +49,7 @@ namespace Core
         /// <summary>
         /// Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
         /// </summary>
-        public Angles3 Zero { get; set; }
+        public static Angles3 Zero { get; set; }
 
         #endregion
 

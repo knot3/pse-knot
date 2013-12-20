@@ -32,17 +32,17 @@ namespace Core
         /// <summary>
         /// Das Einstellungsverzeichnis.
         /// </summary>
-        public string SettingsDirectory { get; set; }
+        public static string SettingsDirectory { get; set; }
 
         /// <summary>
         /// Das Spielstandverzeichnis.
         /// </summary>
-        public string SavegameDirectory { get; set; }
+        public static string SavegameDirectory { get; set; }
 
         /// <summary>
         /// Das Bildschirmfotoverzeichnis.
         /// </summary>
-        public string ScreenshotDirectory { get; set; }
+        public static string ScreenshotDirectory { get; set; }
 
         #endregion
 
