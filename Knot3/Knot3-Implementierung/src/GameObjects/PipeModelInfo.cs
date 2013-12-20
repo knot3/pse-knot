@@ -55,10 +55,10 @@ namespace GameObjects
 
         /// <summary>
         /// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
-        /// [base="pipe1", Angles3.Zero, 10]
+        /// [base="pipe1", Angles3.Zero, new Vector3(10,10,10)]
         /// </summary>
         public PipeModelInfo (Knot knot, Edge edge)
-            : base("pipe1", Angles3.Zero, 10)
+            : base("pipe1", Angles3.Zero, new Vector3(10,10,10))
         {
             throw new System.NotImplementedException();
         }

@@ -57,6 +57,14 @@ namespace GameObjects
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public GameModelInfo (string modelname)
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion
 
     }

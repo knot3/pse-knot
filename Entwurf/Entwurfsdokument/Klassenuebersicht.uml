@@ -584,6 +584,8 @@ public class GameObjects.GameModelInfo : GameObjectInfo
     // Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
     // Dateiname, Rotation und Skalierung.
     + GameModelInfo (String modelname, Angles3 rotation, Vector3 scale) : void
+    // 
+    + GameModelInfo (String modelname) : void
 
 // !!!
 public class GameObjects.GameObjectDistance : 
@@ -1248,7 +1250,7 @@ public class GameObjects.NodeModelInfo : GameModelInfo, IJunction
     + Position : Vector3
   Methods:
     // Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
-    // [base="node1", Angles3.Zero, 1]
+    // [base="node1", Angles3.Zero, new Vector3(1,1,1)]
     + NodeModelInfo (Knot knot, Edge from, Edge to) : void
 
 // Enthält Informationen über einen Eintrag in einer Einstellungsdatei.
@@ -1308,7 +1310,7 @@ public class GameObjects.PipeModelInfo : GameModelInfo
     + PositionTo : Vector3
   Methods:
     // Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
-    // [base="pipe1", Angles3.Zero, 10]
+    // [base="pipe1", Angles3.Zero, new Vector3(10,10,10)]
     + PipeModelInfo (Knot knot, Edge edge) : void
 
 // Ein Exportformat für 3D-Drucker.
