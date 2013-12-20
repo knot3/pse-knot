@@ -21,7 +21,7 @@ using Widgets;
 namespace Core
 {
     /// <summary>
-    /// Diese Klasse repräsentiert die Rotationswinkel der drei Achsen X, Y und Z.
+    /// Diese Klasse repräsentiert die Rollwinkel der drei Achsen X, Y und Z.
     /// Sie bietet Möglichkeit vordefinierte Winkelwerte zu verwenden, z.B. stellt Zero den Nullvektor dar.
     /// Die Umwandlung zwischen verschiedenen Winkelmaßen wie Grad- und Bogenmaß unterstützt sie durch entsprechende Methoden.
     /// </summary>
@@ -31,17 +31,17 @@ namespace Core
         #region Properties
 
         /// <summary>
-        /// Der Rotationswinkel um die X-Achse.
+        /// Der Winkel im Bogenmaß für das Rollen um die X-Achse. Siehe statische Methode Matrix.CreateRotationX(float) des XNA-Frameworks.
         /// </summary>
         public float X { get; set; }
 
         /// <summary>
-        /// Der Rotationswinkel um die Y-Achse.
+        /// Der Winkel im Bogenmaß für das Rollen um die Y-Achse. Siehe statische Methode Matrix.CreateRotationY(float) des XNA-Frameworks.
         /// </summary>
         public float Y { get; set; }
 
         /// <summary>
-        /// Der Rotationswinkel um die Z-Achse.
+        /// Der Winkel im Bogenmaß für das Rollen um die Z-Achse. Siehe statische Methode Matrix.CreateRotationZ(float) des XNA-Frameworks.
         /// </summary>
         public float Z { get; set; }
 
@@ -55,7 +55,7 @@ namespace Core
         #region Constructors
 
         /// <summary>
-        /// Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
+        /// Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln im Bogenmaß.
         /// </summary>
         public  Angles3 (float X, float Y, float Z)
         {
@@ -67,7 +67,7 @@ namespace Core
         #region Methods
 
         /// <summary>
-        /// Konvertiert Grad in Bogenmaß.
+        /// Eine statische Methode, die Grad in Bogenmaß konvertiert.
         /// </summary>
         public virtual Angles3 FromDegrees (float X, float Y, float Z)
         {

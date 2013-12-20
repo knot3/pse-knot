@@ -56,7 +56,7 @@ namespace GameObjects
         /// <summary>
         /// Die Klasse des XNA-Frameworks, die ein 3D-Modell repräsentiert.
         /// </summary>
-        public XNA.Model Model { get; set; }
+        public Model Model { get; set; }
 
         /// <summary>
         /// Die Spielwelt, in der sich das 3D-Modell befindet.

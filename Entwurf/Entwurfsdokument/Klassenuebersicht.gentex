@@ -6,29 +6,29 @@
 \includegraphics[scale=0.5]{Klassen/Angles3}
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-Diese Klasse repräsentiert die Rotationswinkel der drei Achsen X, Y und Z.
+Diese Klasse repräsentiert die Rollwinkel der drei Achsen X, Y und Z.
 Sie bietet Möglichkeit vordefinierte Winkelwerte zu verwenden, z.B. stellt Zero den Nullvektor dar.
 Die Umwandlung zwischen verschiedenen Winkelmaßen wie Grad- und Bogenmaß unterstützt sie durch entsprechende Methoden.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{float} \varname{X}}\newline\newline
-Der Rotationswinkel um die X-Achse.
+Der Winkel im Bogenmaß für das Rollen um die X-Achse. Siehe statische Methode Matrix.CreateRotationX(float) des XNA-Frameworks.
 ~\\\\
 \textbf{\keyword{public} \ptype{float} \varname{Y}}\newline\newline
-Der Rotationswinkel um die Y-Achse.
+Der Winkel im Bogenmaß für das Rollen um die Y-Achse. Siehe statische Methode Matrix.CreateRotationY(float) des XNA-Frameworks.
 ~\\\\
 \textbf{\keyword{public} \ptype{float} \varname{Z}}\newline\newline
-Der Rotationswinkel um die Z-Achse.
+Der Winkel im Bogenmaß für das Rollen um die Z-Achse. Siehe statische Methode Matrix.CreateRotationZ(float) des XNA-Frameworks.
 ~\\\\
 \textbf{\keyword{public} \ptype{Angles3} \varname{Zero}}\newline\newline
 Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{Angles3} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\newline\newline
-Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
+Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln im Bogenmaß.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{Angles3} \varname{FromDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\newline\newline
-Konvertiert Grad in Bogenmaß.
+Eine statische Methode, die Grad in Bogenmaß konvertiert.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{ToDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\newline\newline
 Konvertiert Bogenmaß in Grad.
@@ -1713,7 +1713,7 @@ Gibt die Richtung als normalisierten Vektor3 zurück.
 \includegraphics[scale=0.5]{Klassen/Knot}
 \end{wrapfigure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten.
+Diese Klasse repräsentiert einen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten. Ein Knoten ist eine zyklische Kantenfolge, bei der keine zwei Kanten Kanten den gleichen Raum einnehmen.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline

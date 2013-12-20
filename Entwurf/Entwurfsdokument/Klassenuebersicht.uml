@@ -1,20 +1,20 @@
-// Diese Klasse repräsentiert die Rotationswinkel der drei Achsen X, Y und Z.
+// Diese Klasse repräsentiert die Rollwinkel der drei Achsen X, Y und Z.
 // Sie bietet Möglichkeit vordefinierte Winkelwerte zu verwenden, z.B. stellt Zero den Nullvektor dar.
 // Die Umwandlung zwischen verschiedenen Winkelmaßen wie Grad- und Bogenmaß unterstützt sie durch entsprechende Methoden.
 public class Core.Angles3 : 
   Attributes:
-    // Der Rotationswinkel um die X-Achse.
+    // Der Winkel im Bogenmaß für das Rollen um die X-Achse. Siehe statische Methode Matrix.CreateRotationX(float) des XNA-Frameworks.
     + X : float
-    // Der Rotationswinkel um die Y-Achse.
+    // Der Winkel im Bogenmaß für das Rollen um die Y-Achse. Siehe statische Methode Matrix.CreateRotationY(float) des XNA-Frameworks.
     + Y : float
-    // Der Rotationswinkel um die Z-Achse.
+    // Der Winkel im Bogenmaß für das Rollen um die Z-Achse. Siehe statische Methode Matrix.CreateRotationZ(float) des XNA-Frameworks.
     + Z : float
     // Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
     + Zero : Angles3
   Methods:
-    // Konvertiert Grad in Bogenmaß.
+    // Eine statische Methode, die Grad in Bogenmaß konvertiert.
     + FromDegrees (float X, float Y, float Z) : Angles3
-    // Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln.
+    // Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln im Bogenmaß.
     + Angles3 (float X, float Y, float Z) : void
     // Konvertiert Bogenmaß in Grad.
     + ToDegrees (float X, float Y, float Z) : void
@@ -851,7 +851,7 @@ public class Widgets.KeyInputItem : InputItem
     // Zudem sind Angaben zur Zeichenreihenfolge und der Eingabeoption Pflicht.
     + KeyInputItem (GameScreen screen, DisplayLayer drawOrder, OptionInfo option) : void
 
-// Diese Klasse repräsentiert einen gültigen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten.
+// Diese Klasse repräsentiert einen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten. Ein Knoten ist eine zyklische Kantenfolge, bei der keine zwei Kanten Kanten den gleichen Raum einnehmen.
 public class KnotData.Knot : 
   Attributes:
     // Der Name des Knotens, welcher auch leer sein kann.
