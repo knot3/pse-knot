@@ -135,8 +135,9 @@ namespace GameObjects
 
         /// <summary>
         /// Gibt einen Enumerator der aktuell vorhandenen 3D-Modelle zurück.
+        /// [returntype=IEnumerator<IGameObject>]
         /// </summary>
-        public virtual IEnumerator GetEnumerator ( )
+        public virtual IEnumerator<IGameObject> GetEnumerator ( )
         {
             throw new System.NotImplementedException();
         }

@@ -54,8 +54,9 @@ namespace GameObjects
 
         /// <summary>
         /// Vergleicht zwei Informationsobjekte für Spielobjekte.
+        /// [parameters=GameObjectInfo other]
         /// </summary>
-        public virtual Boolean Equals (C other)
+        public virtual Boolean Equals (GameObjectInfo other)
         {
             throw new System.NotImplementedException();
         }

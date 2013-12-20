@@ -174,6 +174,7 @@ Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet d
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
+[returntype=IEnumerable$<$IGameScreenComponent$>$]
 
 \subsubsection{Klasse FileUtility}\index{Core!FileUtility}
 \begin{wrapfigure}{r}{9cm}{0}
@@ -263,6 +264,7 @@ Erzeugt eine neue Instanz eines GameScreenComponent-Objekts und initialisiert di
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
+[returntype=IEnumerable$<$IGameScreenComponent$>$]
 
 \subsubsection{Klasse Input}\index{Core!Input}
 \begin{wrapfigure}{r}{9cm}{0}
@@ -411,6 +413,7 @@ Ruft auf allen Spielobjekten die Draw()-Methode auf.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Liefert einen Enumerator über die Spielobjekte dieser Spielwelt.
+[returntype=IEnumerator$<$IGameObject$>$]
 
 \subsection{Schnittstellen}
 \subsubsection{Schnittstelle IGameScreenComponent}\index{Core!IGameScreenComponent}
@@ -431,6 +434,7 @@ Der zugewiesene Spielzustand.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{time})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
+[returntype=IEnumerable$<$IGameScreenComponent$>$]
 
 \subsubsection{Schnittstelle IKeyEventListener}\index{Core!IKeyEventListener}
 \begin{wrapfigure}{r}{9cm}{0}
@@ -641,6 +645,7 @@ Wird für jeden Frame aufgerufen.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
+[returntype=IEnumerator$<$IGameObject$>$]
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
@@ -757,6 +762,7 @@ Die Position des Spielobjektes.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{C} \varname{other})}\newline\newline
 Vergleicht zwei Informationsobjekte für Spielobjekte.
+[parameters=GameObjectInfo \param{other}]
 
 \subsubsection{Klasse KnotInputHandler}\index{GameObjects!KnotInputHandler}
 \begin{wrapfigure}{r}{9cm}{0}
@@ -842,6 +848,7 @@ Ruft die Draw()-Methoden der Kanten, Übergänge und Pfeile auf.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator der aktuell vorhandenen 3D-Modelle zurück.
+[returntype=IEnumerator$<$IGameObject$>$]
 
 \subsubsection{Klasse ModelFactory}\index{GameObjects!ModelFactory}
 \begin{wrapfigure}{r}{9cm}{0}
@@ -1754,6 +1761,7 @@ Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebe
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator$<$Edge$>$} \varname{GetEnumerator} ()}\newline\newline
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
+[returntype=IEnumerator$<$Edge$>$]
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Save} ()}\newline\newline
 Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
@@ -1782,12 +1790,14 @@ Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
+[returntype=IEnumerator$<$Edge$>$]
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})}\newline\newline
 Speichert den Knoten unter dem angegebenen Dateinamen in dem angegebenen Datei\param{format}.
 ~\\\\
 \textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})}\newline\newline
 Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
+[parameters=Knot \param{other}]
 
 \subsubsection{Klasse KnotFileIO}\index{KnotData!KnotFileIO}
 \begin{wrapfigure}{r}{9cm}{0}
@@ -2288,6 +2298,7 @@ Gibt die Anzahl der Einträge des Menüs zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator über die Einträge des Menüs zurück.
+[returntype=IEnumerator$<$MenuItem$>$]
 
 \subsubsection{Klasse MenuButton}\index{Widgets!MenuButton}
 \begin{wrapfigure}{r}{9cm}{0}

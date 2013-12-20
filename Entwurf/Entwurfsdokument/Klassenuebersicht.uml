@@ -436,6 +436,7 @@ public class Core.DrawableGameScreenComponent : XNA.DrawableGameComponent
     + Index : DisplayLayer
   Methods:
     // Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
+    // [returntype=IEnumerable<IGameScreenComponent>]
     + SubComponents (GameTime GameTime) : IEnumerable
     // Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet dieser ein GameScreen-Objekt zu.
     // index bezeichnet die Zeichenebene, auf welche die Komponente zu zeichnen ist.
@@ -504,6 +505,7 @@ public class GameObjects.EdgeMovement :
     // !!!
     + EdgeMovement (GameScreen screen, World world, GameObjectInfo info) : void
     // Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
+    // [returntype=IEnumerator<IGameObject>]
     + GetEnumerator () : IEnumerator
     // Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
     + Draw (GameTime GameTime) : void
@@ -603,6 +605,7 @@ public class GameObjects.GameObjectInfo :
     + Position : Vector3
   Methods:
     // Vergleicht zwei Informationsobjekte für Spielobjekte.
+    // [parameters=GameObjectInfo other]
     + Equals (C other) : Boolean
 
 // Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
@@ -641,6 +644,7 @@ public class Core.GameScreenComponent : XNA.GameComponent
     + Screen : GameScreen
   Methods:
     // Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
+    // [returntype=IEnumerable<IGameScreenComponent>]
     + SubComponents (GameTime GameTime) : IEnumerable
     // Erzeugt eine neue Instanz eines GameScreenComponent-Objekts und initialisiert diese mit dem zugehörigen GameScreen und der zugehörigen Zeichenreihenfolge. Diese Spielkomponente kann nur in dem zugehörigen GameScreen verwendet werden.
     + GameScreenComponent (GameScreen screen, DisplayLayer index) : void
@@ -705,6 +709,7 @@ public interface Core.IGameScreenComponent : XNA.IGameComponent
     + Screen : GameScreen
   Methods:
     // Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
+    // [returntype=IEnumerable<IGameScreenComponent>]
     + SubComponents (GameTime time) : IEnumerable
 
 // Repräsentiert einen Übergang zwischen zwei Kanten.
@@ -882,6 +887,7 @@ public class KnotData.Knot :
     // Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebene Distanz.
     + Move (Direction dir, Integer distance) : Boolean
     // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
+    // [returntype=IEnumerator<Edge>]
     + GetEnumerator () : IEnumerator<Edge>
     // Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
     // Enthalten entweder die Dateiname-Eigenschaft, die Dateiformat-Eigenschaft
@@ -902,10 +908,12 @@ public class KnotData.Knot :
     // Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
     + IsSelected (Edge edge) : Boolean
     // Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
+    // [returntype=IEnumerator<Edge>]
     + GetEnumerator () : IEnumerator
     // Speichert den Knoten unter dem angegebenen Dateinamen in dem angegebenen Dateiformat.
     + Save (IKnotIO format, String filename) : void
     // Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
+    // [parameters=Knot other]
     + Equals (T other) : Boolean
 
 // Die zentrale Spielklasse, die von der \glqq Game\grqq~-Klasse des XNA-Frameworks erbt.
@@ -1037,6 +1045,7 @@ public class GameObjects.KnotRenderer :
     // Ruft die Draw()-Methoden der Kanten, Übergänge und Pfeile auf.
     + Draw (GameTime GameTime) : void
     // Gibt einen Enumerator der aktuell vorhandenen 3D-Modelle zurück.
+    // [returntype=IEnumerator<IGameObject>]
     + GetEnumerator () : IEnumerator
 
 // Diese Klasse repräsentiert einen Parser für das Knoten-Austauschformat und enthält die
@@ -1099,6 +1108,7 @@ public class Widgets.Menu : Widget
     // Gibt die Anzahl der Einträge des Menüs zurück.
     + Size () : Integer
     // Gibt einen Enumerator über die Einträge des Menüs zurück.
+    // [returntype=IEnumerator<MenuItem>]
     + GetEnumerator () : IEnumerator
     // Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
     // Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
@@ -1554,5 +1564,6 @@ public class Core.World : DrawableGameScreenComponent
     // Erstellt eine neue Spielwelt im angegebenen Spielzustand.
     + World (GameScreen screen) : void
     // Liefert einen Enumerator über die Spielobjekte dieser Spielwelt.
+    // [returntype=IEnumerator<IGameObject>]
     + GetEnumerator () : IEnumerator
 

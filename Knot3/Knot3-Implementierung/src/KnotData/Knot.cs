@@ -103,6 +103,7 @@ namespace KnotData
 
         /// <summary>
         /// Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
+        /// [returntype=IEnumerator<Edge>]
         /// </summary>
         public virtual IEnumerator<Edge> GetEnumerator ( )
         {
@@ -171,8 +172,9 @@ namespace KnotData
 
         /// <summary>
         /// Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
+        /// [returntype=IEnumerator<Edge>]
         /// </summary>
-        public virtual IEnumerator GetEnumerator ( )
+        public virtual IEnumerator<Edge> GetEnumerator ( )
         {
             throw new System.NotImplementedException();
         }
@@ -187,8 +189,9 @@ namespace KnotData
 
         /// <summary>
         /// Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
+        /// [parameters=Knot other]
         /// </summary>
-        public virtual Boolean Equals (T other)
+        public virtual Boolean Equals (Knot other)
         {
             throw new System.NotImplementedException();
         }

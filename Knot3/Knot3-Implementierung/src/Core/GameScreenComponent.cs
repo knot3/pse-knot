@@ -56,8 +56,9 @@ namespace Core
 
         /// <summary>
         /// Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
+        /// [returntype=IEnumerable<IGameScreenComponent>]
         /// </summary>
-        public virtual IEnumerable SubComponents (GameTime GameTime)
+        public virtual IEnumerable<IGameScreenComponent> SubComponents (GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }

@@ -85,8 +85,9 @@ namespace GameObjects
 
         /// <summary>
         /// Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
+        /// [returntype=IEnumerator<IGameObject>]
         /// </summary>
-        public virtual IEnumerator GetEnumerator ( )
+        public virtual IEnumerator<IGameObject> GetEnumerator ( )
         {
             throw new System.NotImplementedException();
         }
