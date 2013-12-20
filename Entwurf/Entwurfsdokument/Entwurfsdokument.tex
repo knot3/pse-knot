@@ -11,7 +11,7 @@
 \usepackage{longtable}
 
 \usepackage{imakeidx}
-\makeindex[title=Klassenindex,columns=2,intoc]
+\makeindex[title=Klassenindex,columns=1,intoc]
 
 \usepackage[hidelinks]{hyperref}
 
@@ -43,8 +43,11 @@
 \input{Aufbau.tex}
 \input{Klassenuebersicht.tex}
 \input{Ablaeufe.tex}
-\input{Klassenindex.tex}
 \input{Anmerkungen.tex}
+
+\appendix
+
+\input{Klassenindex.tex}
 \input{Glossar.tex}
 
 \end{document}
