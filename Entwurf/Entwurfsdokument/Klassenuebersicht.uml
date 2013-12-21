@@ -149,7 +149,7 @@ public class KnotData.Challenge :
 public class Screens.ChallengeCreateScreen : MenuScreen
   Attributes:
   Methods:
-    // 
+    // Erzeugt eine neue Instanz eines ChallengeCreateScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt game.
     + ChallengeCreateScreen (Knot3Game game) : void
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
@@ -214,7 +214,7 @@ public class Screens.ChallengeModeScreen : GameScreen
     + Update (GameTime time) : void
     // Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // 
+    // Erzeugt eine neue Instanz eines ChallengeModeScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt, einem Spielerknoten playerKnot und dem Knoten challengeKnot, den der Spieler nachbauen soll.
     + ChallengeModeScreen (Knot3Game game, Knot playerKnot, Knot challengeKnot) : void
 
 // Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
