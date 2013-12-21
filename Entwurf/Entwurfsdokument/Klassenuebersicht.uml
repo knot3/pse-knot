@@ -43,7 +43,7 @@ public class GameObjects.ArrowModelInfo : GameModelInfo
     // Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position position im 3D-Raum. Dieses zeigt in eine durch direction bestimmte Richtung.
     + ArrowModelInfo (Vector3 position, Vector3 direction) : void
 
-// Die Klasse  AudioSettingsScreen steht für den Spielzustand, der die Audio-Einstellungen repräsentiert.
+// Die Klasse AudioSettingsScreen steht für den Spielzustand, der die Audio-Einstellungen repräsentiert.
 public class Screens.AudioSettingsScreen : SettingsScreen
   Attributes:
     // Das Menü, das die Einstellungen enthält.
@@ -369,7 +369,7 @@ public class Screens.CreativeModeScreen : GameScreen
     + Update (GameTime time) : void
     // Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime time) : void
-    // 
+    // Erzeugt eine neue Instanz eines CreativeModeScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt game, sowie einem Knoten knot.
     + CreativeModeScreen (Knot3Game game, Knot knot) : void
 
 // Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
