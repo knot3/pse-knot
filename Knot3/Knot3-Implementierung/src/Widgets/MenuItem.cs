@@ -81,6 +81,14 @@ namespace Widgets
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual void OnScroll (int float)
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion
 
     }

@@ -111,9 +111,10 @@ public class Core.Camera : GameScreenComponent
 public class RenderEffects.CelShadingEffect : RenderEffect
   Attributes:
   Methods:
-    // !!!
+    // Zeichnet das Rendertarget.
     # DrawRenderTarget (GameTime GameTime) : void
-    // 
+    // Zeichnet das Spielmodell model mit dem Cel-Shading-Effekt.
+	// Eine Anwendung des NVIDIA-Toon-Shaders.
     + DrawModel (GameModel GameModel, GameTime GameTime) : void
     // Weist dem 3D-Modell den Cel-Shader zu.
     + RemapModel (GameModel GameModel) : void
@@ -511,7 +512,9 @@ public class GameObjects.EdgeMovement : IGameObject, IEnumerable<IGameObject>
     + Intersects (Ray Ray) : GameObjectDistance
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
-    // !!!
+    // Erzeugt eine neue Instanz eines EdgeMovement-Objekts und initialisiert diese
+	// mit ihrem zugehörigen GameScreen-Objekt screen, der Spielwelt world und
+	// Objektinformationen info.
     + EdgeMovement (GameScreen screen, World world, GameObjectInfo info) : void
     // Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
     // [returntype=IEnumerator<IGameObject>]
@@ -529,7 +532,7 @@ public class RenderEffects.FadeEffect : RenderEffect
   Methods:
     // Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
     + FadeEffect (GameScreen newScreen, GameScreen oldScreen) : void
-    // !!!
+    // Zeichnet das Rendertarget.
     # DrawRenderTarget (GameTime GameTime) : void
 
 // Eine Hilfsklasse für Dateioperationen.
@@ -595,12 +598,13 @@ public class GameObjects.GameModelInfo : GameObjectInfo
 	// In modelname wird der Name der Datei angegeben, welche das Model repräsentiert.
     + GameModelInfo (String modelname) : void
 
-// !!!
+// Die Klasse GameObjectDistance beschreibt den Abstand zu einem Spielobjekt.
+// Dies ist z.B. hilfreich, um Schnittstellen, Verdeckungen, ... zu berechnen.
 public class GameObjects.GameObjectDistance : 
   Attributes:
-    // 
+    // Ein Spielobjekt.
     + Object : IGameObject
-    // 
+    // Distance hält den Abstand als Gleitkommawert.
     + Distance : float
   Methods:
 
@@ -1209,7 +1213,7 @@ public class KnotData.Node :
     + Y : Integer
     // Z steht für eine z-Koordinate im dreidimensionalen Raum.
     + Z : Integer
-    // Ein Skalierungswert. !!!
+    // Ein Skalierungswert.
     - scale : Integer
   Methods:
     // Liefert die x-, y- und z-Koordinaten als ein Vektor der Form (x, y, z).
@@ -1339,7 +1343,7 @@ public class KnotData.PrinterIO : IKnotIO
 // Der Spielzustand, der die Profil-Einstellungen darstellt.
 public class Screens.ProfileSettingsScreen : SettingsScreen
   Attributes:
-    // !!!
+    // Das vertikale Menü wo die Einstellungen anzeigt. Hier nimmt der Spieler Einstellungen vor.
     - settingsMenu : VerticalMenu
   Methods:
     // Wird für jeden Frame aufgerufen.
@@ -1373,7 +1377,7 @@ public class RenderEffects.RenderEffect : IRenderEffect
     // BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
     // ein anderer Shader zugewiesen werden.
     + RemapModel (GameModel GameModel) : void
-    // !!!
+    // Zeichnet das Rendertarget.
     # DrawRenderTarget (GameTime time) : void
 
 // Ein Stapel, der während der Draw-Aufrufe die Hierarchie der aktuell verwendeten Rendereffekte verwaltet
@@ -1468,7 +1472,7 @@ public class Widgets.SliderItem : MenuItem
 public class RenderEffects.StandardEffect : RenderEffect
   Attributes:
   Methods:
-    // !!!
+    // Zeichnet das Rendertarget.
     # DrawRenderTarget (GameTime GameTime) : void
     // Erstellt einen neuen Standardeffekt.
     + StandardEffect (GameScreen screen) : void
@@ -1502,7 +1506,7 @@ public class Widgets.TextInputDialog : ConfirmDialog
 public class Screens.TutorialChallengeModeScreen : ChallengeModeScreen
   Attributes:
   Methods:
-    // !!!
+    // Fügt die Tutoriellanzeige in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
 
 // Die vertikale Ausrichtung.
@@ -1552,14 +1556,14 @@ public class Widgets.Widget : DrawableGameScreenComponent
 public class Widgets.WidgetKeyHandler : GameScreenComponent
   Attributes:
   Methods:
-    // !!!
+    // Wird für jeden Frame aufgerufen.
     + Update () : void
 
 // Ein Inputhandler, der Mauseingaben auf Widgets verarbeitet.
 public class Widgets.WidgetMouseHandler : GameScreenComponent
   Attributes:
   Methods:
-    // !!!
+    // Wird für jeden Frame aufgerufen.
     + Update () : void
 
 // Repräsentiert eine Spielwelt, in der sich 3D-Modelle befinden und gezeichnet werden können.
