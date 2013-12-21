@@ -11,7 +11,7 @@ Dazu wird aus Options.Default der Benutzernamen abgefragt und als Standardwert e
 Daraufhin öffnet diese Methode einen neuen \class{Dialog}, der die besten 10, soweit vorhanden, anzeigt und 2 Buttons 
 von denen einer die \class{Challenge} neu startet und ein anderer den StartScreen aufruft.
 
-\subsection{Screenwechsel CreativeMainScreen -> CreativeLoadScreen}
+\subsection{Screenwechsel vom CreativeMainScreen in den CreativeLoadScreen}
 
 Wenn man im \class{CreativeMainScreen} auf den Button "Load" klickt, wird der Wechsel zu \class{CreativeLoadScreen} eingeleitet.
 Beim nächsten Update()-Call von XNA wird dann der PostProcessingEffect von \class{CreativeLoadScreen} für ein Überblenden der Menüs z.B. auf \class{FadeEffect} gesetzt und der \class{CreativeMainScreen} deaktiviert, d.h. alle \interface{IGameScreenComponent}s von \class{CreativeMainScreen} werden aus der Liste aller \interface{IGameScreenComponent} gelöscht. Dann wird \class{CreativeLoadScreen} aktiviert und dessen \interface{IGameScreenComponent} in die XNA \xna{IGameComponent}-Liste eingetragen.
