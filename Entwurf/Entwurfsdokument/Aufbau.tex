@@ -1,26 +1,32 @@
 \chapter{Aufbau}
 
+\newcommand{\class}[1]{\textcolor{BlueViolet}{\sloppy{#1}}}
+\newcommand{\interface}[1]{\textcolor{OliveGreen}{\mbox{\sloppy{#1}}}}
+\newcommand{\xna}[1]{\textcolor{Gray}{\sloppy{#1}}}
+
+
+
 \section{Architektur}
 
-% DrawableGameScreenComponent und GameScreenComponent sind hier wichtige abstrakte Klassen.
+% DrawableGameStateComponent und GameStateComponent sind hier wichtige abstrakte Klassen.
 % Sie bilden die Schnittstelle zum XNA-Framework. Beide Klassen erben von der XNA-Klasse GameComponent.
-% Dabei erbt DrawableGameScreenComponent durch einen zusätzlichen Vererbungsschritt über die Klasse
+% Dabei erbt DrawableGameStateComponent durch einen zusätzlichen Vererbungsschritt über die Klasse
 % DrawableGameComponent von GameComponent. Zudem implementieren die Klassen jeweils noch die Schnittstelle 
-% IGameScreenComponent. 
+% IGameStateComponent. 
 
 % 2. Satz ->
 
-Die grundlegende Architektur des Spiels basiert auf der Spielkomponenten-Infrastruktur des XNA-Frameworks, die mit Spielzuständen kombiniert wird. Die abstrakten Klassen \class{GameScreenComponent} und \class{DrawableGameScreenComponent} erben von den von XNA bereitgestellten Klassen \xna{GameComponent} und \xna{DrawableGameComponent} implementieren zusätzlich die Schnittstelle \interface{IGameScreenComponent}. Sie unterscheiden sich von den XNA-Basisklassen dadurch, dass sie immer eine Referenz auf einen bestimmten Spielzustand halten und nur in Kombination mit diesem zu verwenden sind.
+Die grundlegende Architektur des Spiels basiert auf der Spielkomponenten-Infrastruktur des XNA-Frameworks, die mit Spielzuständen kombiniert wird. Die abstrakten Klassen \class{GameStateComponent} und \class{DrawableGameStateComponent} erben von den von XNA bereitgestellten Klassen \xna{GameComponent} und \xna{DrawableGameComponent} implementieren zusätzlich die Schnittstelle \interface{IGameStateComponent}. Sie unterscheiden sich von den XNA-Basisklassen dadurch, dass sie immer eine Referenz auf einen bestimmten Spielzustand halten und nur in Kombination mit diesem zu verwenden sind.
 \\\\
-Die Spielzustände erben von der abstrakten Basisklasse \class{GameScreen} und halten eine Liste von \interface{IGameScreenComponent}-Objekten. Wird ein Spielzustand aktiviert, indem von einem anderen Spielzustand aus zu ihm gewechselt wird oder indem er der Startzustand ist, dann weist er seine Liste von \interface{IGameScreenComponent}-Objekten dem \xna{Components}-Attribut der \class{Knot3Game}-Klasse zu, die von der vom XNA-Framework bereitgestellten abstrakten Klasse \xna{Game} erbt. So ist zu jedem Zeitpunkt während der Laufzeit des Spiels ein Spielzustand aktiv, der die aktuelle Liste von Spielkomponenten verwaltet.
+Die Spielzustände erben von der abstrakten Basisklasse \class{GameScreen} und halten eine Liste von \interface{IGameStateComponent}-Objekten. Wird ein Spielzustand aktiviert, indem von einem anderen Spielzustand aus zu ihm gewechselt wird oder indem er der Startzustand ist, dann weist er seine Liste von \interface{IGameStateComponent}-Objekten dem \xna{Components}-Attribut der \class{Game}-Klasse zu, die von der vom XNA-Framework bereitgestellten abstrakten Klasse \xna{Game} erbt. So ist zu jedem Zeitpunkt während der Laufzeit des Spiels ein Spielzustand aktiv, der die aktuelle Liste von Spielkomponenten verwaltet.
 \\\\
-Die Spielkomponenten, die nicht gezeichnet werden und nur auf Eingaben reagieren, haben nur eine Update()-Methode und erben von \class{GameScreenComponent}. Dies sind vor allem verschiedene Input-Handler, welche Tastatur- und Mauseingaben verarbeiten und beispielsweise die Kameraposition und das Kameratarget ändern oder Spielobjekte bewegen.
+Die Spielkomponenten, die nicht gezeichnet werden und nur auf Eingaben reagieren, haben nur eine Update()-Methode und erben von \class{GameStateComponent}. Dies sind vor allem verschiedene Input-Handler, welche Tastatur- und Mauseingaben verarbeiten und beispielsweise die Kameraposition und das Kameratarget ändern oder Spielobjekte bewegen.
 \\\\
-Spielkomponenten, die neben der Update()-Methode auch eine Draw()-Methode besitzen, erben von \class{DrawableGameScreenComponent}. Dies sind vor allem die Elemente, aus denen die grafische Benutzeroberfläche zusammengesetzt ist, deren abstrakte Basisklasse \class{Widget} darstellt. [weitere Erklärungen zu Widgets...]
+Spielkomponenten, die neben der Update()-Methode auch eine Draw()-Methode besitzen, erben von \class{DrawableGameStateComponent}. Dies sind vor allem die Elemente, aus denen die grafische Benutzeroberfläche zusammengesetzt ist, deren abstrakte Basisklasse \class{Widget} darstellt. [weitere Erklärungen zu Widgets...]
 \\\\
 Alle Spielobjekte implementieren die Schnittstelle \interface{IGameObject}. Die abstrakte Klasse \class{GameModel} repräsentiert dabei ein Spielobjekt, das aus einem 3D-Modell besteht, und hält zu diesem Zweck eine Referenz auf ein Objekt der Klasse \xna{Model} aus dem XNA-Framework sowie weitere Eigenschaften wie Position, Drehung und Skalierung.
 
-Spielobjekte sind keine Komponenten, sondern werden in einer Spielwelt zusammengefasst, die durch die Klasse \class{World} repräsentiert wird. Die Spielwelt ist ein \class{DrawableGameScreenComponent} und ruft in ihren Update()- und Draw()-Methoden jeweils die dazugehörigen Methoden aller in ihr enthaltenen Spielobjekte auf.
+Spielobjekte sind keine Komponenten, sondern werden in einer Spielwelt zusammengefasst, die durch die Klasse \class{World} repräsentiert wird. Die Spielwelt ist ein \class{DrawableGameStateComponent} und ruft in ihren Update()- und Draw()-Methoden jeweils die dazugehörigen Methoden aller in ihr enthaltenen Spielobjekte auf.
 \\\\
 Shadereffekte werden durch die abstrakte Klasse \class{RenderEffect} und die von ihr abgeleiteten Klassen gekapselt. Ein \class{RenderEffect} enthält ein Rendertarget vom Typ \xna{RenderTarget2D} als Attribut und implementiert jeweils eine Begin()- und eine End-Methode. In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
 
@@ -31,13 +37,16 @@ In der End()-Methode wird schließlich das auf dem Stack gesicherte, vorher genu
 
 \section{Verwendete Entwurfsmuster}
 
+\subsection{Model View Controller (MVC)}
+Unser Entwurf basiert auf dem Entwurfsmuster Model View Controller.
+
 \subsection{Kompositum}
-Das Kompositum gehört zu der Kategorie der Varianten-Muster und wird in unserem Entwurf des Öfteren verwendet.
-Dieses Entwurfsmuster kann man in den Unterklassen von \class{Widget} finden. \class{Widget} stellt hierbei die Komponente dar und die Unterklassen \class{Menu}, \class{MenuItem}, \class{ColorPicker} und \class{Dialog} jeweils das Kompositum. 
-Desweiteren stellen die Klassen \class{KnotRenderer}, \class{EdgeMovement} und \class{IGameScreenComponent} ein Kompositum dar.
+Das Kompositum gehört zu der Kategorie der Varianten-Muster und werden in unserem Entwurf von den Klassen \class{KnotRenderer}, \class{EdgeMovement}, \class{IGameScreenComponent}, \class{Menu}, \class{MenuItem}, \class{ColorPicker} und \class{Dialog} dargestellt.
+Die Grundidee des Entwurfsmusters Kompositum ist es, in einer abstrakten Klasse sowohl primitive Objekte also auch ihre Behälter zu repräsentieren.
+Diese abstrakte Klasse entspricht in unserem Entwurf beispielsweise der Klasse \class{Widget}.
 
 \subsection{Iterator}
-Der Iterator gehört zu der Kategorie der Entkopplungsmuster und wird in unserem Entwurf des Öfteren verwendet.
+Der Iterator gehört zu der Kategorie der Entkopplungsmuster und wird in den Klassen ... verwendet.
 
 \subsection{Dekorierer}
 Der Dekorierer gehört zu der Kategorie der Varianten-Muster und wird von der Klasse \class{ShadowGameObject} dargestellt. 
@@ -46,8 +55,5 @@ Der Dekorierer gehört zu der Kategorie der Varianten-Muster und wird von der Kl
 \subsection{Zustand}
 Der Zustand gehört zu der Kategorie der Zustandshandhabungs-Muster und wird von der Klasse \class{GameScreen} repräsentiert. Jeder \class{GameScreen} hat eine eigene grafische Oberfläche und ein eigenes Verhalten.
 \class{Knot3Game} stellt den Kontext dar und verwaltet die verschiedenen \class{GameScreen}s. Bei einem Wechsel zwischen verschiedenen \class{GameScreen}s tauscht \class{Knot3Game} die betroffenen \class{GameScreen}s aus.
-
-\subsection{Model View Controller (MVC)}
-Der Model View Controller
 
 \section{Klassendiagramm}
