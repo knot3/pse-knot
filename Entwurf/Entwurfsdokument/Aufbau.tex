@@ -34,18 +34,25 @@ In der End()-Methode wird schließlich das auf dem Stack gesicherte, vorher genu
 \section{Verwendete Entwurfsmuster}
 
 \subsection{Model View Controller (MVC)}
-Unser Entwurf basiert auf dem Entwurfsmuster Model View Controller, bei dem die Aufgaben bei einer Anwendung strikt in drei Einheiten aufgeteilt werden. Diese drei Einheiten sind  Datenmodell(Model), Präsentation (View) und Programmsteuerung (Controller). In das Datenmodell werden die Klassen \class{Knot}, \class{Edge} und \class{Circle} eingeteilt, da diese die darzustellenden Daten enthalten und die Präsentation über Änderungen informieren. Die Präsentation zeigt die Daten in grafischer Form an und informiert die Programmsteuerung über Benutzereingaben. Die Präsentation wird von den Klassen \class{PipeModel}, \class{ArrowModel} und \class{NodeModel} repräsentiert.
-Die Programmsteuerung kümmert sich um die Interaktion mit dem Benutzer und entspricht der Klasse \class{KnotRenderer}.
+Unser Entwurf basiert auf dem Entwurfsmuster Model-View-Controller, bei dem die Aufgaben bei einer Anwendung strikt in drei Einheiten aufgeteilt werden. Diese drei Einheiten sind  Datenmodell (Model), Präsentation (View) und Programmsteuerung (Controller).
+\newline
+\newline
+In das Datenmodell werden die Klassen \class{Knot}, \class{Edge} und \class{Circle} eingeteilt, da diese die darzustellenden Daten enthalten den Controller über Änderungen informieren. Die Präsentation zeigt die Daten in grafischer Form an und informiert die Programmsteuerung über Benutzereingaben. Sie wird von den Klassen \class{PipeModel}, \class{NodeModel} und \class{ArrowModel} repräsentiert.
+Der Controller kümmert sich um die Interaktion mit dem Benutzer und entspricht der Klasse \class{KnotRenderer}.
 
 \subsection{Kompositum}
-Das Kompositum gehört zu der Kategorie der Varianten-Muster und wird in unserem Entwurf von den Klassen \class{KnotRenderer}, \class{EdgeMovement}, \interface{IGameScreenComponent}, \class{Menu}, \class{MenuItem}, \class{ColorPicker} und \class{Dialog} dargestellt.
+Das Kompositum gehört zu der Kategorie der Varianten-Muster und wird in unserem Entwurf von den Klassen \class{KnotRenderer} und \class{EdgeMovement} in Bezug auf \interface{IGameObject}-Objekte, \interface{IGameScreenComponent} in Bezug auf \class{GameScreen}-Objekte, sowie \class{Menu} und \class{MenuItem} dargestellt.
+\newline
+\newline
 Die Grundidee des Entwurfsmusters Kompositum ist es, in einer abstrakten Klasse sowohl primitive Objekte also auch ihre Behälter zu repräsentieren.
-Diese abstrakte Klasse entspricht in unserem Entwurf beispielsweise der Klasse \class{Widget}. Die von \class{Widget} zur Verfügung gestellten Funktionalitäten werden dann von \class{Menu}, \class{MenuItem}, \class{ColorPicker} und \class{Dialog} implementiert und erweitert.
+\newline
+Dies bedeutet konkret, dass \class{KnotRenderer} und \class{EdgeMovement} sowohl Iteratoren über \interface{IGameObject}-Objekte sind, als auch selbst die Schnittstelle \interface{IGameObject} implementieren und als solche verwendet werden können, indem sie wie einzelne Spielobjekte in der \class{World}-Klasse registriert werden. Die Aufrufe von \interface{IGameObject}-spezifische Methoden wie Draw(), Update() und Intersects(Ray) werden dann auf allen in den Containern enthaltenen \interface{IGameObject}-Objekten ausgeführt.
+\newline
+\newline
+Ein weiteres Beispiel in unserer API stellt die Klasse \class{Widget} dar. Die von \class{Widget} zur Verfügung gestellten Properties und Methoden werden von \class{Menu}, \class{MenuItem}, \class{ColorPicker} und \class{Dialog} implementiert und erweitert.
 
 \subsection{Iterator}
-Der Iterator gehört zu der Kategorie der Entkopplungsmuster und wird in unserem Entwurf des Öfteren verwendet.
-Ein Iterator ist ein spezieller Zeiger, den man verwendet um auf Elemente einer Menge zuzugreifen.
-In unserem Entwurf ist beispielsweise \class{Knot} ein Iterator über \class{Edge}s.
+Der Iterator gehört zu der Kategorie der Entkopplungsmuster und wird in unserem Entwurf des Öfteren verwendet, um auf Elemente einer Menge zuzugreifen. Beispielsweise ist ein Objekt der Klasse \class{Knot}, das einen Knoten repräsentiert, ein Iterator über die Kanten (\class{Edge}-Objekte), aus denen der Knoten besteht.
 
 
 \subsection{Dekorierer}
