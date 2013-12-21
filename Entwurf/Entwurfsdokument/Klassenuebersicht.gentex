@@ -1145,7 +1145,7 @@ Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ChallengeCreateScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
-
+Erzeugt eine neue Instanz eines ChallengeCreateScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt \param{game}.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 
@@ -1191,7 +1191,7 @@ Der Referenzknoten.
 Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ChallengeModeScreen} (\ptype{Knot3Game} \varname{game}, \ptype{Knot} \varname{playerKnot}, \ptype{Knot} \varname{challengeKnot})}\newline\newline
-
+Erzeugt eine neue Instanz eines ChallengeModeScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt, einem Spielerknoten \param{playerKnot} und dem Knoten \param{challengeKnot}, den der Spieler nachbauen soll.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
