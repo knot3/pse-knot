@@ -840,7 +840,7 @@ public interface RenderEffects.IRenderEffect :
     // das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
     // auf dieses ubergeordnete Rendertarget gezeichnet.
     + End (GameTime) : void
-    // 
+    // Zeichnet das Spielmodell model mit diesem Rendereffekt.
     + DrawModel (GameModel model, GameTime time) : void
     // Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
     // BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
@@ -1357,7 +1357,7 @@ public class RenderEffects.RenderEffect : IRenderEffect
     + RenderTarget : RenderTarget2D
     // Der Spielzustand, in dem der Effekt verwendet wird.
     # screen : GameScreen
-    // Ein Spritestapel, der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
+    // Ein Spritestapel (s. Glossar oder http://msdn.microsoft.com/en-us/library/bb203919.aspx), der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
     # spriteBatch : SpriteBatch
   Methods:
     // In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert
@@ -1367,7 +1367,7 @@ public class RenderEffects.RenderEffect : IRenderEffect
     // das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,
     // auf dieses ubergeordnete Rendertarget gezeichnet.
     + End (GameTime) : void
-    // 
+    // Zeichnet das Spielmodell model mit diesem Rendereffekt.
     + DrawModel (GameModel GameModel, GameTime GameTime) : void
     // Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
     // BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann jedem ModelMeshPart
