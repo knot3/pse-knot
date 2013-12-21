@@ -14,7 +14,7 @@ von denen einer die \class{Challenge} neu startet und ein anderer den StartScree
 \subsection{Screenwechsel CreativeMainScreen -> CreativeLoadScreen}
 
 Wenn man im \class{CreativeMainScreen} auf den Button "Load" klickt, wird der Wechsel zu \class{CreativeLoadScreen} eingeleitet.
-Beim nächsten Update()-Call von XNA wird dann der PostProcessingEffect von \class{CreativeLoadScreen} für ein Überblenden der Menüs z.B. auf \class{FadeEffect} gesetzt und der \class{CreativeMainScreen} deaktiviert, d.h. alle \class{IGameScreenComponent}s von \class{CreativeMainScreen} werden aus der Liste aller \class{IGameScreenComponent} gelöscht. Dann wird \class{CreativeLoadScreen} aktiviert und dessen \class{IGameScreenComponent} in die XNA \xna{IGameComponent}-Liste eingetragen.
+Beim nächsten Update()-Call von XNA wird dann der PostProcessingEffect von \class{CreativeLoadScreen} für ein Überblenden der Menüs z.B. auf \class{FadeEffect} gesetzt und der \class{CreativeMainScreen} deaktiviert, d.h. alle \interface{IGameScreenComponent}s von \class{CreativeMainScreen} werden aus der Liste aller \interface{IGameScreenComponent} gelöscht. Dann wird \class{CreativeLoadScreen} aktiviert und dessen \interface{IGameScreenComponent} in die XNA \xna{IGameComponent}-Liste eingetragen.
 \newline
 Daraufhin durchsucht \class{CreativeLoadScreen} das Speicherstand-Verzeichnis und lädt die Metadaten der Speicherstände aller zwischengespeicherten Knoten.
 \newline
