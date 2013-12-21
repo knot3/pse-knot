@@ -21,13 +21,13 @@ Der Winkel im Bogenmaß für das Rollen um die Y-Achse. Siehe statische Methode 
 {\textbf{\keyword{public} \ptype{float} \varname{Z}}\newline\newline
 Der Winkel im Bogenmaß für das Rollen um die Z-Achse. Siehe statische Methode Matrix.CreateRotationZ(float) des XNA-Frameworks.
 ~\\\\
-{\textbf{\keyword{public} \ptype{Angles3} \varname{Zero}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{Angles3} \varname{Zero}}\newline\newline
 Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{Angles3} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\newline\newline
 Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln im Bogenmaß.
 \paragraph{Methoden:}\mbox{} \newline\newline
-\textbf{\keyword{public} \ptype{Angles3} \varname{FromDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\newline\newline
+\textbf{\keyword{public} \keyword{static} \ptype{Angles3} \varname{FromDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z}) static}\newline\newline
 Eine statische Methode, die Grad in Bogenmaß konvertiert.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{ToDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\newline\newline
@@ -46,7 +46,7 @@ Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \
 {\textbf{\keyword{public} \ptype{bool} \varname{Value}}\newline\newline
 Eine Eigenschaft, die den aktuell abgespeicherten Wert zurückgibt.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
-\textbf{\keyword{public} \varname{BooleanOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})}\newline\newline
+\textbf{\keyword{public} \varname{BooleanOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{bool} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})}\newline\newline
 Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
 angegebenen Abschnitt der angegebenen Einstellungsdatei.
 
@@ -119,6 +119,12 @@ Berechnet einen Strahl für die angegebenene 2D-Mausposition.
 Repräsentiert eine Einstellungsdatei.
 
 
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{String} \varname{True}}\newline\newline
+
+~\\\\
+{\textbf{\keyword{public} \keyword{static} \ptype{String} \varname{False}}\newline\newline
+
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{String} \varname{value})}\newline\newline
 Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
@@ -174,7 +180,6 @@ Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet d
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
-[returntype=IEnumerable$<$IGameScreenComponent$>$]
 
 \subsubsection{Klasse FileUtility}\index{Core!FileUtility}
 \begin{wrapfigure}{R}{9cm}{0}
@@ -186,16 +191,16 @@ Eine Hilfsklasse für Dateioperationen.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-{\textbf{\keyword{public} \ptype{String} \varname{SettingsDirectory}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{String} \varname{SettingsDirectory}}\newline\newline
 Das Einstellungsverzeichnis.
 ~\\\\
-{\textbf{\keyword{public} \ptype{String} \varname{SavegameDirectory}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{String} \varname{SavegameDirectory}}\newline\newline
 Das Spielstandverzeichnis.
 ~\\\\
-{\textbf{\keyword{public} \ptype{String} \varname{ScreenshotDirectory}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{String} \varname{ScreenshotDirectory}}\newline\newline
 Das Bildschirmfotoverzeichnis.
 \paragraph{Methoden:}\mbox{} \newline\newline
-\textbf{\keyword{public} \ptype{String} \varname{ConvertToFileName} (\ptype{String} \varname{name})}\newline\newline
+\textbf{\keyword{public} \keyword{static} \ptype{String} \varname{ConvertToFileName} (\ptype{String} \varname{name}) static}\newline\newline
 Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Datei\param{name}n durch Weglassen ungültiger Zeichen.
 ~\\\\
 \textbf{\keyword{public} \ptype{String} \varname{GetHash} (\ptype{String} \varname{filename})}\newline\newline
@@ -264,7 +269,6 @@ Erzeugt eine neue Instanz eines GameScreenComponent-Objekts und initialisiert di
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
-[returntype=IEnumerable$<$IGameScreenComponent$>$]
 
 \subsubsection{Klasse Input}\index{Core!Input}
 \begin{wrapfigure}{R}{9cm}{0}
@@ -316,10 +320,10 @@ Eine statische Klasse, die Bezeichner in lokalisierten Text umsetzen kann.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-{\textbf{\keyword{private} \ptype{ConfigFile} \varname{localization}}\newline\newline
+{\textbf{\keyword{private} \keyword{static} \ptype{ConfigFile} \varname{localization}}\newline\newline
 Die Datei, welche Informationen für die Lokalisierung enthält.
 \paragraph{Methoden:}\mbox{} \newline\newline
-\textbf{\keyword{public} \ptype{String} \varname{Localize} (\ptype{String} \varname{text})}\newline\newline
+\textbf{\keyword{public} \keyword{static} \ptype{String} \varname{Localize} (\ptype{String} \varname{text}) static}\newline\newline
 Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
 aktuellen Sprache zurück, die dabei aus der Einstellungsdatei des Spiels gelesen wird.
 
@@ -377,7 +381,7 @@ Eine statische Klasse, die eine Referenz auf die zentrale Einstellungsdatei des 
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-{\textbf{\keyword{public} \ptype{ConfigFile} \varname{Default}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{ConfigFile} \varname{Default}}\newline\newline
 Die zentrale Einstellungsdatei des Spiels.
 
 \subsubsection{Klasse World}\index{Core!World}
@@ -413,7 +417,6 @@ Ruft auf allen Spielobjekten die Draw()-Methode auf.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Liefert einen Enumerator über die Spielobjekte dieser Spielwelt.
-[returntype=IEnumerator$<$IGameObject$>$]
 
 \subsection{Schnittstellen}
 \subsubsection{Schnittstelle IGameScreenComponent}\index{Core!IGameScreenComponent}
@@ -434,7 +437,6 @@ Der zugewiesene Spielzustand.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{time})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
-[returntype=IEnumerable$<$IGameScreenComponent$>$]
 
 \subsubsection{Schnittstelle IKeyEventListener}\index{Core!IKeyEventListener}
 \begin{wrapfigure}{R}{9cm}{0}
@@ -645,7 +647,6 @@ Wird für jeden Frame aufgerufen.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
-[returntype=IEnumerator$<$IGameObject$>$]
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
@@ -721,6 +722,9 @@ Die Skalierung des Modells.
 \textbf{\keyword{public} \varname{GameModelInfo} (\ptype{String} \varname{modelname}, \ptype{Angles3} \varname{rotation}, \ptype{Vector3} \varname{scale})}\newline\newline
 Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
 Dateiname, Rotation und Skalierung.
+~\\\\
+\textbf{\keyword{public} \varname{GameModelInfo} (\ptype{String} \varname{modelname})}\newline\newline
+
 
 \subsubsection{Klasse GameObjectDistance}\index{GameObjects!GameObjectDistance}
 \begin{wrapfigure}{R}{9cm}{0}
@@ -762,7 +766,6 @@ Die Position des Spielobjektes.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{C} \varname{other})}\newline\newline
 Vergleicht zwei Informationsobjekte für Spielobjekte.
-[parameters=GameObjectInfo \param{other}]
 
 \subsubsection{Klasse KnotInputHandler}\index{GameObjects!KnotInputHandler}
 \begin{wrapfigure}{R}{9cm}{0}
@@ -848,7 +851,6 @@ Ruft die Draw()-Methoden der Kanten, Übergänge und Pfeile auf.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator der aktuell vorhandenen 3D-Modelle zurück.
-[returntype=IEnumerator$<$IGameObject$>$]
 
 \subsubsection{Klasse ModelFactory}\index{GameObjects!ModelFactory}
 \begin{wrapfigure}{R}{9cm}{0}
@@ -1761,7 +1763,6 @@ Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebe
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator$<$Edge$>$} \varname{GetEnumerator} ()}\newline\newline
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
-[returntype=IEnumerator$<$Edge$>$]
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Save} ()}\newline\newline
 Speichert den Knoten unter dem Dateinamen in dem Dateiformat, das in dem Metadaten-Objekt angegeben ist.
@@ -1790,14 +1791,12 @@ Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
-[returntype=IEnumerator$<$Edge$>$]
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})}\newline\newline
 Speichert den Knoten unter dem angegebenen Dateinamen in dem angegebenen Datei\param{format}.
 ~\\\\
 \textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})}\newline\newline
 Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
-[parameters=Knot \param{other}]
 
 \subsubsection{Klasse KnotFileIO}\index{KnotData!KnotFileIO}
 \begin{wrapfigure}{R}{9cm}{0}
@@ -2298,7 +2297,6 @@ Gibt die Anzahl der Einträge des Menüs zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator über die Einträge des Menüs zurück.
-[returntype=IEnumerator$<$MenuItem$>$]
 
 \subsubsection{Klasse MenuButton}\index{Widgets!MenuButton}
 \begin{wrapfigure}{R}{9cm}{0}
