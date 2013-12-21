@@ -22,34 +22,17 @@ using KnotData;
 namespace Widgets
 {
     /// <summary>
-    /// Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
+    /// 
     /// </summary>
-    public class TextInputDialog : Dialog, IKeyEventListener
+    public class KnotSaveDialog : TextInputDialog
     {
 
         #region Properties
 
         /// <summary>
-        /// Der Text, der durch den Spieler eingegeben wurde.
-        /// </summary>
-        public string InputText { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
-        public Action KeyEvent { get; set; }
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public TextInputDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText, Keys[] keys)
-        {
-            throw new System.NotImplementedException();
-        }
+        public Action OnSave { get; set; }
 
         #endregion
 
@@ -58,7 +41,7 @@ namespace Widgets
         /// <summary>
         /// 
         /// </summary>
-        public virtual void OnKeyEvent ( )
+        public virtual void SaveDialog (CreativeModeScreen screen, DisplayLayer drawOrder, Knot knot, Action onSave)
         {
             throw new System.NotImplementedException();
         }

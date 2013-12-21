@@ -59,9 +59,9 @@ namespace Screens
         #region Constructors
 
         /// <summary>
-        /// Erzeugt ein neues CreativeModeScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
+        /// 
         /// </summary>
-        public CreativeModeScreen (Knot3Game game)
+        public CreativeModeScreen (Knot3Game game, Knot knot)
         {
             throw new System.NotImplementedException();
         }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="a18a71a1-9363-4899-aab8-364f81ffffa7"
   name="Widgets" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -1346,13 +1346,22 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="7ac4aa9f-4a8e-466c-b565-08abdd538fa5">
+            <interfaceMoniker
+              Id="15c84ecc-d292-47b1-bf9e-395cd7812f4e"
+              LastKnownName="IKeyEventListener"
+              LastKnownLocation="Core.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
-            Id="e051c9c8-dcf3-4aed-9ae8-03857c609beb"
+            Id="63c8f233-7141-4341-8887-1293814b36d8"
             isSubstitutable="false">
             <classMoniker
-              Id="01515326-7fb9-45d4-a712-0407072fdbaf"
-              LastKnownName="ConfirmDialog"
+              Id="714f7ec3-50fe-4621-8a6e-991471c07940"
+              LastKnownName="Dialog"
               LastKnownLocation="Widgets.uml" />
           </generalization>
         </generalsInternal>
@@ -1432,6 +1441,24 @@
                 LastKnownLocation="Knot3.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="1ce97ec5-f1c4-46cd-8743-69f857d0dce9"
+            name="KeyEvent"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="49d9005d-774f-4688-ab97-cc54a2486c0f"
+                LastKnownName="Action"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1495,7 +1522,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="c4a13ef2-45c0-4666-87cb-679d1b97c67f"
+                  Id="482c0d8c-1f9e-4179-85cd-a5a2798b7263"
                   name="screen"
                   direction="In"
                   isUnique="false">
@@ -1509,7 +1536,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="1cbcbe3b-2a5e-4b62-8058-cceb5a68d869"
+                  Id="862f71b4-23b7-4f21-8b08-c27ce6c95299"
                   name="drawOrder"
                   direction="In"
                   isUnique="false">
@@ -1523,7 +1550,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="d83dd632-db9c-4374-92ee-452bd956fd22"
+                  Id="fbf14b92-091a-4cb1-8c5f-d303ca7c8c9d"
                   name="title"
                   direction="In"
                   isUnique="false">
@@ -1537,7 +1564,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="4190f198-b5e4-42f0-bb01-6aa6877272d9"
+                  Id="c4314868-f650-49b4-8e6f-5a01a1c16fff"
                   name="text"
                   direction="In"
                   isUnique="false">
@@ -1551,7 +1578,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="c628322f-41c1-40ec-be23-352bffdd47c1"
+                  Id="6753094a-3c97-48b9-9584-03ebd6f7ed58"
                   name="inputText"
                   direction="In"
                   isUnique="false">
@@ -1563,15 +1590,37 @@
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a07214cf-f7c1-434b-81a5-72437bfbcaf0"
+                  name="keys"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="dda00e3f-8f7e-4b4c-b774-08957d0f8e1a"
+                      LastKnownName="Keys[]"
+                      LastKnownLocation="Widgets.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="306677a1-a014-4f61-8a9a-138e3c58fed7"
+            name="OnKeyEvent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
         Id="5fb83bbe-1d10-4632-98ca-97fd1dcae1d4"
-        name="SaveDialog"
+        name="KnotSaveDialog"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1628,6 +1677,95 @@
               LastKnownLocation="Widgets.uml" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="45ef0033-5c7e-481e-9bfb-96bfb2cff45c"
+            name="OnSave"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="49d9005d-774f-4688-ab97-cc54a2486c0f"
+                LastKnownName="Action"
+                LastKnownLocation="Knot3.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="db18760c-7eff-4c00-8979-6ba9419fae13"
+            name="SaveDialog"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e9ca9a34-2cb5-4282-889d-a7c00811f02e"
+                  name="screen"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e3d72256-9a1b-4a49-bd95-b906f3b08085"
+                      LastKnownName="CreativeModeScreen"
+                      LastKnownLocation="Widgets.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4a63f225-7a49-4042-9bb0-ed4f2064c696"
+                  name="drawOrder"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="6c59f423-429a-466a-bd67-3c68a8fa1443"
+                      LastKnownName="DisplayLayer"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cf052734-874c-4422-8308-83d12523e5ac"
+                  name="knot"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="52e0f35d-59bb-49a0-b8cf-c1c6648be901"
+                      LastKnownName="Knot"
+                      LastKnownLocation="Screens.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cc1f9a9a-bd5d-40c0-a13b-bf583d4a7180"
+                  name="onSave"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="49d9005d-774f-4688-ab97-cc54a2486c0f"
+                      LastKnownName="Action"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -7791,6 +7929,90 @@
       <undefinedType
         Id="c27470f1-e39a-4d4b-a7e7-90612c7882ac"
         name="GameScreen" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="dda00e3f-8f7e-4b4c-b774-08957d0f8e1a"
+        name="Keys[]" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="e3d72256-9a1b-4a49-bd95-b906f3b08085"
+        name="CreativeModeScreen" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3829e662-06e8-4deb-81c3-991523da7c6a"
+        name="HighscoreDialog"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="42fa4c2d-2602-4e0c-8063-361205f57e0c"
+            isSubstitutable="false">
+            <classMoniker
+              Id="714f7ec3-50fe-4621-8a6e-991471c07940"
+              LastKnownName="Dialog"
+              LastKnownLocation="Widgets.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="014cf145-9248-4752-ad99-5f4c961ec7c6"
+            name="HighscoreDialog"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="995c6fd6-dec7-4c31-9b2c-39a3b5700108"
+                  name="screen"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c27470f1-e39a-4d4b-a7e7-90612c7882ac"
+                      LastKnownName="GameScreen"
+                      LastKnownLocation="Widgets.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="300ad838-1a1a-473d-be11-f0dee5d6efa5"
+                  name="drawOrder"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="6c59f423-429a-466a-bd67-3c68a8fa1443"
+                      LastKnownName="DisplayLayer"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d3ce9ab3-54a5-4384-b71d-bedd398edfbe"
+                  name="challenge"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11346fa0-373d-42fa-879a-d0edf202b0e2"
+                      LastKnownName="Challenge"
+                      LastKnownLocation="KnotData.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
 </package>

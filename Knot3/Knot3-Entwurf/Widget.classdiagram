@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="88c201e0-6f82-492f-b993-4f45529d74af" name="UMLClassDiagram1" linkedPackageId="eb0f39cd-4a08-4168-b6d0-aca5fb468152" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="88c201e0-6f82-492f-b993-4f45529d74af" name="UMLClassDiagram1" linkedPackageId="eb0f39cd-4a08-4168-b6d0-aca5fb468152" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="d19c517f-3451-4dce-a6e7-22e89443af09">
       <elementDefinition Id="17c576b7-ab94-43c3-a798-10dfdbe56f26" />
@@ -15,14 +15,6 @@
 </body>
       <annotatedElements>
         <classMoniker Id="c5cdf57b-07c8-4b9f-8293-c2670398af8f" LastKnownName="MenuItem" />
-      </annotatedElements>
-    </comment>
-    <comment Id="ea8fff61-27ea-40b2-b648-fe708b501b75">
-      <elementDefinition Id="fa2eac07-c4c1-4d1f-8d2d-834f0bc2ed67" />
-      <body>Kompositum
-</body>
-      <annotatedElements>
-        <classMoniker Id="5e499f30-21d4-4150-99b5-38154553bc32" LastKnownName="ColorPicker" />
       </annotatedElements>
     </comment>
     <comment Id="087a46af-ef18-4710-a834-47c17e101110">
@@ -4516,7 +4508,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="58707f11-b51a-4ebb-9122-e410e95ed863" name="SaveDialog" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="58707f11-b51a-4ebb-9122-e410e95ed863" name="KnotSaveDialog" isAbstract="false" isLeaf="false" isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance Id="e37da303-2efd-4498-97af-9e4ac84ac811" name="class" profile="CSharpProfile">
             <elementDefinition Id="1e8f3014-c65b-4e78-bfa5-744f0b1d0d51" />
@@ -4561,6 +4553,53 @@
             <elementDefinition Id="cbaeef59-d1d8-4325-9897-b4d00584ad82" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="4c8f67c0-370f-4cdc-9667-172228cabd89" name="OnSave" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="45ef0033-5c7e-481e-9bfb-96bfb2cff45c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="bfc2ae56-eb14-43a3-980c-64c96490f1e3" LastKnownName="Action" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="7bd44688-dcb9-409a-8e4c-318a5f3af615" name="SaveDialog" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="db18760c-7eff-4c00-8979-6ba9419fae13" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="85101cb4-038c-42a8-bb32-264e807f91b5" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="e9ca9a34-2cb5-4282-889d-a7c00811f02e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="531bebab-61ce-44ba-a535-d3a86fdd15f6" LastKnownName="CreativeModeScreen" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ea398583-5665-4ef2-8f82-8a6639f08ae4" name="drawOrder" direction="In" isUnique="false">
+                  <elementDefinition Id="4a63f225-7a49-4042-9bb0-ed4f2064c696" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6946bbf4-fc92-4de9-acd6-f1f5ee6e6114" LastKnownName="DisplayLayer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ba4809b5-ed3c-4e33-be1a-17ce825dfdde" name="knot" direction="In" isUnique="false">
+                  <elementDefinition Id="cf052734-874c-4422-8308-83d12523e5ac" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="69011379-1f6b-4b8a-b286-cffa7b3d570a" LastKnownName="Knot" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="702d60eb-73f1-406a-8ff9-1aa29446da6c" name="onSave" direction="In" isUnique="false">
+                  <elementDefinition Id="cc1f9a9a-bd5d-40c0-a13b-bf583d4a7180" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bfc2ae56-eb14-43a3-980c-64c96490f1e3" LastKnownName="Action" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
@@ -5406,10 +5445,16 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="4c5bb927-b287-4456-b7b8-a992bebdbffb" />
+        <suppliersInternal>
+          <interfaceRealization Id="7f97afa0-76f3-4c50-8c18-cc3592f1aa4e">
+            <interfaceMoniker Id="60ca7c92-bde9-4dda-ac03-edc62e9f78fc" LastKnownName="IKeyEventListener" />
+            <elementDefinition Id="7ac4aa9f-4a8e-466c-b565-08abdd538fa5" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
-          <generalization Id="5f58512a-0203-44e8-95c8-99c5becb2de9" isSubstitutable="false">
-            <classMoniker Id="fb047a98-62a4-4343-a10b-78b90581f1e6" LastKnownName="ConfirmDialog" />
-            <elementDefinition Id="e051c9c8-dcf3-4aed-9ae8-03857c609beb" />
+          <generalization Id="e524e852-4d70-4aef-983f-1f3c0689849d" isSubstitutable="false">
+            <classMoniker Id="b7ad447f-cfa0-44a7-9737-c1fe02730abe" LastKnownName="Dialog" />
+            <elementDefinition Id="63c8f233-7141-4341-8887-1293814b36d8" />
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
@@ -5468,6 +5513,12 @@
               <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
             </type_NamedElement>
           </property>
+          <property Id="ee4f1fe3-6a6d-4a9b-9691-5b6d96c56d07" name="KeyEvent" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1ce97ec5-f1c4-46cd-8743-69f857d0dce9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="bfc2ae56-eb14-43a3-980c-64c96490f1e3" LastKnownName="Action" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="188cb109-b5a5-4eae-ae69-b8cc051f4c8c" name="TextInputDialog" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -5517,46 +5568,57 @@
             <elementDefinition Id="311ce773-1b4c-41cb-9008-6562ffae646d" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="bac93974-e227-44f9-8b94-4b89bbfc108f" name="screen" direction="In" isUnique="false">
-                  <elementDefinition Id="c4a13ef2-45c0-4666-87cb-679d1b97c67f" />
+                <parameter Id="617771d1-6067-46c1-84d0-db990eaf142c" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="482c0d8c-1f9e-4179-85cd-a5a2798b7263" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="504c2bd9-ae39-4d02-acb6-5de094fcd015" LastKnownName="GameScreen" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="059c2153-c791-4cff-a45f-d9ed4842c870" name="drawOrder" direction="In" isUnique="false">
-                  <elementDefinition Id="1cbcbe3b-2a5e-4b62-8058-cceb5a68d869" />
+                <parameter Id="e3a2bb11-627d-410d-90f1-34e7882be0ad" name="drawOrder" direction="In" isUnique="false">
+                  <elementDefinition Id="862f71b4-23b7-4f21-8b08-c27ce6c95299" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="6946bbf4-fc92-4de9-acd6-f1f5ee6e6114" LastKnownName="DisplayLayer" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="344c2d59-571e-40bb-9196-360e5f971bf5" name="title" direction="In" isUnique="false">
-                  <elementDefinition Id="d83dd632-db9c-4374-92ee-452bd956fd22" />
+                <parameter Id="71987248-2701-41ec-a43d-6e656585ab2c" name="title" direction="In" isUnique="false">
+                  <elementDefinition Id="fbf14b92-091a-4cb1-8c5f-d303ca7c8c9d" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="af138c86-e8b3-4c5c-bf74-a45e1e7e2331" LastKnownName="String" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="ee316164-48df-474c-a944-6644bad4be9b" name="text" direction="In" isUnique="false">
-                  <elementDefinition Id="4190f198-b5e4-42f0-bb01-6aa6877272d9" />
+                <parameter Id="e347c889-ff71-4f11-8c7b-7bb524f51f0c" name="text" direction="In" isUnique="false">
+                  <elementDefinition Id="c4314868-f650-49b4-8e6f-5a01a1c16fff" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="f8f3b667-c79a-4f28-843a-17606f6af737" name="inputText" direction="In" isUnique="false">
-                  <elementDefinition Id="c628322f-41c1-40ec-be23-352bffdd47c1" />
+                <parameter Id="485aaf81-c36d-447d-9fa2-66483435986e" name="inputText" direction="In" isUnique="false">
+                  <elementDefinition Id="6753094a-3c97-48b9-9584-03ebd6f7ed58" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b0fbd248-462a-4a7b-a6b9-d87645715af8" name="keys" direction="In" isUnique="false">
+                  <elementDefinition Id="a07214cf-f7c1-434b-81a5-72437bfbcaf0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="da4d2db1-4788-4b05-8758-ba2de021b874" LastKnownName="Keys[]" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
             </ownedParameters>
+          </operation>
+          <operation Id="c2354ad2-00a0-455d-bb84-1d466cdc3698" name="OnKeyEvent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="306677a1-a014-4f61-8a9a-138e3c58fed7" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -7404,6 +7466,68 @@
     <packageHasNamedElement>
       <referencedType Id="6af9f04b-4e0a-4383-8f92-684ed34533a4" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
         <elementDefinition Id="b2d5aa2e-4c93-4059-a3e3-5ea6a2e4695e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="da4d2db1-4788-4b05-8758-ba2de021b874" name="Keys[]" isAbstract="false" isLeaf="false" cachedFullName="Keys[]">
+        <elementDefinition Id="dda00e3f-8f7e-4b4c-b774-08957d0f8e1a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="531bebab-61ce-44ba-a535-d3a86fdd15f6" name="CreativeModeScreen" isAbstract="false" isLeaf="false" cachedFullName="CreativeModeScreen">
+        <elementDefinition Id="e3d72256-9a1b-4a49-bd95-b906f3b08085" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="69011379-1f6b-4b8a-b286-cffa7b3d570a" name="Knot" isAbstract="false" isLeaf="false" cachedFullName="Knot">
+        <elementDefinition Id="52e0f35d-59bb-49a0-b8cf-c1c6648be901" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="716d39fe-97bf-4b8f-bd7b-011858b6fea4" name="HighscoreDialog" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3829e662-06e8-4deb-81c3-991523da7c6a" />
+        <generalsInternal>
+          <generalization Id="dd252e8f-09c6-4675-ad4a-588dc147c705" isSubstitutable="false">
+            <classMoniker Id="b7ad447f-cfa0-44a7-9737-c1fe02730abe" LastKnownName="Dialog" />
+            <elementDefinition Id="42fa4c2d-2602-4e0c-8063-361205f57e0c" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="849fb8e1-9e2f-44a5-bea1-9dd5af358d5e" name="HighscoreDialog" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="014cf145-9248-4752-ad99-5f4c961ec7c6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="af1b3ee4-4e92-44d2-9ad5-325bae89f80b" name="screen" direction="In" isUnique="false">
+                  <elementDefinition Id="995c6fd6-dec7-4c31-9b2c-39a3b5700108" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="504c2bd9-ae39-4d02-acb6-5de094fcd015" LastKnownName="GameScreen" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c703e6d9-1ac1-41b5-ba95-5eba875e36d5" name="drawOrder" direction="In" isUnique="false">
+                  <elementDefinition Id="300ad838-1a1a-473d-be11-f0dee5d6efa5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6946bbf4-fc92-4de9-acd6-f1f5ee6e6114" LastKnownName="DisplayLayer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e3bbb972-6d98-492d-898b-abfe56466205" name="challenge" direction="In" isUnique="false">
+                  <elementDefinition Id="d3ce9ab3-54a5-4384-b71d-bedd398edfbe" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="309d20f0-5a18-4fa1-a03c-e94fb3cef5e5" LastKnownName="Challenge" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="309d20f0-5a18-4fa1-a03c-e94fb3cef5e5" name="Challenge" isAbstract="false" isLeaf="false" cachedFullName="Knot3::KnotData::Challenge">
+        <elementDefinition Id="11346fa0-373d-42fa-879a-d0edf202b0e2" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
