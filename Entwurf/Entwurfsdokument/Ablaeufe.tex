@@ -1,32 +1,25 @@
 \chapter{Abläufe}
 
 \section{Sequenzdiagramme}
+
 \subsection{Challengeende}
-Knot ruft bei Kantenänderungen eine Methode auf, die ihm beim Hinzufügen zum ChallengeModeScreen zugewiesen wurde.
-Diese prüft die beiden Knoten auf Gleichheit, indem sie die Knoten sich vergleichen lässt.
-Sind beide Knoten gleich, wird die benötigte Zeit ermittelt und ein neuer Dialog erstellt, der die Zeit anzeigt und nach einem Benutzernamen fragt.
+
+Knot ruft bei Kantenänderungen eine Methode auf, die ihm beim Hinzufügen zum \class{ChallengeModeScreen} zugewiesen wurde. Diese prüft die beiden Knoten auf Gleichheit, indem sie die Knoten sich vergleichen lässt. Sind beide \class{Knot}en gleich, wird die benötigte Zeit ermittelt und ein neuer \class{Dialog} erstellt, der die Zeit anzeigt und nach einem Benutzernamen fragt.
 \newline
-Dazu wird aus Options.Default der Benutzernamen abgefragt und als Standardwert eingetragen.
-Wird ein neuer Benutzername eingegeben, wird dieser auch in Options.Default geändert.
-Mit Enter bestätigt, wird eine zugewiesene Methode aufgerufen, die Benutzername und Zeit Challenge mit AddToHighscore(name, time) 
+Dazu wird aus Options.Default der Benutzernamen abgefragt und als Standardwert eingetragen. Wird ein neuer Benutzername eingegeben, wird dieser auch in Options.Default geändert. Mit Enter bestätigt wird eine zugewiesene Methode aufgerufen, die Benutzername und Zeit \class{Challenge} mit AddToHighscore(name, time) übergibt, was die Werte richtig einordnet und gegebenenfalls (wenn die Zeit gut genug ist) speichert.
 \newline
-übergibt, was die Werte richtig einordnet und gegebenenfalls (wenn es gut genug ist) speichert.
-Daraufhin öffnet diese Methode einen neuen Dialog, der die besten 10, soweit vorhanden, anzeigt und 2 Buttons 
-von denen einer die Challenge neu startet und ein anderer den StartScreen aufruft.
-\newline
-\newline
+Daraufhin öffnet diese Methode einen neuen \class{Dialog}, der die besten 10, soweit vorhanden, anzeigt und 2 Buttons 
+von denen einer die \class{Challenge} neu startet und ein anderer den StartScreen aufruft.
+
 \subsection{Screenwechsel CreativeMainScreen -> CreativeLoadScreen}
+
+Wenn man im \class{CreativeMainScreen} auf den Button "Load" klickt, wird der Wechsel zu \class{CreativeLoadScreen} eingeleitet.
+Beim nächsten Update()-Call von XNA wird dann der PostProcessingEffect von \class{CreativeLoadScreen} für ein Überblenden der Menüs z.B. auf \class{FadeEffect} gesetzt und der \class{CreativeMainScreen} deaktiviert, d.h. alle \class{IGameScreenComponent}s von \class{CreativeMainScreen} werden aus der Liste aller \class{IGameScreenComponent} gelöscht. Dann wird \class{CreativeLoadScreen} aktiviert und dessen \class{IGameScreenComponent} in die XNA \xna{IGameComponent}-Liste eingetragen.
 \newline
-\newline
-Wenn man Im CreativeMainScreen auf den Button "Load" klickt, wird der Wechsel zu CreativeLoadScreen eingeleitet.
-Beim nächsten Update()-Call von XNA wird dann der PostProcessingEffect von CreativeLoad für ein Überblenden der Menüs z.B. auf FadeEffect gesetzt und der CreativeMainScreen deaktiviert, d.h. alle IGameComponent von CreativeMainScreen 
-werden aus der Liste aller IGameComponent gelöscht. Dann wird CreativeLoadScreen aktiviert und dessen IGameComponent in die XNA IGameComponent-Liste eingetragen.
-\newline
-Daraufhin durchsucht CreativeLoadScreen das Speicherstand-Verzeichnis und lädt die Metadaten aller Speicherstände aller zwischengespeicherten Knoten. 
+Daraufhin durchsucht \class{CreativeLoadScreen} das Speicherstand-Verzeichnis und lädt die Metadaten der Speicherstände aller zwischengespeicherten Knoten.
 \newline
 Noch nicht zwischengespeicherte Knoten werden auf Gültigkeit überprüft und wenn für Gültig befunden in den Zwischenspeicher geschrieben als Hash.
 \newline
 Anschließend werden die gefundenen gültigen Speicherstände in ein Menü eingetragen, welches dann beim nächsten Draw()-Call von XNA auf den Bildschirm gezeichnet wird.
 \newline
-Dieses Menü ist ein VerticalMenu, welches einen Button für jeden gültigen gefundenen Spielstand enthält. Durch einen Klick auf den jeweiligen Button 
-startet man mit dem Spielstand im CreativeModeScreen.
+Dieses Menü ist ein \class{VerticalMenu}, welches einen Button für jeden gültigen gefundenen Spielstand enthält. Durch einen Klick auf den jeweiligen Button startet man mit dem Spielstand im \class{CreativeModeScreen}.
