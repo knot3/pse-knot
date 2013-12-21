@@ -214,9 +214,8 @@ public class Screens.ChallengeModeScreen : GameScreen
     + Update (GameTime time) : void
     // Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // Erstellt eine neue Instanz eines ChallengeModeScreen-Objekts und
-    // initialisiert diese mit einem Knot3Game-Objekt.
-    + ChallengeModeScreen (Knot3Game game) : void
+    // 
+    + ChallengeModeScreen (Knot3Game game, Knot playerKnot, Knot challengeKnot) : void
 
 // Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
 public class Screens.ChallengeStartScreen : MenuScreen
@@ -370,8 +369,8 @@ public class Screens.CreativeModeScreen : GameScreen
     + Update (GameTime time) : void
     // Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
     + Entered (GameScreen previousScreen, GameTime time) : void
-    // Erzeugt ein neues CreativeModeScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-    + CreativeModeScreen (Knot3Game game) : void
+    // 
+    + CreativeModeScreen (Knot3Game game, Knot knot) : void
 
 // Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
 public class Screens.CreditsScreen : MenuScreen
