@@ -218,6 +218,7 @@ public class Screens.ChallengeModeScreen : GameScreen
     // initialisiert diese mit einem Knot3Game-Objekt.
     + ChallengeModeScreen (Knot3Game game) : void
 
+<<<<<<< HEAD
 // 
 public class Screens.ChallengeStartScreen : MenuScreen
   Attributes:
@@ -227,6 +228,18 @@ public class Screens.ChallengeStartScreen : MenuScreen
     // 
     + Entered (GameScreen previousScreen, GameTime GameTime) : void
     // 
+=======
+// Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
+public class Screens.ChallengeStartScreen : MenuScreen
+  Attributes:
+  Methods:
+    // Wird für jeden Frame aufgerufen.
+    + Update (GameTime time) : void
+    // Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
+    // Erstellt eine neue Instanz eines ChallengeStartScreen-Objekts und
+    // initialisiert diese mit einem Knot3Game-Objekt.
+>>>>>>> dc1821ac2cef1eab0659a6e8e4c0e5c743a47e23
     + ChallengeStartScreen (Knot3Game game) : void
 
 // Ein Menüeintrag, der einen Auswahlkasten darstellt.
