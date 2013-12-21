@@ -58,6 +58,11 @@ namespace Core
         /// </summary>
         void OnRightClick (Vector2 position, ClickState state, GameTime time);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        void OnScroll (int scrollWheelValue);
+
         #endregion
 
     }

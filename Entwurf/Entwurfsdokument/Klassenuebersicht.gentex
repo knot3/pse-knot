@@ -484,6 +484,9 @@ Die Reaktion auf einen Linksklick.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Die Reaktion auf einen Rechtsklick.
+~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{OnScroll} (\ptype{int} \varname{scrollWheelValue})}\newline\newline
+
 
 \subsection{Enumerationen}
 \subsubsection{Enumeration ClickState}
@@ -1113,25 +1116,24 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse ChallengeLoadScreen}\index{Screens!ChallengeLoadScreen}
+\subsubsection{Klasse ChallengeCreateScreen}\index{Screens!ChallengeCreateScreen}
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.5]{Klassen/ChallengeLoadScreen}
+\includegraphics[scale=0.5]{Klassen/ChallengeCreateScreen}
 \end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
+
 
 
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
-\textbf{\keyword{public} \varname{ChallengeLoadScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
-Erstellt eine neue Instanz eines ChallengeLoadScreen-Objekts und
-initialisiert diese mit einem Knot3Game-Objekt.
+\textbf{\keyword{public} \varname{ChallengeCreateScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
+
 \paragraph{Methoden:}\mbox{} \newline\newline
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
-Wird für jeden Frame aufgerufen.
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{Knot3-Entwurf::GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
+
 ~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
-Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
+
 
 \subsubsection{Klasse ChallengeModeScreen}\index{Screens!ChallengeModeScreen}
 \begin{figure}[h!]
@@ -1180,6 +1182,26 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
 
+\subsubsection{Klasse ChallengeStartScreen}\index{Screens!ChallengeStartScreen}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{Klassen/ChallengeStartScreen}
+\end{figure}
+\paragraph{Beschreibung:}\mbox{}\newline\newline
+Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
+
+
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{ChallengeStartScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
+Erstellt eine neue Instanz eines ChallengeStartScreen-Objekts und
+initialisiert diese mit einem Knot3Game-Objekt.
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
+Wird für jeden Frame aufgerufen.
+~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
+Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
+
 \subsubsection{Klasse ControlSettingsScreen}\index{Screens!ControlSettingsScreen}
 \begin{figure}[h!]
 \centering
@@ -1220,6 +1242,28 @@ Fügt das Menü mit dem Spielständen in die Spielkomponentenliste ein.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
+
+\subsubsection{Klasse CreativeMainScreen}\index{Screens!CreativeMainScreen}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{Klassen/CreativeMainScreen}
+\end{figure}
+\paragraph{Beschreibung:}\mbox{}\newline\newline
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+{\textbf{\keyword{private} \ptype{Menu} \varname{buttons}}\newline\newline
+
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{CreativeMainScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
+
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{Knot3-Entwurf::GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
+
+~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
+
 
 \subsubsection{Klasse CreativeModeScreen}\index{Screens!CreativeModeScreen}
 \begin{figure}[h!]
@@ -2094,6 +2138,9 @@ Bei einem Linksklick wird eine Farbe ausgewählt und im Attribut Color abgespeic
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Bei einem Rechtsklick geschieht nichts.
+~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{OnScroll} (\ptype{int} \varname{float})}\newline\newline
+
 
 \subsubsection{Klasse ColorPickItem}\index{Widgets!ColorPickItem}
 \begin{figure}[h!]
@@ -2164,6 +2211,9 @@ Bei einem Linksklick geschieht nichts.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnRightClick} (\ptype{Vector2} \varname{position}, \ptype{ClickState} \varname{state}, \ptype{GameTime} \varname{time})}\newline\newline
 Bei einem Rechtsklick geschieht nichts.
+~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{OnScroll} (\ptype{int} \varname{float})}\newline\newline
+
 
 \subsubsection{Klasse DropDownEntry}\index{Widgets!DropDownEntry}
 \begin{figure}[h!]
@@ -2347,6 +2397,9 @@ Reaktionen auf Tasteneingaben.
 ~\\\\
 \textbf{\keyword{public} \ptype{Rectangle} \varname{Bounds} ()}\newline\newline
 Gibt die Ausmaße des Eintrags zurück.
+~\\\\
+\textbf{\keyword{public} \ptype{void} \varname{OnScroll} (\ptype{int} \varname{float})}\newline\newline
+
 
 \subsubsection{Klasse PauseDialog}\index{Widgets!PauseDialog}
 \begin{figure}[h!]

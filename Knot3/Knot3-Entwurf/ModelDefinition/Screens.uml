@@ -3433,7 +3433,7 @@
     <packageHasNamedElement>
       <class
         Id="639c1282-f62c-416b-bdb1-b24627dc1e99"
-        name="ChallengeLoadScreen"
+        name="ChallengeStartScreen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -3657,7 +3657,7 @@
           </operation>
           <operation
             Id="d50218b3-8302-4b0f-8637-82a5bf76e421"
-            name="ChallengeLoadScreen"
+            name="ChallengeStartScreen"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -3716,7 +3716,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="93b694a5-8755-4037-9363-aa50d3fd4831"
+                  Id="c22c6316-3515-42c7-bf70-229815b22ad6"
                   name="game"
                   direction="In"
                   isUnique="false">
@@ -4542,7 +4542,7 @@
         </generalsInternal>
         <ownedAttributesInternal>
           <property
-            Id="e9d6098c-87c9-4b82-8f50-7ce879813c82"
+            Id="545e4e62-effc-400b-b7b8-f3f9c4a855f4"
             name="buttons"
             visibility="Private"
             isLeaf="false"
@@ -4553,63 +4553,6 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="435147b1-f811-4952-ab32-af2fdf3d1025"
-                name="property"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="b4d818ad-4e60-4c98-b8bd-ccf9a4f6cdcd">
-                    <propertyInstance
-                      Id="cd3167ce-e780-4234-94d0-0d4e47c1148f"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="7763f816-a0ee-45c8-b6af-75de682d5524">
-                    <propertyInstance
-                      Id="79988b0d-3942-4597-aca3-7eac6f725cec"
-                      name="Get"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="fd192540-db9e-4b26-92e9-7256efe5315e">
-                    <propertyInstance
-                      Id="df74502d-e3c2-46ea-8b4a-3ca3cc0ff1ce"
-                      name="HasBody"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="0974c34b-72d6-4f85-8387-738261d2661f">
-                    <propertyInstance
-                      Id="0c1bb356-7f6e-45a3-8d01-9ddea8faa99b"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="a5b77061-d4d2-4b24-a209-4d9096642eef">
-                    <propertyInstance
-                      Id="6643ebb9-a824-4d64-b665-f64289f9f72f"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="194cdf8e-82bb-4ee8-ba41-a23208a4dfd0">
-                    <propertyInstance
-                      Id="93bf7241-8982-4967-99af-e0f48470855c"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="9ea2e81d-98d2-4709-b4d5-e735343743ec">
-                    <propertyInstance
-                      Id="80f17a99-d927-47d8-b9dc-4f11f1d019ff"
-                      name="Set"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
             <type_NamedElement>
               <classMoniker
                 Id="b4e6504e-28fd-4e43-8533-79b8e88964d8"
@@ -5382,6 +5325,509 @@
       <undefinedType
         Id="53999665-e96f-40eb-853c-e498701c2136"
         name="Knot3::Knotdata::Knot" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="dd78ef09-8398-4bff-9071-a3f735e5018b"
+        name="ChallengeCreateScreen"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="80e3d8a9-4859-4b52-ad32-b63ec05c2ecb"
+            isSubstitutable="false">
+            <classMoniker
+              Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
+              LastKnownName="MenuScreen"
+              LastKnownLocation="Screens.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="84465d79-4569-48b7-b748-c0ae92b62688"
+            name="ChallengeCreateScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8581e006-65fb-4dd5-afa9-74a13114f592"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c681954d-d45c-4c6e-8db0-7d2d7c60c262"
+            name="Entered"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7532843d-2b99-412a-b6fc-42b8a7f3a2b5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f477c6a-6b48-40ec-98bc-4ba47f3411d3">
+                    <propertyInstance
+                      Id="633ad91e-6d3b-4e0f-88d6-227bbf1dee05"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="101dce6b-d539-42b8-a2a0-2be006241776">
+                    <propertyInstance
+                      Id="96a157ce-9d79-42ed-be25-f20be3cac3e5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d82cc10-3cb3-4547-a7a9-cf43a2966924">
+                    <propertyInstance
+                      Id="241aec0e-55be-48ce-ac38-5d8c9fc42d88"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3cb69fb3-fc61-452f-98cb-d08ea6d543df">
+                    <propertyInstance
+                      Id="ac496c12-082a-42fa-8515-2389430772bc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e6f5d1f4-8a8a-47e6-b5b8-448086fa973f">
+                    <propertyInstance
+                      Id="4fb17950-5cec-4fca-a730-e2f58670b763"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a09efa1-3e68-4ed6-93d4-3291cf6ba154">
+                    <propertyInstance
+                      Id="a0c1f9db-eae4-4e89-a616-c6298f821c11"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3331c60c-0734-4c39-a492-7fb4f4a724e1"
+                  name="previousScreen"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e88c054f-f6c9-4c94-bc91-87ca22a6fcac"
+                      LastKnownName="Knot3-Entwurf::GameScreen"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6d34784e-e8de-4af1-bc61-08e0ce38ea8a"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="38ca1b50-5b33-4731-b35d-6c2304566de7"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c6f8e9ba-d5f0-4856-8392-b02c3625f820"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f5dc31b3-4bd9-4e72-9e3d-223fb6fe58a2">
+                    <propertyInstance
+                      Id="30d328b4-9ffa-4833-874c-84b8d886800f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80993f5b-71a0-4b83-90b7-91989bb061e9">
+                    <propertyInstance
+                      Id="1ea4e9ad-ffa2-49a7-8e69-8a1ac48e5f56"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d9a3265-95f9-48ff-9f69-e46b02172e5c">
+                    <propertyInstance
+                      Id="f6554be6-bfb0-4642-b7d3-de9580a0b314"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c02edf43-64f4-4147-b4ce-19129350446f">
+                    <propertyInstance
+                      Id="75ab369e-ae40-4c79-8997-0033b2619d19"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="86c7d629-737e-458c-b1ca-d320ca968f37">
+                    <propertyInstance
+                      Id="4c7cdb38-d63a-4768-ab25-60499435f214"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9665e1c6-463c-45cf-98f9-756480c19b2c">
+                    <propertyInstance
+                      Id="5af02c1f-bc2b-4670-8a39-6e8519cedd9f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bb315393-6371-44d7-b7b0-9f0d44581d13"
+                  name="time"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="90a832e6-7704-44d9-b3fb-2899333a453f"
+        name="CreativeMainScreen"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="323334b7-7730-4672-bd92-8e825fcf2e40"
+            isSubstitutable="false">
+            <classMoniker
+              Id="804d7705-44d5-4391-9eab-c5fe9f3195ae"
+              LastKnownName="MenuScreen"
+              LastKnownLocation="Screens.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="f6214d61-1c7f-46ef-b59d-ab85fe073759"
+            name="buttons"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e0b0cbb4-f745-4cde-8f45-6ac4d6d5dae7"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68bb0fc4-0727-4d08-92b6-f7b9e32c4a9f">
+                    <propertyInstance
+                      Id="1063d822-8cac-4ad6-a2b8-d325276e1f88"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1aa6b7d-d167-41f5-8c0f-b283d8ed0ac5">
+                    <propertyInstance
+                      Id="65f3685d-8685-45f1-b02d-6f8ac2636597"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="378f9001-df10-4945-a585-7c18eeb8cd0e">
+                    <propertyInstance
+                      Id="4112b0ad-cdeb-4dfb-bacf-d29259160897"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="973a6ddd-8799-4bcb-855d-08d5f29a2d80">
+                    <propertyInstance
+                      Id="5d426ef0-01e7-4e1e-a9a9-514e78d5873c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="85b91edd-5168-4d9b-9e89-6ac5d8dd4ee3">
+                    <propertyInstance
+                      Id="69260fb9-c338-4f2d-a97d-07ddb7b79a47"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="142a77e0-4116-4665-b97d-7183f033e665">
+                    <propertyInstance
+                      Id="0acbd482-e058-417b-b46b-a24a4cfbb1a1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15aabed6-93ca-4c38-8047-a1eaecd1e975">
+                    <propertyInstance
+                      Id="c6425df6-b444-46d7-ad09-ccf535f5b2f3"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b4e6504e-28fd-4e43-8533-79b8e88964d8"
+                LastKnownName="Menu"
+                LastKnownLocation="Widgets.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="bdfab46e-26f5-4c67-a205-5a26305e6ec0"
+            name="CreativeMainScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1c48eec4-9721-4421-a6a0-e83bdccc4d56"
+                  name="game"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="11fbb466-9655-4a46-8154-2ac99e569051"
+                      LastKnownName="Knot3Game"
+                      LastKnownLocation="Screens.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="58e1c8e6-080b-457c-8c51-5770338c6297"
+            name="Entered"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="316e164b-7a75-4dd9-aa1b-019b2432a05e"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="50787880-dd91-4b72-8447-f94ef95a19b0">
+                    <propertyInstance
+                      Id="78068005-eacd-4ff3-a84c-012381348615"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3c4b0584-3f6c-4945-905d-3ff7bdecbe0e">
+                    <propertyInstance
+                      Id="27672ff4-b0d9-48f1-a5d0-6a4978dba4e8"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="78af0325-0ded-4068-ad0e-5c3cb17b4ca4">
+                    <propertyInstance
+                      Id="13e7999e-cf66-4912-ba6f-7b372e990719"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a807b62a-b7b9-4794-853d-215ab10a08aa">
+                    <propertyInstance
+                      Id="30f691d2-cc77-460e-bcc9-b1f35bae9785"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="50f82cc4-c756-4174-ac98-b7cda3a5c76f">
+                    <propertyInstance
+                      Id="5daaeccc-dcab-47a2-aea1-76b2db67591e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb79f1bc-1dd0-496c-a384-c79a4850fc0d">
+                    <propertyInstance
+                      Id="341bfba1-8be3-4c76-b019-6c89ecabc3b6"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="052e29bb-0522-46d5-8314-bc8776d884c9"
+                  name="previousScreen"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e88c054f-f6c9-4c94-bc91-87ca22a6fcac"
+                      LastKnownName="Knot3-Entwurf::GameScreen"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="39fdf0b1-e6e9-40aa-824c-ae5da12293d7"
+                  name="GameTime"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7583460b-2d14-4159-b11d-3d617c47a2a2"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="745bdc70-d1a5-42fe-ba78-1bcf760d8952"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d23dc9e-1e18-4e18-b465-3b2b2cb9bb3e">
+                    <propertyInstance
+                      Id="43485bc3-bdf5-4279-aec8-2e2b4863eb18"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e066386-29c6-414f-89f3-563340250b4e">
+                    <propertyInstance
+                      Id="1f9e227c-d436-4c3d-8823-fc3800af6448"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="114be0bf-fb20-4b44-8795-75ca27aa944f">
+                    <propertyInstance
+                      Id="424dbfb7-1bc9-4b38-b46a-a5a03a423a3b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="79832160-4fc7-449e-9796-0a198363d68f">
+                    <propertyInstance
+                      Id="aa82a328-09f9-4304-b45d-2679dfcd03c5"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="81932a87-ebe4-428a-99d2-c0a08fde0fdc">
+                    <propertyInstance
+                      Id="abe1dee1-fd34-4d0e-a55b-76137f717a79"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9a14fe83-bbdb-44d9-8077-1b212940813e">
+                    <propertyInstance
+                      Id="7ac1a7ce-ec32-4317-a752-22ef8d076636"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c920f855-f273-441e-96a4-c9449ea92a58"
+                  name="time"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7146062a-e956-4346-8427-37640e8bf8a1"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Knot3.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="6c4cd4e9-abaf-440a-a49d-52279ec37c5f"
+        name="Menu" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

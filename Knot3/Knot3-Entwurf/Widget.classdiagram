@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="88c201e0-6f82-492f-b993-4f45529d74af" name="UMLClassDiagram1" linkedPackageId="eb0f39cd-4a08-4168-b6d0-aca5fb468152" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="88c201e0-6f82-492f-b993-4f45529d74af" name="UMLClassDiagram1" linkedPackageId="eb0f39cd-4a08-4168-b6d0-aca5fb468152" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="d19c517f-3451-4dce-a6e7-22e89443af09">
       <elementDefinition Id="17c576b7-ab94-43c3-a798-10dfdbe56f26" />
@@ -2133,6 +2133,19 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="fe347eb9-789d-4695-9cbe-ccf276ddc433" name="OnScroll" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="994b1514-e3f2-4101-8d63-d3f1fa0008e1" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b7eeca7f-d2f6-43dc-a7f4-80b2a81151cf" name="float" direction="In" isUnique="false">
+                  <elementDefinition Id="ed290265-dafc-47af-940e-d274d073f022" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6af9f04b-4e0a-4383-8f92-684ed34533a4" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -3788,6 +3801,19 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="490c069b-fe64-4e3c-b95b-695b7f15c922" name="OnScroll" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c2aa559a-fb26-40ee-bb36-25e462b46be5" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d9febfcb-398d-40b0-a4a2-18bc481cfaea" name="float" direction="In" isUnique="false">
+                  <elementDefinition Id="9bd20239-dd4e-4f5f-ba54-bfb876c6295f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6af9f04b-4e0a-4383-8f92-684ed34533a4" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -4281,6 +4307,19 @@
                   <elementDefinition Id="72777599-d9c7-4af3-b6ed-89bcb9ebd848" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="97fc3d15-0385-4934-b293-93dd5acf3cde" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2ab3df68-fcbd-44df-8c2c-96d2fb9c5653" name="OnScroll" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5de40ef1-81c1-4dd6-89a5-ef709d506ea0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8105c216-9dc0-4999-9156-9e618f3c1253" name="float" direction="In" isUnique="false">
+                  <elementDefinition Id="4a11cb79-6397-4bb2-8055-2b944d842bed" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6af9f04b-4e0a-4383-8f92-684ed34533a4" LastKnownName="int" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -5037,6 +5076,19 @@
                   <elementDefinition Id="375e416d-ca57-4a48-9ef0-af904c697112" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="c2324f55-c536-417d-8814-e9776c79305f" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="669cc12d-ebc8-476f-9509-b9876a30a703" name="OnScroll" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6b4738a9-7224-4660-88d8-3ae5f24a991e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="deb7be75-6cf1-4545-841c-e6b4aed48f7d" name="scrollWheelValue" direction="In" isUnique="false">
+                  <elementDefinition Id="07c88769-886c-483a-ba51-363b02b1708c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6af9f04b-4e0a-4383-8f92-684ed34533a4" LastKnownName="int" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -7347,6 +7399,11 @@
     <packageHasNamedElement>
       <referencedType Id="504c2bd9-ae39-4d02-acb6-5de094fcd015" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="GameScreen">
         <elementDefinition Id="c27470f1-e39a-4d4b-a7e7-90612c7882ac" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6af9f04b-4e0a-4383-8f92-684ed34533a4" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="b2d5aa2e-4c93-4059-a3e3-5ea6a2e4695e" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
