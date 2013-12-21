@@ -39,7 +39,8 @@ namespace Widgets
         #region Constructors
 
         /// <summary>
-        /// 
+        /// Erzeugt eine neue Instanz eines ColorPicker-Objekts und initialisiert diese
+        /// mit der Farbe, auf welche der Farbwähler beim Aufruf aus Sicht des Spielers zeigt.
         /// </summary>
         public ColorPicker (Color def)
         {

@@ -42,7 +42,7 @@ namespace Screens
         #region Methods
 
         /// <summary>
-        /// Fügt das Menü mit dem Spielständen in die Spielkomponentenliste ein.
+        /// Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
         /// </summary>
         public virtual void Entered (GameScreen previousScreen, GameTime GameTime)
         {

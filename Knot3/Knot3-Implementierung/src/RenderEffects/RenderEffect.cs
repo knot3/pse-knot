@@ -41,7 +41,7 @@ namespace RenderEffects
         protected GameScreen screen { get; set; }
 
         /// <summary>
-        /// Ein Spritestapel, der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
+        /// Ein Spritestapel (s. Glossar oder http://msdn.microsoft.com/en-us/library/bb203919.aspx), der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
         /// </summary>
         protected SpriteBatch spriteBatch { get; set; }
 
@@ -69,7 +69,7 @@ namespace RenderEffects
         }
 
         /// <summary>
-        /// 
+        /// Zeichnet das Spielmodell model mit diesem Rendereffekt.
         /// </summary>
         public virtual void DrawModel (GameModel GameModel, GameTime GameTime)
         {
@@ -87,7 +87,7 @@ namespace RenderEffects
         }
 
         /// <summary>
-        /// !!!
+        /// Zeichnet das Rendertarget.
         /// </summary>
         protected virtual void DrawRenderTarget (GameTime time)
         {

@@ -152,7 +152,7 @@ public class Screens.ChallengeCreateScreen : MenuScreen
     // 
     + ChallengeCreateScreen (Knot3Game game) : void
     // 
-    + Entered (Knot3-Entwurf::GameScreen previousScreen, GameTime GameTime) : void
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
     // 
     + Update (GameTime time) : void
 
@@ -338,8 +338,8 @@ public class Screens.CreativeLoadScreen : MenuScreen
     // Erzeugt ein neues CreativeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + CreativeLoadScreen (Knot3Game game) : void
 
-// In diesem Menü trifft der Spieler die Wahl, ob er ein neues Creative starten, ein Altes laden oder
-// eine neue Challenge kreieren oder eine Alte laden möchte.
+// In diesem Menü trifft der Spieler die Wahl, ob er im Creative-Modus einen neuen Knoten erstellen, einen Knoten laden oder
+// eine neue Challenge erstellen möchte.
 public class Screens.CreativeMainScreen : MenuScreen
   Attributes:
     // Ein Menü aus Schaltflächen, welche den Spielwunsch des Spielers weiterleiten.
@@ -347,8 +347,8 @@ public class Screens.CreativeMainScreen : MenuScreen
   Methods:
     // Erzeugt ein neues CreativeMainScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + CreativeMainScreen (Knot3Game game) : void
-    // Fügt das Menü in die Spielkomponentenliste ein.
-    + Entered (Knot3-Entwurf::GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 

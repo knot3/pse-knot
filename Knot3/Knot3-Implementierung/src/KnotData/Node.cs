@@ -22,7 +22,7 @@ using Widgets;
 namespace KnotData
 {
     /// <summary>
-    /// 
+    /// Ein Knoten.
     /// </summary>
     public class Node
     {
@@ -30,22 +30,22 @@ namespace KnotData
         #region Properties
 
         /// <summary>
-        /// 
+        /// X steht für eine x-Koordinate im dreidimensionalen Raum.
         /// </summary>
         public int X { get; set; }
 
         /// <summary>
-        /// 
+        /// Y steht für eine y-Koordinate im dreidimensionalen Raum.
         /// </summary>
         public int Y { get; set; }
 
         /// <summary>
-        /// 
+        /// Z steht für eine z-Koordinate im dreidimensionalen Raum.
         /// </summary>
         public int Z { get; set; }
 
         /// <summary>
-        /// 
+        /// Ein Skalierungswert.
         /// </summary>
         private int scale { get; set; }
 
@@ -67,7 +67,7 @@ namespace KnotData
         #region Methods
 
         /// <summary>
-        /// 
+        /// Liefert die x-, y- und z-Koordinaten als ein Vektor der Form (x, y, z).
         /// </summary>
         public virtual Vector3 ToVector ( )
         {
