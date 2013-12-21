@@ -44,7 +44,7 @@ namespace Screens
         /// <summary>
         /// 
         /// </summary>
-        public virtual void Entered (Knot3-Entwurf::GameScreen previousScreen, GameTime GameTime)
+        public virtual void Entered (GameScreen previousScreen, GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }

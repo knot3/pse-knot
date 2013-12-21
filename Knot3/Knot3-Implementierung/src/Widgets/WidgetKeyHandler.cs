@@ -30,7 +30,7 @@ namespace Widgets
         #region Methods
 
         /// <summary>
-        /// !!!
+        /// Wird für jeden Frame aufgerufen.
         /// </summary>
         public virtual void Update ( )
         {

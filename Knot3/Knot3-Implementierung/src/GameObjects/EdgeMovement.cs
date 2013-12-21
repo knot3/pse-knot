@@ -49,7 +49,9 @@ namespace GameObjects
         #region Constructors
 
         /// <summary>
-        /// !!!
+        /// Erzeugt eine neue Instanz eines EdgeMovement-Objekts und initialisiert diese
+        /// mit ihrem zugehörigen GameScreen-Objekt screen, der Spielwelt world und
+        /// Objektinformationen info.
         /// </summary>
         public EdgeMovement (GameScreen screen, World world, GameObjectInfo info)
         {

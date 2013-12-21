@@ -30,7 +30,7 @@ namespace Screens
         #region Properties
 
         /// <summary>
-        /// !!!
+        /// Das vertikale Menü wo die Einstellungen anzeigt. Hier nimmt der Spieler Einstellungen vor.
         /// </summary>
         private VerticalMenu settingsMenu { get; set; }
 

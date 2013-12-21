@@ -22,7 +22,8 @@ using Widgets;
 namespace GameObjects
 {
     /// <summary>
-    /// !!!
+    /// Die Klasse GameObjectDistance beschreibt den Abstand zu einem Spielobjekt.
+    /// Dies ist z.B. hilfreich, um Schnittstellen, Verdeckungen, ... zu berechnen.
     /// </summary>
     public class GameObjectDistance
     {
@@ -30,12 +31,12 @@ namespace GameObjects
         #region Properties
 
         /// <summary>
-        /// 
+        /// Ein Spielobjekt.
         /// </summary>
         public IGameObject Object { get; set; }
 
         /// <summary>
-        /// 
+        /// Distance hält den Abstand als Gleitkommawert.
         /// </summary>
         public float Distance { get; set; }
 

@@ -56,7 +56,7 @@ namespace RenderEffects
         #region Methods
 
         /// <summary>
-        /// !!!
+        /// Zeichnet das Rendertarget.
         /// </summary>
         protected virtual void DrawRenderTarget (GameTime GameTime)
         {

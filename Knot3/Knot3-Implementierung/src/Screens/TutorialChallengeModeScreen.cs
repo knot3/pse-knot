@@ -31,7 +31,7 @@ namespace Screens
         #region Methods
 
         /// <summary>
-        /// !!!
+        /// Fügt die Tutoriellanzeige in die Spielkomponentenliste ein.
         /// </summary>
         public virtual void Entered (GameScreen previousScreen, GameTime GameTime)
         {
