@@ -10,8 +10,7 @@ Knot ruft bei Kantenänderungen eine Methode auf, die ihm beim Hinzufügen zum \
 Dazu wird aus Options.Default der Benutzernamen abgefragt und als Standardwert eingetragen. Wird ein neuer Benutzername eingegeben, wird dieser auch in Options.Default geändert. Mit Enter bestätigt wird eine zugewiesene Methode aufgerufen, die Benutzername und Zeit dem \class{Challenge}-Objekt mit AddToHighscore(name, time) übergibt, was die Werte richtig einordnet und gegebenenfalls (wenn die Zeit gut genug ist) speichert.
 \newline
 \newline
-Daraufhin öffnet diese Methode einen neuen \class{Dialog}, der die besten 10, soweit vorhanden, anzeigt und 2 Buttons 
-von denen einer die \class{Challenge} neu startet und ein anderer den StartScreen aufruft.
+Daraufhin öffnet diese Methode einen neuen \class{Dialog}, der, soweit vorhanden, die besten zehn Einträge sowie zwei Buttons anzeigt, von denen einer die \class{Challenge} neu startet und ein anderer den \class{StartScreen} aufruft. Obwohl nur die besten zehn Highscore-Einträge angezeigt werden, sind trotzdem alle bisher hinzugefügten Einträge sowohl in dem Challenge-Objekt als auch in dem Speicherformat der Challenge enthalten, da sie zur Berechnung der durchschnittlichen Zeit benötigt werden, die u.A. im \class{ChallengeStartScreen} zu jeder Challenge angezeigt werden kann.
 
 \subsection{Screenwechsel vom CreativeMainScreen in den CreativeLoadScreen}
 
