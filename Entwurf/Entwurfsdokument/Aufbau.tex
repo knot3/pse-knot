@@ -30,4 +30,24 @@ In der End()-Methode wird schließlich das auf dem Stack gesicherte, vorher genu
 
 
 \section{Verwendete Entwurfsmuster}
+
+\subsection{Kompositum}
+Das Kompositum gehört zu der Kategorie der Varianten-Muster und wird in unserem Entwurf des Öfteren verwendet.
+Dieses Entwurfsmuster kann man in den Unterklassen von \class{Widget} finden. \class{Widget} stellt hierbei die Komponente dar und die Unterklassen \class{Menu}, \class{MenuItem}, \class{ColorPicker} und \class{Dialog} jeweils das Kompositum. 
+Desweiteren stellen die Klassen \class{KnotRenderer}, \class{EdgeMovement} und \class{IGameScreenComponent} ein Kompositum dar.
+
+\subsection{Iterator}
+Der Iterator gehört zu der Kategorie der Entkopplungsmuster und wird in unserem Entwurf des Öfteren verwendet.
+
+\subsection{Dekorierer}
+Der Dekorierer gehört zu der Kategorie der Varianten-Muster und wird von der Klasse \class{ShadowGameObject} dargestellt. 
+\class{ShadowGameModel} stellt hierbei einen konkreten Dekorierer dar und erweitert die konkrete Komponente \class{GameModel}.
+
+\subsection{Zustand}
+Der Zustand gehört zu der Kategorie der Zustandshandhabungs-Muster und wird von der Klasse \class{GameScreen} repräsentiert. Jeder \class{GameScreen} hat eine eigene grafische Oberfläche und ein eigenes Verhalten.
+\class{Knot3Game} stellt den Kontext dar und verwaltet die verschiedenen \class{GameScreen}s. Bei einem Wechsel zwischen verschiedenen \class{GameScreen}s tauscht \class{Knot3Game} die betroffenen \class{GameScreen}s aus.
+
+\subsection{Model View Controller (MVC)}
+Der Model View Controller
+
 \section{Klassendiagramm}
