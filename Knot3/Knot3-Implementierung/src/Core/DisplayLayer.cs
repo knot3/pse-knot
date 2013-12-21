@@ -53,11 +53,11 @@ namespace Core
         /// </summary>
         MenuItem=50,
         /// <summary>
-        /// Steht für die Ebene in der Submenüs gezeichnet werden. Submenüs befinden sich in einer Ebene vor Menüeinträgen.
+        /// Steht für die Ebene in der Untermenüs gezeichnet werden. Untermenüs befinden sich in einer Ebene vor Menüeinträgen.
         /// </summary>
         SubMenu=60,
         /// <summary>
-        /// Steht für die Ebene in der Submenüeinträge gezeichnet werden. Submenüeinträge befinden sich in einer Ebene vor Submenüs.
+        /// Steht für die Ebene in der Untermenüeinträge gezeichnet werden. Untermenüeinträge befinden sich in einer Ebene vor Untermenüs.
         /// </summary>
         SubMenuItem=70,
         /// <summary>

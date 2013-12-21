@@ -79,10 +79,9 @@ namespace Screens
         #region Constructors
 
         /// <summary>
-        /// Erstellt eine neue Instanz eines ChallengeModeScreen-Objekts und
-        /// initialisiert diese mit einem Knot3Game-Objekt.
+        /// 
         /// </summary>
-        public ChallengeModeScreen (Knot3Game game)
+        public ChallengeModeScreen (Knot3Game game, Knot playerKnot, Knot challengeKnot)
         {
             throw new System.NotImplementedException();
         }

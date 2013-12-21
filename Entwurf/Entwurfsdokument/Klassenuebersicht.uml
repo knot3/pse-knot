@@ -706,6 +706,13 @@ public class Screens.GraphicsSettingsScreen : SettingsScreen
     // Erzeugt ein neues GraphicsSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + GraphicsSettingsScreen (Knot3Game game) : void
 
+// 
+public class Widgets.HighscoreDialog : Dialog
+  Attributes:
+  Methods:
+    // 
+    + HighscoreDialog (GameScreen screen, DisplayLayer drawOrder, Challenge challenge) : void
+
 // Eine horizontale Ausrichtung.
 public enum Widgets.HorizontalAlignment
     // Links.
@@ -1097,6 +1104,15 @@ public class GameObjects.KnotRenderer : IGameObject, IEnumerable<IGameObject>
     // [returntype=IEnumerator<IGameObject>]
     + GetEnumerator () : IEnumerator
 
+// 
+public class Widgets.KnotSaveDialog : TextInputDialog
+  Attributes:
+    // 
+    + OnSave : Action
+  Methods:
+    // 
+    + SaveDialog (CreativeModeScreen screen, DisplayLayer drawOrder, Knot knot, Action onSave) : void
+
 // Diese Klasse repräsentiert einen Parser für das Knoten-Austauschformat und enthält die
 // eingelesenen Informationen wie den Namen des Knotens und die Kantenliste als Eigenschaften.
 public class KnotData.KnotStringIO : 
@@ -1431,11 +1447,6 @@ public class RenderEffects.RenderEffectStack :
     // Erstellt einen neuen Rendereffekt-Stapel.
     + RenderEffectStack (IRenderEffect defaultEffect) : void
 
-// Ein Dialog, der angezeigt wird, wenn der Spieler einen Knoten speichern will.
-public class Widgets.SaveDialog : TextInputDialog
-  Attributes:
-  Methods:
-
 // Ein Spielzustand, der das Haupt-Einstellungsmenü zeichnet.
 public class Screens.SettingsScreen : MenuScreen
   Attributes:
@@ -1525,15 +1536,17 @@ public class Screens.StartScreen : MenuScreen
     + StartScreen (Knot3Game game) : void
 
 // Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
-public class Widgets.TextInputDialog : ConfirmDialog
+public class Widgets.TextInputDialog : Dialog, IKeyEventListener
   Attributes:
     // Der Text, der durch den Spieler eingegeben wurde.
     + InputText : String
+    // 
+    + KeyEvent : Action
   Methods:
-    // Erzeugt eine neue Instanz eines TextInputDialog-Objekts und ordnet dieser einen GameScreen zu.
-    // Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenfolge
-    // für den eingeblendeten Text und eine Zeichenkette für voreingestellten Text (welche leer sein darf) Pflicht.
-    + TextInputDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text, String inputText) : void
+    // 
+    + OnKeyEvent () : void
+    // 
+    + TextInputDialog (GameScreen screen, DisplayLayer drawOrder, String title, String text, String inputText, Keys[] keys) : void
 
 // Eine Einführung in das Spielen von Challenges.
 // Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangeführt.

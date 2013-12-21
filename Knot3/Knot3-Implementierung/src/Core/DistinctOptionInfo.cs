@@ -44,7 +44,7 @@ namespace Core
         #region Constructors
 
         /// <summary>
-        /// Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
+        /// Erstellt eine neue Option, die einen der angegebenen Werte aus validValues annehmen kann, mit dem angegebenen Namen in dem
         /// angegebenen Abschnitt der angegebenen Einstellungsdatei.
         /// [base=section, name, defaultValue, configFile]
         /// </summary>

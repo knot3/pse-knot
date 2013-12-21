@@ -2289,6 +2289,19 @@ Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungs\param{opti
 Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
 Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
 
+\subsubsection{Klasse HighscoreDialog}\index{Widgets!HighscoreDialog}
+\begin{wrapfigure}{R}{9cm}{0}
+\centering
+\includegraphics[scale=0.5]{Klassen/HighscoreDialog}
+\end{wrapfigure}
+\paragraph{Beschreibung:}\mbox{}\newline\newline
+
+
+
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{HighscoreDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Challenge} \varname{challenge})}\newline\newline
+
+
 \subsubsection{Klasse InputItem}\index{Widgets!InputItem}
 \begin{wrapfigure}{R}{9cm}{0}
 \centering
@@ -2325,6 +2338,22 @@ Zudem sind Angaben zur Zeichenreihenfolge und der Eingabe\param{option} Pflicht.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Speichert die aktuell gedrückte Taste in der Option.
+
+\subsubsection{Klasse KnotSaveDialog}\index{Widgets!KnotSaveDialog}
+\begin{wrapfigure}{R}{9cm}{0}
+\centering
+\includegraphics[scale=0.5]{Klassen/KnotSaveDialog}
+\end{wrapfigure}
+\paragraph{Beschreibung:}\mbox{}\newline\newline
+
+
+
+\paragraph{Eigenschaften:}\mbox{} \newline\newline
+{\textbf{\keyword{public} \ptype{Action} \varname{OnSave}}\newline\newline
+
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{SaveDialog} (\ptype{CreativeModeScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Knot} \varname{knot}, \ptype{Action} \varname{onSave})}\newline\newline
+
 
 \subsubsection{Klasse Menu}\index{Widgets!Menu}
 \begin{wrapfigure}{R}{9cm}{0}
@@ -2444,8 +2473,6 @@ wird dieser Dialog über anderen Spielkomponenten angezeigt.
 {\textbf{\keyword{private} \ptype{VerticalMenu} \varname{pauseMenu}}\newline\newline
 Das Menü, das verschiedene Schaltflächen enthält.
 
-
-
 \subsubsection{Klasse SliderItem}\index{Widgets!SliderItem}
 \begin{wrapfigure}{R}{9cm}{0}
 \centering
@@ -2486,11 +2513,15 @@ Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 {\textbf{\keyword{public} \ptype{String} \varname{InputText}}\newline\newline
 Der Text, der durch den Spieler eingegeben wurde.
+~\\\\
+{\textbf{\keyword{public} \ptype{Action} \varname{KeyEvent}}\newline\newline
+
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
-\textbf{\keyword{public} \varname{TextInputDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text}, \ptype{String} \varname{inputText})}\newline\newline
-Erzeugt eine neue Instanz eines TextInputDialog-Objekts und ordnet dieser einen GameScreen zu.
-Zudem ist die Angabe der Zeichenreihenfolge, einer Zeichenkette für den Titel, einer Zeichenfolge
-für den eingeblendeten Text und eine Zeichenkette für voreingestellten Text (welche leer sein darf) Pflicht.
+\textbf{\keyword{public} \varname{TextInputDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text}, \ptype{String} \varname{inputText}, \ptype{Keys[]} \varname{keys})}\newline\newline
+
+\paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
+
 
 \subsubsection{Klasse VerticalMenu}\index{Widgets!VerticalMenu}
 \begin{wrapfigure}{R}{9cm}{0}
