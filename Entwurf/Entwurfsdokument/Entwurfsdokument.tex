@@ -21,7 +21,10 @@
 \newcommand{\ptype}[1]{\textcolor{OliveGreen}{#1}}
 \newcommand{\varname}[1]{\textcolor{Black}{#1}}
 \newcommand{\param}[1]{\textit{\textcolor{Gray}{#1}}}
-\newcommand{\class}[1]{\hyperref[Class_#1]{\textit{#1}}}
+
+\newcommand{\class}[1]{\hyperref[#1]{\textcolor{BlueViolet}{\sloppy{#1}}}}
+\newcommand{\interface}[1]{\hyperref[#1]{\textcolor{OliveGreen}{\mbox{\sloppy{#1}}}}}
+\newcommand{\xna}[1]{\textcolor{Gray}{\sloppy{#1}}}
 
 \pdfpxdimen=1in
 \divide\pdfpxdimen by 300
