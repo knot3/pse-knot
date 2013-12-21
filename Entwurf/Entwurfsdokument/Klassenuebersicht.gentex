@@ -1,10 +1,10 @@
-\section{Package Core}
+\section{Paket Core}
 \subsection{Klassen}
-\subsubsection{Klasse Angles3}\index{Core!Angles3}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Angles3}\index{Core!Angles3}\label{Angles3}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Angles3}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Diese Klasse repräsentiert die Rollwinkel der drei Achsen X, Y und Z.
 Sie bietet Möglichkeit vordefinierte Winkelwerte zu verwenden, z.B. stellt Zero den Nullvektor dar.
@@ -33,11 +33,11 @@ Eine statische Methode, die Grad in Bogenmaß konvertiert.
 \textbf{\keyword{public} \ptype{void} \varname{ToDegrees} (\ptype{float} \varname{X}, \ptype{float} \varname{Y}, \ptype{float} \varname{Z})}\newline\newline
 Konvertiert Bogenmaß in Grad.
 
-\subsubsection{Klasse BooleanOptionInfo}\index{Core!BooleanOptionInfo}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse BooleanOptionInfo}\index{Core!BooleanOptionInfo}\label{BooleanOptionInfo}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/BooleanOptionInfo}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann.
 
@@ -49,13 +49,12 @@ Eine Eigenschaft, die den aktuell abgespeicherten Wert zurückgibt.
 \textbf{\keyword{public} \varname{BooleanOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{bool} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})}\newline\newline
 Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
 angegebenen Abschnitt der angegebenen Einstellungsdatei.
-[base=\param{section}, \param{name}, \param{defaultValue}?ConfigFile.True:ConfigFile.False, ValidValues, \param{configFile}]
 
-\subsubsection{Klasse Camera}\index{Core!Camera}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Camera}\index{Core!Camera}\label{Camera}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Camera}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Jede Instanz der World-Klasse hält eine für diese Spielwelt verwendete Kamera als Attribut.
 Die Hauptfunktion der Kamera-Klasse ist das Berechnen der drei Matrizen, die für die Positionierung
@@ -111,11 +110,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{Ray} \varname{GetMouseRay} (\ptype{Vector2} \varname{mousePosition})}\newline\newline
 Berechnet einen Strahl für die angegebenene 2D-Mausposition.
 
-\subsubsection{Klasse ConfigFile}\index{Core!ConfigFile}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ConfigFile}\index{Core!ConfigFile}\label{ConfigFile}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ConfigFile}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Repräsentiert eine Einstellungsdatei.
 
@@ -139,11 +138,11 @@ Gibt den aktuell in der Datei vorhandenen Wert für die angegebene Option in dem
 \textbf{\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{Boolean} \varname{value})}\newline\newline
 Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
 
-\subsubsection{Klasse DistinctOptionInfo}\index{Core!DistinctOptionInfo}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse DistinctOptionInfo}\index{Core!DistinctOptionInfo}\label{DistinctOptionInfo}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/DistinctOptionInfo}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
 
@@ -158,13 +157,12 @@ Eine Eigenschaft, die den aktuell abgespeicherten Wert zurück gibt.
 \textbf{\keyword{public} \varname{DistinctOptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{IEnumerable$<$string$>$} \varname{validValues}, \ptype{ConfigFile} \varname{configFile})}\newline\newline
 Erstellt eine neue Option, die einen der angegebenen Werte aus \param{validValues} annehmen kann, mit dem angegebenen Namen in dem
 angegebenen Abschnitt der angegebenen Einstellungsdatei.
-[base=\param{section}, \param{name}, \param{defaultValue}, \param{configFile}]
 
-\subsubsection{Klasse DrawableGameScreenComponent}\index{Core!DrawableGameScreenComponent}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse DrawableGameScreenComponent}\index{Core!DrawableGameScreenComponent}\label{DrawableGameScreenComponent}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/DrawableGameScreenComponent}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine zeichenbare Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
 
@@ -182,13 +180,12 @@ Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet d
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
-[returntype=IEnumerable$<$IGameScreenComponent$>$]
 
-\subsubsection{Klasse FileUtility}\index{Core!FileUtility}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse FileUtility}\index{Core!FileUtility}\label{FileUtility}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/FileUtility}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Hilfsklasse für Dateioperationen.
 
@@ -209,11 +206,11 @@ Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Da
 \textbf{\keyword{public} \ptype{String} \varname{GetHash} (\ptype{String} \varname{filename})}\newline\newline
 Liefert einen Hash-Wert zu der durch \param{filename} spezifizierten Datei.
 
-\subsubsection{Klasse GameScreen}\index{Core!GameScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse GameScreen}\index{Core!GameScreen}\label{GameScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/GameScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
 
@@ -251,11 +248,11 @@ Fügt die angegebenen GameComponents in die Components-Liste des Games ein.
 \textbf{\keyword{public} \ptype{void} \varname{RemoveGameComponents} (\ptype{IGameScreenComponent[]} \varname{components})}\newline\newline
 Entfernt die angegebenen GameComponents aus der Components-Liste des Games.
 
-\subsubsection{Klasse GameScreenComponent}\index{Core!GameScreenComponent}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse GameScreenComponent}\index{Core!GameScreenComponent}\label{GameScreenComponent}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/GameScreenComponent}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Spielkomponente, die in einem GameScreen verwendet wird und eine bestimmte Priorität hat.
 
@@ -272,13 +269,12 @@ Erzeugt eine neue Instanz eines GameScreenComponent-Objekts und initialisiert di
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
-[returntype=IEnumerable$<$IGameScreenComponent$>$]
 
-\subsubsection{Klasse Input}\index{Core!Input}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Input}\index{Core!Input}\label{Input}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Input}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet. Zusätzlich wird die aktuelle Eingabeaktion berechnet.
 
@@ -314,11 +310,11 @@ Erstellt ein neues Input-Objekt, das an den übergebenen Spielzustand gebunden i
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
-\subsubsection{Klasse Localizer}\index{Core!Localizer}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Localizer}\index{Core!Localizer}\label{Localizer}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Localizer}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine statische Klasse, die Bezeichner in lokalisierten Text umsetzen kann.
 
@@ -331,11 +327,11 @@ Die Datei, welche Informationen für die Lokalisierung enthält.
 Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
 aktuellen Sprache zurück, die dabei aus der Einstellungsdatei des Spiels gelesen wird.
 
-\subsubsection{Klasse MousePointer}\index{Core!MousePointer}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse MousePointer}\index{Core!MousePointer}\label{MousePointer}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/MousePointer}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Repräsentiert einen Mauszeiger.
 
@@ -347,11 +343,11 @@ Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{time})}\newline\newline
 Zeichnet den Mauszeiger.
 
-\subsubsection{Klasse OptionInfo}\index{Core!OptionInfo}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse OptionInfo}\index{Core!OptionInfo}\label{OptionInfo}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/OptionInfo}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Enthält Informationen über einen Eintrag in einer Einstellungsdatei.
 
@@ -375,11 +371,11 @@ Der Wert der Option.
 \textbf{\keyword{public} \varname{OptionInfo} (\ptype{String} \varname{section}, \ptype{String} \varname{name}, \ptype{String} \varname{defaultValue}, \ptype{ConfigFile} \varname{configFile})}\newline\newline
 Erstellt ein neues OptionsInfo-Objekt aus den übergegebenen Werten.
 
-\subsubsection{Klasse Options}\index{Core!Options}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Options}\index{Core!Options}\label{Options}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Options}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine statische Klasse, die eine Referenz auf die zentrale Einstellungsdatei des Spiels enthält.
 
@@ -388,11 +384,11 @@ Eine statische Klasse, die eine Referenz auf die zentrale Einstellungsdatei des 
 {\textbf{\keyword{public} \keyword{static} \ptype{ConfigFile} \varname{Default}}\newline\newline
 Die zentrale Einstellungsdatei des Spiels.
 
-\subsubsection{Klasse World}\index{Core!World}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse World}\index{Core!World}\label{World}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/World}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Repräsentiert eine Spielwelt, in der sich 3D-Modelle befinden und gezeichnet werden können.
 
@@ -421,14 +417,13 @@ Ruft auf allen Spielobjekten die Draw()-Methode auf.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Liefert einen Enumerator über die Spielobjekte dieser Spielwelt.
-[returntype=IEnumerator$<$IGameObject$>$]
 
 \subsection{Schnittstellen}
-\subsubsection{Schnittstelle IGameScreenComponent}\index{Core!IGameScreenComponent}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Schnittstelle IGameScreenComponent}\index{Core!IGameScreenComponent}\label{IGameScreenComponent}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/IGameScreenComponent}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Schnittstelle für eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
 
@@ -442,13 +437,12 @@ Der zugewiesene Spielzustand.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{time})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
-[returntype=IEnumerable$<$IGameScreenComponent$>$]
 
-\subsubsection{Schnittstelle IKeyEventListener}\index{Core!IKeyEventListener}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Schnittstelle IKeyEventListener}\index{Core!IKeyEventListener}\label{IKeyEventListener}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/IKeyEventListener}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Schnittstelle, die von Klassen implementiert wird, welche auf Tastatureingaben reagieren.
 
@@ -466,11 +460,11 @@ Die Tasten, auf die die Klasse reagiert.
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Die Reaktion auf eine Tasteneingabe.
 
-\subsubsection{Schnittstelle IMouseEventListener}\index{Core!IMouseEventListener}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Schnittstelle IMouseEventListener}\index{Core!IMouseEventListener}\label{IMouseEventListener}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/IMouseEventListener}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Schnittstelle, die von Klassen implementiert wird, die auf Maus-Klicks reagieren.
 
@@ -580,13 +574,13 @@ Kategorisierung von möglichen Eingabeaktionen.
 
 ~\\\\
 
-\section{Package GameObjects}
+\section{Paket GameObjects}
 \subsection{Klassen}
-\subsubsection{Klasse ArrowModel}\index{GameObjects!ArrowModel}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ArrowModel}\index{GameObjects!ArrowModel}\label{ArrowModel}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ArrowModel}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Diese Klasse ArrowModel repräsentiert ein 3D-Modell für einen Pfeil, zum Einblenden an selektierten Kanten (s. Edge).
 
@@ -607,11 +601,11 @@ Zeichnet den Pfeil.
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
-\subsubsection{Klasse ArrowModelInfo}\index{GameObjects!ArrowModelInfo}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ArrowModelInfo}\index{GameObjects!ArrowModelInfo}\label{ArrowModelInfo}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ArrowModelInfo}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Objekt der Klasse ArrowModelInfo hält alle Informationen, die zur Erstellung eines Pfeil-3D-Modelles (s. ArrowModel) notwendig sind.
 
@@ -623,11 +617,11 @@ Gibt die Richtung, in die der Pfeil zeigen soll an.
 \textbf{\keyword{public} \varname{ArrowModelInfo} (\ptype{Vector3} \varname{position}, \ptype{Vector3} \varname{direction})}\newline\newline
 Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position \param{position} im 3D-Raum. Dieses zeigt in eine durch \param{direction} bestimmte Richtung.
 
-\subsubsection{Klasse EdgeMovement}\index{GameObjects!EdgeMovement}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse EdgeMovement}\index{GameObjects!EdgeMovement}\label{EdgeMovement}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/EdgeMovement}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Inputhandler, der für das Verschieben der Kanten zuständig ist.
 
@@ -658,16 +652,15 @@ Wird für jeden Frame aufgerufen.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
-[returntype=IEnumerator$<$IGameObject$>$]
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle.
 
-\subsubsection{Klasse GameModel}\index{GameObjects!GameModel}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse GameModel}\index{GameObjects!GameModel}\label{GameModel}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/GameModel}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Repräsentiert ein 3D-Modell in einer Spielwelt.
 
@@ -712,11 +705,11 @@ Zeichnet das 3D-Modell in der angegebenen Spielwelt mit dem aktuellen Rendereffe
 \textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\newline\newline
 Überprüft, ob der Mausstrahl das 3D-Modell schneidet.
 
-\subsubsection{Klasse GameModelInfo}\index{GameObjects!GameModelInfo}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse GameModelInfo}\index{GameObjects!GameModelInfo}\label{GameModelInfo}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/GameModelInfo}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Enthält Informationen über ein 3D-Modell wie den Dateinamen, die Rotation und die Skalierung.
 
@@ -739,11 +732,11 @@ Dateiname, Rotation und Skalierung.
 Erzeugt eine neue Instanz eines GameModelInfo-Objekts.
 In \param{modelname} wird der Name der Datei angegeben, welche das Model repräsentiert.
 
-\subsubsection{Klasse GameObjectDistance}\index{GameObjects!GameObjectDistance}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse GameObjectDistance}\index{GameObjects!GameObjectDistance}\label{GameObjectDistance}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/GameObjectDistance}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Die Klasse GameObjectDistance beschreibt den Abstand zu einem Spielobjekt.
 Dies ist z.B. hilfreich, um Schnittstellen, Verdeckungen, ... zu berechnen.
@@ -756,11 +749,11 @@ Ein Spielobjekt.
 {\textbf{\keyword{public} \ptype{float} \varname{Distance}}\newline\newline
 Distance hält den Abstand als Gleitkommawert.
 
-\subsubsection{Klasse GameObjectInfo}\index{GameObjects!GameObjectInfo}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse GameObjectInfo}\index{GameObjects!GameObjectInfo}\label{GameObjectInfo}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/GameObjectInfo}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Enthält Informationen über ein 3D-Objekt wie die Position, Sichtbarkeit, Verschiebbarkeit und Auswählbarkeit.
 
@@ -780,13 +773,12 @@ Die Position des Spielobjektes.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{C} \varname{other})}\newline\newline
 Vergleicht zwei Informationsobjekte für Spielobjekte.
-[parameters=GameObjectInfo \param{other}]
 
-\subsubsection{Klasse KnotInputHandler}\index{GameObjects!KnotInputHandler}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse KnotInputHandler}\index{GameObjects!KnotInputHandler}\label{KnotInputHandler}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/KnotInputHandler}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Verarbeitet die Maus- und Tastatureingaben des Spielers und modifiziert die Kamera-Position
 und das Kamera-Ziel.
@@ -801,16 +793,15 @@ Der Spielzustand.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{KnotInputHandler} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world})}\newline\newline
 Erstellt einen neuen KnotInputHandler für den angegebenen Spielzustand und die angegebene Spielwelt.
-[base=\param{screen}]
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
-\subsubsection{Klasse KnotRenderer}\index{GameObjects!KnotRenderer}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse KnotRenderer}\index{GameObjects!KnotRenderer}\label{KnotRenderer}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/KnotRenderer}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Erstellt aus einem Knoten-Objekt die zu dem Knoten gehörenden 3D-Modelle sowie die 3D-Modelle der Pfeile,
 die nach einer Auswahl von Kanten durch den Spieler angezeigt werden. Ist außerdem ein IGameObject und ein
@@ -867,13 +858,12 @@ Ruft die Draw()-Methoden der Kanten, Übergänge und Pfeile auf.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator der aktuell vorhandenen 3D-Modelle zurück.
-[returntype=IEnumerator$<$IGameObject$>$]
 
-\subsubsection{Klasse ModelFactory}\index{GameObjects!ModelFactory}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ModelFactory}\index{GameObjects!ModelFactory}\label{ModelFactory}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ModelFactory}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Zwischenspeicher für 3D-Modelle.
 
@@ -892,11 +882,11 @@ Erstellt einen neuen Zwischenspeicher.
 \textbf{\keyword{public} \ptype{GameModel} \varname{this} (\ptype{GameScreen} \varname{state}, \ptype{GameModelInfo} \varname{info})}\newline\newline
 Falls das 3D-Modell zwischengespeichert ist, wird es zurückgegeben, sonst mit createModel() erstellt.
 
-\subsubsection{Klasse ModelMouseHandler}\index{GameObjects!ModelMouseHandler}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ModelMouseHandler}\index{GameObjects!ModelMouseHandler}\label{ModelMouseHandler}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ModelMouseHandler}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Inputhandler, der Mauseingaben auf 3D-Modellen verarbeitet.
 
@@ -909,11 +899,11 @@ sowie eine Spielwelt \param{world}.
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
-\subsubsection{Klasse NodeModel}\index{GameObjects!NodeModel}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse NodeModel}\index{GameObjects!NodeModel}\label{NodeModel}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/NodeModel}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein 3D-Modell, das einen Kantenübergang darstellt.
 
@@ -924,7 +914,6 @@ Enthält Informationen über den darzustellende 3D-Modell des Kantenübergangs.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{NodeModel} (\ptype{GameScreen} \varname{screen}, \ptype{NodeModelInfo} \varname{info})}\newline\newline
 Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und dem angegebenen Informationsobjekt.
-[base=\param{screen}, \param{info}]
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet das 3D-Modell mit dem aktuellen Rendereffekt.
@@ -932,11 +921,11 @@ Zeichnet das 3D-Modell mit dem aktuellen Rendereffekt.
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
-\subsubsection{Klasse NodeModelInfo}\index{GameObjects!NodeModelInfo}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse NodeModelInfo}\index{GameObjects!NodeModelInfo}\label{NodeModelInfo}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/NodeModelInfo}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Enthält Informationen über ein 3D-Modell, das einen Kantenübergang darstellt.
 
@@ -956,13 +945,12 @@ Die Position des Übergangs.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{NodeModelInfo} (\ptype{Knot} \varname{knot}, \ptype{Edge} \varname{from}, \ptype{Edge} \varname{to})}\newline\newline
 Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
-[base="node1", Angles3.Zero, new Vec\param{to}r3(1,1,1)]
 
-\subsubsection{Klasse PipeModel}\index{GameObjects!PipeModel}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse PipeModel}\index{GameObjects!PipeModel}\label{PipeModel}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/PipeModel}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein 3D-Modell, das eine Kante darstellt.
 
@@ -973,16 +961,15 @@ Enthält Informationen über die darzustellende Kante.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{PipeModel} (\ptype{GameScreen} \varname{screen}, \ptype{PipeModelInfo} \varname{info})}\newline\newline
 Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und den angegebenen Spiel\param{info}rmationen.
-[base=\param{screen}, \param{info}]
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})}\newline\newline
 Prüft, ob der angegebene Mausstrahl das 3D-Modell schneidet.
 
-\subsubsection{Klasse PipeModelInfo}\index{GameObjects!PipeModelInfo}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse PipeModelInfo}\index{GameObjects!PipeModelInfo}\label{PipeModelInfo}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/PipeModelInfo}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Enthält Informationen über ein 3D-Modell, das eine Kante darstellt.
 
@@ -1002,13 +989,12 @@ Die Position, an der die Kante endet.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{PipeModelInfo} (\ptype{Knot} \varname{knot}, \ptype{Edge} \varname{edge})}\newline\newline
 Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
-[base="pipe1", Angles3.Zero, new Vector3(10,10,10)]
 
-\subsubsection{Klasse ShadowGameModel}\index{GameObjects!ShadowGameModel}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ShadowGameModel}\index{GameObjects!ShadowGameModel}\label{ShadowGameModel}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ShadowGameModel}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Die 3D-Modelle, die während einer Verschiebung von Kanten die Vorschaumodelle repräsentieren.
 
@@ -1026,11 +1012,11 @@ Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angeg
 \textbf{\keyword{public} \ptype{void} \varname{Draw} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet das Vorschaumodell.
 
-\subsubsection{Klasse ShadowGameObject}\index{GameObjects!ShadowGameObject}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ShadowGameObject}\index{GameObjects!ShadowGameObject}\label{ShadowGameObject}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ShadowGameObject}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine abstrakte Klasse, die ein Vorschau-Spielobjekt darstellt.
 
@@ -1064,11 +1050,11 @@ Zeichnet das Vorschau-Spielobjekt.
 Prüft, ob der angegebene Mausstrahl das Vorschau-Spielobjekt schneidet.
 
 \subsection{Schnittstellen}
-\subsubsection{Schnittstelle IGameObject}\index{GameObjects!IGameObject}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Schnittstelle IGameObject}\index{GameObjects!IGameObject}\label{IGameObject}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/IGameObject}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Diese Schnittstelle repräsentiert ein Spielobjekt und enthält eine Referenz auf die Spielwelt, in der sich dieses
 Game befindet, sowie Informationen zu dem Game.
@@ -1093,11 +1079,11 @@ Zeichnet das Spielobjekt.
 \textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{ray})}\newline\newline
 Überprüft, ob der Mausstrahl das Spielobjekt schneidet.
 
-\subsubsection{Schnittstelle IJunction}\index{GameObjects!IJunction}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Schnittstelle IJunction}\index{GameObjects!IJunction}\label{IJunction}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/IJunction}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Repräsentiert einen Übergang zwischen zwei Kanten.
 
@@ -1110,13 +1096,13 @@ Die Kante vor dem Übergang.
 Die Kante nach dem Übergang.
 
 \subsection{Enumerationen}
-\section{Package Screens}
+\section{Paket Screens}
 \subsection{Klassen}
-\subsubsection{Klasse AudioSettingsScreen}\index{Screens!AudioSettingsScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse AudioSettingsScreen}\index{Screens!AudioSettingsScreen}\label{AudioSettingsScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/AudioSettingsScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Die Klasse AudioSettingsScreen steht für den Spielzustand, der die Audio-Einstellungen repräsentiert.
 
@@ -1134,11 +1120,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse ChallengeCreateScreen}\index{Screens!ChallengeCreateScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ChallengeCreateScreen}\index{Screens!ChallengeCreateScreen}\label{ChallengeCreateScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ChallengeCreateScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 
 
@@ -1153,11 +1139,11 @@ Erzeugt eine neue Instanz eines ChallengeCreateScreen-Objekts und initialisiert 
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 
 
-\subsubsection{Klasse ChallengeModeScreen}\index{Screens!ChallengeModeScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ChallengeModeScreen}\index{Screens!ChallengeModeScreen}\label{ChallengeModeScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ChallengeModeScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Der Spielzustand, der während dem Spielen einer Challenge aktiv ist und für den Ausgangs- und Referenzknoten je eine 3D-Welt zeichnet.
 
@@ -1199,11 +1185,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse ChallengeStartScreen}\index{Screens!ChallengeStartScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ChallengeStartScreen}\index{Screens!ChallengeStartScreen}\label{ChallengeStartScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ChallengeStartScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
 
@@ -1219,11 +1205,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse ControlSettingsScreen}\index{Screens!ControlSettingsScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ControlSettingsScreen}\index{Screens!ControlSettingsScreen}\label{ControlSettingsScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ControlSettingsScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
 
@@ -1241,11 +1227,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse CreativeLoadScreen}\index{Screens!CreativeLoadScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse CreativeLoadScreen}\index{Screens!CreativeLoadScreen}\label{CreativeLoadScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/CreativeLoadScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
 
@@ -1260,11 +1246,11 @@ Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
-\subsubsection{Klasse CreativeMainScreen}\index{Screens!CreativeMainScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse CreativeMainScreen}\index{Screens!CreativeMainScreen}\label{CreativeMainScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/CreativeMainScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 In diesem Menü trifft der Spieler die Wahl, ob er im Creative-Modus einen neuen Knoten erstellen, einen Knoten laden oder
 eine neue Challenge erstellen möchte.
@@ -1283,11 +1269,11 @@ Erzeugt ein neues CreativeMainScreen-Objekt und initialisiert dieses mit einem K
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
-\subsubsection{Klasse CreativeModeScreen}\index{Screens!CreativeModeScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse CreativeModeScreen}\index{Screens!CreativeModeScreen}\label{CreativeModeScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/CreativeModeScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv ist und für den Knoten eine 3D-Welt zeichnet.
 
@@ -1317,11 +1303,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})}\newline\newline
 Fügt die 3D-Welt und den Inputhandler in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse CreditsScreen}\index{Screens!CreditsScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse CreditsScreen}\index{Screens!CreditsScreen}\label{CreditsScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/CreditsScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
 
@@ -1336,11 +1322,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Mitwirkenden in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse GraphicsSettingsScreen}\index{Screens!GraphicsSettingsScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse GraphicsSettingsScreen}\index{Screens!GraphicsSettingsScreen}\label{GraphicsSettingsScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/GraphicsSettingsScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Der Spielzustand, der die Grafik-Einstellungen darstellt.
 
@@ -1358,11 +1344,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse Knot3Game}\index{Screens!Knot3Game}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Knot3Game}\index{Screens!Knot3Game}\label{Knot3Game}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Knot3Game}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Die zentrale Spielklasse, die von der \glqq Game\grqq~-Klasse des XNA-Frameworks erbt.
 
@@ -1400,11 +1386,11 @@ Macht nichts. Das Freigeben aller Objekte wird von der automatischen Speicherber
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
-\subsubsection{Klasse MenuScreen}\index{Screens!MenuScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse MenuScreen}\index{Screens!MenuScreen}\label{MenuScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/MenuScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine abstrakte Klasse, von der alle Spielzustände erben, die Menüs darstellen.
 
@@ -1416,11 +1402,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Wird aufgerufen, wenn in diesen Spielzustand gewechselt wird.
 
-\subsubsection{Klasse ProfileSettingsScreen}\index{Screens!ProfileSettingsScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ProfileSettingsScreen}\index{Screens!ProfileSettingsScreen}\label{ProfileSettingsScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ProfileSettingsScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Der Spielzustand, der die Profil-Einstellungen darstellt.
 
@@ -1438,11 +1424,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse SettingsScreen}\index{Screens!SettingsScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse SettingsScreen}\index{Screens!SettingsScreen}\label{SettingsScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/SettingsScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Spielzustand, der das Haupt-Einstellungsmenü zeichnet.
 
@@ -1457,11 +1443,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{time})}\newline\newline
 Fügt das Haupt-Einstellungsmenü in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse StartScreen}\index{Screens!StartScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse StartScreen}\index{Screens!StartScreen}\label{StartScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/StartScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Der Startbildschirm.
 
@@ -1479,11 +1465,11 @@ Wird für jeden Frame aufgerufen.
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt die das Menü in die Spielkomponentenliste ein.
 
-\subsubsection{Klasse TutorialChallengeModeScreen}\index{Screens!TutorialChallengeModeScreen}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse TutorialChallengeModeScreen}\index{Screens!TutorialChallengeModeScreen}\label{TutorialChallengeModeScreen}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/TutorialChallengeModeScreen}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Einführung in das Spielen von Challenges.
 Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangeführt.
@@ -1495,13 +1481,13 @@ Fügt die Tutoriellanzeige in die Spielkomponentenliste ein.
 
 \subsection{Schnittstellen}
 \subsection{Enumerationen}
-\section{Package RenderEffects}
+\section{Paket RenderEffects}
 \subsection{Klassen}
-\subsubsection{Klasse CelShadingEffect}\index{RenderEffects!CelShadingEffect}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse CelShadingEffect}\index{RenderEffects!CelShadingEffect}\label{CelShadingEffect}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/CelShadingEffect}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Cel-Shading-Effekt.
 
@@ -1520,11 +1506,11 @@ Eine Anwendung des NVIDIA-Toon-Shaders.
 \textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})}\newline\newline
 Weist dem 3D-Modell den Cel-Shader zu.
 
-\subsubsection{Klasse FadeEffect}\index{RenderEffects!FadeEffect}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse FadeEffect}\index{RenderEffects!FadeEffect}\label{FadeEffect}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/FadeEffect}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Postprocessing-Effekt, der eine Überblendung zwischen zwei Spielzuständen darstellt.
 
@@ -1542,11 +1528,11 @@ Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Zeichnet das Rendertarget.
 
-\subsubsection{Klasse RenderEffect}\index{RenderEffects!RenderEffect}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse RenderEffect}\index{RenderEffects!RenderEffect}\label{RenderEffect}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/RenderEffect}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine abstrakte Klasse, die eine Implementierung von IRenderEffect darstellt.
 
@@ -1582,11 +1568,11 @@ ein anderer Shader zugewiesen werden.
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{time})}\newline\newline
 Zeichnet das Rendertarget.
 
-\subsubsection{Klasse RenderEffectStack}\index{RenderEffects!RenderEffectStack}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse RenderEffectStack}\index{RenderEffects!RenderEffectStack}\label{RenderEffectStack}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/RenderEffectStack}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Stapel, der während der Draw-Aufrufe die Hierarchie der aktuell verwendeten Rendereffekte verwaltet
 und automatisch das aktuell von XNA verwendete Rendertarget auf das Rendertarget des obersten Rendereffekts
@@ -1609,11 +1595,11 @@ Entfernt den obersten Rendereffekt vom Stapel.
 \textbf{\keyword{public} \ptype{void} \varname{Push} (\ptype{IRenderEffect} \varname{effect})}\newline\newline
 Legt einen Rendereffekt auf den Stapel.
 
-\subsubsection{Klasse StandardEffect}\index{RenderEffects!StandardEffect}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse StandardEffect}\index{RenderEffects!StandardEffect}\label{StandardEffect}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/StandardEffect}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardmäßig zugewiesenen
 BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
@@ -1627,11 +1613,11 @@ Erstellt einen neuen Standardeffekt.
 Zeichnet das Rendertarget.
 
 \subsection{Schnittstellen}
-\subsubsection{Schnittstelle IRenderEffect}\index{RenderEffects!IRenderEffect}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Schnittstelle IRenderEffect}\index{RenderEffects!IRenderEffect}\label{IRenderEffect}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/IRenderEffect}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Stellt eine Schnittstelle für Klassen bereit, die Rendereffekte ermöglichen.
 
@@ -1659,13 +1645,13 @@ BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann
 ein anderer Shader zugewiesen werden.
 
 \subsection{Enumerationen}
-\section{Package KnotData}
+\section{Paket KnotData}
 \subsection{Klassen}
-\subsubsection{Klasse Challenge}\index{KnotData!Challenge}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Challenge}\index{KnotData!Challenge}\label{Challenge}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Challenge}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Objekt dieser Klasse repräsentiert eine Challenge.
 
@@ -1699,11 +1685,11 @@ Erstellt ein Challenge-Objekt aus einer gegebenen Challenge-Datei.
 \textbf{\keyword{public} \ptype{void} \varname{AddToHighscore} (\ptype{String} \varname{name}, \ptype{Integer} \varname{time})}\newline\newline
 Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
 
-\subsubsection{Klasse ChallengeFileIO}\index{KnotData!ChallengeFileIO}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ChallengeFileIO}\index{KnotData!ChallengeFileIO}\label{ChallengeFileIO}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ChallengeFileIO}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Implementiert das Speicherformat für Challenges.
 
@@ -1721,11 +1707,11 @@ Lädt eine Challenge aus einer angegebenen Datei.
 \textbf{\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\newline\newline
 Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
 
-\subsubsection{Klasse ChallengeMetaData}\index{KnotData!ChallengeMetaData}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ChallengeMetaData}\index{KnotData!ChallengeMetaData}\label{ChallengeMetaData}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ChallengeMetaData}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Enthält Metadaten zu einer Challenge.
 
@@ -1754,11 +1740,11 @@ Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metada
 
 
 
-\subsubsection{Klasse Edge}\index{KnotData!Edge}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Edge}\index{KnotData!Edge}\label{Edge}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Edge}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Kante eines Knotens, die aus einer Richtung und einer Farbe, sowie optional einer Liste von Flächennummern besteht.
 
@@ -1779,11 +1765,11 @@ Erstellt eine neue Kante mit der angegebenen Richtung.
 \textbf{\keyword{public} \ptype{Vector3} \varname{Get3DDirection} ()}\newline\newline
 Gibt die Richtung als normalisierten Vektor3 zurück.
 
-\subsubsection{Klasse Knot}\index{KnotData!Knot}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Knot}\index{KnotData!Knot}\label{Knot}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Knot}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Diese Klasse repräsentiert einen Knoten, bestehend aus einem Knoten-Metadaten-Objekt und einer doppelt-verketteten Liste von Kanten. Ein Knoten ist eine zyklische Kantenfolge, bei der keine zwei Kanten Kanten den gleichen Raum einnehmen.
 
@@ -1857,21 +1843,18 @@ Prüft, ob die angegebene Kante in der aktuellen Kantenauswahl enthalten ist.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
-[name=IEnumerable.GetEnumerator]
-[keywords= ]
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Save} (\ptype{IKnotIO} \varname{format}, \ptype{String} \varname{filename})}\newline\newline
 Speichert den Knoten unter dem angegebenen Dateinamen in dem angegebenen Datei\param{format}.
 ~\\\\
 \textbf{\keyword{public} \ptype{Boolean} \varname{Equals} (\ptype{T} \varname{other})}\newline\newline
 Prüft, ob die räumliche Struktur identisch ist, unabhängig von dem Startpunkt und der Richtung der Datenstruktur.
-[parameters=Knot \param{other}]
 
-\subsubsection{Klasse KnotFileIO}\index{KnotData!KnotFileIO}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse KnotFileIO}\index{KnotData!KnotFileIO}\label{KnotFileIO}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/KnotFileIO}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Implementiert das Speicherformat für Knoten.
 
@@ -1892,11 +1875,11 @@ Lädt eines Knotens aus einer angegebenen Datei.
 \textbf{\keyword{public} \ptype{KnotMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\newline\newline
 Lädt die Metadaten eines Knotens aus einer angegebenen Datei.
 
-\subsubsection{Klasse KnotMetaData}\index{KnotData!KnotMetaData}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse KnotMetaData}\index{KnotData!KnotMetaData}\label{KnotMetaData}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/KnotMetaData}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Enthält Metadaten eines Knotens, die aus einer Spielstand-Datei schneller eingelesen werden können,
 als der vollständige Knoten. Dieses Objekt enthält keine Datenstruktur zur Repräsentation der Kanten,
@@ -1936,11 +1919,11 @@ Zusätzlich wird der Datei\param{name} oder das Speicher\param{format} angegeben
 Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knoten\param{name}n
 und einer angegebenen Funktion, welche eine Kantenanzahl zurück gibt.
 
-\subsubsection{Klasse KnotStringIO}\index{KnotData!KnotStringIO}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse KnotStringIO}\index{KnotData!KnotStringIO}\label{KnotStringIO}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/KnotStringIO}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Diese Klasse repräsentiert einen Parser für das Knoten-Austauschformat und enthält die
 eingelesenen Informationen wie den Namen des Knotens und die Kantenliste als Eigenschaften.
@@ -1969,11 +1952,11 @@ Enthält es einen ungültigen Knoten, so wird eine IOException geworfen und das 
 Erstellt ein neues Objekt und setzt die \glqq Name\grqq~- und \glqq Edge\grqq~-Eigenschaften auf die
 im angegebenen Knoten enthaltenen Werte.
 
-\subsubsection{Klasse Node}\index{KnotData!Node}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Node}\index{KnotData!Node}\label{Node}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Node}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Knoten.
 
@@ -1998,11 +1981,11 @@ für die \param{x}-, \param{y}- und \param{z}-Koordinate.
 \textbf{\keyword{public} \ptype{Vector3} \varname{ToVector} ()}\newline\newline
 Liefert die x-, y- und z-Koordinaten als ein Vektor der Form (x, y, z).
 
-\subsubsection{Klasse NodeMap}\index{KnotData!NodeMap}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse NodeMap}\index{KnotData!NodeMap}\label{NodeMap}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/NodeMap}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Zuordnung zwischen Kanten und Kantenübergänge.
 
@@ -2020,11 +2003,11 @@ Gibt den Übergang am Ende der Kante zurück.
 \textbf{\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()}\newline\newline
 Aktualisiert die Zuordnung, wenn sich die Kanten geändert haben.
 
-\subsubsection{Klasse PrinterIO}\index{KnotData!PrinterIO}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse PrinterIO}\index{KnotData!PrinterIO}\label{PrinterIO}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/PrinterIO}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Exportformat für 3D-Drucker.
 
@@ -2046,11 +2029,11 @@ Gibt eine IOException zurück.
 Gibt eine IOException zurück.
 
 \subsection{Schnittstellen}
-\subsubsection{Schnittstelle IChallengeIO}\index{KnotData!IChallengeIO}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Schnittstelle IChallengeIO}\index{KnotData!IChallengeIO}\label{IChallengeIO}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/IChallengeIO}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
 
@@ -2065,11 +2048,11 @@ Lädt eine Challenge.
 \textbf{\keyword{public} \ptype{ChallengeMetaData} \varname{LoadMetaData} (\ptype{String} \varname{filename})}\newline\newline
 Lädt die Metadaten einer Challenge.
 
-\subsubsection{Schnittstelle IKnotIO}\index{KnotData!IKnotIO}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Schnittstelle IKnotIO}\index{KnotData!IKnotIO}\label{IKnotIO}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/IKnotIO}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten implementiert werden müssen.
 
@@ -2117,13 +2100,13 @@ Rückwärts.
 Keine Richtung.
 ~\\\\
 
-\section{Package Widgets}
+\section{Paket Widgets}
 \subsection{Klassen}
-\subsubsection{Klasse CheckBoxItem}\index{Widgets!CheckBoxItem}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse CheckBoxItem}\index{Widgets!CheckBoxItem}\label{CheckBoxItem}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/CheckBoxItem}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Menüeintrag, der einen Auswahlkasten darstellt.
 
@@ -2136,11 +2119,11 @@ Die Option, die mit dem Auswahlkasten verknüpft ist.
 Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge und der Auswahl\param{option} Pflicht.
 
-\subsubsection{Klasse ColorPicker}\index{Widgets!ColorPicker}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ColorPicker}\index{Widgets!ColorPicker}\label{ColorPicker}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ColorPicker}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
 
@@ -2168,11 +2151,11 @@ Bei einem Rechtsklick geschieht nichts.
 \textbf{\keyword{public} \ptype{void} \varname{OnScroll} (\ptype{int} \varname{float})}\newline\newline
 
 
-\subsubsection{Klasse ColorPickItem}\index{Widgets!ColorPickItem}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ColorPickItem}\index{Widgets!ColorPickItem}\label{ColorPickItem}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ColorPickItem}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Menüeintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
 
@@ -2188,11 +2171,11 @@ Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
 Erzeugt ein neues ColorPickItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 
-\subsubsection{Klasse ConfirmDialog}\index{Widgets!ConfirmDialog}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse ConfirmDialog}\index{Widgets!ConfirmDialog}\label{ConfirmDialog}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/ConfirmDialog}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Dialog, der Schaltflächen zum Bestätigen einer Aktion anzeigt.
 
@@ -2204,13 +2187,12 @@ Das Menü, das Schaltflächen enthält.
 \textbf{\keyword{public} \varname{ConfirmDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text})}\newline\newline
 Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
-[base=\param{screen}, \param{drawOrder}, \param{title}, \param{text}]
 
-\subsubsection{Klasse Dialog}\index{Widgets!Dialog}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Dialog}\index{Widgets!Dialog}\label{Dialog}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Dialog}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
 
@@ -2225,7 +2207,6 @@ Der angezeigte Text.
 \textbf{\keyword{public} \varname{Dialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{String} \varname{title}, \ptype{String} \varname{text})}\newline\newline
 Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
-[base=\param{screen}, \param{drawOrder}]
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Durch Drücken der Entertaste wird die ausgewählte Aktion ausgeführt. Durch Drücken der Escape-Taste wird der Dialog abgebrochen.
@@ -2243,11 +2224,11 @@ Bei einem Rechtsklick geschieht nichts.
 \textbf{\keyword{public} \ptype{void} \varname{OnScroll} (\ptype{int} \varname{float})}\newline\newline
 
 
-\subsubsection{Klasse DropDownEntry}\index{Widgets!DropDownEntry}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse DropDownEntry}\index{Widgets!DropDownEntry}\label{DropDownEntry}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/DropDownEntry}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Repräsentiert einen Eintrag in einem Dropdown-Menü.
 
@@ -2264,11 +2245,11 @@ Erzeugt eine neue Instanz eines DropDownEntry-Objekts.
 \param{text} bezeichnet den Text für den Eintrag,
 \param{onSelect} ist die Aktion, welche bei der Auswahl des Eintrags auzuführen ist (s. Action).
 
-\subsubsection{Klasse DropDownMenuItem}\index{Widgets!DropDownMenuItem}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse DropDownMenuItem}\index{Widgets!DropDownMenuItem}\label{DropDownMenuItem}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/DropDownMenuItem}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Menüeintrag, der den ausgewählten Wert anzeigt und bei einem Linksklick ein Dropdown-Menü zur Auswahl eines neuen Wertes ein- oder ausblendet.
 
@@ -2289,11 +2270,11 @@ Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungs\param{opti
 Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
 Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
 
-\subsubsection{Klasse HighscoreDialog}\index{Widgets!HighscoreDialog}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse HighscoreDialog}\index{Widgets!HighscoreDialog}\label{HighscoreDialog}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/HighscoreDialog}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 
 
@@ -2302,11 +2283,11 @@ Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen ba
 \textbf{\keyword{public} \varname{HighscoreDialog} (\ptype{GameScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Challenge} \varname{challenge})}\newline\newline
 
 
-\subsubsection{Klasse InputItem}\index{Widgets!InputItem}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse InputItem}\index{Widgets!InputItem}\label{InputItem}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/InputItem}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Menüeintrag, der Texteingaben vom Spieler annimmt.
 
@@ -2319,11 +2300,11 @@ Beinhaltet den vom Spieler eingegebenen Text.
 Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
 
-\subsubsection{Klasse KeyInputItem}\index{Widgets!KeyInputItem}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse KeyInputItem}\index{Widgets!KeyInputItem}\label{KeyInputItem}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/KeyInputItem}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Option als Zeichenkette speichert.
 
@@ -2339,11 +2320,11 @@ Zudem sind Angaben zur Zeichenreihenfolge und der Eingabe\param{option} Pflicht.
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Speichert die aktuell gedrückte Taste in der Option.
 
-\subsubsection{Klasse KnotSaveDialog}\index{Widgets!KnotSaveDialog}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse KnotSaveDialog}\index{Widgets!KnotSaveDialog}\label{KnotSaveDialog}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/KnotSaveDialog}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 
 
@@ -2355,11 +2336,11 @@ Speichert die aktuell gedrückte Taste in der Option.
 \textbf{\keyword{public} \ptype{void} \varname{SaveDialog} (\ptype{CreativeModeScreen} \varname{screen}, \ptype{DisplayLayer} \varname{drawOrder}, \ptype{Knot} \varname{knot}, \ptype{Action} \varname{onSave})}\newline\newline
 
 
-\subsubsection{Klasse Menu}\index{Widgets!Menu}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Menu}\index{Widgets!Menu}\label{Menu}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Menu}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Menü enthält Bedienelemente zur Benutzerinteraktion. Diese Klasse bietet Standardwerte für
 Positionen, Größen, Farben und Ausrichtungen der Menüeinträge. Sie werden gesetzt, wenn die Werte
@@ -2404,13 +2385,12 @@ Gibt die Anzahl der Einträge des Menüs zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{IEnumerator} \varname{GetEnumerator} ()}\newline\newline
 Gibt einen Enumerator über die Einträge des Menüs zurück.
-[returntype=IEnumerator$<$MenuItem$>$]
 
-\subsubsection{Klasse MenuButton}\index{Widgets!MenuButton}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse MenuButton}\index{Widgets!MenuButton}\label{MenuButton}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/MenuButton}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagiert.
 
@@ -2424,11 +2404,11 @@ Erzeugt ein neues MenuButton-Objekt und initialisiert dieses mit dem zugehörige
 Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche
 und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
 
-\subsubsection{Klasse MenuItem}\index{Widgets!MenuItem}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse MenuItem}\index{Widgets!MenuItem}\label{MenuItem}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/MenuItem}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein abstrakte Klasse für Menüeinträge, die
 
@@ -2459,11 +2439,11 @@ Gibt die Ausmaße des Eintrags zurück.
 \textbf{\keyword{public} \ptype{void} \varname{OnScroll} (\ptype{int} \varname{float})}\newline\newline
 
 
-\subsubsection{Klasse PauseDialog}\index{Widgets!PauseDialog}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse PauseDialog}\index{Widgets!PauseDialog}\label{PauseDialog}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/PauseDialog}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Pausiert ein Spieler im Creative- oder Challenge-Modus das Spiel,
 wird dieser Dialog über anderen Spielkomponenten angezeigt.
@@ -2473,11 +2453,11 @@ wird dieser Dialog über anderen Spielkomponenten angezeigt.
 {\textbf{\keyword{private} \ptype{VerticalMenu} \varname{pauseMenu}}\newline\newline
 Das Menü, das verschiedene Schaltflächen enthält.
 
-\subsubsection{Klasse SliderItem}\index{Widgets!SliderItem}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse SliderItem}\index{Widgets!SliderItem}\label{SliderItem}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/SliderItem}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Menüeintrag, der einen Schieberegler bereitstellt, mit dem man einen Wert zwischen einem minimalen
 und einem maximalen Wert über Verschiebung einstellen kann.
@@ -2501,11 +2481,11 @@ Erzeugt eine neue Instanz eines SliderItem-Objekts und initialisiert diese
 mit dem zugehörigen GameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
 einem \param{min}imalen einstellbaren Wert, einem \param{max}imalen einstellbaren Wert und einem Standardwert Pflicht.
 
-\subsubsection{Klasse TextInputDialog}\index{Widgets!TextInputDialog}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse TextInputDialog}\index{Widgets!TextInputDialog}\label{TextInputDialog}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/TextInputDialog}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Dialog, der eine Texteingabe des Spielers entgegennimmt.
 
@@ -2523,11 +2503,11 @@ Der Text, der durch den Spieler eingegeben wurde.
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 
 
-\subsubsection{Klasse VerticalMenu}\index{Widgets!VerticalMenu}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse VerticalMenu}\index{Widgets!VerticalMenu}\label{VerticalMenu}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/VerticalMenu}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Menü, das alle Einträge vertikal anordnet.
 
@@ -2540,11 +2520,11 @@ Zudem ist die Angaben der Zeichenreihenfolge Pflicht.
 \textbf{\keyword{public} \ptype{void} \varname{AlignItems} ()}\newline\newline
 Ordnet die Einträge vertikal an.
 
-\subsubsection{Klasse Widget}\index{Widgets!Widget}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse Widget}\index{Widgets!Widget}\label{Widget}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/Widget}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Eine abstrakte Klasse, von der alle Element der grafischen Benutzeroberfläche erben.
 
@@ -2578,11 +2558,11 @@ mit der angegebenen Zeichenreihenfolge.
 \textbf{\keyword{public} \ptype{Rectangle} \varname{BoundingBox} ()}\newline\newline
 Die Ausmaße des grafischen Elements
 
-\subsubsection{Klasse WidgetKeyHandler}\index{Widgets!WidgetKeyHandler}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse WidgetKeyHandler}\index{Widgets!WidgetKeyHandler}\label{WidgetKeyHandler}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/WidgetKeyHandler}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
 
@@ -2591,11 +2571,11 @@ Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
 \textbf{\keyword{public} \ptype{void} \varname{Update} ()}\newline\newline
 Wird für jeden Frame aufgerufen.
 
-\subsubsection{Klasse WidgetMouseHandler}\index{Widgets!WidgetMouseHandler}
-\begin{wrapfigure}{R}{9cm}{0}
+\subsubsection{Klasse WidgetMouseHandler}\index{Widgets!WidgetMouseHandler}\label{WidgetMouseHandler}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Klassen/WidgetMouseHandler}
-\end{wrapfigure}
+\end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Ein Inputhandler, der Mauseingaben auf Widgets verarbeitet.
 
