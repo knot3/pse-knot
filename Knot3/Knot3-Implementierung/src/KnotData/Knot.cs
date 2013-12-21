@@ -58,6 +58,11 @@ namespace KnotData
         /// </summary>
         public IEnumerable<Edge> SelectedEdges { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public Action SelectionChanged { get; set; }
+
         #endregion
 
         #region Constructors

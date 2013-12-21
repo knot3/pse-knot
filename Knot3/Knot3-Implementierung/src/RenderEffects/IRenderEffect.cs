@@ -53,7 +53,7 @@ namespace RenderEffects
         void End (GameTime gametime);
 
         /// <summary>
-        /// 
+        /// Zeichnet das Spielmodell model mit diesem Rendereffekt.
         /// </summary>
         void DrawModel (GameModel model, GameTime time);
 

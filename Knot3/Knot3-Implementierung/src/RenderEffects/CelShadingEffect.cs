@@ -42,7 +42,7 @@ namespace RenderEffects
         #region Methods
 
         /// <summary>
-        /// !!!
+        /// Zeichnet das Rendertarget.
         /// </summary>
         protected virtual void DrawRenderTarget (GameTime GameTime)
         {
@@ -50,7 +50,8 @@ namespace RenderEffects
         }
 
         /// <summary>
-        /// 
+        /// Zeichnet das Spielmodell model mit dem Cel-Shading-Effekt.
+        /// Eine Anwendung des NVIDIA-Toon-Shaders.
         /// </summary>
         public virtual void DrawModel (GameModel GameModel, GameTime GameTime)
         {

@@ -1133,7 +1133,7 @@ Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 \textbf{\keyword{public} \varname{ChallengeCreateScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 
 \paragraph{Methoden:}\mbox{} \newline\newline
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{Knot3-Entwurf::GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
@@ -1192,24 +1192,11 @@ Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
 \includegraphics[scale=0.5]{Klassen/ChallengeStartScreen}
 \end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-<<<<<<< HEAD
-
-=======
 Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
->>>>>>> dc1821ac2cef1eab0659a6e8e4c0e5c743a47e23
 
 
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ChallengeStartScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
-<<<<<<< HEAD
-
-\paragraph{Methoden:}\mbox{} \newline\newline
-\textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
-
-~\\\\
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
-
-=======
 Erstellt eine neue Instanz eines ChallengeStartScreen-Objekts und
 initialisiert diese mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \newline\newline
@@ -1218,7 +1205,6 @@ Wird für jeden Frame aufgerufen.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
->>>>>>> dc1821ac2cef1eab0659a6e8e4c0e5c743a47e23
 
 \subsubsection{Klasse ControlSettingsScreen}\index{Screens!ControlSettingsScreen}
 \begin{figure}[h!]
@@ -1256,7 +1242,7 @@ Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
 Erzeugt ein neues CreativeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
-Fügt das Menü mit dem Spielständen in die Spielkomponentenliste ein.
+Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
@@ -1267,21 +1253,22 @@ Wird für jeden Frame aufgerufen.
 \includegraphics[scale=0.5]{Klassen/CreativeMainScreen}
 \end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-
+In diesem Menü trifft der Spieler die Wahl, ob er im Creative-Modus einen neuen Knoten erstellen, einen Knoten laden oder
+eine neue Challenge erstellen möchte.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 {\textbf{\keyword{private} \ptype{Menu} \varname{buttons}}\newline\newline
-
+Ein Menü aus Schaltflächen, welche den Spielwunsch des Spielers weiterleiten.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{CreativeMainScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
-
+Erzeugt ein neues CreativeMainScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 \paragraph{Methoden:}\mbox{} \newline\newline
-\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{Knot3-Entwurf::GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
 
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
-
+Wird für jeden Frame aufgerufen.
 
 \subsubsection{Klasse CreativeModeScreen}\index{Screens!CreativeModeScreen}
 \begin{figure}[h!]
@@ -1807,6 +1794,9 @@ Ein Ereignis, das in der Move-Methode ausgelöst wird, wenn sich die Struktur de
 ~\\\\
 {\textbf{\keyword{public} \ptype{IEnumerable$<$Edge$>$} \varname{SelectedEdges}}\newline\newline
 Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
+~\\\\
+{\textbf{\keyword{public} \ptype{Action} \varname{SelectionChanged}}\newline\newline
+
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{Knot} ()}\newline\newline
 Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,

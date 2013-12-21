@@ -22,7 +22,7 @@ using Widgets;
 namespace Core
 {
     /// <summary>
-    /// 
+    /// Kategorisierung von möglichen Eingabeaktionen.
     /// </summary>
     public enum InputAction
     {

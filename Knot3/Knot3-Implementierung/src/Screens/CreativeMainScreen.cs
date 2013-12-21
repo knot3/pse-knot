@@ -22,7 +22,8 @@ using Widgets;
 namespace Screens
 {
     /// <summary>
-    /// 
+    /// In diesem Menü trifft der Spieler die Wahl, ob er im Creative-Modus einen neuen Knoten erstellen, einen Knoten laden oder
+    /// eine neue Challenge erstellen möchte.
     /// </summary>
     public class CreativeMainScreen : MenuScreen
     {
@@ -30,7 +31,7 @@ namespace Screens
         #region Properties
 
         /// <summary>
-        /// 
+        /// Ein Menü aus Schaltflächen, welche den Spielwunsch des Spielers weiterleiten.
         /// </summary>
         private Menu buttons { get; set; }
 
@@ -39,7 +40,7 @@ namespace Screens
         #region Constructors
 
         /// <summary>
-        /// 
+        /// Erzeugt ein neues CreativeMainScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
         /// </summary>
         public CreativeMainScreen (Knot3Game game)
         {
@@ -53,13 +54,13 @@ namespace Screens
         /// <summary>
         /// 
         /// </summary>
-        public virtual void Entered (Knot3-Entwurf::GameScreen previousScreen, GameTime GameTime)
+        public virtual void Entered (GameScreen previousScreen, GameTime GameTime)
         {
             throw new System.NotImplementedException();
         }
 
         /// <summary>
-        /// 
+        /// Wird für jeden Frame aufgerufen.
         /// </summary>
         public virtual void Update (GameTime time)
         {

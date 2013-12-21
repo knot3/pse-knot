@@ -58,7 +58,8 @@ namespace GameObjects
         }
 
         /// <summary>
-        /// 
+        /// Erzeugt eine neue Instanz eines GameModelInfo-Objekts.
+        /// In modelname wird der Name der Datei angegeben, welche das Model repräsentiert.
         /// </summary>
         public GameModelInfo (string modelname)
         {
