@@ -442,9 +442,9 @@ public enum Core.DisplayLayer
     Menu=40
     // Steht für die Ebene in der Menüeinträge gezeichnet werden. Menüeinträge werden vor Menüs gezeichnet.
     MenuItem=50
-    // Steht für die Ebene in der Submenüs gezeichnet werden. Submenüs befinden sich in einer Ebene vor Menüeinträgen.
+    // Steht für die Ebene in der Untermenüs gezeichnet werden. Untermenüs befinden sich in einer Ebene vor Menüeinträgen.
     SubMenu=60
-    // Steht für die Ebene in der Submenüeinträge gezeichnet werden. Submenüeinträge befinden sich in einer Ebene vor Submenüs.
+    // Steht für die Ebene in der Untermenüeinträge gezeichnet werden. Untermenüeinträge befinden sich in einer Ebene vor Untermenüs.
     SubMenuItem=70
     // Zum Anzeigen zusätzlicher Informationen bei der (Weiter-)Entwicklung oder beim Testen (z.B. ein FPS-Counter).
     Overlay=80
@@ -461,7 +461,7 @@ public class Core.DistinctOptionInfo : OptionInfo
     // Eine Eigenschaft, die den aktuell abgespeicherten Wert zurück gibt.
     + Value : String
   Methods:
-    // Erstellt eine neue Option, die einen der angegebenen gültigen Werte annehmen kann, mit dem angegebenen Namen in dem
+    // Erstellt eine neue Option, die einen der angegebenen Werte aus validValues annehmen kann, mit dem angegebenen Namen in dem
     // angegebenen Abschnitt der angegebenen Einstellungsdatei.
     // [base=section, name, defaultValue, configFile]
     + DistinctOptionInfo (String section, String name, String defaultValue, IEnumerable<string> validValues, ConfigFile configFile) : void
