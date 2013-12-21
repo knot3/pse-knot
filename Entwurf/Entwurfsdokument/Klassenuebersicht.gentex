@@ -548,7 +548,7 @@ im Vordergrund sein. Cursor steht für die vorderste Ebene.
 
 \subsubsection{Enumeration InputAction}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-
+Kategorisierung von möglichen Eingabeaktionen.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
@@ -637,7 +637,9 @@ Der Knoten, dessen Kanten verschoben werden können.
 Die Spielwelt, in der sich die 3D-Modelle der Kanten befinden.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{EdgeMovement} (\ptype{GameScreen} \varname{screen}, \ptype{World} \varname{world}, \ptype{GameObjectInfo} \varname{info})}\newline\newline
-!!!
+Erzeugt eine neue Instanz eines EdgeMovement-Objekts und initialisiert diese
+mit ihrem zugehörigen GameScreen-Objekt \param{screen}, der Spielwelt \param{world} und
+Objekt\param{info}rmationen \param{info}.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{Vector3} \varname{Center} ()}\newline\newline
 Gibt den Ursprung des Knotens zurück.
@@ -727,7 +729,8 @@ Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Info
 Dateiname, Rotation und Skalierung.
 ~\\\\
 \textbf{\keyword{public} \varname{GameModelInfo} (\ptype{String} \varname{modelname})}\newline\newline
-
+Erzeugt eine neue Instanz eines GameModelInfo-Objekts.
+In \param{modelname} wird der Name der Datei angegeben, welche das Model repräsentiert.
 
 \subsubsection{Klasse GameObjectDistance}\index{GameObjects!GameObjectDistance}
 \begin{figure}[h!]
@@ -735,15 +738,16 @@ Dateiname, Rotation und Skalierung.
 \includegraphics[scale=0.5]{Klassen/GameObjectDistance}
 \end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-!!!
+Die Klasse GameObjectDistance beschreibt den Abstand zu einem Spielobjekt.
+Dies ist z.B. hilfreich, um Schnittstellen, Verdeckungen, ... zu berechnen.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 {\textbf{\keyword{public} \ptype{IGameObject} \varname{Object}}\newline\newline
-
+Ein Spielobjekt.
 ~\\\\
 {\textbf{\keyword{public} \ptype{float} \varname{Distance}}\newline\newline
-
+Distance hält den Abstand als Gleitkommawert.
 
 \subsubsection{Klasse GameObjectInfo}\index{GameObjects!GameObjectInfo}
 \begin{figure}[h!]
@@ -1188,19 +1192,18 @@ Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
 \includegraphics[scale=0.5]{Klassen/ChallengeStartScreen}
 \end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
+
 
 
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ChallengeStartScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
-Erstellt eine neue Instanz eines ChallengeStartScreen-Objekts und
-initialisiert diese mit einem Knot3Game-Objekt.
+
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
-Wird für jeden Frame aufgerufen.
+
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
-Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
+
 
 \subsubsection{Klasse ControlSettingsScreen}\index{Screens!ControlSettingsScreen}
 \begin{figure}[h!]
@@ -1409,7 +1412,7 @@ Der Spielzustand, der die Profil-Einstellungen darstellt.
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 {\textbf{\keyword{private} \ptype{VerticalMenu} \varname{settingsMenu}}\newline\newline
-!!!
+Das vertikale Menü wo die Einstellungen anzeigt. Hier nimmt der Spieler Einstellungen vor.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ProfileSettingsScreen} (\ptype{Knot3Game} \varname{game})}\newline\newline
 Erzeugt eine neue Instanz eines ProfileSettingsScreen-Objekts und initialisiert dieses mit einem Knot3Game-Objekt.
@@ -1473,7 +1476,7 @@ Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangefü
 
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Entered} (\ptype{GameScreen} \varname{previousScreen}, \ptype{GameTime} \varname{GameTime})}\newline\newline
-!!!
+Fügt die Tutoriellanzeige in die Spielkomponentenliste ein.
 
 \subsection{Schnittstellen}
 \subsection{Enumerationen}
@@ -1493,10 +1496,11 @@ Ein Cel-Shading-Effekt.
 Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\newline\newline
-!!!
+Zeichnet das Rendertarget.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel} \varname{GameModel}, \ptype{GameTime} \varname{GameTime})}\newline\newline
-
+Zeichnet das Spielmodell model mit dem Cel-Shading-Effekt.
+Eine Anwendung des NVIDIA-Toon-Shaders.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})}\newline\newline
 Weist dem 3D-Modell den Cel-Shader zu.
@@ -1521,7 +1525,7 @@ Der zuletzt gerenderte Frame im bisherigen Spielzustand.
 Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\newline\newline
-!!!
+Zeichnet das Rendertarget.
 
 \subsubsection{Klasse RenderEffect}\index{RenderEffects!RenderEffect}
 \begin{figure}[h!]
@@ -1541,7 +1545,7 @@ weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
 Der Spielzustand, in dem der Effekt verwendet wird.
 ~\\\\
 {\textbf{\keyword{protected} \ptype{SpriteBatch} \varname{spriteBatch}}\newline\newline
-Ein Spritestapel, der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
+Ein Spritestapel (s. Glossar oder http://msdn.microsoft.com/en-us/library/bb203919.aspx), der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Begin} (\ptype{GameTime})}\newline\newline
 In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert
@@ -1553,7 +1557,7 @@ das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen ver
 auf dieses ubergeordnete Rendertarget gezeichnet.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel} \varname{GameModel}, \ptype{GameTime} \varname{GameTime})}\newline\newline
-
+Zeichnet das Spielmodell model mit diesem Rendereffekt.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{GameModel})}\newline\newline
 Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
@@ -1561,7 +1565,7 @@ BasicEffect zugewiesen. Für die Nutzung des Modells in diesem Rendereffekt kann
 ein anderer Shader zugewiesen werden.
 ~\\\\
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{time})}\newline\newline
-!!!
+Zeichnet das Rendertarget.
 
 \subsubsection{Klasse RenderEffectStack}\index{RenderEffects!RenderEffectStack}
 \begin{figure}[h!]
@@ -1605,7 +1609,7 @@ BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
 Erstellt einen neuen Standardeffekt.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{protected} \ptype{void} \varname{DrawRenderTarget} (\ptype{GameTime} \varname{GameTime})}\newline\newline
-!!!
+Zeichnet das Rendertarget.
 
 \subsection{Schnittstellen}
 \subsubsection{Schnittstelle IRenderEffect}\index{RenderEffects!IRenderEffect}
@@ -1632,7 +1636,7 @@ das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen ver
 auf dieses ubergeordnete Rendertarget gezeichnet.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{DrawModel} (\ptype{GameModel} \varname{model}, \ptype{GameTime} \varname{time})}\newline\newline
-
+Zeichnet das Spiel\param{model}l \param{model} mit diesem Rendereffekt.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{RemapModel} (\ptype{GameModel} \varname{model})}\newline\newline
 Beim Laden des Modells wird von der XNA-Content-Pipeline jedem ModelMeshPart ein Shader der Klasse
@@ -1950,28 +1954,28 @@ im angegebenen Knoten enthaltenen Werte.
 \includegraphics[scale=0.5]{Klassen/Node}
 \end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-
+Ein Knoten.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 {\textbf{\keyword{public} \ptype{Integer} \varname{X}}\newline\newline
-
+X steht für eine x-Koordinate im dreidimensionalen Raum.
 ~\\\\
 {\textbf{\keyword{public} \ptype{Integer} \varname{Y}}\newline\newline
-
+Y steht für eine y-Koordinate im dreidimensionalen Raum.
 ~\\\\
 {\textbf{\keyword{public} \ptype{Integer} \varname{Z}}\newline\newline
-
+Z steht für eine z-Koordinate im dreidimensionalen Raum.
 ~\\\\
 {\textbf{\keyword{private} \ptype{Integer} \varname{scale}}\newline\newline
-
+Ein Skalierungswert.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{Node} (\ptype{Integer} \varname{x}, \ptype{Integer} \varname{y}, \ptype{Integer} \varname{z})}\newline\newline
 Er\param{z}eugt eine neue Instan\param{z} eines Node-Objekts und initialisiert diese mit Werten
 für die \param{x}-, \param{y}- und \param{z}-Koordinate.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{Vector3} \varname{ToVector} ()}\newline\newline
-
+Liefert die x-, y- und z-Koordinaten als ein Vektor der Form (x, y, z).
 
 \subsubsection{Klasse NodeMap}\index{KnotData!NodeMap}
 \begin{figure}[h!]
@@ -2125,7 +2129,8 @@ Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farbe
 Die ausgewählte Farbe.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
 \textbf{\keyword{public} \varname{ColorPicker} (\ptype{Color} \varname{def})}\newline\newline
-
+Erzeugt eine neue Instanz eines ColorPicker-Objekts und initialisiert diese
+mit der Farbe, auf welche der Farbwähler beim Aufruf aus Sicht des Spielers zeigt.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{OnKeyEvent} ()}\newline\newline
 Reagiert auf Tastatureingaben.
@@ -2529,7 +2534,7 @@ Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
 
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Update} ()}\newline\newline
-!!!
+Wird für jeden Frame aufgerufen.
 
 \subsubsection{Klasse WidgetMouseHandler}\index{Widgets!WidgetMouseHandler}
 \begin{figure}[h!]
@@ -2542,7 +2547,7 @@ Ein Inputhandler, der Mauseingaben auf Widgets verarbeitet.
 
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Update} ()}\newline\newline
-!!!
+Wird für jeden Frame aufgerufen.
 
 \subsection{Schnittstellen}
 \subsection{Enumerationen}

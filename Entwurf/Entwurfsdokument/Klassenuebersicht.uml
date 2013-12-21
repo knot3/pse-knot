@@ -114,7 +114,7 @@ public class RenderEffects.CelShadingEffect : RenderEffect
     // Zeichnet das Rendertarget.
     # DrawRenderTarget (GameTime GameTime) : void
     // Zeichnet das Spielmodell model mit dem Cel-Shading-Effekt.
-	// Eine Anwendung des NVIDIA-Toon-Shaders.
+    // Eine Anwendung des NVIDIA-Toon-Shaders.
     + DrawModel (GameModel GameModel, GameTime GameTime) : void
     // Weist dem 3D-Modell den Cel-Shader zu.
     + RemapModel (GameModel GameModel) : void
@@ -145,6 +145,17 @@ public class KnotData.Challenge :
     // Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
     + AddToHighscore (String name, Integer time) : void
 
+// 
+public class Screens.ChallengeCreateScreen : MenuScreen
+  Attributes:
+  Methods:
+    // 
+    + ChallengeCreateScreen (Knot3Game game) : void
+    // 
+    + Entered (Knot3-Entwurf::GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + Update (GameTime time) : void
+
 // Implementiert das Speicherformat für Challenges.
 public class KnotData.ChallengeFileIO : IChallengeIO
   Attributes:
@@ -157,18 +168,6 @@ public class KnotData.ChallengeFileIO : IChallengeIO
     + Load (String filename) : Challenge
     // Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
     + LoadMetaData (String filename) : ChallengeMetaData
-
-// Der Spielzustand, der den Ladebildschirm für Challenges darstellt.
-public class Screens.ChallengeLoadScreen : MenuScreen
-  Attributes:
-  Methods:
-    // Wird für jeden Frame aufgerufen.
-    + Update (GameTime time) : void
-    // Fügt das Menü mit den Spielständen in die Spielkomponentenliste ein.
-    + Entered (GameScreen previousScreen, GameTime GameTime) : void
-    // Erstellt eine neue Instanz eines ChallengeLoadScreen-Objekts und
-    // initialisiert diese mit einem Knot3Game-Objekt.
-    + ChallengeLoadScreen (Knot3Game game) : void
 
 // Enthält Metadaten zu einer Challenge.
 public class KnotData.ChallengeMetaData : 
@@ -219,6 +218,17 @@ public class Screens.ChallengeModeScreen : GameScreen
     // initialisiert diese mit einem Knot3Game-Objekt.
     + ChallengeModeScreen (Knot3Game game) : void
 
+// 
+public class Screens.ChallengeStartScreen : MenuScreen
+  Attributes:
+  Methods:
+    // 
+    + Update (GameTime time) : void
+    // 
+    + Entered (GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + ChallengeStartScreen (Knot3Game game) : void
+
 // Ein Menüeintrag, der einen Auswahlkasten darstellt.
 public class Widgets.CheckBoxItem : MenuItem
   Attributes:
@@ -258,8 +268,10 @@ public class Widgets.ColorPicker : Widget, IKeyEventListener, IMouseEventListene
     // Bei einem Rechtsklick geschieht nichts.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
     // Erzeugt eine neue Instanz eines ColorPicker-Objekts und initialisiert diese
-	// mit der Farbe, auf welche der Farbwähler beim Aufruf aus Sicht des Spielers zeigt.
+    // mit der Farbe, auf welche der Farbwähler beim Aufruf aus Sicht des Spielers zeigt.
     + ColorPicker (Color def) : void
+    // 
+    + OnScroll (int float) : void
 
 // Ein Menüeintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
 public class Widgets.ColorPickItem : MenuItem
@@ -325,6 +337,19 @@ public class Screens.CreativeLoadScreen : MenuScreen
     // Erzeugt ein neues CreativeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
     + CreativeLoadScreen (Knot3Game game) : void
 
+// 
+public class Screens.CreativeMainScreen : MenuScreen
+  Attributes:
+    // 
+    - buttons : Menu
+  Methods:
+    // 
+    + CreativeMainScreen (Knot3Game game) : void
+    // 
+    + Entered (Knot3-Entwurf::GameScreen previousScreen, GameTime GameTime) : void
+    // 
+    + Update (GameTime time) : void
+
 // Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv ist und für den Knoten eine 3D-Welt zeichnet.
 public class Screens.CreativeModeScreen : GameScreen
   Attributes:
@@ -378,6 +403,8 @@ public class Widgets.Dialog : Widget, IKeyEventListener, IMouseEventListener
     // Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
     // [base=screen, drawOrder]
     + Dialog (GameScreen screen, DisplayLayer drawOrder, String title, String text) : void
+    // 
+    + OnScroll (int float) : void
 
 // Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
 // Wird benutzt, damit keine ungültigen Kantenrichtungen angegeben werden können.
@@ -513,8 +540,8 @@ public class GameObjects.EdgeMovement : IGameObject, IEnumerable<IGameObject>
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime GameTime) : void
     // Erzeugt eine neue Instanz eines EdgeMovement-Objekts und initialisiert diese
-	// mit ihrem zugehörigen GameScreen-Objekt screen, der Spielwelt world und
-	// Objektinformationen info.
+    // mit ihrem zugehörigen GameScreen-Objekt screen, der Spielwelt world und
+    // Objektinformationen info.
     + EdgeMovement (GameScreen screen, World world, GameObjectInfo info) : void
     // Gibt einen Enumerator über die während einer Verschiebeaktion dynamisch erstellten 3D-Modelle zurück.
     // [returntype=IEnumerator<IGameObject>]
@@ -595,7 +622,7 @@ public class GameObjects.GameModelInfo : GameObjectInfo
     // Dateiname, Rotation und Skalierung.
     + GameModelInfo (String modelname, Angles3 rotation, Vector3 scale) : void
     // Erzeugt eine neue Instanz eines GameModelInfo-Objekts.
-	// In modelname wird der Name der Datei angegeben, welche das Model repräsentiert.
+    // In modelname wird der Name der Datei angegeben, welche das Model repräsentiert.
     + GameModelInfo (String modelname) : void
 
 // Die Klasse GameObjectDistance beschreibt den Abstand zu einem Spielobjekt.
@@ -777,6 +804,8 @@ public interface Core.IMouseEventListener :
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
     // Die Reaktion auf einen Rechtsklick.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
+    // 
+    + OnScroll (int scrollWheelValue) : void
 
 // Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet. Zusätzlich wird die aktuelle Eingabeaktion berechnet.
 public class Core.Input : GameScreenComponent
@@ -1161,6 +1190,8 @@ public class Widgets.MenuItem : Widget, IKeyEventListener, IMouseEventListener
     + OnKeyEvent () : void
     // Gibt die Ausmaße des Eintrags zurück.
     + Bounds () : Rectangle
+    // 
+    + OnScroll (int float) : void
 
 // Eine abstrakte Klasse, von der alle Spielzustände erben, die Menüs darstellen.
 public class Screens.MenuScreen : GameScreen
