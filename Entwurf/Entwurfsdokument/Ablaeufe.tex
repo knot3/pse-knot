@@ -1,3 +1,11 @@
 \chapter{Abläufe}
 
 \section{Sequenzdiagramme}
+Challengeende
+Knot ruft bei Kantenänderungen eine Methode auf, die ihm beim Hinzufügen zum ChallengeModeScreen zugewiesen wurde.
+Diese prüft die beiden Knoten auf Gleichheit, indem sie die Knoten sich vergleichen lässt.
+Sind beide Knoten gleich, wird die benötigte Zeit ermittelt und ein neuer Dialog erstellt, der die Zeit anzeigt und nach einem Benutzernamen fragt.
+Dazu wird aus Options.Default der Benutzernamen abgefragt und als Standardwert eingetragen.
+Wird ein neuer Benutzername eingegeben, wird dieser auch in Options.Default geändert.
+Mit Enter bestätigt, wird eine zugewiesene Methode aufgerufen, die Benutzername und Zeit Challenge mit AddToHighscore(name, time) übergibt, was die Werte richtig einordnet und gegebenenfalls (wenn es gut genug ist) speichert.
+Daraufhin öffnet diese Methode einen neuen Dialog, der die besten 10, soweit vorhanden, anzeigt und 2 Buttons von denen einer die Challenge neu startet und ein anderer den StartScreen aufruft.
