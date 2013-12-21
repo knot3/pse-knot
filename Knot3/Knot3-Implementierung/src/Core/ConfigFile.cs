@@ -27,6 +27,20 @@ namespace Core
     public class ConfigFile
     {
 
+        #region Properties
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string True { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string False { get; set; }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
