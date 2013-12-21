@@ -7,5 +7,18 @@ Diese prüft die beiden Knoten auf Gleichheit, indem sie die Knoten sich verglei
 Sind beide Knoten gleich, wird die benötigte Zeit ermittelt und ein neuer Dialog erstellt, der die Zeit anzeigt und nach einem Benutzernamen fragt.
 Dazu wird aus Options.Default der Benutzernamen abgefragt und als Standardwert eingetragen.
 Wird ein neuer Benutzername eingegeben, wird dieser auch in Options.Default geändert.
-Mit Enter bestätigt, wird eine zugewiesene Methode aufgerufen, die Benutzername und Zeit Challenge mit AddToHighscore(name, time) übergibt, was die Werte richtig einordnet und gegebenenfalls (wenn es gut genug ist) speichert.
-Daraufhin öffnet diese Methode einen neuen Dialog, der die besten 10, soweit vorhanden, anzeigt und 2 Buttons von denen einer die Challenge neu startet und ein anderer den StartScreen aufruft.
+Mit Enter bestätigt, wird eine zugewiesene Methode aufgerufen, die Benutzername und Zeit Challenge mit AddToHighscore(name, time) 
+übergibt, was die Werte richtig einordnet und gegebenenfalls (wenn es gut genug ist) speichert.
+Daraufhin öffnet diese Methode einen neuen Dialog, der die besten 10, soweit vorhanden, anzeigt und 2 Buttons 
+von denen einer die Challenge neu startet und ein anderer den StartScreen aufruft.
+
+Screenwechsel CreativeMainScreen -> CreativeLoadScreen
+
+Wenn man Im CreativeMainScreen auf den Button "Load" klickt, wird der Wechsel zu CreativeLoadScreen eingeleitet.
+Beim nächsten Update()-Call von XNA wird dann der PostProcessingEffect von CreativeLoad für ein Überblenden der Menüs z.B. auf FadeEffect gesetzt und der CreativeMainScreen deaktiviert, d.h. alle IGameComponent von CreativeMainScreen 
+werden aus der Liste aller IGameComponent gelöscht. Dann wird CreativeLoadScreen aktiviert und dessen IGameComponent in die XNA IGameComponent-Liste eingetragen. 
+Daraufhin durchsucht CreativeLoadScreen das Speicherstand-Verzeichnis und lädt die Metadaten aller Speicherstände aller zwischengespeicherten Knoten. 
+Noch nicht zwischengespeicherte Knoten werden auf Gültigkeit überprüft und wenn für Gültig befunden in den Zwischenspeicher geschrieben als Hash.
+Anschließend werden die gefundenen gültigen Speicherstände in ein Menü eingetragen, welches dann beim nächsten Draw()-Call von XNA auf den Bildschirm gezeichnet wird.
+Dieses Menü ist ein VerticalMenu, welches einen Button für jeden gültigen gefundenen Spielstand enthält. Durch einen Klick auf den jeweiligen Button 
+startet man mit dem Spielstand im CreativeModeScreen.
