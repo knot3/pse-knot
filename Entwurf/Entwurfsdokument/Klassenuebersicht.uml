@@ -267,7 +267,8 @@ public class Widgets.ColorPicker : Widget, IKeyEventListener, IMouseEventListene
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
     // Bei einem Rechtsklick geschieht nichts.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
-    // 
+    // Erzeugt eine neue Instanz eines ColorPicker-Objekts und initialisiert diese
+	// mit der Farbe, auf welche der Farbwähler beim Aufruf aus Sicht des Spielers zeigt.
     + ColorPicker (Color def) : void
     // 
     + OnScroll (int float) : void
@@ -618,7 +619,8 @@ public class GameObjects.GameModelInfo : GameObjectInfo
     // Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
     // Dateiname, Rotation und Skalierung.
     + GameModelInfo (String modelname, Angles3 rotation, Vector3 scale) : void
-    // 
+    // Erzeugt eine neue Instanz eines GameModelInfo-Objekts.
+	// In modelname wird der Name der Datei angegeben, welche das Model repräsentiert.
     + GameModelInfo (String modelname) : void
 
 // !!!
@@ -827,7 +829,7 @@ public class Core.Input : GameScreenComponent
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
 
-// 
+// Kategorisierung von möglichen Eingabeaktionen.
 public enum Core.InputAction
     // 
     None=0
@@ -1230,19 +1232,19 @@ public class Core.MousePointer : DrawableGameScreenComponent
     // Zeichnet den Mauszeiger.
     + Draw (GameTime time) : void
 
-// 
+// Ein Knoten.
 public class KnotData.Node : 
   Attributes:
-    // 
+    // X steht für eine x-Koordinate im dreidimensionalen Raum.
     + X : Integer
-    // 
+    // Y steht für eine y-Koordinate im dreidimensionalen Raum.
     + Y : Integer
-    // 
+    // Z steht für eine z-Koordinate im dreidimensionalen Raum.
     + Z : Integer
-    // 
+    // Ein Skalierungswert. !!!
     - scale : Integer
   Methods:
-    // 
+    // Liefert die x-, y- und z-Koordinaten als ein Vektor der Form (x, y, z).
     + ToVector () : Vector3
     // Erzeugt eine neue Instanz eines Node-Objekts und initialisiert diese mit Werten
     // für die x-, y- und z-Koordinate.
