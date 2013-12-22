@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="8c38fa47-6dad-49a3-8551-5d5bd5f2f409" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="6c1ab6ba-d364-42fe-9568-bb55ec6f3891" name="UMLClassDiagram1" linkedPackageId="8c38fa47-6dad-49a3-8551-5d5bd5f2f409" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="89d1aecd-8e9f-429c-aec8-7cdbf0285b42" name="IGameObject" isAbstract="false" isLeaf="false">
@@ -2192,16 +2192,24 @@
             <elementDefinition Id="1752407c-d144-4564-a1f0-b160e6ee026c" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="f03a0443-d14e-4bd3-a02e-f160f65001ff" name="knot" direction="In" isUnique="false">
-                  <elementDefinition Id="9e8a3491-5a42-4ef0-a8be-d79bdba5a471" />
+                <parameter Id="bc8d6748-1661-4464-b47a-d72311d45661" name="nodeMap" direction="In" isUnique="false">
+                  <elementDefinition Id="c9fc5df0-f48e-43af-99d2-cec44be91fef" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f7b5f1ee-9960-43e7-a66c-25bf4783affc" LastKnownName="NodeMap" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f5c81451-7242-4827-a739-ee5f1675a88f" name="knot" direction="In" isUnique="false">
+                  <elementDefinition Id="a27f5b1e-c181-4757-99ca-a064f980db73" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="99fc3d50-f700-4f40-9cd7-b68aa1f96a05" LastKnownName="Knot" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="25f34161-95c9-47d5-81ed-ffbb79ae5c9e" name="edge" direction="In" isUnique="false">
-                  <elementDefinition Id="8b23ee34-b6ea-47d8-b1fe-b687f5c3cf21" />
+                <parameter Id="311ec99c-9cdc-4f44-a034-e739bec8e5d5" name="edge" direction="In" isUnique="false">
+                  <elementDefinition Id="9864f353-7c6b-4d44-a6b3-48240f0b3849" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="af497dfc-5150-4712-8d62-57edf338356f" LastKnownName="Edge" />
                   </type_NamedElement>
@@ -2534,24 +2542,32 @@
             <elementDefinition Id="21571fad-4dbb-4598-8984-92e9310a261d" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="640adbd2-1599-4fde-8f96-040be609962b" name="knot" direction="In" isUnique="false">
-                  <elementDefinition Id="d051b2f0-2983-43f8-a05a-f4da43b388ce" />
+                <parameter Id="823afe41-9ef8-40ee-92dd-474bc97233dd" name="nodeMap" direction="In" isUnique="false">
+                  <elementDefinition Id="93464f36-86c5-415d-8a43-5a70e193b86d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f7b5f1ee-9960-43e7-a66c-25bf4783affc" LastKnownName="NodeMap" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e54064ec-e8fc-4251-80a0-bcc8838fa6ec" name="knot" direction="In" isUnique="false">
+                  <elementDefinition Id="bc32fcbc-846e-4770-8dfd-cb9b64601c96" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="99fc3d50-f700-4f40-9cd7-b68aa1f96a05" LastKnownName="Knot" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="288386e2-7aa7-4641-bc96-85d8ea0ee8b1" name="from" direction="In" isUnique="false">
-                  <elementDefinition Id="c0a5155f-ab42-495b-bb8a-83e28f7c66a7" />
+                <parameter Id="9b71fdc7-4a4c-44cc-b02e-9a772daa8aa2" name="from" direction="In" isUnique="false">
+                  <elementDefinition Id="45e26814-158d-4b32-9291-3089815d0f54" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="af497dfc-5150-4712-8d62-57edf338356f" LastKnownName="Edge" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c1a587c3-ee07-4ed4-adfa-9679a71974cc" name="to" direction="In" isUnique="false">
-                  <elementDefinition Id="9161d9a9-03e8-4627-b5a6-b2f1fbc92ad5" />
+                <parameter Id="a89a286a-8df7-45cf-ba61-567fa9c83cfa" name="to" direction="In" isUnique="false">
+                  <elementDefinition Id="b4bd691b-0469-4781-95d3-7c348c937c9a" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="af497dfc-5150-4712-8d62-57edf338356f" LastKnownName="Edge" />
                   </type_NamedElement>
@@ -7980,6 +7996,11 @@
     <packageHasNamedElement>
       <referencedType Id="67865cba-ebf7-4e9f-b560-ed729a6ee444" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f7b5f1ee-9960-43e7-a66c-25bf4783affc" name="NodeMap" isAbstract="false" isLeaf="false" cachedFullName="Knot3::KnotData::NodeMap">
+        <elementDefinition Id="3d704fe7-57d5-474b-b360-c2d792dc82c3" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

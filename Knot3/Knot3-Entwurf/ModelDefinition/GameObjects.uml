@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="f3fba112-85d9-4bf9-b872-614ce1fcd0f7"
   name="GameObjects" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -1933,7 +1933,21 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9e8a3491-5a42-4ef0-a8be-d79bdba5a471"
+                  Id="c9fc5df0-f48e-43af-99d2-cec44be91fef"
+                  name="nodeMap"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3d704fe7-57d5-474b-b360-c2d792dc82c3"
+                      LastKnownName="NodeMap"
+                      LastKnownLocation="KnotData.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a27f5b1e-c181-4757-99ca-a064f980db73"
                   name="knot"
                   direction="In"
                   isUnique="false">
@@ -1947,7 +1961,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="8b23ee34-b6ea-47d8-b1fe-b687f5c3cf21"
+                  Id="9864f353-7c6b-4d44-a6b3-48240f0b3849"
                   name="edge"
                   direction="In"
                   isUnique="false">
@@ -6908,7 +6922,21 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="d051b2f0-2983-43f8-a05a-f4da43b388ce"
+                  Id="93464f36-86c5-415d-8a43-5a70e193b86d"
+                  name="nodeMap"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3d704fe7-57d5-474b-b360-c2d792dc82c3"
+                      LastKnownName="NodeMap"
+                      LastKnownLocation="KnotData.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bc32fcbc-846e-4770-8dfd-cb9b64601c96"
                   name="knot"
                   direction="In"
                   isUnique="false">
@@ -6922,7 +6950,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="c0a5155f-ab42-495b-bb8a-83e28f7c66a7"
+                  Id="45e26814-158d-4b32-9291-3089815d0f54"
                   name="from"
                   direction="In"
                   isUnique="false">
@@ -6936,7 +6964,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9161d9a9-03e8-4627-b5a6-b2f1fbc92ad5"
+                  Id="b4bd691b-0469-4781-95d3-7c348c937c9a"
                   name="to"
                   direction="In"
                   isUnique="false">
@@ -9859,6 +9887,11 @@
           </operation>
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="2c42165a-54c4-4d87-a10e-fcbaf1f7461e"
+        name="NodeMap" />
     </packageHasNamedElement>
   </packagedElements>
 </package>
