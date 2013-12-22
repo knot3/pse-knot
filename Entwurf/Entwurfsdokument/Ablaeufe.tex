@@ -56,9 +56,14 @@ Um für alle aktuell im \class{Knot}en vorhandenen Kanten eine jeweils Röhre (\
 \paragraph{Kantenübergänge}
 
 Da die 3D-Modelle, die an den Kantenübergängen dargestellt werden, sich abhängig von der Anzahl der an dem Rasterpunkt angrenzenden Kanten und ihrer Positionen unterscheiden, wird für die Bestimmung der 3D-Modelle zunächst eine Zuordnung zwischen den Rasterpunkten (\class{Node}) und einer Liste von einzelnen Kantenübergängen (\class{IJunction}) durch Iteration über die \class{Edge}s bzw. den zugehörigen \class{Node}s erstellt. Das Interface IJunction enthält Informationen über die eingehende und ausgehende \class{Edge} und wird von der Klasse \class{NodeModelInfo} implementiert, die im Konstruktur diese beiden Objekte sowie eine Referenz auf die \class{NodeMap} erwartet.
-\newline
-Danach wird für alle Rasterpunkte entschieden, wie viele und welche 3D-Modelle zur Darstellung des Kantenübergangs benötigt werden. Dabei werden zwischen null und drei NodeModelInfo-Objekte mit teilweise unterschiedlichen Modell-Dateien, Drehungen und Skalierungen erstellt, aus denen mit Hilfe der für \class{NodeModel}-Objekte zuständigen \class{ModelFactory}-Instanz die entsprechenden \class{NodeModel}-Objekte abgefragt bzw. erstellt werden. Diese werden dann, analog zu dem Vorgehen bei den \class{PipeModel}-Objekten, in die \class{NodeModel}-Liste des \class{KnotRenderer}s eingefügt.
+\newline\newline
+Danach wird für alle Rasterpunkte entschieden, wie viele und welche 3D-Modelle zur Darstellung des Kantenübergangs benötigt werden. Dabei werden zwischen null und drei \class{NodeModelInfo}-Objekte mit teilweise unterschiedlichen Modell-Dateien, Drehungen und Skalierungen erstellt, aus denen mit Hilfe der für \class{NodeModel}-Objekte zuständigen \class{ModelFactory}-Instanz die entsprechenden \class{NodeModel}-Objekte abgefragt bzw. erstellt werden. Diese werden dann, analog zu dem Vorgehen bei den \class{PipeModel}-Objekten, in die \class{NodeModel}-Liste des \class{KnotRenderer}s eingefügt.
 
+\paragraph{Pfeile}
 
-
+Zur Erstellung der Modellinformationen der \class{ArrowModel}s wird zunächst über die Liste der selektierten Kanten iteriert, um die Kante zu finden, die sich in der Mitte der selektierten Kantenfolge befindet. An dieser Position soll, unter Umständen um einen noch zu bestimmenden Abstand in Richtung der Kameraposition verschoben, für jede gültige Richtung, in welche die selektierten Kanten verschoben werden können, ein Pfeil angezeigt werden. Dabei wird die Distanz der Verschiebung nicht in der Berechnung berücksichtigt; es reicht aus, wenn mindestens eine Distanz existiert, in die dieser Zug gültig wäre.
+\newline\newline
+Für die ermittelten gültigen Pfeilrichtungen wird jeweils ein \class{ArrowModelInfo}-Objekt erstellt, das zur Abfrage und Erstellung von \class{ArrowModel}-Objekten über die zugehörige \class{ModelFactory} verwendet wird. Die erstellten \class{ArrowModel}-Objekte werden in die \class{ArrowModel}-Liste des \class{KnotRenderer}s eingefügt. Falls keine Kanten selektiert sind, ist die Liste der Pfeilmodelle leer.
+\newline\newline
+Dieses Erstellen von \class{ArrowModel}-Objekten bei einer Selektion von Kanten kann in den Einstellungen des Spiels über eine Option deaktiviert werden. In diesem Fall werden Verschiebeoperationen nur direkt durch Anklicken und Ziehen an den Kanten ausgeführt; diese Möglichkeit ist dem Spieler auch bei aktivierten Pfeilen gegeben.
 
