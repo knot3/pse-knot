@@ -825,7 +825,8 @@ public enum Core.InputAction
     // Der Spieler bewegt die Kamera mit der Maus oder der Tastatur wie auf einer Kugel
 	// um ein Objekt herum, wobei die Distanz zum Zielobjekt gleich bleibt.
     ArcballMove
-    // Der Spieler bewegt die Maus frei und keine Maustasten sind gedrückt; es wird keine explizite Aktion durch die Maus ausgeführt.
+    // Der Spieler bewegt die Maus frei und keine Maustasten sind gedrückt;
+	// es sollen keine expliziten Berechnungen auf Basis der absoluten oder relativen Mausposition stattfinden.
 	// Über Aktionen, die die Tastatur betreffen, wird keine Aussage gemacht.
     FreeMouse
     // Der Spieler bewegt die Kamera wie in einem First-Person-Shooter (im Gegensatz zu z.B. einer Arcball-Bewegung).
