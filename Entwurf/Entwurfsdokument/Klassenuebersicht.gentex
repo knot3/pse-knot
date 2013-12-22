@@ -303,10 +303,10 @@ Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
 ~\\\\
 {\textbf{\keyword{public} \ptype{InputAction} \varname{CurrentInputAction}}\newline\newline
 Gibt die aktuelle Eingabeaktion an, die von den verschiedenen Inputhandlern genutzt werden können.
-\paragraph{Methoden:}\mbox{} \newline\newline
-\textbf{\keyword{public} \ptype{void} \varname{Input} (\ptype{GameScreen} \varname{screen})}\newline\newline
+\paragraph{Konstruktoren:}\mbox{} \newline\newline
+\textbf{\keyword{public} \varname{InputManager} (\ptype{GameScreen} \varname{screen})}\newline\newline
 Erstellt ein neues \interface{InputManager}-Objekt, das an den übergebenen Spielzustand gebunden ist.
-~\\\\
+\paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
