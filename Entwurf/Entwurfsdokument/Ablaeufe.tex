@@ -49,6 +49,9 @@ Daraufhin werden für alle drei Kategorien neue Modell-Informationen erstellt, w
 \newline
 Die Erstellung der Modell-Objekte erfolgt wie nachfolgend beschrieben.
 
+\subsection{Verschiebung einer Kante}
+\includegraphics[scale=0.8]{Sequenzdiagram_OnEdgeMove.pdf}
+
 \paragraph{Kanten}
 
 Um für alle aktuell im \class{Knot}en vorhandenen Kanten eine jeweils Röhre (\class{PipeModel}) zu erstellen, wird über die im \class{Knot}-Objekt enthaltenen \class{Edge}-Objekte iteriert. Für jede \class{Edge} wird ein \class{PipeModelInfo} erstellt, dem im Konstruktor der \class{Knot}en, die \class{Edge} sowie die \class{NodeMap} übergeben werden. Die \class{PipeModelInfo}-Instanz berechnet daraus dann die Position der Röhre sowie weitere zur Darstellung notwendige Daten. Mit Hilfe dieser Modellinformationen werden dann jeweils über die zuständige \class{ModelFactory} die bereits vorhandenen \class{PipeModel}-Objekte abgefragt bzw. neu erstellt und der \class{PipeModel}-Liste des \class{KnotRenderer}s zugewiesen.
@@ -68,3 +71,4 @@ Für die ermittelten gültigen Pfeilrichtungen wird jeweils ein \class{ArrowMode
 Dieses Erstellen von \class{ArrowModel}-Objekten bei einer Selektion von Kanten kann in den Einstellungen des Spiels über eine Option deaktiviert werden. In diesem Fall werden Verschiebeoperationen nur direkt durch Anklicken und Ziehen an den Kanten ausgeführt; diese Möglichkeit ist dem Spieler auch gegeben, wenn die Pfeil-Anzeige aktiviert ist.
 \newline\newline
 Damit die \class{ArrowModel}-Objekte nicht nur nach Verschiebe-Aktionen, sondern auch nach einer Änderung der Kantenauswahl mit dem beschriebenen Algorithmus neu erstellt werden, wird der pfeilbezogene Teil des beschriebenen Algorithmus in eine private Methode ausgelagert. Diese wird einierseits nach dem Erstellen der \class{PipeModel}- und \class{NodeModel}-Objekte über die OnEdgesChanged()-Methode aufgerufen, andererseits wird sie bei der Zuweisung eines \class{Knot}ens zur aktuellen \class{KnotRenderer}-Instanz auch in das SelectionChanged()-Delegate des \class{Knot}en eingefügt, um ebenfalls bei allen Auswahländerungen benachrichtigt zu werden.
+
