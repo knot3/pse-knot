@@ -816,26 +816,26 @@ public interface Core.IMouseEventListener :
     + OnScroll (int scrollWheelValue) : void
 
 // Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet. Zusätzlich wird die aktuelle Eingabeaktion berechnet.
-public class Core.Input : GameScreenComponent
+public class Core.InputManager : GameScreenComponent
   Attributes:
     // Enthält den Klickzustand der rechten Maustaste.
-    + RightMouseButton : ClickState
+    + RightMouseButton : ClickState static
     // Enthält den Klickzustand der linken Maustaste.
-    + LeftMouseButton : ClickState
+    + LeftMouseButton : ClickState static
     // Enthält den Mauszustand von XNA zum aktuellen Frames.
-    + CurrentMouseState : MouseState
+    + CurrentMouseState : MouseState static
     // Enthält den Tastaturzustand von XNA zum aktuellen Frames.
-    + CurrentKeyboardState : KeyboardState
+    + CurrentKeyboardState : KeyboardState static
     // Enthält den Mauszustand von XNA zum vorherigen Frames.
-    + PreviousMouseState : MouseState
+    + PreviousMouseState : MouseState static
     // Enthält den Tastaturzustand von XNA zum vorherigen Frames.
-    + PreviousKeyboardState : KeyboardState
+    + PreviousKeyboardState : KeyboardState static
     // Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
     + GrabMouseMovement : Boolean
     // Gibt die aktuelle Eingabeaktion an, die von den verschiedenen Inputhandlern genutzt werden können.
     + CurrentInputAction : InputAction
   Methods:
-    // Erstellt ein neues Input-Objekt, das an den übergebenen Spielzustand gebunden ist.
+    // Erstellt ein neues InputManager-Objekt, das an den übergebenen Spielzustand gebunden ist.
     + Input (GameScreen screen) : void
     // Wird für jeden Frame aufgerufen.
     + Update (GameTime time) : void
