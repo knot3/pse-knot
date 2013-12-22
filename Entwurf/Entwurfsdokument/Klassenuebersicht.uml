@@ -1096,7 +1096,7 @@ public class GameObjects.KnotRenderer : IGameObject, IEnumerable<IGameObject>
   Methods:
     // Gibt den Ursprung des Knotens zurück.
     + Center () : Vector3
-    // Gibt immer \glqq null\grqq~zurück.
+    // Ruft die Intersects(Ray)-Methode der Kanten, Übergänge und Pfeile auf und liefert das beste Ergebnis zurück.
     + Intersects (Ray Ray) : GameObjectDistance
     // Wird mit dem EdgesChanged-Event des Knotens verknüft.
     + OnEdgesChanged () : void
