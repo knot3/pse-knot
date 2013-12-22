@@ -1254,33 +1254,34 @@ public class Core.MousePointer : DrawableGameScreenComponent
     // Zeichnet den Mauszeiger.
     + Draw (GameTime time) : void
 
-// Ein Knoten.
+// Eine Position im 3D-Raster. Die Werte für alle drei Koordinaten sind Integer, wobei 1 die Breite der Raster-Abschnitte angibt.
+// Eine Skalierung auf Koordinaten im 3D-Raum und damit einhergehend eine Konvertierung in ein Vector3-Objekt des XNA-Frameworks kann mit der Methode ToVector() angefordert werden.
 public class KnotData.Node : 
   Attributes:
-    // X steht für eine x-Koordinate im dreidimensionalen Raum.
+    // X steht für eine x-Koordinate im dreidimensionalen Raster.
     + X : Integer
-    // Y steht für eine y-Koordinate im dreidimensionalen Raum.
+    // Y steht für eine y-Koordinate im dreidimensionalen Raster.
     + Y : Integer
-    // Z steht für eine z-Koordinate im dreidimensionalen Raum.
+    // Z steht für eine z-Koordinate im dreidimensionalen Raster.
     + Z : Integer
     // Ein Skalierungswert.
     - scale : Integer
   Methods:
-    // Liefert die x-, y- und z-Koordinaten als ein Vektor der Form (x, y, z).
+    // Liefert die x-, y- und z-Koordinaten im 3D-Raum als ein Vektor3 der Form (x, y, z).
     + ToVector () : Vector3
     // Erzeugt eine neue Instanz eines Node-Objekts und initialisiert diese mit Werten
     // für die x-, y- und z-Koordinate.
     + Node (Integer x, Integer y, Integer z) : void
 
-// Eine Zuordnung zwischen Kanten und Kantenübergänge.
+// Eine Zuordnung zwischen Kanten und den dreidimensionalen Rasterpunkten, an denen sich die die Kantenübergänge befinden.
 public class KnotData.NodeMap : 
   Attributes:
-    // 
+    // Die Skalierung, die bei einer Konvertierung in einen Vector3 des XNA-Frameworks durch die ToVector()-Methode der Node-Objekte verwendet wird.
     + Scale : Integer
   Methods:
-    // Gibt den Übergang am Anfang der Kante zurück.
+    // Gibt die Rasterposition des Übergangs am Anfang der Kante zurück.
     + From (Edge edge) : Node
-    // Gibt den Übergang am Ende der Kante zurück.
+    // Gibt die Rasterposition des Übergangs am Ende der Kante zurück.
     + To (Edge edge) : Node
     // Aktualisiert die Zuordnung, wenn sich die Kanten geändert haben.
     + OnEdgesChanged () : void
