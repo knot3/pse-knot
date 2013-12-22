@@ -22,7 +22,8 @@ using Widgets;
 namespace KnotData
 {
     /// <summary>
-    /// Ein Knoten.
+    /// Eine Position im 3D-Raster. Die Werte für alle drei Koordinaten sind Integer, wobei 1 die Breite der Raster-Abschnitte angibt.
+    /// Eine Skalierung auf Koordinaten im 3D-Raum und damit einhergehend eine Konvertierung in ein Vector3-Objekt des XNA-Frameworks kann mit der Methode ToVector() angefordert werden.
     /// </summary>
     public class Node
     {
@@ -30,17 +31,17 @@ namespace KnotData
         #region Properties
 
         /// <summary>
-        /// X steht für eine x-Koordinate im dreidimensionalen Raum.
+        /// X steht für eine x-Koordinate im dreidimensionalen Raster.
         /// </summary>
         public int X { get; set; }
 
         /// <summary>
-        /// Y steht für eine y-Koordinate im dreidimensionalen Raum.
+        /// Y steht für eine y-Koordinate im dreidimensionalen Raster.
         /// </summary>
         public int Y { get; set; }
 
         /// <summary>
-        /// Z steht für eine z-Koordinate im dreidimensionalen Raum.
+        /// Z steht für eine z-Koordinate im dreidimensionalen Raster.
         /// </summary>
         public int Z { get; set; }
 
@@ -67,7 +68,7 @@ namespace KnotData
         #region Methods
 
         /// <summary>
-        /// Liefert die x-, y- und z-Koordinaten als ein Vektor der Form (x, y, z).
+        /// Liefert die x-, y- und z-Koordinaten im 3D-Raum als ein Vektor3 der Form (x, y, z).
         /// </summary>
         public virtual Vector3 ToVector ( )
         {

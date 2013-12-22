@@ -22,7 +22,7 @@ using Widgets;
 namespace KnotData
 {
     /// <summary>
-    /// Eine Zuordnung zwischen Kanten und Kantenübergänge.
+    /// Eine Zuordnung zwischen Kanten und den dreidimensionalen Rasterpunkten, an denen sich die die Kantenübergänge befinden.
     /// </summary>
     public class NodeMap
     {
@@ -30,7 +30,7 @@ namespace KnotData
         #region Properties
 
         /// <summary>
-        /// 
+        /// Die Skalierung, die bei einer Konvertierung in einen Vector3 des XNA-Frameworks durch die ToVector()-Methode der Node-Objekte verwendet wird.
         /// </summary>
         public int Scale { get; set; }
 
@@ -39,7 +39,7 @@ namespace KnotData
         #region Methods
 
         /// <summary>
-        /// Gibt den Übergang am Anfang der Kante zurück.
+        /// Gibt die Rasterposition des Übergangs am Anfang der Kante zurück.
         /// </summary>
         public virtual Node From (Edge edge)
         {
@@ -47,7 +47,7 @@ namespace KnotData
         }
 
         /// <summary>
-        /// Gibt den Übergang am Ende der Kante zurück.
+        /// Gibt die Rasterposition des Übergangs am Ende der Kante zurück.
         /// </summary>
         public virtual Node To (Edge edge)
         {

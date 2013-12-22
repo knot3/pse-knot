@@ -37,7 +37,7 @@ namespace Core
         /// <summary>
         /// Der Inputhandler des Spielzustands.
         /// </summary>
-        public Input Input { get; set; }
+        public InputManager Input { get; set; }
 
         /// <summary>
         /// Der aktuelle Postprocessing-Effekt des Spielzustands

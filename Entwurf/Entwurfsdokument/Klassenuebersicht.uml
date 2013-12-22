@@ -658,7 +658,7 @@ public class Core.GameScreen :
     // Das Spiel, zu dem der Spielzustand gehört.
     + Game : Knot3Game
     // Der Inputhandler des Spielzustands.
-    + Input : Input
+    + Input : InputManager
     // Der aktuelle Postprocessing-Effekt des Spielzustands
     + PostProcessingEffect : RenderEffect
     // Ein Stack, der während dem Aufruf der Draw-Methoden der Spielkomponenten die jeweils aktuellen Rendereffekte enthält.
@@ -815,31 +815,6 @@ public interface Core.IMouseEventListener :
     // 
     + OnScroll (int scrollWheelValue) : void
 
-// Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet. Zusätzlich wird die aktuelle Eingabeaktion berechnet.
-public class Core.InputManager : GameScreenComponent
-  Attributes:
-    // Enthält den Klickzustand der rechten Maustaste.
-    + RightMouseButton : ClickState static
-    // Enthält den Klickzustand der linken Maustaste.
-    + LeftMouseButton : ClickState static
-    // Enthält den Mauszustand von XNA zum aktuellen Frames.
-    + CurrentMouseState : MouseState static
-    // Enthält den Tastaturzustand von XNA zum aktuellen Frames.
-    + CurrentKeyboardState : KeyboardState static
-    // Enthält den Mauszustand von XNA zum vorherigen Frames.
-    + PreviousMouseState : MouseState static
-    // Enthält den Tastaturzustand von XNA zum vorherigen Frames.
-    + PreviousKeyboardState : KeyboardState static
-    // Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
-    + GrabMouseMovement : Boolean
-    // Gibt die aktuelle Eingabeaktion an, die von den verschiedenen Inputhandlern genutzt werden können.
-    + CurrentInputAction : InputAction
-  Methods:
-    // Erstellt ein neues InputManager-Objekt, das an den übergebenen Spielzustand gebunden ist.
-    + InputManager (GameScreen screen) : void
-    // Wird für jeden Frame aufgerufen.
-    + Update (GameTime time) : void
-
 // Kategorisierung von möglichen Eingabeaktionen.
 public enum Core.InputAction
     // 
@@ -866,6 +841,31 @@ public class Widgets.InputItem : MenuItem
     // Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
     // Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
     + InputItem (GameScreen screen, DisplayLayer drawOrder, String text) : void
+
+// Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet. Zusätzlich wird die aktuelle Eingabeaktion berechnet.
+public class Core.InputManager : GameScreenComponent
+  Attributes:
+    // Enthält den Klickzustand der rechten Maustaste.
+    + RightMouseButton : ClickState static
+    // Enthält den Klickzustand der linken Maustaste.
+    + LeftMouseButton : ClickState static
+    // Enthält den Mauszustand von XNA zum aktuellen Frames.
+    + CurrentMouseState : MouseState static
+    // Enthält den Tastaturzustand von XNA zum aktuellen Frames.
+    + CurrentKeyboardState : KeyboardState static
+    // Enthält den Mauszustand von XNA zum vorherigen Frames.
+    + PreviousMouseState : MouseState static
+    // Enthält den Tastaturzustand von XNA zum vorherigen Frames.
+    + PreviousKeyboardState : KeyboardState static
+    // Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
+    + GrabMouseMovement : Boolean
+    // Gibt die aktuelle Eingabeaktion an, die von den verschiedenen Inputhandlern genutzt werden können.
+    + CurrentInputAction : InputAction
+  Methods:
+    // Erstellt ein neues InputManager-Objekt, das an den übergebenen Spielzustand gebunden ist.
+    + InputManager (GameScreen screen) : void
+    // Wird für jeden Frame aufgerufen.
+    + Update (GameTime time) : void
 
 // Stellt eine Schnittstelle für Klassen bereit, die Rendereffekte ermöglichen.
 public interface RenderEffects.IRenderEffect : 
