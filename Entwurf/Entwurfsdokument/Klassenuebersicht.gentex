@@ -1958,18 +1958,19 @@ im angegebenen Knoten enthaltenen Werte.
 \includegraphics[scale=1]{Klassen/Node}
 \end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-Ein Knoten.
+Eine Position im 3D-Raster. Die Werte für alle drei Koordinaten sind Integer, wobei 1 die Breite der Raster-Abschnitte angibt.
+Eine Skalierung auf Koordinaten im 3D-Raum und damit einhergehend eine Konvertierung in ein Vector3-Objekt des XNA-Frameworks kann mit der Methode ToVector() angefordert werden.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 {\textbf{\keyword{public} \ptype{Integer} \varname{X}}\newline\newline
-X steht für eine x-Koordinate im dreidimensionalen Raum.
+X steht für eine x-Koordinate im dreidimensionalen Raster.
 ~\\\\
 {\textbf{\keyword{public} \ptype{Integer} \varname{Y}}\newline\newline
-Y steht für eine y-Koordinate im dreidimensionalen Raum.
+Y steht für eine y-Koordinate im dreidimensionalen Raster.
 ~\\\\
 {\textbf{\keyword{public} \ptype{Integer} \varname{Z}}\newline\newline
-Z steht für eine z-Koordinate im dreidimensionalen Raum.
+Z steht für eine z-Koordinate im dreidimensionalen Raster.
 ~\\\\
 {\textbf{\keyword{private} \ptype{Integer} \varname{scale}}\newline\newline
 Ein Skalierungswert.
@@ -1979,7 +1980,7 @@ Er\param{z}eugt eine neue Instan\param{z} eines \class{Node}-Objekts und initial
 für die \param{x}-, \param{y}- und \param{z}-Koordinate.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{Vector3} \varname{ToVector} ()}\newline\newline
-Liefert die x-, y- und z-Koordinaten als ein Vektor der Form (x, y, z).
+Liefert die x-, y- und z-Koordinaten im 3D-Raum als ein Vektor3 der Form (x, y, z).
 
 \subsubsection{Klasse NodeMap}\index{KnotData!NodeMap}\label{NodeMap}
 \begin{figure}[h!]
@@ -1987,18 +1988,18 @@ Liefert die x-, y- und z-Koordinaten als ein Vektor der Form (x, y, z).
 \includegraphics[scale=1]{Klassen/NodeMap}
 \end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-Eine Zuordnung zwischen Kanten und Kantenübergänge.
+Eine Zuordnung zwischen Kanten und den dreidimensionalen Rasterpunkten, an denen sich die die Kantenübergänge befinden.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 {\textbf{\keyword{public} \ptype{Integer} \varname{Scale}}\newline\newline
-
+Die Skalierung, die bei einer Konvertierung in einen Vector3 des XNA-Frameworks durch die ToVector()-Methode der \class{Node}-Objekte verwendet wird.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{Node} \varname{From} (\ptype{Edge} \varname{edge})}\newline\newline
-Gibt den Übergang am Anfang der Kante zurück.
+Gibt die Rasterposition des Übergangs am Anfang der Kante zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{Node} \varname{To} (\ptype{Edge} \varname{edge})}\newline\newline
-Gibt den Übergang am Ende der Kante zurück.
+Gibt die Rasterposition des Übergangs am Ende der Kante zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()}\newline\newline
 Aktualisiert die Zuordnung, wenn sich die Kanten geändert haben.
