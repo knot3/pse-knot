@@ -943,8 +943,8 @@ Der Knoten, der die Kanten enthält.
 {\textbf{\keyword{public} \ptype{Vector3} \varname{Position}}\newline\newline
 Die Position des Übergangs.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
-\textbf{\keyword{public} \varname{NodeModelInfo} (\ptype{Knot} \varname{knot}, \ptype{Edge} \varname{from}, \ptype{Edge} \varname{to})}\newline\newline
-Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
+\textbf{\keyword{public} \varname{NodeModelInfo} (\ptype{NodeMap} \varname{nodeMap}, \ptype{Knot} \varname{knot}, \ptype{Edge} \varname{from}, \ptype{Edge} \varname{to})}\newline\newline
+
 
 \subsubsection{Klasse PipeModel}\index{GameObjects!PipeModel}\label{PipeModel}
 \begin{figure}[h!]
@@ -987,8 +987,8 @@ Die Position, an der die Kante beginnt.
 {\textbf{\keyword{public} \ptype{Vector3} \varname{PositionTo}}\newline\newline
 Die Position, an der die Kante endet.
 \paragraph{Konstruktoren:}\mbox{} \newline\newline
-\textbf{\keyword{public} \varname{PipeModelInfo} (\ptype{Knot} \varname{knot}, \ptype{Edge} \varname{edge})}\newline\newline
-Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
+\textbf{\keyword{public} \varname{PipeModelInfo} (\ptype{NodeMap} \varname{nodeMap}, \ptype{Knot} \varname{knot}, \ptype{Edge} \varname{edge})}\newline\newline
+
 
 \subsubsection{Klasse ShadowGameModel}\index{GameObjects!ShadowGameModel}\label{ShadowGameModel}
 \begin{figure}[h!]

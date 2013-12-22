@@ -1314,7 +1314,7 @@ public class GameObjects.NodeModelInfo : GameModelInfo, IJunction
   Methods:
     // Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
     // [base="node1", Angles3.Zero, new Vector3(1,1,1)]
-    + NodeModelInfo (Knot knot, Edge from, Edge to) : void
+    + NodeModelInfo (NodeMap nodeMap, Knot knot, Edge from, Edge to) : void
 
 // Enthält Informationen über einen Eintrag in einer Einstellungsdatei.
 public class Core.OptionInfo : 
@@ -1374,7 +1374,7 @@ public class GameObjects.PipeModelInfo : GameModelInfo
   Methods:
     // Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
     // [base="pipe1", Angles3.Zero, new Vector3(10,10,10)]
-    + PipeModelInfo (Knot knot, Edge edge) : void
+    + PipeModelInfo (NodeMap nodeMap, Knot knot, Edge edge) : void
 
 // Ein Exportformat für 3D-Drucker.
 public class KnotData.PrinterIO : IKnotIO
