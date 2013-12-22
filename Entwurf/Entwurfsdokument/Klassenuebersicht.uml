@@ -288,9 +288,9 @@ public class Widgets.ColorPickItem : MenuItem
 // Repräsentiert eine Einstellungsdatei.
 public class Core.ConfigFile : 
   Attributes:
-    // 
+    // Die Repräsentation des Wahrheitswerts "wahr" als String in einer Einstellungsdatei.
     + True : String static
-    // 
+    // Die Repräsentation des Wahrheitswerts "falsch" als String in einer Einstellungsdatei.
     + False : String static
   Methods:
     // Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
@@ -452,7 +452,7 @@ public enum Core.DisplayLayer
     // im Vordergrund sein. Cursor steht für die vorderste Ebene.
     Cursor=90
 
-// Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
+// Diese Klasse repräsentiert eine Option, die einen Wert aus einer distinkten Werteliste annehmen kann.
 public class Core.DistinctOptionInfo : OptionInfo
   Attributes:
     // Eine Menge von Texten, welche die für die Option gültigen Werte beschreiben.
@@ -812,24 +812,31 @@ public interface Core.IMouseEventListener :
     + OnLeftClick (Vector2 position, ClickState state, GameTime time) : void
     // Die Reaktion auf einen Rechtsklick.
     + OnRightClick (Vector2 position, ClickState state, GameTime time) : void
-    // 
+    // Die Reaktion auf ein Scrollen. Der Wert ist relativ zum letzten Frame.
     + OnScroll (int scrollWheelValue) : void
 
-// Kategorisierung von möglichen Eingabeaktionen.
+// Repräsentiert die möglichen Eingabeaktionen, wie sie von verschiedenen Inputhandlern berechnet und verwendet werden können.
+// Die aktuelle Eingabeaktion wird zentral in der Klasse InputManager gehalten.
 public enum Core.InputAction
-    // 
+    // Keine Eingabe bzw. undefiniert.
     None=0
-    // 
+    // Der Spieler bewegt mit der Maus oder der Tastatur das Kamera-Ziel.
     CameraTargetMove
-    // 
+    // Der Spieler bewegt die Kamera mit der Maus oder der Tastatur wie auf einer Kugel
+	// um ein Objekt herum, wobei die Distanz zum Zielobjekt gleich bleibt.
     ArcballMove
-    // 
+    // Der Spieler bewegt die Maus frei und keine Maustasten sind gedrückt; es wird keine explizite Aktion durch die Maus ausgeführt.
+	// Über Aktionen, die die Tastatur betreffen, wird keine Aussage gemacht.
     FreeMouse
-    // 
+    // Der Spieler bewegt die Kamera wie in einem First-Person-Shooter (im Gegensatz zu z.B. einer Arcball-Bewegung).
     FirstPersonCameraMove
-    // 
+    // Das in der World-Klasse als selektiert markierte Spielobjekt wird endgültig verschoben, nachdem die Maus losgelassen wurde.
+	// Wird immer nach SelectedObjectShadowMove ausgeführt.
     SelectedObjectMove
-    // 
+    // Das in der World-Klasse als selektiert markierte Spielobjekt wird bei gedrückt gehaltener Maustaste verschoben.
+	// Dabei können die Dekorierer ShadowObject und ShadowModel zum Einsatz kommen. Die Aktion wird vorerst nur visuell ausgeführt und
+	// nicht in Datenstrukturen übernommen. Dies kann nach einer eventuell auszuführenden Gültigkeitsprüfung
+	// in einem nachfolgenden SelectedObjectMove geschehen.
     SelectedObjectShadowMove
 
 // Ein Menüeintrag, der Texteingaben vom Spieler annimmt.
