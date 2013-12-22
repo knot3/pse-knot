@@ -219,7 +219,7 @@ Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler 
 {\textbf{\keyword{public} \ptype{Knot3Game} \varname{Game}}\newline\newline
 Das Spiel, zu dem der Spielzustand gehört.
 ~\\\\
-{\textbf{\keyword{public} \ptype{Input} \varname{Input}}\newline\newline
+{\textbf{\keyword{public} \ptype{InputManager} \varname{Input}}\newline\newline
 Der Inputhandler des Spielzustands.
 ~\\\\
 {\textbf{\keyword{public} \ptype{RenderEffect} \varname{PostProcessingEffect}}\newline\newline
@@ -270,32 +270,32 @@ Erzeugt eine neue Instanz eines \class{GameScreenComponent}-Objekts und initiali
 \textbf{\keyword{public} \ptype{IEnumerable} \varname{SubComponents} (\ptype{GameTime} \varname{GameTime})}\newline\newline
 Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
 
-\subsubsection{Klasse Input}\index{Core!Input}\label{Input}
+\subsubsection{Klasse InputManager}\index{Core!InputManager}\label{InputManager}
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=1]{Klassen/Input}
+\includegraphics[scale=1]{Klassen/InputManager}
 \end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
 Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet. Zusätzlich wird die aktuelle Eingabeaktion berechnet.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
-{\textbf{\keyword{public} \ptype{ClickState} \varname{RightMouseButton}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{ClickState} \varname{RightMouseButton}}\newline\newline
 Enthält den Klickzustand der rechten Maustaste.
 ~\\\\
-{\textbf{\keyword{public} \ptype{ClickState} \varname{LeftMouseButton}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{ClickState} \varname{LeftMouseButton}}\newline\newline
 Enthält den Klickzustand der linken Maustaste.
 ~\\\\
-{\textbf{\keyword{public} \ptype{MouseState} \varname{CurrentMouseState}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{MouseState} \varname{CurrentMouseState}}\newline\newline
 Enthält den Mauszustand von XNA zum aktuellen Frames.
 ~\\\\
-{\textbf{\keyword{public} \ptype{KeyboardState} \varname{CurrentKeyboardState}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{KeyboardState} \varname{CurrentKeyboardState}}\newline\newline
 Enthält den Tastaturzustand von XNA zum aktuellen Frames.
 ~\\\\
-{\textbf{\keyword{public} \ptype{MouseState} \varname{PreviousMouseState}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{MouseState} \varname{PreviousMouseState}}\newline\newline
 Enthält den Mauszustand von XNA zum vorherigen Frames.
 ~\\\\
-{\textbf{\keyword{public} \ptype{KeyboardState} \varname{PreviousKeyboardState}}\newline\newline
+{\textbf{\keyword{public} \keyword{static} \ptype{KeyboardState} \varname{PreviousKeyboardState}}\newline\newline
 Enthält den Tastaturzustand von XNA zum vorherigen Frames.
 ~\\\\
 {\textbf{\keyword{public} \ptype{Boolean} \varname{GrabMouseMovement}}\newline\newline
@@ -303,10 +303,10 @@ Gibt an, ob die Mausbewegung für Kameradrehungen verwendet werden soll.
 ~\\\\
 {\textbf{\keyword{public} \ptype{InputAction} \varname{CurrentInputAction}}\newline\newline
 Gibt die aktuelle Eingabeaktion an, die von den verschiedenen Inputhandlern genutzt werden können.
-\paragraph{Konstruktoren:}\mbox{} \newline\newline
-\textbf{\keyword{public} \varname{Input} (\ptype{GameScreen} \varname{screen})}\newline\newline
-Erstellt ein neues \interface{Input}-Objekt, das an den übergebenen Spielzustand gebunden ist.
 \paragraph{Methoden:}\mbox{} \newline\newline
+\textbf{\keyword{public} \ptype{void} \varname{Input} (\ptype{GameScreen} \varname{screen})}\newline\newline
+Erstellt ein neues \interface{InputManager}-Objekt, das an den übergebenen Spielzustand gebunden ist.
+~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{Update} (\ptype{GameTime} \varname{time})}\newline\newline
 Wird für jeden Frame aufgerufen.
 
