@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="69c5ee0d-6553-4c47-b387-53350a33f9af" name="3D-Komponenten" linkedPackageId="a935578d-6d75-4142-ac15-0fa434e9d519" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="69c5ee0d-6553-4c47-b387-53350a33f9af" name="3D-Komponenten" linkedPackageId="a935578d-6d75-4142-ac15-0fa434e9d519" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="a520d8fc-3f4b-4649-8f1d-512f5a206b64" name="List&lt;IGameObject&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;IGameObject&gt;">
@@ -3206,7 +3206,7 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <class Id="f5cd4c0c-b7e1-4ce3-a672-46214ab70579" name="Input" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="f5cd4c0c-b7e1-4ce3-a672-46214ab70579" name="InputManager" isAbstract="false" isLeaf="false" isActiveClass="false">
         <appliedStereotypesInternal>
           <stereotypeInstance Id="d557d255-b26b-458d-a7b2-06f84d5615cd" name="class" profile="CSharpProfile">
             <elementDefinition Id="7aa15a0b-f561-4261-b152-6b1826edfb77" />
@@ -3296,7 +3296,7 @@
           </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="8e8e8fb2-3596-4782-b921-7ebde650c8dd" name="RightMouseButton" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="8e8e8fb2-3596-4782-b921-7ebde650c8dd" name="RightMouseButton" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="fea71c62-c161-40d3-9f7b-90e802f84c14" name="property" profile="CSharpProfile">
                 <elementDefinition Id="31f9e6f7-a52b-476e-98ac-d96b1144a9bd" />
@@ -3351,7 +3351,7 @@
               <referencedTypeMoniker Id="832e9ff6-2cca-4eaf-988d-a56ca23a0d54" LastKnownName="ClickState" />
             </type_NamedElement>
           </property>
-          <property Id="a72c01af-28ff-456c-9676-9b297cad2a8d" name="LeftMouseButton" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="a72c01af-28ff-456c-9676-9b297cad2a8d" name="LeftMouseButton" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="f9d33633-b305-466e-9c81-bf39ad22cb37" name="property" profile="CSharpProfile">
                 <elementDefinition Id="4a8861d3-51e9-4808-af07-608defe1ee38" />
@@ -3406,7 +3406,7 @@
               <referencedTypeMoniker Id="7fc8e7d7-fca6-420e-9b6c-d8f9160328f8" LastKnownName="ClickState" />
             </type_NamedElement>
           </property>
-          <property Id="84101caf-1eab-4709-9a20-5774dde6f49e" name="CurrentMouseState" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="84101caf-1eab-4709-9a20-5774dde6f49e" name="CurrentMouseState" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="b3a61ab2-4a03-4046-b6a0-4a874f9193b0" name="property" profile="CSharpProfile">
                 <elementDefinition Id="4aacd9c5-9c30-40d8-8036-88440bc810a0" />
@@ -3461,7 +3461,7 @@
               <referencedTypeMoniker Id="48a4b040-804b-4f08-9af6-f6cbc991e34d" LastKnownName="MouseState" />
             </type_NamedElement>
           </property>
-          <property Id="3e19e849-f9a5-464c-83cc-f6a12ceb6e68" name="CurrentKeyboardState" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="3e19e849-f9a5-464c-83cc-f6a12ceb6e68" name="CurrentKeyboardState" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="6c12f22a-1d4e-491a-9226-1b387b0ea16f" name="property" profile="CSharpProfile">
                 <elementDefinition Id="d553310e-7b0d-49e1-aef5-d4ebaf9f5ab7" />
@@ -3516,7 +3516,7 @@
               <referencedTypeMoniker Id="b7bd2193-09e4-43aa-9f04-d0dc71350b94" LastKnownName="KeyboardState" />
             </type_NamedElement>
           </property>
-          <property Id="a8eebcb3-3758-46a1-8a7d-b1bfa66f33b6" name="PreviousMouseState" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="a8eebcb3-3758-46a1-8a7d-b1bfa66f33b6" name="PreviousMouseState" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="8d886974-5f64-4022-bf62-e5490d9baef9" name="property" profile="CSharpProfile">
                 <elementDefinition Id="f360e49a-0612-4229-8a6f-11a2d5880219" />
@@ -3571,7 +3571,7 @@
               <referencedTypeMoniker Id="c85b2026-48c2-4e61-afb5-4bc8750bd7da" LastKnownName="MouseState" />
             </type_NamedElement>
           </property>
-          <property Id="4618e50c-3da0-49e1-b307-13b84d1bdf9f" name="PreviousKeyboardState" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="4618e50c-3da0-49e1-b307-13b84d1bdf9f" name="PreviousKeyboardState" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="1d215551-acd5-471f-a0fc-aa5bb48b2c3c" name="property" profile="CSharpProfile">
                 <elementDefinition Id="5beffb0e-8dd3-4ab1-acbf-f51f97bfe8fb" />
