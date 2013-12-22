@@ -121,10 +121,10 @@ Repräsentiert eine Einstellungsdatei.
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 {\textbf{\keyword{public} \keyword{static} \ptype{String} \varname{True}}\newline\newline
-
+Die Repräsentation des Wahrheitswerts "wahr" als String in einer Einstellungsdatei.
 ~\\\\
 {\textbf{\keyword{public} \keyword{static} \ptype{String} \varname{False}}\newline\newline
-
+Die Repräsentation des Wahrheitswerts "falsch" als String in einer Einstellungsdatei.
 \paragraph{Methoden:}\mbox{} \newline\newline
 \textbf{\keyword{public} \ptype{void} \varname{SetOption} (\ptype{String} \varname{section}, \ptype{String} \varname{option}, \ptype{String} \varname{value})}\newline\newline
 Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
@@ -144,7 +144,7 @@ Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt
 \includegraphics[scale=1]{Klassen/DistinctOptionInfo}
 \end{figure}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
+Diese Klasse repräsentiert eine Option, die einen Wert aus einer distinkten Werteliste annehmen kann.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
@@ -486,7 +486,7 @@ Die Reaktion auf einen Linksklick.
 Die Reaktion auf einen Rechtsklick.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnScroll} (\ptype{int} \varname{scrollWheelValue})}\newline\newline
-
+Die Reaktion auf ein Scrollen. Der Wert ist relativ zum letzten Frame.
 
 \subsection{Enumerationen}
 \subsubsection{Enumeration ClickState}
@@ -548,30 +548,37 @@ im Vordergrund sein. Cursor steht für die vorderste Ebene.
 
 \subsubsection{Enumeration InputAction}
 \paragraph{Beschreibung:}\mbox{}\newline\newline
-Kategorisierung von möglichen Eingabeaktionen.
+Repräsentiert die möglichen Eingabeaktionen, wie sie von verschiedenen Inputhandlern berechnet und verwendet werden können.
+Die aktuelle Eingabeaktion wird zentral in der Klasse \interface{InputManager} gehalten.
 
 
 \paragraph{Eigenschaften:}\mbox{} \newline\newline
 \textbf{\ptype{None} \keyword{ = } \varname{0}}\newline\newline
-
+Keine Eingabe bzw. undefiniert.
 ~\\\\
 \textbf{\ptype{CameraTargetMove}}\newline\newline
-
+Der Spieler bewegt mit der Maus oder der Tastatur das Kamera-Ziel.
 ~\\\\
 \textbf{\ptype{ArcballMove}}\newline\newline
-
+Der Spieler bewegt die Kamera mit der Maus oder der Tastatur wie auf einer Kugel
+um ein Objekt herum, wobei die Distanz zum Zielobjekt gleich bleibt.
 ~\\\\
 \textbf{\ptype{FreeMouse}}\newline\newline
-
+Der Spieler bewegt die Maus frei und keine Maustasten sind gedrückt; es wird keine explizite Aktion durch die Maus ausgeführt.
+Über Aktionen, die die Tastatur betreffen, wird keine Aussage gemacht.
 ~\\\\
 \textbf{\ptype{FirstPersonCameraMove}}\newline\newline
-
+Der Spieler bewegt die Kamera wie in einem First-Person-Shooter (im Gegensatz zu z.B. einer Arcball-Bewegung).
 ~\\\\
 \textbf{\ptype{SelectedObjectMove}}\newline\newline
-
+Das in der World-Klasse als selektiert markierte Spielobjekt wird endgültig verschoben, nachdem die Maus losgelassen wurde.
+Wird immer nach SelectedObjectShadowMove ausgeführt.
 ~\\\\
 \textbf{\ptype{SelectedObjectShadowMove}}\newline\newline
-
+Das in der World-Klasse als selektiert markierte Spielobjekt wird bei gedrückt gehaltener Maustaste verschoben.
+Dabei können die Dekorierer ShadowObject und ShadowModel zum Einsatz kommen. Die Aktion wird vorerst nur visuell ausgeführt und
+nicht in Datenstrukturen übernommen. Dies kann nach einer eventuell auszuführenden Gültigkeitsprüfung
+in einem nachfolgenden SelectedObjectMove geschehen.
 ~\\\\
 
 \section{Paket GameObjects}
@@ -845,7 +852,7 @@ Spielobjekt-Informationen, die unter Anderem die Position des Knotenursprungs en
 Gibt den Ursprung des Knotens zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{GameObjectDistance} \varname{Intersects} (\ptype{Ray} \varname{Ray})}\newline\newline
-Gibt immer \glqq null\grqq~zurück.
+Ruft die Intersects(\param{Ray})-Methode der Kanten, Übergänge und Pfeile auf und liefert das beste Ergebnis zurück.
 ~\\\\
 \textbf{\keyword{public} \ptype{void} \varname{OnEdgesChanged} ()}\newline\newline
 Wird mit dem EdgesChanged-Event des Knotens verknüft.
