@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cc7e68fb-2f1a-48b0-b0e9-9246167792c0" name="UMLClassDiagram1" linkedPackageId="928ab6de-4b3a-40b0-bfde-361c7b745d40" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="cc7e68fb-2f1a-48b0-b0e9-9246167792c0" name="UMLClassDiagram1" linkedPackageId="928ab6de-4b3a-40b0-bfde-361c7b745d40" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="1771b353-4470-4350-ae8f-f55ea069e66f">
       <elementDefinition Id="4b993d87-666f-4115-833c-59862b9ba0a5" />
@@ -160,7 +160,7 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
             </appliedStereotypesInternal>
             <elementDefinition Id="22ccfb92-b348-45b3-b56b-7126d0594760" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="bb1d6dfb-91d0-4ac5-ae5a-e002328c6a34" LastKnownName="Input" />
+              <referencedTypeMoniker Id="470ded88-fcaa-4f4c-af20-c02b819e7ef5" LastKnownName="InputManager" />
             </type_NamedElement>
           </property>
           <property Id="e4cde9ab-e635-4252-b42a-be1bd0f33545" name="PostProcessingEffect" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -4078,11 +4078,6 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="bb1d6dfb-91d0-4ac5-ae5a-e002328c6a34" name="Input" isAbstract="false" isLeaf="false" cachedFullName="Input">
-        <elementDefinition Id="127b4092-e1f5-49eb-8ded-8c3d1dc2f2d2" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="d333d4c2-058b-4fa0-8bb1-41b6a474e3bd" name="GameTime" isAbstract="false" isLeaf="false" cachedFullName="GameTime">
         <elementDefinition Id="7146062a-e956-4346-8427-37640e8bf8a1" />
       </referencedType>
@@ -4479,6 +4474,11 @@ Verwaltung der Spielzustände. Jeder Spielzustand hat eine eigene grafische Ober
     <packageHasNamedElement>
       <referencedType Id="cd356c74-1655-4dd1-a3b6-333898e767c8" name="Menu" isAbstract="false" isLeaf="false" cachedFullName="Knot3::Widgets::Menu">
         <elementDefinition Id="b4e6504e-28fd-4e43-8533-79b8e88964d8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="470ded88-fcaa-4f4c-af20-c02b819e7ef5" name="InputManager" isAbstract="false" isLeaf="false" cachedFullName="Knot3::Core::InputManager">
+        <elementDefinition Id="3302820e-0b42-4f34-8cfc-aeba9e64a8d4" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

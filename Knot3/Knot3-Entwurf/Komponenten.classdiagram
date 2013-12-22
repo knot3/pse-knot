@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="ea5cbf30-c01f-430a-b9d6-c8922c9c6c95" name="GameComponents" linkedPackageId="ce6b49cb-1a0b-4fa3-9523-53ad8e325153" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="ea5cbf30-c01f-430a-b9d6-c8922c9c6c95" name="GameComponents" linkedPackageId="ce6b49cb-1a0b-4fa3-9523-53ad8e325153" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="8e963b2f-7c46-4613-90cf-ccf3339e561b">
       <elementDefinition Id="762fa75e-6484-459f-ae46-2f2757fb0a80" />
@@ -2263,7 +2263,7 @@
             </appliedStereotypesInternal>
             <elementDefinition Id="22ccfb92-b348-45b3-b56b-7126d0594760" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="dee4c1ac-f9ee-44d5-8ced-7fdec4ea1f19" LastKnownName="Input" />
+              <referencedTypeMoniker Id="d01a6373-964b-4679-b118-f054344c27f4" LastKnownName="InputManager" />
             </type_NamedElement>
           </property>
           <property Id="d4ce1b34-4329-443a-92d0-2c74b291a3bf" name="PostProcessingEffect" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -3362,11 +3362,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="dee4c1ac-f9ee-44d5-8ced-7fdec4ea1f19" name="Input" isAbstract="false" isLeaf="false" cachedFullName="Input">
-        <elementDefinition Id="127b4092-e1f5-49eb-8ded-8c3d1dc2f2d2" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="85fa9372-0159-45f4-a08b-8d380c6f368c" name="GameScreen" isAbstract="false" isLeaf="false" cachedFullName="Knot3-Entwurf::GameScreen">
         <elementDefinition Id="6a413035-a387-4d1d-98f9-72f1d432b824" />
       </referencedType>
@@ -3409,6 +3404,11 @@
     <packageHasNamedElement>
       <referencedType Id="a16e3e7b-36ca-4d4f-99b7-f6457205efe1" name="IGameScreenComponent[]" isAbstract="false" isLeaf="false" cachedFullName="IGameScreenComponent[]">
         <elementDefinition Id="24361ae2-5032-4ce5-8296-253500c812cf" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d01a6373-964b-4679-b118-f054344c27f4" name="InputManager" isAbstract="false" isLeaf="false" cachedFullName="Knot3::Core::InputManager">
+        <elementDefinition Id="3302820e-0b42-4f34-8cfc-aeba9e64a8d4" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
