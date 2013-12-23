@@ -94,7 +94,7 @@ namespace Widgets
         /// <summary>
         /// 
         /// </summary>
-        public virtual void OnScroll (int float)
+        public virtual void OnScroll (int scrollValue)
         {
             throw new System.NotImplementedException();
         }
