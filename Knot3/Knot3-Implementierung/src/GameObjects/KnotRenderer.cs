@@ -103,7 +103,7 @@ namespace GameObjects
         }
 
         /// <summary>
-        /// Gibt immer \glqq null\grqq~zurück.
+        /// Ruft die Intersects(Ray)-Methode der Kanten, Übergänge und Pfeile auf und liefert das beste Ergebnis zurück.
         /// </summary>
         public virtual GameObjectDistance Intersects (Ray Ray)
         {

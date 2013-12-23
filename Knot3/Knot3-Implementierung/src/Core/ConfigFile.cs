@@ -30,12 +30,12 @@ namespace Core
         #region Properties
 
         /// <summary>
-        /// 
+        /// Die Repräsentation des Wahrheitswerts "wahr" als String in einer Einstellungsdatei.
         /// </summary>
         public static string True { get; set; }
 
         /// <summary>
-        /// 
+        /// Die Repräsentation des Wahrheitswerts "falsch" als String in einer Einstellungsdatei.
         /// </summary>
         public static string False { get; set; }
 

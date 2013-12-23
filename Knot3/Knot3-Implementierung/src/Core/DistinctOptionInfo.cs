@@ -22,7 +22,7 @@ using Widgets;
 namespace Core
 {
     /// <summary>
-    /// Diese Klasse repräsentiert eine Option, die eine distinkte Werteliste annehmen kann.
+    /// Diese Klasse repräsentiert eine Option, die einen Wert aus einer distinkten Werteliste annehmen kann.
     /// </summary>
     public class DistinctOptionInfo : OptionInfo
     {

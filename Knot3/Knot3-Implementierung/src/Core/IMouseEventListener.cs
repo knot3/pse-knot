@@ -59,7 +59,7 @@ namespace Core
         void OnRightClick (Vector2 position, ClickState state, GameTime time);
 
         /// <summary>
-        /// 
+        /// Die Reaktion auf ein Scrollen. Der Wert ist relativ zum letzten Frame.
         /// </summary>
         void OnScroll (int scrollWheelValue);
 
