@@ -1,40 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    <ProjectGuid>{8E6072CE-A35B-455D-93E1-0AA0EBCCBCCF}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2462BBCC-EEA4-441A-A04C-E030154B8F5E}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Knot3</RootNamespace>
     <AssemblyName>Knot3</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
     <XnaProfile>HiDef</XnaProfile>
     <XnaCrossPlatformGroupID>2840659a-a7ea-46ba-8acf-b7cec81f0683</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
-    <FileAlignment>512</FileAlignment>
+    <Thumbnail>
+    </Thumbnail>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>false</XnaCompressContent>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -86,106 +109,153 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Core\Angles3.cs" />
-    <Compile Include="src\Core\BooleanOptionInfo.cs" />
-    <Compile Include="src\Core\Camera.cs" />
-    <Compile Include="src\Core\ClickState.cs" />
-    <Compile Include="src\Core\ConfigFile.cs" />
-    <Compile Include="src\Core\DisplayLayer.cs" />
-    <Compile Include="src\Core\DistinctOptionInfo.cs" />
-    <Compile Include="src\Core\DrawableGameScreenComponent.cs" />
-    <Compile Include="src\Core\FileUtility.cs" />
-    <Compile Include="src\Core\GameScreen.cs" />
-    <Compile Include="src\Core\GameScreenComponent.cs" />
-    <Compile Include="src\Core\IGameScreenComponent.cs" />
-    <Compile Include="src\Core\IKeyEventListener.cs" />
-    <Compile Include="src\Core\IMouseEventListener.cs" />
-    <Compile Include="src\Core\Input.cs" />
-    <Compile Include="src\Core\Localizer.cs" />
-    <Compile Include="src\Core\MousePointer.cs" />
-    <Compile Include="src\Core\OptionInfo.cs" />
-    <Compile Include="src\Core\Options.cs" />
-    <Compile Include="src\Core\World.cs" />
-    <Compile Include="src\GameObjects\ArrowModel.cs" />
-    <Compile Include="src\GameObjects\ArrowModelInfo.cs" />
-    <Compile Include="src\GameObjects\EdgeMovement.cs" />
-    <Compile Include="src\GameObjects\GameModel.cs" />
-    <Compile Include="src\GameObjects\GameModelInfo.cs" />
-    <Compile Include="src\GameObjects\GameObjectDistance.cs" />
-    <Compile Include="src\GameObjects\GameObjectInfo.cs" />
-    <Compile Include="src\GameObjects\IGameObject.cs" />
-    <Compile Include="src\GameObjects\IJunction.cs" />
-    <Compile Include="src\GameObjects\InputAction.cs" />
-    <Compile Include="src\GameObjects\KnotInputHandler.cs" />
-    <Compile Include="src\GameObjects\KnotRenderer.cs" />
-    <Compile Include="src\GameObjects\ModelFactory.cs" />
-    <Compile Include="src\GameObjects\ModelMouseHandler.cs" />
-    <Compile Include="src\GameObjects\NodeModel.cs" />
-    <Compile Include="src\GameObjects\NodeModelInfo.cs" />
-    <Compile Include="src\GameObjects\PipeModel.cs" />
-    <Compile Include="src\GameObjects\PipeModelInfo.cs" />
-    <Compile Include="src\GameObjects\ShadowGameModel.cs" />
-    <Compile Include="src\GameObjects\ShadowGameObject.cs" />
-    <Compile Include="src\KnotData\Challenge.cs" />
-    <Compile Include="src\KnotData\ChallengeFileIO.cs" />
-    <Compile Include="src\KnotData\ChallengeMetaData.cs" />
-    <Compile Include="src\KnotData\Circle.cs" />
-    <Compile Include="src\KnotData\Direction.cs" />
-    <Compile Include="src\KnotData\Edge.cs" />
-    <Compile Include="src\KnotData\IChallengeIO.cs" />
-    <Compile Include="src\KnotData\IKnotIO.cs" />
-    <Compile Include="src\KnotData\Knot.cs" />
-    <Compile Include="src\KnotData\KnotFileIO.cs" />
-    <Compile Include="src\KnotData\KnotMetaData.cs" />
-    <Compile Include="src\KnotData\KnotStringIO.cs" />
-    <Compile Include="src\KnotData\Node.cs" />
-    <Compile Include="src\KnotData\NodeMap.cs" />
-    <Compile Include="src\KnotData\PrinterIO.cs" />
-    <Compile Include="src\RenderEffects\CelShadingEffect.cs" />
-    <Compile Include="src\RenderEffects\FadeEffect.cs" />
-    <Compile Include="src\RenderEffects\IRenderEffect.cs" />
-    <Compile Include="src\RenderEffects\RenderEffect.cs" />
-    <Compile Include="src\RenderEffects\RenderEffectStack.cs" />
-    <Compile Include="src\RenderEffects\StandardEffect.cs" />
-    <Compile Include="src\Screens\AudioSettingsScreen.cs" />
-    <Compile Include="src\Screens\ChallengeLoadScreen.cs" />
-    <Compile Include="src\Screens\ChallengeModeScreen.cs" />
-    <Compile Include="src\Screens\ControlSettingsScreen.cs" />
-    <Compile Include="src\Screens\CreativeLoadScreen.cs" />
-    <Compile Include="src\Screens\CreativeModeScreen.cs" />
-    <Compile Include="src\Screens\CreditsScreen.cs" />
-    <Compile Include="src\Screens\GraphicsSettingsScreen.cs" />
-    <Compile Include="src\Screens\Knot3Game.cs" />
-    <Compile Include="src\Screens\MenuScreen.cs" />
-    <Compile Include="src\Screens\ProfileSettingsScreen.cs" />
-    <Compile Include="src\Screens\SettingsScreen.cs" />
-    <Compile Include="src\Screens\StartScreen.cs" />
-    <Compile Include="src\Screens\TutorialChallengeModeScreen.cs" />
-    <Compile Include="src\Widgets\CheckBoxItem.cs" />
-    <Compile Include="src\Widgets\ColorPicker.cs" />
-    <Compile Include="src\Widgets\ColorPickItem.cs" />
-    <Compile Include="src\Widgets\ConfirmDialog.cs" />
-    <Compile Include="src\Widgets\Dialog.cs" />
-    <Compile Include="src\Widgets\DropDownEntry.cs" />
-    <Compile Include="src\Widgets\DropDownMenuItem.cs" />
-    <Compile Include="src\Widgets\HorizontalAlignment.cs" />
-    <Compile Include="src\Widgets\InputItem.cs" />
-    <Compile Include="src\Widgets\ItemState.cs" />
-    <Compile Include="src\Widgets\KeyInputItem.cs" />
-    <Compile Include="src\Widgets\Menu.cs" />
-    <Compile Include="src\Widgets\MenuButton.cs" />
-    <Compile Include="src\Widgets\MenuItem.cs" />
-    <Compile Include="src\Widgets\PauseDialog.cs" />
-    <Compile Include="src\Widgets\SaveDialog.cs" />
-    <Compile Include="src\Widgets\SliderItem.cs" />
-    <Compile Include="src\Widgets\TextInputDialog.cs" />
-    <Compile Include="src\Widgets\VerticalAlignment.cs" />
-    <Compile Include="src\Widgets\VerticalMenu.cs" />
-    <Compile Include="src\Widgets\Widget.cs" />
-    <Compile Include="src\Widgets\WidgetKeyHandler.cs" />
-    <Compile Include="src\Widgets\WidgetMouseHandler.cs" />
+    <Compile Include="Knot3\Program.cs" />
+    <Compile Include="Knot3\Core\Angles3.cs" />
+    <Compile Include="Knot3\Core\BooleanOptionInfo.cs" />
+    <Compile Include="Knot3\Core\Camera.cs" />
+    <Compile Include="Knot3\Core\ConfigFile.cs" />
+    <Compile Include="Knot3\Core\DisplayLayer.cs" />
+    <Compile Include="Knot3\Core\DistinctOptionInfo.cs" />
+    <Compile Include="Knot3\Core\DrawableGameScreenComponent.cs" />
+    <Compile Include="Knot3\Core\FileUtility.cs" />
+    <Compile Include="Knot3\Core\GameScreen.cs" />
+    <Compile Include="Knot3\Core\GameScreenComponent.cs" />
+    <Compile Include="Knot3\Core\IGameScreenComponent.cs" />
+    <Compile Include="Knot3\Core\IKeyEventListener.cs" />
+    <Compile Include="Knot3\Core\IMouseEventListener.cs" />
+    <Compile Include="Knot3\Core\InputAction.cs" />
+    <Compile Include="Knot3\Core\InputManager.cs" />
+    <Compile Include="Knot3\Core\Localizer.cs" />
+    <Compile Include="Knot3\Core\MousePointer.cs" />
+    <Compile Include="Knot3\Core\OptionInfo.cs" />
+    <Compile Include="Knot3\Core\Options.cs" />
+    <Compile Include="Knot3\Core\World.cs" />
+    <Compile Include="Knot3\Widgets\CheckBoxItem.cs" />
+    <Compile Include="Knot3\Widgets\ColorPickItem.cs" />
+    <Compile Include="Knot3\Widgets\ColorPicker.cs" />
+    <Compile Include="Knot3\Widgets\ConfirmDialog.cs" />
+    <Compile Include="Knot3\Widgets\Dialog.cs" />
+    <Compile Include="Knot3\Widgets\DropDownEntry.cs" />
+    <Compile Include="Knot3\Widgets\DropDownMenuItem.cs" />
+    <Compile Include="Knot3\Widgets\HighscoreDialog.cs" />
+    <Compile Include="Knot3\Widgets\HorizontalAlignment.cs" />
+    <Compile Include="Knot3\Widgets\InputItem.cs" />
+    <Compile Include="Knot3\Widgets\ItemState.cs" />
+    <Compile Include="Knot3\Widgets\KeyInputItem.cs" />
+    <Compile Include="Knot3\Widgets\KnotSaveDialog.cs" />
+    <Compile Include="Knot3\Widgets\Menu.cs" />
+    <Compile Include="Knot3\Widgets\MenuButton.cs" />
+    <Compile Include="Knot3\Widgets\MenuItem.cs" />
+    <Compile Include="Knot3\Widgets\PauseDialog.cs" />
+    <Compile Include="Knot3\Widgets\SliderItem.cs" />
+    <Compile Include="Knot3\Widgets\TextInputDialog.cs" />
+    <Compile Include="Knot3\Widgets\VerticalAlignment.cs" />
+    <Compile Include="Knot3\Widgets\VerticalMenu.cs" />
+    <Compile Include="Knot3\Widgets\Widget.cs" />
+    <Compile Include="Knot3\Widgets\WidgetKeyHandler.cs" />
+    <Compile Include="Knot3\Widgets\WidgetMouseHandler.cs" />
+    <Compile Include="Knot3\KnotData\Challenge.cs" />
+    <Compile Include="Knot3\KnotData\ChallengeFileIO.cs" />
+    <Compile Include="Knot3\KnotData\ChallengeMetaData.cs" />
+    <Compile Include="Knot3\KnotData\Circle.cs" />
+    <Compile Include="Knot3\KnotData\Direction.cs" />
+    <Compile Include="Knot3\KnotData\Edge.cs" />
+    <Compile Include="Knot3\KnotData\IChallengeIO.cs" />
+    <Compile Include="Knot3\KnotData\IKnotIO.cs" />
+    <Compile Include="Knot3\KnotData\Knot.cs" />
+    <Compile Include="Knot3\KnotData\KnotFileIO.cs" />
+    <Compile Include="Knot3\KnotData\KnotMetaData.cs" />
+    <Compile Include="Knot3\KnotData\KnotStringIO.cs" />
+    <Compile Include="Knot3\KnotData\Node.cs" />
+    <Compile Include="Knot3\KnotData\NodeMap.cs" />
+    <Compile Include="Knot3\KnotData\PrinterIO.cs" />
+    <Compile Include="Knot3\GameObjects\ArrowModel.cs" />
+    <Compile Include="Knot3\GameObjects\ArrowModelInfo.cs" />
+    <Compile Include="Knot3\GameObjects\EdgeMovement.cs" />
+    <Compile Include="Knot3\GameObjects\GameModel.cs" />
+    <Compile Include="Knot3\GameObjects\GameModelInfo.cs" />
+    <Compile Include="Knot3\GameObjects\GameObjectDistance.cs" />
+    <Compile Include="Knot3\GameObjects\GameObjectInfo.cs" />
+    <Compile Include="Knot3\GameObjects\IGameObject.cs" />
+    <Compile Include="Knot3\GameObjects\IJunction.cs" />
+    <Compile Include="Knot3\GameObjects\KnotInputHandler.cs" />
+    <Compile Include="Knot3\GameObjects\KnotRenderer.cs" />
+    <Compile Include="Knot3\GameObjects\ModelFactory.cs" />
+    <Compile Include="Knot3\GameObjects\ModelMouseHandler.cs" />
+    <Compile Include="Knot3\GameObjects\NodeModel.cs" />
+    <Compile Include="Knot3\GameObjects\NodeModelInfo.cs" />
+    <Compile Include="Knot3\GameObjects\PipeModel.cs" />
+    <Compile Include="Knot3\GameObjects\PipeModelInfo.cs" />
+    <Compile Include="Knot3\GameObjects\ShadowGameModel.cs" />
+    <Compile Include="Knot3\GameObjects\ShadowGameObject.cs" />
+    <Compile Include="Knot3\Screens\AudioSettingsScreen.cs" />
+    <Compile Include="Knot3\Screens\ChallengeCreateScreen.cs" />
+    <Compile Include="Knot3\Screens\ChallengeModeScreen.cs" />
+    <Compile Include="Knot3\Screens\ChallengeStartScreen.cs" />
+    <Compile Include="Knot3\Screens\ControlSettingsScreen.cs" />
+    <Compile Include="Knot3\Screens\CreativeLoadScreen.cs" />
+    <Compile Include="Knot3\Screens\CreativeMainScreen.cs" />
+    <Compile Include="Knot3\Screens\CreativeModeScreen.cs" />
+    <Compile Include="Knot3\Screens\CreditsScreen.cs" />
+    <Compile Include="Knot3\Screens\GraphicsSettingsScreen.cs" />
+    <Compile Include="Knot3\Screens\MenuScreen.cs" />
+    <Compile Include="Knot3\Screens\ProfileSettingsScreen.cs" />
+    <Compile Include="Knot3\Screens\SettingsScreen.cs" />
+    <Compile Include="Knot3\Screens\StartScreen.cs" />
+    <Compile Include="Knot3\Screens\TutorialChallengeModeScreen.cs" />
+    <Compile Include="Knot3\RenderEffects\CelShadingEffect.cs" />
+    <Compile Include="Knot3\RenderEffects\FadeEffect.cs" />
+    <Compile Include="Knot3\RenderEffects\IRenderEffect.cs" />
+    <Compile Include="Knot3\RenderEffects\RenderEffect.cs" />
+    <Compile Include="Knot3\RenderEffects\RenderEffectStack.cs" />
+    <Compile Include="Knot3\RenderEffects\StandardEffect.cs" />
+    <Compile Include="Knot3\Widgets\ClickState.cs" />
+    <Compile Include="Knot3\Core\Knot3Game.cs" />
+    <Compile Include="Knot3\Widgets\KeyEvent.cs" />
+    <Compile Include="Knot3\Widgets\TextureHelper.cs" />
+    <Compile Include="Knot3\KnotData\DirectionHelper.cs" />
+    <Compile Include="Knot3\Utilities\Profiler.cs" />
+    <Compile Include="Knot3\Utilities\Overlay.cs" />
+    <Compile Include="Knot3\Utilities\ColorHelper.cs" />
+    <Compile Include="Knot3\Utilities\FrustumHelper.cs" />
+    <Compile Include="Knot3\Utilities\InputHelper.cs" />
+    <Compile Include="Knot3\Utilities\MonoHelper.cs" />
+    <Compile Include="Knot3\Utilities\VectorHelper.cs" />
+    <Compile Include="Knot3\Utilities\ModelHelper.cs" />
+    <Compile Include="Knot3\Utilities\IniFile.cs" />
+    <Compile Include="Knot3\Utilities\ShaderHelper.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Content\Knot3Content-Windows.contentproj">
+      <Project>{CD33049E-0B5F-42BA-B816-658DEDF50DEA}</Project>
+      <Name>Knot3Content-Windows</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

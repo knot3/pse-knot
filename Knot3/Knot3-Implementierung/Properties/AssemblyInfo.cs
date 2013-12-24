@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
-[assembly: AssemblyTitle("Knot3-Windows")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Knot3")]
+[assembly: AssemblyDescription("Ein PSE Spiel...")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Knot3-Windows")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("Karlsruher Institut für Technologie")]
+[assembly: AssemblyProduct("Knot3")]
+[assembly: AssemblyCopyright("Copyright ©  2013-2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
