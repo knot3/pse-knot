@@ -34,7 +34,7 @@ namespace Knot3.Screens
 		/// </summary>
 		private Menu buttons;
 
-		// textures
+		// das Logo
 		private Texture2D logo;
 		private SpriteBatch spriteBatch;
 
@@ -69,7 +69,6 @@ namespace Knot3.Screens
 				onClick: () => NextScreen = new CreativeMainScreen (Game)
 			);
 			creativeButton.SetCoordinates (left: 0.700f, top: 0.250f, right: 0.960f, bottom: 0.380f);
-			buttons.Add (creativeButton);
 
 			MenuButton challengeButton = new MenuButton (
 				screen: this,
@@ -78,7 +77,6 @@ namespace Knot3.Screens
 				onClick: () => NextScreen = new ChallengeStartScreen (Game)
 			);
 			challengeButton.SetCoordinates (left: 0.000f, top: 0.050f, right: 0.380f, bottom: 0.190f);
-			buttons.Add (challengeButton);
 
 			MenuButton settingsButton = new MenuButton (
 				screen: this,
@@ -87,7 +85,6 @@ namespace Knot3.Screens
 				onClick: () => NextScreen = new SettingsScreen (Game)
 			);
 			settingsButton.SetCoordinates (left: 0.260f, top: 0.840f, right: 0.480f, bottom: 0.950f);
-			buttons.Add (settingsButton);
 
 			MenuButton exitButton = new MenuButton (
 				screen: this,
@@ -95,10 +92,15 @@ namespace Knot3.Screens
 				name: "Exit",
 				onClick: () => Game.Exit ()
 			);
+			exitButton.AddKey (Keys.Escape);
 			exitButton.SetCoordinates (left: 0.800f, top: 0.535f, right: 0.980f, bottom: 0.790f);
-			buttons.Add (exitButton);
 
+			buttons.Add (creativeButton);
+			buttons.Add (challengeButton);
+			buttons.Add (settingsButton);
+			buttons.Add (exitButton);
 			
+			// die Linien
 			lines.AddPoints (0.000f, 0.050f, 
 				0.380f, 0.250f, 0.960f, 0.380f, 0.700f, 0.160f, 1.000f
 			);

@@ -107,7 +107,6 @@ namespace Knot3.Widgets
 		{
 			base.Draw (time);
 
-			Console.WriteLine ("...: " + this + ", position=" + ScaledPosition + ", size=" + ScaledSize);
 			spriteBatch.Begin ();
 				
 			// zeichne den Hintergrund

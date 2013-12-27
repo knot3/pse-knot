@@ -99,7 +99,6 @@ namespace Knot3.Utilities
 				);
 
 				// zeichne die Schrift
-				Console.WriteLine("color ="+color+", text="+text+", scale="+scale);
 				spriteBatch.DrawString (font, text, textPosition, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.6f);
 
 			} catch (ArgumentException exp) {
@@ -126,7 +125,6 @@ namespace Knot3.Utilities
 				textPosition.X += size.X - minimumSize.X * scale.X;
 				break;
 			}
-			Console.WriteLine ("textPosition=" + textPosition);
 			return textPosition;
 		}
 

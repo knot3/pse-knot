@@ -81,11 +81,19 @@ namespace Knot3.Screens
 				name: "Profile",
 				onClick: () => NextScreen = new GraphicsSettingsScreen (Game)
 			);
+			MenuButton backButton = new MenuButton (
+				screen: this,
+				drawOrder: DisplayLayer.MenuItem,
+				name: "Back",
+				onClick: () => NextScreen = new StartScreen (Game)
+			);
+			backButton.AddKey (Keys.Escape);
 
 			navigationMenu.Add (graphicsButton);
 			navigationMenu.Add (audioButton);
 			navigationMenu.Add (controlsButton);
 			navigationMenu.Add (profileButton);
+			navigationMenu.Add (backButton);
 
 			lines.AddPoints (0, 50,
 				30, 970, 970, 50, 1000

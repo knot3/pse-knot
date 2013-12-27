@@ -61,6 +61,23 @@ namespace Knot3.Widgets
 			OnClick ();
 		}
 
+		/// <summary>
+		/// Reaktionen auf Tasteneingaben.
+		/// </summary>
+		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
+		{
+			if (keyEvent == KeyEvent.KeyDown) {
+				OnClick ();
+			}
+		}
+
+		public void AddKey (Keys key)
+		{
+			if (!ValidKeys.Contains (key)) {
+				ValidKeys.Add (key);
+			}
+		}
+
 		#endregion
 	}
 }
