@@ -25,7 +25,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein abstrakte Klasse für Menüeinträge, die
 	/// </summary>
-	public class MenuItem : Widget, IKeyEventListener, IMouseEventListener
+	public abstract class MenuItem : Widget, IKeyEventListener, IMouseEventListener
 	{
         #region Properties
 

@@ -25,9 +25,8 @@ namespace Knot3.GameObjects
 	/// <summary>
 	/// Ein 3D-Modell, das einen Kantenübergang darstellt.
 	/// </summary>
-	public class NodeModel : GameModel
+	public sealed class NodeModel : GameModel
 	{
-
         #region Properties
 
 		/// <summary>
@@ -70,7 +69,6 @@ namespace Knot3.GameObjects
 		}
 
         #endregion
-
 	}
 }
 

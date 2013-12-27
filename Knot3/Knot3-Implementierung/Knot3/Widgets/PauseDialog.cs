@@ -21,19 +21,19 @@ using Knot3.KnotData;
 
 namespace Knot3.Widgets
 {
-    /// <summary>
-    /// Pausiert ein Spieler im Creative- oder Challenge-Modus das Spiel,
-    /// wird dieser Dialog über anderen Spielkomponenten angezeigt.
-    /// </summary>
-    public class PauseDialog : Dialog
-    {
+	/// <summary>
+	/// Pausiert ein Spieler im Creative- oder Challenge-Modus das Spiel,
+	/// wird dieser Dialog über anderen Spielkomponenten angezeigt.
+	/// </summary>
+	public sealed class PauseDialog : Dialog
+	{
 
         #region Properties
 
-        /// <summary>
-        /// Das Menü, das verschiedene Schaltflächen enthält.
-        /// </summary>
-        private VerticalMenu pauseMenu { get; set; }
+		/// <summary>
+		/// Das Menü, das verschiedene Schaltflächen enthält.
+		/// </summary>
+		private VerticalMenu pauseMenu { get; set; }
 
         #endregion
 		
@@ -49,6 +49,6 @@ namespace Knot3.Widgets
 		}
 
         #endregion
-    }
+	}
 }
 

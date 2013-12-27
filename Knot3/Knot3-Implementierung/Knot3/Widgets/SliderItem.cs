@@ -21,52 +21,51 @@ using Knot3.KnotData;
 
 namespace Knot3.Widgets
 {
-    /// <summary>
-    /// Ein Menüeintrag, der einen Schieberegler bereitstellt, mit dem man einen Wert zwischen einem minimalen
-    /// und einem maximalen Wert über Verschiebung einstellen kann.
-    /// </summary>
-    public class SliderItem : MenuItem
-    {
-
+	/// <summary>
+	/// Ein Menüeintrag, der einen Schieberegler bereitstellt, mit dem man einen Wert zwischen einem minimalen
+	/// und einem maximalen Wert über Verschiebung einstellen kann.
+	/// </summary>
+	public sealed class SliderItem : MenuItem
+	{
         #region Properties
 
-        /// <summary>
-        /// Der aktuelle Wert.
-        /// </summary>
-        public int Value { get; set; }
+		/// <summary>
+		/// Der aktuelle Wert.
+		/// </summary>
+		public int Value { get; set; }
 
-        /// <summary>
-        /// Der minimale Wert.
-        /// </summary>
-        public int MinValue { get; set; }
+		/// <summary>
+		/// Der minimale Wert.
+		/// </summary>
+		public int MinValue { get; set; }
 
-        /// <summary>
-        /// Der maximale Wert.
-        /// </summary>
-        public int MaxValue { get; set; }
+		/// <summary>
+		/// Der maximale Wert.
+		/// </summary>
+		public int MaxValue { get; set; }
 
-        /// <summary>
-        /// Schrittweite zwischen zwei einstellbaren Werten.
-        /// </summary>
-        public int Step { get; set; }
+		/// <summary>
+		/// Schrittweite zwischen zwei einstellbaren Werten.
+		/// </summary>
+		public int Step { get; set; }
 
         #endregion
 
         #region Constructors
 
-        /// <summary>
-        /// Erzeugt eine neue Instanz eines SliderItem-Objekts und initialisiert diese
-        /// mit dem zugehörigen GameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
-        /// einem minimalen einstellbaren Wert, einem maximalen einstellbaren Wert und einem Standardwert Pflicht.
-        /// </summary>
-        public SliderItem (GameScreen screen, DisplayLayer drawOrder, string text, int max, int min, int step, int value)
+		/// <summary>
+		/// Erzeugt eine neue Instanz eines SliderItem-Objekts und initialisiert diese
+		/// mit dem zugehörigen GameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
+		/// einem minimalen einstellbaren Wert, einem maximalen einstellbaren Wert und einem Standardwert Pflicht.
+		/// </summary>
+		public SliderItem (GameScreen screen, DisplayLayer drawOrder, string text, int max, int min, int step, int value)
 			: base(screen, drawOrder, text)
-        {
-            throw new System.NotImplementedException();
-        }
+		{
+			throw new System.NotImplementedException ();
+		}
 
         #endregion
 
-    }
+	}
 }
 

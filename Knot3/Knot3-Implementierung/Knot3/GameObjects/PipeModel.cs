@@ -25,9 +25,8 @@ namespace Knot3.GameObjects
 	/// <summary>
 	/// Ein 3D-Modell, das eine Kante darstellt.
 	/// </summary>
-	public class PipeModel : GameModel
+	public sealed class PipeModel : GameModel
 	{
-
         #region Properties
 
 		/// <summary>
@@ -107,7 +106,6 @@ namespace Knot3.GameObjects
 		}
 
 		#endregion
-
 	}
 }
 

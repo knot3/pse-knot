@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Knot3.Utilities
 {
-	public class IniFile : IDisposable
+	public sealed class IniFile : IDisposable
 	{
 		private string Filename;
 		public Dictionary<string, Dictionary<string, string>> Data;
@@ -41,7 +41,7 @@ namespace Knot3.Utilities
 			GC.SuppressFinalize (this);
 		}
 
-		protected virtual void Dispose (bool disposing)
+		private void Dispose (bool disposing)
 		{
 			if (disposing) {
 				Save ();

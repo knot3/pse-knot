@@ -24,7 +24,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// 
 	/// </summary>
-	public class HighscoreDialog : Dialog
+	public sealed class HighscoreDialog : Dialog
 	{
         #region Constructors
 

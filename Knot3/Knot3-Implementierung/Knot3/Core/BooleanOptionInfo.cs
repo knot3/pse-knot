@@ -21,18 +21,17 @@ using Knot3.Widgets;
 
 namespace Knot3.Core
 {
-    /// <summary>
-    /// Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann.
-    /// </summary>
-    public class BooleanOptionInfo : DistinctOptionInfo
-    {
-
+	/// <summary>
+	/// Diese Klasse repräsentiert eine Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann.
+	/// </summary>
+	public sealed class BooleanOptionInfo : DistinctOptionInfo
+	{
         #region Properties
 
-        /// <summary>
-        /// Eine Eigenschaft, die den aktuell abgespeicherten Wert zurückgibt.
-        /// </summary>
-        public new bool Value {
+		/// <summary>
+		/// Eine Eigenschaft, die den aktuell abgespeicherten Wert zurückgibt.
+		/// </summary>
+		public new bool Value {
 			get {
 				return base.Value == ConfigFile.True ? true : false;
 			}
@@ -50,18 +49,17 @@ namespace Knot3.Core
 
         #region Constructors
 
-        /// <summary>
-        /// Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
-        /// angegebenen Abschnitt der angegebenen Einstellungsdatei.
-        /// [base=section, name, defaultValue?ConfigFile.True:ConfigFile.False, ValidValues, configFile]
-        /// </summary>
-        public BooleanOptionInfo (string section, string name, bool defaultValue, ConfigFile configFile)
+		/// <summary>
+		/// Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
+		/// angegebenen Abschnitt der angegebenen Einstellungsdatei.
+		/// [base=section, name, defaultValue?ConfigFile.True:ConfigFile.False, ValidValues, configFile]
+		/// </summary>
+		public BooleanOptionInfo (string section, string name, bool defaultValue, ConfigFile configFile)
             : base(section, name, defaultValue?ConfigFile.True:ConfigFile.False, ValidValues, configFile)
-        {
-        }
+		{
+		}
 
         #endregion
-
-    }
+	}
 }
 

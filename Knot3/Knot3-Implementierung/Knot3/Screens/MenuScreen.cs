@@ -29,7 +29,6 @@ namespace Knot3.Screens
 	{
 		#region Properties
 		
-		private Color backColor = Color.Black;
 		private MousePointer pointer;
 
 		// die Linien

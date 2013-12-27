@@ -25,9 +25,8 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Eine abstrakte Klasse, von der alle Element der grafischen Benutzeroberfläche erben.
 	/// </summary>
-	public class Widget : DrawableGameScreenComponent
+	public abstract class Widget : DrawableGameScreenComponent
 	{
-
         #region Properties
 
 		/// <summary>

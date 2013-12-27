@@ -24,9 +24,8 @@ namespace Knot3.Core
 	/// <summary>
 	/// Repräsentiert eine Spielwelt, in der sich 3D-Modelle befinden und gezeichnet werden können.
 	/// </summary>
-	public class World : DrawableGameScreenComponent, IEnumerable<IGameObject>
+	public sealed class World : DrawableGameScreenComponent, IEnumerable<IGameObject>
 	{
-
         #region Properties
 
 		/// <summary>
@@ -147,7 +146,7 @@ namespace Knot3.Core
 		/// Liefert einen Enumerator über die Spielobjekte dieser Spielwelt.
 		/// [returntype=IEnumerator<IGameObject>]
 		/// </summary>
-		public virtual IEnumerator<IGameObject> GetEnumerator ()
+		public IEnumerator<IGameObject> GetEnumerator ()
 		{
 			foreach (IGameObject obj in Objects) {
 				yield return obj;
@@ -169,7 +168,6 @@ namespace Knot3.Core
 		}
 
         #endregion
-
 	}
 }
 

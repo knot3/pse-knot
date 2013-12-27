@@ -25,7 +25,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
 	/// </summary>
-	public class WidgetKeyHandler : GameScreenComponent
+	public sealed class WidgetKeyHandler : GameScreenComponent
 	{
 		public WidgetKeyHandler (GameScreen screen)
 			: base(screen, DisplayLayer.None)

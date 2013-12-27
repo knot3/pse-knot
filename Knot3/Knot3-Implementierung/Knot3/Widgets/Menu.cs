@@ -32,14 +32,14 @@ namespace Knot3.Widgets
         #region Properties
 
 		/// <summary>
-		/// Die von der Auflösung unabhängige Größe in Prozent.
+		/// Die von der Auflösung unabhängige Größe der Menüeinträge in Prozent.
 		/// </summary>
-		public Func<int, Vector2> RelativeItemSize { get; set; }
+		public virtual Func<int, Vector2> RelativeItemSize { get; set; }
 
 		/// <summary>
-		/// Die von der Auflösung unabhängige Position in Prozent.
+		/// Die von der Auflösung unabhängige Position der Menüeinträge in Prozent.
 		/// </summary>
-		public Func<int, Vector2> RelativeItemPosition { get; set; }
+		public virtual Func<int, Vector2> RelativeItemPosition { get; set; }
 
 		/// <summary>
 		/// Die vom Zustand des Menüeintrags abhängige Vordergrundfarbe des Menüeintrags.

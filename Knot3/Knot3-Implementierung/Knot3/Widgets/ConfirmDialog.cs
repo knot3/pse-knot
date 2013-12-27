@@ -21,36 +21,34 @@ using Knot3.KnotData;
 
 namespace Knot3.Widgets
 {
-    /// <summary>
-    /// Ein Dialog, der Schaltflächen zum Bestätigen einer Aktion anzeigt.
-    /// </summary>
-    public class ConfirmDialog : Dialog
-    {
-
+	/// <summary>
+	/// Ein Dialog, der Schaltflächen zum Bestätigen einer Aktion anzeigt.
+	/// </summary>
+	public abstract class ConfirmDialog : Dialog
+	{
         #region Properties
 
-        /// <summary>
-        /// Das Menü, das Schaltflächen enthält.
-        /// </summary>
-        private Menu buttons { get; set; }
+		/// <summary>
+		/// Das Menü, das Schaltflächen enthält.
+		/// </summary>
+		private Menu buttons { get; set; }
 
         #endregion
 
         #region Constructors
 
-        /// <summary>
-        /// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
-        /// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
-        /// [base=screen, drawOrder, title, text]
-        /// </summary>
-        public ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text)
+		/// <summary>
+		/// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+		/// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
+		/// [base=screen, drawOrder, title, text]
+		/// </summary>
+		public ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text)
             : base(screen, drawOrder, title, text)
-        {
-            throw new System.NotImplementedException();
-        }
+		{
+			throw new System.NotImplementedException ();
+		}
 
         #endregion
-
-    }
+	}
 }
 

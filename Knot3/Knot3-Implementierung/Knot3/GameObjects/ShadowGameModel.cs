@@ -21,11 +21,11 @@ using Knot3.Widgets;
 
 namespace Knot3.GameObjects
 {
-    /// <summary>
-    /// Die 3D-Modelle, die während einer Verschiebung von Kanten die Vorschaumodelle repräsentieren.
-    /// </summary>
-    public sealed class ShadowGameModel : ShadowGameObject
-    {
+	/// <summary>
+	/// Die 3D-Modelle, die während einer Verschiebung von Kanten die Vorschaumodelle repräsentieren.
+	/// </summary>
+	public sealed class ShadowGameModel : ShadowGameObject
+	{
         #region Properties
 
 		private GameModel decoratedModel {
@@ -34,37 +34,37 @@ namespace Knot3.GameObjects
 			}
 		}
 
-        /// <summary>
-        /// Die Farbe der Vorschaumodelle.
-        /// </summary>
-        public Color ShadowColor { get; set; }
+		/// <summary>
+		/// Die Farbe der Vorschaumodelle.
+		/// </summary>
+		public Color ShadowColor { get; set; }
 
-        /// <summary>
-        /// Die Transparenz der Vorschaumodelle.
-        /// </summary>
-        public float ShadowAlpha { get; set; }
+		/// <summary>
+		/// Die Transparenz der Vorschaumodelle.
+		/// </summary>
+		public float ShadowAlpha { get; set; }
 
         #endregion
 
         #region Constructors
 
-        /// <summary>
-        /// Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angegebene zu dekorierende Modell.
-        /// </summary>
-        public ShadowGameModel (GameScreen screen, GameModel decoratedModel)
+		/// <summary>
+		/// Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angegebene zu dekorierende Modell.
+		/// </summary>
+		public ShadowGameModel (GameScreen screen, GameModel decoratedModel)
 			: base(screen, decoratedModel)
-        {
-        }
+		{
+		}
 
         #endregion
 
         #region Methods
 
-        /// <summary>
-        /// Zeichnet das Vorschaumodell.
-        /// </summary>
-        public override void Draw (GameTime time)
-        {
+		/// <summary>
+		/// Zeichnet das Vorschaumodell.
+		/// </summary>
+		public override void Draw (GameTime time)
+		{
 			// swap position, colors, alpha
 			Vector3 originalPositon = decoratedModel.Info.Position;
 			float originalHighlightIntensity = decoratedModel.HighlightIntensity;
@@ -80,10 +80,10 @@ namespace Knot3.GameObjects
 			decoratedModel.Info.Position = originalPositon;
 			decoratedModel.HighlightIntensity = originalHighlightIntensity;
 			decoratedModel.Alpha = originalAlpha;
-        }
+		}
 
         #endregion
 
-    }
+	}
 }
 

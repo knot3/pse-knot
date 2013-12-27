@@ -25,7 +25,7 @@ namespace Knot3.GameObjects
 	/// <summary>
 	/// Repräsentiert ein 3D-Modell in einer Spielwelt.
 	/// </summary>
-	public class GameModel : IGameObject
+	public abstract class GameModel : IGameObject
 	{
         #region Properties
 
@@ -151,7 +151,6 @@ namespace Knot3.GameObjects
 		}
 
         #endregion
-		
 
 		#region Cache
 

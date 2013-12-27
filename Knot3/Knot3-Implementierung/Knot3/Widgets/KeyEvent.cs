@@ -21,7 +21,10 @@ using Knot3.KnotData;
 
 namespace Knot3.Widgets
 {
-	public enum KeyEvent {
-		None = 0, KeyDown, KeyHeldDown
+	public enum KeyEvent
+	{
+		None = 0,
+		KeyDown,
+		KeyHeldDown
 	}
 }

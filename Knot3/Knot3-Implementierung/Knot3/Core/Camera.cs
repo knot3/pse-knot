@@ -28,9 +28,8 @@ namespace Knot3.Core
 	/// Um diese Matrizen zu berechnen, benötigt die Kamera unter Anderem Informationen über die aktuelle Kamera-Position,
 	/// das aktuelle Kamera-Ziel und das Field of View.
 	/// </summary>
-	public class Camera : GameScreenComponent
+	public sealed class Camera : GameScreenComponent
 	{
-
         #region Properties
 
 		private Vector3 _position;
@@ -138,7 +137,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Die Blickrichtung.
 		/// </summary>
-		public virtual Vector3 TargetDirection {
+		public Vector3 TargetDirection {
 			get {
 				Vector3 toTarget = Target - Position;
 				toTarget.Normalize ();
@@ -149,7 +148,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Der Abstand zwischen der Kamera und dem Kamera-Ziel.
 		/// </summary>
-		public virtual float TargetDistance {
+		public float TargetDistance {
 			get {
 				Vector3 toTarget = Target - Position;
 				return toTarget.Length ();
@@ -183,7 +182,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Berechnet einen Strahl für die angegebenene 2D-Mausposition.
 		/// </summary>
-		public virtual Ray GetMouseRay (Vector2 mousePosition)
+		public Ray GetMouseRay (Vector2 mousePosition)
 		{
 			Viewport viewport = Screen.Viewport;
 
@@ -212,7 +211,6 @@ namespace Knot3.Core
 		}
 
         #endregion
-
 	}
 }
 

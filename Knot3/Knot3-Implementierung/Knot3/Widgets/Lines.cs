@@ -22,7 +22,7 @@ using Knot3.Utilities;
 
 namespace Knot3.Widgets
 {
-	public class Lines : DrawableGameScreenComponent
+	public sealed class Lines : DrawableGameScreenComponent
 	{
 		private Texture2D texture;
 		private SpriteBatch spriteBatch;
@@ -31,7 +31,7 @@ namespace Knot3.Widgets
 		private List<Vector2> points;
 
 		// die Dicke der Linien
-		protected int lineWidth;
+		private int lineWidth;
 		public static Color LineColor = new Color (0xb4, 0xff, 0x00);
 		public static Color OutlineColor = new Color (0x3b, 0x54, 0x00);
 

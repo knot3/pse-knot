@@ -24,7 +24,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein Menüeintrag, der einen Tastendruck entgegennimmt und in der enthaltenen Option als Zeichenkette speichert.
 	/// </summary>
-	public class KeyInputItem : InputItem
+	public sealed class KeyInputItem : InputItem
 	{
 
         #region Properties
@@ -57,7 +57,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
-			option.Value = key.ToString();
+			option.Value = key.ToString ();
 		}
 
         #endregion
