@@ -22,11 +22,11 @@ using Knot3.Utilities;
 
 namespace Knot3.Widgets
 {
-    /// <summary>
-    /// Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
-    /// </summary>
-    public class WidgetKeyHandler : GameScreenComponent
-    {
+	/// <summary>
+	/// Ein Inputhandler, der Tastatureingaben auf Widgets verarbeitet.
+	/// </summary>
+	public class WidgetKeyHandler : GameScreenComponent
+	{
 		public WidgetKeyHandler (GameScreen screen)
 			: base(screen, DisplayLayer.None)
 		{
@@ -40,39 +40,35 @@ namespace Knot3.Widgets
 			public List<Keys> keys;
 		}
 
-        /// <summary>
-        /// Wird für jeden Frame aufgerufen.
-        /// </summary>
+		/// <summary>
+		/// Wird für jeden Frame aufgerufen.
+		/// </summary>
 		public override void Update (GameTime time)
 		{
 			KeyEventComponent best = null;
-			foreach (IGameScreenComponent component in Screen.Game.Components) {
-				if (component is IKeyEventListener) {
+			foreach (IKeyEventListener component in Screen.Game.Components.OfType<IKeyEventListener>()) {
+				// keyboard input
+				IKeyEventListener receiver = component as IKeyEventListener;
+				KeyEvent keyEvent = KeyEvent.None;
+				List<Keys> keysInvolved = new List<Keys> ();
 
-					// keyboard input
-					IKeyEventListener receiver = component as IKeyEventListener;
-					KeyEvent keyEvent = KeyEvent.None;
-					List<Keys> keysInvolved = new List<Keys> ();
-
-					foreach (Keys key in receiver.ValidKeys) {
-						if (key.IsDown ()) {
-							keysInvolved.Add (key);
-							keyEvent = KeyEvent.KeyDown;
-						} else if (key.IsHeldDown ()) {
-							keysInvolved.Add (key);
-							keyEvent = KeyEvent.KeyHeldDown;
-						}
+				foreach (Keys key in receiver.ValidKeys) {
+					if (key.IsDown ()) {
+						keysInvolved.Add (key);
+						keyEvent = KeyEvent.KeyDown;
+					} else if (key.IsHeldDown ()) {
+						keysInvolved.Add (key);
+						keyEvent = KeyEvent.KeyHeldDown;
 					}
+				}
 
-                    if (keysInvolved.Count > 0 && receiver.IsKeyEventEnabled && (best == null || (int)component.Index >= (int)best.layer))
-                    {
-						best = new KeyEventComponent {
-							receiver = receiver,
-							layer = receiver.Index,
-							keyEvent = keyEvent,
-							keys = keysInvolved
-						}; 
-					}
+				if (keysInvolved.Count > 0 && receiver.IsKeyEventEnabled && (best == null || (int)component.Index >= (int)best.layer)) {
+					best = new KeyEventComponent {
+						receiver = receiver,
+						layer = receiver.Index,
+						keyEvent = keyEvent,
+						keys = keysInvolved
+					}; 
 				}
 			}
 			if (best != null) {
@@ -80,6 +76,6 @@ namespace Knot3.Widgets
 			}
 		}
 
-    }
+	}
 }
 

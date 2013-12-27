@@ -33,7 +33,7 @@ namespace Knot3.RenderEffects
 		/// Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
 		/// weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
 		/// </summary>
-		public RenderTarget2D RenderTarget { get; set; }
+		public RenderTarget2D RenderTarget { get { return CurrentRenderTarget; } }
 
 		/// <summary>
 		/// Der Spielzustand, in dem der Effekt verwendet wird.
@@ -54,6 +54,8 @@ namespace Knot3.RenderEffects
 		public RenderEffect (GameScreen screen)
 		{
 			this.screen = screen;
+			spriteBatch = new SpriteBatch (screen.Device);
+			background = Color.Transparent;
 		}
 
 		#endregion
@@ -168,7 +170,26 @@ namespace Knot3.RenderEffects
 		}
 
         #endregion
+		
+		#region RenderTarget Cache
 
+		private Dictionary<Point, RenderTarget2D> renderTargets = new Dictionary<Point, RenderTarget2D> ();
+
+		public RenderTarget2D CurrentRenderTarget {
+			get {
+				PresentationParameters pp = screen.Device.PresentationParameters;
+				Point resolution = new Point (pp.BackBufferWidth, pp.BackBufferHeight);
+				if (!renderTargets.ContainsKey (resolution)) {
+					renderTargets [resolution] = new RenderTarget2D (
+						screen.Device, resolution.X, resolution.Y, false, SurfaceFormat.Color,
+						DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
+					);
+				}
+				return renderTargets [resolution];
+			}
+		}
+
+		#endregion
 	}
 }
 

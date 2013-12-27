@@ -48,7 +48,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Gibt an, ob das grafische Element sichtbar ist.
 		/// </summary>
-		public bool IsVisible { get; set; }
+		public virtual bool IsVisible { get; set; }
 
 		/// <summary>
 		/// Die Hintergrundfarbe.
@@ -95,6 +95,7 @@ namespace Knot3.Widgets
 			ForegroundColor = () => Color.Gray;
 			BackgroundColor = () => Color.Transparent;
 			ValidKeys = new List<Keys> ();
+			IsVisible = true;
 		}
 
         #endregion

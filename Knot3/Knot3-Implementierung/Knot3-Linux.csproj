@@ -153,7 +153,6 @@
     <Compile Include="Knot3\Widgets\ClickState.cs" />
     <Compile Include="Knot3\Core\Knot3Game.cs" />
     <Compile Include="Knot3\Widgets\KeyEvent.cs" />
-    <Compile Include="Knot3\Widgets\TextureHelper.cs" />
     <Compile Include="Knot3\KnotData\DirectionHelper.cs" />
     <Compile Include="Knot3\Utilities\Profiler.cs" />
     <Compile Include="Knot3\Utilities\Overlay.cs" />
@@ -165,6 +164,9 @@
     <Compile Include="Knot3\Utilities\ModelHelper.cs" />
     <Compile Include="Knot3\Utilities\IniFile.cs" />
     <Compile Include="Knot3\Utilities\ShaderHelper.cs" />
+    <Compile Include="Knot3\Utilities\HfGDesign.cs" />
+    <Compile Include="Knot3\Utilities\TextureHelper.cs" />
+    <Compile Include="Knot3\Widgets\Lines.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -194,6 +196,11 @@
     </MonoDevelop>
   </ProjectExtensions>
   <ItemGroup>
-    <None Include="Content\node1.xnb" />
+    <None Include="Content\node1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\logo.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

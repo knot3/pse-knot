@@ -108,6 +108,8 @@ namespace Knot3.GameObjects
 			);
 
 			// TODO
+			mouseMove.ToString();
+			// TODO
 		}
 
 		protected void UpdateKeys (GameTime time)

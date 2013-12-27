@@ -62,6 +62,8 @@ namespace Knot3.Core
 
 		public ContentManager Content { get { return Game.Content; } }
 
+		public Color BackgroundColor { get; protected set; }
+
         #endregion
 
         #region Constructors
@@ -79,6 +81,7 @@ namespace Knot3.Core
 			);
 			this.PostProcessingEffect = new StandardEffect (this);
 			this.Input = new InputManager (this);
+			this.BackgroundColor = Color.Black;
 		}
 
         #endregion
@@ -106,11 +109,17 @@ namespace Knot3.Core
 		}
 
 		/// <summary>
+		/// Zeichnet die Teile des GameScreens, die keine Spielkomponenten sind.
+		/// </summary>
+		public virtual void Draw (GameTime time)
+		{
+		}
+
+		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
 		/// </summary>
 		public virtual void Update (GameTime time)
 		{
-			throw new System.NotImplementedException ();
 		}
 
 		/// <summary>

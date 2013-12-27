@@ -18,6 +18,7 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
+using Knot3.Utilities;
 
 namespace Knot3.Widgets
 {
@@ -26,7 +27,6 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class MenuItem : Widget, IKeyEventListener, IMouseEventListener
 	{
-
         #region Properties
 
 		/// <summary>
@@ -43,7 +43,14 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Der Anzeigetext der Schaltfläche.
 		/// </summary>
-		public string Text { get; set; }
+		public string Text { get; private set; }
+
+		/// <summary>
+		/// Eine Referenz auf das Menu, in dem sich der Eintrag befindet.
+		/// </summary>
+		public Menu Menu { get; set; }
+		
+		protected SpriteBatch spriteBatch;
 
         #endregion
 		
@@ -54,7 +61,8 @@ namespace Knot3.Widgets
 		{
 			Text = text;
 			ItemOrder = -1;
-			ItemState = Widgets.ItemState.None;
+			ItemState = ItemState.None;
+			spriteBatch = new SpriteBatch (screen.Device);
 		}
 
         #endregion
@@ -66,7 +74,6 @@ namespace Knot3.Widgets
 		/// </summary>
 		public virtual void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-			throw new System.NotImplementedException ();
 		}
 
 		/// <summary>
@@ -74,7 +81,6 @@ namespace Knot3.Widgets
 		/// </summary>
 		public virtual void OnRightClick (Vector2 position, ClickState state, GameTime time)
 		{
-			throw new System.NotImplementedException ();
 		}
 
 		/// <summary>
@@ -86,14 +92,34 @@ namespace Knot3.Widgets
 
 		public virtual void SetHovered (bool hovered)
 		{
+			ItemState = hovered ? ItemState.Hovered : ItemState.None;
 		}
 
 		/// <summary>
-		/// 
+		/// Die Reaktion auf eine Bewegung des Mausrads.
 		/// </summary>
 		public virtual void OnScroll (int scrollValue)
 		{
-			throw new System.NotImplementedException ();
+			Menu.OnScroll (scrollValue);
+		}
+
+		public override void Draw (GameTime time)
+		{
+			base.Draw (time);
+
+			Console.WriteLine ("...: " + this + ", position=" + ScaledPosition + ", size=" + ScaledSize);
+			spriteBatch.Begin ();
+				
+			// zeichne den Hintergrund
+			spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds ());
+
+			// lade die Schrift
+			SpriteFont font = HfGDesign.MenuFont (Screen);
+
+			// zeichne die Schrift
+			spriteBatch.DrawStringInRectangle (font, Text, ForegroundColor (), Bounds (), AlignX, AlignY);
+
+			spriteBatch.End ();
 		}
 
         #endregion
