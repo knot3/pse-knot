@@ -21,10 +21,10 @@ using Knot3.Widgets;
 
 namespace Knot3.KnotData
 {
-    /// <summary>
-    /// Eine doppelt verkettete Liste.
-    /// </summary>
-    public class Circle<T> : IEnumerable<T>
+	/// <summary>
+	/// Eine doppelt verkettete Liste.
+	/// </summary>
+	public class Circle<T> : IEnumerable<T>
 	{
 		public T Content { get; set; }
 

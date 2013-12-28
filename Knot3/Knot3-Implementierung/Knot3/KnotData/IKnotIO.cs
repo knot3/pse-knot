@@ -32,7 +32,7 @@ namespace Knot3.KnotData
         /// <summary>
         /// Aufzählung der Dateierweiterungen.
         /// </summary>
-        IEnumerable<string> FileExtensions { get; set; }
+        IEnumerable<string> FileExtensions { get; }
 
         #endregion
 

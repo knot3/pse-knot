@@ -24,9 +24,8 @@ namespace Knot3.KnotData
     /// <summary>
     /// Implementiert das Speicherformat für Challenges.
     /// </summary>
-    public class ChallengeFileIO : IChallengeIO
+    public sealed class ChallengeFileIO : IChallengeIO
     {
-
         #region Constructors
 
         /// <summary>
@@ -44,7 +43,7 @@ namespace Knot3.KnotData
         /// <summary>
         /// Speichert eine Challenge in dem Dateinamen, der in dem Challenge-Objekt enthalten ist.
         /// </summary>
-        public virtual void Save (Challenge challenge)
+        public void Save (Challenge challenge)
         {
             throw new System.NotImplementedException();
         }
@@ -52,7 +51,7 @@ namespace Knot3.KnotData
         /// <summary>
         /// Lädt eine Challenge aus einer angegebenen Datei.
         /// </summary>
-        public virtual Challenge Load (string filename)
+        public Challenge Load (string filename)
         {
             throw new System.NotImplementedException();
         }
@@ -60,13 +59,12 @@ namespace Knot3.KnotData
         /// <summary>
         /// Lädt die Metadaten einer Challenge aus einer angegebenen Datei.
         /// </summary>
-        public virtual ChallengeMetaData LoadMetaData (string filename)
+        public ChallengeMetaData LoadMetaData (string filename)
         {
             throw new System.NotImplementedException();
         }
 
         #endregion
-
     }
 }
 

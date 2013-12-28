@@ -26,7 +26,6 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class Edge : IEquatable<Edge>
 	{
-
         #region Properties
 
 		/// <summary>
