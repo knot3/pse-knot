@@ -26,7 +26,6 @@ namespace Knot3.KnotData
     /// </summary>
     public class ChallengeMetaData
     {
-
         #region Properties
 
         /// <summary>
@@ -72,7 +71,6 @@ namespace Knot3.KnotData
         }
 
         #endregion
-
     }
 }
 

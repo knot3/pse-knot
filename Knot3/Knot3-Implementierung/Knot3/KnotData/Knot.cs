@@ -103,8 +103,12 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Knot (KnotMetaData metaData, IEnumerable<Edge> edges)
 		{
-			MetaData = metaData;
-			MetaData.CountEdges = () => this.edges.Count;
+			MetaData = new KnotMetaData (
+				name: metaData.Name,
+				countEdges: () => this.edges.Count,
+				format: metaData.Format,
+				filename: metaData.Filename
+			);
 			this.edges = new Circle<Edge> (edges);
 			selectedEdges = new List<Edge> ();
 		}
@@ -285,8 +289,9 @@ namespace Knot3.KnotData
 		/// </summary>
 		public void Save (IKnotIO format, string filename)
 		{
-			MetaData.Filename = filename;
-			format.Save (this);
+			KnotMetaData metaData = new KnotMetaData (MetaData.Name, () => MetaData.CountEdges, format, filename);
+			Knot knotToSave = new Knot (metaData, edges);
+			format.Save (knotToSave);
 		}
 
 		/// <summary>

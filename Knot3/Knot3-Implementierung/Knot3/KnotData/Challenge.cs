@@ -26,7 +26,6 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class Challenge
 	{
-
         #region Properties
 
 		/// <summary>
@@ -90,7 +89,6 @@ namespace Knot3.KnotData
 		}
 
         #endregion
-
 	}
 }
 

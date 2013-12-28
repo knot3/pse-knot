@@ -26,7 +26,6 @@ namespace Knot3.KnotData
     /// </summary>
     public interface IChallengeIO
     {
-
         #region Methods
 
         /// <summary>
@@ -45,7 +44,6 @@ namespace Knot3.KnotData
         ChallengeMetaData LoadMetaData (string filename);
 
         #endregion
-
     }
 }
 

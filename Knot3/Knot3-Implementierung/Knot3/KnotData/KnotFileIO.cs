@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -21,61 +22,79 @@ using Knot3.Widgets;
 
 namespace Knot3.KnotData
 {
-    /// <summary>
-    /// Implementiert das Speicherformat für Knoten.
-    /// </summary>
-    public class KnotFileIO : IKnotIO
-    {
-
+	/// <summary>
+	/// Implementiert das Speicherformat für Knoten.
+	/// </summary>
+	public sealed class KnotFileIO : IKnotIO
+	{
         #region Properties
 
-        /// <summary>
-        /// Die für eine Knoten-Datei gültigen Dateiendungen.
-        /// </summary>
-        public IEnumerable<string> FileExtensions { get; set; }
+		/// <summary>
+		/// Die für eine Knoten-Datei gültigen Dateiendungen.
+		/// </summary>
+		public IEnumerable<string> FileExtensions {
+			get {
+				yield return ".knot";
+				yield return ".knt";
+			}
+		}
 
         #endregion
 
         #region Constructors
 
-        /// <summary>
-        /// Erstellt ein KnotFileIO-Objekt.
-        /// </summary>
-        public KnotFileIO ( )
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		/// Erstellt ein KnotFileIO-Objekt.
+		/// </summary>
+		public KnotFileIO ()
+		{
+		}
 
         #endregion
 
         #region Methods
 
-        /// <summary>
-        /// Speichert einen Knoten in dem Dateinamen, der in dem Knot-Objekt enthalten ist.
-        /// </summary>
-        public virtual void Save (Knot knot)
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		/// Speichert einen Knoten in dem Dateinamen, der in dem Knot-Objekt enthalten ist.
+		/// </summary>
+		public void Save (Knot knot)
+		{
+			KnotStringIO parser = new KnotStringIO (knot);
+			Console.WriteLine ("KnotFileIO.Save(" + knot + ") = #" + parser.Content.Length);
+			if (knot.MetaData.Filename == null) {
+				throw new IOException ("Error! knot has no filename: " + knot);
+			} else {
+				File.WriteAllText (knot.MetaData.Filename, parser.Content);
+			}
+		}
 
-        /// <summary>
-        /// Lädt eines Knotens aus einer angegebenen Datei.
-        /// </summary>
-        public virtual Knot Load (string filename)
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		/// Lädt eines Knotens aus einer angegebenen Datei.
+		/// </summary>
+		public Knot Load (string filename)
+		{
+			KnotStringIO parser = new KnotStringIO (string.Join ("\n", FileUtility.ReadFrom (filename)));
+			return new Knot (
+				new KnotMetaData (parser.Name, () => parser.CountEdges, this, filename),
+				parser.Edges
+			);
+		}
 
-        /// <summary>
-        /// Lädt die Metadaten eines Knotens aus einer angegebenen Datei.
-        /// </summary>
-        public virtual KnotMetaData LoadMetaData (string filename)
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		/// Lädt die Metadaten eines Knotens aus einer angegebenen Datei.
+		/// </summary>
+		public KnotMetaData LoadMetaData (string filename)
+		{
+			KnotStringIO parser = new KnotStringIO (string.Join ("\n", FileUtility.ReadFrom (filename)));
+			return new KnotMetaData (parser.Name, () => parser.CountEdges, this, filename);
+		}
+
+		public override string ToString ()
+		{
+			return "KnotFileIO";
+		}
 
         #endregion
-
-    }
+	}
 }
 
