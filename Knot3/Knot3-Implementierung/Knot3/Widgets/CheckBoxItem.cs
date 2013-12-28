@@ -24,7 +24,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein Menüeintrag, der einen Auswahlkasten darstellt.
 	/// </summary>
-	public class CheckBoxItem : MenuItem
+	public sealed class CheckBoxItem : MenuItem
 	{
 
         #region Properties

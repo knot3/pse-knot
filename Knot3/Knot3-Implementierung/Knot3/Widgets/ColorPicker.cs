@@ -25,9 +25,8 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
 	/// </summary>
-	public class ColorPicker : Widget, IKeyEventListener, IMouseEventListener
+	public sealed class ColorPicker : Widget, IKeyEventListener, IMouseEventListener
 	{
-
         #region Properties
 
 		/// <summary>
@@ -108,14 +107,14 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Reagiert auf Tastatureingaben.
 		/// </summary>
-		public virtual void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
+		public void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 		}
 
 		/// <summary>
 		/// Bei einem Linksklick wird eine Farbe ausgewählt und im Attribut Color abgespeichert.
 		/// </summary>
-		public virtual void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+		public void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
 			position = position.RelativeTo (Screen.Viewport);
 			Console.WriteLine ("ColorPicker.OnLeftClick: positon=" + position);
@@ -138,18 +137,18 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Bei einem Rechtsklick geschieht nichts.
 		/// </summary>
-		public virtual void OnRightClick (Vector2 position, ClickState state, GameTime time)
+		public void OnRightClick (Vector2 position, ClickState state, GameTime time)
 		{
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public virtual void OnScroll (int scrollValue)
+		public void OnScroll (int scrollValue)
 		{
 		}
 
-		public virtual void SetHovered (bool hovered)
+		public void SetHovered (bool hovered)
 		{
 		}
 
@@ -192,7 +191,6 @@ namespace Knot3.Widgets
 		}
 
         #endregion
-
 	}
 }
 

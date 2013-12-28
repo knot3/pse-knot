@@ -25,9 +25,8 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Eine abstrakte Klasse, von der alle Element der grafischen Benutzeroberfläche erben.
 	/// </summary>
-	public class Widget : DrawableGameScreenComponent
+	public abstract class Widget : DrawableGameScreenComponent
 	{
-
         #region Properties
 
 		/// <summary>
@@ -48,7 +47,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Gibt an, ob das grafische Element sichtbar ist.
 		/// </summary>
-		public bool IsVisible { get; set; }
+		public virtual bool IsVisible { get; set; }
 
 		/// <summary>
 		/// Die Hintergrundfarbe.
@@ -95,6 +94,7 @@ namespace Knot3.Widgets
 			ForegroundColor = () => Color.Gray;
 			BackgroundColor = () => Color.Transparent;
 			ValidKeys = new List<Keys> ();
+			IsVisible = true;
 		}
 
         #endregion
@@ -133,4 +133,3 @@ namespace Knot3.Widgets
 
 	}
 }
-

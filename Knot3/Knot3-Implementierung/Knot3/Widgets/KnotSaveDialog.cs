@@ -24,18 +24,8 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// 
 	/// </summary>
-	public class KnotSaveDialog : TextInputDialog
+	public sealed class KnotSaveDialog : TextInputDialog
 	{
-
-        #region Constructors
-
-		public KnotSaveDialog (GameScreen screen, DisplayLayer drawOrder)
-			: base(screen, drawOrder, "Save Knot", "fuck you", "Untitled Knot")
-		{
-		}
-
-        #endregion
-
         #region Properties
 
 		/// <summary>
@@ -43,20 +33,24 @@ namespace Knot3.Widgets
 		/// </summary>
 		public Action OnSave { get; set; }
 
+		public Knot Knot { get; private set; }
+
         #endregion
 
-        #region Methods
+        #region Constructors
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public virtual void SaveDialog (CreativeModeScreen screen, DisplayLayer drawOrder, Knot knot, Action onSave)
+		public KnotSaveDialog (GameScreen screen, DisplayLayer drawOrder, Knot knot, Action onSave)
+			: base(screen, drawOrder, "Save Knot", "fuck you", knot != null ? knot.Name : "Untitled Knot")
 		{
-			throw new System.NotImplementedException ();
+			OnSave = onSave;
+			Knot = knot;
 		}
 
         #endregion
 
+        #region Methods
+
+        #endregion
 	}
 }
 

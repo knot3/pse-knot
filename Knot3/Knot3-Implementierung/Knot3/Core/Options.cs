@@ -24,9 +24,8 @@ namespace Knot3.Core
 	/// <summary>
 	/// Eine statische Klasse, die eine Referenz auf die zentrale Einstellungsdatei des Spiels enthält.
 	/// </summary>
-	public class Options
+	public static class Options
 	{
-
         #region Properties
 
 		/// <summary>
@@ -43,7 +42,6 @@ namespace Knot3.Core
 		private static ConfigFile _default;
 
         #endregion
-
 	}
 }
 

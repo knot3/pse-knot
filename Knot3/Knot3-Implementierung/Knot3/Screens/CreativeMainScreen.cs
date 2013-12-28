@@ -18,58 +18,106 @@ using Knot3.GameObjects;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Utilities;
 
 namespace Knot3.Screens
 {
-    /// <summary>
-    /// In diesem Menü trifft der Spieler die Wahl, ob er im Creative-Modus einen neuen Knoten erstellen, einen Knoten laden oder
-    /// eine neue Challenge erstellen möchte.
-    /// </summary>
-    public class CreativeMainScreen : MenuScreen
-    {
-
+	/// <summary>
+	/// In diesem Menü trifft der Spieler die Wahl, ob er im Creative-Modus einen neuen Knoten erstellen, einen Knoten laden oder
+	/// eine neue Challenge erstellen möchte.
+	/// </summary>
+	public class CreativeMainScreen : MenuScreen
+	{
         #region Properties
 
-        /// <summary>
-        /// Ein Menü aus Schaltflächen, welche den Spielwunsch des Spielers weiterleiten.
-        /// </summary>
-        private Menu buttons { get; set; }
+		/// <summary>
+		/// Ein Menü aus Schaltflächen, welche den Spielwunsch des Spielers weiterleiten.
+		/// </summary>
+		private Menu buttons;
 
         #endregion
 
         #region Constructors
 
-        /// <summary>
-        /// Erzeugt ein neues CreativeMainScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-        /// </summary>
-        public CreativeMainScreen (Knot3Game game)
+		/// <summary>
+		/// Erzeugt ein neues CreativeMainScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
+		/// </summary>
+		public CreativeMainScreen (Knot3Game game)
 			: base(game)
-        {
-            throw new System.NotImplementedException();
-        }
+		{
+			buttons = new Menu (this, DisplayLayer.Menu);
+			
+			// menu
+			buttons.ItemForegroundColor = base.MenuItemForegroundColor;
+			buttons.ItemBackgroundColor = base.MenuItemBackgroundColor;
+			buttons.ItemAlignX = HorizontalAlignment.Center;
+			buttons.ItemAlignY = VerticalAlignment.Center;
+
+			MenuButton newKnotButton = new MenuButton (
+				screen: this,
+				drawOrder: DisplayLayer.MenuItem,
+				name: "NEW\nKnot",
+				onClick: () => NextScreen = new CreativeModeScreen (Game, new Knot())
+			);
+			newKnotButton.SetCoordinates (left: 0.100f, top: 0.150f, right: 0.300f, bottom: 0.350f);
+
+			MenuButton loadKnotButton = new MenuButton (
+				screen: this,
+				drawOrder: DisplayLayer.MenuItem,
+				name: "LOAD\nKnot",
+				onClick: () => NextScreen = new CreativeLoadScreen (Game)
+			);
+			loadKnotButton.SetCoordinates (left: 0.675f, top: 0.300f, right: 0.875f, bottom: 0.475f);
+
+			MenuButton newChallengeButton = new MenuButton (
+				screen: this,
+				drawOrder: DisplayLayer.MenuItem,
+				name: "NEW\nChallenge",
+				onClick: () => NextScreen = new ChallengeCreateScreen (Game)
+			);
+			newChallengeButton.SetCoordinates (left: 0.250f, top: 0.525f, right: 0.600f, bottom: 0.750f);
+
+			MenuButton backButton = new MenuButton (
+				screen: this,
+				drawOrder: DisplayLayer.MenuItem,
+				name: "Back",
+				onClick: () => NextScreen = Game.Screens.ElementAt(1)
+			);
+			backButton.AddKey (Keys.Escape);
+			
+			buttons.Add (newKnotButton);
+			buttons.Add (loadKnotButton);
+			buttons.Add (newChallengeButton);
+			buttons.Add (backButton);
+
+			// die Linien
+			lines.AddPoints (0.000f, 0.150f,
+				0.300f, 0.350f, 0.100f, 0.070f, 0.600f, 0.750f, 0.250f,
+				0.525f, 0.875f, 0.300f, 0.675f, 0.475f, 0.950f, 0.000f
+			);
+		}
 
         #endregion
 
         #region Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public override void Entered (GameScreen previousScreen, GameTime GameTime)
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		/// 
+		/// </summary>
+		public override void Entered (GameScreen previousScreen, GameTime time)
+		{
+			base.Entered (previousScreen, time);
+			AddGameComponents (time, buttons);
+		}
 
-        /// <summary>
-        /// Wird für jeden Frame aufgerufen.
-        /// </summary>
-        public override void Update (GameTime time)
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		/// Wird für jeden Frame aufgerufen.
+		/// </summary>
+		public override void Update (GameTime time)
+		{
+		}
 
         #endregion
-
-    }
+	}
 }
 

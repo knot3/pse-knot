@@ -21,39 +21,39 @@ using Knot3.KnotData;
 
 namespace Knot3.Widgets
 {
-    /// <summary>
-    /// Ein Menüeintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
-    /// </summary>
-    public class ColorPickItem : MenuItem
-    {
+	/// <summary>
+	/// Ein Menüeintrag, der eine aktuelle Farbe anzeigt und zum Ändern der Farbe per Mausklick einen ColorPicker öffnet.
+	/// </summary>
+	public sealed class ColorPickItem : MenuItem
+	{
 
         #region Properties
 
-        /// <summary>
-        /// Die aktuelle Farbe.
-        /// </summary>
-        public Color Color { get; set; }
+		/// <summary>
+		/// Die aktuelle Farbe.
+		/// </summary>
+		public Color Color { get; set; }
 
-        /// <summary>
-        /// Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
-        /// </summary>
-        private ColorPicker picker { get; set; }
+		/// <summary>
+		/// Der ColorPicker, der bei einem Mausklick auf den Menüeintrag geöffnet wird.
+		/// </summary>
+		private ColorPicker picker { get; set; }
 
         #endregion
 
         #region Constructors
 
-        /// <summary>
-        /// Erzeugt ein neues ColorPickItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
-        /// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
-        /// </summary>
-        public ColorPickItem (GameScreen screen, DisplayLayer drawOrder, string text, Color color)
+		/// <summary>
+		/// Erzeugt ein neues ColorPickItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+		/// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
+		/// </summary>
+		public ColorPickItem (GameScreen screen, DisplayLayer drawOrder, string text, Color color)
 			: base(screen, drawOrder, text)
-        {
-        }
+		{
+		}
 
         #endregion
 
-    }
+	}
 }
 

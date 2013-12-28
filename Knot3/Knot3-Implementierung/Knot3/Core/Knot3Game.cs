@@ -127,7 +127,7 @@ namespace Knot3.Core
 			Graphics.PreferMultiSampling = true;
 
 			// screens
-			Screens = new Stack<GameScreen>();
+			Screens = new Stack<GameScreen> ();
 			Screens.Push (new StartScreen (this));
 			Screens.Peek ().Entered (null, null);
 
@@ -140,7 +140,20 @@ namespace Knot3.Core
 		/// </summary>
 		protected override void Draw (GameTime time)
 		{
+			// Lade den aktuellen Screen
+			GameScreen current = Screens.Peek ();
+
+			// Starte den Post-Processing-Effekt des Screens
+			current.PostProcessingEffect.Begin (current.BackgroundColor, time);
+
+			// Rufe Draw() auf dem aktuellen Screen auf
+			current.Draw (time);
+
+			// Rufe Draw() auf den Spielkomponenten auf
 			base.Draw (time);
+
+			// Beende den Post-Processing-Effekt des Screens
+			current.PostProcessingEffect.End (time);
 		}
 
 		/// <summary>
@@ -155,6 +168,7 @@ namespace Knot3.Core
 		/// </summary>
 		protected override void Update (GameTime time)
 		{
+			// falls der Screen gewechselt werden soll...
 			GameScreen current = Screens.Peek ();
 			GameScreen next = current.NextScreen;
 			if (current != next) {
@@ -171,7 +185,7 @@ namespace Knot3.Core
 				return;
 			}
 
-			// set the next game screen
+			// Rufe Update() auf dem aktuellen Screen auf
 			Screens.Peek ().Update (time);
 
 			// base method

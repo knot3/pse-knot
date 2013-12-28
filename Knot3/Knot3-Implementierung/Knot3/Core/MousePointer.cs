@@ -22,35 +22,35 @@ using Knot3.Utilities;
 
 namespace Knot3.Core
 {
-    /// <summary>
-    /// Repräsentiert einen Mauszeiger.
-    /// </summary>
-    public class MousePointer : DrawableGameScreenComponent
-    {
+	/// <summary>
+	/// Repräsentiert einen Mauszeiger.
+	/// </summary>
+	public sealed class MousePointer : DrawableGameScreenComponent
+	{
 		private SpriteBatch spriteBatch;
 
         #region Constructors
 
-        /// <summary>
-        /// Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
-        /// </summary>
-        public MousePointer (GameScreen screen)
+		/// <summary>
+		/// Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
+		/// </summary>
+		public MousePointer (GameScreen screen)
 			: base(screen, DisplayLayer.Cursor)
-        {
+		{
 			spriteBatch = new SpriteBatch (screen.Device);
-        }
+		}
 
         #endregion
 
         #region Methods
 
-        /// <summary>
-        /// Zeichnet den Mauszeiger.
-        /// </summary>
-        public override void Draw (GameTime time)
-        {
+		/// <summary>
+		/// Zeichnet den Mauszeiger.
+		/// </summary>
+		public override void Draw (GameTime time)
+		{
 			DrawCursor (time);
-        }
+		}
 
 		private void DrawCursor (GameTime time)
 		{
@@ -61,7 +61,7 @@ namespace Knot3.Core
 				if (Screen.Input.GrabMouseMovement || Screen.Input.CurrentInputAction == InputAction.CameraTargetMove
 					|| (Screen.Input.CurrentInputAction == InputAction.ArcballMove
 					&& (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed
-				    || InputManager.CurrentMouseState.RightButton == ButtonState.Pressed))) {
+					|| InputManager.CurrentMouseState.RightButton == ButtonState.Pressed))) {
 					spriteBatch.Draw (cursorTex, Screen.Device.Viewport.Center (), Color.White);
 				} else {
 					spriteBatch.Draw (cursorTex, new Vector2 (InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y), Color.White);
@@ -72,7 +72,6 @@ namespace Knot3.Core
 		}
 
         #endregion
-
-    }
+	}
 }
 

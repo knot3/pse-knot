@@ -25,9 +25,8 @@ namespace Knot3.GameObjects
 	/// <summary>
 	/// Diese Klasse ArrowModel repräsentiert ein 3D-Modell für einen Pfeil, zum Einblenden an selektierten Kanten (s. Edge).
 	/// </summary>
-	public class ArrowModel : GameModel
+	public sealed class ArrowModel : GameModel
 	{
-
         #region Properties
 
 		/// <summary>
@@ -112,7 +111,6 @@ namespace Knot3.GameObjects
 		}
 
         #endregion
-
 	}
 }
 

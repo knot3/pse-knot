@@ -33,7 +33,7 @@ namespace Knot3.RenderEffects
         /// Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
         /// weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
         /// </summary>
-        RenderTarget2D RenderTarget { get; set; }
+        RenderTarget2D RenderTarget { get; }
 
         #endregion
 

@@ -327,5 +327,11 @@ namespace Knot3.Utilities
 				index += list.Count;
 			return list [index];
 		}
+
+		public static void SetCoordinates (this Widget widget, float left, float top, float right, float bottom)
+		{
+			widget.RelativePosition = () => new Vector2 (left, top);
+			widget.RelativeSize = () => new Vector2 (right - left, bottom - top);
+		}
 	}
 }

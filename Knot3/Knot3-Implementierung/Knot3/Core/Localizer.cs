@@ -21,34 +21,32 @@ using Knot3.Widgets;
 
 namespace Knot3.Core
 {
-    /// <summary>
-    /// Eine statische Klasse, die Bezeichner in lokalisierten Text umsetzen kann.
-    /// </summary>
-    public class Localizer
-    {
-
+	/// <summary>
+	/// Eine statische Klasse, die Bezeichner in lokalisierten Text umsetzen kann.
+	/// </summary>
+	public static class Localizer
+	{
         #region Properties
 
-        /// <summary>
-        /// Die Datei, welche Informationen für die Lokalisierung enthält.
-        /// </summary>
-        private static ConfigFile localization { get; set; }
+		/// <summary>
+		/// Die Datei, welche Informationen für die Lokalisierung enthält.
+		/// </summary>
+		private static ConfigFile localization { get; set; }
 
         #endregion
 
         #region Methods
 
-        /// <summary>
-        /// Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
-        /// aktuellen Sprache zurück, die dabei aus der Einstellungsdatei des Spiels gelesen wird.
-        /// </summary>
-        public virtual string Localize (string text)
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		/// Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
+		/// aktuellen Sprache zurück, die dabei aus der Einstellungsdatei des Spiels gelesen wird.
+		/// </summary>
+		public static string Localize (string text)
+		{
+			throw new System.NotImplementedException ();
+		}
 
         #endregion
-
-    }
+	}
 }
 

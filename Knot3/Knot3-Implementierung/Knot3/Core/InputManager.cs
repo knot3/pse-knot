@@ -25,9 +25,8 @@ namespace Knot3.Core
 	/// <summary>
 	/// Stellt für jeden Frame die Maus- und Tastatureingaben bereit. Daraus werden die nicht von XNA bereitgestellten Mauseingaben berechnet. Zusätzlich wird die aktuelle Eingabeaktion berechnet.
 	/// </summary>
-	public class InputManager : GameScreenComponent
+	public sealed class InputManager : GameScreenComponent
 	{
-
         #region Properties
 
 		/// <summary>
@@ -73,6 +72,7 @@ namespace Knot3.Core
 		private static double LeftButtonClickTimer;
 		private static double RightButtonClickTimer;
 		private static MouseState PreviousClickMouseState;
+
 		public static bool FullscreenToggled { get; set; }
 
         #endregion
@@ -145,7 +145,6 @@ namespace Knot3.Core
 		}
 
         #endregion
-
 	}
 }
 

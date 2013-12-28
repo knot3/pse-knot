@@ -26,7 +26,6 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public class GameObjectInfo : IEquatable<GameObjectInfo>
 	{
-
         #region Properties
 
 		/// <summary>
@@ -93,7 +92,6 @@ namespace Knot3.GameObjects
 		}
 
         #endregion
-
 	}
 }
 

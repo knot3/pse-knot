@@ -32,14 +32,14 @@ namespace Knot3.Widgets
         #region Properties
 
 		/// <summary>
-		/// Die von der Auflösung unabhängige Größe in Prozent.
+		/// Die von der Auflösung unabhängige Größe der Menüeinträge in Prozent.
 		/// </summary>
-		public Func<int, Vector2> RelativeItemSize { get; set; }
+		public virtual Func<int, Vector2> RelativeItemSize { get; set; }
 
 		/// <summary>
-		/// Die von der Auflösung unabhängige Position in Prozent.
+		/// Die von der Auflösung unabhängige Position der Menüeinträge in Prozent.
 		/// </summary>
-		public Func<int, Vector2> RelativeItemPosition { get; set; }
+		public virtual Func<int, Vector2> RelativeItemPosition { get; set; }
 
 		/// <summary>
 		/// Die vom Zustand des Menüeintrags abhängige Vordergrundfarbe des Menüeintrags.
@@ -60,6 +60,8 @@ namespace Knot3.Widgets
 		/// Die vertikale Ausrichtung der Menüeinträge.
 		/// </summary>
 		public VerticalAlignment ItemAlignY { get; set; }
+		
+		protected List<MenuItem> items;
 
         #endregion
 
@@ -72,6 +74,9 @@ namespace Knot3.Widgets
 		public Menu (GameScreen screen, DisplayLayer drawOrder)
 			: base(screen, drawOrder)
 		{
+			items = new List<MenuItem> ();
+			ItemAlignX = HorizontalAlignment.Left;
+			ItemAlignY = VerticalAlignment.Center;
 		}
 
         #endregion
@@ -84,7 +89,9 @@ namespace Knot3.Widgets
 		/// </summary>
 		public virtual void Add (MenuItem item)
 		{
-			throw new System.NotImplementedException ();
+			item.ItemOrder = items.Count;
+			assignMenuItemInformation (item);
+			items.Add (item);
 		}
 
 		/// <summary>
@@ -92,7 +99,12 @@ namespace Knot3.Widgets
 		/// </summary>
 		public virtual void Delete (MenuItem item)
 		{
-			throw new System.NotImplementedException ();
+			if (items.Contains (item)) {
+				items.Remove (item);
+				for (int i = 0; i < items.Count; ++i) {
+					items [i].ItemOrder = i;
+				}
+			}
 		}
 
 		/// <summary>
@@ -100,15 +112,31 @@ namespace Knot3.Widgets
 		/// </summary>
 		public virtual MenuItem GetItem (int i)
 		{
-			throw new System.NotImplementedException ();
+			while (i < 0) {
+				i += items.Count;
+			}
+			return items [i % items.Count];
+		}
+
+		public MenuItem this [int i] {
+			get {
+				return GetItem (i);
+			}
 		}
 
 		/// <summary>
 		/// Gibt die Anzahl der Einträge des Menüs zurück.
 		/// </summary>
-		public virtual int Size ()
+		public int Size ()
 		{
-			throw new System.NotImplementedException ();
+			return Count;
+		}
+
+		public int Count { get { return items.Count; } }
+
+		public void Clear ()
+		{
+			items.Clear ();
 		}
 
 		/// <summary>
@@ -117,7 +145,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public virtual IEnumerator<MenuItem> GetEnumerator ()
 		{
-			throw new System.NotImplementedException ();
+			return items.GetEnumerator ();
 		}
 
 		// Explicit interface implementation for nongeneric interface
@@ -126,8 +154,55 @@ namespace Knot3.Widgets
 			return GetEnumerator (); // Just return the generic version
 		}
 
+		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
+		{
+			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
+				yield return component;
+			}
+			foreach (DrawableGameScreenComponent item in items) {
+				yield return item;
+			}
+		}
+
+		/// <summary>
+		/// Die Reaktion auf eine Bewegung des Mausrads.
+		/// </summary>
+		public virtual void OnScroll (int scrollValue)
+		{
+		}
+
+		private void assignMenuItemInformation (MenuItem item)
+		{
+			if (RelativeItemPosition != null)
+				item.RelativePosition = () => RelativeItemPosition (item.ItemOrder);
+			if (RelativeItemSize != null)
+				item.RelativeSize = () => RelativeItemSize (item.ItemOrder);
+			if (ItemForegroundColor != null)
+				item.ForegroundColor = () => ItemForegroundColor (item.ItemState);
+			if (ItemBackgroundColor != null)
+				item.BackgroundColor = () => ItemBackgroundColor (item.ItemState);
+			item.AlignX = ItemAlignX;
+			item.AlignY = ItemAlignY;
+			item.IsVisible = isVisible;
+		}
+
         #endregion
 
+		private bool isVisible;
+
+		public override bool IsVisible {
+			get {
+				return isVisible;
+			}
+			set {
+				isVisible = value;
+				if (items != null) {
+					foreach (MenuItem item in items) {
+						item.IsVisible = value;
+					}
+				}
+			}
+		}
 	}
 }
 

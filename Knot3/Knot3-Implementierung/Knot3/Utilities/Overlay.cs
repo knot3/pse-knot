@@ -22,7 +22,7 @@ using Knot3.Widgets;
 
 namespace Knot3.Utilities
 {
-	public class Overlay : DrawableGameScreenComponent
+	public sealed class Overlay : DrawableGameScreenComponent
 	{
 		// graphics-related classes
 		private SpriteBatch spriteBatch;

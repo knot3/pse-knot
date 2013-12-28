@@ -26,7 +26,6 @@ namespace Knot3.GameObjects
     /// </summary>
     public sealed class ModelFactory
     {
-
         #region Properties
 
         /// <summary>
@@ -72,7 +71,6 @@ namespace Knot3.GameObjects
         }
 
         #endregion
-
     }
 }
 

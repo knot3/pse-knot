@@ -24,9 +24,8 @@ namespace Knot3.GameObjects
     /// <summary>
     /// Enthält Informationen über ein 3D-Modell wie den Dateinamen, die Rotation und die Skalierung.
     /// </summary>
-    public class GameModelInfo : GameObjectInfo
+    public abstract class GameModelInfo : GameObjectInfo
     {
-
         #region Properties
 
         /// <summary>
@@ -67,7 +66,6 @@ namespace Knot3.GameObjects
         }
 
         #endregion
-
     }
 }
 

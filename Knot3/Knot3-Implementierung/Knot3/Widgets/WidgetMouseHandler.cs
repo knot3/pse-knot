@@ -25,9 +25,8 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein Inputhandler, der Mauseingaben auf Widgets verarbeitet.
 	/// </summary>
-	public class WidgetMouseHandler : GameScreenComponent
+	public sealed class WidgetMouseHandler : GameScreenComponent
 	{
-
 		public WidgetMouseHandler (GameScreen screen)
 			: base(screen, DisplayLayer.None)
 		{
@@ -46,20 +45,17 @@ namespace Knot3.Widgets
 		public override void Update (GameTime time)
 		{
 			ClickEventComponent best = null;
-			foreach (IGameScreenComponent _component in Screen.Game.Components) {
-				if (_component is IMouseEventListener) {
-					IMouseEventListener receiver = _component as IMouseEventListener;
-					// mouse input
-					Rectangle bounds = receiver.Bounds ();
-					bool hovered = bounds.Contains (InputManager.CurrentMouseState.ToPoint ());
-					receiver.SetHovered (hovered);
-					if (hovered && receiver.IsMouseEventEnabled && (best == null || receiver.Index > best.layer)) {
-						best = new ClickEventComponent {
-							receiver = receiver,
-							layer = receiver.Index,
-							relativePosition = InputManager.CurrentMouseState.ToVector2()-bounds.Location.ToVector2()
-						};
-					}
+			foreach (IMouseEventListener receiver in Screen.Game.Components.OfType<IMouseEventListener>()) {
+				// mouse input
+				Rectangle bounds = receiver.Bounds ();
+				bool hovered = bounds.Contains (InputManager.CurrentMouseState.ToPoint ());
+				receiver.SetHovered (hovered);
+				if (hovered && receiver.IsMouseEventEnabled && (best == null || receiver.Index > best.layer)) {
+					best = new ClickEventComponent {
+						receiver = receiver,
+						layer = receiver.Index,
+						relativePosition = InputManager.CurrentMouseState.ToVector2()-bounds.Location.ToVector2()
+					};
 				}
 			}
 			if (best != null) {

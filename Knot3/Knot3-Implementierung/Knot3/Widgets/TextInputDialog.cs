@@ -26,7 +26,6 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class TextInputDialog : Dialog, IKeyEventListener
 	{
-
         #region Properties
 
 		/// <summary>
