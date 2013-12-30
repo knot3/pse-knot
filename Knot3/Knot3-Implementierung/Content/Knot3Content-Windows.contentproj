@@ -56,17 +56,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="pipe1.fbx">
-      <Name>pipe1</Name>
+    <Compile Include="prototyp-node1.fbx">
+      <Name>prototyp-node1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="prototyp-pipe1.fbx">
+      <Name>prototyp-pipe1</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="node1.fbx">
-      <Name>node1</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
+    <Compile Include="logo.png">
+      <Name>logo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
