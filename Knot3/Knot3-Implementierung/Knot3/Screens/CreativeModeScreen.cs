@@ -18,6 +18,7 @@ using Knot3.GameObjects;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Utilities;
 
 namespace Knot3.Screens
 {
@@ -26,18 +27,17 @@ namespace Knot3.Screens
 	/// </summary>
 	public class CreativeModeScreen : GameScreen
 	{
-
         #region Properties
 
 		/// <summary>
 		/// Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
 		/// </summary>
-		private World World { get; set; }
+		private World world;
 
 		/// <summary>
 		/// Der Controller, der aus dem Knoten die 3D-Modelle erstellt.
 		/// </summary>
-		private KnotRenderer KnotRenderer { get; set; }
+		private KnotRenderer knotRenderer;
 
 		/// <summary>
 		/// Der Undo-Stack.
@@ -52,7 +52,32 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Der Knoten, der vom Spieler bearbeitet wird.
 		/// </summary>
-		public Knot Knot { get; set; }
+		public Knot Knot {
+			get {
+				return knot;
+			}
+			set {
+				knot = value;
+				// Undo- und Redo-Stacks neu erstellen
+				Redo = new Stack<Knot> ();
+				Undo = new Stack<Knot> ();
+				Undo.Push (knot);
+				// den Knoten dem KnotRenderer zuweisen
+				knotRenderer.Knot = knot;
+				// Event registrieren
+				knot.EdgesChanged += OnEdgesChanged;
+				// TODO
+				// movement.Knot = knot;
+				// coloring.Knot = knot;
+				knotModified = false;
+			}
+		}
+
+		private Knot knot;
+		private bool knotModified;
+		private KnotInputHandler knotInput;
+		private MousePointer pointer;
+		private Overlay overlay;
 
         #endregion
 
@@ -64,18 +89,61 @@ namespace Knot3.Screens
 		public CreativeModeScreen (Knot3Game game, Knot knot)
 			: base(game)
 		{
+			// world
+			world = new World (this);
+			// input
+			knotInput = new KnotInputHandler (this, world);
+			// overlay
+			overlay = new Overlay (this, world);
+			// pointer
+			pointer = new MousePointer (this);
+
+			// knot renderer
+			var knotRenderInfo = new GameObjectInfo ();
+			knotRenderInfo.Position = Vector3.Zero;
+			knotRenderer = new KnotRenderer (this, knotRenderInfo);
+			world.Add (knotRenderer as IGameObject);
+
+			// set node scaling
+			Node.Scale = 100;
+
+			// default knot
+			Knot = new Knot ();
 		}
 
         #endregion
 
         #region Methods
 
+		private void OnEdgesChanged ()
+		{
+			knotModified = true;
+			Undo.Push (knot);
+			Redo.Clear ();
+		}
+
+		private void OnUndo ()
+		{
+			Knot current = Undo.Pop ();
+			Knot previous = Undo.Peek ();
+			Redo.Push (current);
+			knot = previous;
+		}
+
+		private void OnRedo ()
+		{
+			Knot next = Redo.Pop ();
+			Redo.Push (knot);
+			Undo.Push (knot);
+			knot = next;
+		}
+
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-			throw new System.NotImplementedException ();
+
 		}
 
 		/// <summary>
@@ -83,11 +151,11 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Entered (GameScreen previousScreen, GameTime time)
 		{
-			throw new System.NotImplementedException ();
+			base.Entered (previousScreen, time);
+			AddGameComponents (time, knotInput, overlay, pointer, world);
 		}
 
         #endregion
-
 	}
 }
 

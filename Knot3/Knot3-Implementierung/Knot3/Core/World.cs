@@ -98,6 +98,12 @@ namespace Knot3.Core
 
         #region Methods
 
+		public void Add (IGameObject obj)
+		{
+			Objects.Add (obj);
+			obj.World = this;
+		}
+
 		/// <summary>
 		/// Ruft auf allen Spielobjekten die Update()-Methode auf.
 		/// </summary>

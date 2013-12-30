@@ -53,7 +53,6 @@ namespace Knot3.GameObjects
         /// </summary>
         public GameModelInfo (string modelname, Angles3 rotation, Vector3 scale)
         {
-            throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -62,7 +61,6 @@ namespace Knot3.GameObjects
         /// </summary>
         public GameModelInfo (string modelname)
         {
-            throw new System.NotImplementedException();
         }
 
         #endregion

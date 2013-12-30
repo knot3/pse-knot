@@ -121,6 +121,7 @@ namespace Knot3.Core
 			Position = defaultPosition;
 			Target = new Vector3 (0, 0, 0);
 			UpVector = Vector3.Up;
+			Rotation = Angles3.Zero;
  
 			FoV = MathHelper.ToDegrees (MathHelper.PiOver4);
 			aspectRatio = screen.Viewport.AspectRatio;
