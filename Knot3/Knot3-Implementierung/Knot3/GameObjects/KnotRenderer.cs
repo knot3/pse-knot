@@ -185,12 +185,12 @@ namespace Knot3.GameObjects
 			nodes.Clear ();
 			List<Edge> edgeList = new List<Edge> (knot);
 			for (int n = 0; n < edgeList.Count; n++) {
-				if (edgeList.ElementAt (n).Direction != edgeList [n + 1].Direction) {
-					NodeModelInfo info = new NodeModelInfo (nodeMap, knot, edgeList [n], edgeList [n + 1]);
-					NodeModel node = nodeFactory [screen, info] as NodeModel;
-					node.World = World;
-					nodes.Add (node);
-				}
+				//if (edgeList.GetElementAt (n).Direction != edgeList.GetElementAt (n + 1).Direction) {
+				//	NodeModelInfo info = new NodeModelInfo (nodeMap, knot, edgeList [n], edgeList [n + 1]);
+				//	NodeModel node = nodeFactory [screen, info] as NodeModel;
+				//	node.World = World;
+				//	nodes.Add (node);
+				//}
 			}
 		}
 

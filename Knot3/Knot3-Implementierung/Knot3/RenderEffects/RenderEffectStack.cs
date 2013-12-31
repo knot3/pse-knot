@@ -31,13 +31,19 @@ namespace Knot3.RenderEffects
         #region Properties
 
 		private GameScreen screen;
-
 		private static Stack<IRenderEffect> stack = new Stack<IRenderEffect> ();
 
 		/// <summary>
 		/// Der oberste Rendereffekt.
 		/// </summary>
-		public IRenderEffect CurrentEffect { get; set; }
+		public IRenderEffect CurrentEffect {
+			get {
+				if (stack.Count > 0)
+					return stack.Peek ();
+				else
+					return defaultEffect;
+			}
+		}
 
 		/// <summary>
 		/// Der Standard-Rendereffekt, der verwendet wird, wenn der Stapel leer ist.
@@ -55,7 +61,7 @@ namespace Knot3.RenderEffects
 		{
 			this.screen = screen;
 			this.defaultEffect = defaultEffect;
-			stack = new Stack<IRenderEffect>();
+			stack = new Stack<IRenderEffect> ();
 		}
 
         #endregion

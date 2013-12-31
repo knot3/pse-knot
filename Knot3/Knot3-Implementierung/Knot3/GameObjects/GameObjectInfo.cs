@@ -50,6 +50,18 @@ namespace Knot3.GameObjects
 
         #endregion
 
+		#region Constructors
+
+		public GameObjectInfo ()
+		{
+			Position = Vector3.Zero;
+			IsVisible = true;
+			IsSelectable = true;
+			IsMovable = false;
+		}
+
+		#endregion
+
         #region Methods
 
 		/// <summary>

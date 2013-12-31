@@ -86,12 +86,18 @@ namespace Knot3.Core
 		public World (GameScreen screen)
 			: base(screen, DisplayLayer.GameWorld)
 		{
-			// camera
+			// die Kamera für diese Spielwelt
 			Camera = new Camera (screen, this);
 
-			// the list of game objects
+			// die Liste der Spielobjekte
 			Objects = new List<IGameObject> ();
-
+			
+			// der Standardeffekt
+			if (Options.Default ["video", "cel-shading", true]) {
+				CurrentEffect = new CelShadingEffect (screen);
+			} else {
+				CurrentEffect = new StandardEffect (screen);
+			}
 		}
 
         #endregion
