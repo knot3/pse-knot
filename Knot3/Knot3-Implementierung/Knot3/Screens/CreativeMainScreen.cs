@@ -57,7 +57,7 @@ namespace Knot3.Screens
 				screen: this,
 				drawOrder: DisplayLayer.MenuItem,
 				name: "NEW\nKnot",
-				onClick: () => NextScreen = new CreativeModeScreen (Game, new Knot())
+				onClick: () => NextScreen = new CreativeModeScreen (Game, new Knot ())
 			);
 			newKnotButton.SetCoordinates (left: 0.100f, top: 0.150f, right: 0.300f, bottom: 0.350f);
 
@@ -81,7 +81,7 @@ namespace Knot3.Screens
 				screen: this,
 				drawOrder: DisplayLayer.MenuItem,
 				name: "Back",
-				onClick: () => NextScreen = Game.Screens.ElementAt(1)
+				onClick: () => NextScreen = Game.Screens.Where ((s) => !(s is CreativeMainScreen)).ElementAt (0)
 			);
 			backButton.AddKey (Keys.Escape);
 			

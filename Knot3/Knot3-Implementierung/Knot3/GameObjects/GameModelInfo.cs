@@ -53,6 +53,9 @@ namespace Knot3.GameObjects
         /// </summary>
         public GameModelInfo (string modelname, Angles3 rotation, Vector3 scale)
         {
+			Modelname = modelname;
+			Rotation = rotation;
+			Scale = scale;
         }
 
         /// <summary>
@@ -61,6 +64,9 @@ namespace Knot3.GameObjects
         /// </summary>
         public GameModelInfo (string modelname)
         {
+			Modelname = modelname;
+			Rotation = Angles3.Zero;
+			Scale = Vector3.One;
         }
 
         #endregion

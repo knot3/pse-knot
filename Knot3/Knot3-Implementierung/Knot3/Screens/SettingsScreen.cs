@@ -85,7 +85,7 @@ namespace Knot3.Screens
 				screen: this,
 				drawOrder: DisplayLayer.MenuItem,
 				name: "Back",
-				onClick: () => NextScreen = new StartScreen (Game)
+				onClick: () => NextScreen = Game.Screens.Where ((s) => !(s is SettingsScreen)).ElementAt (0)
 			);
 			backButton.AddKey (Keys.Escape);
 

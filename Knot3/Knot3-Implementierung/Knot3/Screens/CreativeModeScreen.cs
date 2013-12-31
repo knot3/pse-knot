@@ -78,6 +78,7 @@ namespace Knot3.Screens
 		private KnotInputHandler knotInput;
 		private MousePointer pointer;
 		private Overlay overlay;
+		private Dialog currentDialog;
 
         #endregion
 
@@ -143,7 +144,25 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Update (GameTime time)
 		{
+			// wenn zur Zeit kein Dialog vorhanden ist, und Escape gedrückt wurde...
+			if (currentDialog == null && Keys.Escape.IsDown ()) {
+				// erstelle einen neuen Pausedialog
+				Dialog pauseDialog = new PauseDialog (screen: this, drawOrder: DisplayLayer.Dialog);
+				// füge ihn in die Spielkomponentenliste hinzu
+				AddGameComponents (time, pauseDialog);
+				// wenn er geschlossen wird, entferne ihn wieder
+				pauseDialog.Close += () => {
+					RemoveGameComponents (time, pauseDialog);
+				};
+				// weise ihn als den aktuellen Dialog zu
+				currentDialog = pauseDialog;
+			}
 
+			// wenn der aktuelle Dialog unsichtbar ist,
+			// befinden wir uns im 1. Frame nach dem Schließen des Dialogs
+			if (currentDialog != null && !currentDialog.IsVisible) {
+				currentDialog = null;
+			}
 		}
 
 		/// <summary>

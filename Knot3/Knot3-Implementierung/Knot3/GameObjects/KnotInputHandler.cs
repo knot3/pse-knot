@@ -27,18 +27,12 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public class KnotInputHandler : GameScreenComponent
 	{
-
         #region Properties
 
 		/// <summary>
 		/// Die Spielwelt.
 		/// </summary>
-		private World world { get; set; }
-
-		/// <summary>
-		/// Der Spielzustand.
-		/// </summary>
-		private GameScreen screen { get; set; }
+		private World world;
 
 		public List<Keys> ValidKeys { get; set; }
 
@@ -58,7 +52,7 @@ namespace Knot3.GameObjects
 			// Spielwelt
 			this.world = world;
 
-			// default values
+			// Setze die Standardwerte für die Mausposition
 			screen.Input.GrabMouseMovement = false;
 			ResetMousePosition ();
 			
@@ -108,7 +102,7 @@ namespace Knot3.GameObjects
 			);
 
 			// TODO
-			mouseMove.ToString();
+			mouseMove.ToString ();
 			// TODO
 		}
 
@@ -122,8 +116,8 @@ namespace Knot3.GameObjects
 		private void ResetMousePosition ()
 		{
 			if (InputManager.CurrentMouseState != InputManager.PreviousMouseState) {
-				if (screen.Input.GrabMouseMovement || (screen.Input.CurrentInputAction == InputAction.ArcballMove)) {
-					Mouse.SetPosition (screen.Viewport.Width / 2, screen.Viewport.Height / 2);
+				if (Screen.Input.GrabMouseMovement || (Screen.Input.CurrentInputAction == InputAction.ArcballMove)) {
+					Mouse.SetPosition (Screen.Viewport.Width / 2, Screen.Viewport.Height / 2);
 					InputManager.CurrentMouseState = Mouse.GetState ();
 				}
 			}

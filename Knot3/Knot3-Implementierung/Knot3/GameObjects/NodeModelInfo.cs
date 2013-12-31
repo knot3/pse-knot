@@ -58,6 +58,7 @@ namespace Knot3.GameObjects
 			EdgeTo = to;
 			IsVisible = EdgeFrom.Direction != EdgeTo.Direction;
 			Position = nodeMap.To (EdgeFrom).ToVector ();
+			IsSelectable = false;
         }
 
         #endregion

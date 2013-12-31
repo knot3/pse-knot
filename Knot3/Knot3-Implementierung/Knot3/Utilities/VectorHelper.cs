@@ -323,8 +323,12 @@ namespace Knot3.Utilities
 
 		public static T GetElementAt<T> (this List<T> list, int index)
 		{
+			Console.WriteLine("index="+index+", list.Count="+list.Count);
 			while (index < 0)
 				index += list.Count;
+			if (index >= list.Count)
+				index = index % list.Count;
+			Console.WriteLine("=> index="+index+", list.Count="+list.Count+", => "+list[index]);
 			return list [index];
 		}
 

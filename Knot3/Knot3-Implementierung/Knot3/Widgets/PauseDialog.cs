@@ -33,7 +33,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Das Menü, das verschiedene Schaltflächen enthält.
 		/// </summary>
-		private VerticalMenu pauseMenu { get; set; }
+		private VerticalMenu pauseMenu;
 
         #endregion
 		
@@ -43,9 +43,58 @@ namespace Knot3.Widgets
 		/// 
 		/// </summary>
 		public PauseDialog (GameScreen screen, DisplayLayer drawOrder)
-			: base(screen, drawOrder, "Highscores", "fuck you")
+			: base(screen, drawOrder, "Pause", "")
 		{
-			throw new System.NotImplementedException ();
+			// Der Titel-Text ist mittig ausgerichtet
+			AlignX = HorizontalAlignment.Center;
+
+			// Erstelle das Pause-Menü
+			pauseMenu = new VerticalMenu (Screen, DisplayLayer.Menu);
+			pauseMenu.RelativePosition = () => RelativeContentPosition;
+			pauseMenu.RelativeSize = () => RelativeContentSize;
+			pauseMenu.RelativePadding = () => RelativePadding ();
+			pauseMenu.ItemForegroundColor = (s) => Color.White;
+			pauseMenu.ItemBackgroundColor = (s) => (s == ItemState.Hovered) ? Color.White * 0.3f : Color.White * 0.1f;
+			pauseMenu.ItemAlignX = HorizontalAlignment.Left;
+			pauseMenu.ItemAlignY = VerticalAlignment.Center;
+
+			
+			MenuButton settingsButton = new MenuButton (
+				screen: Screen,
+				drawOrder: DisplayLayer.MenuItem,
+				name: "Settings",
+				onClick: () => {
+				Close ();
+				Screen.NextScreen = new SettingsScreen (Screen.Game); }
+			);
+			MenuButton backButton = new MenuButton (
+				screen: Screen,
+				drawOrder: DisplayLayer.MenuItem,
+				name: "Back to Game",
+				onClick: () => {
+				Close (); }
+			);
+			MenuButton exitButton = new MenuButton (
+				screen: Screen,
+				drawOrder: DisplayLayer.MenuItem,
+				name: "Exit Game",
+				onClick: () => {
+				Close ();
+				Screen.NextScreen = new StartScreen (Screen.Game);	}
+			);
+			backButton.AddKey (Keys.Escape);
+
+			pauseMenu.Add (settingsButton);
+			pauseMenu.Add (backButton);
+			pauseMenu.Add (exitButton);
+		}
+
+		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
+		{
+			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
+				yield return component;
+			}
+			yield return pauseMenu;
 		}
 
         #endregion
