@@ -64,7 +64,16 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Die Spielwelt, in der sich das 3D-Modell befindet.
 		/// </summary>
-		public World World { get; set; }
+		public World World {
+			get { return _world; }
+			set {
+				_world = value;
+				_world.Camera.OnViewChanged += OnViewChanged;
+				OnViewChanged ();
+			}
+		}
+
+		private World _world;
 
 		/// <summary>
 		/// Die Weltmatrix des 3D-Modells in der angegebenen Spielwelt.

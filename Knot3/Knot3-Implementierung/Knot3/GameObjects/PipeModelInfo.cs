@@ -57,7 +57,7 @@ namespace Knot3.GameObjects
         /// [base="pipe1", Angles3.Zero, new Vector3(10,10,10)]
         /// </summary>
         public PipeModelInfo (NodeMap nodeMap, Knot knot, Edge edge)
-            : base("pipe1", Angles3.Zero, Vector3.One * 10f)
+            : base("prototyp-pipe1", Angles3.Zero, Vector3.One * 10f)
         {
 			Knot = knot;
 			Edge = edge;

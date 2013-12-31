@@ -52,7 +52,7 @@ namespace Knot3.GameObjects
         /// [base="node1", Angles3.Zero, new Vector3(1,1,1)]
         /// </summary>
         public NodeModelInfo (NodeMap nodeMap, Knot knot, Edge from, Edge to)
-            : base("node1", Angles3.Zero, Vector3.One * 5f)
+            : base("prototyp-node1", Angles3.Zero, Vector3.One * 5f)
         {
 			EdgeFrom = from;
 			EdgeTo = to;
