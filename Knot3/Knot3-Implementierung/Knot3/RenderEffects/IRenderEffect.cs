@@ -44,6 +44,8 @@ namespace Knot3.RenderEffects
         /// und das Rendertarget des Effekts wird als aktuelles Rendertarget gesetzt.
         /// </summary>
         void Begin (GameTime time);
+		
+		void Begin (Color background, GameTime time);
 
         /// <summary>
         /// Das auf dem Stapel gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
