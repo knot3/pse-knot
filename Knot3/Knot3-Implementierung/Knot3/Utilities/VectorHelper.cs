@@ -323,12 +323,12 @@ namespace Knot3.Utilities
 
 		public static T GetElementAt<T> (this List<T> list, int index)
 		{
-			Console.WriteLine("index="+index+", list.Count="+list.Count);
+			Console.WriteLine ("index=" + index + ", list.Count=" + list.Count);
 			while (index < 0)
 				index += list.Count;
 			if (index >= list.Count)
 				index = index % list.Count;
-			Console.WriteLine("=> index="+index+", list.Count="+list.Count+", => "+list[index]);
+			Console.WriteLine ("=> index=" + index + ", list.Count=" + list.Count + ", => " + list [index]);
 			return list [index];
 		}
 
@@ -336,6 +336,11 @@ namespace Knot3.Utilities
 		{
 			widget.RelativePosition = () => new Vector2 (left, top);
 			widget.RelativeSize = () => new Vector2 (right - left, bottom - top);
+		}
+
+		public static Dictionary<A, B> ReverseDictionary<A,B> (this Dictionary<B,A> dict)
+		{
+			return dict.ToDictionary (x => x.Value, x => x.Key);
 		}
 	}
 }

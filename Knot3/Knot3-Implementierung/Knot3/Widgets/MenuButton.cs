@@ -26,7 +26,6 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class MenuButton : MenuItem
 	{
-
         #region Properties
 
 		/// <summary>

@@ -18,6 +18,7 @@ using Knot3.GameObjects;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Utilities;
 
 namespace Knot3.Screens
 {
@@ -26,13 +27,12 @@ namespace Knot3.Screens
     /// </summary>
     public class ControlSettingsScreen : SettingsScreen
     {
-
         #region Properties
 
         /// <summary>
         /// Das Menü, das die Einstellungen enthält.
         /// </summary>
-        private VerticalMenu settingsMenu { get; set; }
+		private VerticalMenu settingsMenu;
 
         #endregion
 
@@ -43,8 +43,45 @@ namespace Knot3.Screens
         /// </summary>
         public ControlSettingsScreen (Knot3Game game)
 			: base(game)
-        {
-            throw new System.NotImplementedException();
+		{
+			MenuName = "Controls";
+			
+			settingsMenu = new VerticalMenu (this, DisplayLayer.Menu);
+			settingsMenu.RelativePosition = () => new Vector2 (0.400f, 0.180f);
+			settingsMenu.RelativeSize = () => new Vector2 (0.500f, 0.770f);
+			settingsMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
+			settingsMenu.ItemForegroundColor = base.MenuItemForegroundColor;
+			settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
+			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
+			settingsMenu.ItemAlignY = VerticalAlignment.Center;
+
+			
+			// Lade die Standardbelegung
+			Dictionary<PlayerActions, Keys> defaultReversed = KnotInputHandler.DefaultKeyAssignment.ReverseDictionary();
+			
+			// Iteriere dazu über alle gültigen PlayerActions...
+			foreach (PlayerActions action in typeof(PlayerActions).ToEnumValues<PlayerActions>()) {
+				string actionName = action.ToEnumDescription ();
+				
+				// Erstelle das dazugehörige Options-Objekt...
+				KeyOptionInfo option = new KeyOptionInfo (
+					section: "controls",
+					name: actionName,
+					defaultValue: defaultReversed [action],
+					configFile: Options.Default
+				);
+
+				// Erstelle ein KeyInputItem zum Festlegen der Tastenbelegung
+				KeyInputItem item = new KeyInputItem (
+					screen: this,
+					drawOrder: DisplayLayer.MenuItem,
+					text: actionName,
+					option: option
+				);
+
+				// Füge es in das Menü ein
+				settingsMenu.Add(item);
+			}
         }
 
         #endregion
@@ -56,15 +93,15 @@ namespace Knot3.Screens
         /// </summary>
         public override void Update (GameTime time)
         {
-            throw new System.NotImplementedException();
         }
 
         /// <summary>
         /// Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
         /// </summary>
-        public override void Entered (GameScreen previousScreen, GameTime GameTime)
+        public override void Entered (GameScreen previousScreen, GameTime time)
         {
-            throw new System.NotImplementedException();
+			base.Entered (previousScreen, time);
+			AddGameComponents (time, settingsMenu);
         }
 
         #endregion

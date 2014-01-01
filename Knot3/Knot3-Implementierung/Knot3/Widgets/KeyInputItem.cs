@@ -18,6 +18,7 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
+using Knot3.Utilities;
 
 namespace Knot3.Widgets
 {
@@ -26,13 +27,27 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class KeyInputItem : InputItem
 	{
-
         #region Properties
 
 		/// <summary>
 		/// Die Option in einer Einstellungsdatei.
 		/// </summary>
-		private OptionInfo option { get; set; }
+		private KeyOptionInfo option { get; set; }
+
+		/// <summary>
+		/// Gibt an, ob gerade auf einen Tastendruck gewartet wird.
+		/// </summary>
+		private bool isCapturing;
+
+		/// <summary>
+		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
+		/// </summary>
+		protected override float NameWidth { get { return 0.65f; } }
+
+		/// <summary>
+		/// Wie viel Prozent der Wert des Eintrags (auf der rechten Seite) von der Breite des Eintrags einnehmen darf.
+		/// </summary>
+		protected override float ValueWidth { get { return 0.35f; } }
 
         #endregion
 
@@ -42,8 +57,8 @@ namespace Knot3.Widgets
 		/// Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 		/// Zudem sind Angaben zur Zeichenreihenfolge und der Eingabeoption Pflicht.
 		/// </summary>
-		public KeyInputItem (GameScreen screen, DisplayLayer drawOrder, string text, OptionInfo option)
-			: base(screen, drawOrder, text, option.Value)
+		public KeyInputItem (GameScreen screen, DisplayLayer drawOrder, string text, KeyOptionInfo option)
+			: base(screen, drawOrder, text, (option as DistinctOptionInfo).Value)
 		{
 			this.option = option;
 		}
@@ -55,13 +70,32 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Speichert die aktuell gedrückte Taste in der Option.
 		/// </summary>
-		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
+		public override void OnKeyEvent (List<Keys> keys, KeyEvent keyEvent, GameTime time)
 		{
-			option.Value = key.ToString ();
+			if (keys.Count > 0) {
+				option.Value = keys [0];
+				InputText = (option as DistinctOptionInfo).Value;
+			}
+		}
+		
+		/// <summary>
+		/// Reaktionen auf einen Linksklick.
+		/// </summary>
+		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+		{
+			switch (isCapturing) {
+			case true:
+				ValidKeys.Clear ();
+				isCapturing = false;
+				break;
+			case false:
+				ValidKeys.AddRange (typeof(Keys).ToEnumValues<Keys> ());
+				isCapturing = true;
+				break;
+			}
 		}
 
         #endregion
-
 	}
 }
 
