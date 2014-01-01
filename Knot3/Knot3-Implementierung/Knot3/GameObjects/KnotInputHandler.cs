@@ -18,7 +18,6 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
-using System.ComponentModel;
 using Knot3.Utilities;
 
 namespace Knot3.GameObjects
@@ -39,7 +38,7 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Die Tasten, auf die die Klasse reagiert. Wird aus der aktuellen Tastenbelegung berechnet.
 		/// </summary>
-		public List<Keys> ValidKeys { get; set; }
+		public List<Keys> ValidKeys { get; private set; }
 
 		/// <summary>
 		/// Zeigt an, ob die Klasse zur Zeit auf Tastatureingaben reagiert.
@@ -216,7 +215,7 @@ namespace Knot3.GameObjects
 			foreach (Keys key in keys) {
 				// Ist der Taste eine Aktion zugeordnet?
 				if (CurrentKeyAssignment.ContainsKey (key)) {
-					// Während die Tate gedrückt gehalten ist...
+					// Während die Taste gedrückt gehalten ist...
 					if (key.IsHeldDown ()) {
 						// führe die entsprechende Aktion aus!
 						PlayerActions action = CurrentKeyAssignment [key];
