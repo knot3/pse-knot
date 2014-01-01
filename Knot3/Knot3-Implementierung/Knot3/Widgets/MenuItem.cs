@@ -23,7 +23,7 @@ using Knot3.Utilities;
 namespace Knot3.Widgets
 {
 	/// <summary>
-	/// Ein abstrakte Klasse für Menüeinträge, die
+	/// Ein abstrakte Klasse für Menüeinträge.
 	/// </summary>
 	public abstract class MenuItem : Widget, IKeyEventListener, IMouseEventListener
 	{
@@ -41,7 +41,7 @@ namespace Knot3.Widgets
 		public int ItemOrder { get; set; }
 
 		/// <summary>
-		/// Der Anzeigetext der Schaltfläche.
+		/// Der Name des Menüeintrags, der auf der linken Seite angezeigt wird.
 		/// </summary>
 		public string Text { get; private set; }
 
@@ -119,6 +119,14 @@ namespace Knot3.Widgets
 			spriteBatch.DrawStringInRectangle (font, Text, ForegroundColor (), Bounds (), AlignX, AlignY);
 
 			spriteBatch.End ();
+		}
+
+		/// <summary>
+		/// Berechnet die Ausmaße des Namens des Menüeintrags.
+		/// </summary>
+		protected virtual Rectangle NameBounds ()
+		{
+			return Bounds ();
 		}
 
         #endregion

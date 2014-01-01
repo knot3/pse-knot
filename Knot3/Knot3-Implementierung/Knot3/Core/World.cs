@@ -93,7 +93,7 @@ namespace Knot3.Core
 			Objects = new List<IGameObject> ();
 			
 			// der Standardeffekt
-			if (Options.Default ["video", "cel-shading", true]) {
+			if (Options.Default ["video", "cel-shading", false]) {
 				CurrentEffect = new CelShadingEffect (screen);
 			} else {
 				CurrentEffect = new StandardEffect (screen);

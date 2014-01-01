@@ -48,12 +48,12 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Die aktuelle Tastenbelegung
 		/// </summary>
-		private static Dictionary<Keys, PlayerActions> CurrentKeyAssignment = new Dictionary<Keys, PlayerActions> ();
+		public static Dictionary<Keys, PlayerActions> CurrentKeyAssignment = new Dictionary<Keys, PlayerActions> ();
 
 		/// <summary>
 		/// Die Standard-Tastenbelegung.
 		/// </summary>
-		private static readonly Dictionary<Keys, PlayerActions> DefaultKeyAssignment
+		public static readonly Dictionary<Keys, PlayerActions> DefaultKeyAssignment
 				= new Dictionary<Keys, PlayerActions>
 		{
 			{ Keys.W, 		PlayerActions.MoveUp },
@@ -233,7 +233,7 @@ namespace Knot3.GameObjects
 		public void OnControlSettingsChanged ()
 		{
 			// Drehe die Zuordnung um; von (Taste -> Aktion) zu (Aktion -> Taste)
-			Dictionary<PlayerActions, Keys> defaultReversed = DefaultKeyAssignment.ToDictionary (x => x.Value, x => x.Key);
+			Dictionary<PlayerActions, Keys> defaultReversed = DefaultKeyAssignment.ReverseDictionary();
 
 			// Leere die aktuelle Zuordnung
 			CurrentKeyAssignment.Clear ();
@@ -241,12 +241,12 @@ namespace Knot3.GameObjects
 			// Fülle die aktuelle Zuordnung mit aus der Einstellungsdatei gelesenen werten.
 			// Iteriere dazu über alle gültigen PlayerActions...
 			foreach (PlayerActions action in typeof(PlayerActions).ToEnumValues<PlayerActions>()) {
-				string controlName = action.ToEnumDescription ();
+				string actionName = action.ToEnumDescription ();
 
 				// Erstelle eine Option...
 				KeyOptionInfo option = new KeyOptionInfo (
 					section: "controls",
-					name: controlName,
+					name: actionName,
 					defaultValue: defaultReversed [action],
 					configFile: Options.Default
 				);
