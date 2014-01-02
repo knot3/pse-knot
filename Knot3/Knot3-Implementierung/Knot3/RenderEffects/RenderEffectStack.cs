@@ -78,12 +78,6 @@ namespace Knot3.RenderEffects
 				screen.Device.SetRenderTarget (CurrentEffect.RenderTarget);
 			else
 				screen.Device.SetRenderTarget (null);
-
-			Console.Write("Pop()="+removed+"; stack=");
-			foreach(IRenderEffect eff in stack)
-				Console.Write(eff+", ");
-			Console.WriteLine();
-
 			return removed;
 		}
 
@@ -94,11 +88,6 @@ namespace Knot3.RenderEffects
 		{
 			stack.Push (effect);
 			screen.Device.SetRenderTarget (effect.RenderTarget);
-
-			Console.Write("Push("+effect+"); stack=");
-			foreach(IRenderEffect eff in stack)
-				Console.Write(eff+", ");
-			Console.WriteLine();
 		}
 
         #endregion

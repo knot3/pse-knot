@@ -73,7 +73,10 @@ namespace Knot3.RenderEffects
 
 		public virtual void Begin (Color background, GameTime time)
 		{
-			Console.WriteLine (this + ".Begin(), before=" + screen.CurrentRenderEffects.CurrentEffect);
+			if (screen.CurrentRenderEffects.CurrentEffect == this) {
+				throw new InvalidOperationException ("Begin() can be called only once on " + this + "!");
+			}
+
 			screen.CurrentRenderEffects.Push (this);
 			RenderTarget2D current = RenderTarget;
 			screen.Device.Clear (background);
@@ -94,7 +97,6 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		public virtual void End (GameTime time)
 		{
-			Console.WriteLine (this + ".End(), after=" + screen.CurrentRenderEffects.CurrentEffect);
 			screen.CurrentRenderEffects.Pop ();
 
 			spriteBatch.Begin (SpriteSortMode.Immediate, BlendState.NonPremultiplied);

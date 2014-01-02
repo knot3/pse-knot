@@ -132,8 +132,6 @@ namespace Knot3.Core
 			if (Redraw) {
 				Redraw = false;
 
-				Console.WriteLine();
-				Console.WriteLine("World.Draw()");
 				Color background = CurrentEffect is CelShadingEffect ? Color.CornflowerBlue : Color.Black;
 
 				// begin the knot render effect
@@ -146,7 +144,6 @@ namespace Knot3.Core
 
 				// end of the knot render effect
 				CurrentEffect.End (time);
-				Console.WriteLine();
 			} else {
 				Screen.PostProcessingEffect.DrawLastFrame (time);
 			}
