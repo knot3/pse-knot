@@ -83,15 +83,13 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-			switch (isCapturing) {
-			case true:
+			if (isCapturing) {
 				ValidKeys.Clear ();
 				isCapturing = false;
-				break;
-			case false:
+			} else {
 				ValidKeys.AddRange (typeof(Keys).ToEnumValues<Keys> ());
 				isCapturing = true;
-				break;
+				InputText = "";
 			}
 		}
 

@@ -71,7 +71,7 @@ namespace Knot3.Widgets
 		public VerticalMenu (GameScreen screen, DisplayLayer drawOrder)
 			: base(screen, drawOrder)
 		{
-			RelativeItemHeight = 0.050f;
+			RelativeItemHeight = 0.040f;
 		}
 
         #endregion

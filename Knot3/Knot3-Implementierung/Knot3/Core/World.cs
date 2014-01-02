@@ -132,12 +132,10 @@ namespace Knot3.Core
 			if (Redraw) {
 				Redraw = false;
 
-				// begin the post processing effect scope
 				Color background = CurrentEffect is CelShadingEffect ? Color.CornflowerBlue : Color.Black;
-				Screen.PostProcessingEffect.Begin (background, time);
 
 				// begin the knot render effect
-				CurrentEffect.Begin (time);
+				CurrentEffect.Begin (background, time);
 
 				foreach (IGameObject obj in Objects) {
 					obj.World = this;
@@ -146,9 +144,6 @@ namespace Knot3.Core
 
 				// end of the knot render effect
 				CurrentEffect.End (time);
-			
-				// end of the post processing effect
-				Screen.PostProcessingEffect.End (time);
 			} else {
 				Screen.PostProcessingEffect.DrawLastFrame (time);
 			}
