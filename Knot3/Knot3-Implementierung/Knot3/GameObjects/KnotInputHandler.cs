@@ -184,6 +184,7 @@ namespace Knot3.GameObjects
 				else
 					action = InputAction.FreeMouse;
 			}
+			Screen.Input.CurrentInputAction = action;
 
 			switch (action) {
 			case InputAction.ArcballMove:
@@ -195,7 +196,6 @@ namespace Knot3.GameObjects
 				move (new Vector3(mouseMove, 0), time);
 				break;
 			}
-			Screen.Input.CurrentInputAction = action;
 
 			// scroll wheel zoom
 			if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
