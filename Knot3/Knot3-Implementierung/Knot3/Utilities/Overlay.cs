@@ -47,7 +47,7 @@ namespace Knot3.Utilities
 
 			// load fonts
 			try {
-				font = Screen.Content.Load<SpriteFont> ("OverlayFont");
+				font = Screen.Content.Load<SpriteFont> ("font-overlay");
 			} catch (ContentLoadException ex) {
 				font = null;
 				Console.WriteLine (ex.Message);
