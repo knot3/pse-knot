@@ -44,13 +44,10 @@ namespace Knot3.Utilities
 			spriteBatch = new SpriteBatch (screen.Device);
 			effect.VertexColorEnabled = true;
 			effect.World = Matrix.CreateFromYawPitchRoll (0, 0, 0);
-		}
 
-		protected override void LoadContent ()
-		{
 			// load fonts
 			try {
-				font = Screen.Content.Load<SpriteFont> ("Font");
+				font = Screen.Content.Load<SpriteFont> ("OverlayFont");
 			} catch (ContentLoadException ex) {
 				font = null;
 				Console.WriteLine (ex.Message);
@@ -66,11 +63,13 @@ namespace Knot3.Utilities
 			if (Options.Default ["video", "fps-overlay", true])
 				DrawFPS (time);
 			DrawProfiler (time);
+			base.Draw (time);
 		}
 		
 		public override void Update (GameTime time)
 		{
 			UpdateFPS (time);
+			base.Update (time);
 		}
 
 		private void DrawCoordinates (GameTime time)
@@ -171,7 +170,7 @@ namespace Knot3.Utilities
 			_elapsed_time += (float)time.ElapsedGameTime.TotalMilliseconds;
 
 			if (_elapsed_time >= 1000.0f) {
-				_fps = _total_frames;
+				_fps = (int)(_total_frames * 1000.0f / _elapsed_time);
 				_total_frames = 0;
 				_elapsed_time = 0;
 			}

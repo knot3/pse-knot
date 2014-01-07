@@ -49,7 +49,7 @@ namespace Knot3.Core
 		/// Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
 		/// </summary>
 		public static Angles3 Zero {
-			get { return zero; }
+			get { return new Angles3 (0f, 0f, 0f); }
 		}
 
         #endregion
@@ -74,12 +74,6 @@ namespace Knot3.Core
 		}
 
         #endregion
-
-		#region Private Fields
-
-		private static Angles3 zero = new Angles3 (0f, 0f, 0f);
-
-		#endregion
 
         #region Methods
 

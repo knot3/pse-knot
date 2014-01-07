@@ -21,54 +21,74 @@ using Knot3.Widgets;
 
 namespace Knot3.GameObjects
 {
-    /// <summary>
-    /// Enthält Informationen über ein 3D-Modell, das eine Kante darstellt.
-    /// </summary>
-    public sealed class PipeModelInfo : GameModelInfo
-    {
+	/// <summary>
+	/// Enthält Informationen über ein 3D-Modell, das eine Kante darstellt.
+	/// </summary>
+	public sealed class PipeModelInfo : GameModelInfo
+	{
         #region Properties
 
-        /// <summary>
-        /// Die Kante, die durch das 3D-Modell dargestellt wird.
-        /// </summary>
-        public Edge Edge { get; set; }
+		/// <summary>
+		/// Die Kante, die durch das 3D-Modell dargestellt wird.
+		/// </summary>
+		public Edge Edge { get; set; }
 
-        /// <summary>
-        /// Der Knoten, der die Kante enthält.
-        /// </summary>
-        public Knot Knot { get; set; }
+		/// <summary>
+		/// Der Knoten, der die Kante enthält.
+		/// </summary>
+		public Knot Knot { get; set; }
 
-        /// <summary>
-        /// Die Position, an der die Kante beginnt.
-        /// </summary>
-        public Vector3 PositionFrom { get; set; }
+		/// <summary>
+		/// Die Position, an der die Kante beginnt.
+		/// </summary>
+		public Vector3 PositionFrom { get; set; }
 
-        /// <summary>
-        /// Die Position, an der die Kante endet.
-        /// </summary>
-        public Vector3 PositionTo { get; set; }
+		/// <summary>
+		/// Die Position, an der die Kante endet.
+		/// </summary>
+		public Vector3 PositionTo { get; set; }
 
         #endregion
 
         #region Constructors
 
-        /// <summary>
-        /// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
-        /// [base="pipe1", Angles3.Zero, new Vector3(10,10,10)]
-        /// </summary>
-        public PipeModelInfo (NodeMap nodeMap, Knot knot, Edge edge)
+		/// <summary>
+		/// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
+		/// [base="pipe1", Angles3.Zero, new Vector3(10,10,10)]
+		/// </summary>
+		public PipeModelInfo (NodeMap nodeMap, Knot knot, Edge edge)
             : base("prototyp-pipe1", Angles3.Zero, Vector3.One * 10f)
-        {
+		{
+			// Weise Knoten und Kante zu
 			Knot = knot;
 			Edge = edge;
+
+			// Berechne die beiden Positionen, zwischen denen die Kante gezeichnet wird
 			Node node1 = nodeMap.From (edge);
 			Node node2 = nodeMap.To (edge);
 			PositionFrom = node1.ToVector ();
 			PositionTo = node2.ToVector ();
 			Position = node1.CenterBetween (node2);
-			// a pipe is movable
+
+			// Kanten sind verschiebbar
 			IsMovable = true;
-        }
+
+			// Berechne die Drehung
+			switch (Edge.Direction) {
+			case Direction.Up:
+				Rotation += Angles3.FromDegrees (90, 0, 0);
+				break;
+			case Direction.Down:
+				Rotation += Angles3.FromDegrees (270, 0, 0);
+				break;
+			case Direction.Right:
+				Rotation += Angles3.FromDegrees (0, 90, 0);
+				break;
+			case Direction.Left:
+				Rotation += Angles3.FromDegrees (0, 270, 0);
+				break;
+			}
+		}
 
 		public override bool Equals (GameObjectInfo other)
 		{
@@ -86,6 +106,6 @@ namespace Knot3.GameObjects
 		}
 
         #endregion
-    }
+	}
 }
 

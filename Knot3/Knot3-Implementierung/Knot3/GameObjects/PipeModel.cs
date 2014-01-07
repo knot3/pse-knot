@@ -47,17 +47,6 @@ namespace Knot3.GameObjects
 		public PipeModel (GameScreen screen, PipeModelInfo info)
             : base(screen, info)
 		{
-			if (Info.Edge.Direction == Direction.Up) {
-				Info.Rotation += Angles3.FromDegrees (90, 0, 0);
-			} else if (Info.Edge.Direction == Direction.Down) {
-				Info.Rotation += Angles3.FromDegrees (270, 0, 0);
-			}
-			if (Info.Edge.Direction == Direction.Right) {
-				Info.Rotation += Angles3.FromDegrees (0, 90, 0);
-			} else if (Info.Edge.Direction == Direction.Left) {
-				Info.Rotation += Angles3.FromDegrees (0, 270, 0);
-			}
-
 			float length = (info.PositionTo - info.PositionFrom).Length ();
 			float radius = Info.Scale.PrimaryVector ().Length ();
 			Bounds = VectorHelper.CylinderBounds (
