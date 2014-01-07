@@ -148,9 +148,63 @@ namespace Knot3.GameObjects
 					InputManager.CurrentMouseState.Y - InputManager.PreviousMouseState.Y
 			);
 
-			// TODO
-			mouseMove.ToString ();
-			// TODO
+			InputAction action;
+			// wenn die Maus in der Mitte des Bildschirms gelockt ist
+			if (Screen.Input.GrabMouseMovement) {
+				// und die linke Maustaste gedrückt gehalten wird
+				if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed)
+					action = InputAction.ArcballMove;
+				// und die rechte Maustaste gedrückt gehalten wird
+				else if (InputManager.CurrentMouseState.RightButton == ButtonState.Pressed)
+					action = InputAction.ArcballMove;
+				// und alle Maustasten losgelassen sind
+				else
+					action = InputAction.CameraTargetMove;
+			}
+			// wenn die Maus frei bewegbar ist
+			else {
+				// und die linke Maustaste gedrückt gehalten wird
+				if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
+					if (world.SelectedObject != null && world.SelectedObject.Info.IsMovable)
+						action = InputAction.SelectedObjectShadowMove;
+					else
+						action = InputAction.FreeMouse;
+				}
+				// und die linke Maustaste gerade losgelassen wurde
+				else if (InputManager.CurrentMouseState.LeftButton == ButtonState.Released && InputManager.PreviousMouseState.LeftButton == ButtonState.Pressed) {
+					if (world.SelectedObject != null && world.SelectedObject.Info.IsMovable)
+						action = InputAction.SelectedObjectMove;
+					else
+						action = InputAction.FreeMouse;
+				}
+				// und die rechte Maustaste gedrückt gehalten wird
+				else if (InputManager.CurrentMouseState.RightButton == ButtonState.Pressed)
+					action = InputAction.ArcballMove;
+				// und alle Maustasten losgelassen sind
+				else
+					action = InputAction.FreeMouse;
+			}
+
+			switch (action) {
+			case InputAction.ArcballMove:
+				// rotieren
+				rotate (mouseMove, time);
+				break;
+			case InputAction.CameraTargetMove:
+				// verschieben
+				move (new Vector3(mouseMove, 0), time);
+				break;
+			}
+			Screen.Input.CurrentInputAction = action;
+
+			// scroll wheel zoom
+			if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
+				world.Camera.TargetDistance += 40;
+				world.Redraw = true;
+			} else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
+				world.Camera.TargetDistance -= 40;
+				world.Redraw = true;
+			}
 		}
 
 		private void ResetMousePosition ()
@@ -175,6 +229,7 @@ namespace Knot3.GameObjects
 				world.Camera.Target = world.Camera.Target.MoveLinear (move, up, targetDirection);
 				world.Camera.Position = world.Camera.Position.MoveLinear (move, up, targetDirection);
 				Screen.Input.CurrentInputAction = InputAction.FirstPersonCameraMove;
+				world.Redraw = true;
 			}
 		}
 
@@ -195,6 +250,7 @@ namespace Knot3.GameObjects
 				);
 				world.Camera.TargetDistance = oldDistance;
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
+				world.Redraw = true;
 			}
 		}
 
@@ -233,7 +289,7 @@ namespace Knot3.GameObjects
 		public void OnControlSettingsChanged ()
 		{
 			// Drehe die Zuordnung um; von (Taste -> Aktion) zu (Aktion -> Taste)
-			Dictionary<PlayerActions, Keys> defaultReversed = DefaultKeyAssignment.ReverseDictionary();
+			Dictionary<PlayerActions, Keys> defaultReversed = DefaultKeyAssignment.ReverseDictionary ();
 
 			// Leere die aktuelle Zuordnung
 			CurrentKeyAssignment.Clear ();

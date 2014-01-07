@@ -57,7 +57,7 @@ namespace Knot3.GameObjects
 		/// [base="pipe1", Angles3.Zero, new Vector3(10,10,10)]
 		/// </summary>
 		public PipeModelInfo (NodeMap nodeMap, Knot knot, Edge edge)
-            : base("pipe-straight", Angles3.Zero, Vector3.One * 10f)
+            : base("pipe-straight", Angles3.Zero, Vector3.One * 30f)
 		{
 			// Weise Knoten und Kante zu
 			Knot = knot;
