@@ -197,7 +197,7 @@ namespace Knot3.GameObjects
 			foreach (Node node in nodeJunctionMap.Keys) {
 				List<IJunction> junctions = nodeJunctionMap [node];
 				foreach (NodeModelInfo junction in junctions.OfType<NodeModelInfo>()) {
-					junction.JunctionsAtNode = junctions.Count;
+					junction.JunctionCountAtNode = junctions.Count;
 					NodeModel model = nodeFactory [screen, junction] as NodeModel;
 					model.World = World;
 					nodes.Add (model);

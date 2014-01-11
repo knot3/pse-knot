@@ -43,11 +43,11 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public Knot Knot { get; set; }
 
-		private int junctionsAtNode = 1;
+		private int junctionCountAtNode = 1;
 
-		public int JunctionsAtNode {
+		public int JunctionCountAtNode {
 			set {
-				junctionsAtNode = value;
+				junctionCountAtNode = value;
 				chooseModel ();
 			}
 		}
@@ -141,7 +141,7 @@ namespace Knot3.GameObjects
 			if (EdgeFrom.Direction == EdgeTo.Direction) {
 				Modelname = "pipe-straight";
 			} else {
-				if (junctionsAtNode == 1) {
+				if (junctionCountAtNode == 1) {
 					Modelname = "pipe-angled";
 				} else {
 					Modelname = "pipe-curved1";
