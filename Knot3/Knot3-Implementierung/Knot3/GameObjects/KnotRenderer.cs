@@ -192,7 +192,6 @@ namespace Knot3.GameObjects
 				Node node = nodeMap.To (edgeA);
 				IJunction junction = new NodeModelInfo (nodeMap, knot, edgeA, edgeB);
 				nodeJunctionMap.Add (node, junction);
-
 			}
 
 			foreach (Node node in nodeJunctionMap.Keys) {
