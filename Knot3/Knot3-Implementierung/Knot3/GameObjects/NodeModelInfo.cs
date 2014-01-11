@@ -149,7 +149,7 @@ namespace Knot3.GameObjects
 			}
 
 			// Berechne die Drehung
-			Console.WriteLine("directions = "+EdgeFrom.Direction+", "+EdgeTo.Direction);
+			Console.WriteLine ("directions = " + EdgeFrom.Direction + ", " + EdgeTo.Direction);
 			Rotation = junctionRotationMap [junctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 		}
 
