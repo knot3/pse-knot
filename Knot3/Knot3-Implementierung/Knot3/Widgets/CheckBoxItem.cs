@@ -18,6 +18,7 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
+using Knot3.Utilities;
 
 namespace Knot3.Widgets
 {
@@ -26,13 +27,22 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class CheckBoxItem : MenuItem
 	{
-
         #region Properties
 
 		/// <summary>
 		/// Die Option, die mit dem Auswahlkasten verknüpft ist.
 		/// </summary>
 		private BooleanOptionInfo option { get; set; }
+
+		/// <summary>
+		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
+		/// </summary>
+		protected override float NameWidth { get { return 0.90f; } }
+
+		/// <summary>
+		/// Wie viel Prozent der Wert des Eintrags (auf der rechten Seite) von der Breite des Eintrags einnehmen darf.
+		/// </summary>
+		protected override float ValueWidth { get { return ScaledSize.Y / ScaledSize.X; } }
 
         #endregion
 
@@ -45,10 +55,66 @@ namespace Knot3.Widgets
 		public CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, string text, BooleanOptionInfo option)
 			: base(screen, drawOrder, text)
 		{
+			this.option = option;
 		}
 
         #endregion
 
+		#region Methods
+
+		public override void Draw (GameTime time)
+		{
+			base.Draw (time);
+
+			spriteBatch.Begin ();
+
+			// berechne die Ausmaße des Wertefelds
+			Rectangle bounds = ValueBounds ();
+
+			// zeichne den Hintergrund des Wertefelds
+			spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds);
+			spriteBatch.DrawColoredRectangle (Color.Black, bounds.Shrink (2));
+
+			// wenn der Wert wahr ist
+			if (option.Value) {
+				spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds.Shrink (4));
+			}
+
+			spriteBatch.End ();
+		}
+
+		private void onClick ()
+		{
+			bool newValue = option.Value = !option.Value;
+			Console.WriteLine ("option: " + option.ToString () + " := " + newValue);
+		}
+
+		/// <summary>
+		/// Reaktionen auf einen Linksklick.
+		/// </summary>
+		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+		{
+			onClick ();
+		}
+
+		/// <summary>
+		/// Reaktionen auf Tasteneingaben.
+		/// </summary>
+		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
+		{
+			if (keyEvent == KeyEvent.KeyDown) {
+				onClick ();
+			}
+		}
+
+		public void AddKey (Keys key)
+		{
+			if (!ValidKeys.Contains (key)) {
+				ValidKeys.Add (key);
+			}
+		}
+
+		#endregion
 	}
 }
 

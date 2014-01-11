@@ -19,6 +19,7 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
+using Knot3.Debug;
 
 namespace Knot3.Screens
 {
@@ -76,9 +77,11 @@ namespace Knot3.Screens
 		private Knot knot;
 		private bool knotModified;
 		private KnotInputHandler knotInput;
+		private ModelMouseHandler modelMouseHandler;
 		private MousePointer pointer;
 		private Overlay overlay;
 		private Dialog currentDialog;
+		private DebugBoundings debugBoundings;
 
         #endregion
 
@@ -98,12 +101,18 @@ namespace Knot3.Screens
 			overlay = new Overlay (this, world);
 			// pointer
 			pointer = new MousePointer (this);
+			// model mouse handler
+			modelMouseHandler = new ModelMouseHandler (this, world);
 
 			// knot renderer
 			var knotRenderInfo = new GameObjectInfo ();
 			knotRenderInfo.Position = Vector3.Zero;
 			knotRenderer = new KnotRenderer (this, knotRenderInfo);
-			world.Add (knotRenderer as IGameObject);
+			world.Add (knotRenderer);
+
+			// debug displays
+			debugBoundings = new DebugBoundings (this, knotRenderInfo);
+			world.Add (debugBoundings);
 
 			// set node scaling
 			Node.Scale = 100;
@@ -171,7 +180,7 @@ namespace Knot3.Screens
 		public override void Entered (GameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, knotInput, overlay, pointer, world);
+			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler);
 		}
 
         #endregion

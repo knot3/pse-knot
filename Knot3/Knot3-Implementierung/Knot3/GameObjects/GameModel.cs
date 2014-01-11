@@ -170,7 +170,7 @@ namespace Knot3.GameObjects
 		private BoundingSphere[] _bounds;
 		private bool _inFrustum;
 
-		private BoundingSphere[] Bounds {
+		public virtual BoundingSphere[] Bounds {
 			get {
 				UpdatePrecomputed ();
 				return _bounds;

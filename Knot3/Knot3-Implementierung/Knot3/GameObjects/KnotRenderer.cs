@@ -19,6 +19,7 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
+using Knot3.Debug;
 
 namespace Knot3.GameObjects
 {

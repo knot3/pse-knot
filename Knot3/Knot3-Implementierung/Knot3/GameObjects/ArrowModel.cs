@@ -34,7 +34,11 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public new ArrowModelInfo Info { get { return base.Info as ArrowModelInfo; } set { base.Info = value; } }
 		
-		private BoundingSphere[] Bounds;
+		private BoundingSphere[] _bounds;
+
+		public override BoundingSphere[] Bounds {
+			get { return _bounds; }
+		}
 
         #endregion
 
@@ -57,7 +61,7 @@ namespace Knot3.GameObjects
 				Info.Rotation += Angles3.FromDegrees (0, 270, 0);
 			}
 
-			Bounds = VectorHelper.CylinderBounds (
+			_bounds = VectorHelper.CylinderBounds (
 				length: Info.Length,
 				radius: Info.Diameter / 2,
 				direction: Info.Direction.ToVector3 (),

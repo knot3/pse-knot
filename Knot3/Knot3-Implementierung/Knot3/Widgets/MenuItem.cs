@@ -49,6 +49,16 @@ namespace Knot3.Widgets
 		/// Eine Referenz auf das Menu, in dem sich der Eintrag befindet.
 		/// </summary>
 		public Menu Menu { get; set; }
+
+		/// <summary>
+		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
+		/// </summary>
+		protected virtual float NameWidth { get { return 0.5f; } }
+
+		/// <summary>
+		/// Wie viel Prozent der Wert des Eintrags (auf der rechten Seite) von der Breite des Eintrags einnehmen darf.
+		/// </summary>
+		protected virtual float ValueWidth { get { return 0.5f; } }
 		
 		protected SpriteBatch spriteBatch;
 
@@ -126,7 +136,19 @@ namespace Knot3.Widgets
 		/// </summary>
 		protected virtual Rectangle NameBounds ()
 		{
-			return Bounds ();
+			Vector2 size = new Vector2 (ScaledSize.X * NameWidth, ScaledSize.Y);
+			Vector2 topLeft = ScaledPosition + ScaledSize - size;
+			return topLeft.CreateRectangle (size);
+		}
+
+		/// <summary>
+		/// Berechnet die Ausmaße des Wertes des Menüeintrags.
+		/// </summary>
+		protected virtual Rectangle ValueBounds ()
+		{
+			Vector2 size = new Vector2 (ScaledSize.X * ValueWidth, ScaledSize.Y);
+			Vector2 topLeft = ScaledPosition + ScaledSize - size;
+			return topLeft.CreateRectangle (size);
 		}
 
         #endregion

@@ -120,7 +120,7 @@ namespace Knot3.GameObjects
 		/// [base="node1", Angles3.Zero, new Vector3(1,1,1)]
 		/// </summary>
 		public NodeModelInfo (NodeMap nodeMap, Knot knot, Edge from, Edge to)
-            : base("pipe-straight", Angles3.Zero, Vector3.One * 30f)
+            : base("pipe-straight", Angles3.Zero, Vector3.One * 25f)
 		{
 			EdgeFrom = from;
 			EdgeTo = to;

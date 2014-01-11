@@ -34,16 +34,6 @@ namespace Knot3.Widgets
 		/// </summary>
 		public string InputText { get; set; }
 
-		/// <summary>
-		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
-		/// </summary>
-		protected virtual float NameWidth { get { return 0.5f; } }
-
-		/// <summary>
-		/// Wie viel Prozent der Wert des Eintrags (auf der rechten Seite) von der Breite des Eintrags einnehmen darf.
-		/// </summary>
-		protected virtual float ValueWidth { get { return 0.5f; } }
-
         #endregion
 
         #region Constructors
@@ -65,38 +55,26 @@ namespace Knot3.Widgets
 			spriteBatch.Begin ();
 
 			// berechne die Ausmaße des Eingabefelds
-			Rectangle bounds = ValueBounds();
+			Rectangle bounds = ValueBounds ();
 
 			// zeichne den Hintergrund des Eingabefelds
-			spriteBatch.DrawColoredRectangle (Color.White * 0.9f, bounds);
+			spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds);
+			spriteBatch.DrawColoredRectangle (Color.Black, bounds.Shrink (2));
 
 			// lade die Schrift
 			SpriteFont font = HfGDesign.MenuFont (Screen);
 
 			// zeichne die Schrift
-			spriteBatch.DrawStringInRectangle (font, InputText, Color.Black, bounds, HorizontalAlignment.Left, AlignY);
+			spriteBatch.DrawStringInRectangle (
+				font: font,
+				text: InputText,
+				color: ForegroundColor (),
+				bounds: bounds.Shrink (2),
+				alignX: HorizontalAlignment.Left,
+				alignY: AlignY
+			);
 
 			spriteBatch.End ();
-		}
-
-		/// <summary>
-		/// Berechnet die Ausmaße des Namens des Menüeintrags.
-		/// </summary>
-		protected override Rectangle NameBounds ()
-		{
-			Vector2 size = new Vector2 (ScaledSize.X * NameWidth, ScaledSize.Y);
-			Vector2 topLeft = ScaledPosition + ScaledSize - size;
-			return topLeft.CreateRectangle (size);
-		}
-
-		/// <summary>
-		/// Berechnet die Ausmaße des Wertes des Menüeintrags.
-		/// </summary>
-		protected virtual Rectangle ValueBounds ()
-		{
-			Vector2 size = new Vector2 (ScaledSize.X * ValueWidth, ScaledSize.Y);
-			Vector2 topLeft = ScaledPosition + ScaledSize - size;
-			return topLeft.CreateRectangle (size);
 		}
 
         #endregion

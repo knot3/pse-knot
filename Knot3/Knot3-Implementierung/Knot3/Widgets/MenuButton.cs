@@ -33,6 +33,16 @@ namespace Knot3.Widgets
 		/// </summary>
 		public Action OnClick { get; set; }
 
+		/// <summary>
+		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
+		/// </summary>
+		protected override float NameWidth { get { return 1.00f; } }
+
+		/// <summary>
+		/// Wie viel Prozent der Wert des Eintrags (auf der rechten Seite) von der Breite des Eintrags einnehmen darf.
+		/// </summary>
+		protected override float ValueWidth { get { return 0.00f; } }
+
         #endregion
 
         #region Constructors

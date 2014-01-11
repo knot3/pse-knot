@@ -155,8 +155,21 @@ namespace Knot3.Core
 		/// </summary>
 		public IEnumerator<IGameObject> GetEnumerator ()
 		{
-			foreach (IGameObject obj in Objects) {
+			foreach (IGameObject obj in flat(Objects)) {
 				yield return obj;
+			}
+		}
+
+		private IEnumerable<IGameObject> flat (IEnumerable<IGameObject> enumerable)
+		{
+			foreach (IGameObject obj in enumerable) {
+				if (obj is IEnumerable<IGameObject>) {
+					foreach (IGameObject subobj in flat(obj as IEnumerable<IGameObject>)) {
+						yield return subobj;
+					}
+				} else {
+					yield return obj;
+				}
 			}
 		}
 

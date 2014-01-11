@@ -19,6 +19,7 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
+using Knot3.Debug;
 
 namespace Knot3.Screens
 {
@@ -57,6 +58,12 @@ namespace Knot3.Screens
 			navigationMenu.ItemAlignX = HorizontalAlignment.Left;
 			navigationMenu.ItemAlignY = VerticalAlignment.Center;
 
+			MenuButton debugButton = new MenuButton (
+				screen: this,
+				drawOrder: DisplayLayer.MenuItem,
+				name: "Debug",
+				onClick: () => NextScreen = new DebugSettingsScreen (Game)
+			);
 			MenuButton graphicsButton = new MenuButton (
 				screen: this,
 				drawOrder: DisplayLayer.MenuItem,
@@ -89,6 +96,7 @@ namespace Knot3.Screens
 			);
 			backButton.AddKey (Keys.Escape);
 
+			navigationMenu.Add (debugButton);
 			navigationMenu.Add (graphicsButton);
 			navigationMenu.Add (audioButton);
 			navigationMenu.Add (controlsButton);

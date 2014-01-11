@@ -34,7 +34,11 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public new PipeModelInfo Info { get { return base.Info as PipeModelInfo; } set { base.Info = value; } }
 
-		private BoundingSphere[] Bounds;
+		private BoundingSphere[] _bounds;
+
+		public override BoundingSphere[] Bounds {
+			get { return _bounds; }
+		}
 
         #endregion
 
@@ -48,8 +52,8 @@ namespace Knot3.GameObjects
             : base(screen, info)
 		{
 			float length = (info.PositionTo - info.PositionFrom).Length ();
-			float radius = Info.Scale.PrimaryVector ().Length ();
-			Bounds = VectorHelper.CylinderBounds (
+			float radius = 10;
+			_bounds = VectorHelper.CylinderBounds (
 				length: length,
 				radius: radius,
 				direction: Info.Edge.Direction.ToVector3 (),
