@@ -193,7 +193,7 @@ namespace Knot3.GameObjects
 				break;
 			case InputAction.CameraTargetMove:
 				// verschieben
-				move (new Vector3(mouseMove, 0), time);
+				move (new Vector3 (mouseMove, 0), time);
 				break;
 			}
 
@@ -233,24 +233,41 @@ namespace Knot3.GameObjects
 			}
 		}
 
+		private float smoothMoveStep = 0f;
+
 		/// <summary>
 		/// Rotiert die Kamera auf einem Arcball um das Target.
 		/// </summary>
 		private void rotate (Vector2 move, GameTime time)
 		{
-			if (move.Length () > 0) {
+			float arcballTargetDistance = Math.Abs (world.Camera.Target.DistanceTo (world.Camera.ArcballTarget));
+			if (arcballTargetDistance > 25) {
+				if (smoothMoveStep > 0f) {
+					smoothMoveStep *= 1.002f;
+				} else {
+					smoothMoveStep = arcballTargetDistance * 0.01f;
+				}
+				world.Camera.Target = world.Camera.Target.SetDistanceTo (
+					target: world.Camera.ArcballTarget,
+					distance: arcballTargetDistance - smoothMoveStep * move.Length ()
+				);
+				world.Redraw = true;
+				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
+			
+			} else if (move.Length () > 0) {
 				move *= 3;
 				Vector3 targetDirection = world.Camera.TargetDirection;
 				Vector3 up = world.Camera.UpVector;
-				float oldDistance = world.Camera.TargetDistance = world.Camera.TargetDistance.Clamp (500, 10000);
-				world.Camera.Target = new Vector3 (world.Camera.ArcballTarget.X, world.Camera.Target.Y, world.Camera.ArcballTarget.Z);
+				float oldDistance = world.Camera.ArcballTargetDistance = world.Camera.ArcballTargetDistance.Clamp (500, 10000);
+				world.Camera.Target = new Vector3 (world.Camera.ArcballTarget.X, world.Camera.ArcballTarget.Y, world.Camera.ArcballTarget.Z);
 				world.Camera.Position = world.Camera.ArcballTarget
 					+ (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (
 						move, up, targetDirection
 				);
-				world.Camera.TargetDistance = oldDistance;
+				world.Camera.ArcballTargetDistance = oldDistance;
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
 				world.Redraw = true;
+				smoothMoveStep = 0f;
 			}
 		}
 

@@ -18,6 +18,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Utilities;
 
 namespace Knot3.Core
 {
@@ -151,16 +152,19 @@ namespace Knot3.Core
 		/// </summary>
 		public float TargetDistance {
 			get {
-				Vector3 toTarget = Target - Position;
-				return toTarget.Length ();
+				return Position.DistanceTo (Target);
 			}
 			set {
-				Vector3 toPosition = Position - Target;
-				if (Math.Abs (value) > 300) {
-					Position = Target + toPosition * value / toPosition.Length ();
-				} else {
-					Position = Target + toPosition * 300 / toPosition.Length ();
-				}
+				Position = Position.SetDistanceTo (Target, value);
+			}
+		}
+
+		public float ArcballTargetDistance {
+			get {
+				return Position.DistanceTo (ArcballTarget);
+			}
+			set {
+				Position = Position.SetDistanceTo (ArcballTarget, value);
 			}
 		}
 

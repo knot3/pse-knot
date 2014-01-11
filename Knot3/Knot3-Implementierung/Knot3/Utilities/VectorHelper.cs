@@ -340,5 +340,23 @@ namespace Knot3.Utilities
 		{
 			return dict.ToDictionary (x => x.Value, x => x.Key);
 		}
+
+		public static float DistanceTo (this Vector3 origin, Vector3 target)
+		{
+			Vector3 toPosition = origin - target;
+			return toPosition.Length ();
+		}
+
+		public static Vector3 SetDistanceTo (this Vector3 origin, Vector3 target, float distance)
+		{
+			Vector3 to = origin - target;
+			float oldDistance = to.Length ();
+			double scale = (double)distance / (double)to.Length ();
+			if (Math.Abs (oldDistance) > 1 && Math.Abs (oldDistance - distance) > 1 && Math.Abs (distance) > 1) {
+				return target + to * (float)scale;
+			} else {
+				return origin;
+			}
+		}
 	}
 }
