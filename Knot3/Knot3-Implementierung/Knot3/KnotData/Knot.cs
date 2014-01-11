@@ -84,9 +84,11 @@ namespace Knot3.KnotData
 			edges = new Circle<Edge> (new Edge[]{
 				Edge.Up,
 				Edge.Right,
+				Edge.Right,
 				Edge.Down,
 				Edge.Backward,
 				Edge.Up,
+				Edge.Left,
 				Edge.Left,
 				Edge.Down,
 				Edge.Forward

@@ -321,14 +321,12 @@ namespace Knot3.Utilities
 				return new Rectangle ((int)x, (int)y, (int)w, (int)h);
 		}
 
-		public static T GetElementAt<T> (this List<T> list, int index)
+		public static T At<T> (this List<T> list, int index)
 		{
-			Console.WriteLine ("index=" + index + ", list.Count=" + list.Count);
 			while (index < 0)
 				index += list.Count;
 			if (index >= list.Count)
 				index = index % list.Count;
-			Console.WriteLine ("=> index=" + index + ", list.Count=" + list.Count + ", => " + list [index]);
 			return list [index];
 		}
 
