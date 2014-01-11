@@ -249,7 +249,7 @@ namespace Knot3.GameObjects
 				}
 				world.Camera.Target = world.Camera.Target.SetDistanceTo (
 					target: world.Camera.ArcballTarget,
-					distance: arcballTargetDistance - smoothMoveStep * move.Length ()
+					distance: Math.Max (0, arcballTargetDistance - smoothMoveStep * move.Length ())
 				);
 				world.Redraw = true;
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
