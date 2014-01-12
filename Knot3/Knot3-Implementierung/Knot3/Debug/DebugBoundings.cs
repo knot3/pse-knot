@@ -72,12 +72,7 @@ namespace Knot3.Debug
 					color: Color.White
 				);
 			}
-			vertBuffer = new VertexBuffer (
-				graphicsDevice: screen.Device,
-				type: typeof(VertexPositionColor),
-				vertexCount: verts.Length,
-				bufferUsage: BufferUsage.None
-			);
+			vertBuffer = new VertexBuffer (screen.Device, typeof(VertexPositionColor), verts.Length, BufferUsage.None);
 			vertBuffer.SetData (verts);
 		}
 
