@@ -59,7 +59,7 @@ namespace Knot3.Widgets
 
 			// zeichne den Hintergrund des Eingabefelds
 			spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds);
-			spriteBatch.DrawColoredRectangle (Color.Black, bounds.Shrink (2));
+			spriteBatch.DrawColoredRectangle (Color.Black, bounds.Shrink (xy: 2));
 
 			// lade die Schrift
 			SpriteFont font = HfGDesign.MenuFont (Screen);
@@ -69,7 +69,7 @@ namespace Knot3.Widgets
 				font: font,
 				text: InputText,
 				color: ForegroundColor (),
-				bounds: bounds.Shrink (2),
+				bounds: bounds.Shrink (x: 4, y: 2),
 				alignX: HorizontalAlignment.Left,
 				alignY: AlignY
 			);

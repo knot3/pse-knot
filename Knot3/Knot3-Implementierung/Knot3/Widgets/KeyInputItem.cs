@@ -42,12 +42,12 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
-		protected override float NameWidth { get { return 0.65f; } }
+		protected override float NameWidth { get { return Math.Min (0.70f, 1.0f - ValueWidth); } }
 
 		/// <summary>
 		/// Wie viel Prozent der Wert des Eintrags (auf der rechten Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
-		protected override float ValueWidth { get { return 0.35f; } }
+		protected override float ValueWidth { get { return 3 * ScaledSize.Y / ScaledSize.X; } }
 
         #endregion
 
