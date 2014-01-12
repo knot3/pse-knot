@@ -95,7 +95,7 @@ namespace Knot3.KnotData
 		
 		public bool Equals (Edge other)
 		{
-			return other != null && this.Direction == other.Direction;
+			return other != null && this.id == other.id;
 		}
 		
 		public override bool Equals (object obj)

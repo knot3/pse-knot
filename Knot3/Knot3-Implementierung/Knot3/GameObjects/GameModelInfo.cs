@@ -52,6 +52,7 @@ namespace Knot3.GameObjects
         /// Dateiname, Rotation und Skalierung.
         /// </summary>
         public GameModelInfo (string modelname, Angles3 rotation, Vector3 scale)
+			: base(position: Vector3.Zero)
         {
 			Modelname = modelname;
 			Rotation = rotation;
@@ -63,6 +64,7 @@ namespace Knot3.GameObjects
         /// In modelname wird der Name der Datei angegeben, welche das Model repräsentiert.
         /// </summary>
         public GameModelInfo (string modelname)
+			: base(position: Vector3.Zero)
         {
 			Modelname = modelname;
 			Rotation = Angles3.Zero;

@@ -94,6 +94,10 @@ namespace Knot3.Debug
 
 		public void Draw (GameTime time)
 		{
+			if (!Info.IsVisible) {
+				return;
+			}
+
 			foreach (GameModel model in World.OfType<GameModel>()) {
 				if (model.Info.IsVisible) {
 					screen.Device.SetVertexBuffer (vertBuffer);

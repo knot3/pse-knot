@@ -65,10 +65,10 @@ namespace Knot3.Screens
 				Undo.Push (knot);
 				// den Knoten dem KnotRenderer zuweisen
 				knotRenderer.Knot = knot;
+				// den Knoten dem Kantenverschieber zuweisen
+				edgeMovement.Knot = knot;
 				// Event registrieren
 				knot.EdgesChanged += OnEdgesChanged;
-				// TODO
-				// movement.Knot = knot;
 				// coloring.Knot = knot;
 				knotModified = false;
 			}
@@ -78,6 +78,7 @@ namespace Knot3.Screens
 		private bool knotModified;
 		private KnotInputHandler knotInput;
 		private ModelMouseHandler modelMouseHandler;
+		private EdgeMovement edgeMovement;
 		private MousePointer pointer;
 		private Overlay overlay;
 		private Dialog currentDialog;
@@ -105,14 +106,15 @@ namespace Knot3.Screens
 			modelMouseHandler = new ModelMouseHandler (this, world);
 
 			// knot renderer
-			var knotRenderInfo = new GameObjectInfo ();
-			knotRenderInfo.Position = Vector3.Zero;
-			knotRenderer = new KnotRenderer (this, knotRenderInfo);
+			knotRenderer = new KnotRenderer (screen: this, info: new GameObjectInfo (position: Vector3.Zero));
 			world.Add (knotRenderer);
 
 			// debug displays
-			debugBoundings = new DebugBoundings (this, knotRenderInfo);
-			world.Add (debugBoundings);
+			debugBoundings = new DebugBoundings (screen: this, info: new GameObjectInfo (position: Vector3.Zero));
+
+			// edge movements
+			edgeMovement = new EdgeMovement (screen: this, world: world, info: new GameObjectInfo (position: Vector3.Zero));
+			world.Add (edgeMovement);
 
 			// assign the specified knot
 			Knot = knot;
@@ -178,6 +180,9 @@ namespace Knot3.Screens
 		{
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler);
+
+			// Einstellungen anwenden
+			debugBoundings.Info.IsVisible = Options.Default ["debug", "show-boundings", false];
 		}
 
         #endregion

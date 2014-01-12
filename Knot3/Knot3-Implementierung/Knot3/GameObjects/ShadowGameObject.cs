@@ -69,10 +69,7 @@ namespace Knot3.GameObjects
 			this.screen = screen;
 			this.decoratedObject = decoratedObj;
 
-			Info = new GameObjectInfo ();
-			Info.IsVisible = true;
-			Info.IsSelectable = false;
-			Info.IsMovable = false;
+			Info = new GameObjectInfo (position: Vector3.Zero, isVisible: true, isSelectable: false, isMovable: false);
 		}
 
         #endregion

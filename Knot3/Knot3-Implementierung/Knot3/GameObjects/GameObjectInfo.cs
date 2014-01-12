@@ -52,12 +52,12 @@ namespace Knot3.GameObjects
 
 		#region Constructors
 
-		public GameObjectInfo ()
+		public GameObjectInfo (Vector3 position, bool isVisible = true, bool isSelectable = false, bool isMovable = false)
 		{
-			Position = Vector3.Zero;
-			IsVisible = true;
-			IsSelectable = true;
-			IsMovable = false;
+			Position = position;
+			IsVisible = isVisible;
+			IsSelectable = isSelectable;
+			IsMovable = isMovable;
 		}
 
 		#endregion

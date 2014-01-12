@@ -27,7 +27,6 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class PauseDialog : Dialog
 	{
-
         #region Properties
 
 		/// <summary>
@@ -58,7 +57,6 @@ namespace Knot3.Widgets
 			pauseMenu.ItemAlignX = HorizontalAlignment.Left;
 			pauseMenu.ItemAlignY = VerticalAlignment.Center;
 
-			
 			MenuButton settingsButton = new MenuButton (
 				screen: Screen,
 				drawOrder: DisplayLayer.MenuItem,

@@ -76,7 +76,7 @@ namespace Knot3.Widgets
 			// Der Standardabstand
 			RelativePadding = () => new Vector2 (0.010f, 0.010f);
 			// Die Standardfarben
-			BackgroundColor = () => Color.White * 0.25f;
+			BackgroundColor = () => screen.BackgroundColor.Mix (Color.White, 0.15f);
 			ForegroundColor = () => Color.Black;
 			TitleBackgroundColor = () => new Color (0xb4, 0xff, 0x00) * 0.75f;
 

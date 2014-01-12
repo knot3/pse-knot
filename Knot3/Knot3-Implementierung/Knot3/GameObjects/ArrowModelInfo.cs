@@ -46,11 +46,12 @@ namespace Knot3.GameObjects
 		/// Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position position im 3D-Raum. Dieses zeigt in eine durch direction bestimmte Richtung.
 		/// </summary>
 		public ArrowModelInfo (Vector3 position, Direction direction)
-			: base("pipe1")
+			: base("arrow")
 		{
 			Direction = direction;
 			Position = position + Direction.ToVector3 () * Node.Scale / 3;
-			Scale = new Vector3 (Diameter, Diameter, Length / 10f);
+			//Scale = new Vector3 (Diameter, Diameter, Length / 10f);
+			Scale = Vector3.One * 15;
 			IsMovable = true;
 		}
 

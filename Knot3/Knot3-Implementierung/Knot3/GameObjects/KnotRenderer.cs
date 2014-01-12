@@ -89,7 +89,16 @@ namespace Knot3.GameObjects
 		/// Der Zwischenspeicher für die 3D-Modelle der Pfeile. Hier wird das Fabrik-Entwurfsmuster verwendet.
 		/// </summary>
 		private ModelFactory arrowFactory;
+
+		/// <summary>
+		/// Die Zuordnung zwischen Kanten und den dreidimensionalen Rasterpunkten, an denen sich die die Kantenübergänge befinden.
+		/// </summary>
 		private NodeMap nodeMap;
+
+		/// <summary>
+		/// Gibt an, ob Pfeile anzuzeigen sind. Wird aus der Einstellungsdatei gelesen.
+		/// </summary>
+		private bool showArrows { get { return Options.Default ["video", "arrows", false]; } }
 
         #endregion
 
@@ -161,12 +170,16 @@ namespace Knot3.GameObjects
 
 			CreatePipes ();
 			CreateNodes ();
-			CreateArrows ();
+			if (showArrows) {
+				CreateArrows ();
+			}
 		}
 
 		private void OnSelectionChanged ()
 		{
-			CreateArrows ();
+			if (showArrows) {
+				CreateArrows ();
+			}
 		}
 
 		private void CreatePipes ()
@@ -175,7 +188,7 @@ namespace Knot3.GameObjects
 			foreach (Edge edge in knot) {
 				PipeModelInfo info = new PipeModelInfo (nodeMap, knot, edge);
 				PipeModel pipe = pipeFactory [screen, info] as PipeModel;
-				// pipe.OnDataChange = () => UpdatePipes (edges);
+				pipe.Info.IsVisible = true;
 				pipe.World = World;
 				pipes.Add (pipe);
 			}
@@ -222,11 +235,13 @@ namespace Knot3.GameObjects
 				Node node2 = nodeMap.To (edge);
 				foreach (Direction direction in DirectionHelper.AllDirections()) {
 					if (knot.IsValidMove (direction, -1)) {
+						Vector3 towardsCamera = World.Camera.TargetDirection;
 						ArrowModelInfo info = new ArrowModelInfo (
-							position: node1.CenterBetween (node2) - 50 * World.Camera.TargetDirection.PrimaryDirection (),
+							position: node1.CenterBetween (node2) - 25 * towardsCamera - 25 * towardsCamera.PrimaryDirection (),
 							direction: direction
 						);
 						ArrowModel arrow = arrowFactory [screen, info] as ArrowModel;
+						arrow.Info.IsVisible = true;
 						arrow.World = World;
 						arrows.Add (arrow);
 					}
@@ -257,25 +272,27 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public void Draw (GameTime time)
 		{
-			Profiler.Values ["# InFrustum"] = 0;
-			Profiler.Values ["RenderEffect"] = 0;
-			Profiler.ProfileDelegate ["Pipes"] = () => {
-				foreach (PipeModel pipe in pipes) {
-					pipe.Draw (time);
-				}
-			};
-			Profiler.ProfileDelegate ["Nodes"] = () => {
-				foreach (NodeModel node in nodes) {
-					node.Draw (time);
-				}
-			};
-			Profiler.ProfileDelegate ["Arrows"] = () => {
-				foreach (ArrowModel arrow in arrows) {
-					arrow.Draw (time);
-				}
-			};
-			Profiler.Values ["# Pipes"] = pipes.Count ();
-			Profiler.Values ["# Nodes"] = nodes.Count ();
+			if (Info.IsVisible) {
+				Profiler.Values ["# InFrustum"] = 0;
+				Profiler.Values ["RenderEffect"] = 0;
+				Profiler.ProfileDelegate ["Pipes"] = () => {
+					foreach (PipeModel pipe in pipes) {
+						pipe.Draw (time);
+					}
+				};
+				Profiler.ProfileDelegate ["Nodes"] = () => {
+					foreach (NodeModel node in nodes) {
+						node.Draw (time);
+					}
+				};
+				Profiler.ProfileDelegate ["Arrows"] = () => {
+					foreach (ArrowModel arrow in arrows) {
+						arrow.Draw (time);
+					}
+				};
+				Profiler.Values ["# Pipes"] = pipes.Count ();
+				Profiler.Values ["# Nodes"] = nodes.Count ();
+			}
 		}
 
 		/// <summary>

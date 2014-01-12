@@ -82,16 +82,8 @@ namespace Knot3.KnotData
 		{
 			MetaData = new KnotMetaData ("", () => edges.Count, null, null);
 			edges = new Circle<Edge> (new Edge[]{
-				Edge.Up,
-				Edge.Right,
-				Edge.Right,
-				Edge.Down,
-				Edge.Backward,
-				Edge.Up,
-				Edge.Left,
-				Edge.Left,
-				Edge.Down,
-				Edge.Forward
+				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
+				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
 			);
 			selectedEdges = new List<Edge> ();
@@ -122,9 +114,10 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
 		/// </summary>
-		public Boolean IsValidMove (Direction direction, int distance)
+		public bool IsValidMove (Direction direction, int distance)
 		{
-			throw new System.NotImplementedException ();
+			// TODO
+			return true;
 		}
 
 		/// <summary>
@@ -198,11 +191,11 @@ namespace Knot3.KnotData
 		{
 			Circle<Edge> newCircle = new Circle<Edge> (edges as IEnumerable<Edge>);
 			return new Knot {
-				MetaData = new KnotMetaData(
-					MetaData.Name,
-					() => newCircle.Count,
-					MetaData.Format,
-					MetaData.Filename
+				MetaData = new KnotMetaData (
+					name: MetaData.Name,
+					countEdges: () => newCircle.Count,
+					format: MetaData.Format,
+					filename: MetaData.Filename
 				),
 				edges = newCircle,
 				selectedEdges = new List<Edge>(selectedEdges),
@@ -216,8 +209,9 @@ namespace Knot3.KnotData
 		/// </summary>
 		public void AddToSelection (Edge edge)
 		{
-			if (!selectedEdges.Contains (edge))
+			if (!selectedEdges.Contains (edge)) {
 				selectedEdges.Add (edge);
+			}
 			lastSelected = edges.Find (edge);
 			SelectionChanged ();
 		}
@@ -254,13 +248,15 @@ namespace Knot3.KnotData
 
 				if (forward.Count < backward.Count) {
 					foreach (Edge e in forward) {
-						if (!selectedEdges.Contains (e))
+						if (!selectedEdges.Contains (e)) {
 							selectedEdges.Add (e);
+						}
 					}
 				} else {
 					foreach (Edge e in backward) {
-						if (!selectedEdges.Contains (e))
+						if (!selectedEdges.Contains (e)) {
 							selectedEdges.Add (e);
+						}
 					}
 				}
 				lastSelected = selectedCircle;
