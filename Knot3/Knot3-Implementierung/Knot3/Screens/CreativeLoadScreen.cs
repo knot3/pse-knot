@@ -54,7 +54,7 @@ namespace Knot3.Screens
 
 			savegameMenu = new VerticalMenu (this, DisplayLayer.Menu);
 			savegameMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
-			savegameMenu.RelativeSize = () => new Vector2 (0.800f, 0.770f);
+			savegameMenu.RelativeSize = () => new Vector2 (0.800f, 0.720f);
 			savegameMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
 			savegameMenu.ItemForegroundColor = base.MenuItemForegroundColor;
 			savegameMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
@@ -159,7 +159,7 @@ namespace Knot3.Screens
 				font: HfGDesign.MenuFont (this),
 				text: "Load Knot",
 				color: Color.White,
-				bounds: new Rectangle (50, 50, 900, 50).Scale (Viewport),
+				bounds: new Rectangle (100, 50, 900, 50).Scale (Viewport),
 				alignX: HorizontalAlignment.Left,
 				alignY: VerticalAlignment.Center
 			);

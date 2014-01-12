@@ -28,7 +28,6 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class Menu : Widget, IEnumerable<MenuItem>
 	{
-
         #region Properties
 
 		/// <summary>
@@ -92,6 +91,7 @@ namespace Knot3.Widgets
 			item.ItemOrder = items.Count;
 			assignMenuItemInformation (item);
 			items.Add (item);
+			item.Menu = this;
 		}
 
 		/// <summary>

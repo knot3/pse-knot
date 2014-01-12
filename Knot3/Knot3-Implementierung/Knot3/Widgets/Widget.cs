@@ -47,7 +47,12 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Gibt an, ob das grafische Element sichtbar ist.
 		/// </summary>
-		public virtual bool IsVisible { get; set; }
+		public virtual bool IsVisible {
+			get { return _isVisible && RelativeSize ().Length () > 0; }
+			set { _isVisible = value; }
+		}
+
+		private bool _isVisible;
 
 		/// <summary>
 		/// Die Hintergrundfarbe.

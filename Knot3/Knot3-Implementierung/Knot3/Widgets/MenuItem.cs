@@ -110,25 +110,31 @@ namespace Knot3.Widgets
 		/// </summary>
 		public virtual void OnScroll (int scrollValue)
 		{
-			Menu.OnScroll (scrollValue);
+			if (Menu != null) {
+				Menu.OnScroll (scrollValue);
+			} else {
+				Console.WriteLine ("Warning: MenuItem is not assigned to a menu: " + this);
+			}
 		}
 
 		public override void Draw (GameTime time)
 		{
 			base.Draw (time);
 
-			spriteBatch.Begin ();
+			if (IsVisible) {
+				spriteBatch.Begin ();
 				
-			// zeichne den Hintergrund
-			spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds ());
+				// zeichne den Hintergrund
+				spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds ());
 
-			// lade die Schrift
-			SpriteFont font = HfGDesign.MenuFont (Screen);
+				// lade die Schrift
+				SpriteFont font = HfGDesign.MenuFont (Screen);
 
-			// zeichne die Schrift
-			spriteBatch.DrawStringInRectangle (font, Text, ForegroundColor (), Bounds (), AlignX, AlignY);
+				// zeichne die Schrift
+				spriteBatch.DrawStringInRectangle (font, Text, ForegroundColor (), Bounds (), AlignX, AlignY);
 
-			spriteBatch.End ();
+				spriteBatch.End ();
+			}
 		}
 
 		/// <summary>

@@ -61,9 +61,12 @@ namespace Knot3.Widgets
 			if (best != null) {
 				if (InputManager.LeftMouseButton != ClickState.None) {
 					best.receiver.OnLeftClick (best.relativePosition, InputManager.LeftMouseButton, time);
-				}
-				if (InputManager.RightMouseButton != ClickState.None) {
+				} else if (InputManager.RightMouseButton != ClickState.None) {
 					best.receiver.OnRightClick (best.relativePosition, InputManager.RightMouseButton, time);
+				} else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
+					best.receiver.OnScroll (-1);
+				} else if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
+					best.receiver.OnScroll (+1);
 				}
 			}
 		}
