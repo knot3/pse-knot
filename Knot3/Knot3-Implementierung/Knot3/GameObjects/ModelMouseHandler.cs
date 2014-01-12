@@ -60,7 +60,6 @@ namespace Knot3.GameObjects
 		private void CheckMouseRay (GameTime time)
 		{
 			double millis = time.TotalGameTime.TotalMilliseconds;
-			Console.WriteLine("CurrentInputAction="+Screen.Input.CurrentInputAction);
 			if (millis > lastRayCheck + 10
 				&& (Screen.Input.CurrentInputAction == InputAction.CameraTargetMove
 				|| Screen.Input.CurrentInputAction == InputAction.FreeMouse)
