@@ -21,9 +21,8 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
-using Knot3.Utilities;
 
-namespace Knot3.Core
+namespace Knot3.Utilities
 {
 	/// <summary>
 	/// Eine Hilfsklasse für Dateioperationen.
@@ -144,6 +143,23 @@ namespace Knot3.Core
 				while ((line = reader.ReadLine()) != null) {
 					yield return line;
 				}
+			}
+		}
+
+		public static void SearchFiles (IEnumerable<string> directories, IEnumerable<string> extensions, Action<string> add)
+		{
+			foreach (string directory in directories) {
+				SearchFiles (directory, extensions, add);
+			}
+		}
+
+		public static void SearchFiles (string directory, IEnumerable<string> extensions, Action<string> add)
+		{
+			Directory.CreateDirectory (directory);
+			var files = Directory.GetFiles (directory, "*.*", SearchOption.AllDirectories)
+				.Where (s => extensions.Any (e => s.EndsWith (e)));
+			foreach (string file in files) {
+				add (file);
 			}
 		}
 

@@ -114,11 +114,8 @@ namespace Knot3.Screens
 			debugBoundings = new DebugBoundings (this, knotRenderInfo);
 			world.Add (debugBoundings);
 
-			// set node scaling
-			Node.Scale = 100;
-
-			// default knot
-			Knot = new Knot ();
+			// assign the specified knot
+			Knot = knot;
 		}
 
         #endregion

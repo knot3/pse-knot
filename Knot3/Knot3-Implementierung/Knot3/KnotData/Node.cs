@@ -47,7 +47,7 @@ namespace Knot3.KnotData
         /// <summary>
         /// Ein Skalierungswert.
         /// </summary>
-		public static int Scale { get; set; }
+		public static readonly int Scale = 100;
 
         #endregion
 
