@@ -29,6 +29,8 @@ namespace Knot3.Screens
 	{
         #region Properties
 
+		private SpriteBatch spriteBatch;
+
 		/// <summary>
 		/// Das Menü, das die Spielstände enthält.
 		/// </summary>
@@ -48,15 +50,20 @@ namespace Knot3.Screens
 		public CreativeLoadScreen (Knot3Game game)
 			: base(game)
 		{
+			spriteBatch = new SpriteBatch (Device);
+
 			savegameMenu = new VerticalMenu (this, DisplayLayer.Menu);
-			savegameMenu.RelativePosition = () => new Vector2 (0.400f, 0.180f);
-			savegameMenu.RelativeSize = () => new Vector2 (0.500f, 0.770f);
+			savegameMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
+			savegameMenu.RelativeSize = () => new Vector2 (0.800f, 0.770f);
 			savegameMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
 			savegameMenu.ItemForegroundColor = base.MenuItemForegroundColor;
 			savegameMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			savegameMenu.ItemAlignX = HorizontalAlignment.Left;
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
 
+			lines.AddPoints (0, 50,
+				30, 970, 970, 50, 1000
+			);
 		}
 
         #endregion
@@ -142,6 +149,21 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Update (GameTime time)
 		{
+		}
+
+		public override void Draw (GameTime time)
+		{
+			spriteBatch.Begin ();
+			// text
+			spriteBatch.DrawStringInRectangle (
+				font: HfGDesign.MenuFont (this),
+				text: "Load Knot",
+				color: Color.White,
+				bounds: new Rectangle (50, 50, 900, 50).Scale (Viewport),
+				alignX: HorizontalAlignment.Left,
+				alignY: VerticalAlignment.Center
+			);
+			spriteBatch.End ();
 		}
 
 		/// <summary>
