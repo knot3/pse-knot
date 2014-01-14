@@ -222,7 +222,10 @@ namespace Knot3.KnotData
 		public void RemoveFromSelection (Edge edge)
 		{
             selectedEdges.Remove(edge);
-            lastSelected = null;
+            if (lastSelected.Content == edge)
+            {
+                lastSelected = null;
+            }
 		}
 
 		/// <summary>
