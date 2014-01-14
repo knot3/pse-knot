@@ -221,7 +221,8 @@ namespace Knot3.KnotData
 		/// </summary>
 		public void RemoveFromSelection (Edge edge)
 		{
-			throw new System.NotImplementedException ();
+            selectedEdges.Remove(edge);
+            lastSelected = null;
 		}
 
 		/// <summary>
