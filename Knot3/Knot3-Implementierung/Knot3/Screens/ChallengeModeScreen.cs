@@ -19,6 +19,7 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Debug;
+using Knot3.Utilities;
 
 namespace Knot3.Screens
 {
@@ -95,7 +96,7 @@ namespace Knot3.Screens
 				// den Knoten dem KnotRenderer zuweisen
 				PlayerKnotRenderer.Knot = _playerKnot;
 				// den Knoten dem Kantenverschieber zuweisen
-				PlayerKnotRenderer.Knot = _playerKnot;
+				PlayerEdgeMovement.Knot = _playerKnot;
 				// Event registrieren
 				_playerKnot.EdgesChanged += OnEdgesChanged;
 				// coloring.Knot = knot;
@@ -109,6 +110,7 @@ namespace Knot3.Screens
 		private ModelMouseHandler modelMouseHandler;
 		private MousePointer pointer;
 		private Overlay overlay;
+		private Dialog currentDialog;
 		private DebugBoundings debugBoundings;
 
         #endregion
@@ -128,6 +130,7 @@ namespace Knot3.Screens
 				relativePosition: new Vector2 (0f, 0.6f),
 				relativeSize: new Vector2 (0.4f, 0.4f)
 			);
+			ChallengeWorld.Camera = PlayerWorld.Camera;
 			// input
 			knotInput = new KnotInputHandler (screen: this, world: PlayerWorld);
 			// overlay
@@ -150,8 +153,11 @@ namespace Knot3.Screens
 			PlayerEdgeMovement = new EdgeMovement (screen: this, world: PlayerWorld, position: Vector3.Zero);
 			PlayerWorld.Add (PlayerEdgeMovement);
 
-			// assign the specified knot
+			// assign the specified player knot
 			PlayerKnot = challenge.Start.Clone () as Knot;
+
+			// assign the specified target knot
+			ChallengeKnotRenderer.Knot = challenge.Target;
 		}
 
         #endregion
@@ -186,6 +192,25 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Update (GameTime time)
 		{
+			// wenn zur Zeit kein Dialog vorhanden ist, und Escape gedrückt wurde...
+			if (currentDialog == null && Keys.Escape.IsDown ()) {
+				// erstelle einen neuen Pausedialog
+				Dialog pauseDialog = new PauseDialog (screen: this, drawOrder: DisplayLayer.Dialog);
+				// füge ihn in die Spielkomponentenliste hinzu
+				AddGameComponents (time, pauseDialog);
+				// wenn er geschlossen wird, entferne ihn wieder
+				pauseDialog.Close += () => {
+					RemoveGameComponents (time, pauseDialog);
+				};
+				// weise ihn als den aktuellen Dialog zu
+				currentDialog = pauseDialog;
+			}
+
+			// wenn der aktuelle Dialog unsichtbar ist,
+			// befinden wir uns im 1. Frame nach dem Schließen des Dialogs
+			if (currentDialog != null && !currentDialog.IsVisible) {
+				currentDialog = null;
+			}
 		}
 
 		/// <summary>

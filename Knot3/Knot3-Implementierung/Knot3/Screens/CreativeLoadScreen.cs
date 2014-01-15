@@ -25,7 +25,7 @@ namespace Knot3.Screens
 	/// <summary>
 	/// Der Spielzustand, der den Ladebildschirm für Knoten darstellt.
 	/// </summary>
-	public class CreativeLoadScreen : MenuScreen
+	public sealed class CreativeLoadScreen : MenuScreen
 	{
         #region Properties
 
@@ -75,7 +75,7 @@ namespace Knot3.Screens
 			// Erstelle einen neuen Parser
 			fileFormat = new KnotFileIO ();
 			// Erstelle einen neuen Index, der die Datei "index.txt" im Spielstandverzeichnis einliest
-			fileIndex = new FileIndex (FileUtility.SavegameDirectory + FileUtility.Separator + "index.txt");
+			fileIndex = new FileIndex (FileUtility.SavegameDirectory + FileUtility.Separator + "index-knots.txt");
 
 			// Diese Verzeichnisse werden nach Spielständen durchsucht
 			string[] searchDirectories = new string[] {
@@ -127,7 +127,7 @@ namespace Knot3.Screens
 				// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
 				Action LoadFile = () =>
 				{
-					NextScreen = new CreativeModeScreen (Game, fileFormat.Load (filename));
+					NextScreen = new CreativeModeScreen (game: Game, knot: fileFormat.Load (filename));
 				};
 
 				// Finde den Namen des Knotens

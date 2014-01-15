@@ -74,7 +74,7 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Knot Load (string filename)
 		{
-			KnotStringIO parser = new KnotStringIO (string.Join ("\n", FileUtility.ReadFrom (filename)));
+			KnotStringIO parser = new KnotStringIO (content: string.Join ("\n", FileUtility.ReadFrom (filename)));
 			return new Knot (
 				new KnotMetaData (parser.Name, () => parser.CountEdges, this, filename),
 				parser.Edges
@@ -86,7 +86,7 @@ namespace Knot3.KnotData
 		/// </summary>
 		public KnotMetaData LoadMetaData (string filename)
 		{
-			KnotStringIO parser = new KnotStringIO (string.Join ("\n", FileUtility.ReadFrom (filename)));
+			KnotStringIO parser = new KnotStringIO (content: string.Join ("\n", FileUtility.ReadFrom (filename)));
 			return new KnotMetaData (parser.Name, () => parser.CountEdges, this, filename);
 		}
 

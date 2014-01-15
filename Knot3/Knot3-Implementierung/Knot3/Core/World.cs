@@ -31,7 +31,18 @@ namespace Knot3.Core
 		/// <summary>
 		/// Die Kamera dieser Spielwelt.
 		/// </summary>
-		public Camera Camera { get; set; }
+		public Camera Camera {
+			get {
+				return _camera;
+			}
+			set {
+				_camera = value;
+				useInternalCamera = false;
+			}
+		}
+
+		private Camera _camera;
+		private bool useInternalCamera = true;
 
 		/// <summary>
 		/// Die Liste von Spielobjekten.
@@ -89,7 +100,7 @@ namespace Knot3.Core
 			: base(screen, DisplayLayer.GameWorld)
 		{
 			// die Kamera für diese Spielwelt
-			Camera = new Camera (screen, this);
+			_camera = new Camera (screen, this);
 
 			// die Liste der Spielobjekte
 			Objects = new List<IGameObject> ();
@@ -205,7 +216,9 @@ namespace Knot3.Core
 			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
 				yield return component;
 			}
-			yield return Camera;
+			if (useInternalCamera) {
+				yield return Camera;
+			}
 		}
 
         #endregion

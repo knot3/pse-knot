@@ -31,22 +31,17 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
 		/// </summary>
-		public Knot Start { get; set; }
+		public Knot Start { get; private set; }
 
 		/// <summary>
 		/// Der Referenzknoten, in den der Spieler den Ausgangsknoten transformiert.
 		/// </summary>
-		public Knot Target { get; set; }
+		public Knot Target { get; private set; }
 
 		/// <summary>
 		/// Eine sortierte Bestenliste.
 		/// </summary>
 		private SortedList<int, string> highscore { get; set; }
-
-		/// <summary>
-		/// Das Speicherformat der Challenge.
-		/// </summary>
-		private IChallengeIO format { get; set; }
 
 		/// <summary>
 		/// Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
@@ -56,12 +51,15 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Die Metadaten der Challenge.
 		/// </summary>
-		public ChallengeMetaData MetaData { get; set; }
+		public ChallengeMetaData MetaData { get; private set; }
 
 		/// <summary>
 		/// Der Name der Challenge.
 		/// </summary>
-		public string Name { get; set; }
+		public string Name {
+			get { return MetaData.Name; }
+			set { MetaData.Name = value; }
+		}
 
         #endregion
 
@@ -73,7 +71,9 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Challenge (ChallengeMetaData meta, Knot start, Knot target)
 		{
-			throw new System.NotImplementedException ();
+			MetaData = meta;
+			Start = start;
+			Target = target;
 		}
 
         #endregion

@@ -28,7 +28,6 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class KnotStringIO
 	{
-
         #region Properties
 
 		/// <summary>
