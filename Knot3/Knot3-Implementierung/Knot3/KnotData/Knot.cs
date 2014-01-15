@@ -202,9 +202,9 @@ namespace Knot3.KnotData
 				current = edges;
 				do {
 					Circle<Edge> previous = current.Previous;
-					Circle<Edge> beforeLast = previous.Previous;
-					if (current != beforeLast && previous.Content.Direction == beforeLast.Content.Direction.ReverseDirection ()) {
-						beforeLast.Remove ();
+					Circle<Edge> beforePrevious = previous.Previous;
+					if (current != beforePrevious && previous.Content.Direction == beforePrevious.Content.Direction.ReverseDirection ()) {
+						beforePrevious.Remove ();
 						previous.Remove ();
 					} else {
 						current = current.Next;
