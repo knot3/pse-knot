@@ -28,7 +28,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class Menu : Widget, IEnumerable<MenuItem>
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die von der Auflösung unabhängige Größe der Menüeinträge in Prozent.
@@ -59,11 +59,12 @@ namespace Knot3.Widgets
 		/// Die vertikale Ausrichtung der Menüeinträge.
 		/// </summary>
 		public VerticalAlignment ItemAlignY { get; set; }
-		
+
 		protected List<MenuItem> items;
 		private bool isVisible;
 
-		public override bool IsVisible {
+		public override bool IsVisible
+		{
 			get {
 				return isVisible;
 			}
@@ -77,25 +78,25 @@ namespace Knot3.Widgets
 			}
 		}
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 		/// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
 		/// </summary>
 		public Menu (GameScreen screen, DisplayLayer drawOrder)
-			: base(screen, drawOrder)
+		: base(screen, drawOrder)
 		{
 			items = new List<MenuItem> ();
 			ItemAlignX = HorizontalAlignment.Left;
 			ItemAlignY = VerticalAlignment.Center;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~oder leere Werte für
@@ -133,7 +134,8 @@ namespace Knot3.Widgets
 			return items [i % items.Count];
 		}
 
-		public MenuItem this [int i] {
+		public MenuItem this [int i]
+		{
 			get {
 				return GetItem (i);
 			}
@@ -188,14 +190,18 @@ namespace Knot3.Widgets
 
 		private void assignMenuItemInformation (MenuItem item)
 		{
-			if (RelativeItemPosition != null)
+			if (RelativeItemPosition != null) {
 				item.RelativePosition = () => RelativeItemPosition (item.ItemOrder);
-			if (RelativeItemSize != null)
+			}
+			if (RelativeItemSize != null) {
 				item.RelativeSize = () => RelativeItemSize (item.ItemOrder);
-			if (ItemForegroundColor != null)
+			}
+			if (ItemForegroundColor != null) {
 				item.ForegroundColor = () => ItemForegroundColor (item.ItemState);
-			if (ItemBackgroundColor != null)
+			}
+			if (ItemBackgroundColor != null) {
 				item.BackgroundColor = () => ItemBackgroundColor (item.ItemState);
+			}
 			item.AlignX = ItemAlignX;
 			item.AlignY = ItemAlignY;
 			item.IsVisible = isVisible;
@@ -208,7 +214,7 @@ namespace Knot3.Widgets
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

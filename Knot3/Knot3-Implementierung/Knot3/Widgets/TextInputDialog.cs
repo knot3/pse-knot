@@ -26,7 +26,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class TextInputDialog : Dialog, IKeyEventListener
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Der Text, der durch den Spieler eingegeben wurde.
@@ -34,35 +34,35 @@ namespace Knot3.Widgets
 		public string InputText { get; set; }
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public Action KeyEvent { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public TextInputDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
-			: base(screen, drawOrder, title, text)
+		: base(screen, drawOrder, title, text)
 		{
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 			base.OnKeyEvent (key, keyEvent, time);
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

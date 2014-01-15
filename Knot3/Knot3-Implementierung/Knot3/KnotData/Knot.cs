@@ -27,7 +27,7 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class Knot : ICloneable, IEnumerable<Edge>, IEquatable<Knot>
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Der Name des Knotens, welcher auch leer sein kann.
@@ -36,7 +36,8 @@ namespace Knot3.KnotData
 		/// und bei Änderungen wieder in diesem gespeichert.
 		/// Beim Ändern dieser Eigenschaft wird automatisch auch der im Metadaten-Objekt enthaltene Dateiname verändert.
 		/// </summary>
-		public string Name {
+		public string Name
+		{
 			get { return MetaData.Name; }
 			set { MetaData.Name = value; }
 		}
@@ -60,20 +61,20 @@ namespace Knot3.KnotData
 		/// Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
 		/// </summary>
 		public IEnumerable<Edge> SelectedEdges { get { return selectedEdges; } }
-		
+
 		private List<Edge> selectedEdges;
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public Action SelectionChanged { get; set; }
 
 		private List<Circle<Edge>> StructuredSelection;
 		private Circle<Edge> lastSelected;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt einen minimalen Standardknoten. Das Metadaten-Objekt enthält in den Eigenschaften,
@@ -82,11 +83,11 @@ namespace Knot3.KnotData
 		public Knot ()
 		{
 			MetaData = new KnotMetaData ("", () => edges.Count, null, null);
-			edges = new Circle<Edge> (new Edge[]{
+			edges = new Circle<Edge> (new Edge[] {
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
-			);
+			                         );
 			selectedEdges = new List<Edge> ();
 			SelectionChanged = () => StructuredSelection = null;
 		}
@@ -100,19 +101,19 @@ namespace Knot3.KnotData
 		public Knot (KnotMetaData metaData, IEnumerable<Edge> edges)
 		{
 			MetaData = new KnotMetaData (
-				name: metaData.Name,
-				countEdges: () => this.edges.Count,
-				format: metaData.Format,
-				filename: metaData.Filename
+			    name: metaData.Name,
+			    countEdges: () => this.edges.Count,
+			    format: metaData.Format,
+			    filename: metaData.Filename
 			);
 			this.edges = new Circle<Edge> (edges);
 			selectedEdges = new List<Edge> ();
 			SelectionChanged = () => StructuredSelection = null;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
@@ -120,30 +121,34 @@ namespace Knot3.KnotData
 		public bool IsValidMove (Direction direction, int distance)
 		{
 			CreateStructuredSelection ();
-			if (StructuredSelection.Count == 0)
+			if (StructuredSelection.Count == 0) {
 				return false;
-			if (StructuredSelection.ElementAt (0) == StructuredSelection.ElementAt (1).Next)
+			}
+			if (StructuredSelection.ElementAt (0) == StructuredSelection.ElementAt (1).Next) {
 				return true;
+			}
 			Stack<Direction> stack = new Stack<Direction> ();
 			Circle<Edge> pointer = StructuredSelection.ElementAt (0);
-            int counter;
+			int counter;
 			int position = 1;
 			while (position < StructuredSelection.Count) {
 				do {
 					stack.Push (pointer.Content.Direction);
 					pointer = pointer.Next;
-				} while (pointer != StructuredSelection.ElementAt(position).Next);
+				}
+				while (pointer != StructuredSelection.ElementAt(position).Next);
 				position++;
 				for (int i = 0; i < distance; i++) {
 					stack.Push (direction.ReverseDirection ());
 				}
-                counter = 0;
+				counter = 0;
 				while (stack.Peek() == pointer.Content.Direction.ReverseDirection() && pointer != StructuredSelection.ElementAt(position % StructuredSelection.Count)) {
-                    if (counter >= distance) // Passiert, wenn man versucht den Knoten vollständig ineinander zu schieben.
-                        return false;
-                    stack.Pop ();
+					if (counter >= distance) { // Passiert, wenn man versucht den Knoten vollständig ineinander zu schieben.
+						return false;
+					}
+					stack.Pop ();
 					pointer = pointer.Next;
-                    counter++;
+					counter++;
 				}
 				while (pointer != StructuredSelection.ElementAt(position % StructuredSelection.Count)) {
 					stack.Push (pointer.Content.Direction);
@@ -152,11 +157,12 @@ namespace Knot3.KnotData
 				for (int i = 0; i < distance; i++) {
 					if (stack.Peek () == direction.ReverseDirection ()) {
 						stack.Pop ();
-					} else {
+					}
+					else {
 						stack.Push (direction);
 					}
 				}
-                position++;
+				position++;
 			}
 			Vector3 pos3D = new Vector3 (0, 0, 0);
 			HashSet<Vector3> occupancy = new HashSet<Vector3> ();
@@ -164,7 +170,8 @@ namespace Knot3.KnotData
 
 				if (occupancy.Contains ((pos3D + (stack.Peek ().ToVector3 () / 2)))) {
 					return false;
-				} else {
+				}
+				else {
 					occupancy.Add ((pos3D + (stack.Peek ().ToVector3 () / 2)));
 					pos3D += stack.Pop ().ToVector3 ();
 				}
@@ -177,109 +184,105 @@ namespace Knot3.KnotData
 		/// </summary>
 		public bool Move (Direction direction, int distance)
 		{
-            if (!IsValidMove(direction, distance))
-                return false;
-            Circle<Edge> pointer;
-            // Durchlauf über die Selektionsblöcke
-            for (int i = 0; i < StructuredSelection.Count; i += 2)
-            {
-                pointer = StructuredSelection.ElementAt(i);
-                // Vor der Selektion Kanten einfügen, wenn die vorhandenen nicht in die entgegengesetzte Richtung zeigen.
-                // Wenn das der Fall ist stattdessen die Kante löschen.
-                for (int n = 0; n < distance; n++)
-                {
-                    if (pointer.Previous.Content.Direction == direction.ReverseDirection())
-                    {
-                        // Wenn die zu löschende Kante der Einstigspunkt ist, einen neuen setzten.
-                        if (pointer.Previous == edges)
-                            edges = edges.Next;
-                        pointer.Previous.Remove();
-                    }
-                    else
-                    {
-                        pointer.InsertBefore(new Edge(direction));
-                    }
-                }
-                pointer = StructuredSelection.ElementAt(i+1);
-                // Hinter der Selektion Kanten einfügen, wenn die vorhandenen nicht in die entgegengesetzte Richtung zeigen.
-                // Wenn das der Fall ist stattdessen die Kante löschen.
-                for (int n = 0; n < distance; n++)
-                {
-                    if (pointer.Next.Content.Direction == direction)
-                    {
-                        // Wenn die zu löschende Kante der Einstigspunkt ist, einen neuen setzten.
-                        if (pointer.Next == edges)
-                            edges = edges.Next;
-                        pointer.Next.Remove();
-                    }
-                    else
-                    {
-                        pointer.InsertAfter(new Edge(direction.ReverseDirection()));
-                    }
-                }
-            }
-            EdgesChanged ();
-            return true;
- 
-/*           
-			// Überprüft, ob der Move gültig ist
-			if (IsValidMove (direction, distance)) {
-				// erstellt aus den ausgewählten Kante ein HashSet, um in O(1) überprüfen zu können,
-				// ob Kanten selektiert sind
-				HashSet<Edge> selected = new HashSet<Edge> (selectedEdges);
-
-				// Iteriert über alle Kanten
-				Circle<Edge> current = edges;
-				do {
-					// Wenn die aktuelle Kante ausgwählt ist und die vorherige Kante nicht
-					if (!selected.Contains (current.Previous.Content) && selected.Contains (current.Content)) {
-						// Füge die Richtung so oft ein, wie in der Distanz angegeben wurde
-						for (int i = 0; i < distance; ++i) {
-							current.InsertBefore (new Edge (direction));
-						}
-					}
-
-					// Wenn die aktuelle Kante ausgwählt ist und die nächste Kante nicht
-					if (selected.Contains (current.Content) && !selected.Contains (current.Next.Content)) {
-						// Füge die umgekehrte Richtung so oft ein, wie in der Distanz angegeben wurde
-						for (int i = 0; i < distance; ++i) {
-							current.InsertAfter (new Edge (direction.ReverseDirection ()));
-						}
-					}
-
-					current = current.Next;
-				} while (current != edges);
-				
-				// Iteriert über alle Kanten
-				current = edges;
-				do {
-					// die vorherige Kante
-					Circle<Edge> previous = current.Previous;
-					// die Kante vor der vorherigen Kante
-					Circle<Edge> beforePrevious = previous.Previous;
-
-					// Wenn die aktuelle Kante nicht die vorletzte ist
-					// (effiziente Art zu prüfen, ob der Knoten mehr als 2 Kanten hat!)
-					// und wenn die Richtung der letzten Kante gleich der Umkehrten Richtung der vorletzten Kante ist
-					if (current != beforePrevious && previous.Content.Direction == beforePrevious.Content.Direction.ReverseDirection ()) {
-						// dann entferne die letzte und vorletzte Kante
-						beforePrevious.Remove ();
-						previous.Remove ();
-
-					} else {
-						current = current.Next;
-					}
-				} while (current != edges);
-
-				// löse den EdgesChanged-Event aus
-				EdgesChanged ();
-				return true;
-
-			} else {
-				// Die Verschiebung konnte nicht ausgeführt werden, weil der Zug ungültig ist
+			if (!IsValidMove(direction, distance)) {
 				return false;
 			}
-*/             
+			Circle<Edge> pointer;
+			// Durchlauf über die Selektionsblöcke
+			for (int i = 0; i < StructuredSelection.Count; i += 2) {
+				pointer = StructuredSelection.ElementAt(i);
+				// Vor der Selektion Kanten einfügen, wenn die vorhandenen nicht in die entgegengesetzte Richtung zeigen.
+				// Wenn das der Fall ist stattdessen die Kante löschen.
+				for (int n = 0; n < distance; n++) {
+					if (pointer.Previous.Content.Direction == direction.ReverseDirection()) {
+						// Wenn die zu löschende Kante der Einstigspunkt ist, einen neuen setzten.
+						if (pointer.Previous == edges) {
+							edges = edges.Next;
+						}
+						pointer.Previous.Remove();
+					}
+					else {
+						pointer.InsertBefore(new Edge(direction));
+					}
+				}
+				pointer = StructuredSelection.ElementAt(i+1);
+				// Hinter der Selektion Kanten einfügen, wenn die vorhandenen nicht in die entgegengesetzte Richtung zeigen.
+				// Wenn das der Fall ist stattdessen die Kante löschen.
+				for (int n = 0; n < distance; n++) {
+					if (pointer.Next.Content.Direction == direction) {
+						// Wenn die zu löschende Kante der Einstigspunkt ist, einen neuen setzten.
+						if (pointer.Next == edges) {
+							edges = edges.Next;
+						}
+						pointer.Next.Remove();
+					}
+					else {
+						pointer.InsertAfter(new Edge(direction.ReverseDirection()));
+					}
+				}
+			}
+			EdgesChanged ();
+			return true;
+
+			/*
+						// Überprüft, ob der Move gültig ist
+						if (IsValidMove (direction, distance)) {
+							// erstellt aus den ausgewählten Kante ein HashSet, um in O(1) überprüfen zu können,
+							// ob Kanten selektiert sind
+							HashSet<Edge> selected = new HashSet<Edge> (selectedEdges);
+
+							// Iteriert über alle Kanten
+							Circle<Edge> current = edges;
+							do {
+								// Wenn die aktuelle Kante ausgwählt ist und die vorherige Kante nicht
+								if (!selected.Contains (current.Previous.Content) && selected.Contains (current.Content)) {
+									// Füge die Richtung so oft ein, wie in der Distanz angegeben wurde
+									for (int i = 0; i < distance; ++i) {
+										current.InsertBefore (new Edge (direction));
+									}
+								}
+
+								// Wenn die aktuelle Kante ausgwählt ist und die nächste Kante nicht
+								if (selected.Contains (current.Content) && !selected.Contains (current.Next.Content)) {
+									// Füge die umgekehrte Richtung so oft ein, wie in der Distanz angegeben wurde
+									for (int i = 0; i < distance; ++i) {
+										current.InsertAfter (new Edge (direction.ReverseDirection ()));
+									}
+								}
+
+								current = current.Next;
+							} while (current != edges);
+
+							// Iteriert über alle Kanten
+							current = edges;
+							do {
+								// die vorherige Kante
+								Circle<Edge> previous = current.Previous;
+								// die Kante vor der vorherigen Kante
+								Circle<Edge> beforePrevious = previous.Previous;
+
+								// Wenn die aktuelle Kante nicht die vorletzte ist
+								// (effiziente Art zu prüfen, ob der Knoten mehr als 2 Kanten hat!)
+								// und wenn die Richtung der letzten Kante gleich der Umkehrten Richtung der vorletzten Kante ist
+								if (current != beforePrevious && previous.Content.Direction == beforePrevious.Content.Direction.ReverseDirection ()) {
+									// dann entferne die letzte und vorletzte Kante
+									beforePrevious.Remove ();
+									previous.Remove ();
+
+								} else {
+									current = current.Next;
+								}
+							} while (current != edges);
+
+							// löse den EdgesChanged-Event aus
+							EdgesChanged ();
+							return true;
+
+						} else {
+							// Die Verschiebung konnte nicht ausgeführt werden, weil der Zug ungültig ist
+							return false;
+						}
+			*/
 		}
 
 		/// <summary>
@@ -297,12 +300,15 @@ namespace Knot3.KnotData
 		/// </summary>
 		public void Save ()
 		{
-			if (MetaData.Format == null)
+			if (MetaData.Format == null) {
 				throw new IOException ("Error: Knot: MetaData.Format is null!");
-			else if (MetaData.Filename == null)
+			}
+			else if (MetaData.Filename == null) {
 				throw new IOException ("Error: Knot: MetaData.Filename is null!");
-			else
+			}
+			else {
 				MetaData.Format.Save (this);
+			}
 		}
 
 		/// <summary>
@@ -313,10 +319,10 @@ namespace Knot3.KnotData
 			Circle<Edge> newCircle = new Circle<Edge> (edges as IEnumerable<Edge>);
 			return new Knot {
 				MetaData = new KnotMetaData (
-					name: MetaData.Name,
-					countEdges: () => newCircle.Count,
-					format: MetaData.Format,
-					filename: MetaData.Filename
+				    name: MetaData.Name,
+				    countEdges: () => newCircle.Count,
+				    format: MetaData.Format,
+				    filename: MetaData.Filename
 				),
 				edges = newCircle,
 				selectedEdges = new List<Edge>(selectedEdges),
@@ -377,7 +383,8 @@ namespace Knot3.KnotData
 							selectedEdges.Add (e);
 						}
 					}
-				} else {
+				}
+				else {
 					foreach (Edge e in backward) {
 						if (!selectedEdges.Contains (e)) {
 							selectedEdges.Add (e);
@@ -429,8 +436,8 @@ namespace Knot3.KnotData
 		public override string ToString ()
 		{
 			return "Knot(name=" + Name + ",#edgecount=" + edges.Count
-				+ ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
-				+ ")";
+			       + ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
+			       + ")";
 		}
 
 		/// <summary>
@@ -446,8 +453,9 @@ namespace Knot3.KnotData
 			}
 			StructuredSelection = new List<Circle<Edge>> ();
 			// wenn nichts ausgewählt ist muss nichts weiter erstellt werden.
-			if (selectedEdges.Count == 0)
+			if (selectedEdges.Count == 0) {
 				return;
+			}
 			// wenn alles ausgewählt ist kann man die erstellung verkürzen.
 			if (selectedEdges.Count == MetaData.CountEdges) {
 				StructuredSelection.Add (edges);
@@ -462,7 +470,8 @@ namespace Knot3.KnotData
 				while (selectedEdges.Contains(start.Previous.Content)) {
 					start = start.Previous;
 				}
-			} else {
+			}
+			else {
 				// Wenn "edges" nicht selektiert ist, gehe nach rechts bis zum beginn des nächsten Blockes.
 				while (!selectedEdges.Contains(start.Content)) {
 					start = start.Next;
@@ -483,10 +492,11 @@ namespace Knot3.KnotData
 					start = start.Next;
 				}
 				// Höre auf, wenn man wieder beim element ist mit dem man begonnen hat.
-			} while (StructuredSelection.ElementAt(0) != start);
+			}
+			while (StructuredSelection.ElementAt(0) != start);
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

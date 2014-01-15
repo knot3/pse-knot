@@ -25,8 +25,7 @@ namespace Knot3.KnotData
 	/// Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
 	/// Wird benutzt, damit keine ungültigen Kantenrichtungen angegeben werden können.
 	/// </summary>
-	public enum Direction
-	{
+	public enum Direction {
 		/// <summary>
 		/// Links.
 		/// </summary>
@@ -56,6 +55,6 @@ namespace Knot3.KnotData
 		/// </summary>
 		Zero=0,
 	}
-	
+
 }
 

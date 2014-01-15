@@ -28,7 +28,7 @@ namespace Knot3.Screens
 	/// </summary>
 	public class CreativeModeScreen : GameScreen
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Spielwelt in der die 3D-Objekte des dargestellten Knotens enthalten sind.
@@ -53,7 +53,8 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Der Knoten, der vom Spieler bearbeitet wird.
 		/// </summary>
-		public Knot Knot {
+		public Knot Knot
+		{
 			get {
 				return knot;
 			}
@@ -84,15 +85,15 @@ namespace Knot3.Screens
 		private Dialog currentDialog;
 		private DebugBoundings debugBoundings;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines CreativeModeScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt game, sowie einem Knoten knot.
 		/// </summary>
 		public CreativeModeScreen (Knot3Game game, Knot knot)
-			: base(game)
+		: base(game)
 		{
 			// world
 			world = new World (screen: this);
@@ -120,9 +121,9 @@ namespace Knot3.Screens
 			Knot = knot;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		private void OnEdgesChanged ()
 		{
@@ -185,7 +186,7 @@ namespace Knot3.Screens
 			debugBoundings.Info.IsVisible = Options.Default ["debug", "show-boundings", false];
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

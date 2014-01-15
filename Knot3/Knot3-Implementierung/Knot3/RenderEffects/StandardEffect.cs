@@ -21,37 +21,37 @@ using Knot3.Widgets;
 
 namespace Knot3.RenderEffects
 {
-    /// <summary>
-    /// Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardmäßig zugewiesenen
-    /// BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
-    /// </summary>
-    public sealed class StandardEffect : RenderEffect
-    {
+	/// <summary>
+	/// Ein Rendereffekt, der 3D-Modelle mit dem von der XNA-Content-Pipeline standardmäßig zugewiesenen
+	/// BasicEffect-Shader zeichnet und keinen Post-Processing-Effekt anwendet.
+	/// </summary>
+	public sealed class StandardEffect : RenderEffect
+	{
 
-        #region Constructors
+		#region Constructors
 
-        /// <summary>
-        /// Erstellt einen neuen Standardeffekt.
-        /// </summary>
-        public StandardEffect (GameScreen screen)
-			: base(screen)
-        {
-        }
+		/// <summary>
+		/// Erstellt einen neuen Standardeffekt.
+		/// </summary>
+		public StandardEffect (GameScreen screen)
+		: base(screen)
+		{
+		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
-        /// <summary>
-        /// Zeichnet das Rendertarget.
-        /// </summary>
-        protected override void DrawRenderTarget (GameTime GameTime)
-        {
+		/// <summary>
+		/// Zeichnet das Rendertarget.
+		/// </summary>
+		protected override void DrawRenderTarget (GameTime GameTime)
+		{
 			spriteBatch.Draw (RenderTarget, Vector2.Zero, Color.White);
-        }
+		}
 
-        #endregion
+		#endregion
 
-    }
+	}
 }
 

@@ -27,12 +27,13 @@ namespace Knot3.KnotData
 	/// </summary>
 	public class ChallengeMetaData
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Der Name der Challenge.
 		/// </summary>
-		public string Name {
+		public string Name
+		{
 			get {
 				return name;
 			}
@@ -41,11 +42,12 @@ namespace Knot3.KnotData
 				string extension;
 				if (Format != null && Format.FileExtensions.Count () > 0) {
 					extension = Format.FileExtensions.ElementAt (0);
-				} else {
+				}
+				else {
 					extension = ".challenge";
 				}
 				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
-					+ FileUtility.ConvertToFileName (name) + extension;
+				           + FileUtility.ConvertToFileName (name) + extension;
 			}
 		}
 
@@ -76,9 +78,9 @@ namespace Knot3.KnotData
 		/// </summary>
 		public IEnumerator<KeyValuePair<string, int>> Highscore { get; private set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metadaten des Ausgangs- und Referenzknotens.
@@ -92,7 +94,7 @@ namespace Knot3.KnotData
 			Format = format;
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

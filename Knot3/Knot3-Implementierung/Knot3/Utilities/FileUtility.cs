@@ -29,17 +29,19 @@ namespace Knot3.Utilities
 	/// </summary>
 	public static class FileUtility
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Das Einstellungsverzeichnis.
 		/// </summary>
-		public static string SettingsDirectory {
+		public static string SettingsDirectory
+		{
 			get {
 				string directory;
 				if (MonoHelper.IsRunningOnMono ()) {
 					directory = Environment.GetEnvironmentVariable ("HOME") + "/.knot3/";
-				} else {
+				}
+				else {
 					directory = Environment.GetFolderPath (System.Environment.SpecialFolder.Personal) + "\\Knot3\\";
 				}
 				Directory.CreateDirectory (directory);
@@ -50,7 +52,8 @@ namespace Knot3.Utilities
 		/// <summary>
 		/// Das Spielstandverzeichnis.
 		/// </summary>
-		public static string SavegameDirectory {
+		public static string SavegameDirectory
+		{
 			get {
 				string directory = SettingsDirectory + Separator + "Savegames";
 				Directory.CreateDirectory (directory);
@@ -61,12 +64,14 @@ namespace Knot3.Utilities
 		/// <summary>
 		/// Das Bildschirmfotoverzeichnis.
 		/// </summary>
-		public static string ScreenshotDirectory {
+		public static string ScreenshotDirectory
+		{
 			get {
 				string directory;
 				if (MonoHelper.IsRunningOnMono ()) {
 					directory = Environment.GetEnvironmentVariable ("HOME");
-				} else {
+				}
+				else {
 					directory = Environment.GetFolderPath (System.Environment.SpecialFolder.MyPictures) + "\\Knot3\\";
 				}
 				Directory.CreateDirectory (directory);
@@ -74,13 +79,15 @@ namespace Knot3.Utilities
 			}
 		}
 
-		public static string BaseDirectory {
+		public static string BaseDirectory
+		{
 			get {
 				if (baseDirectory != null) {
 					return baseDirectory;
-				} else {
+				}
+				else {
 					string cwd = Directory.GetCurrentDirectory ();
-                    string[] binDirectories = new string[] { "Debug", "Release", "x86", "bin" };
+					string[] binDirectories = new string[] { "Debug", "Release", "x86", "bin" };
 					foreach (string dir in binDirectories) {
 						if (cwd.ToLower().EndsWith (dir.ToLower())) {
 							cwd = cwd.Substring (0, cwd.Length - dir.Length - 1);
@@ -98,9 +105,9 @@ namespace Knot3.Utilities
 
 		public static char Separator { get { return Path.DirectorySeparatorChar; } }
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Konvertiert einen Namen eines Knotens oder einer Challenge in einen gültigen Dateinamen durch Weglassen ungültiger Zeichen.
@@ -108,10 +115,10 @@ namespace Knot3.Utilities
 		public static string ConvertToFileName (string name)
 		{
 			char[] arr = name.ToCharArray ();
-			arr = Array.FindAll<char> (arr, (c => (char.IsLetterOrDigit (c) 
-				|| char.IsWhiteSpace (c) 
-				|| c == '-'))
-			);
+			arr = Array.FindAll<char> (arr, (c => (char.IsLetterOrDigit (c)
+			                                       || char.IsWhiteSpace (c)
+			                                       || c == '-'))
+			                          );
 			return new string (arr);
 		}
 
@@ -122,7 +129,7 @@ namespace Knot3.Utilities
 		{
 			return string.Join ("\n", FileUtility.ReadFrom (filename)).ToMD5Hash ();
 		}
-		
+
 		public static string ToMD5Hash (this string TextToHash)
 		{
 			if (string.IsNullOrEmpty (TextToHash)) {
@@ -131,11 +138,11 @@ namespace Knot3.Utilities
 
 			MD5 md5 = new MD5CryptoServiceProvider ();
 			byte[] textToHash = Encoding.Default.GetBytes (TextToHash);
-			byte[] result = md5.ComputeHash (textToHash); 
+			byte[] result = md5.ComputeHash (textToHash);
 
-			return System.BitConverter.ToString (result); 
+			return System.BitConverter.ToString (result);
 		}
-		
+
 		public static IEnumerable<string> ReadFrom (string file)
 		{
 			string line;
@@ -157,13 +164,13 @@ namespace Knot3.Utilities
 		{
 			Directory.CreateDirectory (directory);
 			var files = Directory.GetFiles (directory, "*.*", SearchOption.AllDirectories)
-				.Where (s => extensions.Any (e => s.EndsWith (e)));
+			            .Where (s => extensions.Any (e => s.EndsWith (e)));
 			foreach (string file in files) {
 				add (file);
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

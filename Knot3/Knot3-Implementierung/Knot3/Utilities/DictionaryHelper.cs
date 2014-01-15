@@ -25,8 +25,8 @@ namespace Knot3.Utilities
 	public static class DictionaryHelper
 	{
 		public static void Add<KeyType, ListType, ValueType> (this Dictionary<KeyType, ListType> dict,
-		                                                      KeyType key, ValueType value)
-			where ListType : IList<ValueType>, new()
+		        KeyType key, ValueType value)
+		where ListType : IList<ValueType>, new()
 		{
 			if (!dict.ContainsKey (key)) {
 				dict.Add (key, new ListType ());

@@ -28,7 +28,7 @@ namespace Knot3.Screens
 	public abstract class MenuScreen : GameScreen
 	{
 		#region Properties
-		
+
 		private MousePointer pointer;
 
 		// die Linien
@@ -39,7 +39,7 @@ namespace Knot3.Screens
 		#region Constructors
 
 		public MenuScreen (Knot3Game game)
-			: base(game)
+		: base(game)
 		{
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 6);
@@ -50,7 +50,7 @@ namespace Knot3.Screens
 
 		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
@@ -75,13 +75,15 @@ namespace Knot3.Screens
 
 		protected Color MenuItemForegroundColor (ItemState itemState)
 		{
-			if (itemState == ItemState.Hovered)
+			if (itemState == ItemState.Hovered) {
 				return Color.White;
-			else
+			}
+			else {
 				return Color.White * 0.7f;
+			}
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

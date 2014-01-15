@@ -25,7 +25,7 @@ namespace Knot3.Debug
 {
 	public class DebugBoundings : IGameObject
 	{
-        #region Properties
+		#region Properties
 
 		private GameScreen screen;
 
@@ -37,9 +37,9 @@ namespace Knot3.Debug
 		private BasicEffect effect;
 		private int sphereResolution;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		public DebugBoundings (GameScreen screen, Vector3 position)
 		{
@@ -50,35 +50,35 @@ namespace Knot3.Debug
 			effect = new BasicEffect (screen.Device);
 			effect.LightingEnabled = false;
 			effect.VertexColorEnabled = false;
- 
+
 			VertexPositionColor[] verts = new VertexPositionColor[(sphereResolution + 1) * 3];
 			int index = 0;
 			float step = MathHelper.TwoPi / (float)sphereResolution;
 			for (float a = 0f; a <= MathHelper.TwoPi; a += step) {
 				verts [index++] = new VertexPositionColor (
-					position: new Vector3 ((float)Math.Cos (a), (float)Math.Sin (a), 0f),
-					color: Color.White
+				    position: new Vector3 ((float)Math.Cos (a), (float)Math.Sin (a), 0f),
+				    color: Color.White
 				);
 			}
 			for (float a = 0f; a <= MathHelper.TwoPi; a += step) {
 				verts [index++] = new VertexPositionColor (
-					position: new Vector3 ((float)Math.Cos (a), 0f, (float)Math.Sin (a)),
-					color: Color.White
+				    position: new Vector3 ((float)Math.Cos (a), 0f, (float)Math.Sin (a)),
+				    color: Color.White
 				);
 			}
 			for (float a = 0f; a <= MathHelper.TwoPi; a += step) {
 				verts [index++] = new VertexPositionColor (
-					position: new Vector3 (0f, (float)Math.Cos (a), (float)Math.Sin (a)),
-					color: Color.White
+				    position: new Vector3 (0f, (float)Math.Cos (a), (float)Math.Sin (a)),
+				    color: Color.White
 				);
 			}
 			vertBuffer = new VertexBuffer (screen.Device, typeof(VertexPositionColor), verts.Length, BufferUsage.None);
 			vertBuffer.SetData (verts);
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Gibt den Ursprung des Knotens zurück.

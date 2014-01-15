@@ -28,7 +28,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public class KnotInputHandler : GameScreenComponent, IKeyEventListener
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Spielwelt.
@@ -54,8 +54,7 @@ namespace Knot3.GameObjects
 		/// Die Standard-Tastenbelegung.
 		/// </summary>
 		public static readonly Dictionary<Keys, PlayerActions> DefaultKeyAssignment
-				= new Dictionary<Keys, PlayerActions>
-		{
+		= new Dictionary<Keys, PlayerActions> {
 			{ Keys.W, 		PlayerActions.MoveUp },
 			{ Keys.S, 		PlayerActions.MoveDown },
 			{ Keys.A, 		PlayerActions.MoveLeft },
@@ -75,16 +74,16 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private static Dictionary<PlayerActions, Action<GameTime>> ActionBindings;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt einen neuen KnotInputHandler für den angegebenen Spielzustand und die angegebene Spielwelt.
 		/// [base=screen]
 		/// </summary>
 		public KnotInputHandler (GameScreen screen, World world)
-            : base(screen, DisplayLayer.None)
+		: base(screen, DisplayLayer.None)
 		{
 			// Spielwelt
 			this.world = world;
@@ -92,14 +91,13 @@ namespace Knot3.GameObjects
 			// Setze die Standardwerte für die Mausposition
 			screen.Input.GrabMouseMovement = false;
 			ResetMousePosition ();
-			
+
 			// Tasten
 			ValidKeys = new List<Keys> ();
 			OnControlSettingsChanged ();
 
 			// Lege die Bedeutungen der PlayerActions fest
-			ActionBindings = new Dictionary<PlayerActions, Action<GameTime>>
-			{
+			ActionBindings = new Dictionary<PlayerActions, Action<GameTime>> {
 				{ PlayerActions.MoveUp, 		(time) => move (Vector3.Up, time) },
 				{ PlayerActions.MoveDown, 		(time) => move (Vector3.Down, time) },
 				{ PlayerActions.MoveLeft, 		(time) => move (Vector3.Left, time) },
@@ -115,9 +113,9 @@ namespace Knot3.GameObjects
 			};
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
@@ -144,45 +142,54 @@ namespace Knot3.GameObjects
 
 			// die aktuelle Mausbewegung
 			Vector2 mouseMove = new Vector2 (
-					InputManager.CurrentMouseState.X - InputManager.PreviousMouseState.X,
-					InputManager.CurrentMouseState.Y - InputManager.PreviousMouseState.Y
+			    InputManager.CurrentMouseState.X - InputManager.PreviousMouseState.X,
+			    InputManager.CurrentMouseState.Y - InputManager.PreviousMouseState.Y
 			);
 
 			InputAction action;
 			// wenn die Maus in der Mitte des Bildschirms gelockt ist
 			if (Screen.Input.GrabMouseMovement) {
 				// und die linke Maustaste gedrückt gehalten wird
-				if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed)
+				if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
 					action = InputAction.ArcballMove;
+				}
 				// und die rechte Maustaste gedrückt gehalten wird
-				else if (InputManager.CurrentMouseState.RightButton == ButtonState.Pressed)
+				else if (InputManager.CurrentMouseState.RightButton == ButtonState.Pressed) {
 					action = InputAction.ArcballMove;
+				}
 				// und alle Maustasten losgelassen sind
-				else
+				else {
 					action = InputAction.CameraTargetMove;
+				}
 			}
 			// wenn die Maus frei bewegbar ist
 			else {
 				// und die linke Maustaste gedrückt gehalten wird
 				if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
-					if (world.SelectedObject != null && world.SelectedObject.Info.IsMovable)
+					if (world.SelectedObject != null && world.SelectedObject.Info.IsMovable) {
 						action = InputAction.SelectedObjectShadowMove;
-					else
+					}
+					else {
 						action = InputAction.FreeMouse;
+					}
 				}
 				// und die linke Maustaste gerade losgelassen wurde
 				else if (InputManager.CurrentMouseState.LeftButton == ButtonState.Released && InputManager.PreviousMouseState.LeftButton == ButtonState.Pressed) {
-					if (world.SelectedObject != null && world.SelectedObject.Info.IsMovable)
+					if (world.SelectedObject != null && world.SelectedObject.Info.IsMovable) {
 						action = InputAction.SelectedObjectMove;
-					else
+					}
+					else {
 						action = InputAction.FreeMouse;
+					}
 				}
 				// und die rechte Maustaste gedrückt gehalten wird
-				else if (InputManager.CurrentMouseState.RightButton == ButtonState.Pressed)
+				else if (InputManager.CurrentMouseState.RightButton == ButtonState.Pressed) {
 					action = InputAction.ArcballMove;
+				}
 				// und alle Maustasten losgelassen sind
-				else
+				else {
 					action = InputAction.FreeMouse;
+				}
 			}
 			Screen.Input.CurrentInputAction = action;
 
@@ -201,7 +208,8 @@ namespace Knot3.GameObjects
 			if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
 				world.Camera.TargetDistance += 40;
 				world.Redraw = true;
-			} else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
+			}
+			else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
 				world.Camera.TargetDistance -= 40;
 				world.Redraw = true;
 			}
@@ -244,26 +252,28 @@ namespace Knot3.GameObjects
 			if (arcballTargetDistance > 25) {
 				if (smoothMoveStep > 0f) {
 					smoothMoveStep *= 1.002f;
-				} else {
+				}
+				else {
 					smoothMoveStep = arcballTargetDistance * 0.01f;
 				}
 				world.Camera.Target = world.Camera.Target.SetDistanceTo (
-					target: world.Camera.ArcballTarget,
-					distance: Math.Max (0, arcballTargetDistance - smoothMoveStep * move.Length ())
-				);
+				                          target: world.Camera.ArcballTarget,
+				                          distance: Math.Max (0, arcballTargetDistance - smoothMoveStep * move.Length ())
+				                      );
 				world.Redraw = true;
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
-			
-			} else if (move.Length () > 0) {
+
+			}
+			else if (move.Length () > 0) {
 				move *= 3;
 				Vector3 targetDirection = world.Camera.TargetDirection;
 				Vector3 up = world.Camera.UpVector;
 				float oldDistance = world.Camera.ArcballTargetDistance = world.Camera.ArcballTargetDistance.Clamp (500, 10000);
 				world.Camera.Target = new Vector3 (world.Camera.ArcballTarget.X, world.Camera.ArcballTarget.Y, world.Camera.ArcballTarget.Z);
 				world.Camera.Position = world.Camera.ArcballTarget
-					+ (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (
-						move, up, targetDirection
-				);
+				                        + (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (
+				                            move, up, targetDirection
+				                        );
 				world.Camera.ArcballTargetDistance = oldDistance;
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
 				world.Redraw = true;
@@ -318,10 +328,10 @@ namespace Knot3.GameObjects
 
 				// Erstelle eine Option...
 				KeyOptionInfo option = new KeyOptionInfo (
-					section: "controls",
-					name: actionName,
-					defaultValue: defaultReversed [action],
-					configFile: Options.Default
+				    section: "controls",
+				    name: actionName,
+				    defaultValue: defaultReversed [action],
+				    configFile: Options.Default
 				);
 				// und lese den Wert aus und speichere ihn in der Zuordnung.
 				CurrentKeyAssignment [option.Value] = action;
@@ -332,7 +342,7 @@ namespace Knot3.GameObjects
 			ValidKeys.AddRange (CurrentKeyAssignment.Keys.AsEnumerable ());
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

@@ -27,7 +27,7 @@ namespace Knot3.Core
 	public class OptionInfo
 	{
 
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Einstellungsdatei.
@@ -52,7 +52,8 @@ namespace Knot3.Core
 		/// <summary>
 		/// Der Wert der Option.
 		/// </summary>
-		public virtual string Value {
+		public virtual string Value
+		{
 			get {
 				Console.WriteLine ("OptionInfo: " + Section + "." + Name + " => " + configFile [Section, Name, DefaultValue]);
 				return configFile [Section, Name, DefaultValue];
@@ -63,9 +64,9 @@ namespace Knot3.Core
 			}
 		}
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues OptionsInfo-Objekt aus den übergegebenen Werten.
@@ -78,7 +79,7 @@ namespace Knot3.Core
 			this.configFile = configFile != null ? configFile : Options.Default;
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

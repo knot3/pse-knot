@@ -27,7 +27,7 @@ namespace Knot3.Core
 	/// </summary>
 	public sealed class InputManager : GameScreenComponent
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Enthält den Klickzustand der rechten Maustaste.
@@ -75,15 +75,15 @@ namespace Knot3.Core
 
 		public static bool FullscreenToggled { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues InputManager-Objekt, das an den übergebenen Spielzustand gebunden ist.
 		/// </summary>
 		public InputManager (GameScreen screen)
-			: base(screen, DisplayLayer.None)
+		: base(screen, DisplayLayer.None)
 		{
 			CurrentInputAction = InputAction.FreeMouse;
 
@@ -91,9 +91,9 @@ namespace Knot3.Core
 			PreviousMouseState = CurrentMouseState = Mouse.GetState ();
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
@@ -111,28 +111,31 @@ namespace Knot3.Core
 					// mouse movements
 					Vector2 mouseMove = CurrentMouseState.ToVector2 () - PreviousClickMouseState.ToVector2 ();
 					mouseMoved = mouseMove.Length () > 3;
-				} else {
+				}
+				else {
 					mouseMoved = false;
 				}
 
 				LeftButtonClickTimer += time.ElapsedGameTime.TotalMilliseconds;
 				if (CurrentMouseState.LeftButton == ButtonState.Pressed && PreviousMouseState.LeftButton != ButtonState.Pressed) {
 					LeftMouseButton = LeftButtonClickTimer < 500 && !mouseMoved
-						? ClickState.DoubleClick : ClickState.SingleClick;
+					                  ? ClickState.DoubleClick : ClickState.SingleClick;
 					LeftButtonClickTimer = 0;
 					PreviousClickMouseState = PreviousMouseState;
 					Console.WriteLine ("LeftButton=" + LeftMouseButton.ToString ());
-				} else {
+				}
+				else {
 					LeftMouseButton = ClickState.None;
 				}
 				RightButtonClickTimer += time.ElapsedGameTime.TotalMilliseconds;
 				if (CurrentMouseState.RightButton == ButtonState.Pressed && PreviousMouseState.RightButton != ButtonState.Pressed) {
 					RightMouseButton = RightButtonClickTimer < 500 && !mouseMoved
-						? ClickState.DoubleClick : ClickState.SingleClick;
+					                   ? ClickState.DoubleClick : ClickState.SingleClick;
 					RightButtonClickTimer = 0;
 					PreviousClickMouseState = PreviousMouseState;
 					Console.WriteLine ("RightButton=" + RightMouseButton.ToString ());
-				} else {
+				}
+				else {
 					RightMouseButton = ClickState.None;
 				}
 			}
@@ -144,7 +147,7 @@ namespace Knot3.Core
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

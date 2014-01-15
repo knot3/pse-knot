@@ -22,35 +22,35 @@ using Knot3.KnotData;
 namespace Knot3.Widgets
 {
 	/// <summary>
-	/// 
+	///
 	/// </summary>
 	public sealed class KnotSaveDialog : TextInputDialog
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public Action OnSave { get; set; }
 
 		public Knot Knot { get; private set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		public KnotSaveDialog (GameScreen screen, DisplayLayer drawOrder, Knot knot, Action onSave)
-			: base(screen, drawOrder, "Save Knot", "fuck you", knot != null ? knot.Name : "Untitled Knot")
+		: base(screen, drawOrder, "Save Knot", "fuck you", knot != null ? knot.Name : "Untitled Knot")
 		{
 			OnSave = onSave;
 			Knot = knot;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
-        #endregion
+		#endregion
 	}
 }
 

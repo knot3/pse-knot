@@ -30,12 +30,13 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class ChallengeFileIO : IChallengeIO
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die für eine Knoten-Datei gültigen Dateiendungen.
 		/// </summary>
-		public IEnumerable<string> FileExtensions {
+		public IEnumerable<string> FileExtensions
+		{
 			get {
 				yield return ".challenge";
 				yield return ".chl";
@@ -45,9 +46,9 @@ namespace Knot3.KnotData
 			}
 		}
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein ChallengeFileIO-Objekt.
@@ -56,9 +57,9 @@ namespace Knot3.KnotData
 		{
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Speichert eine Challenge in dem Dateinamen, der in dem Challenge-Objekt enthalten ist.
@@ -87,7 +88,7 @@ namespace Knot3.KnotData
 			ChallengeMetaData meta = LoadMetaData (filename: filename);
 			Knot start = null;
 			Knot target = null;
-			
+
 			using (ZipFile zip = ZipFile.Read(filename)) {
 				foreach (ZipEntry entry in zip) {
 					string content = entry.ReadContent ();
@@ -96,8 +97,8 @@ namespace Knot3.KnotData
 					if (entry.FileName.ToLower ().Contains ("start")) {
 						KnotStringIO parser = new KnotStringIO (content: content);
 						start = new Knot (
-							new KnotMetaData (parser.Name, () => parser.CountEdges, null, null),
-							parser.Edges
+						    new KnotMetaData (parser.Name, () => parser.CountEdges, null, null),
+						    parser.Edges
 						);
 					}
 
@@ -105,19 +106,20 @@ namespace Knot3.KnotData
 					else if (entry.FileName.ToLower ().Contains ("target")) {
 						KnotStringIO parser = new KnotStringIO (content: content);
 						target = new Knot (
-							new KnotMetaData (parser.Name, () => parser.CountEdges, null, null),
-							parser.Edges
+						    new KnotMetaData (parser.Name, () => parser.CountEdges, null, null),
+						    parser.Edges
 						);
 					}
 				}
 			}
-			
+
 			if (meta != null && start != null && target != null) {
 				return new Challenge (meta, start, target);
-			} else {
+			}
+			else {
 				throw new IOException (
-					"Error! Invalid challenge file: " + filename
-					+ " (meta=" + meta + ",start=" + start + ",target=" + target + ")"
+				    "Error! Invalid challenge file: " + filename
+				    + " (meta=" + meta + ",start=" + start + ",target=" + target + ")"
 				);
 			}
 		}
@@ -154,21 +156,22 @@ namespace Knot3.KnotData
 			}
 			if (name != null && start != null && target != null) {
 				return new ChallengeMetaData (
-					name: name,
-					start: start,
-					target: target,
-					filename: filename,
-					format: this
-				);
-			} else {
+				           name: name,
+				           start: start,
+				           target: target,
+				           filename: filename,
+				           format: this
+				       );
+			}
+			else {
 				throw new IOException (
-					"Error! Invalid challenge file: " + filename
-					+ " (name=" + name + ",start=" + start + ",target=" + target + ")"
+				    "Error! Invalid challenge file: " + filename
+				    + " (name=" + name + ",start=" + start + ",target=" + target + ")"
 				);
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 
 	static class ZipHelper

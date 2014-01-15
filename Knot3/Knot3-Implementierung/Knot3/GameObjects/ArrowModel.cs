@@ -27,51 +27,54 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public sealed class ArrowModel : GameModel
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Das Info-Objekt, das die Position und Richtung des ArrowModel\grq s enthält.
 		/// </summary>
 		public new ArrowModelInfo Info { get { return base.Info as ArrowModelInfo; } set { base.Info = value; } }
-		
+
 		private BoundingSphere[] _bounds;
 
-		public override BoundingSphere[] Bounds {
+		public override BoundingSphere[] Bounds
+		{
 			get { return _bounds; }
 		}
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
 		/// </summary>
 		public ArrowModel (GameScreen screen, ArrowModelInfo info)
-			: base(screen, info)
+		: base(screen, info)
 		{
 			if (Info.Direction == Direction.Up) {
 				Info.Rotation += Angles3.FromDegrees (90, 0, 0);
-			} else if (Info.Direction == Direction.Down) {
+			}
+			else if (Info.Direction == Direction.Down) {
 				Info.Rotation += Angles3.FromDegrees (270, 0, 0);
 			}
 			if (Info.Direction == Direction.Right) {
 				Info.Rotation += Angles3.FromDegrees (0, 90, 0);
-			} else if (Info.Direction == Direction.Left) {
+			}
+			else if (Info.Direction == Direction.Left) {
 				Info.Rotation += Angles3.FromDegrees (0, 270, 0);
 			}
 
 			_bounds = VectorHelper.CylinderBounds (
-				length: Info.Length,
-				radius: Info.Diameter / 2,
-				direction: Info.Direction.ToVector3 (),
-				position: info.Position - info.Direction.ToVector3 () * Info.Length / 2
-			);
+			              length: Info.Length,
+			              radius: Info.Diameter / 2,
+			              direction: Info.Direction.ToVector3 (),
+			              position: info.Position - info.Direction.ToVector3 () * Info.Length / 2
+			          );
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Zeichnet den Pfeil.
@@ -82,7 +85,8 @@ namespace Knot3.GameObjects
 			if (World.SelectedObject == this) {
 				HighlightIntensity = 1f;
 				HighlightColor = Color.Orange;
-			} else {
+			}
+			else {
 				HighlightIntensity = 0f;
 			}
 
@@ -114,7 +118,7 @@ namespace Knot3.GameObjects
 			base.Update (time);
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

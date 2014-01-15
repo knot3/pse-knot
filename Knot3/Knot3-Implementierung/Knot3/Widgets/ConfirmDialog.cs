@@ -26,16 +26,16 @@ namespace Knot3.Widgets
 	/// </summary>
 	public abstract class ConfirmDialog : Dialog
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Das Menü, das Schaltflächen enthält.
 		/// </summary>
 		private Menu buttons { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
@@ -43,12 +43,12 @@ namespace Knot3.Widgets
 		/// [base=screen, drawOrder, title, text]
 		/// </summary>
 		public ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text)
-            : base(screen, drawOrder, title, text)
+		: base(screen, drawOrder, title, text)
 		{
 			throw new System.NotImplementedException ();
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

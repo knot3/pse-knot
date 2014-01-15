@@ -27,7 +27,7 @@ namespace Knot3.Core
 	public class GameScreen
 	{
 
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Das Spiel, zu dem der Spielzustand gehört.
@@ -64,9 +64,9 @@ namespace Knot3.Core
 
 		public Color BackgroundColor { get; protected set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
@@ -76,17 +76,17 @@ namespace Knot3.Core
 			this.Game = game;
 			this.NextScreen = this;
 			this.CurrentRenderEffects = new RenderEffectStack (
-				screen: this,
-				defaultEffect: new StandardEffect (this)
+			    screen: this,
+			    defaultEffect: new StandardEffect (this)
 			);
 			this.PostProcessingEffect = new StandardEffect (this);
 			this.Input = new InputManager (this);
 			this.BackgroundColor = Color.Black;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Beginnt mit dem Füllen der Spielkomponentenliste des XNA-Frameworks und fügt sowohl für Tastatur- als auch für
@@ -146,7 +146,7 @@ namespace Knot3.Core
 			}
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

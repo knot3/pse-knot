@@ -27,7 +27,7 @@ namespace Knot3.Core
 	public interface IMouseEventListener
 	{
 
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Eingabepriorität.
@@ -39,9 +39,9 @@ namespace Knot3.Core
 		/// </summary>
 		bool IsMouseEventEnabled { get; }
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Die Ausmaße des von der Klasse repräsentierten Objektes.
@@ -65,7 +65,7 @@ namespace Knot3.Core
 
 		void SetHovered (bool hovered);
 
-        #endregion
+		#endregion
 
 	}
 }

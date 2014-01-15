@@ -27,7 +27,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class DropDownMenuItem : MenuItem
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
@@ -36,16 +36,16 @@ namespace Knot3.Widgets
 
 		private string currentValue;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 		/// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
 		/// </summary>
 		public DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder, string text)
-			: base(screen, drawOrder, text)
+		: base(screen, drawOrder, text)
 		{
 			dropdown = new VerticalMenu (screen: screen, drawOrder: DisplayLayer.SubMenu);
 			dropdown.RelativePosition = () => RelativePosition () + new Vector2 (x: ValueWidth * RelativeSize ().X, y: 0);
@@ -58,9 +58,9 @@ namespace Knot3.Widgets
 			dropdown.IsVisible = false;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
@@ -77,10 +77,10 @@ namespace Knot3.Widgets
 					dropdown.IsVisible = false;
 				};
 				MenuButton button = new MenuButton (
-					screen: Screen,
-					drawOrder: DisplayLayer.SubMenuItem,
-					name: value,
-					onClick: onSelected
+				    screen: Screen,
+				    drawOrder: DisplayLayer.SubMenuItem,
+				    name: value,
+				    onClick: onSelected
 				);
 				dropdown.Add (button);
 			}
@@ -135,18 +135,18 @@ namespace Knot3.Widgets
 				// dann zeichne den aktuell ausgewählten Wert
 				spriteBatch.Begin ();
 				spriteBatch.DrawStringInRectangle (
-					font: font,
-					text: currentValue,
-					color: ForegroundColor (),
-					bounds: ValueBounds (),
-					alignX: HorizontalAlignment.Left,
-					alignY: AlignY
+				    font: font,
+				    text: currentValue,
+				    color: ForegroundColor (),
+				    bounds: ValueBounds (),
+				    alignX: HorizontalAlignment.Left,
+				    alignY: AlignY
 				);
 				spriteBatch.End ();
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

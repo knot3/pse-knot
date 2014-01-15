@@ -24,8 +24,7 @@ namespace Knot3.Core
 	/// <summary>
 	/// Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
 	/// </summary>
-	public enum DisplayLayer
-	{
+	public enum DisplayLayer {
 		/// <summary>
 		/// Steht für die hinterste Ebene bei der Zeichenreihenfolge.
 		/// </summary>

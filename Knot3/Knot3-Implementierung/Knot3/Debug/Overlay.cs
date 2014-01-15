@@ -34,7 +34,7 @@ namespace Knot3.Debug
 		private SpriteFont font;
 
 		public Overlay (GameScreen screen, World world)
-			: base(screen, DisplayLayer.Overlay)
+		: base(screen, DisplayLayer.Overlay)
 		{
 			// game world
 			World = world;
@@ -48,7 +48,8 @@ namespace Knot3.Debug
 			// load fonts
 			try {
 				font = Screen.Content.Load<SpriteFont> ("font-overlay");
-			} catch (ContentLoadException ex) {
+			}
+			catch (ContentLoadException ex) {
 				font = null;
 				Console.WriteLine (ex.Message);
 			}
@@ -56,16 +57,19 @@ namespace Knot3.Debug
 
 		public override void Draw (GameTime time)
 		{
-			if (Options.Default ["video", "debug-coordinates", false])
+			if (Options.Default ["video", "debug-coordinates", false]) {
 				DrawCoordinates (time);
-			if (Options.Default ["video", "camera-overlay", true])
+			}
+			if (Options.Default ["video", "camera-overlay", true]) {
 				DrawOverlay (time);
-			if (Options.Default ["video", "fps-overlay", true])
+			}
+			if (Options.Default ["video", "fps-overlay", true]) {
 				DrawFPS (time);
+			}
 			DrawProfiler (time);
 			base.Draw (time);
 		}
-		
+
 		public override void Update (GameTime time)
 		{
 			UpdateFPS (time);
@@ -88,12 +92,12 @@ namespace Knot3.Debug
 			vertices [4].Color = Color.Yellow;
 			vertices [5].Position = new Vector3 (0, 0, +length);
 			vertices [5].Color = Color.Yellow;
-            
+
 			effect.View = World.Camera.ViewMatrix;
 			effect.Projection = World.Camera.ProjectionMatrix;
-          
+
 			effect.CurrentTechnique.Passes [0].Apply ();
-            
+
 			Screen.Device.DrawUserPrimitives (PrimitiveType.LineList, vertices, 0, 3, VertexPositionColor.VertexDeclaration);
 		}
 
@@ -148,9 +152,11 @@ namespace Knot3.Debug
 				try {
 					spriteBatch.DrawString (font, str, new Vector2 (width, height), color);
 
-				} catch (ArgumentException exp) {
+				}
+				catch (ArgumentException exp) {
 					Console.WriteLine (exp.ToString ());
-				} catch (InvalidOperationException exp) {
+				}
+				catch (InvalidOperationException exp) {
 					Console.WriteLine (exp.ToString ());
 				}
 			}
@@ -160,7 +166,7 @@ namespace Knot3.Debug
 		{
 			DrawString ("" + n, width, height, color);
 		}
-		
+
 		int _total_frames = 0;
 		float _elapsed_time = 0.0f;
 		int _fps = 0;

@@ -27,7 +27,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class CheckBoxItem : MenuItem
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Option, die mit dem Auswahlkasten verknüpft ist.
@@ -46,22 +46,22 @@ namespace Knot3.Widgets
 
 		private bool currentValue;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 		/// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 		/// </summary>
 		public CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, string text, BooleanOptionInfo option)
-			: base(screen, drawOrder, text)
+		: base(screen, drawOrder, text)
 		{
 			this.option = option;
 			currentValue = option.Value;
 		}
 
-        #endregion
+		#endregion
 
 		#region Methods
 

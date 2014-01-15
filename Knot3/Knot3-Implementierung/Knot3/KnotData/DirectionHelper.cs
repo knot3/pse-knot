@@ -25,38 +25,52 @@ namespace Knot3.KnotData
 	{
 		public static Direction ToDirection (this Vector3 v)
 		{
-			if (v == Vector3.Up)
+			if (v == Vector3.Up) {
 				return Direction.Up;
-			else if (v == Vector3.Down)
+			}
+			else if (v == Vector3.Down) {
 				return Direction.Down;
-			else if (v == Vector3.Left)
+			}
+			else if (v == Vector3.Left) {
 				return Direction.Left;
-			else if (v == Vector3.Right)
+			}
+			else if (v == Vector3.Right) {
 				return Direction.Right;
-			else if (v == Vector3.Forward)
+			}
+			else if (v == Vector3.Forward) {
 				return Direction.Forward;
-			else if (v == Vector3.Backward)
+			}
+			else if (v == Vector3.Backward) {
 				return Direction.Backward;
-			else
+			}
+			else {
 				return Direction.Zero;
+			}
 		}
 
 		public static Vector3 ToVector3 (this Direction d)
 		{
-			if (d == Direction.Up)
+			if (d == Direction.Up) {
 				return Vector3.Up;
-			else if (d == Direction.Down)
+			}
+			else if (d == Direction.Down) {
 				return Vector3.Down;
-			else if (d == Direction.Left)
+			}
+			else if (d == Direction.Left) {
 				return Vector3.Left;
-			else if (d == Direction.Right)
+			}
+			else if (d == Direction.Right) {
 				return Vector3.Right;
-			else if (d == Direction.Forward)
+			}
+			else if (d == Direction.Forward) {
 				return Vector3.Forward;
-			else if (d == Direction.Backward)
+			}
+			else if (d == Direction.Backward) {
 				return Vector3.Backward;
-			else 
+			}
+			else {
 				return Vector3.Zero;
+			}
 		}
 
 		public static Direction ReverseDirection (this Direction dir)
@@ -64,7 +78,7 @@ namespace Knot3.KnotData
 			return (-dir.ToVector3 ()).ToDirection ();
 		}
 
-		private static Direction[] allDirections = new Direction[]{
+		private static Direction[] allDirections = new Direction[] {
 			Direction.Up, Direction.Down, Direction.Left, Direction.Right, Direction.Forward, Direction.Backward
 		};
 

@@ -21,36 +21,36 @@ using Knot3.Widgets;
 
 namespace Knot3.Core
 {
-    /// <summary>
-    /// Eine Schnittstelle für eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
-    /// </summary>
-    public interface IGameScreenComponent : IGameComponent
-    {
+	/// <summary>
+	/// Eine Schnittstelle für eine Spielkomponente, die in einem angegebenen Spielzustand verwendet wird und eine bestimmte Priorität hat.
+	/// </summary>
+	public interface IGameScreenComponent : IGameComponent
+	{
 
-        #region Properties
+		#region Properties
 
-        /// <summary>
-        /// Die Zeichen- und Eingabepriorität.
-        /// </summary>
-        DisplayLayer Index { get; set; }
+		/// <summary>
+		/// Die Zeichen- und Eingabepriorität.
+		/// </summary>
+		DisplayLayer Index { get; set; }
 
-        /// <summary>
-        /// Der zugewiesene Spielzustand.
-        /// </summary>
-        GameScreen Screen { get; set; }
+		/// <summary>
+		/// Der zugewiesene Spielzustand.
+		/// </summary>
+		GameScreen Screen { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
-        /// <summary>
-        /// Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
-        /// [returntype=IEnumerable<IGameScreenComponent>]
-        /// </summary>
-        IEnumerable<IGameScreenComponent> SubComponents (GameTime time);
+		/// <summary>
+		/// Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
+		/// [returntype=IEnumerable<IGameScreenComponent>]
+		/// </summary>
+		IEnumerable<IGameScreenComponent> SubComponents (GameTime time);
 
-        #endregion
+		#endregion
 
-    }
+	}
 }
 

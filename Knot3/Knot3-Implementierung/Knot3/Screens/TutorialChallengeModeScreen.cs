@@ -21,34 +21,34 @@ using Knot3.Widgets;
 
 namespace Knot3.Screens
 {
-    /// <summary>
-    /// Eine Einführung in das Spielen von Challenges.
-    /// Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangeführt.
-    /// </summary>
-    public class TutorialChallengeModeScreen : ChallengeModeScreen
-    {
-        #region Constructors
+	/// <summary>
+	/// Eine Einführung in das Spielen von Challenges.
+	/// Der Spieler wird dabei durch Anweisungen an das Lösen von Challenges herangeführt.
+	/// </summary>
+	public class TutorialChallengeModeScreen : ChallengeModeScreen
+	{
+		#region Constructors
 
 		public TutorialChallengeModeScreen (Knot3Game game, Challenge challenge)
-			: base(game, challenge)
+		: base(game, challenge)
 		{
 			throw new System.NotImplementedException ();
 		}
 
 		#endregion
 
-        #region Methods
+		#region Methods
 
-        /// <summary>
-        /// Fügt die Tutoriellanzeige in die Spielkomponentenliste ein.
-        /// </summary>
-        public override void Entered (GameScreen previousScreen, GameTime GameTime)
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		/// Fügt die Tutoriellanzeige in die Spielkomponentenliste ein.
+		/// </summary>
+		public override void Entered (GameScreen previousScreen, GameTime GameTime)
+		{
+			throw new System.NotImplementedException();
+		}
 
-        #endregion
+		#endregion
 
-    }
+	}
 }
 

@@ -21,40 +21,40 @@ using Knot3.KnotData;
 
 namespace Knot3.Widgets
 {
-    /// <summary>
-    /// Repräsentiert einen Eintrag in einem Dropdown-Menü.
-    /// </summary>
-    public class DropDownEntry
-    {
+	/// <summary>
+	/// Repräsentiert einen Eintrag in einem Dropdown-Menü.
+	/// </summary>
+	public class DropDownEntry
+	{
 
-        #region Properties
+		#region Properties
 
-        /// <summary>
-        /// Der Text des Eintrags.
-        /// </summary>
-        public string Text { get; set; }
+		/// <summary>
+		/// Der Text des Eintrags.
+		/// </summary>
+		public string Text { get; set; }
 
-        /// <summary>
-        /// Die Aktion, welche bei der Auswahl ausgeführt wird.
-        /// </summary>
-        public Action OnSelect { get; set; }
+		/// <summary>
+		/// Die Aktion, welche bei der Auswahl ausgeführt wird.
+		/// </summary>
+		public Action OnSelect { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
-        /// <summary>
-        /// Erzeugt eine neue Instanz eines DropDownEntry-Objekts.
-        /// text bezeichnet den Text für den Eintrag,
-        /// onSelect ist die Aktion, welche bei der Auswahl des Eintrags auzuführen ist (s. Action).
-        /// </summary>
-        public DropDownEntry (string text, Action onSelect)
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		/// Erzeugt eine neue Instanz eines DropDownEntry-Objekts.
+		/// text bezeichnet den Text für den Eintrag,
+		/// onSelect ist die Aktion, welche bei der Auswahl des Eintrags auzuführen ist (s. Action).
+		/// </summary>
+		public DropDownEntry (string text, Action onSelect)
+		{
+			throw new System.NotImplementedException();
+		}
 
-        #endregion
+		#endregion
 
-    }
+	}
 }
 

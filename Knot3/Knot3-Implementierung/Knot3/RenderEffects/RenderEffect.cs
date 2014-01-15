@@ -27,7 +27,7 @@ namespace Knot3.RenderEffects
 	/// </summary>
 	public abstract class RenderEffect : IRenderEffect
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
@@ -47,7 +47,7 @@ namespace Knot3.RenderEffects
 
 		private Color background;
 
-        #endregion
+		#endregion
 
 		#region Constructors
 
@@ -60,7 +60,7 @@ namespace Knot3.RenderEffects
 
 		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// In der Methode Begin() wird das aktuell von XNA genutzte Rendertarget auf einem Stack gesichert
@@ -127,7 +127,8 @@ namespace Knot3.RenderEffects
 			// lighting
 			if (Keys.L.IsHeldDown ()) {
 				effect.LightingEnabled = false;
-			} else {
+			}
+			else {
 				effect.EnableDefaultLighting ();  // Beleuchtung aktivieren
 			}
 
@@ -140,13 +141,15 @@ namespace Knot3.RenderEffects
 			if (model.BaseColor != Color.Transparent) {
 				if (model.HighlightIntensity != 0f) {
 					effect.DiffuseColor = model.BaseColor.Mix (model.HighlightColor, model.HighlightIntensity).ToVector3 ();
-				} else {
+				}
+				else {
 					effect.DiffuseColor = model.BaseColor.ToVector3 ();
 				}
 			}
 			if (background == Color.Transparent) {
 				effect.Alpha = model.Alpha;
-			} else {
+			}
+			else {
 				effect.DiffuseColor = new Color (effect.DiffuseColor).Mix (background, 1f - model.Alpha).ToVector3 ();
 			}
 			effect.FogEnabled = false;
@@ -173,20 +176,21 @@ namespace Knot3.RenderEffects
 			spriteBatch.End ();
 		}
 
-        #endregion
-		
+		#endregion
+
 		#region RenderTarget Cache
 
 		private Dictionary<Point, RenderTarget2D> renderTargets = new Dictionary<Point, RenderTarget2D> ();
 
-		public RenderTarget2D CurrentRenderTarget {
+		public RenderTarget2D CurrentRenderTarget
+		{
 			get {
 				PresentationParameters pp = screen.Device.PresentationParameters;
 				Point resolution = new Point (pp.BackBufferWidth, pp.BackBufferHeight);
 				if (!renderTargets.ContainsKey (resolution)) {
 					renderTargets [resolution] = new RenderTarget2D (
-						screen.Device, resolution.X, resolution.Y, false, SurfaceFormat.Color,
-						DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
+					    screen.Device, resolution.X, resolution.Y, false, SurfaceFormat.Color,
+					    DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
 					);
 				}
 				return renderTargets [resolution];

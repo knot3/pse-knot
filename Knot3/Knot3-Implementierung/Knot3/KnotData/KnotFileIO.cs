@@ -28,21 +28,22 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class KnotFileIO : IKnotIO
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die für eine Knoten-Datei gültigen Dateiendungen.
 		/// </summary>
-		public IEnumerable<string> FileExtensions {
+		public IEnumerable<string> FileExtensions
+		{
 			get {
 				yield return ".knot";
 				yield return ".knt";
 			}
 		}
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein KnotFileIO-Objekt.
@@ -51,9 +52,9 @@ namespace Knot3.KnotData
 		{
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Speichert einen Knoten in dem Dateinamen, der in dem Knot-Objekt enthalten ist.
@@ -64,7 +65,8 @@ namespace Knot3.KnotData
 			Console.WriteLine ("KnotFileIO.Save(" + knot + ") = #" + parser.Content.Length);
 			if (knot.MetaData.Filename == null) {
 				throw new IOException ("Error! knot has no filename: " + knot);
-			} else {
+			}
+			else {
 				File.WriteAllText (knot.MetaData.Filename, parser.Content);
 			}
 		}
@@ -76,9 +78,9 @@ namespace Knot3.KnotData
 		{
 			KnotStringIO parser = new KnotStringIO (content: string.Join ("\n", FileUtility.ReadFrom (filename)));
 			return new Knot (
-				new KnotMetaData (parser.Name, () => parser.CountEdges, this, filename),
-				parser.Edges
-			);
+			           new KnotMetaData (parser.Name, () => parser.CountEdges, this, filename),
+			           parser.Edges
+			       );
 		}
 
 		/// <summary>
@@ -95,7 +97,7 @@ namespace Knot3.KnotData
 			return "KnotFileIO";
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

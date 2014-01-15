@@ -28,8 +28,8 @@ namespace Knot3.Screens
 	/// </summary>
 	public class SettingsScreen : MenuScreen
 	{
-        #region Properties
-		
+		#region Properties
+
 		protected string MenuName;
 		private SpriteBatch spriteBatch;
 
@@ -38,17 +38,17 @@ namespace Knot3.Screens
 		/// </summary>
 		private VerticalMenu navigationMenu;
 
-        #endregion
+		#endregion
 
 		#region Constructors
 
 		public SettingsScreen (Knot3Game game)
-			: base(game)
+		: base(game)
 		{
 			MenuName = "Settings";
 
 			spriteBatch = new SpriteBatch (Device);
-			
+
 			navigationMenu = new VerticalMenu (this, DisplayLayer.Menu);
 			navigationMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
 			navigationMenu.RelativeSize = () => new Vector2 (0.300f, 0.770f);
@@ -59,40 +59,40 @@ namespace Knot3.Screens
 			navigationMenu.ItemAlignY = VerticalAlignment.Center;
 
 			MenuButton debugButton = new MenuButton (
-				screen: this,
-				drawOrder: DisplayLayer.MenuItem,
-				name: "Debug",
-				onClick: () => NextScreen = new DebugSettingsScreen (Game)
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Debug",
+			    onClick: () => NextScreen = new DebugSettingsScreen (Game)
 			);
 			MenuButton graphicsButton = new MenuButton (
-				screen: this,
-				drawOrder: DisplayLayer.MenuItem,
-				name: "Video",
-				onClick: () => NextScreen = new GraphicsSettingsScreen (Game)
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Video",
+			    onClick: () => NextScreen = new GraphicsSettingsScreen (Game)
 			);
 			MenuButton audioButton = new MenuButton (
-				screen: this,
-				drawOrder: DisplayLayer.MenuItem,
-				name: "Audio",
-				onClick: () => NextScreen = new AudioSettingsScreen (Game)
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Audio",
+			    onClick: () => NextScreen = new AudioSettingsScreen (Game)
 			);
 			MenuButton controlsButton = new MenuButton (
-				screen: this,
-				drawOrder: DisplayLayer.MenuItem,
-				name: "Controls",
-				onClick: () => NextScreen = new ControlSettingsScreen (Game)
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Controls",
+			    onClick: () => NextScreen = new ControlSettingsScreen (Game)
 			);
 			MenuButton profileButton = new MenuButton (
-				screen: this,
-				drawOrder: DisplayLayer.MenuItem,
-				name: "Profile",
-				onClick: () => NextScreen = new ProfileSettingsScreen (Game)
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Profile",
+			    onClick: () => NextScreen = new ProfileSettingsScreen (Game)
 			);
 			MenuButton backButton = new MenuButton (
-				screen: this,
-				drawOrder: DisplayLayer.MenuItem,
-				name: "Back",
-				onClick: () => NextScreen = Game.Screens.Where ((s) => !(s is SettingsScreen)).ElementAt (0)
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Back",
+			    onClick: () => NextScreen = Game.Screens.Where ((s) => !(s is SettingsScreen)).ElementAt (0)
 			);
 			backButton.AddKey (Keys.Escape);
 
@@ -104,13 +104,13 @@ namespace Knot3.Screens
 			navigationMenu.Add (backButton);
 
 			lines.AddPoints (0, 50,
-				30, 970, 970, 50, 1000
-			);
+			                 30, 970, 970, 50, 1000
+			                );
 		}
 
 		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
@@ -133,17 +133,17 @@ namespace Knot3.Screens
 			spriteBatch.Begin ();
 			// text
 			spriteBatch.DrawStringInRectangle (
-				font: HfGDesign.MenuFont (this),
-				text: MenuName,
-				color: Color.White,
-				bounds: new Rectangle (50, 50, 900, 50).Scale (Viewport),
-				alignX: HorizontalAlignment.Left,
-				alignY: VerticalAlignment.Center
+			    font: HfGDesign.MenuFont (this),
+			    text: MenuName,
+			    color: Color.White,
+			    bounds: new Rectangle (50, 50, 900, 50).Scale (Viewport),
+			    alignX: HorizontalAlignment.Left,
+			    alignY: VerticalAlignment.Center
 			);
 			spriteBatch.End ();
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

@@ -26,7 +26,7 @@ namespace Knot3.Core
 	/// </summary>
 	public abstract class GameScreenComponent : GameComponent, IGameScreenComponent
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Zeichen- und Eingabepriorität.
@@ -38,23 +38,23 @@ namespace Knot3.Core
 		/// </summary>
 		public GameScreen Screen { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines GameScreenComponent-Objekts und initialisiert diese mit dem zugehörigen GameScreen und der zugehörigen Zeichenreihenfolge. Diese Spielkomponente kann nur in dem zugehörigen GameScreen verwendet werden.
 		/// </summary>
 		public GameScreenComponent (GameScreen screen, DisplayLayer index)
-			: base(screen.Game)
+		: base(screen.Game)
 		{
 			this.Screen = screen;
 			this.Index = index;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
@@ -65,7 +65,7 @@ namespace Knot3.Core
 			yield break;
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

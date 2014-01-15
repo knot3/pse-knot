@@ -27,7 +27,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class ColorPicker : Widget, IKeyEventListener, IMouseEventListener
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die ausgewählte Farbe.
@@ -35,22 +35,22 @@ namespace Knot3.Widgets
 		public Color Color { get; set; }
 
 		public Action<Color> OnSelectColor { get; set; }
-		
+
 		private List<Color> colors;
 		private List<Vector2> tiles;
 		private static readonly Vector2 tileSize = new Vector2 (0.032f, 0.032f);
 		private SpriteBatch spriteBatch;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines ColorPicker-Objekts und initialisiert diese
 		/// mit der Farbe, auf welche der Farbwähler beim Aufruf aus Sicht des Spielers zeigt.
 		/// </summary>
 		public ColorPicker (GameScreen screen, DisplayLayer drawOrder, Color def)
-			: base(screen, drawOrder)
+		: base(screen, drawOrder)
 		{
 			BackgroundColor = () => Color.Black;
 			ForegroundColor = () => Color.White;
@@ -71,9 +71,9 @@ namespace Knot3.Widgets
 			};
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		public override void Draw (GameTime time)
 		{
@@ -84,7 +84,7 @@ namespace Knot3.Widgets
 				{
 					Rectangle rect = Bounds ();
 					spriteBatch.Draw (
-					TextureHelper.Create (Screen.Device, Color.Black), rect.Grow (2), Color.White
+					    TextureHelper.Create (Screen.Device, Color.Black), rect.Grow (2), Color.White
 					);
 				}
 
@@ -99,7 +99,7 @@ namespace Knot3.Widgets
 
 					++i;
 				}
-			
+
 				spriteBatch.End ();
 			}
 		}
@@ -121,11 +121,11 @@ namespace Knot3.Widgets
 			int i = 0;
 			foreach (Vector2 tile in tiles) {
 				Console.WriteLine ("ColorPicker: tile=" + tile + "  "
-					+ (tile.X <= position.X) + " " + (tile.X + tileSize.X > position.X) + " " + (
-					tile.Y <= position.Y) + " " + (tile.Y + tileSize.Y > position.Y)
-				);
+				                   + (tile.X <= position.X) + " " + (tile.X + tileSize.X > position.X) + " " + (
+				                       tile.Y <= position.Y) + " " + (tile.Y + tileSize.Y > position.Y)
+				                  );
 				if (tile.X <= position.X && tile.X + tileSize.X > position.X
-					&& tile.Y <= position.Y && tile.Y + tileSize.Y > position.Y) {
+				        && tile.Y <= position.Y && tile.Y + tileSize.Y > position.Y) {
 					Console.WriteLine ("ColorPicker: color=" + colors [i]);
 
 					SelectColor (colors [i]);
@@ -142,7 +142,7 @@ namespace Knot3.Widgets
 		}
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public void OnScroll (int scrollValue)
 		{
@@ -190,7 +190,7 @@ namespace Knot3.Widgets
 			IsVisible = false;
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

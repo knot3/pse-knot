@@ -26,7 +26,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public class GameObjectInfo : IEquatable<GameObjectInfo>
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Verschiebbarkeit des Spielobjektes.
@@ -48,7 +48,7 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public Vector3 Position { get; set; }
 
-        #endregion
+		#endregion
 
 		#region Constructors
 
@@ -62,7 +62,7 @@ namespace Knot3.GameObjects
 
 		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Vergleicht zwei Informationsobjekte für Spielobjekte.
@@ -70,13 +70,16 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public virtual bool Equals (GameObjectInfo other)
 		{
-			if (other == null) 
+			if (other == null) {
 				return false;
+			}
 
-			if (this.Position == other.Position)
+			if (this.Position == other.Position) {
 				return true;
-			else
+			}
+			else {
 				return false;
+			}
 		}
 
 		public override bool Equals (Object obj)
@@ -92,8 +95,9 @@ namespace Knot3.GameObjects
 
 		public static bool operator == (GameObjectInfo o1, GameObjectInfo o2)
 		{
-			if ((object)o1 == null || ((object)o2) == null)
+			if ((object)o1 == null || ((object)o2) == null) {
 				return Object.Equals (o1, o2);
+			}
 
 			return o2.Equals (o2);
 		}
@@ -103,7 +107,7 @@ namespace Knot3.GameObjects
 			return !(o1 == o2);
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

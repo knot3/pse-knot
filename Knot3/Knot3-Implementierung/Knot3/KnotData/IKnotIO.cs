@@ -26,16 +26,16 @@ namespace Knot3.KnotData
 	/// </summary>
 	public interface IKnotIO
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Aufzählung der Dateierweiterungen.
 		/// </summary>
 		IEnumerable<string> FileExtensions { get; }
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Speichert einen Knoten.
@@ -52,7 +52,7 @@ namespace Knot3.KnotData
 		/// </summary>
 		KnotMetaData LoadMetaData (string filename);
 
-        #endregion
+		#endregion
 	}
 }
 

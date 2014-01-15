@@ -27,29 +27,29 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public sealed class NodeModel : GameModel
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Enthält Informationen über den darzustellende 3D-Modell des Kantenübergangs.
-		/// </summary>        
+		/// </summary>
 		public new NodeModelInfo Info { get { return base.Info as NodeModelInfo; } set { base.Info = value; } }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und dem angegebenen Informationsobjekt.
 		/// [base=screen, info]
 		/// </summary>
 		public NodeModel (GameScreen screen, NodeModelInfo info)
-            : base(screen, info)
+		: base(screen, info)
 		{
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Zeichnet das 3D-Modell mit dem aktuellen Rendereffekt.
@@ -68,7 +68,7 @@ namespace Knot3.GameObjects
 			base.Update (time);
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

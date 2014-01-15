@@ -21,44 +21,44 @@ using Knot3.Widgets;
 
 namespace Knot3.Screens
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class ChallengeCreateScreen : MenuScreen
-    {
+	/// <summary>
+	///
+	/// </summary>
+	public class ChallengeCreateScreen : MenuScreen
+	{
 
-        #region Constructors
+		#region Constructors
 
-        /// <summary>
-        /// Erzeugt eine neue Instanz eines ChallengeCreateScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt game.
-        /// </summary>
-        public ChallengeCreateScreen (Knot3Game game)
-			: base(game)
-        {
-        }
+		/// <summary>
+		/// Erzeugt eine neue Instanz eines ChallengeCreateScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt game.
+		/// </summary>
+		public ChallengeCreateScreen (Knot3Game game)
+		: base(game)
+		{
+		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public override void Entered (GameScreen previousScreen, GameTime GameTime)
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		///
+		/// </summary>
+		public override void Entered (GameScreen previousScreen, GameTime GameTime)
+		{
+			throw new System.NotImplementedException();
+		}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public override void Update (GameTime time)
-        {
-            throw new System.NotImplementedException();
-        }
+		/// <summary>
+		///
+		/// </summary>
+		public override void Update (GameTime time)
+		{
+			throw new System.NotImplementedException();
+		}
 
-        #endregion
+		#endregion
 
-    }
+	}
 }
 

@@ -27,23 +27,23 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class InputItem : MenuItem
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Beinhaltet den vom Spieler eingegebenen Text.
 		/// </summary>
 		public string InputText;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 		/// Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
 		/// </summary>
 		public InputItem (GameScreen screen, DisplayLayer drawOrder, string text, string inputText)
-			: base(screen, drawOrder, text)
+		: base(screen, drawOrder, text)
 		{
 			InputText = inputText;
 			ValidKeys = TextHelper.ValidKeys;
@@ -72,18 +72,18 @@ namespace Knot3.Widgets
 
 			// zeichne die Schrift
 			spriteBatch.DrawStringInRectangle (
-				font: font,
-				text: InputText,
-				color: ForegroundColor (),
-				bounds: bounds.Shrink (x: 4, y: 2),
-				alignX: HorizontalAlignment.Left,
-				alignY: AlignY
+			    font: font,
+			    text: InputText,
+			    color: ForegroundColor (),
+			    bounds: bounds.Shrink (x: 4, y: 2),
+			    alignX: HorizontalAlignment.Left,
+			    alignY: AlignY
 			);
 
 			spriteBatch.End ();
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

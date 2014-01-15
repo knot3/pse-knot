@@ -27,7 +27,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public sealed class PipeModel : GameModel
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Enthält Informationen über die darzustellende Kante.
@@ -36,34 +36,35 @@ namespace Knot3.GameObjects
 
 		private BoundingSphere[] _bounds;
 
-		public override BoundingSphere[] Bounds {
+		public override BoundingSphere[] Bounds
+		{
 			get { return _bounds; }
 		}
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und den angegebenen Spielinformationen.
 		/// [base=screen, info]
 		/// </summary>
 		public PipeModel (GameScreen screen, PipeModelInfo info)
-            : base(screen, info)
+		: base(screen, info)
 		{
 			float length = (info.PositionTo - info.PositionFrom).Length ();
 			float radius = 10;
 			_bounds = VectorHelper.CylinderBounds (
-				length: length,
-				radius: radius,
-				direction: Info.Edge.Direction.ToVector3 (),
-				position: info.PositionFrom
-			);
+			              length: length,
+			              radius: radius,
+			              direction: Info.Edge.Direction.ToVector3 (),
+			              position: info.PositionFrom
+			          );
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		public override void Draw (GameTime time)
 		{
@@ -71,10 +72,12 @@ namespace Knot3.GameObjects
 			if (World.SelectedObject == this) {
 				HighlightIntensity = 0.40f;
 				HighlightColor = Color.White;
-			} else if (Info.Knot.SelectedEdges.Contains (Info.Edge)) {
+			}
+			else if (Info.Knot.SelectedEdges.Contains (Info.Edge)) {
 				HighlightIntensity = 0.80f;
 				HighlightColor = Color.White;
-			} else {
+			}
+			else {
 				HighlightIntensity = 0f;
 			}
 

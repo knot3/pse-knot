@@ -27,7 +27,7 @@ namespace Knot3.Widgets
 	public sealed class ColorPickItem : MenuItem
 	{
 
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die aktuelle Farbe.
@@ -39,20 +39,20 @@ namespace Knot3.Widgets
 		/// </summary>
 		private ColorPicker picker { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues ColorPickItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 		/// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 		/// </summary>
 		public ColorPickItem (GameScreen screen, DisplayLayer drawOrder, string text, Color color)
-			: base(screen, drawOrder, text)
+		: base(screen, drawOrder, text)
 		{
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

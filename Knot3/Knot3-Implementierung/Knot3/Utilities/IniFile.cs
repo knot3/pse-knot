@@ -24,7 +24,8 @@ namespace Knot3.Utilities
 							if (!Data.ContainsKey (section)) {
 								Data [section] = new Dictionary<string,string> ();
 							}
-						} else if (line.Contains ("=")) {
+						}
+						else if (line.Contains ("=")) {
 							string[] parts = line.Split ('=');
 							if (section != null) {
 								Data [section] [parts [0].Trim ()] = parts [1].Trim ();
@@ -63,14 +64,16 @@ namespace Knot3.Utilities
 		private static string StripComments (string line)
 		{
 			if (line != null) {
-				if (line.IndexOf (';') != -1)
+				if (line.IndexOf (';') != -1) {
 					return line.Remove (line.IndexOf (';')).Trim ();
+				}
 				return line.Trim ();
 			}
 			return string.Empty;
 		}
 
-		public string this [string section, string key, string defaultValue = null] {
+		public string this [string section, string key, string defaultValue = null]
+		{
 			get {
 				if (!Data.ContainsKey (section)) {
 					Data [section] = new Dictionary<string,string> ();

@@ -31,7 +31,8 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die von der Auflösung unabhängige Größe der Menüeinträge in Prozent.
 		/// </summary>
-		public override Func<int, Vector2> RelativeItemPosition {
+		public override Func<int, Vector2> RelativeItemPosition
+		{
 			get {
 				return VerticalRelativeItemPosition;
 			}
@@ -39,11 +40,12 @@ namespace Knot3.Widgets
 				throw new InvalidOperationException ("Cannot assign a RelativeItemPosition to a VerticalMenu! It is computed automatically.");
 			}
 		}
-		
+
 		/// <summary>
 		/// Die von der Auflösung unabhängige Position der Menüeinträge in Prozent.
 		/// </summary>
-		public override Func<int, Vector2> RelativeItemSize {
+		public override Func<int, Vector2> RelativeItemSize
+		{
 			get {
 				return VerticalRelativeItemSize;
 			}
@@ -62,29 +64,31 @@ namespace Knot3.Widgets
 
 		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines VerticalMenu-Objekts und initialisiert diese mit dem zugehörigen GameScreen-Objekt.
 		/// Zudem ist die Angaben der Zeichenreihenfolge Pflicht.
 		/// </summary>
 		public VerticalMenu (GameScreen screen, DisplayLayer drawOrder)
-			: base(screen, drawOrder)
+		: base(screen, drawOrder)
 		{
 			RelativeItemHeight = 0.040f;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		public Vector2 VerticalRelativeItemPosition (int itemNumber)
 		{
 			if (itemNumber < currentScrollPosition) {
 				return Vector2.Zero;
-			} else if (itemNumber > currentScrollPosition + pageScrollPosition - 1) {
+			}
+			else if (itemNumber > currentScrollPosition + pageScrollPosition - 1) {
 				return Vector2.Zero;
-			} else {
+			}
+			else {
 				float itemHeight = RelativeItemHeight + RelativePadding ().Y;
 				return RelativePosition () + new Vector2 (0, itemHeight * (itemNumber - currentScrollPosition));
 			}
@@ -94,9 +98,11 @@ namespace Knot3.Widgets
 		{
 			if (itemNumber < currentScrollPosition) {
 				return Vector2.Zero;
-			} else if (itemNumber > currentScrollPosition + pageScrollPosition - 1) {
+			}
+			else if (itemNumber > currentScrollPosition + pageScrollPosition - 1) {
 				return Vector2.Zero;
-			} else {
+			}
+			else {
 				return new Vector2 (RelativeSize ().X, RelativeItemHeight);
 			}
 		}
@@ -128,7 +134,8 @@ namespace Knot3.Widgets
 
 		private int tempScrollValue = 0;
 
-		private int currentScrollPosition {
+		private int currentScrollPosition
+		{
 			get {
 				return _currentScrollPosition;
 			}
@@ -139,19 +146,22 @@ namespace Knot3.Widgets
 
 		private int _currentScrollPosition;
 
-		private int minScrollPosition {
+		private int minScrollPosition
+		{
 			get {
 				return 0;
 			}
 		}
 
-		private int maxScrollPosition {
+		private int maxScrollPosition
+		{
 			get {
 				return items.Count;
 			}
 		}
 
-		private int pageScrollPosition {
+		private int pageScrollPosition
+		{
 			get {
 				return (int)Math.Ceiling (RelativeSize ().Y / (RelativeItemHeight + RelativePadding ().Y));
 			}
@@ -170,7 +180,7 @@ namespace Knot3.Widgets
 		public void OnRightClick (Vector2 position, ClickState state, GameTime time)
 		{
 		}
-		
+
 		/// <summary>
 		/// Tut nichts.
 		/// </summary>
@@ -178,7 +188,7 @@ namespace Knot3.Widgets
 		{
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

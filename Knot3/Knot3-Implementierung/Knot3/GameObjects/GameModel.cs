@@ -27,7 +27,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public abstract class GameModel : IGameObject
 	{
-        #region Properties
+		#region Properties
 
 		GameObjectInfo IGameObject.Info { get { return Info; } }
 
@@ -64,7 +64,8 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Die Spielwelt, in der sich das 3D-Modell befindet.
 		/// </summary>
-		public World World {
+		public World World
+		{
 			get { return _world; }
 			set {
 				_world = value;
@@ -78,7 +79,8 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Die Weltmatrix des 3D-Modells in der angegebenen Spielwelt.
 		/// </summary>
-		public Matrix WorldMatrix {
+		public Matrix WorldMatrix
+		{
 			get {
 				UpdatePrecomputed ();
 				return _worldMatrix;
@@ -87,9 +89,9 @@ namespace Knot3.GameObjects
 
 		protected GameScreen screen;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues 3D-Modell in dem angegebenen Spielzustand mit den angegebenen Modellinformationen.
@@ -106,9 +108,9 @@ namespace Knot3.GameObjects
 			HighlightIntensity = 0f;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Gibt die Mitte des 3D-Modells zurück.
@@ -159,7 +161,7 @@ namespace Knot3.GameObjects
 			return null;
 		}
 
-        #endregion
+		#endregion
 
 		#region Cache
 
@@ -170,14 +172,16 @@ namespace Knot3.GameObjects
 		private BoundingSphere[] _bounds;
 		private bool _inFrustum;
 
-		public virtual BoundingSphere[] Bounds {
+		public virtual BoundingSphere[] Bounds
+		{
 			get {
 				UpdatePrecomputed ();
 				return _bounds;
 			}
 		}
 
-		protected bool InCameraFrustum {
+		protected bool InCameraFrustum
+		{
 			get {
 				return _inFrustum;
 			}
@@ -189,8 +193,8 @@ namespace Knot3.GameObjects
 
 				// world matrix
 				_worldMatrix = Matrix.CreateScale (Info.Scale)
-					* Matrix.CreateFromYawPitchRoll (Info.Rotation.Y, Info.Rotation.X, Info.Rotation.Z)
-					* Matrix.CreateTranslation (Info.Position);
+				               * Matrix.CreateFromYawPitchRoll (Info.Rotation.Y, Info.Rotation.X, Info.Rotation.Z)
+				               * Matrix.CreateTranslation (Info.Position);
 
 				// bounding spheres
 				_bounds = Model.Bounds ().ToArray ();

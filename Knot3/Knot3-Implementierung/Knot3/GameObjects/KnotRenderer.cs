@@ -30,7 +30,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public sealed class KnotRenderer : IGameObject, IEnumerable<IGameObject>
 	{
-        #region Properties
+		#region Properties
 
 		private GameScreen screen;
 
@@ -63,7 +63,8 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Der Knoten, für den 3D-Modelle erstellt werden sollen.
 		/// </summary>
-		public Knot Knot {
+		public Knot Knot
+		{
 			set {
 				knot = value;
 				nodeMap.Edges = knot;
@@ -72,7 +73,7 @@ namespace Knot3.GameObjects
 				OnEdgesChanged ();
 			}
 		}
-		
+
 		private Knot knot;
 
 		/// <summary>
@@ -100,9 +101,9 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private bool showArrows { get { return Options.Default ["video", "arrows", false]; } }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues KnotRenderer-Objekt für den angegebenen Spielzustand mit den angegebenen
@@ -121,9 +122,9 @@ namespace Knot3.GameObjects
 			nodeMap = new NodeMap ();
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Gibt den Ursprung des Knotens zurück.
@@ -237,8 +238,8 @@ namespace Knot3.GameObjects
 					if (knot.IsValidMove (direction, -1)) {
 						Vector3 towardsCamera = World.Camera.TargetDirection;
 						ArrowModelInfo info = new ArrowModelInfo (
-							position: node1.CenterBetween (node2) - 25 * towardsCamera - 25 * towardsCamera.PrimaryDirection (),
-							direction: direction
+						    position: node1.CenterBetween (node2) - 25 * towardsCamera - 25 * towardsCamera.PrimaryDirection (),
+						    direction: direction
 						);
 						ArrowModel arrow = arrowFactory [screen, info] as ArrowModel;
 						arrow.Info.IsVisible = true;
@@ -246,7 +247,8 @@ namespace Knot3.GameObjects
 						arrows.Add (arrow);
 					}
 				}
-			} catch (NullReferenceException ex) {
+			}
+			catch (NullReferenceException ex) {
 				Console.WriteLine (ex.ToString ());
 			}
 		}
@@ -319,7 +321,7 @@ namespace Knot3.GameObjects
 		}
 
 
-        #endregion
+		#endregion
 
 	}
 }

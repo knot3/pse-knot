@@ -24,12 +24,13 @@ namespace Knot3.Core
 {
 	public class KeyOptionInfo : DistinctOptionInfo
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Eine Eigenschaft, die den aktuell abgespeicherten Wert zurückgibt.
 		/// </summary>
-		public new Keys Value {
+		public new Keys Value
+		{
 			get {
 				return base.Value.ToEnumValue<Keys> ();
 			}
@@ -40,16 +41,16 @@ namespace Knot3.Core
 
 		public new static IEnumerable<string> ValidValues = typeof(Keys).ToEnumValues<Keys> ().ToEnumDescriptions<Keys> ();
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		public KeyOptionInfo (string section, string name, Keys defaultValue, ConfigFile configFile)
-            : base(section, name, defaultValue.ToEnumDescription<Keys> (), ValidValues, configFile)
+		: base(section, name, defaultValue.ToEnumDescription<Keys> (), ValidValues, configFile)
 		{
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

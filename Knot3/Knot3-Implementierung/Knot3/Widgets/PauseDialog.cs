@@ -27,22 +27,22 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class PauseDialog : Dialog
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Das Menü, das verschiedene Schaltflächen enthält.
 		/// </summary>
 		private VerticalMenu pauseMenu;
 
-        #endregion
-		
-        #region Constructors
+		#endregion
+
+		#region Constructors
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public PauseDialog (GameScreen screen, DisplayLayer drawOrder)
-			: base(screen, drawOrder, "Pause", "")
+		: base(screen, drawOrder, "Pause", "")
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
@@ -58,27 +58,30 @@ namespace Knot3.Widgets
 			pauseMenu.ItemAlignY = VerticalAlignment.Center;
 
 			MenuButton settingsButton = new MenuButton (
-				screen: Screen,
-				drawOrder: DisplayLayer.MenuItem,
-				name: "Settings",
-				onClick: () => {
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Settings",
+			onClick: () => {
 				Close ();
-				Screen.NextScreen = new SettingsScreen (Screen.Game); }
+				Screen.NextScreen = new SettingsScreen (Screen.Game);
+			}
 			);
 			MenuButton backButton = new MenuButton (
-				screen: Screen,
-				drawOrder: DisplayLayer.MenuItem,
-				name: "Back to Game",
-				onClick: () => {
-				Close (); }
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Back to Game",
+			onClick: () => {
+				Close ();
+			}
 			);
 			MenuButton exitButton = new MenuButton (
-				screen: Screen,
-				drawOrder: DisplayLayer.MenuItem,
-				name: "Exit Game",
-				onClick: () => {
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Exit Game",
+			onClick: () => {
 				Close ();
-				Screen.NextScreen = new StartScreen (Screen.Game);	}
+				Screen.NextScreen = new StartScreen (Screen.Game);
+			}
 			);
 			backButton.AddKey (Keys.Escape);
 
@@ -95,7 +98,7 @@ namespace Knot3.Widgets
 			yield return pauseMenu;
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

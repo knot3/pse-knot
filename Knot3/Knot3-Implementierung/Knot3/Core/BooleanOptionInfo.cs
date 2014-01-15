@@ -26,12 +26,13 @@ namespace Knot3.Core
 	/// </summary>
 	public sealed class BooleanOptionInfo : DistinctOptionInfo
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Eine Eigenschaft, die den aktuell abgespeicherten Wert zurückgibt.
 		/// </summary>
-		public new bool Value {
+		public new bool Value
+		{
 			get {
 				return base.Value == ConfigFile.True ? true : false;
 			}
@@ -45,9 +46,9 @@ namespace Knot3.Core
 			ConfigFile.False
 		};
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt eine neue Option, welche die Werte \glqq Wahr\grqq~oder \glqq Falsch\grqq~annehmen kann. Mit dem angegebenen Namen, in dem
@@ -55,11 +56,11 @@ namespace Knot3.Core
 		/// [base=section, name, defaultValue?ConfigFile.True:ConfigFile.False, ValidValues, configFile]
 		/// </summary>
 		public BooleanOptionInfo (string section, string name, bool defaultValue, ConfigFile configFile)
-            : base(section, name, defaultValue?ConfigFile.True:ConfigFile.False, ValidValues, configFile)
+		: base(section, name, defaultValue?ConfigFile.True:ConfigFile.False, ValidValues, configFile)
 		{
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

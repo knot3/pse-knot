@@ -27,7 +27,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public sealed class EdgeMovement : IGameObject, IEnumerable<IGameObject>
 	{
-        #region Properties
+		#region Properties
 
 		private GameScreen screen;
 
@@ -49,9 +49,9 @@ namespace Knot3.GameObjects
 		private Vector3 previousMousePosition = Vector3.Zero;
 		private List<ShadowGameObject> shadowObjects;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines EdgeMovement-Objekts und initialisiert diese
@@ -66,9 +66,9 @@ namespace Knot3.GameObjects
 			shadowObjects = new List<ShadowGameObject> ();
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Gibt den Ursprung des Knotens zurück.
@@ -128,7 +128,8 @@ namespace Knot3.GameObjects
 							Knot.AddToSelection (selectedEdge);
 						}
 
-					} catch (ArgumentOutOfRangeException exp) {
+					}
+					catch (ArgumentOutOfRangeException exp) {
 						Console.WriteLine (exp.ToString ());
 					}
 				}
@@ -154,17 +155,17 @@ namespace Knot3.GameObjects
 
 				// Berechne die Mausposition in 3D
 				Vector3 screenLocation = screen.Viewport.Project (
-					source: selectedModel.Center (),
-					projection: World.Camera.ProjectionMatrix,
-					view: World.Camera.ViewMatrix,
-					world: World.Camera.WorldMatrix
-				);
+				                             source: selectedModel.Center (),
+				                             projection: World.Camera.ProjectionMatrix,
+				                             view: World.Camera.ViewMatrix,
+				                             world: World.Camera.WorldMatrix
+				                         );
 				Vector3 currentMousePosition = screen.Viewport.Unproject (
-					source: new Vector3 (InputManager.CurrentMouseState.ToVector2 (), screenLocation.Z),
-					projection: World.Camera.ProjectionMatrix,
-					view: World.Camera.ViewMatrix,
-					world: Matrix.Identity
-				);
+				                                   source: new Vector3 (InputManager.CurrentMouseState.ToVector2 (), screenLocation.Z),
+				                                   projection: World.Camera.ProjectionMatrix,
+				                                   view: World.Camera.ViewMatrix,
+				                                   world: Matrix.Identity
+				                               );
 
 				// Wenn die Maus gedrückt gehalten ist und wir mitten im Ziehen der Kante
 				// an die neue Position sind
@@ -180,7 +181,8 @@ namespace Knot3.GameObjects
 					if (selectedModel is ArrowModel) {
 						// Wenn ein Pfeil selektiert wurde, ist die Verschiebe-Richtung eindeutig festgelegt
 						UpdateShadowPipes (currentMousePosition, (selectedModel as ArrowModel).Info.Direction);
-					} else {
+					}
+					else {
 						// Wenn etwas anderes (eine Kante) selektiert wurde,
 						// muss die Verschiebe-Richtung berechnet werden
 						UpdateShadowPipes (currentMousePosition);
@@ -196,7 +198,8 @@ namespace Knot3.GameObjects
 					if (selectedModel is ArrowModel) {
 						// Wenn ein Pfeil selektiert wurde, ist die Verschiebe-Richtung eindeutig festgelegt
 						MovePipes (currentMousePosition, (selectedModel as ArrowModel).Info.Direction);
-					} else {
+					}
+					else {
 						// Wenn etwas anderes (eine Kante) selektiert wurde,
 						// muss die Verschiebe-Richtung berechnet werden
 						MovePipes (currentMousePosition);
@@ -232,7 +235,8 @@ namespace Knot3.GameObjects
 				try {
 					Knot.Move (direction, (int)Math.Round (count));
 					previousMousePosition = currentMousePosition;
-				} catch (ArgumentOutOfRangeException exp) {
+				}
+				catch (ArgumentOutOfRangeException exp) {
 					Console.WriteLine (exp.ToString ());
 				}
 			}
@@ -355,7 +359,7 @@ namespace Knot3.GameObjects
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

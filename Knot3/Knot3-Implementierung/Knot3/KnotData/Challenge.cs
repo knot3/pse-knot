@@ -26,7 +26,7 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class Challenge
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Der Ausgangsknoten, den der Spieler in den Referenzknoten transformiert.
@@ -56,14 +56,15 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Der Name der Challenge.
 		/// </summary>
-		public string Name {
+		public string Name
+		{
 			get { return MetaData.Name; }
 			set { MetaData.Name = value; }
 		}
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein Challenge-Objekt aus einem gegebenen Challenge-Metadaten-Objekt.
@@ -76,9 +77,9 @@ namespace Knot3.KnotData
 			Target = target;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
@@ -88,7 +89,7 @@ namespace Knot3.KnotData
 			throw new System.NotImplementedException ();
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

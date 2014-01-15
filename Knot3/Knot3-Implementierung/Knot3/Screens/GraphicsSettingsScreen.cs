@@ -27,25 +27,25 @@ namespace Knot3.Screens
 	public class GraphicsSettingsScreen : SettingsScreen
 	{
 
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Das Menü, das die Einstellungen enthält.
 		/// </summary>
 		private VerticalMenu settingsMenu;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues GraphicsSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 		/// </summary>
 		public GraphicsSettingsScreen (Knot3Game game)
-			: base(game)
+		: base(game)
 		{
 			MenuName = "Graphics";
-			
+
 			settingsMenu = new VerticalMenu (this, DisplayLayer.Menu);
 			settingsMenu.RelativePosition = () => new Vector2 (0.400f, 0.180f);
 			settingsMenu.RelativeSize = () => new Vector2 (0.500f, 0.770f);
@@ -56,10 +56,10 @@ namespace Knot3.Screens
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
 			CheckBoxItem showArrows = new CheckBoxItem (
-				screen: this,
-				drawOrder: DisplayLayer.MenuItem,
-				text: "Show Arrows",
-				option: new BooleanOptionInfo ("video", "arrows", false, Options.Default)
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    text: "Show Arrows",
+			    option: new BooleanOptionInfo ("video", "arrows", false, Options.Default)
 			);
 			settingsMenu.Add (showArrows);
 
@@ -69,24 +69,24 @@ namespace Knot3.Screens
 			};
 			Array.Sort (validResolutions);
 			DistinctOptionInfo resolutionOption = new DistinctOptionInfo (
-				section: "video",
-				name: "resolution",
-				defaultValue: currentResolution,
-				validValues: validResolutions,
-				configFile: Options.Default
+			    section: "video",
+			    name: "resolution",
+			    defaultValue: currentResolution,
+			    validValues: validResolutions,
+			    configFile: Options.Default
 			);
 			DropDownMenuItem resolutionItem = new DropDownMenuItem (
-				screen: this,
-				drawOrder: DisplayLayer.MenuItem,
-				text: "Resolution"
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    text: "Resolution"
 			);
 			resolutionItem.AddEntries (resolutionOption);
 			settingsMenu.Add (resolutionItem);
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
@@ -104,7 +104,7 @@ namespace Knot3.Screens
 			AddGameComponents (time, settingsMenu);
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

@@ -24,8 +24,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Eine horizontale Ausrichtung.
 	/// </summary>
-	public enum HorizontalAlignment
-	{
+	public enum HorizontalAlignment {
 		/// <summary>
 		/// Links.
 		/// </summary>

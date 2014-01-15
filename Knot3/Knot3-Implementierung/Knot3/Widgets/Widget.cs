@@ -27,7 +27,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public abstract class Widget : DrawableGameScreenComponent
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die von der Auflösung unabhängige Größe in Prozent.
@@ -47,7 +47,8 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Gibt an, ob das grafische Element sichtbar ist.
 		/// </summary>
-		public virtual bool IsVisible {
+		public virtual bool IsVisible
+		{
 			get { return _isVisible && RelativeSize ().Length () > 0; }
 			set { _isVisible = value; }
 		}
@@ -80,16 +81,16 @@ namespace Knot3.Widgets
 
 		public virtual bool IsMouseEventEnabled { get { return IsVisible; } }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues grafisches Benutzerschnittstellenelement in dem angegebenen Spielzustand
 		/// mit der angegebenen Zeichenreihenfolge.
 		/// </summary>
 		public Widget (GameScreen screen, DisplayLayer drawOrder)
-			: base(screen, drawOrder)
+		: base(screen, drawOrder)
 		{
 			RelativePosition = () => Vector2.Zero;
 			RelativeSize = () => Vector2.Zero;
@@ -102,9 +103,9 @@ namespace Knot3.Widgets
 			IsVisible = true;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Die Ausmaße des grafischen Elements
@@ -116,25 +117,28 @@ namespace Knot3.Widgets
 			return new Rectangle (topLeft.X, topLeft.Y, size.X, size.Y);
 		}
 
-		public Vector2 ScaledPosition {
+		public Vector2 ScaledPosition
+		{
 			get {
 				return RelativePosition ().Scale (Screen.Viewport);
 			}
 		}
 
-		public Vector2 ScaledSize {
+		public Vector2 ScaledSize
+		{
 			get {
 				return RelativeSize ().Scale (Screen.Viewport);
 			}
 		}
 
-		public Vector2 ScaledPadding {
+		public Vector2 ScaledPadding
+		{
 			get {
 				return RelativePadding ().Scale (Screen.Viewport);
 			}
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

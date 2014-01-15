@@ -26,7 +26,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public sealed class NodeModelInfo : GameModelInfo, IJunction
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Kante vor dem Übergang.
@@ -45,7 +45,8 @@ namespace Knot3.GameObjects
 
 		private int junctionCountAtNode = 1;
 
-		public int JunctionCountAtNode {
+		public int JunctionCountAtNode
+		{
 			set {
 				junctionCountAtNode = value;
 				chooseModel ();
@@ -53,7 +54,7 @@ namespace Knot3.GameObjects
 		}
 
 		private static Dictionary<Tuple<Direction, Direction>, JunctionDirection> junctionDirectionMap
-			= new Dictionary<Tuple<Direction, Direction>, JunctionDirection> ()
+		    = new Dictionary<Tuple<Direction, Direction>, JunctionDirection> ()
 		{
 			{ Tuple.Create(Direction.Up, Direction.Up), 			JunctionDirection.UpUp },
 			{ Tuple.Create(Direction.Up, Direction.Left), 			JunctionDirection.UpLeft },
@@ -92,7 +93,7 @@ namespace Knot3.GameObjects
 			{ Tuple.Create(Direction.Backward, Direction.Down), 	JunctionDirection.UpForward },
 		};
 		private static Dictionary<JunctionDirection, Angles3> junctionRotationMap
-			= new Dictionary<JunctionDirection, Angles3> ()
+		    = new Dictionary<JunctionDirection, Angles3> ()
 		{
 			{ JunctionDirection.UpForward, 			Angles3.FromDegrees (0, 0, 0) },
 			{ JunctionDirection.UpBackward, 		Angles3.FromDegrees (0, 180, 0) },
@@ -111,16 +112,16 @@ namespace Knot3.GameObjects
 			{ JunctionDirection.BackwardBackward, 	Angles3.FromDegrees (0, 0, 0) },
 		};
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
 		/// [base="node1", Angles3.Zero, new Vector3(1,1,1)]
 		/// </summary>
 		public NodeModelInfo (NodeMap nodeMap, Knot knot, Edge from, Edge to)
-            : base("pipe-straight", Angles3.Zero, Vector3.One * 25f)
+		: base("pipe-straight", Angles3.Zero, Vector3.One * 25f)
 		{
 			EdgeFrom = from;
 			EdgeTo = to;
@@ -132,7 +133,7 @@ namespace Knot3.GameObjects
 			IsMovable = false;
 		}
 
-        #endregion
+		#endregion
 
 		#region Methods
 
@@ -140,10 +141,12 @@ namespace Knot3.GameObjects
 		{
 			if (EdgeFrom.Direction == EdgeTo.Direction) {
 				Modelname = "pipe-straight";
-			} else {
+			}
+			else {
 				if (junctionCountAtNode == 1) {
 					Modelname = "pipe-angled";
-				} else {
+				}
+				else {
 					Modelname = "pipe-curved1";
 				}
 			}
@@ -155,17 +158,21 @@ namespace Knot3.GameObjects
 
 		public override bool Equals (GameObjectInfo other)
 		{
-			if (other == null) 
+			if (other == null) {
 				return false;
+			}
 
 			if (other is NodeModelInfo) {
 				if (this.EdgeFrom == (other as NodeModelInfo).EdgeFrom
-					&& this.EdgeTo == (other as NodeModelInfo).EdgeTo
-					&& base.Equals (other))
+				        && this.EdgeTo == (other as NodeModelInfo).EdgeTo
+				        && base.Equals (other)) {
 					return true;
-				else
+				}
+				else {
 					return false;
-			} else {
+				}
+			}
+			else {
 				return base.Equals (other);
 			}
 		}
@@ -173,8 +180,7 @@ namespace Knot3.GameObjects
 		#endregion
 	}
 
-	enum JunctionDirection
-	{
+	enum JunctionDirection {
 		UpForward,
 		UpBackward,
 		UpLeft,

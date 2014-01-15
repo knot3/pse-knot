@@ -37,11 +37,12 @@ namespace Knot3.Debug
 
 		public static HashtableActionWrapper ProfileDelegate = new HashtableActionWrapper ();
 		public static HashtableWrapper Values = new HashtableWrapper ();
-		
+
 
 		public class HashtableWrapper
 		{
-			public double this [string str] {
+			public double this [string str]
+			{
 				get {
 					return (double)ProfilerMap [str];
 				}
@@ -58,7 +59,8 @@ namespace Knot3.Debug
 
 		public class HashtableActionWrapper
 		{
-			public Action this [string str] {
+			public Action this [string str]
+			{
 				set {
 					ProfilerMap [str] = Time (value).TotalMilliseconds;
 				}

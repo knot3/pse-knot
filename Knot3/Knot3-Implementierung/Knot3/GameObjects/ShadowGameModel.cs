@@ -26,9 +26,10 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public sealed class ShadowGameModel : ShadowGameObject
 	{
-        #region Properties
+		#region Properties
 
-		private GameModel decoratedModel {
+		private GameModel decoratedModel
+		{
 			get {
 				return decoratedObject as GameModel;
 			}
@@ -44,21 +45,21 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public float ShadowAlpha { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angegebene zu dekorierende Modell.
 		/// </summary>
 		public ShadowGameModel (GameScreen screen, GameModel decoratedModel)
-			: base(screen, decoratedModel)
+		: base(screen, decoratedModel)
 		{
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Zeichnet das Vorschaumodell.
@@ -82,7 +83,7 @@ namespace Knot3.GameObjects
 			decoratedModel.Alpha = originalAlpha;
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

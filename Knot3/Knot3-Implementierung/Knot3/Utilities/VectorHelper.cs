@@ -29,32 +29,32 @@ namespace Knot3.Utilities
 		{
 			Vector3 side = Vector3.Cross (up, forward);
 			Vector3 movedVector = vectorToMove.RotateY (
-						MathHelper.Pi / 300f * mouse.X
-			);
+			                          MathHelper.Pi / 300f * mouse.X
+			                      );
 			movedVector = movedVector.RotateAroundVector (
-                       	-side,
-						MathHelper.Pi / 200f * mouse.Y
-			);
+			                  -side,
+			                  MathHelper.Pi / 200f * mouse.Y
+			              );
 			return movedVector;
 		}
-		
+
 		public static Vector3 MoveLinear (this Vector3 vectorToMove, Vector3 mouse, Vector3 up, Vector3 forward)
 		{
 			Vector3 side = Vector3.Cross (up, forward);
 			Vector3 movedVector = vectorToMove - side * mouse.X - up * mouse.Y - forward * mouse.Z;
 			return movedVector;
 		}
-		
+
 		public static Vector3 MoveLinear (this Vector3 vectorToMove, Vector2 mouse, Vector3 up, Vector3 forward)
 		{
 			return vectorToMove.MoveLinear (new Vector3 (mouse.X, mouse.Y, 0), up, forward);
 		}
-		
+
 		public static Vector3 RotateX (this Vector3 vectorToRotate, float angleRadians)
 		{
 			return Vector3.Transform (vectorToRotate, Matrix.CreateRotationX (angleRadians));
 		}
-		
+
 		public static Vector3 RotateY (this Vector3 vectorToRotate, float angleRadians)
 		{
 			return Vector3.Transform (vectorToRotate, Matrix.CreateRotationY (angleRadians));
@@ -73,43 +73,52 @@ namespace Knot3.Utilities
 		public static Vector3 Clamp (this Vector3 v, Vector3 lower, Vector3 higher)
 		{
 			return new Vector3 (
-				MathHelper.Clamp (v.X, lower.X, higher.X),
-				MathHelper.Clamp (v.Y, lower.Y, higher.Y),
-				MathHelper.Clamp (v.Z, lower.Z, higher.Z)
-			);
+			           MathHelper.Clamp (v.X, lower.X, higher.X),
+			           MathHelper.Clamp (v.Y, lower.Y, higher.Y),
+			           MathHelper.Clamp (v.Z, lower.Z, higher.Z)
+			       );
 		}
 
 		public static Vector3 Clamp (this Vector3 v, int minLength, int maxLength)
 		{
 			if (v.Length () < minLength) {
 				return v * minLength / v.Length ();
-			} else if (v.Length () > maxLength) {
+			}
+			else if (v.Length () > maxLength) {
 				return v * maxLength / v.Length ();
-			} else {
+			}
+			else {
 				return v;
 			}
 		}
 
 		public static Vector2 PrimaryVector (this Vector2 v)
 		{
-			if (v.X.Abs () > v.Y.Abs ())
+			if (v.X.Abs () > v.Y.Abs ()) {
 				return new Vector2 (v.X, 0);
-			else if (v.Y.Abs () > v.X.Abs ())
+			}
+			else if (v.Y.Abs () > v.X.Abs ()) {
 				return new Vector2 (0, v.Y);
-			else
+			}
+			else {
 				return new Vector2 (v.X, 0);
+			}
 		}
 
 		public static Vector3 PrimaryVector (this Vector3 v)
 		{
-			if (v.X.Abs () > v.Y.Abs () && v.X.Abs () > v.Z.Abs ())
+			if (v.X.Abs () > v.Y.Abs () && v.X.Abs () > v.Z.Abs ()) {
 				return new Vector3 (v.X, 0, 0);
-			else if (v.Y.Abs () > v.X.Abs () && v.Y.Abs () > v.Z.Abs ())
+			}
+			else if (v.Y.Abs () > v.X.Abs () && v.Y.Abs () > v.Z.Abs ()) {
 				return new Vector3 (0, v.Y, 0);
-			else if (v.Z.Abs () > v.Y.Abs () && v.Z.Abs () > v.X.Abs ())
+			}
+			else if (v.Z.Abs () > v.Y.Abs () && v.Z.Abs () > v.X.Abs ()) {
 				return new Vector3 (0, 0, v.Z);
-			else
+			}
+			else {
 				return new Vector3 (v.X, 0, 0);
+			}
 		}
 
 		public static Vector2 PrimaryDirection (this Vector2 v)
@@ -127,12 +136,15 @@ namespace Knot3.Utilities
 		public static Vector3 PrimaryDirectionExcept (this Vector3 v, Vector3 wrongDirection)
 		{
 			Vector3 copy = v;
-			if (wrongDirection.X != 0)
+			if (wrongDirection.X != 0) {
 				copy.X = 0;
-			else if (wrongDirection.Y != 0)
+			}
+			else if (wrongDirection.Y != 0) {
 				copy.Y = 0;
-			else if (wrongDirection.Z != 0)
+			}
+			else if (wrongDirection.Z != 0) {
 				copy.Z = 0;
+			}
 			return copy.PrimaryDirection ();
 		}
 
@@ -252,19 +264,21 @@ namespace Knot3.Utilities
 		public static Vector2 Scale (this Vector2 v, Viewport viewport)
 		{
 			Vector2 max = viewport.ToVector2 ();
-			if (v.X > 1 || v.Y > 1)
+			if (v.X > 1 || v.Y > 1) {
 				return v / 1000f * max;
-			else
+			}
+			else {
 				return v * max;
+			}
 		}
 
 		public static Rectangle Scale (this Rectangle rect, Viewport viewport)
 		{
 			Point max = viewport.ToVector2 ().ToPoint ();
 			return new Rectangle (
-				rect.X * max.X / 1000, rect.Y * max.Y / 1000,
-				rect.Width * max.X / 1000, rect.Height * max.Y / 1000
-			);
+			           rect.X * max.X / 1000, rect.Y * max.Y / 1000,
+			           rect.Width * max.X / 1000, rect.Height * max.Y / 1000
+			       );
 		}
 
 		public static Rectangle Grow (this Rectangle rect, int x, int y)
@@ -333,20 +347,25 @@ namespace Knot3.Utilities
 
 		public static Rectangle CreateRectangle (int lineWidth, float x, float y, float w, float h)
 		{
-			if (w == 0)
+			if (w == 0) {
 				return new Rectangle ((int)x - lineWidth / 2, (int)y - lineWidth / 2, lineWidth, (int)h + lineWidth);
-			else if (h == 0)
+			}
+			else if (h == 0) {
 				return new Rectangle ((int)x - lineWidth / 2, (int)y - lineWidth / 2, (int)w + lineWidth, lineWidth);
-			else
+			}
+			else {
 				return new Rectangle ((int)x, (int)y, (int)w, (int)h);
+			}
 		}
 
 		public static T At<T> (this List<T> list, int index)
 		{
-			while (index < 0)
+			while (index < 0) {
 				index += list.Count;
-			if (index >= list.Count)
+			}
+			if (index >= list.Count) {
 				index = index % list.Count;
+			}
 			return list [index];
 		}
 
@@ -374,7 +393,8 @@ namespace Knot3.Utilities
 			double scale = (double)distance / (double)to.Length ();
 			if (Math.Abs (oldDistance) > 1 && Math.Abs (oldDistance - distance) > 1 && Math.Abs (distance) > 1) {
 				return target + to * (float)scale;
-			} else {
+			}
+			else {
 				return origin;
 			}
 		}

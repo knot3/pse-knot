@@ -21,81 +21,81 @@ using Knot3.Widgets;
 
 namespace Knot3.Screens
 {
-    /// <summary>
-    /// Der Spielzustand, der die Profil-Einstellungen darstellt.
-    /// </summary>
-    public class ProfileSettingsScreen : SettingsScreen
-    {
+	/// <summary>
+	/// Der Spielzustand, der die Profil-Einstellungen darstellt.
+	/// </summary>
+	public class ProfileSettingsScreen : SettingsScreen
+	{
 
-        #region Properties
+		#region Properties
 
-        /// <summary>
-        /// Das vertikale Menü wo die Einstellungen anzeigt. Hier nimmt der Spieler Einstellungen vor.
-        /// </summary>
-        private VerticalMenu settingsMenu { get; set; }
+		/// <summary>
+		/// Das vertikale Menü wo die Einstellungen anzeigt. Hier nimmt der Spieler Einstellungen vor.
+		/// </summary>
+		private VerticalMenu settingsMenu { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
-        /// <summary>
-        /// Erzeugt eine neue Instanz eines ProfileSettingsScreen-Objekts und initialisiert dieses mit einem Knot3Game-Objekt.
-        /// </summary>
-        public ProfileSettingsScreen (Knot3Game game)
-			: base(game)
-        {
-            MenuName = "Profiles";
+		/// <summary>
+		/// Erzeugt eine neue Instanz eines ProfileSettingsScreen-Objekts und initialisiert dieses mit einem Knot3Game-Objekt.
+		/// </summary>
+		public ProfileSettingsScreen (Knot3Game game)
+		: base(game)
+		{
+			MenuName = "Profiles";
 
-            settingsMenu = new VerticalMenu(this, DisplayLayer.Menu);
-            settingsMenu.RelativePosition = () => new Vector2(0.400f, 0.180f);
-            settingsMenu.RelativeSize = () => new Vector2(0.500f, 0.770f);
-            settingsMenu.RelativePadding = () => new Vector2(0.010f, 0.010f);
-            settingsMenu.ItemForegroundColor = base.MenuItemForegroundColor;
-            settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
-            settingsMenu.ItemAlignX = HorizontalAlignment.Left;
-            settingsMenu.ItemAlignY = VerticalAlignment.Center;
+			settingsMenu = new VerticalMenu(this, DisplayLayer.Menu);
+			settingsMenu.RelativePosition = () => new Vector2(0.400f, 0.180f);
+			settingsMenu.RelativeSize = () => new Vector2(0.500f, 0.770f);
+			settingsMenu.RelativePadding = () => new Vector2(0.010f, 0.010f);
+			settingsMenu.ItemForegroundColor = base.MenuItemForegroundColor;
+			settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
+			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
+			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
-            InputItem playerNameInput = new InputItem(
+			InputItem playerNameInput = new InputItem(
 
-                screen: this,
-                drawOrder: DisplayLayer.MenuItem,
-                text: "Player Name:",
-                inputText: "DEFAULT" // TODO
-            );
-            settingsMenu.Add(playerNameInput);
-
-
-        }
-
-        #endregion
-
-        #region Methods
-
-        /// <summary>
-        /// Wird für jeden Frame aufgerufen.
-        /// </summary>
-        public override void Update (GameTime time)
-        {
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    text: "Player Name:",
+			    inputText: "DEFAULT" // TODO
+			);
+			settingsMenu.Add(playerNameInput);
 
 
-            // TODO
-        }
+		}
 
-        /// <summary>
-        /// Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
-        /// </summary>
-        public override void Entered (GameScreen previousScreen, GameTime time)
-        {
-            base.Entered(previousScreen, time);
-            AddGameComponents(time, settingsMenu);
+		#endregion
 
-            // ???
-            
-            // playerNameInput.OnKeyEvent(key: null, keyEvent: null, time); // time ???
-        }
+		#region Methods
 
-        #endregion
+		/// <summary>
+		/// Wird für jeden Frame aufgerufen.
+		/// </summary>
+		public override void Update (GameTime time)
+		{
 
-    }
+
+			// TODO
+		}
+
+		/// <summary>
+		/// Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
+		/// </summary>
+		public override void Entered (GameScreen previousScreen, GameTime time)
+		{
+			base.Entered(previousScreen, time);
+			AddGameComponents(time, settingsMenu);
+
+			// ???
+
+			// playerNameInput.OnKeyEvent(key: null, keyEvent: null, time); // time ???
+		}
+
+		#endregion
+
+	}
 }
 

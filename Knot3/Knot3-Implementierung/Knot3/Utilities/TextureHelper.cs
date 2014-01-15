@@ -25,12 +25,13 @@ namespace Knot3.Utilities
 	public static class TextureHelper
 	{
 		#region Real Textures
-		
+
 		public static Texture2D LoadTexture (ContentManager content, string name)
 		{
 			try {
 				return content.Load<Texture2D> (name);
-			} catch (ContentLoadException ex) {
+			}
+			catch (ContentLoadException ex) {
 				Console.WriteLine (ex.ToString ());
 				return null;
 			}
@@ -44,20 +45,21 @@ namespace Knot3.Utilities
 		{
 			return Create (graphicsDevice, 1, 1, new Color ());
 		}
- 
+
 		public static Texture2D Create (GraphicsDevice graphicsDevice, Color color)
 		{
 			return Create (graphicsDevice, 1, 1, color);
 		}
 
 		private static Dictionary<string, Texture2D> textureCache = new Dictionary<string, Texture2D> ();
- 
+
 		public static Texture2D Create (GraphicsDevice graphicsDevice, int width, int height, Color color)
 		{
 			string key = color.ToString () + width + "x" + height;
 			if (textureCache.ContainsKey (key)) {
 				return textureCache [key];
-			} else {
+			}
+			else {
 				// create a texture with the specified size
 				Texture2D texture = new Texture2D (graphicsDevice, width, height);
 
@@ -76,13 +78,13 @@ namespace Knot3.Utilities
 		{
 			Texture2D texture = TextureHelper.Create (spriteBatch.GraphicsDevice, Color.White);
 			spriteBatch.Draw (
-				texture, bounds, null, color, 0f, Vector2.Zero, SpriteEffects.None, 0.1f
+			    texture, bounds, null, color, 0f, Vector2.Zero, SpriteEffects.None, 0.1f
 			);
 		}
 
 		public static void DrawStringInRectangle (this SpriteBatch spriteBatch, SpriteFont font,
-		                                          string text, Color color, Rectangle bounds,
-		                                          HorizontalAlignment alignX, VerticalAlignment alignY)
+		        string text, Color color, Rectangle bounds,
+		        HorizontalAlignment alignX, VerticalAlignment alignY)
 		{
 			Vector2 scaledPosition = new Vector2 (bounds.X, bounds.Y);
 			Vector2 scaledSize = new Vector2 (bounds.Width, bounds.Height);
@@ -93,17 +95,19 @@ namespace Knot3.Utilities
 
 				// finde die richtige Position
 				Vector2 textPosition = TextPosition (
-					font: font, text: text, scale: scale,
-					position: scaledPosition, size: scaledSize,
-					alignX: alignX, alignY: alignY
-				);
+				                           font: font, text: text, scale: scale,
+				                           position: scaledPosition, size: scaledSize,
+				                           alignX: alignX, alignY: alignY
+				                       );
 
 				// zeichne die Schrift
 				spriteBatch.DrawString (font, text, textPosition, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.6f);
 
-			} catch (ArgumentException exp) {
+			}
+			catch (ArgumentException exp) {
 				Console.WriteLine (exp.ToString ());
-			} catch (InvalidOperationException exp) {
+			}
+			catch (InvalidOperationException exp) {
 				Console.WriteLine (exp.ToString ());
 			}
 		}

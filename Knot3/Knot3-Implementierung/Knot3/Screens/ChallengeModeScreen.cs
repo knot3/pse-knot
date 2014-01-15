@@ -29,7 +29,7 @@ namespace Knot3.Screens
 	public class ChallengeModeScreen : GameScreen
 	{
 
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Spielwelt in der die 3D-Modelle des dargestellten Referenzknotens enthalten sind.
@@ -69,7 +69,8 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Die Challenge.
 		/// </summary>
-		public Challenge Challenge {
+		public Challenge Challenge
+		{
 			get {
 				return _challenge;
 			}
@@ -83,7 +84,8 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Der Spielerknoten, der durch die Transformation des Spielers aus dem Ausgangsknoten entsteht.
 		/// </summary>
-		public Knot PlayerKnot {
+		public Knot PlayerKnot
+		{
 			get {
 				return _playerKnot;
 			}
@@ -113,22 +115,22 @@ namespace Knot3.Screens
 		private Dialog currentDialog;
 		private DebugBoundings debugBoundings;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines ChallengeModeScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt, einem Spielerknoten playerKnot und dem Knoten challengeKnot, den der Spieler nachbauen soll.
 		/// </summary>
 		public ChallengeModeScreen (Knot3Game game, Challenge challenge)
-			: base(game)
+		: base(game)
 		{
 			// world
 			PlayerWorld = new World (screen: this);
 			ChallengeWorld = new World (
-				screen: this,
-				relativePosition: new Vector2 (0f, 0.6f),
-				relativeSize: new Vector2 (0.4f, 0.4f)
+			    screen: this,
+			    relativePosition: new Vector2 (0f, 0.6f),
+			    relativeSize: new Vector2 (0.4f, 0.4f)
 			);
 			ChallengeWorld.Camera = PlayerWorld.Camera;
 			// input
@@ -160,9 +162,9 @@ namespace Knot3.Screens
 			ChallengeKnotRenderer.Knot = challenge.Target;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		private void OnEdgesChanged ()
 		{
@@ -225,7 +227,7 @@ namespace Knot3.Screens
 			debugBoundings.Info.IsVisible = Options.Default ["debug", "show-boundings", false];
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

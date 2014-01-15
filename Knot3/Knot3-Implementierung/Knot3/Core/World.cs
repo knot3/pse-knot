@@ -26,12 +26,13 @@ namespace Knot3.Core
 	/// </summary>
 	public sealed class World : DrawableGameScreenComponent, IEnumerable<IGameObject>
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Kamera dieser Spielwelt.
 		/// </summary>
-		public Camera Camera {
+		public Camera Camera
+		{
 			get {
 				return _camera;
 			}
@@ -54,7 +55,8 @@ namespace Knot3.Core
 		/// <summary>
 		/// Das aktuell ausgewählte Spielobjekt.
 		/// </summary>
-		public IGameObject SelectedObject {
+		public IGameObject SelectedObject
+		{
 			get {
 				return _selectedObject;
 			}
@@ -67,14 +69,16 @@ namespace Knot3.Core
 			}
 		}
 
-		public float SelectedObjectDistance {
+		public float SelectedObjectDistance
+		{
 			get {
 				if (SelectedObject != null) {
 					Vector3 toTarget = SelectedObject.Center () - Camera.Position;
 					return toTarget.Length ();
-				} else {
+				}
+				else {
 					return 0;
-				} 
+				}
 			}
 		}
 
@@ -89,50 +93,51 @@ namespace Knot3.Core
 
 		private ResizeEffect resizeEffect;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt eine neue Spielwelt im angegebenen Spielzustand.
 		/// </summary>
 		public World (GameScreen screen)
-			: base(screen, DisplayLayer.GameWorld)
+		: base(screen, DisplayLayer.GameWorld)
 		{
 			// die Kamera für diese Spielwelt
 			_camera = new Camera (screen, this);
 
 			// die Liste der Spielobjekte
 			Objects = new List<IGameObject> ();
-			
+
 			// der Standardeffekt
 			if (Options.Default ["video", "cel-shading", false]) {
 				CurrentEffect = new CelShadingEffect (screen);
-			} else {
+			}
+			else {
 				CurrentEffect = new StandardEffect (screen);
 			}
 
 			// Die relative Standard-Position und Größe
 			resizeEffect = new ResizeEffect (
-				screen: screen,
-				relativePosition: Vector2.Zero,
-				relativeSize: Vector2.One
+			    screen: screen,
+			    relativePosition: Vector2.Zero,
+			    relativeSize: Vector2.One
 			);
 		}
 
 		public World (GameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
-			: this(screen)
+		: this(screen)
 		{
 			resizeEffect = new ResizeEffect (
-				screen: screen,
-				relativePosition: relativePosition,
-				relativeSize: relativeSize
+			    screen: screen,
+			    relativePosition: relativePosition,
+			    relativeSize: relativeSize
 			);
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		public void Add (IGameObject obj)
 		{
@@ -145,8 +150,9 @@ namespace Knot3.Core
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-			if (Screen.PostProcessingEffect is FadeEffect)
+			if (Screen.PostProcessingEffect is FadeEffect) {
 				Redraw = true;
+			}
 
 			// run the update method on all game objects
 			foreach (IGameObject obj in Objects) {
@@ -176,7 +182,8 @@ namespace Knot3.Core
 				// end of the knot render effect
 				CurrentEffect.End (time);
 				resizeEffect.End (time);
-			} else {
+			}
+			else {
 				Screen.PostProcessingEffect.DrawLastFrame (time);
 			}
 		}
@@ -199,7 +206,8 @@ namespace Knot3.Core
 					foreach (IGameObject subobj in flat(obj as IEnumerable<IGameObject>)) {
 						yield return subobj;
 					}
-				} else {
+				}
+				else {
 					yield return obj;
 				}
 			}
@@ -221,7 +229,7 @@ namespace Knot3.Core
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

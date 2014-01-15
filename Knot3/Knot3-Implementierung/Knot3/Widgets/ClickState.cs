@@ -18,8 +18,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Eine Wertesammlung der möglichen Klickzustände einer Maustaste.
 	/// </summary>
-	public enum ClickState
-	{
+	public enum ClickState {
 		/// <summary>
 		/// Wenn der Klickzustand nicht zugeordnet werden konnte. Undefiniert.
 		/// </summary>

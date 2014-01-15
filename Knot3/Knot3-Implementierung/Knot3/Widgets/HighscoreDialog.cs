@@ -22,22 +22,22 @@ using Knot3.KnotData;
 namespace Knot3.Widgets
 {
 	/// <summary>
-	/// 
+	///
 	/// </summary>
 	public sealed class HighscoreDialog : Dialog
 	{
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public HighscoreDialog (GameScreen screen, DisplayLayer drawOrder, Challenge challenge)
-			: base(screen, drawOrder, "Highscores", "fuck you")
+		: base(screen, drawOrder, "Highscores", "fuck you")
 		{
 			throw new System.NotImplementedException ();
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

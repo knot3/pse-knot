@@ -25,8 +25,7 @@ namespace Knot3.Core
 	/// Repräsentiert die möglichen Eingabeaktionen, wie sie von verschiedenen Inputhandlern berechnet und verwendet werden können.
 	/// Die aktuelle Eingabeaktion wird zentral in der Klasse InputManager gehalten.
 	/// </summary>
-	public enum InputAction
-	{
+	public enum InputAction {
 		/// <summary>
 		/// Keine Eingabe bzw. undefiniert.
 		/// </summary>

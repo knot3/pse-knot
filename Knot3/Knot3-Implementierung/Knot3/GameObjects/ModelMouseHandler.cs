@@ -32,22 +32,22 @@ namespace Knot3.GameObjects
 		private double lastRayCheck = 0;
 		private Vector2 lastMousePosition = Vector2.Zero;
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines ModelMouseHandler-Objekts und ordnet dieser ein GameScreen-Objekt screen zu,
 		/// sowie eine Spielwelt world.
 		/// </summary>
 		public ModelMouseHandler (GameScreen screen, World world)
-			: base(screen, DisplayLayer.None)
+		: base(screen, DisplayLayer.None)
 		{
 			World = world;
 		}
 
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
@@ -61,9 +61,9 @@ namespace Knot3.GameObjects
 		{
 			double millis = time.TotalGameTime.TotalMilliseconds;
 			if (millis > lastRayCheck + 10
-				&& (Screen.Input.CurrentInputAction == InputAction.CameraTargetMove
-				|| Screen.Input.CurrentInputAction == InputAction.FreeMouse)
-				&& InputManager.CurrentMouseState.ToVector2 () != lastMousePosition) {
+			        && (Screen.Input.CurrentInputAction == InputAction.CameraTargetMove
+			            || Screen.Input.CurrentInputAction == InputAction.FreeMouse)
+			        && InputManager.CurrentMouseState.ToVector2 () != lastMousePosition) {
 
 				lastRayCheck = millis;
 				lastMousePosition = InputManager.CurrentMouseState.ToVector2 ();
@@ -93,12 +93,13 @@ namespace Knot3.GameObjects
 			}
 			if (nearest != null) {
 				World.SelectedObject = nearest.Object;
-			} else {
+			}
+			else {
 				World.SelectedObject = null;
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

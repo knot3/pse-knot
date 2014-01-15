@@ -21,57 +21,57 @@ using Knot3.Widgets;
 
 namespace Knot3.GameObjects
 {
-    /// <summary>
-    /// Enthält Informationen über ein 3D-Modell wie den Dateinamen, die Rotation und die Skalierung.
-    /// </summary>
-    public abstract class GameModelInfo : GameObjectInfo
-    {
-        #region Properties
+	/// <summary>
+	/// Enthält Informationen über ein 3D-Modell wie den Dateinamen, die Rotation und die Skalierung.
+	/// </summary>
+	public abstract class GameModelInfo : GameObjectInfo
+	{
+		#region Properties
 
-        /// <summary>
-        /// Der Dateiname des Modells.
-        /// </summary>
-        public string Modelname { get; set; }
+		/// <summary>
+		/// Der Dateiname des Modells.
+		/// </summary>
+		public string Modelname { get; set; }
 
-        /// <summary>
-        /// Die Rotation des Modells.
-        /// </summary>
-        public Angles3 Rotation { get; set; }
+		/// <summary>
+		/// Die Rotation des Modells.
+		/// </summary>
+		public Angles3 Rotation { get; set; }
 
-        /// <summary>
-        /// Die Skalierung des Modells.
-        /// </summary>
-        public Vector3 Scale { get; set; }
+		/// <summary>
+		/// Die Skalierung des Modells.
+		/// </summary>
+		public Vector3 Scale { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
-        /// <summary>
-        /// Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
-        /// Dateiname, Rotation und Skalierung.
-        /// </summary>
-        public GameModelInfo (string modelname, Angles3 rotation, Vector3 scale)
-			: base(position: Vector3.Zero)
-        {
+		/// <summary>
+		/// Erstellt ein neues Informations-Objekt eines 3D-Modells mit den angegebenen Informationen zu
+		/// Dateiname, Rotation und Skalierung.
+		/// </summary>
+		public GameModelInfo (string modelname, Angles3 rotation, Vector3 scale)
+		: base(position: Vector3.Zero)
+		{
 			Modelname = modelname;
 			Rotation = rotation;
 			Scale = scale;
-        }
+		}
 
-        /// <summary>
-        /// Erzeugt eine neue Instanz eines GameModelInfo-Objekts.
-        /// In modelname wird der Name der Datei angegeben, welche das Model repräsentiert.
-        /// </summary>
-        public GameModelInfo (string modelname)
-			: base(position: Vector3.Zero)
-        {
+		/// <summary>
+		/// Erzeugt eine neue Instanz eines GameModelInfo-Objekts.
+		/// In modelname wird der Name der Datei angegeben, welche das Model repräsentiert.
+		/// </summary>
+		public GameModelInfo (string modelname)
+		: base(position: Vector3.Zero)
+		{
 			Modelname = modelname;
 			Rotation = Angles3.Zero;
 			Scale = Vector3.One;
-        }
+		}
 
-        #endregion
-    }
+		#endregion
+	}
 }
 

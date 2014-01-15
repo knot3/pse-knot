@@ -28,7 +28,7 @@ namespace Knot3.Core
 	/// </summary>
 	public sealed class Angles3 : IEquatable<Angles3>
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Der Winkel im Bogenmaß für das Rollen um die X-Achse. Siehe statische Methode Matrix.CreateRotationX(float) des XNA-Frameworks.
@@ -48,13 +48,14 @@ namespace Knot3.Core
 		/// <summary>
 		/// Eine statische Eigenschaft mit dem Wert X = 0, Y = 0, Z = 0.
 		/// </summary>
-		public static Angles3 Zero {
+		public static Angles3 Zero
+		{
 			get { return new Angles3 (0f, 0f, 0f); }
 		}
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Konstruiert ein neues Angles3-Objekt mit drei gegebenen Winkeln im Bogenmaß.
@@ -73,9 +74,9 @@ namespace Knot3.Core
 			Z = v.Z;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Eine statische Methode, die Grad in Bogenmaß konvertiert.
@@ -83,10 +84,10 @@ namespace Knot3.Core
 		public static Angles3 FromDegrees (float x, float y, float z)
 		{
 			return new Angles3 (
-					MathHelper.ToRadians (x),
-					MathHelper.ToRadians (y),
-					MathHelper.ToRadians (z)
-			);
+			           MathHelper.ToRadians (x),
+			           MathHelper.ToRadians (y),
+			           MathHelper.ToRadians (z)
+			       );
 		}
 
 		/// <summary>
@@ -114,15 +115,15 @@ namespace Knot3.Core
 			return (int)(this.X + this.Y + this.Z);
 		}
 
-        #endregion
-				
-        #region Operators
+		#endregion
+
+		#region Operators
 
 		public static bool operator == (Angles3 value1, Angles3 value2)
 		{
 			return value1.X == value2.X
-				&& value1.Y == value2.Y
-				&& value1.Z == value2.Z;
+			       && value1.Y == value2.Y
+			       && value1.Z == value2.Z;
 		}
 
 		public static bool operator != (Angles3 value1, Angles3 value2)
@@ -193,7 +194,7 @@ namespace Knot3.Core
 			return value;
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

@@ -29,20 +29,20 @@ namespace Knot3.Core
 	{
 		private SpriteBatch spriteBatch;
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
 		/// </summary>
 		public MousePointer (GameScreen screen)
-			: base(screen, DisplayLayer.Cursor)
+		: base(screen, DisplayLayer.Cursor)
 		{
 			spriteBatch = new SpriteBatch (screen.Device);
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Zeichnet den Mauszeiger.
@@ -56,14 +56,15 @@ namespace Knot3.Core
 		{
 			if (!MonoHelper.IsRunningOnMono ()) {
 				spriteBatch.Begin ();
-            
+
 				Texture2D cursorTex = Screen.Content.Load<Texture2D> ("cursor");
 				if (Screen.Input.GrabMouseMovement || Screen.Input.CurrentInputAction == InputAction.CameraTargetMove
-					|| (Screen.Input.CurrentInputAction == InputAction.ArcballMove
-					&& (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed
-					|| InputManager.CurrentMouseState.RightButton == ButtonState.Pressed))) {
+				        || (Screen.Input.CurrentInputAction == InputAction.ArcballMove
+				            && (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed
+				                || InputManager.CurrentMouseState.RightButton == ButtonState.Pressed))) {
 					spriteBatch.Draw (cursorTex, Screen.Device.Viewport.Center (), Color.White);
-				} else {
+				}
+				else {
 					spriteBatch.Draw (cursorTex, new Vector2 (InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y), Color.White);
 				}
 
@@ -71,7 +72,7 @@ namespace Knot3.Core
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

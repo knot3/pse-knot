@@ -27,7 +27,7 @@ namespace Knot3.Screens
 	/// </summary>
 	public sealed class CreativeLoadScreen : MenuScreen
 	{
-        #region Properties
+		#region Properties
 
 		private SpriteBatch spriteBatch;
 
@@ -40,15 +40,15 @@ namespace Knot3.Screens
 		private FileIndex fileIndex;
 		private IKnotIO fileFormat;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues CreativeLoadScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 		/// </summary>
 		public CreativeLoadScreen (Knot3Game game)
-			: base(game)
+		: base(game)
 		{
 			spriteBatch = new SpriteBatch (Device);
 
@@ -62,13 +62,13 @@ namespace Knot3.Screens
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
 
 			lines.AddPoints (0, 50,
-				30, 970, 970, 50, 1000
-			);
+			                 30, 970, 970, 50, 1000
+			                );
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		private void UpdateFiles ()
 		{
@@ -112,7 +112,8 @@ namespace Knot3.Screens
 					isValid = true;
 					fileIndex.Add (hashcode);
 
-				} catch (Exception ex) {
+				}
+				catch (Exception ex) {
 					// Es ist eine Exception aufgetreten, der Knoten ist offenbar ungültig.
 					Console.WriteLine (ex);
 					isValid = false;
@@ -125,8 +126,7 @@ namespace Knot3.Screens
 				KnotMetaData meta = fileFormat.LoadMetaData (filename);
 
 				// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
-				Action LoadFile = () =>
-				{
+				Action LoadFile = () => {
 					NextScreen = new CreativeModeScreen (game: Game, knot: fileFormat.Load (filename));
 				};
 
@@ -135,10 +135,10 @@ namespace Knot3.Screens
 
 				// Erstelle den Menüeintrag
 				MenuButton button = new MenuButton (
-					screen: this,
-					drawOrder: DisplayLayer.MenuItem,
-					name: name,
-					onClick: LoadFile
+				    screen: this,
+				    drawOrder: DisplayLayer.MenuItem,
+				    name: name,
+				    onClick: LoadFile
 				);
 				savegameMenu.Add (button);
 			}
@@ -156,12 +156,12 @@ namespace Knot3.Screens
 			spriteBatch.Begin ();
 			// text
 			spriteBatch.DrawStringInRectangle (
-				font: HfGDesign.MenuFont (this),
-				text: "Load Knot",
-				color: Color.White,
-				bounds: new Rectangle (100, 50, 900, 50).Scale (Viewport),
-				alignX: HorizontalAlignment.Left,
-				alignY: VerticalAlignment.Center
+			    font: HfGDesign.MenuFont (this),
+			    text: "Load Knot",
+			    color: Color.White,
+			    bounds: new Rectangle (100, 50, 900, 50).Scale (Viewport),
+			    alignX: HorizontalAlignment.Left,
+			    alignY: VerticalAlignment.Center
 			);
 			spriteBatch.End ();
 		}
@@ -176,7 +176,7 @@ namespace Knot3.Screens
 			AddGameComponents (time, savegameMenu);
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

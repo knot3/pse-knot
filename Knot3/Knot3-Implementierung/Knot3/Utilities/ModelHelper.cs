@@ -25,12 +25,13 @@ namespace Knot3.Utilities
 	public static class ModelHelper
 	{
 		public static string[] ValidQualities = new string[] {
-				"low",
-				"medium",
-				"high"
-			};
+			"low",
+			"medium",
+			"high"
+		};
 
-		public static string Quality {
+		public static string Quality
+		{
 			get { return Options.Default ["video", "model-quality", "medium"]; }
 		}
 
@@ -40,14 +41,17 @@ namespace Knot3.Utilities
 		public static Model LoadModel (this GameScreen screen, string name)
 		{
 			ContentManager content;
-			if (contentManagers.ContainsKey (screen.CurrentRenderEffects.CurrentEffect.ToString ()))
+			if (contentManagers.ContainsKey (screen.CurrentRenderEffects.CurrentEffect.ToString ())) {
 				content = contentManagers [screen.CurrentRenderEffects.CurrentEffect.ToString ()];
-			else
+			}
+			else {
 				contentManagers [screen.CurrentRenderEffects.CurrentEffect.ToString ()] = content = new ContentManager (screen.Content.ServiceProvider, screen.Content.RootDirectory);
+			}
 
 			Model model = LoadModel (content, screen.CurrentRenderEffects.CurrentEffect, name + "-" + Quality);
-			if (model == null)
+			if (model == null) {
 				model = LoadModel (content, screen.CurrentRenderEffects.CurrentEffect, name);
+			}
 			return model;
 		}
 
@@ -55,12 +59,14 @@ namespace Knot3.Utilities
 		{
 			if (invalidModels.Contains (name)) {
 				return null;
-			} else {
+			}
+			else {
 				try {
 					Model model = content.Load<Model> (name);
 					pp.RemapModel (model);
 					return model;
-				} catch (ContentLoadException) {
+				}
+				catch (ContentLoadException) {
 					Console.WriteLine ("Warning: Model " + name + " does not exist!");
 					invalidModels.Add (name);
 					return null;

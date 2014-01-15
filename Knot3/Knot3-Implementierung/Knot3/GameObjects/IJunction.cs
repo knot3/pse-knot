@@ -21,26 +21,26 @@ using Knot3.Widgets;
 
 namespace Knot3.GameObjects
 {
-    /// <summary>
-    /// Repräsentiert einen Übergang zwischen zwei Kanten.
-    /// </summary>
-    public interface IJunction
-    {
+	/// <summary>
+	/// Repräsentiert einen Übergang zwischen zwei Kanten.
+	/// </summary>
+	public interface IJunction
+	{
 
-        #region Properties
+		#region Properties
 
-        /// <summary>
-        /// Die Kante vor dem Übergang.
-        /// </summary>
-        Edge EdgeFrom { get; set; }
+		/// <summary>
+		/// Die Kante vor dem Übergang.
+		/// </summary>
+		Edge EdgeFrom { get; set; }
 
-        /// <summary>
-        /// Die Kante nach dem Übergang.
-        /// </summary>
-        Edge EdgeTo { get; set; }
+		/// <summary>
+		/// Die Kante nach dem Übergang.
+		/// </summary>
+		Edge EdgeTo { get; set; }
 
-        #endregion
+		#endregion
 
-    }
+	}
 }
 

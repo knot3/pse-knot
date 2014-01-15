@@ -26,16 +26,16 @@ namespace Knot3.Core
 	/// </summary>
 	public static class Localizer
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Datei, welche Informationen für die Lokalisierung enthält.
 		/// </summary>
 		private static ConfigFile localization { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Liefert zu dem übergebenen Bezeichner den zugehörigen Text aus der Lokalisierungsdatei der
@@ -46,7 +46,7 @@ namespace Knot3.Core
 			throw new System.NotImplementedException ();
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

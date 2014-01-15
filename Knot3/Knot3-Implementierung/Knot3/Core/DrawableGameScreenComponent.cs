@@ -26,7 +26,7 @@ namespace Knot3.Core
 	/// </summary>
 	public abstract class DrawableGameScreenComponent : DrawableGameComponent, IGameScreenComponent
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Der zugewiesene Spielzustand.
@@ -38,7 +38,8 @@ namespace Knot3.Core
 		/// <summary>
 		/// Die Zeichen- und Eingabepriorität.
 		/// </summary>
-		public DisplayLayer Index {
+		public DisplayLayer Index
+		{
 			get { return _index; }
 			set {
 				_index = value;
@@ -46,24 +47,24 @@ namespace Knot3.Core
 			}
 		}
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet dieser ein GameScreen-Objekt zu.
 		/// index bezeichnet die Zeichenebene, auf welche die Komponente zu zeichnen ist.
 		/// </summary>
 		public DrawableGameScreenComponent (GameScreen screen, DisplayLayer index)
-			: base(screen.Game)
+		: base(screen.Game)
 		{
 			this.Screen = screen;
 			this.Index = index;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Gibt Spielkomponenten zurück, die in dieser Spielkomponente enthalten sind.
@@ -74,7 +75,7 @@ namespace Knot3.Core
 			yield break;
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

@@ -22,30 +22,30 @@ using Knot3.Utilities;
 
 namespace Knot3.Screens
 {
-    /// <summary>
-    /// Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
-    /// </summary>
-    public class ControlSettingsScreen : SettingsScreen
-    {
-        #region Properties
+	/// <summary>
+	/// Der Spielzustand, der die Steuerungs-Einstellungen darstellt.
+	/// </summary>
+	public class ControlSettingsScreen : SettingsScreen
+	{
+		#region Properties
 
-        /// <summary>
-        /// Das Menü, das die Einstellungen enthält.
-        /// </summary>
+		/// <summary>
+		/// Das Menü, das die Einstellungen enthält.
+		/// </summary>
 		private VerticalMenu settingsMenu;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
-        /// <summary>
-        /// Erzeugt ein neues ControlSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
-        /// </summary>
-        public ControlSettingsScreen (Knot3Game game)
-			: base(game)
+		/// <summary>
+		/// Erzeugt ein neues ControlSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
+		/// </summary>
+		public ControlSettingsScreen (Knot3Game game)
+		: base(game)
 		{
 			MenuName = "Controls";
-			
+
 			settingsMenu = new VerticalMenu (this, DisplayLayer.Menu);
 			settingsMenu.RelativePosition = () => new Vector2 (0.400f, 0.180f);
 			settingsMenu.RelativeSize = () => new Vector2 (0.500f, 0.770f);
@@ -55,57 +55,57 @@ namespace Knot3.Screens
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
-			
+
 			// Lade die Standardbelegung
 			Dictionary<PlayerActions, Keys> defaultReversed = KnotInputHandler.DefaultKeyAssignment.ReverseDictionary();
-			
+
 			// Iteriere dazu über alle gültigen PlayerActions...
 			foreach (PlayerActions action in typeof(PlayerActions).ToEnumValues<PlayerActions>()) {
 				string actionName = action.ToEnumDescription ();
-				
+
 				// Erstelle das dazugehörige Options-Objekt...
 				KeyOptionInfo option = new KeyOptionInfo (
-					section: "controls",
-					name: actionName,
-					defaultValue: defaultReversed [action],
-					configFile: Options.Default
+				    section: "controls",
+				    name: actionName,
+				    defaultValue: defaultReversed [action],
+				    configFile: Options.Default
 				);
 
 				// Erstelle ein KeyInputItem zum Festlegen der Tastenbelegung
 				KeyInputItem item = new KeyInputItem (
-					screen: this,
-					drawOrder: DisplayLayer.MenuItem,
-					text: actionName,
-					option: option
+				    screen: this,
+				    drawOrder: DisplayLayer.MenuItem,
+				    text: actionName,
+				    option: option
 				);
 
 				// Füge es in das Menü ein
 				settingsMenu.Add(item);
 			}
-        }
+		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
-        /// <summary>
-        /// Wird für jeden Frame aufgerufen.
-        /// </summary>
-        public override void Update (GameTime time)
-        {
-        }
+		/// <summary>
+		/// Wird für jeden Frame aufgerufen.
+		/// </summary>
+		public override void Update (GameTime time)
+		{
+		}
 
-        /// <summary>
-        /// Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
-        /// </summary>
-        public override void Entered (GameScreen previousScreen, GameTime time)
-        {
+		/// <summary>
+		/// Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
+		/// </summary>
+		public override void Entered (GameScreen previousScreen, GameTime time)
+		{
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, settingsMenu);
-        }
+		}
 
-        #endregion
+		#endregion
 
-    }
+	}
 }
 

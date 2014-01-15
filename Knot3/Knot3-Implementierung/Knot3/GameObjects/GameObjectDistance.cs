@@ -21,27 +21,27 @@ using Knot3.Widgets;
 
 namespace Knot3.GameObjects
 {
-    /// <summary>
-    /// Die Klasse GameObjectDistance beschreibt den Abstand zu einem Spielobjekt.
-    /// Dies ist z.B. hilfreich, um Schnittstellen, Verdeckungen, ... zu berechnen.
-    /// </summary>
-    public sealed class GameObjectDistance
-    {
+	/// <summary>
+	/// Die Klasse GameObjectDistance beschreibt den Abstand zu einem Spielobjekt.
+	/// Dies ist z.B. hilfreich, um Schnittstellen, Verdeckungen, ... zu berechnen.
+	/// </summary>
+	public sealed class GameObjectDistance
+	{
 
-        #region Properties
+		#region Properties
 
-        /// <summary>
-        /// Ein Spielobjekt.
-        /// </summary>
-        public IGameObject Object { get; set; }
+		/// <summary>
+		/// Ein Spielobjekt.
+		/// </summary>
+		public IGameObject Object { get; set; }
 
-        /// <summary>
-        /// Distance hält den Abstand als Gleitkommawert.
-        /// </summary>
-        public float Distance { get; set; }
+		/// <summary>
+		/// Distance hält den Abstand als Gleitkommawert.
+		/// </summary>
+		public float Distance { get; set; }
 
-        #endregion
+		#endregion
 
-    }
+	}
 }
 

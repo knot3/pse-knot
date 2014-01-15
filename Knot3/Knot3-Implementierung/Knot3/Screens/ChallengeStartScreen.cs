@@ -27,7 +27,7 @@ namespace Knot3.Screens
 	/// </summary>
 	public sealed class ChallengeStartScreen : MenuScreen
 	{
-        #region Properties
+		#region Properties
 
 		private SpriteBatch spriteBatch;
 
@@ -40,16 +40,16 @@ namespace Knot3.Screens
 		// files
 		private IChallengeIO fileFormat;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt eine neue Instanz eines ChallengeStartScreen-Objekts und
 		/// initialisiert diese mit einem Knot3Game-Objekt.
 		/// </summary>
 		public ChallengeStartScreen (Knot3Game game)
-			: base(game)
+		: base(game)
 		{
 			spriteBatch = new SpriteBatch (Device);
 
@@ -63,13 +63,13 @@ namespace Knot3.Screens
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
 
 			lines.AddPoints (0, 50,
-				30, 970, 970, 50, 1000
-			);
+			                 30, 970, 970, 50, 1000
+			                );
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		private void UpdateFiles ()
 		{
@@ -113,7 +113,8 @@ namespace Knot3.Screens
 					isValid = true;
 					fileIndex.Add (hashcode);
 
-				} catch (Exception ex) {
+				}
+				catch (Exception ex) {
 					// Es ist eine Exception aufgetreten, der Knoten ist offenbar ungültig.
 					Console.WriteLine (ex);
 					isValid = false;
@@ -126,8 +127,7 @@ namespace Knot3.Screens
 				ChallengeMetaData meta = fileFormat.LoadMetaData (filename);
 
 				// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
-				Action LoadFile = () =>
-				{
+				Action LoadFile = () => {
 					NextScreen = new ChallengeModeScreen (game: Game, challenge: fileFormat.Load (filename));
 				};
 
@@ -136,10 +136,10 @@ namespace Knot3.Screens
 
 				// Erstelle den Menüeintrag
 				MenuButton button = new MenuButton (
-					screen: this,
-					drawOrder: DisplayLayer.MenuItem,
-					name: name,
-					onClick: LoadFile
+				    screen: this,
+				    drawOrder: DisplayLayer.MenuItem,
+				    name: name,
+				    onClick: LoadFile
 				);
 				savegameMenu.Add (button);
 			}
@@ -162,7 +162,7 @@ namespace Knot3.Screens
 			AddGameComponents (time, savegameMenu);
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

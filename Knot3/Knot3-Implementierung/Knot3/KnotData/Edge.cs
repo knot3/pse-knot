@@ -26,7 +26,7 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class Edge : IEquatable<Edge>
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Farbe der Kante.
@@ -44,11 +44,11 @@ namespace Knot3.KnotData
 		public List<int> Rectangles { get; set; }
 
 		private int id;
-		private static int previousId = 0; 
+		private static int previousId = 0;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt eine neue Kante mit der angegebenen Richtung.
@@ -60,9 +60,9 @@ namespace Knot3.KnotData
 			id = ++previousId;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Gibt die Richtung als normalisierten Vektor3 zurück.
@@ -92,12 +92,12 @@ namespace Knot3.KnotData
 		{
 			return !(a == b);
 		}
-		
+
 		public bool Equals (Edge other)
 		{
 			return other != null && this.id == other.id;
 		}
-		
+
 		public override bool Equals (object obj)
 		{
 			Edge other = obj as Edge;
@@ -114,7 +114,7 @@ namespace Knot3.KnotData
 			return Direction.ToString () + "/" + id;
 		}
 
-        #endregion
+		#endregion
 
 		#region Helper Methods
 
@@ -137,10 +137,11 @@ namespace Knot3.KnotData
 		}
 
 		#endregion
-		
+
 		#region Static Properties
-		
-		public static List<Color> Colors = new List<Color> (){
+
+		public static List<Color> Colors = new List<Color> ()
+		{
 			Color.Red, Color.Green, Color.Blue, Color.Yellow, Color.Orange
 		};
 		public static Color DefaultColor = RandomColor ();

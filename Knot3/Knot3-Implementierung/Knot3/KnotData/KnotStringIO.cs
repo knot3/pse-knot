@@ -28,7 +28,7 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class KnotStringIO
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Der Name der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
@@ -40,7 +40,8 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Die Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
 		/// </summary>
-		public IEnumerable<Edge> Edges {
+		public IEnumerable<Edge> Edges
+		{
 			get {
 				Console.WriteLine ("KnotStringIO.Edges[get] = " + edgeLines.Count ());
 				foreach (string line in edgeLines) {
@@ -53,7 +54,8 @@ namespace Knot3.KnotData
 				Console.WriteLine ("KnotStringIO.Edges[set] = #" + value.Count ());
 				try {
 					edgeLines = ToLines (value);
-				} catch (Exception ex) {
+				}
+				catch (Exception ex) {
 					Console.WriteLine (ex);
 				}
 			}
@@ -62,7 +64,8 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Die Anzahl der Kanten der eingelesenen Knotendatei oder des zugewiesenen Knotenobjektes.
 		/// </summary>
-		public int CountEdges {
+		public int CountEdges
+		{
 			get {
 				return edgeLines.Where ((l) => l.Trim ().Length > 0).Count ();
 			}
@@ -72,7 +75,8 @@ namespace Knot3.KnotData
 		/// Erstellt aus den \glqq Name\grqq~- und \glqq Edges\grqq~-Eigenschaften einen neue Zeichenkette,
 		/// die als Dateiinhalt in einer Datei eines Spielstandes einen gültigen Knoten repräsentiert.
 		/// </summary>
-		public string Content {
+		public string Content
+		{
 			get {
 				return Name + "\n" + string.Join ("\n", edgeLines);
 			}
@@ -81,16 +85,17 @@ namespace Knot3.KnotData
 					string[] parts = value.Split (new char[] {'\r','\n'}, StringSplitOptions.RemoveEmptyEntries);
 					Name = parts [0];
 					edgeLines = parts.Skip (1);
-				} else if (value.Length == 1) {
+				}
+				else if (value.Length == 1) {
 					Name = value;
-					edgeLines = new string[]{};
+					edgeLines = new string[] {};
 				}
 			}
 		}
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Liest das in der angegebenen Zeichenkette enthaltene Dateiformat ein. Enthält es einen gültigen Knoten,
@@ -111,12 +116,13 @@ namespace Knot3.KnotData
 			Name = knot.Name;
 			try {
 				edgeLines = ToLines (knot);
-			} catch (Exception ex) {
+			}
+			catch (Exception ex) {
 				Console.WriteLine (ex);
 			}
 		}
 
-        #endregion
+		#endregion
 
 		#region Methods
 
@@ -149,20 +155,27 @@ namespace Knot3.KnotData
 
 		private static char EncodeEdge (Edge edge)
 		{
-			if (edge.Direction == Direction.Right)
+			if (edge.Direction == Direction.Right) {
 				return 'X';
-			else if (edge.Direction == Direction.Left)
+			}
+			else if (edge.Direction == Direction.Left) {
 				return  'x';
-			else if (edge.Direction == Direction.Up)
+			}
+			else if (edge.Direction == Direction.Up) {
 				return  'Y';
-			else if (edge.Direction == Direction.Down)
+			}
+			else if (edge.Direction == Direction.Down) {
 				return  'y';
-			else if (edge.Direction == Direction.Backward)
+			}
+			else if (edge.Direction == Direction.Backward) {
 				return  'Z';
-			else if (edge.Direction == Direction.Forward)
+			}
+			else if (edge.Direction == Direction.Forward) {
 				return  'z';
-			else
+			}
+			else {
 				throw new IOException ("Failed to encode Edge: '" + edge + "'!");
+			}
 		}
 
 		private static String EncodeColor (Color c)
@@ -172,8 +185,9 @@ namespace Knot3.KnotData
 
 		private static Color DecodeColor (string hexString)
 		{
-			if (hexString.StartsWith ("#"))
+			if (hexString.StartsWith ("#")) {
 				hexString = hexString.Substring (1);
+			}
 			uint hex = uint.Parse (hexString, System.Globalization.NumberStyles.HexNumber);
 			Color color = Color.White;
 			if (hexString.Length == 8) {
@@ -181,11 +195,13 @@ namespace Knot3.KnotData
 				color.G = (byte)(hex >> 16);
 				color.B = (byte)(hex >> 8);
 				color.A = (byte)(hex);
-			} else if (hexString.Length == 6) {
+			}
+			else if (hexString.Length == 6) {
 				color.R = (byte)(hex >> 16);
 				color.G = (byte)(hex >> 8);
 				color.B = (byte)(hex);
-			} else {
+			}
+			else {
 				throw new IOException ("Invald hex representation of an ARGB or RGB color value.");
 			}
 			return color;

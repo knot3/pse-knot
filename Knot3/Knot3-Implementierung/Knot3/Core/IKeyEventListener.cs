@@ -27,7 +27,7 @@ namespace Knot3.Core
 	public interface IKeyEventListener
 	{
 
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Eingabepriorität.
@@ -44,16 +44,16 @@ namespace Knot3.Core
 		/// </summary>
 		List<Keys> ValidKeys { get; }
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Die Reaktion auf eine Tasteneingabe.
 		/// </summary>
 		void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time);
 
-        #endregion
+		#endregion
 
 	}
 }

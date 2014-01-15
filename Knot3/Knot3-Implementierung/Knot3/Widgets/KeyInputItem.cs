@@ -27,7 +27,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class KeyInputItem : InputItem
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Option in einer Einstellungsdatei.
@@ -49,23 +49,23 @@ namespace Knot3.Widgets
 		/// </summary>
 		protected override float ValueWidth { get { return 3 * ScaledSize.Y / ScaledSize.X; } }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 		/// Zudem sind Angaben zur Zeichenreihenfolge und der Eingabeoption Pflicht.
 		/// </summary>
 		public KeyInputItem (GameScreen screen, DisplayLayer drawOrder, string text, KeyOptionInfo option)
-			: base(screen, drawOrder, text, (option as DistinctOptionInfo).Value)
+		: base(screen, drawOrder, text, (option as DistinctOptionInfo).Value)
 		{
 			this.option = option;
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Speichert die aktuell gedrückte Taste in der Option.
@@ -77,7 +77,7 @@ namespace Knot3.Widgets
 				InputText = (option as DistinctOptionInfo).Value;
 			}
 		}
-		
+
 		/// <summary>
 		/// Reaktionen auf einen Linksklick.
 		/// </summary>
@@ -86,14 +86,15 @@ namespace Knot3.Widgets
 			if (isCapturing) {
 				ValidKeys.Clear ();
 				isCapturing = false;
-			} else {
+			}
+			else {
 				ValidKeys.AddRange (typeof(Keys).ToEnumValues<Keys> ());
 				isCapturing = true;
 				InputText = "";
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

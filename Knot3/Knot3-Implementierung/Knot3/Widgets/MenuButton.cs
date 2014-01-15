@@ -26,7 +26,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class MenuButton : MenuItem
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Aktion, die ausgeführt wird, wenn der Spieler auf die Schaltfläche klickt.
@@ -43,9 +43,9 @@ namespace Knot3.Widgets
 		/// </summary>
 		protected override float ValueWidth { get { return 0.00f; } }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues MenuButton-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
@@ -53,12 +53,12 @@ namespace Knot3.Widgets
 		/// und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
 		/// </summary>
 		public MenuButton (GameScreen screen, DisplayLayer drawOrder, string name, Action onClick)
-			: base(screen, drawOrder, name)
+		: base(screen, drawOrder, name)
 		{
 			OnClick = onClick;
 		}
 
-        #endregion
+		#endregion
 
 		#region Methods
 

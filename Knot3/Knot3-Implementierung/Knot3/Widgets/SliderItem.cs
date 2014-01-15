@@ -27,7 +27,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class SliderItem : MenuItem
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Der aktuelle Wert.
@@ -49,9 +49,9 @@ namespace Knot3.Widgets
 		/// </summary>
 		public int Step { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines SliderItem-Objekts und initialisiert diese
@@ -59,12 +59,12 @@ namespace Knot3.Widgets
 		/// einem minimalen einstellbaren Wert, einem maximalen einstellbaren Wert und einem Standardwert Pflicht.
 		/// </summary>
 		public SliderItem (GameScreen screen, DisplayLayer drawOrder, string text, int max, int min, int step, int value)
-			: base(screen, drawOrder, text)
+		: base(screen, drawOrder, text)
 		{
 			throw new System.NotImplementedException ();
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

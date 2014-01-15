@@ -31,14 +31,15 @@ namespace Knot3.Core
 	/// </summary>
 	public sealed class Camera : GameScreenComponent
 	{
-        #region Properties
+		#region Properties
 
 		private Vector3 _position;
 
 		/// <summary>
 		/// Die Position der Kamera.
 		/// </summary>
-		public Vector3 Position {
+		public Vector3 Position
+		{
 			get { return _position; }
 			set {
 				OnViewChanged ();
@@ -51,20 +52,22 @@ namespace Knot3.Core
 		/// <summary>
 		/// Das Ziel der Kamera.
 		/// </summary>
-		public Vector3 Target {
+		public Vector3 Target
+		{
 			get { return _target; }
 			set {
 				OnViewChanged ();
 				_target = value;
 			}
 		}
-		
+
 		private float _foV;
 
 		/// <summary>
 		/// Das Sichtfeld.
 		/// </summary>
-		public float FoV {
+		public float FoV
+		{
 			get { return _foV; }
 			set { _foV = MathHelper.Clamp (value, 40, 100); }
 		}
@@ -108,38 +111,39 @@ namespace Knot3.Core
 		private float farPlane;
 		private Vector3 defaultPosition = new Vector3 (400, 400, 700);
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt eine neue Kamera in einem bestimmten GameScreen für eine bestimmte Spielwelt.
 		/// </summary>
 		public Camera (GameScreen screen, World world)
-			: base(screen, DisplayLayer.None)
+		: base(screen, DisplayLayer.None)
 		{
 			World = world;
 			Position = defaultPosition;
 			Target = new Vector3 (0, 0, 0);
 			UpVector = Vector3.Up;
 			Rotation = Angles3.Zero;
- 
+
 			FoV = MathHelper.ToDegrees (MathHelper.PiOver4);
 			aspectRatio = screen.Viewport.AspectRatio;
 			nearPlane = 0.5f;
 			farPlane = 10000.0f;
-			
+
 			UpdateMatrices (null);
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Die Blickrichtung.
 		/// </summary>
-		public Vector3 TargetDirection {
+		public Vector3 TargetDirection
+		{
 			get {
 				Vector3 toTarget = Target - Position;
 				toTarget.Normalize ();
@@ -150,7 +154,8 @@ namespace Knot3.Core
 		/// <summary>
 		/// Der Abstand zwischen der Kamera und dem Kamera-Ziel.
 		/// </summary>
-		public float TargetDistance {
+		public float TargetDistance
+		{
 			get {
 				return Position.DistanceTo (Target);
 			}
@@ -159,7 +164,8 @@ namespace Knot3.Core
 			}
 		}
 
-		public float ArcballTargetDistance {
+		public float ArcballTargetDistance
+		{
 			get {
 				return Position.DistanceTo (ArcballTarget);
 			}
@@ -177,7 +183,7 @@ namespace Knot3.Core
 		}
 
 		private void UpdateMatrices (GameTime time)
-		{ 
+		{
 			ViewMatrix = Matrix.CreateLookAt (Position, Target, UpVector);
 			WorldMatrix = Matrix.CreateFromYawPitchRoll (Rotation.Y, Rotation.X, Rotation.Z);
 			ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView (MathHelper.ToRadians (FoV), aspectRatio, nearPlane, farPlane);
@@ -206,16 +212,19 @@ namespace Knot3.Core
 		/// <summary>
 		/// Eine Position, um die rotiert werden soll, wenn der User die rechte Maustaste gedrückt hält und die Maus bewegt.
 		/// </summary>
-		public Vector3 ArcballTarget {
+		public Vector3 ArcballTarget
+		{
 			get {
-				if (World.SelectedObject != null)
+				if (World.SelectedObject != null) {
 					return World.SelectedObject.Center ();
-				else
+				}
+				else {
 					return Vector3.Zero;
+				}
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

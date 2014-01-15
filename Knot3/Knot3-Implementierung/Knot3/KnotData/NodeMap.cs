@@ -26,7 +26,7 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class NodeMap
 	{
-        #region Properties
+		#region Properties
 
 		private Hashtable fromMap = new Hashtable ();
 		private Hashtable toMap = new Hashtable ();
@@ -40,7 +40,7 @@ namespace Knot3.KnotData
 
 		public Vector3 Offset { get; set; }
 
-        #endregion
+		#endregion
 
 		#region Constructors
 
@@ -56,7 +56,7 @@ namespace Knot3.KnotData
 
 		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Gibt die Rasterposition des Übergangs am Anfang der Kante zurück.
@@ -97,7 +97,7 @@ namespace Knot3.KnotData
 			}
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

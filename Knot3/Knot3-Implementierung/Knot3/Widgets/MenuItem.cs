@@ -27,7 +27,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public abstract class MenuItem : Widget, IKeyEventListener, IMouseEventListener
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Gibt an, ob die Maus sich über dem Eintrag befindet, ohne ihn anzuklicken, ob er ausgewählt ist
@@ -59,15 +59,15 @@ namespace Knot3.Widgets
 		/// Wie viel Prozent der Wert des Eintrags (auf der rechten Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
 		protected virtual float ValueWidth { get { return 0.5f; } }
-		
+
 		protected SpriteBatch spriteBatch;
 
-        #endregion
-		
-        #region Constructors
+		#endregion
+
+		#region Constructors
 
 		public MenuItem (GameScreen screen, DisplayLayer drawOrder, string text)
-			: base(screen, drawOrder)
+		: base(screen, drawOrder)
 		{
 			Text = text;
 			ItemOrder = -1;
@@ -75,9 +75,9 @@ namespace Knot3.Widgets
 			spriteBatch = new SpriteBatch (screen.Device);
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Reaktionen auf einen Linksklick.
@@ -112,7 +112,8 @@ namespace Knot3.Widgets
 		{
 			if (Menu != null) {
 				Menu.OnScroll (scrollValue);
-			} else {
+			}
+			else {
 				Console.WriteLine ("Warning: MenuItem is not assigned to a menu: " + this);
 			}
 		}
@@ -123,7 +124,7 @@ namespace Knot3.Widgets
 
 			if (IsVisible) {
 				spriteBatch.Begin ();
-				
+
 				// zeichne den Hintergrund
 				spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds ());
 
@@ -161,7 +162,7 @@ namespace Knot3.Widgets
 		{
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

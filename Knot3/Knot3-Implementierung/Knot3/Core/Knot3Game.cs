@@ -28,7 +28,7 @@ namespace Knot3.Core
 	public class Knot3Game : Game
 	{
 
-        #region Properties
+		#region Properties
 
 		private bool isFullscreen;
 
@@ -37,7 +37,8 @@ namespace Knot3.Core
 		/// ob sich das Spiel im Vollbildmodus befindet. Wird dieses Attribut auf einen Wert gesetzt,
 		/// dann wird der Modus entweder gewechselt oder beibehalten, falls es auf denselben Wert gesetzt wird.
 		/// </summary>
-		public bool IsFullScreen {
+		public bool IsFullScreen
+		{
 			get {
 				return isFullscreen;
 			}
@@ -47,7 +48,8 @@ namespace Knot3.Core
 					if (value) {
 						Graphics.PreferredBackBufferWidth = Graphics.GraphicsDevice.DisplayMode.Width;
 						Graphics.PreferredBackBufferHeight = Graphics.GraphicsDevice.DisplayMode.Height;
-					} else {
+					}
+					else {
 						Graphics.PreferredBackBufferWidth = (int)Knot3Game.defaultSize.X;
 						Graphics.PreferredBackBufferHeight = (int)Knot3Game.defaultSize.Y;
 					}
@@ -68,7 +70,8 @@ namespace Knot3.Core
 		/// Dieses Attribut dient sowohl zum Setzen des Aktivierungszustandes der vertikalen Synchronisation,
 		/// als auch zum Auslesen dieses Zustandes.
 		/// </summary>
-		public Boolean VSync {
+		public Boolean VSync
+		{
 			get {
 				return Graphics.SynchronizeWithVerticalRetrace;
 			}
@@ -86,9 +89,9 @@ namespace Knot3.Core
 
 		private static Vector2 defaultSize = new Vector2 (1280, 720);
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues zentrales Spielobjekt und setzt die Auflösung des BackBuffers auf
@@ -110,9 +113,9 @@ namespace Knot3.Core
 			Window.Title = "Test Game 1";
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Initialisiert die Attribute dieser Klasse.
@@ -192,7 +195,7 @@ namespace Knot3.Core
 			base.Update (time);
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

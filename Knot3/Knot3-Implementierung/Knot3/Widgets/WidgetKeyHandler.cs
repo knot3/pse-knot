@@ -28,7 +28,7 @@ namespace Knot3.Widgets
 	public sealed class WidgetKeyHandler : GameScreenComponent
 	{
 		public WidgetKeyHandler (GameScreen screen)
-			: base(screen, DisplayLayer.None)
+		: base(screen, DisplayLayer.None)
 		{
 		}
 
@@ -56,7 +56,8 @@ namespace Knot3.Widgets
 					if (key.IsDown ()) {
 						keysInvolved.Add (key);
 						keyEvent = KeyEvent.KeyDown;
-					} else if (key.IsHeldDown ()) {
+					}
+					else if (key.IsHeldDown ()) {
 						keysInvolved.Add (key);
 						keyEvent = KeyEvent.KeyHeldDown;
 					}
@@ -68,7 +69,7 @@ namespace Knot3.Widgets
 						layer = receiver.Index,
 						keyEvent = keyEvent,
 						keys = keysInvolved
-					}; 
+					};
 				}
 			}
 			if (best != null) {

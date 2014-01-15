@@ -26,7 +26,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public abstract class ShadowGameObject : IGameObject
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Enthält Informationen über das Vorschau-Spielobjekt.
@@ -36,7 +36,8 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Eine Referenz auf die Spielwelt, in der sich das Spielobjekt befindet.
 		/// </summary>
-		public World World {
+		public World World
+		{
 			get { return decoratedObject.World; }
 			set {}
 		}
@@ -49,17 +50,18 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Die Position, an der sich das zu dekorierende Objekt befindet.
 		/// </summary>
-		public Vector3 OriginalPosition {
+		public Vector3 OriginalPosition
+		{
 			get { return decoratedObject.Info.Position; }
 		}
-		
+
 		protected IGameObject decoratedObject { get; private set; }
 
 		protected GameScreen screen;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues Vorschauobjekt in dem angegebenen Spielzustand für das angegebene zu dekorierende Objekt.
@@ -72,9 +74,9 @@ namespace Knot3.GameObjects
 			Info = new GameObjectInfo (position: Vector3.Zero, isVisible: true, isSelectable: false, isMovable: false);
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Die Position, an der das Vorschau-Spielobjekt gezeichnet werden soll.
@@ -111,7 +113,7 @@ namespace Knot3.GameObjects
 			return null;
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

@@ -34,14 +34,14 @@ namespace Knot3.RenderEffects
 
 		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt einen neuen Standardeffekt mit der angegebenen relativen Position und Größe in Prozent,
 		/// relativ zur aktuellen Auflösung des Viewports.
 		/// </summary>
 		public ResizeEffect (GameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
-			: base(screen)
+		: base(screen)
 		{
 			rect = relativePosition.Scale (screen.Viewport).CreateRectangle (relativeSize.Scale (screen.Viewport));
 		}
@@ -50,15 +50,15 @@ namespace Knot3.RenderEffects
 		/// Erstellt einen neuen Standardeffekt mit der angegebenen Position und Größe als Rechteck in Pixeln.
 		/// </summary>
 		public ResizeEffect (GameScreen screen, Rectangle absoluteRectangle)
-			: base(screen)
+		: base(screen)
 		{
 			rect = absoluteRectangle;
 		}
 
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Zeichnet das Rendertarget.
@@ -68,7 +68,7 @@ namespace Knot3.RenderEffects
 			spriteBatch.Draw (RenderTarget, rect, Color.White);
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

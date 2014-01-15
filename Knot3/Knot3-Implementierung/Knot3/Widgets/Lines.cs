@@ -36,7 +36,7 @@ namespace Knot3.Widgets
 		public static Color OutlineColor = new Color (0x3b, 0x54, 0x00);
 
 		public Lines (GameScreen screen, DisplayLayer drawOrder, int lineWidth)
-			: base(screen, drawOrder)
+		: base(screen, drawOrder)
 		{
 			this.lineWidth = lineWidth;
 			points = new List<Vector2> ();
@@ -59,11 +59,14 @@ namespace Knot3.Widgets
 						int length = (int)(nodeB - nodeA).Scale (Screen.Viewport).Length ();
 						if (direction.X == 0 && direction.Y > 0) {
 							rects [i - 1] = VectorHelper.CreateRectangle (scaledLineWidth, position.X, position.Y, 0, length);
-						} else if (direction.X == 0 && direction.Y < 0) {
+						}
+						else if (direction.X == 0 && direction.Y < 0) {
 							rects [i - 1] = VectorHelper.CreateRectangle (scaledLineWidth, position.X, position.Y - length, 0, length);
-						} else if (direction.Y == 0 && direction.X > 0) {
+						}
+						else if (direction.Y == 0 && direction.X > 0) {
 							rects [i - 1] = VectorHelper.CreateRectangle (scaledLineWidth, position.X, position.Y, length, 0);
-						} else if (direction.Y == 0 && direction.X < 0) {
+						}
+						else if (direction.Y == 0 && direction.X < 0) {
 							rects [i - 1] = VectorHelper.CreateRectangle (scaledLineWidth, position.X - length, position.Y, length, 0);
 						}
 					}
@@ -84,18 +87,21 @@ namespace Knot3.Widgets
 		public void AddPoints (float startX, float startY, params float[] xyxy)
 		{
 			Vector2 start = new Vector2 (startX, startY);
-			if (start.X > 1 || start.Y > 1)
+			if (start.X > 1 || start.Y > 1) {
 				start /= 1000f;
+			}
 			points.Add (start);
 
 			Vector2 current = start;
 			for (int i = 0; i < xyxy.Count(); ++i) {
 				// this is a new X value
-				if (i % 2 == 0) 
+				if (i % 2 == 0) {
 					current.X = xyxy [i] > 1 ? xyxy [i] / 1000f : xyxy [i];
+				}
 				// this is a new Y value
-				else
+				else {
 					current.Y = xyxy [i] > 1 ? xyxy [i] / 1000f : xyxy [i];
+				}
 
 				points.Add (current);
 			}

@@ -28,7 +28,7 @@ namespace Knot3.GameObjects
 	public interface IGameObject
 	{
 
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Informationen über das Spielobjekt, wie z.B. die Position.
@@ -40,9 +40,9 @@ namespace Knot3.GameObjects
 		/// </summary>
 		World World { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Die Mitte des Spielobjektes im 3D-Raum.
@@ -64,7 +64,7 @@ namespace Knot3.GameObjects
 		/// </summary>
 		GameObjectDistance Intersects (Ray ray);
 
-        #endregion
+		#endregion
 
 	}
 }

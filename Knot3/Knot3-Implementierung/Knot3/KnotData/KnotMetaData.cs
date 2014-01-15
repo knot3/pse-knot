@@ -31,7 +31,7 @@ namespace Knot3.KnotData
 	public class KnotMetaData
 	{
 
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Der Anzeigename des Knotens, welcher auch leer sein kann.
@@ -41,7 +41,8 @@ namespace Knot3.KnotData
 		/// ob er bereits einen Wert enthält oder \glqq null\grqq~ist.
 		/// Diese Eigenschaft kann öffentlich gelesen und gesetzt werden.
 		/// </summary>
-		public string Name {
+		public string Name
+		{
 			get {
 				return name;
 			}
@@ -50,11 +51,12 @@ namespace Knot3.KnotData
 				string extension;
 				if (Format != null && Format.FileExtensions.Count () > 0) {
 					extension = Format.FileExtensions.ElementAt (0);
-				} else {
+				}
+				else {
 					extension = ".knot";
 				}
 				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
-					+ FileUtility.ConvertToFileName (name) + extension;
+				           + FileUtility.ConvertToFileName (name) + extension;
 			}
 		}
 
@@ -82,9 +84,9 @@ namespace Knot3.KnotData
 		/// </summary>
 		public string Filename { get; private set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues Knoten-Metadaten-Objekt mit einem angegebenen Knotennamen
@@ -111,7 +113,7 @@ namespace Knot3.KnotData
 			Filename = null;
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

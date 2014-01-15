@@ -27,22 +27,24 @@ namespace Knot3.Core
 	/// </summary>
 	public static class Options
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die zentrale Einstellungsdatei des Spiels.
 		/// </summary>
-		public static ConfigFile Default {
+		public static ConfigFile Default
+		{
 			get {
-				if (_default == null)
+				if (_default == null) {
 					_default = new ConfigFile (FileUtility.SettingsDirectory + FileUtility.Separator + "knot3.ini");
+				}
 				return _default;
 			}
 		}
 
 		private static ConfigFile _default;
 
-        #endregion
+		#endregion
 	}
 }
 

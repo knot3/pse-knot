@@ -27,7 +27,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public abstract class Dialog : Widget, IKeyEventListener, IMouseEventListener
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Der Fenstertitel.
@@ -38,15 +38,15 @@ namespace Knot3.Widgets
 		/// Der angezeigte Text.
 		/// </summary>
 		public string Text { get; set; }
-		
+
 		protected SpriteBatch spriteBatch;
 		public Action Close;
 
 		protected Func<Color> TitleBackgroundColor { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues Dialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
@@ -54,7 +54,7 @@ namespace Knot3.Widgets
 		/// [base=screen, drawOrder]
 		/// </summary>
 		public Dialog (GameScreen screen, DisplayLayer drawOrder, string title, string text)
-            : base(screen, drawOrder)
+		: base(screen, drawOrder)
 		{
 			// Setzte Titel und Text
 			Title = title;
@@ -84,16 +84,16 @@ namespace Knot3.Widgets
 			ValidKeys = new List<Keys> ();
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		public override void Draw (GameTime time)
 		{
 			base.Draw (time);
 
 			spriteBatch.Begin ();
-				
+
 			// zeichne den Hintergrund
 			spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds ());
 
@@ -107,7 +107,8 @@ namespace Knot3.Widgets
 			spriteBatch.End ();
 		}
 
-		protected Vector2 RelativeTitlePosition {
+		protected Vector2 RelativeTitlePosition
+		{
 			get {
 				Vector2 pos = RelativePosition ();
 				pos.Y += 0.000f;
@@ -115,7 +116,8 @@ namespace Knot3.Widgets
 			}
 		}
 
-		protected Vector2 RelativeTitleSize {
+		protected Vector2 RelativeTitleSize
+		{
 			get {
 				Vector2 size = RelativeSize ();
 				size.Y = 0.075f;
@@ -123,7 +125,8 @@ namespace Knot3.Widgets
 			}
 		}
 
-		protected Vector2 RelativeContentPosition {
+		protected Vector2 RelativeContentPosition
+		{
 			get {
 				Vector2 pos = RelativePosition ();
 				pos.Y += RelativeTitleSize.Y;
@@ -132,7 +135,8 @@ namespace Knot3.Widgets
 			}
 		}
 
-		protected Vector2 RelativeContentSize {
+		protected Vector2 RelativeContentSize
+		{
 			get {
 				Vector2 size = RelativeSize ();
 				size.Y -= RelativeTitleSize.Y;
@@ -144,13 +148,13 @@ namespace Knot3.Widgets
 		protected Rectangle TitleBounds ()
 		{
 			return RelativeTitlePosition.Scale (Screen.Viewport)
-				.CreateRectangle (RelativeTitleSize.Scale (Screen.Viewport));
+			       .CreateRectangle (RelativeTitleSize.Scale (Screen.Viewport));
 		}
 
 		protected Rectangle ContentBounds ()
 		{
 			return RelativeContentPosition.Scale (Screen.Viewport)
-				.CreateRectangle (RelativeContentSize.Scale (Screen.Viewport));
+			       .CreateRectangle (RelativeContentSize.Scale (Screen.Viewport));
 		}
 
 		/// <summary>
@@ -180,13 +184,13 @@ namespace Knot3.Widgets
 		}
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public virtual void OnScroll (int scrollValue)
 		{
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

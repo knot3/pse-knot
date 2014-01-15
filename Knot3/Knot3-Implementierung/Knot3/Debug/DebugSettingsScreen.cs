@@ -28,25 +28,25 @@ namespace Knot3.Debug
 	/// </summary>
 	public class DebugSettingsScreen : SettingsScreen
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Das Menü, das die Einstellungen enthält.
 		/// </summary>
 		private VerticalMenu settingsMenu;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues DebugSettingsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 		/// </summary>
 		public DebugSettingsScreen (Knot3Game game)
-			: base(game)
+		: base(game)
 		{
 			MenuName = "Debug";
-			
+
 			settingsMenu = new VerticalMenu (this, DisplayLayer.Menu);
 			settingsMenu.RelativePosition = () => new Vector2 (0.400f, 0.180f);
 			settingsMenu.RelativeSize = () => new Vector2 (0.500f, 0.770f);
@@ -57,33 +57,33 @@ namespace Knot3.Debug
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
 			CheckBoxItem showOverlay = new CheckBoxItem (
-					screen: this,
-					drawOrder: DisplayLayer.MenuItem,
-					text: "Show Overlay",
-					option: new BooleanOptionInfo ("video", "camera-overlay", false, Options.Default)
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    text: "Show Overlay",
+			    option: new BooleanOptionInfo ("video", "camera-overlay", false, Options.Default)
 			);
 			settingsMenu.Add (showOverlay);
 
 			CheckBoxItem showFps = new CheckBoxItem (
-					screen: this,
-					drawOrder: DisplayLayer.MenuItem,
-					text: "Show FPS",
-					option: new BooleanOptionInfo ("video", "fps-overlay", true, Options.Default)
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    text: "Show FPS",
+			    option: new BooleanOptionInfo ("video", "fps-overlay", true, Options.Default)
 			);
 			settingsMenu.Add (showFps);
 
 			CheckBoxItem showBoundings = new CheckBoxItem (
-					screen: this,
-					drawOrder: DisplayLayer.MenuItem,
-					text: "Show Bounding Boxes",
-					option: new BooleanOptionInfo ("debug", "show-boundings", false, Options.Default)
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    text: "Show Bounding Boxes",
+			    option: new BooleanOptionInfo ("debug", "show-boundings", false, Options.Default)
 			);
 			settingsMenu.Add (showBoundings);
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
@@ -101,7 +101,7 @@ namespace Knot3.Debug
 			AddGameComponents (time, settingsMenu);
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

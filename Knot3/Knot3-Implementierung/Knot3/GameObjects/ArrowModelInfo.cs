@@ -27,7 +27,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public sealed class ArrowModelInfo : GameModelInfo
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Gibt die Richtung, in die der Pfeil zeigen soll an.
@@ -38,15 +38,15 @@ namespace Knot3.GameObjects
 
 		public float Diameter { get { return 8f; } }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt ein neues ArrowModelInfo-Objekt an einer bestimmten Position position im 3D-Raum. Dieses zeigt in eine durch direction bestimmte Richtung.
 		/// </summary>
 		public ArrowModelInfo (Vector3 position, Direction direction)
-			: base("arrow")
+		: base("arrow")
 		{
 			Direction = direction;
 			Position = position + Direction.ToVector3 () * Node.Scale / 3;
@@ -55,7 +55,7 @@ namespace Knot3.GameObjects
 			IsMovable = true;
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

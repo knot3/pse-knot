@@ -28,7 +28,7 @@ namespace Knot3.Core
 	/// </summary>
 	public sealed class ConfigFile
 	{
-        #region Properties
+		#region Properties
 
 		/// <summary>
 		/// Die Repräsentation des Wahrheitswerts "wahr" als String in einer Einstellungsdatei.
@@ -39,19 +39,19 @@ namespace Knot3.Core
 		/// Die Repräsentation des Wahrheitswerts "falsch" als String in einer Einstellungsdatei.
 		/// </summary>
 		public static string False { get { return "false"; } }
-		
+
 		private string Filename;
 		private IniFile ini;
 
-        #endregion
+		#endregion
 
 		#region Constructors
-		
+
 		public ConfigFile (string filename)
 		{
 			// load ini file
 			Filename = filename;
-			
+
 			// create a new ini parser
 			using (StreamWriter w = File.AppendText(Filename)) {
 			}
@@ -60,7 +60,7 @@ namespace Knot3.Core
 
 		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Setzt den Wert der Option mit dem angegebenen Namen in den angegebenen Abschnitt auf den angegebenen Wert.
@@ -94,7 +94,8 @@ namespace Knot3.Core
 			return GetOption (section, option, defaultValue ? True : False) == True ? true : false;
 		}
 
-		public bool this [string section, string option, bool defaultValue = false] {
+		public bool this [string section, string option, bool defaultValue = false]
+		{
 			get {
 				return GetOption (section, option, defaultValue);
 			}
@@ -103,7 +104,8 @@ namespace Knot3.Core
 			}
 		}
 
-		public string this [string section, string option, string defaultValue = null] {
+		public string this [string section, string option, string defaultValue = null]
+		{
 			get {
 				return GetOption (section, option, defaultValue);
 			}
@@ -112,7 +114,7 @@ namespace Knot3.Core
 			}
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

@@ -26,7 +26,7 @@ namespace Knot3.RenderEffects
 	/// </summary>
 	public class FadeEffect : RenderEffect
 	{
-        #region Properties
+		#region Properties
 
 		private float alpha;
 
@@ -40,27 +40,28 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		private RenderTarget2D PreviousRenderTarget { get; set; }
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
 		/// <summary>
 		/// Erstellt einen Überblende-Effekt zwischen den angegebenen Spielzuständen.
 		/// </summary>
 		public FadeEffect (GameScreen newScreen, GameScreen oldScreen)
-			: base(newScreen)
+		: base(newScreen)
 		{
 			if (oldScreen != null) {
 				PreviousRenderTarget = oldScreen.PostProcessingEffect.RenderTarget;
 				alpha = 1.0f;
-			} else {
+			}
+			else {
 				alpha = 0.0f;
 			}
 		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
 		/// <summary>
 		/// Zeichnet das Rendertarget.
@@ -70,21 +71,21 @@ namespace Knot3.RenderEffects
 			if (PreviousRenderTarget != null) {
 				alpha -= 0.05f;
 				spriteBatch.Draw (
-					PreviousRenderTarget,
-					Vector2.Zero,
-					new Rectangle (0, 0, screen.Viewport.Width, screen.Viewport.Height),
-					Color.White
+				    PreviousRenderTarget,
+				    Vector2.Zero,
+				    new Rectangle (0, 0, screen.Viewport.Width, screen.Viewport.Height),
+				    Color.White
 				);
 			}
 			if (alpha <= 0) {
 				PreviousRenderTarget = null;
 				alpha = 0.0f;
 			}
-			
+
 			spriteBatch.Draw (RenderTarget, Vector2.Zero, Color.White * (1 - alpha));
 		}
 
-        #endregion
+		#endregion
 
 	}
 }

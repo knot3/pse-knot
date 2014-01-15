@@ -36,7 +36,8 @@ namespace Knot3.Utilities
 			this.filename = filename;
 			try {
 				hashes = new HashSet<string> (FileUtility.ReadFrom (filename));
-			} catch (IOException) {
+			}
+			catch (IOException) {
 				hashes = new HashSet<string> ();
 			}
 		}
