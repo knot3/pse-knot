@@ -56,14 +56,15 @@ namespace Knot3.Screens
             settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
             InputItem playerNameInput = new InputItem(
+
                 screen: this,
                 drawOrder: DisplayLayer.MenuItem,
                 text: "Player Name:",
                 inputText: "DEFAULT" // TODO
             );
-
-            
             settingsMenu.Add(playerNameInput);
+
+
         }
 
         #endregion
@@ -75,6 +76,8 @@ namespace Knot3.Screens
         /// </summary>
         public override void Update (GameTime time)
         {
+
+
             // TODO
         }
 
@@ -85,6 +88,10 @@ namespace Knot3.Screens
         {
             base.Entered(previousScreen, time);
             AddGameComponents(time, settingsMenu);
+
+            // ???
+            
+            // playerNameInput.OnKeyEvent(key: null, keyEvent: null, time); // time ???
         }
 
         #endregion
