@@ -44,7 +44,26 @@ namespace Knot3.Screens
         public ProfileSettingsScreen (Knot3Game game)
 			: base(game)
         {
-            throw new System.NotImplementedException();
+            MenuName = "Profiles";
+
+            settingsMenu = new VerticalMenu(this, DisplayLayer.Menu);
+            settingsMenu.RelativePosition = () => new Vector2(0.400f, 0.180f);
+            settingsMenu.RelativeSize = () => new Vector2(0.500f, 0.770f);
+            settingsMenu.RelativePadding = () => new Vector2(0.010f, 0.010f);
+            settingsMenu.ItemForegroundColor = base.MenuItemForegroundColor;
+            settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
+            settingsMenu.ItemAlignX = HorizontalAlignment.Left;
+            settingsMenu.ItemAlignY = VerticalAlignment.Center;
+
+            InputItem playerNameInput = new InputItem(
+                screen: this,
+                drawOrder: DisplayLayer.MenuItem,
+                text: "Player Name:",
+                inputText: "DEFAULT" // TODO
+            );
+
+            
+            settingsMenu.Add(playerNameInput);
         }
 
         #endregion
@@ -56,15 +75,16 @@ namespace Knot3.Screens
         /// </summary>
         public override void Update (GameTime time)
         {
-            throw new System.NotImplementedException();
+            // TODO
         }
 
         /// <summary>
         /// Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
         /// </summary>
-        public override void Entered (GameScreen previousScreen, GameTime GameTime)
+        public override void Entered (GameScreen previousScreen, GameTime time)
         {
-            throw new System.NotImplementedException();
+            base.Entered(previousScreen, time);
+            AddGameComponents(time, settingsMenu);
         }
 
         #endregion
