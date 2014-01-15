@@ -30,7 +30,8 @@ namespace Knot3.RenderEffects
 	{
 		#region Properties
 
-		private Rectangle rectangle {
+		private Rectangle rectangle
+		{
 			get {
 				PresentationParameters pp = screen.Device.PresentationParameters;
 				Point resolution = new Point (pp.BackBufferWidth, pp.BackBufferHeight);

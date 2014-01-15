@@ -161,7 +161,7 @@ namespace Knot3.Screens
 
 			// assign the specified target knot
 			ChallengeKnotRenderer.Knot = challenge.Target;
-			
+
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 6);
 			lines.AddPoints (050, 550, 450, 950, 050, 550);
