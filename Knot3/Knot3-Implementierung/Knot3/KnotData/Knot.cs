@@ -66,19 +66,8 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// 
 		/// </summary>
-		public Action SelectionChanged {
-			get {
-				return _SelectionChanged;
-			}
-			set {
-				_SelectionChanged = () => {
-					StructuredSelection = null;
-					value ();
-				};
-			}
-		}
+		public Action SelectionChanged { get; set; }
 
-		private Action _SelectionChanged;
 		private List<Circle<Edge>> StructuredSelection;
 		private Circle<Edge> lastSelected;
 
@@ -99,6 +88,7 @@ namespace Knot3.KnotData
 			}
 			);
 			selectedEdges = new List<Edge> ();
+			SelectionChanged = () => StructuredSelection = null;
 		}
 
 		/// <summary>
@@ -117,6 +107,7 @@ namespace Knot3.KnotData
 			);
 			this.edges = new Circle<Edge> (edges);
 			selectedEdges = new List<Edge> ();
+			SelectionChanged = () => StructuredSelection = null;
 		}
 
         #endregion
