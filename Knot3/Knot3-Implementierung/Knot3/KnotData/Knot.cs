@@ -186,12 +186,14 @@ namespace Knot3.KnotData
 				Circle<Edge> current = edges;
 				do {
 					if (!selected.Contains (current.Previous.Content) && selected.Contains (current.Content)) {
-						for (int i = 0; i < distance; ++i)
+						for (int i = 0; i < distance; ++i) {
 							current.InsertBefore (new Edge (direction));
+						}
 					}
 					if (selected.Contains (current.Content) && !selected.Contains (current.Next.Content)) {
-						for (int i = 0; i < distance; ++i)
+						for (int i = 0; i < distance; ++i) {
 							current.InsertAfter (new Edge (direction.ReverseDirection ()));
+						}
 					}
 
 					current = current.Next;
@@ -199,10 +201,11 @@ namespace Knot3.KnotData
 
 				current = edges;
 				do {
-					if (current != current.Previous.Previous && current != current.Previous.Previous
-						&& current.Previous.Content.Direction == current.Previous.Previous.Content.Direction.ReverseDirection ()) {
-						current.Previous.Previous.Remove ();
-						current.Previous.Remove ();
+					Circle<Edge> previous = current.Previous;
+					Circle<Edge> beforeLast = previous.Previous;
+					if (current != beforeLast && previous.Content.Direction == beforeLast.Content.Direction.ReverseDirection ()) {
+						beforeLast.Remove ();
+						previous.Remove ();
 					} else {
 						current = current.Next;
 					}
