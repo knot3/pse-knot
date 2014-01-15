@@ -294,6 +294,7 @@ namespace Knot3.KnotData
 			if (lastSelected.Content == edge) {
 				lastSelected = null;
 			}
+            SelectionChanged();
 		}
 
 		/// <summary>
@@ -380,14 +381,22 @@ namespace Knot3.KnotData
 				+ ")";
 		}
 
+        /// <summary>
+        /// Erstellt, falls notwendig, eine Liste mit Circle Elementen, die jeweils Anfang und Ende eines selektierten Bereiches makieren.
+        /// Die Liste hat immer 2n Einträge. Abwechselnd immer Anfang und Ende. Beide Innerhalb der Selektion.
+        /// D.h. Ist die Selektion nur eine Kante lang, dann sind die Einträge identisch.
+        /// </summary>
 		private void CreateStructuredSelection ()
 		{
+            // Erstelle die Liste nur, wenn es notwendig ist.
 			if (StructuredSelection != null) {
 				return;
 			}
 			StructuredSelection = new List<Circle<Edge>> ();
+            // wenn nichts ausgewählt ist muss nichts weiter erstellt werden.
 			if (selectedEdges.Count == 0)
 				return;
+            // wenn alles ausgewählt ist kann man die erstellung verkürzen.
 			if (selectedEdges.Count == MetaData.CountEdges) {
 				StructuredSelection.Add (edges);
 				StructuredSelection.Add (edges.Previous);
@@ -395,26 +404,33 @@ namespace Knot3.KnotData
 			}
 			Circle<Edge> start = edges;
 			Circle<Edge> stop = start.Previous;
+            // Suche eine Stelle an der ein Selektionsblock beginnt.
 			if (selectedEdges.Contains (start.Content)) {
+                // Wenn "edges" in der Selektion ist geh nach links, bis zum Anfang des Blockes.
 				while (selectedEdges.Contains(start.Previous.Content)) {
 					start = start.Previous;
 				}
 			} else {
+                // Wenn "edges" nicht selektiert ist, gehe nach rechts bis zum beginn des nächsten Blockes.
 				while (!selectedEdges.Contains(start.Content)) {
 					start = start.Next;
 				}
 			}
 			do {
+                // "start" zeigt auf den Beginn eines Blockes und wird daher hinzu gefügt.
 				StructuredSelection.Add (start);
 				stop = start;
+                // Gehe bis zum Ende des selektierten Blockes.
 				while (selectedEdges.Contains(stop.Next.Content)) {
 					stop = stop.Next;
 				}
 				start = stop.Next;
 				StructuredSelection.Add (stop);
+                // Gehe bis zum start des nächsten Blockes.
 				while (!selectedEdges.Contains(start.Content)) {
 					start = start.Next;
 				}
+                // Höre auf, wenn man wieder beim element ist mit dem man begonnen hat.
 			} while (StructuredSelection.ElementAt(0) != start);
 
 			/*
