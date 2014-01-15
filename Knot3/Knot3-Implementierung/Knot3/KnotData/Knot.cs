@@ -329,7 +329,8 @@ namespace Knot3.KnotData
 			};
 		}
 
-		private void OnSelectionChanged() {
+		private void OnSelectionChanged()
+		{
 			StructuredSelection = null;
 			SelectionChanged ();
 		}
