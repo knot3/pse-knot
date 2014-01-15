@@ -180,17 +180,26 @@ namespace Knot3.KnotData
 		/// </summary>
 		public bool Move (Direction direction, int distance)
 		{
+			// Überprüft, ob der Move gültig ist
 			if (IsValidMove (direction, distance)) {
+				// erstellt aus den ausgewählten Kante ein HashSet, um in O(1) überprüfen zu können,
+				// ob Kanten selektiert sind
 				HashSet<Edge> selected = new HashSet<Edge> (selectedEdges);
 
+				// Iteriert über alle Kanten
 				Circle<Edge> current = edges;
 				do {
+					// Wenn die aktuelle Kante ausgwählt ist und die vorherige Kante nicht
 					if (!selected.Contains (current.Previous.Content) && selected.Contains (current.Content)) {
+						// Füge die Richtung so oft ein, wie in der Distanz angegeben wurde
 						for (int i = 0; i < distance; ++i) {
 							current.InsertBefore (new Edge (direction));
 						}
 					}
+
+					// Wenn die aktuelle Kante ausgwählt ist und die nächste Kante nicht
 					if (selected.Contains (current.Content) && !selected.Contains (current.Next.Content)) {
+						// Füge die umgekehrte Richtung so oft ein, wie in der Distanz angegeben wurde
 						for (int i = 0; i < distance; ++i) {
 							current.InsertAfter (new Edge (direction.ReverseDirection ()));
 						}
@@ -198,23 +207,34 @@ namespace Knot3.KnotData
 
 					current = current.Next;
 				} while (current != edges);
-
+				
+				// Iteriert über alle Kanten
 				current = edges;
 				do {
+					// die vorherige Kante
 					Circle<Edge> previous = current.Previous;
+					// die Kante vor der vorherigen Kante
 					Circle<Edge> beforePrevious = previous.Previous;
+
+					// Wenn die aktuelle Kante nicht die vorletzte ist
+					// (effiziente Art zu prüfen, ob der Knoten mehr als 2 Kanten hat!)
+					// und wenn die Richtung der letzten Kante gleich der Umkehrten Richtung der vorletzten Kante ist
 					if (current != beforePrevious && previous.Content.Direction == beforePrevious.Content.Direction.ReverseDirection ()) {
+						// dann entferne die letzte und vorletzte Kante
 						beforePrevious.Remove ();
 						previous.Remove ();
+
 					} else {
 						current = current.Next;
 					}
 				} while (current != edges);
 
+				// löse den EdgesChanged-Event aus
 				EdgesChanged ();
 				return true;
 
 			} else {
+				// Die Verschiebung konnte nicht ausgeführt werden, weil der Zug ungültig ist
 				return false;
 			}
 		}
