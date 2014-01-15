@@ -157,6 +157,10 @@ namespace Knot3.Widgets
 			return topLeft.CreateRectangle (size);
 		}
 
+		public virtual void Collapse ()
+		{
+		}
+
         #endregion
 
 	}

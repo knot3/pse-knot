@@ -18,6 +18,7 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
+using Knot3.Utilities;
 
 namespace Knot3.Widgets
 {
@@ -33,6 +34,8 @@ namespace Knot3.Widgets
 		/// </summary>
 		private VerticalMenu dropdown { get; set; }
 
+		private string currentValue;
+
         #endregion
 
         #region Constructors
@@ -44,6 +47,15 @@ namespace Knot3.Widgets
 		public DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder, string text)
 			: base(screen, drawOrder, text)
 		{
+			dropdown = new VerticalMenu (screen: screen, drawOrder: DisplayLayer.SubMenu);
+			dropdown.RelativePosition = () => RelativePosition () + new Vector2 (x: ValueWidth * RelativeSize ().X, y: 0);
+			dropdown.RelativeSize = () => new Vector2 (x: ValueWidth * RelativeSize ().X, y: RelativeSize ().Y * 10);
+			dropdown.RelativePadding = () => new Vector2 (0.010f, 0.010f);
+			dropdown.ItemForegroundColor = (i) => Menu.ItemForegroundColor (i);
+			dropdown.ItemBackgroundColor = (i) => Menu.ItemBackgroundColor (i);
+			dropdown.ItemAlignX = HorizontalAlignment.Left;
+			dropdown.ItemAlignY = VerticalAlignment.Center;
+			dropdown.IsVisible = false;
 		}
 
         #endregion
@@ -56,7 +68,23 @@ namespace Knot3.Widgets
 		/// </summary>
 		public void AddEntries (DistinctOptionInfo option)
 		{
-			throw new System.NotImplementedException ();
+			foreach (string _value in option.ValidValues) {
+				string value = _value; // create a copy for the action
+				Action onSelected = () => {
+					Console.WriteLine ("OnClick: " + value);
+					option.Value = value;
+					currentValue = value;
+					dropdown.IsVisible = false;
+				};
+				MenuButton button = new MenuButton (
+					screen: Screen,
+					drawOrder: DisplayLayer.SubMenuItem,
+					name: value,
+					onClick: onSelected
+				);
+				dropdown.Add (button);
+			}
+			currentValue = option.Value;
 		}
 
 		/// <summary>
@@ -68,8 +96,57 @@ namespace Knot3.Widgets
 			throw new System.NotImplementedException ();
 		}
 
-        #endregion
+		/// <summary>
+		/// Reaktionen auf einen Linksklick.
+		/// </summary>
+		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+		{
+			onClick ();
+		}
 
+		private void onClick ()
+		{
+			bool newValue = !dropdown.IsVisible;
+			Menu.Collapse ();
+			dropdown.IsVisible = newValue;
+		}
+
+		public override void Collapse ()
+		{
+			dropdown.IsVisible = false;
+		}
+
+		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
+		{
+			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
+				yield return component;
+			}
+			yield return dropdown;
+		}
+
+		public override void Draw (GameTime time)
+		{
+			base.Draw (time);
+
+			// Wenn das DropDownMenuItem sichtbar ist und das Dropdown-Menü nicht...
+			if (IsVisible && !dropdown.IsVisible) {
+				// lade die Schrift
+				SpriteFont font = HfGDesign.MenuFont (Screen);
+				// dann zeichne den aktuell ausgewählten Wert
+				spriteBatch.Begin ();
+				spriteBatch.DrawStringInRectangle (
+					font: font,
+					text: currentValue,
+					color: ForegroundColor (),
+					bounds: ValueBounds (),
+					alignX: HorizontalAlignment.Left,
+					alignY: AlignY
+				);
+				spriteBatch.End ();
+			}
+		}
+
+        #endregion
 	}
 }
 

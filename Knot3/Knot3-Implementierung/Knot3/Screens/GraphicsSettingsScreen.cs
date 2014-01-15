@@ -56,12 +56,32 @@ namespace Knot3.Screens
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
 			CheckBoxItem showArrows = new CheckBoxItem (
-					screen: this,
-					drawOrder: DisplayLayer.MenuItem,
-					text: "Show Arrows",
-					option: new BooleanOptionInfo ("video", "arrows", false, Options.Default)
+				screen: this,
+				drawOrder: DisplayLayer.MenuItem,
+				text: "Show Arrows",
+				option: new BooleanOptionInfo ("video", "arrows", false, Options.Default)
 			);
 			settingsMenu.Add (showArrows);
+
+			string currentResolution = Viewport.Width + "x" + Viewport.Height;
+			string[] validResolutions = {
+				"1280x720", "1920x1080", "1366x768", "1024x768", "1280x800", "1680x1050", "1440x900", "1600x900",
+			};
+			Array.Sort (validResolutions);
+			DistinctOptionInfo resolutionOption = new DistinctOptionInfo (
+				section: "video",
+				name: "resolution",
+				defaultValue: currentResolution,
+				validValues: validResolutions,
+				configFile: Options.Default
+			);
+			DropDownMenuItem resolutionItem = new DropDownMenuItem (
+				screen: this,
+				drawOrder: DisplayLayer.MenuItem,
+				text: "Resolution"
+			);
+			resolutionItem.AddEntries (resolutionOption);
+			settingsMenu.Add (resolutionItem);
 		}
 
         #endregion

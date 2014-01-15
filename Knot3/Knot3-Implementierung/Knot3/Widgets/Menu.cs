@@ -61,6 +61,21 @@ namespace Knot3.Widgets
 		public VerticalAlignment ItemAlignY { get; set; }
 		
 		protected List<MenuItem> items;
+		private bool isVisible;
+
+		public override bool IsVisible {
+			get {
+				return isVisible;
+			}
+			set {
+				isVisible = value;
+				if (items != null) {
+					foreach (MenuItem item in items) {
+						item.IsVisible = value;
+					}
+				}
+			}
+		}
 
         #endregion
 
@@ -186,23 +201,14 @@ namespace Knot3.Widgets
 			item.IsVisible = isVisible;
 		}
 
-        #endregion
-
-		private bool isVisible;
-
-		public override bool IsVisible {
-			get {
-				return isVisible;
-			}
-			set {
-				isVisible = value;
-				if (items != null) {
-					foreach (MenuItem item in items) {
-						item.IsVisible = value;
-					}
-				}
+		public void Collapse ()
+		{
+			foreach (MenuItem item in items) {
+				item.Collapse ();
 			}
 		}
+
+        #endregion
 	}
 }
 

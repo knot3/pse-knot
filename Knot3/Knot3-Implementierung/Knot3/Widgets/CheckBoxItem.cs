@@ -44,6 +44,8 @@ namespace Knot3.Widgets
 		/// </summary>
 		protected override float ValueWidth { get { return ScaledSize.Y / ScaledSize.X; } }
 
+		private bool currentValue;
+
         #endregion
 
         #region Constructors
@@ -56,6 +58,7 @@ namespace Knot3.Widgets
 			: base(screen, drawOrder, text)
 		{
 			this.option = option;
+			currentValue = option.Value;
 		}
 
         #endregion
@@ -76,7 +79,7 @@ namespace Knot3.Widgets
 			spriteBatch.DrawColoredRectangle (Color.Black, bounds.Shrink (2));
 
 			// wenn der Wert wahr ist
-			if (option.Value) {
+			if (currentValue) {
 				spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds.Shrink (4));
 			}
 
@@ -85,8 +88,8 @@ namespace Knot3.Widgets
 
 		private void onClick ()
 		{
-			bool newValue = option.Value = !option.Value;
-			Console.WriteLine ("option: " + option.ToString () + " := " + newValue);
+			currentValue = option.Value = !option.Value;
+			Console.WriteLine ("option: " + option.ToString () + " := " + currentValue);
 		}
 
 		/// <summary>
