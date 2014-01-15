@@ -30,7 +30,20 @@ namespace Knot3.RenderEffects
 	{
 		#region Properties
 
-		private Rectangle rect;
+		private Rectangle rectangle {
+			get {
+				PresentationParameters pp = screen.Device.PresentationParameters;
+				Point resolution = new Point (pp.BackBufferWidth, pp.BackBufferHeight);
+				if (!rectangles.ContainsKey (resolution)) {
+					rectangles [resolution] = relativePosition.Scale (screen.Viewport).CreateRectangle (relativeSize.Scale (screen.Viewport));
+				}
+				return rectangles [resolution];
+			}
+		}
+
+		private Dictionary<Point, Rectangle> rectangles = new Dictionary<Point, Rectangle> ();
+		private Vector2 relativePosition = Vector2.Zero;
+		private Vector2 relativeSize = Vector2.One;
 
 		#endregion
 
@@ -43,18 +56,9 @@ namespace Knot3.RenderEffects
 		public ResizeEffect (GameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
 		: base(screen)
 		{
-			rect = relativePosition.Scale (screen.Viewport).CreateRectangle (relativeSize.Scale (screen.Viewport));
+			this.relativePosition = relativePosition;
+			this.relativeSize = relativeSize;
 		}
-
-		/// <summary>
-		/// Erstellt einen neuen Standardeffekt mit der angegebenen Position und Größe als Rechteck in Pixeln.
-		/// </summary>
-		public ResizeEffect (GameScreen screen, Rectangle absoluteRectangle)
-		: base(screen)
-		{
-			rect = absoluteRectangle;
-		}
-
 
 		#endregion
 
@@ -65,7 +69,7 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		protected override void DrawRenderTarget (GameTime GameTime)
 		{
-			spriteBatch.Draw (RenderTarget, rect, Color.White);
+			spriteBatch.Draw (RenderTarget, rectangle, Color.White);
 		}
 
 		#endregion

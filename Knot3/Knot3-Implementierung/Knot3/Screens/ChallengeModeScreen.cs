@@ -113,6 +113,7 @@ namespace Knot3.Screens
 		private MousePointer pointer;
 		private Overlay overlay;
 		private Dialog currentDialog;
+		private Lines lines;
 		private DebugBoundings debugBoundings;
 
 		#endregion
@@ -129,7 +130,7 @@ namespace Knot3.Screens
 			PlayerWorld = new World (screen: this);
 			ChallengeWorld = new World (
 			    screen: this,
-			    relativePosition: new Vector2 (0f, 0.6f),
+			    relativePosition: new Vector2 (0.05f, 0.55f),
 			    relativeSize: new Vector2 (0.4f, 0.4f)
 			);
 			ChallengeWorld.Camera = PlayerWorld.Camera;
@@ -160,6 +161,10 @@ namespace Knot3.Screens
 
 			// assign the specified target knot
 			ChallengeKnotRenderer.Knot = challenge.Target;
+			
+			// die Linien
+			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 6);
+			lines.AddPoints (050, 550, 450, 950, 050, 550);
 		}
 
 		#endregion
@@ -221,7 +226,7 @@ namespace Knot3.Screens
 		public override void Entered (GameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, knotInput, overlay, pointer, PlayerWorld, ChallengeWorld, modelMouseHandler);
+			AddGameComponents (time, knotInput, overlay, pointer, PlayerWorld, ChallengeWorld, modelMouseHandler, lines);
 
 			// Einstellungen anwenden
 			debugBoundings.Info.IsVisible = Options.Default ["debug", "show-boundings", false];
