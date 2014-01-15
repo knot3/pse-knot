@@ -95,25 +95,25 @@ namespace Knot3.Screens
 			: base(game)
 		{
 			// world
-			world = new World (this);
+			world = new World (screen: this);
 			// input
-			knotInput = new KnotInputHandler (this, world);
+			knotInput = new KnotInputHandler (screen: this, world: world);
 			// overlay
-			overlay = new Overlay (this, world);
+			overlay = new Overlay (screen: this, world: world);
 			// pointer
-			pointer = new MousePointer (this);
+			pointer = new MousePointer (screen: this);
 			// model mouse handler
-			modelMouseHandler = new ModelMouseHandler (this, world);
+			modelMouseHandler = new ModelMouseHandler (screen: this, world: world);
 
 			// knot renderer
-			knotRenderer = new KnotRenderer (screen: this, info: new GameObjectInfo (position: Vector3.Zero));
+			knotRenderer = new KnotRenderer (screen: this, position: Vector3.Zero);
 			world.Add (knotRenderer);
 
 			// debug displays
-			debugBoundings = new DebugBoundings (screen: this, info: new GameObjectInfo (position: Vector3.Zero));
+			debugBoundings = new DebugBoundings (screen: this, position: Vector3.Zero);
 
 			// edge movements
-			edgeMovement = new EdgeMovement (screen: this, world: world, info: new GameObjectInfo (position: Vector3.Zero));
+			edgeMovement = new EdgeMovement (screen: this, world: world, position: Vector3.Zero);
 			world.Add (edgeMovement);
 
 			// assign the specified knot

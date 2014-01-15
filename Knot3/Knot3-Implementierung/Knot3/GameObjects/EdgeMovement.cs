@@ -58,11 +58,11 @@ namespace Knot3.GameObjects
 		/// mit ihrem zugehörigen GameScreen-Objekt screen, der Spielwelt world und
 		/// Objektinformationen info.
 		/// </summary>
-		public EdgeMovement (GameScreen screen, World world, GameObjectInfo info)
+		public EdgeMovement (GameScreen screen, World world, Vector3 position)
 		{
 			this.screen = screen;
 			World = world;
-			Info = info;
+			Info = new GameObjectInfo (position: position);
 			shadowObjects = new List<ShadowGameObject> ();
 		}
 

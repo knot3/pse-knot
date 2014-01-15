@@ -108,10 +108,10 @@ namespace Knot3.GameObjects
 		/// Erstellt ein neues KnotRenderer-Objekt für den angegebenen Spielzustand mit den angegebenen
 		/// Spielobjekt-Informationen, die unter Anderem die Position des Knotenursprungs enthalten.
 		/// </summary>
-		public KnotRenderer (GameScreen screen, GameObjectInfo info)
+		public KnotRenderer (GameScreen screen, Vector3 position)
 		{
 			this.screen = screen;
-			Info = info;
+			Info = new GameObjectInfo (position: position);
 			pipes = new List<PipeModel> ();
 			nodes = new List<NodeModel> ();
 			arrows = new List<ArrowModel> ();

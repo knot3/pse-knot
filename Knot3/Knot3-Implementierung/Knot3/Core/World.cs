@@ -76,6 +76,8 @@ namespace Knot3.Core
 
 		public bool Redraw { get; set; }
 
+		private ResizeEffect resizeEffect;
+
         #endregion
 
         #region Constructors
@@ -98,6 +100,23 @@ namespace Knot3.Core
 			} else {
 				CurrentEffect = new StandardEffect (screen);
 			}
+
+			// Die relative Standard-Position und Größe
+			resizeEffect = new ResizeEffect (
+				screen: screen,
+				relativePosition: Vector2.Zero,
+				relativeSize: Vector2.One
+			);
+		}
+
+		public World (GameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
+			: this(screen)
+		{
+			resizeEffect = new ResizeEffect (
+				screen: screen,
+				relativePosition: relativePosition,
+				relativeSize: relativeSize
+			);
 		}
 
         #endregion
@@ -135,6 +154,7 @@ namespace Knot3.Core
 				Color background = CurrentEffect is CelShadingEffect ? Color.CornflowerBlue : Color.Black;
 
 				// begin the knot render effect
+				resizeEffect.Begin (time);
 				CurrentEffect.Begin (background, time);
 
 				foreach (IGameObject obj in Objects) {
@@ -144,6 +164,7 @@ namespace Knot3.Core
 
 				// end of the knot render effect
 				CurrentEffect.End (time);
+				resizeEffect.End (time);
 			} else {
 				Screen.PostProcessingEffect.DrawLastFrame (time);
 			}

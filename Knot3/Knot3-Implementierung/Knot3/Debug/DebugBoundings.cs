@@ -41,10 +41,10 @@ namespace Knot3.Debug
 
         #region Constructors
 
-		public DebugBoundings (GameScreen screen, GameObjectInfo info)
+		public DebugBoundings (GameScreen screen, Vector3 position)
 		{
 			this.screen = screen;
-			Info = info;
+			Info = new GameObjectInfo (position: position);
 
 			sphereResolution = 40;
 			effect = new BasicEffect (screen.Device);

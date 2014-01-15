@@ -29,8 +29,8 @@ namespace Knot3.Screens
     {
         #region Constructors
 
-		public TutorialChallengeModeScreen (Knot3Game game, Knot playerKnot, Knot challengeKnot)
-			: base(game, playerKnot, challengeKnot)
+		public TutorialChallengeModeScreen (Knot3Game game, Challenge challenge)
+			: base(game, challenge)
 		{
 			throw new System.NotImplementedException ();
 		}
