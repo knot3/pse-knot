@@ -33,7 +33,7 @@ namespace Knot3.Widgets
 		/// Beinhaltet den vom Spieler eingegebenen Text.
 		/// </summary>
 		public string InputText { get; set; }
-		
+
 		/// <summary>
 		/// Gibt an, ob gerade auf einen Tastendruck gewartet wird.
 		/// </summary>
