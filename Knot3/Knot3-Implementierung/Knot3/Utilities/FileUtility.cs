@@ -80,9 +80,9 @@ namespace Knot3.Utilities
 					return baseDirectory;
 				} else {
 					string cwd = Directory.GetCurrentDirectory ();
-					string[] binDirectories = new string[] {"Debug", "Release", "bin"};
+                    string[] binDirectories = new string[] { "Debug", "Release", "x86", "bin" };
 					foreach (string dir in binDirectories) {
-						if (cwd.EndsWith (dir)) {
+						if (cwd.ToLower().EndsWith (dir.ToLower())) {
 							cwd = cwd.Substring (0, cwd.Length - dir.Length - 1);
 						}
 					}
