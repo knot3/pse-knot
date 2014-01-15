@@ -33,8 +33,13 @@ namespace Knot3.Widgets
 		/// Beinhaltet den vom Spieler eingegebenen Text.
 		/// </summary>
 		public string InputText { get; set; }
-
+		
+		/// <summary>
+		/// Gibt an, ob gerade auf einen Tastendruck gewartet wird.
+		/// </summary>
 		public bool IsEnabled { get; set; }
+
+		public override bool IsKeyEventEnabled { get { return IsVisible && IsEnabled; } }
 
 		#endregion
 
@@ -54,13 +59,11 @@ namespace Knot3.Widgets
 
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
-			if (IsVisible && IsEnabled) {
-				string temp = InputText;
-				TextHelper.TryTextInput (ref temp, time);
-				InputText = temp;
-				if (key.Contains (Keys.Enter)) {
-					IsEnabled = false;
-				}
+			string temp = InputText;
+			TextHelper.TryTextInput (ref temp, time);
+			InputText = temp;
+			if (key.Contains (Keys.Enter)) {
+				IsEnabled = false;
 			}
 		}
 

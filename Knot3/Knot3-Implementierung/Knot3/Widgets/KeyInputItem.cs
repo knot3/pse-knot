@@ -35,11 +35,6 @@ namespace Knot3.Widgets
 		private KeyOptionInfo option { get; set; }
 
 		/// <summary>
-		/// Gibt an, ob gerade auf einen Tastendruck gewartet wird.
-		/// </summary>
-		private bool isCapturing;
-
-		/// <summary>
 		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
 		protected override float NameWidth { get { return Math.Min (0.70f, 1.0f - ValueWidth); } }
@@ -75,6 +70,7 @@ namespace Knot3.Widgets
 			if (keys.Count > 0) {
 				option.Value = keys [0];
 				InputText = (option as DistinctOptionInfo).Value;
+				IsEnabled = false;
 			}
 		}
 
@@ -83,13 +79,13 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-			if (isCapturing) {
+			if (IsEnabled) {
 				ValidKeys.Clear ();
-				isCapturing = false;
+				IsEnabled = false;
 			}
 			else {
 				ValidKeys.AddRange (typeof(Keys).ToEnumValues<Keys> ());
-				isCapturing = true;
+				IsEnabled = true;
 				InputText = "";
 			}
 		}
