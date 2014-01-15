@@ -32,7 +32,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Beinhaltet den vom Spieler eingegebenen Text.
 		/// </summary>
-		public string InputText { get; set; }
+		public string InputText;
 
         #endregion
 
@@ -46,6 +46,12 @@ namespace Knot3.Widgets
 			: base(screen, drawOrder, text)
 		{
 			InputText = inputText;
+			ValidKeys = TextHelper.ValidKeys;
+		}
+
+		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
+		{
+			TextHelper.TryTextInput (ref InputText, time);
 		}
 
 		public override void Draw (GameTime time)
