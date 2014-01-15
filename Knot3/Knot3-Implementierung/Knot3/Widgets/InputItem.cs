@@ -32,7 +32,9 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Beinhaltet den vom Spieler eingegebenen Text.
 		/// </summary>
-		public string InputText;
+		public string InputText { get; set; }
+
+		public bool IsEnabled { get; set; }
 
 		#endregion
 
@@ -46,12 +48,30 @@ namespace Knot3.Widgets
 		: base(screen, drawOrder, text)
 		{
 			InputText = inputText;
-			ValidKeys = TextHelper.ValidKeys;
+			ValidKeys.AddRange (TextHelper.ValidKeys);
+			ValidKeys.Add (Keys.Enter);
 		}
 
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
-			TextHelper.TryTextInput (ref InputText, time);
+			if (IsVisible && IsEnabled) {
+				string temp = InputText;
+				TextHelper.TryTextInput (ref temp, time);
+				InputText = temp;
+				if (key.Contains (Keys.Enter)) {
+					IsEnabled = false;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Reaktionen auf einen Linksklick.
+		/// </summary>
+		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+		{
+			if (IsVisible) {
+				IsEnabled = true;
+			}
 		}
 
 		public override void Draw (GameTime time)
@@ -65,7 +85,8 @@ namespace Knot3.Widgets
 
 			// zeichne den Hintergrund des Eingabefelds
 			spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds);
-			spriteBatch.DrawColoredRectangle (Color.Black, bounds.Shrink (xy: 2));
+			Color backgroundColor = IsEnabled ? Color.Black.Mix (Color.White, 0.25f) : Color.Black;
+			spriteBatch.DrawColoredRectangle (backgroundColor, bounds.Shrink (xy: 2));
 
 			// lade die Schrift
 			SpriteFont font = HfGDesign.MenuFont (Screen);
