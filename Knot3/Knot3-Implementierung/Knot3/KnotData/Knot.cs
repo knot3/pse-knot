@@ -89,7 +89,6 @@ namespace Knot3.KnotData
 			}
 			                         );
 			selectedEdges = new List<Edge> ();
-			SelectionChanged = () => StructuredSelection = null;
 		}
 
 		/// <summary>
@@ -108,7 +107,6 @@ namespace Knot3.KnotData
 			);
 			this.edges = new Circle<Edge> (edges);
 			selectedEdges = new List<Edge> ();
-			SelectionChanged = () => StructuredSelection = null;
 		}
 
 		#endregion
@@ -331,6 +329,11 @@ namespace Knot3.KnotData
 			};
 		}
 
+		private void OnSelectionChanged() {
+			StructuredSelection = null;
+			SelectionChanged ();
+		}
+
 		/// <summary>
 		/// Fügt die angegebene Kante zur aktuellen Kantenauswahl hinzu.
 		/// </summary>
@@ -340,7 +343,7 @@ namespace Knot3.KnotData
 				selectedEdges.Add (edge);
 			}
 			lastSelected = edges.Find (edge);
-			SelectionChanged ();
+			OnSelectionChanged();
 		}
 
 		/// <summary>
@@ -352,7 +355,8 @@ namespace Knot3.KnotData
 			if (lastSelected.Content == edge) {
 				lastSelected = null;
 			}
-			SelectionChanged ();
+			StructuredSelection = null;
+			OnSelectionChanged();
 		}
 
 		/// <summary>
@@ -362,7 +366,7 @@ namespace Knot3.KnotData
 		{
 			selectedEdges.Clear ();
 			lastSelected = null;
-			SelectionChanged ();
+			OnSelectionChanged();
 		}
 
 		/// <summary>
@@ -393,7 +397,7 @@ namespace Knot3.KnotData
 				}
 				lastSelected = selectedCircle;
 			}
-			SelectionChanged ();
+			OnSelectionChanged();
 		}
 
 		/// <summary>
