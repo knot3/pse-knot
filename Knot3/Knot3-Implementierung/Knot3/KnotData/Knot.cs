@@ -66,7 +66,9 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// 
 		/// </summary>
-		public Action SelectionChanged { get; set; }
+        public Action SelectionChanged { get { return _SelectionChanged; } set { _SelectionChanged = () => { StructuredSelection = null; value(); }; } }
+        private Action _SelectionChanged;
+        private List<Circle<Edge>> StructuredSelection;
 
 		private Circle<Edge> lastSelected;
 
@@ -116,7 +118,61 @@ namespace Knot3.KnotData
 		/// </summary>
 		public bool IsValidMove (Direction direction, int distance)
 		{
-			// TODO
+            CreateStructuredSelection();
+            if (StructuredSelection.Count == 0)
+                return false;
+            if (StructuredSelection.ElementAt(0) == StructuredSelection.ElementAt(1).Next)
+                return true;
+            Stack<Direction> stack = new Stack<Direction>();
+            Circle<Edge> pointer = StructuredSelection.ElementAt(0);
+            int position = 1;
+            while (position < StructuredSelection.Count)
+            {
+                do
+                {
+                    stack.Push(pointer.Content.Direction);
+                    pointer = pointer.Next;
+                } while (pointer != StructuredSelection.ElementAt(position).Next);
+                position++;
+                for (int i = 0; i < distance; i++)
+                {
+                    stack.Push(direction.ReverseDirection());
+                }
+                while (stack.Peek() == pointer.Content.Direction.ReverseDirection() && pointer != StructuredSelection.ElementAt(position % StructuredSelection.Count))
+                {
+                    stack.Pop();
+                    pointer = pointer.Next;
+                }
+                while (pointer != StructuredSelection.ElementAt(position % StructuredSelection.Count))
+                {
+                    stack.Push(pointer.Content.Direction);
+                    pointer = pointer.Next;
+                }
+                for (int i = 0; i < distance; i++)
+                {
+                    if (stack.Peek() == direction.ReverseDirection())
+                    {
+                        stack.Pop();
+                    }
+                    else
+                    {
+                        stack.Push(direction);
+                    }
+                }
+            }
+            Vector3 pos3D = new Vector3(0, 0, 0);
+            HashSet<Vector3> occupancy = new HashSet<Vector3>();
+            while (stack.Count > 0)
+            {
+
+                if (occupancy.Contains((pos3D + (stack.Peek().ToVector3() / 2))))
+                {
+                    return false;
+                } else {
+                    occupancy.Add((pos3D + (stack.Peek().ToVector3() / 2)));
+                    pos3D += stack.Pop().ToVector3();
+                }
+            }
 			return true;
 		}
 
@@ -311,7 +367,76 @@ namespace Knot3.KnotData
 				+ ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
 				+ ")";
 		}
+        private void CreateStructuredSelection()
+        {
+            if (StructuredSelection != null)
+            {
+                return;
+            }
+            StructuredSelection = new List<Circle<Edge>>();
+            if (selectedEdges.Count == 0)
+                return;
+            if (selectedEdges.Count == MetaData.CountEdges)
+            {
+                StructuredSelection.Add(edges);
+                StructuredSelection.Add(edges.Previous);
+                return;
+            }
+            Circle<Edge> start = edges;
+            Circle<Edge> stop = start.Previous;
+            if (selectedEdges.Contains(start.Content))
+            {
+                while (selectedEdges.Contains(start.Previous.Content))
+                {
+                    start = start.Previous;
+                }
+            }
+            else
+            {
+                while (!selectedEdges.Contains(start.Content))
+                {
+                    start = start.Next;
+                }
+            }
+            do
+            {
+                StructuredSelection.Add(start);
+                stop = start;
+                while (selectedEdges.Contains(stop.Next.Content))
+                {
+                    stop = stop.Next;
+                }
+                start = stop.Next;
+                StructuredSelection.Add(stop);
+                while (!selectedEdges.Contains(start.Content))
+                {
+                    start = start.Next;
+                }
+            } while (StructuredSelection.ElementAt(0) != start);
 
+            /*
+            foreach (Edge edge in selectedEdges)
+            {
+                start = edges.Find(edge);
+                stop = start;
+                while (selectedEdges.Contains(start.Previous.Content))
+                {
+                    start = start.Previous;
+                    if (StructuredSelection.Contains(start))
+                        goto ENDFOREACH;
+                }
+                while (selectedEdges.Contains(stop.Next.Content))
+                {
+                    stop = stop.Next;
+                    if (StructuredSelection.Contains(stop))
+                        goto ENDFOREACH;
+                }
+                StructuredSelection.Add(start);
+                StructuredSelection.Add(stop);
+            ENDFOREACH: ;
+            }
+ */
+        }
         #endregion
 
 	}
