@@ -126,6 +126,7 @@ namespace Knot3.KnotData
 				return true;
 			Stack<Direction> stack = new Stack<Direction> ();
 			Circle<Edge> pointer = StructuredSelection.ElementAt (0);
+            int counter;
 			int position = 1;
 			while (position < StructuredSelection.Count) {
 				do {
@@ -136,9 +137,13 @@ namespace Knot3.KnotData
 				for (int i = 0; i < distance; i++) {
 					stack.Push (direction.ReverseDirection ());
 				}
+                counter = 0;
 				while (stack.Peek() == pointer.Content.Direction.ReverseDirection() && pointer != StructuredSelection.ElementAt(position % StructuredSelection.Count)) {
-					stack.Pop ();
+                    if (counter >= distance) // Passiert, wenn man versucht den Knoten vollständig ineinander zu schieben.
+                        return false;
+                    stack.Pop ();
 					pointer = pointer.Next;
+                    counter++;
 				}
 				while (pointer != StructuredSelection.ElementAt(position % StructuredSelection.Count)) {
 					stack.Push (pointer.Content.Direction);
@@ -151,6 +156,7 @@ namespace Knot3.KnotData
 						stack.Push (direction);
 					}
 				}
+                position++;
 			}
 			Vector3 pos3D = new Vector3 (0, 0, 0);
 			HashSet<Vector3> occupancy = new HashSet<Vector3> ();
@@ -171,6 +177,51 @@ namespace Knot3.KnotData
 		/// </summary>
 		public bool Move (Direction direction, int distance)
 		{
+            if (!IsValidMove(direction, distance))
+                return false;
+            Circle<Edge> pointer;
+            // Durchlauf über die Selektionsblöcke
+            for (int i = 0; i < StructuredSelection.Count; i += 2)
+            {
+                pointer = StructuredSelection.ElementAt(i);
+                // Vor der Selektion Kanten einfügen, wenn die vorhandenen nicht in die entgegengesetzte Richtung zeigen.
+                // Wenn das der Fall ist stattdessen die Kante löschen.
+                for (int n = 0; n < distance; n++)
+                {
+                    if (pointer.Previous.Content.Direction == direction.ReverseDirection())
+                    {
+                        // Wenn die zu löschende Kante der Einstigspunkt ist, einen neuen setzten.
+                        if (pointer.Previous == edges)
+                            edges = edges.Next;
+                        pointer.Previous.Remove();
+                    }
+                    else
+                    {
+                        pointer.InsertBefore(new Edge(direction));
+                    }
+                }
+                pointer = StructuredSelection.ElementAt(i+1);
+                // Hinter der Selektion Kanten einfügen, wenn die vorhandenen nicht in die entgegengesetzte Richtung zeigen.
+                // Wenn das der Fall ist stattdessen die Kante löschen.
+                for (int n = 0; n < distance; n++)
+                {
+                    if (pointer.Next.Content.Direction == direction)
+                    {
+                        // Wenn die zu löschende Kante der Einstigspunkt ist, einen neuen setzten.
+                        if (pointer.Next == edges)
+                            edges = edges.Next;
+                        pointer.Next.Remove();
+                    }
+                    else
+                    {
+                        pointer.InsertAfter(new Edge(direction.ReverseDirection()));
+                    }
+                }
+            }
+            EdgesChanged ();
+            return true;
+ 
+/*           
 			// Überprüft, ob der Move gültig ist
 			if (IsValidMove (direction, distance)) {
 				// erstellt aus den ausgewählten Kante ein HashSet, um in O(1) überprüfen zu können,
@@ -228,6 +279,7 @@ namespace Knot3.KnotData
 				// Die Verschiebung konnte nicht ausgeführt werden, weil der Zug ungültig ist
 				return false;
 			}
+*/             
 		}
 
 		/// <summary>
