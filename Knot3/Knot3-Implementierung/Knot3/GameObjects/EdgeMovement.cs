@@ -128,8 +128,7 @@ namespace Knot3.GameObjects
 							Knot.AddToSelection (selectedEdge);
 						}
 
-					}
-					catch (ArgumentOutOfRangeException exp) {
+					} catch (ArgumentOutOfRangeException exp) {
 						Console.WriteLine (exp.ToString ());
 					}
 				}
@@ -154,18 +153,10 @@ namespace Knot3.GameObjects
 				GameModel selectedModel = World.SelectedObject as GameModel;
 
 				// Berechne die Mausposition in 3D
-				Vector3 screenLocation = screen.Viewport.Project (
-				                             source: selectedModel.Center (),
-				                             projection: World.Camera.ProjectionMatrix,
-				                             view: World.Camera.ViewMatrix,
-				                             world: World.Camera.WorldMatrix
-				                         );
-				Vector3 currentMousePosition = screen.Viewport.Unproject (
-				                                   source: new Vector3 (InputManager.CurrentMouseState.ToVector2 (), screenLocation.Z),
-				                                   projection: World.Camera.ProjectionMatrix,
-				                                   view: World.Camera.ViewMatrix,
-				                                   world: Matrix.Identity
-				                               );
+				Vector3 currentMousePosition = World.Camera.To3D (
+					position: InputManager.CurrentMouseState.ToVector2 (),
+					nearTo: selectedModel.Center ()
+				);
 
 				// Wenn die Maus gedrückt gehalten ist und wir mitten im Ziehen der Kante
 				// an die neue Position sind
@@ -235,8 +226,7 @@ namespace Knot3.GameObjects
 				try {
 					Knot.Move (direction, (int)Math.Round (count));
 					previousMousePosition = currentMousePosition;
-				}
-				catch (ArgumentOutOfRangeException exp) {
+				} catch (ArgumentOutOfRangeException exp) {
 					Console.WriteLine (exp.ToString ());
 				}
 			}

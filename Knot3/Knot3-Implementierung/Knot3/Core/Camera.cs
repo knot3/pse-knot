@@ -253,6 +253,28 @@ namespace Knot3.Core
 				World.Redraw = true;
 			}
 		}
+		
+		/// <summary>
+		/// Berechne aus einer 2D-Positon (z.b. Mausposition) die entsprechende Position im 3D-Raum.
+		/// Für die fehlende dritte Koordinate wird eine Angabe einer
+		/// Position benötigt, mit der die 3D-(Maus-)Position auf der selben Ebene liegen soll.
+		/// </summary>
+		public Vector3 To3D (Vector2 position, Vector3 nearTo)
+		{
+			Vector3 screenLocation = Screen.Viewport.Project (
+				                             source: nearTo,
+				                             projection: World.Camera.ProjectionMatrix,
+				                             view: World.Camera.ViewMatrix,
+				                             world: World.Camera.WorldMatrix
+			);
+			Vector3 currentMousePosition = Screen.Viewport.Unproject (
+				                                   source: new Vector3 (position, screenLocation.Z),
+				                                   projection: World.Camera.ProjectionMatrix,
+				                                   view: World.Camera.ViewMatrix,
+				                                   world: Matrix.Identity
+			);
+			return currentMousePosition;
+		}
 
 		#endregion
 	}

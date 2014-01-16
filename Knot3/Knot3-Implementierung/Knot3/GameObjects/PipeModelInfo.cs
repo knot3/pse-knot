@@ -70,8 +70,9 @@ namespace Knot3.GameObjects
 			PositionTo = node2.ToVector ();
 			Position = node1.CenterBetween (node2);
 
-			// Kanten sind verschiebbar
+			// Kanten sind verschiebbar und auswählbar
 			IsMovable = true;
+			IsSelectable = true;
 
 			// Berechne die Drehung
 			switch (Edge.Direction) {

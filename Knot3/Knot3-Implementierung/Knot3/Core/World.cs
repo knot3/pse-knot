@@ -18,6 +18,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Utilities;
 
 namespace Knot3.Core
 {
@@ -226,6 +227,63 @@ namespace Knot3.Core
 			}
 			if (useInternalCamera) {
 				yield return Camera;
+			}
+		}
+
+		/// <summary>
+		/// Gibt einen Iterator über alle Spielobjekte zurück, der so sortiert ist, dass die
+		/// Spielobjekte, die der angegebenen 2D-Position am nächsten sind, am Anfang stehen.
+		/// Dazu wird die 2D-Position in eine 3D-Position konvertiert.
+		/// </summary>
+		public IEnumerable<IGameObject> FindNearestObjects (Vector2 nearTo)
+		{
+			Dictionary<float, IGameObject> distances = new Dictionary<float, IGameObject> ();
+			foreach (IGameObject obj in this) {
+				if (obj.Info.IsSelectable) {
+					// Berechne aus der angegebenen 2D-Position eine 3D-Position
+					Vector3 position3D = Camera.To3D (
+							position: nearTo,
+							nearTo: obj.Center ()
+					);
+					// Berechne die Distanz zwischen 3D-Mausposition und dem Spielobjekt
+					float distance = Math.Abs ((position3D - obj.Center ()).Length ());
+					distances [distance] = obj;
+				}
+			}
+			if (distances.Count > 0) {
+				IEnumerable<float> sorted = distances.Keys.OrderBy (k => k);
+				foreach (float where in sorted) {
+					yield return distances [where];
+					// Console.WriteLine ("where=" + where + " = " + distances [where].Center ());
+				}
+			}
+			else {
+				yield break;
+			}
+		}
+
+		/// <summary>
+		/// Gibt einen Iterator über alle Spielobjekte zurück, der so sortiert ist, dass die
+		/// Spielobjekte, die der angegebenen 3D-Position am nächsten sind, am Anfang stehen.
+		/// </summary>
+		public IEnumerable<IGameObject> FindNearestObjects (Vector3 nearTo)
+		{
+			Dictionary<float, IGameObject> distances = new Dictionary<float, IGameObject> ();
+			foreach (IGameObject obj in this) {
+				if (obj.Info.IsSelectable) {
+					// Berechne die Distanz zwischen 3D-Mausposition und dem Spielobjekt
+					float distance = Math.Abs ((nearTo - obj.Center ()).Length ());
+					distances [distance] = obj;
+				}
+			}
+			if (distances.Count > 0) {
+				IEnumerable<float> sorted = distances.Keys.OrderBy (k => k);
+				foreach (float where in sorted) {
+					yield return distances [where];
+				}
+			}
+			else {
+				yield break;
 			}
 		}
 
