@@ -234,6 +234,7 @@ namespace Knot3.GameObjects
 				move *= 10;
 				Vector3 targetDirection = world.Camera.TargetDirection;
 				Vector3 up = world.Camera.UpVector;
+				// Führe die lineare Verschiebung durch
 				world.Camera.Target = world.Camera.Target.MoveLinear (move, up, targetDirection);
 				world.Camera.Position = world.Camera.Position.MoveLinear (move, up, targetDirection);
 				Screen.Input.CurrentInputAction = InputAction.FirstPersonCameraMove;
@@ -241,43 +242,38 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		private float smoothMoveStep = 0f;
-
 		/// <summary>
 		/// Rotiert die Kamera auf einem Arcball um das Target.
 		/// </summary>
 		private void rotate (Vector2 move, GameTime time)
 		{
+			// Überprüfe, wie weit das Kamera-Target von dem Objekt, um das rotiert werden soll,
+			// entfernt ist
 			float arcballTargetDistance = Math.Abs (world.Camera.Target.DistanceTo (world.Camera.ArcballTarget));
-			if (arcballTargetDistance > 25) {
-				if (smoothMoveStep > 0f) {
-					smoothMoveStep *= 1.002f;
+
+			// Ist es mehr als 5 Pixel entfernt?
+			if (arcballTargetDistance > 5) {
+				// Falls noch kein SmoothMove gestartet ist, starte einen, um das Arcball-Target
+				// in den Fokus der Kamera zu rücken
+				if (!world.Camera.InSmoothMove) {
+					world.Camera.StartSmoothMove (target: world.Camera.ArcballTarget, time: time);
 				}
-				else {
-					smoothMoveStep = arcballTargetDistance * 0.01f;
-				}
-				world.Camera.Target = world.Camera.Target.SetDistanceTo (
-				                          target: world.Camera.ArcballTarget,
-				                          distance: Math.Max (0, arcballTargetDistance - smoothMoveStep * move.Length ())
-				                      );
-				world.Redraw = true;
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
 
 			}
+			// Ist es weiter als 5 Pixel weg?
 			else if (move.Length () > 0) {
 				move *= 3;
 				Vector3 targetDirection = world.Camera.TargetDirection;
 				Vector3 up = world.Camera.UpVector;
 				float oldDistance = world.Camera.ArcballTargetDistance = world.Camera.ArcballTargetDistance.Clamp (500, 10000);
+				// Berechne die Rotation
 				world.Camera.Target = new Vector3 (world.Camera.ArcballTarget.X, world.Camera.ArcballTarget.Y, world.Camera.ArcballTarget.Z);
 				world.Camera.Position = world.Camera.ArcballTarget
-				                        + (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (
-				                            move, up, targetDirection
-				                        );
+					+ (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				world.Camera.ArcballTargetDistance = oldDistance;
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
 				world.Redraw = true;
-				smoothMoveStep = 0f;
 			}
 		}
 

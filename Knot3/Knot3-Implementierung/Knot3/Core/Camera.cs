@@ -180,6 +180,7 @@ namespace Knot3.Core
 		public override void Update (GameTime time)
 		{
 			UpdateMatrices (time);
+			UpdateSmoothMove (time);
 		}
 
 		private void UpdateMatrices (GameTime time)
@@ -221,6 +222,35 @@ namespace Knot3.Core
 				else {
 					return Vector3.Zero;
 				}
+			}
+		}
+
+		private Vector3? smoothTarget = null;
+		private float smoothDistance = 0f;
+		private float smoothProgress = 0f;
+
+		public void StartSmoothMove (Vector3 target, GameTime time)
+		{
+			smoothTarget = target;
+			smoothDistance = Math.Abs (Target.DistanceTo (target));
+			smoothProgress = 0f;
+		}
+
+		public bool InSmoothMove { get { return smoothTarget.HasValue && smoothProgress <= 1f; } }
+
+		private void UpdateSmoothMove (GameTime time)
+		{
+			if (InSmoothMove) {
+				float distance = MathHelper.SmoothStep (0, smoothDistance, smoothProgress);
+
+				smoothProgress += 0.02f;
+
+				//Console.WriteLine ("distance = " + distance);
+				Target = Target.SetDistanceTo (
+						target: smoothTarget.Value,
+						distance: Math.Max (0, smoothDistance - distance)
+				);
+				World.Redraw = true;
 			}
 		}
 
