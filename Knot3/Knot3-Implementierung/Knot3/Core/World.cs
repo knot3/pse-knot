@@ -116,7 +116,7 @@ namespace Knot3.Core
 			}
 			else {
 				// CurrentEffect = new StandardEffect (screen);
-                CurrentEffect = new Pascal(screen);
+				CurrentEffect = new Pascal(screen);
 			}
 
 			// Die relative Standard-Position und Größe
