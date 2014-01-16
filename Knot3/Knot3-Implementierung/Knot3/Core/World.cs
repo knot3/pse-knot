@@ -115,7 +115,8 @@ namespace Knot3.Core
 				CurrentEffect = new CelShadingEffect (screen);
 			}
 			else {
-				CurrentEffect = new StandardEffect (screen);
+				// CurrentEffect = new StandardEffect (screen);
+                CurrentEffect = new Pascal(screen);
 			}
 
 			// Die relative Standard-Position und Größe
