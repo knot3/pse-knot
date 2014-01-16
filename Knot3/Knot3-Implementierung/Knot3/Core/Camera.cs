@@ -256,8 +256,8 @@ namespace Knot3.Core
 
 		/// <summary>
 		/// Berechne aus einer 2D-Positon (z.b. Mausposition) die entsprechende Position im 3D-Raum.
-		/// Für die fehlende dritte Koordinate wird eine Angabe einer
-		/// Position benötigt, mit der die 3D-(Maus-)Position auf der selben Ebene liegen soll.
+		/// Für die fehlende dritte Koordinate wird eine Angabe einer weiteren 3D-Position benötigt,
+		/// mit der die 3D-(Maus-)Position auf der selben Ebene liegen soll.
 		/// </summary>
 		public Vector3 To3D (Vector2 position, Vector3 nearTo)
 		{
