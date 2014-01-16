@@ -114,9 +114,11 @@ namespace Knot3.Core
 			if (Options.Default ["video", "cel-shading", false]) {
 				CurrentEffect = new CelShadingEffect (screen);
 			}
-			else {
-				// CurrentEffect = new StandardEffect (screen);
+			else if (Options.Default ["video", "pascal-shader", false]) {
 				CurrentEffect = new Pascal(screen);
+			}
+			else {
+				CurrentEffect = new StandardEffect (screen);
 			}
 
 			// Die relative Standard-Position und Größe
