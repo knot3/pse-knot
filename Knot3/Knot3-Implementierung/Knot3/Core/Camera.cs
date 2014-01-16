@@ -247,9 +247,9 @@ namespace Knot3.Core
 
 				//Console.WriteLine ("distance = " + distance);
 				Target = Target.SetDistanceTo (
-						target: smoothTarget.Value,
-						distance: Math.Max (0, smoothDistance - distance)
-				);
+				             target: smoothTarget.Value,
+				             distance: Math.Max (0, smoothDistance - distance)
+				         );
 				World.Redraw = true;
 			}
 		}
