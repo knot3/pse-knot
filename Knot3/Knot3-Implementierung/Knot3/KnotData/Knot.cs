@@ -19,6 +19,7 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.Widgets;
+using Knot3.Utilities;
 
 namespace Knot3.KnotData
 {
@@ -127,7 +128,6 @@ namespace Knot3.KnotData
 			}
 			Stack<Direction> stack = new Stack<Direction> ();
 			Circle<Edge> pointer = StructuredSelection.ElementAt (0);
-			int counter;
 			int position = 1;
 			while (position < StructuredSelection.Count) {
 				do {
@@ -139,7 +139,7 @@ namespace Knot3.KnotData
 				for (int i = 0; i < distance; i++) {
 					stack.Push (direction.ReverseDirection ());
 				}
-				counter = 0;
+				int counter = 0;
 				while (stack.Peek() == pointer.Content.Direction.ReverseDirection() && pointer != StructuredSelection.ElementAt(position % StructuredSelection.Count)) {
 					if (counter >= distance) { // Passiert, wenn man versucht den Knoten vollständig ineinander zu schieben.
 						return false;
@@ -378,7 +378,7 @@ namespace Knot3.KnotData
 		public void AddRangeToSelection (Edge selectedEdge)
 		{
 			Circle<Edge> selectedCircle = null;
-			if (edges.Contains (selectedEdge, out selectedCircle)) {
+			if (edges.Contains (selectedEdge, out selectedCircle) && selectedEdge != lastSelected.Content) {
 				List<Edge> forward = new List<Edge> (lastSelected.RangeTo (selectedCircle));
 				List<Edge> backward = new List<Edge> (selectedCircle.RangeTo (lastSelected));
 

@@ -127,11 +127,15 @@ namespace Knot3.Screens
 		: base(game)
 		{
 			// world
-			PlayerWorld = new World (screen: this);
+			PlayerWorld = new World (
+				screen: this,
+				relativePosition: new Vector2 (0.5f, 0f),
+			    relativeSize: new Vector2 (0.5f, 1f)
+			);
 			ChallengeWorld = new World (
 			    screen: this,
-			    relativePosition: new Vector2 (0.05f, 0.55f),
-			    relativeSize: new Vector2 (0.4f, 0.4f)
+				relativePosition: new Vector2 (0.0f, 0.0f),
+			    relativeSize: new Vector2 (0.5f, 1f)
 			);
 			ChallengeWorld.Camera = PlayerWorld.Camera;
 			// input
@@ -164,7 +168,8 @@ namespace Knot3.Screens
 
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 6);
-			lines.AddPoints (050, 550, 450, 950, 050, 550);
+			//lines.AddPoints (050, 550, 450, 950, 050, 550);
+			//lines.AddPoints (500, 0, 0, 1000);
 		}
 
 		#endregion

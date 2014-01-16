@@ -28,20 +28,18 @@ namespace Knot3.Utilities
 		public static Vector3 ArcBallMove (this Vector3 vectorToMove, Vector2 mouse, Vector3 up, Vector3 forward)
 		{
 			Vector3 side = Vector3.Cross (up, forward);
-			Vector3 movedVector = vectorToMove.RotateY (
-			                          MathHelper.Pi / 300f * mouse.X
-			                      );
-			movedVector = movedVector.RotateAroundVector (
-			                  -side,
-			                  MathHelper.Pi / 200f * mouse.Y
-			              );
+			Vector3 movedVector = vectorToMove.RotateY (MathHelper.Pi / 300f * mouse.X);
+			movedVector = movedVector.RotateAroundVector (-side, MathHelper.Pi / 200f * mouse.Y);
 			return movedVector;
 		}
 
 		public static Vector3 MoveLinear (this Vector3 vectorToMove, Vector3 mouse, Vector3 up, Vector3 forward)
 		{
 			Vector3 side = Vector3.Cross (up, forward);
-			Vector3 movedVector = vectorToMove - side * mouse.X - up * mouse.Y - forward * mouse.Z;
+			side.Normalize();
+			Vector3 relUp = Vector3.Cross (side, forward);
+			relUp.Normalize();
+			Vector3 movedVector = vectorToMove - side * mouse.X - relUp * mouse.Y - forward * mouse.Z;
 			return movedVector;
 		}
 

@@ -34,7 +34,18 @@ namespace Knot3.Widgets
 		/// </summary>
 		private VerticalMenu dropdown { get; set; }
 
-		private string currentValue;
+		private InputItem currentValue;
+
+		public override bool IsVisible
+		{
+			get { return base.IsVisible; }
+			set {
+				base.IsVisible = value;
+				if (currentValue != null)
+					currentValue.IsVisible = value;
+			}
+		}
+
 
 		#endregion
 
@@ -45,7 +56,7 @@ namespace Knot3.Widgets
 		/// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
 		/// </summary>
 		public DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder, string text)
-		: base(screen, drawOrder, text)
+		: base(screen, drawOrder, "")
 		{
 			dropdown = new VerticalMenu (screen: screen, drawOrder: DisplayLayer.SubMenu);
 			dropdown.RelativePosition = () => RelativePosition () + new Vector2 (x: ValueWidth * RelativeSize ().X, y: 0);
@@ -56,6 +67,15 @@ namespace Knot3.Widgets
 			dropdown.ItemAlignX = HorizontalAlignment.Left;
 			dropdown.ItemAlignY = VerticalAlignment.Center;
 			dropdown.IsVisible = false;
+
+			currentValue = new InputItem (screen: screen, drawOrder: DisplayLayer.SubMenu, text: text, inputText: "");
+			currentValue.RelativePosition = () => RelativePosition ();
+			currentValue.RelativeSize = () => RelativeSize ();
+			currentValue.RelativePadding = () => RelativePadding ();
+			currentValue.ForegroundColor = () => ForegroundColor ();
+			currentValue.BackgroundColor = () => Color.Transparent;
+			currentValue.IsVisible = IsVisible;
+			currentValue.IsMouseEventEnabled = false;
 		}
 
 		#endregion
@@ -64,7 +84,6 @@ namespace Knot3.Widgets
 
 		/// <summary>
 		/// Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
-		/// Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
 		/// </summary>
 		public void AddEntries (DistinctOptionInfo option)
 		{
@@ -73,7 +92,7 @@ namespace Knot3.Widgets
 				Action onSelected = () => {
 					Console.WriteLine ("OnClick: " + value);
 					option.Value = value;
-					currentValue = value;
+					currentValue.InputText = value;
 					dropdown.IsVisible = false;
 				};
 				MenuButton button = new MenuButton (
@@ -84,11 +103,10 @@ namespace Knot3.Widgets
 				);
 				dropdown.Add (button);
 			}
-			currentValue = option.Value;
+			currentValue.InputText = option.Value;
 		}
 
 		/// <summary>
-		/// Fügt Einträge in das Dropdown-Menü ein, die auf Einstellungsoptionen basieren.
 		/// Fügt Einträge in das Dropdown-Menü ein, die nicht auf Einstellungsoptionen basieren.
 		/// </summary>
 		public void AddEntries (DropDownEntry enties)
@@ -122,6 +140,7 @@ namespace Knot3.Widgets
 				yield return component;
 			}
 			yield return dropdown;
+			yield return currentValue;
 		}
 
 		public override void Draw (GameTime time)
@@ -132,17 +151,6 @@ namespace Knot3.Widgets
 			if (IsVisible && !dropdown.IsVisible) {
 				// lade die Schrift
 				SpriteFont font = HfGDesign.MenuFont (Screen);
-				// dann zeichne den aktuell ausgewählten Wert
-				spriteBatch.Begin ();
-				spriteBatch.DrawStringInRectangle (
-				    font: font,
-				    text: currentValue,
-				    color: ForegroundColor (),
-				    bounds: ValueBounds (),
-				    alignX: HorizontalAlignment.Left,
-				    alignY: AlignY
-				);
-				spriteBatch.End ();
 			}
 		}
 
