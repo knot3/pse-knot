@@ -251,8 +251,8 @@ namespace Knot3.GameObjects
 			if (world.SelectedObject == null && world.Count () > 0) {
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
-					nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				).ElementAt (0);
+				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
+				                       ).ElementAt (0);
 			}
 
 			// Überprüfe, wie weit das Kamera-Target von dem Objekt, um das rotiert werden soll,
