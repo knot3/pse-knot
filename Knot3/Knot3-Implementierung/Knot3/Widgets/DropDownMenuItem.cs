@@ -41,8 +41,9 @@ namespace Knot3.Widgets
 			get { return base.IsVisible; }
 			set {
 				base.IsVisible = value;
-				if (currentValue != null)
+				if (currentValue != null) {
 					currentValue.IsVisible = value;
+				}
 			}
 		}
 

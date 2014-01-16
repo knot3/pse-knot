@@ -77,7 +77,8 @@ namespace Knot3.Widgets
 
 		public List<Keys> ValidKeys { get; protected set; }
 
-		public virtual bool IsKeyEventEnabled {
+		public virtual bool IsKeyEventEnabled
+		{
 			get { return IsVisible; }
 			set {}
 		}

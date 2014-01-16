@@ -52,7 +52,7 @@ namespace Knot3.Widgets
 			get { return isMouseEventEnabled.HasValue ? isMouseEventEnabled.Value : base.IsMouseEventEnabled; }
 			set { isMouseEventEnabled = value; }
 		}
-		
+
 		private bool? isMouseEventEnabled = null;
 
 		#endregion

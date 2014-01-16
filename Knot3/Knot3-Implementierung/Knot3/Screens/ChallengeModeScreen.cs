@@ -128,13 +128,13 @@ namespace Knot3.Screens
 		{
 			// world
 			PlayerWorld = new World (
-				screen: this,
-				relativePosition: new Vector2 (0.5f, 0f),
+			    screen: this,
+			    relativePosition: new Vector2 (0.5f, 0f),
 			    relativeSize: new Vector2 (0.5f, 1f)
 			);
 			ChallengeWorld = new World (
 			    screen: this,
-				relativePosition: new Vector2 (0.0f, 0.0f),
+			    relativePosition: new Vector2 (0.0f, 0.0f),
 			    relativeSize: new Vector2 (0.5f, 1f)
 			);
 			ChallengeWorld.Camera = PlayerWorld.Camera;
