@@ -22,73 +22,68 @@ using Knot3.Utilities;
 
 
 
-namespace Knot3.RenderEffects 
+namespace Knot3.RenderEffects
 {
-    class Pascal : RenderEffect
-    {
+	class Pascal : RenderEffect
+	{
 
-        public Pascal(GameScreen screen)
-            : base(screen)
-        {
-            pascalEffect = screen.LoadEffect("Pascal");
-        }
-
-
-        protected override void DrawRenderTarget(GameTime GameTime)
-        {
-            spriteBatch.Draw(RenderTarget, Vector2.Zero, Color.White);
-        }
+		public Pascal(GameScreen screen)
+		: base(screen)
+		{
+			pascalEffect = screen.LoadEffect("Pascal");
+		}
 
 
-        public override void RemapModel(Model model)
-        {
-            foreach (ModelMesh mesh in model.Meshes)
-            {
-                foreach (ModelMeshPart part in mesh.MeshParts)
-                {
-                    part.Effect = pascalEffect;
-                }
-            }
-        }
+		protected override void DrawRenderTarget(GameTime GameTime)
+		{
+			spriteBatch.Draw(RenderTarget, Vector2.Zero, Color.White);
+		}
 
-        public Color Color
-        {
-            get
-            {
-                return Color.Red;
-            }
-            set
-            {
-               
-            }
-        }
+
+		public override void RemapModel(Model model)
+		{
+			foreach (ModelMesh mesh in model.Meshes) {
+				foreach (ModelMeshPart part in mesh.MeshParts) {
+					part.Effect = pascalEffect;
+				}
+			}
+		}
+
+		public Color Color
+		{
+			get {
+				return Color.Red;
+			}
+			set {
+
+			}
+		}
 
 
 
-        public override void DrawModel(GameModel model, GameTime time)
-        {
-            Camera camera = model.World.Camera;
+		public override void DrawModel(GameModel model, GameTime time)
+		{
+			Camera camera = model.World.Camera;
 
 
-            lightDirection = new Vector4(-Vector3.Cross(Vector3.Normalize(camera.TargetDirection), camera.UpVector), 1);
-            pascalEffect.Parameters["World"].SetValue(model.WorldMatrix * camera.WorldMatrix);
-            pascalEffect.Parameters["View"].SetValue(camera.ViewMatrix);
-            pascalEffect.Parameters["Projection"].SetValue(camera.ProjectionMatrix);
+			lightDirection = new Vector4(-Vector3.Cross(Vector3.Normalize(camera.TargetDirection), camera.UpVector), 1);
+			pascalEffect.Parameters["World"].SetValue(model.WorldMatrix * camera.WorldMatrix);
+			pascalEffect.Parameters["View"].SetValue(camera.ViewMatrix);
+			pascalEffect.Parameters["Projection"].SetValue(camera.ProjectionMatrix);
 
-            pascalEffect.Parameters["color1"].SetValue(Color.Yellow.ToVector4());
-            pascalEffect.Parameters["color2"].SetValue(Color.Red.ToVector4());
-   
-            pascalEffect.CurrentTechnique = pascalEffect.Techniques["Technique1"];
-          
-            foreach (ModelMesh mesh in model.Model.Meshes)
-            {
-                mesh.Draw();
-            }
-        }
+			pascalEffect.Parameters["color1"].SetValue(Color.Yellow.ToVector4());
+			pascalEffect.Parameters["color2"].SetValue(Color.Red.ToVector4());
+
+			pascalEffect.CurrentTechnique = pascalEffect.Techniques["Technique1"];
+
+			foreach (ModelMesh mesh in model.Model.Meshes) {
+				mesh.Draw();
+			}
+		}
 
 
-        Effect pascalEffect;
-        Vector4 lightDirection; // Light source for toon shader
+		Effect pascalEffect;
+		Vector4 lightDirection; // Light source for toon shader
 
-    }
+	}
 }
