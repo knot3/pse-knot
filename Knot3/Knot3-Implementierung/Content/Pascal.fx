@@ -3,6 +3,9 @@ float4x4 View;
 float4x4 Projection;
 //float4 LightDirection;
 
+float4 color1;
+float4 color2;
+
 // TODO: add effect parameters here.
 
 struct VertexShaderInput
