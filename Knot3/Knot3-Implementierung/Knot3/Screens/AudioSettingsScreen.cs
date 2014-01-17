@@ -44,16 +44,16 @@ namespace Knot3.Screens
 		public AudioSettingsScreen (Knot3Game game)
 		: base(game)
 		{
-            MenuName = "Audio";
+			MenuName = "Audio";
 
-            settingsMenu = new VerticalMenu(this, DisplayLayer.Menu);
-            settingsMenu.RelativePosition = () => new Vector2(0.400f, 0.180f);
-            settingsMenu.RelativeSize = () => new Vector2(0.500f, 0.770f);
-            settingsMenu.RelativePadding = () => new Vector2(0.010f, 0.010f);
-            settingsMenu.ItemForegroundColor = base.MenuItemForegroundColor;
-            settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
-            settingsMenu.ItemAlignX = HorizontalAlignment.Left;
-            settingsMenu.ItemAlignY = VerticalAlignment.Center;
+			settingsMenu = new VerticalMenu(this, DisplayLayer.Menu);
+			settingsMenu.RelativePosition = () => new Vector2(0.400f, 0.180f);
+			settingsMenu.RelativeSize = () => new Vector2(0.500f, 0.770f);
+			settingsMenu.RelativePadding = () => new Vector2(0.010f, 0.010f);
+			settingsMenu.ItemForegroundColor = base.MenuItemForegroundColor;
+			settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
+			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
+			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 			//throw new System.NotImplementedException();
 
 		}
@@ -75,8 +75,8 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Entered (GameScreen previousScreen, GameTime GameTime)
 		{
-            base.Entered(previousScreen, GameTime);
-            AddGameComponents(GameTime, settingsMenu);
+			base.Entered(previousScreen, GameTime);
+			AddGameComponents(GameTime, settingsMenu);
 			//throw new System.NotImplementedException();
 		}
 
