@@ -92,7 +92,9 @@ namespace Knot3.Core
 
 		public bool Redraw { get; set; }
 
-		private ResizeEffect resizeEffect;
+		//private ResizeEffect resizeEffect;
+		private Vector2 relativePosition;
+		private Vector2 relativeSize;
 
 		#endregion
 
@@ -115,28 +117,24 @@ namespace Knot3.Core
 				CurrentEffect = new CelShadingEffect (screen);
 			}
 			else if (Options.Default ["video", "pascal-shader", false]) {
-				CurrentEffect = new Pascal(screen);
+				CurrentEffect = new Pascal (screen);
 			}
 			else {
 				CurrentEffect = new StandardEffect (screen);
 			}
 
 			// Die relative Standard-Position und Größe
-			resizeEffect = new ResizeEffect (
-			    screen: screen,
-			    relativePosition: Vector2.Zero,
-			    relativeSize: Vector2.One
-			);
+			this.relativePosition = Vector2.Zero;
+			this.relativeSize = Vector2.One;
+
+			Screen.Game.FullScreenChanged += () => viewportCache.Clear ();
 		}
 
 		public World (GameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
 		: this(screen)
 		{
-			resizeEffect = new ResizeEffect (
-			    screen: screen,
-			    relativePosition: relativePosition,
-			    relativeSize: relativeSize
-			);
+			this.relativePosition = relativePosition;
+			this.relativeSize = relativeSize;
 		}
 
 		#endregion
@@ -164,6 +162,31 @@ namespace Knot3.Core
 			}
 		}
 
+		private Dictionary<Point,Dictionary<Vector4, Viewport>> viewportCache
+			= new Dictionary<Point,Dictionary<Vector4, Viewport>> ();
+
+		public Viewport Viewport
+		{
+			get {
+				PresentationParameters pp = Screen.Device.PresentationParameters;
+				Point resolution = new Point (pp.BackBufferWidth, pp.BackBufferHeight);
+				Vector4 key = new Vector4 (relativePosition.X, relativePosition.Y, relativeSize.X, relativeSize.Y);
+				if (!viewportCache.ContainsKey (resolution)) {
+					viewportCache [resolution] = new Dictionary<Vector4, Viewport> ();
+				}
+				if (!viewportCache [resolution].ContainsKey (key)) {
+					Rectangle subScreen = relativePosition.Scale (Screen.Viewport).CreateRectangle (relativeSize.Scale (Screen.Viewport));
+					Console.WriteLine ("relativePosition=" + relativePosition + ", relativeSize=" + relativeSize + ", subScreen=" + subScreen);
+					viewportCache [resolution] [key] = new Viewport (subScreen.X, subScreen.Y, subScreen.Width, subScreen.Height) {
+						MinDepth = 0,
+						MaxDepth = 1
+					};
+					Console.WriteLine ("pp => resolution = " + resolution);
+				}
+				return viewportCache [resolution] [key];
+			}
+		}
+
 		/// <summary>
 		/// Ruft auf allen Spielobjekten die Draw()-Methode auf.
 		/// </summary>
@@ -172,11 +195,10 @@ namespace Knot3.Core
 			if (Redraw) {
 				Redraw = false;
 
-				Color background = CurrentEffect is CelShadingEffect ? Color.CornflowerBlue : Color.Black;
+				//Screen.BackgroundColor = CurrentEffect is CelShadingEffect ? Color.CornflowerBlue : Color.Black;
 
 				// begin the knot render effect
-				resizeEffect.Begin (time);
-				CurrentEffect.Begin (background, time);
+				CurrentEffect.Begin (time);
 
 				foreach (IGameObject obj in Objects) {
 					obj.World = this;
@@ -185,7 +207,6 @@ namespace Knot3.Core
 
 				// end of the knot render effect
 				CurrentEffect.End (time);
-				resizeEffect.End (time);
 			}
 			else {
 				Screen.PostProcessingEffect.DrawLastFrame (time);
@@ -247,7 +268,7 @@ namespace Knot3.Core
 					Vector3 position3D = Camera.To3D (
 					                         position: nearTo,
 					                         nearTo: obj.Center ()
-					                     );
+					);
 					// Berechne die Distanz zwischen 3D-Mausposition und dem Spielobjekt
 					float distance = Math.Abs ((position3D - obj.Center ()).Length ());
 					distances [distance] = obj;

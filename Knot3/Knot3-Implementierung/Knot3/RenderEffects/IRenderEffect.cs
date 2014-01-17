@@ -45,8 +45,6 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		void Begin (GameTime time);
 
-		void Begin (Color background, GameTime time);
-
 		/// <summary>
 		/// Das auf dem Stapel gesicherte, vorher genutzte Rendertarget wird wiederhergestellt und
 		/// das Rendertarget dieses Rendereffekts wird, unter Umständen in Unterklassen verändert,

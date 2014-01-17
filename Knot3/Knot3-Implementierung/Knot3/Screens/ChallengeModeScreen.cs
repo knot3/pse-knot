@@ -169,7 +169,7 @@ namespace Knot3.Screens
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 6);
 			//lines.AddPoints (050, 550, 450, 950, 050, 550);
-			//lines.AddPoints (500, 0, 0, 1000);
+			lines.AddPoints (500, 0, 500, 1000);
 		}
 
 		#endregion
@@ -231,7 +231,7 @@ namespace Knot3.Screens
 		public override void Entered (GameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, knotInput, overlay, pointer, PlayerWorld, ChallengeWorld, modelMouseHandler, lines);
+			AddGameComponents (time, knotInput, overlay, pointer, ChallengeWorld, PlayerWorld, modelMouseHandler, lines);
 
 			// Einstellungen anwenden
 			debugBoundings.Info.IsVisible = Options.Default ["debug", "show-boundings", false];

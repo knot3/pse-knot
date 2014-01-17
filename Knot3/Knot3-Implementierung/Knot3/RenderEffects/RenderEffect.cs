@@ -33,7 +33,7 @@ namespace Knot3.RenderEffects
 		/// Das Rendertarget, in das zwischen dem Aufruf der Begin()- und der End()-Methode gezeichnet wird,
 		/// weil es in Begin() als primäres Rendertarget des XNA-Frameworks gesetzt wird.
 		/// </summary>
-		public RenderTarget2D RenderTarget { get { return CurrentRenderTarget; } }
+		public RenderTarget2D RenderTarget { get; private set; }
 
 		/// <summary>
 		/// Der Spielzustand, in dem der Effekt verwendet wird.
@@ -45,8 +45,6 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		protected SpriteBatch spriteBatch { get; set; }
 
-		private Color background;
-
 		#endregion
 
 		#region Constructors
@@ -55,7 +53,7 @@ namespace Knot3.RenderEffects
 		{
 			this.screen = screen;
 			spriteBatch = new SpriteBatch (screen.Device);
-			background = Color.Transparent;
+			screen.Game.FullScreenChanged += () => renderTargets.Clear();
 		}
 
 		#endregion
@@ -68,19 +66,18 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		public void Begin (GameTime time)
 		{
-			Begin (Color.Transparent, time);
-		}
-
-		public virtual void Begin (Color background, GameTime time)
-		{
 			if (screen.CurrentRenderEffects.CurrentEffect == this) {
 				throw new InvalidOperationException ("Begin() can be called only once on " + this + "!");
 			}
 
+			RenderTarget = CurrentRenderTarget;
 			screen.CurrentRenderEffects.Push (this);
-			RenderTarget2D current = RenderTarget;
-			screen.Device.Clear (background);
-			this.background = background;
+			screen.Device.Clear (Color.Transparent);
+			
+			//spriteBatch.Begin (SpriteSortMode.Immediate, BlendState.NonPremultiplied);
+			//spriteBatch.Draw (TextureHelper.Create(screen.Device, screen.Viewport.Width, screen.Viewport.Height, background),
+			//                  Vector2.Zero, Color.White);
+			//spriteBatch.End ();
 
 			// set the stencil screen
 			screen.Device.DepthStencilState = DepthStencilState.Default;
@@ -109,6 +106,9 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		public virtual void DrawModel (GameModel model, GameTime time)
 		{
+			Viewport original = screen.Viewport;
+			screen.Viewport = model.World.Viewport;
+
 			foreach (ModelMesh mesh in model.Model.Meshes) {
 				foreach (ModelMeshPart part in mesh.MeshParts) {
 					if (part.Effect is BasicEffect) {
@@ -120,6 +120,8 @@ namespace Knot3.RenderEffects
 			foreach (ModelMesh mesh in model.Model.Meshes) {
 				mesh.Draw ();
 			}
+			
+			screen.Viewport = original;
 		}
 
 		protected void ModifyBasicEffect (BasicEffect effect, GameModel model)
@@ -146,12 +148,7 @@ namespace Knot3.RenderEffects
 					effect.DiffuseColor = model.BaseColor.ToVector3 ();
 				}
 			}
-			if (background == Color.Transparent) {
-				effect.Alpha = model.Alpha;
-			}
-			else {
-				effect.DiffuseColor = new Color (effect.DiffuseColor).Mix (background, 1f - model.Alpha).ToVector3 ();
-			}
+			effect.Alpha = model.Alpha;
 			effect.FogEnabled = false;
 		}
 
@@ -167,7 +164,10 @@ namespace Knot3.RenderEffects
 		/// <summary>
 		/// Zeichnet das Rendertarget.
 		/// </summary>
-		protected abstract void DrawRenderTarget (GameTime time);
+		protected virtual void DrawRenderTarget (GameTime GameTime)
+		{
+			spriteBatch.Draw (RenderTarget, new Vector2 (screen.Viewport.X, screen.Viewport.Y), Color.White);
+		}
 
 		public void DrawLastFrame (GameTime time)
 		{
@@ -180,20 +180,26 @@ namespace Knot3.RenderEffects
 
 		#region RenderTarget Cache
 
-		private Dictionary<Point, RenderTarget2D> renderTargets = new Dictionary<Point, RenderTarget2D> ();
+		private Dictionary<Point,Dictionary<Rectangle, RenderTarget2D>> renderTargets
+			= new Dictionary<Point,Dictionary<Rectangle, RenderTarget2D>> ();
 
 		public RenderTarget2D CurrentRenderTarget
 		{
 			get {
 				PresentationParameters pp = screen.Device.PresentationParameters;
 				Point resolution = new Point (pp.BackBufferWidth, pp.BackBufferHeight);
+				Rectangle viewport = new Rectangle (screen.Viewport.X, screen.Viewport.Y,
+				                                    screen.Viewport.Width, screen.Viewport.Height);
 				if (!renderTargets.ContainsKey (resolution)) {
-					renderTargets [resolution] = new RenderTarget2D (
-					    screen.Device, resolution.X, resolution.Y, false, SurfaceFormat.Color,
+					renderTargets [resolution] = new Dictionary<Rectangle, RenderTarget2D> ();
+				}
+				if (!renderTargets [resolution].ContainsKey (viewport)) {
+					renderTargets [resolution] [viewport] = new RenderTarget2D (
+					    screen.Device, viewport.Width, viewport.Height, false, SurfaceFormat.Color,
 					    DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
 					);
 				}
-				return renderTargets [resolution];
+				return renderTargets [resolution] [viewport];
 			}
 		}
 

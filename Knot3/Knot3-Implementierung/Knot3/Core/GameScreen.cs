@@ -58,7 +58,11 @@ namespace Knot3.Core
 
 		public GraphicsDevice Device { get { return Game.GraphicsDevice; } }
 
-		public Viewport Viewport { get { return Device.Viewport; } }
+		public Viewport Viewport
+		{
+			get { return Device.Viewport; }
+			set { Device.Viewport = value; }
+		}
 
 		public ContentManager Content { get { return Game.Content; } }
 

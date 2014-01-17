@@ -31,6 +31,7 @@ namespace Knot3.Core
 		#region Properties
 
 		private bool isFullscreen;
+		public Action FullScreenChanged = () => {};
 
 		/// <summary>
 		/// Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
@@ -57,6 +58,7 @@ namespace Knot3.Core
 					Graphics.ToggleFullScreen ();
 					Graphics.ApplyChanges ();
 					isFullscreen = value;
+					FullScreenChanged ();
 				}
 			}
 		}
@@ -147,7 +149,8 @@ namespace Knot3.Core
 			GameScreen current = Screens.Peek ();
 
 			// Starte den Post-Processing-Effekt des Screens
-			current.PostProcessingEffect.Begin (current.BackgroundColor, time);
+			current.PostProcessingEffect.Begin (time);
+			Graphics.GraphicsDevice.Clear (current.BackgroundColor);
 
 			// Rufe Draw() auf dem aktuellen Screen auf
 			current.Draw (time);

@@ -27,7 +27,6 @@ namespace Knot3.RenderEffects
 	/// </summary>
 	public sealed class StandardEffect : RenderEffect
 	{
-
 		#region Constructors
 
 		/// <summary>
@@ -39,19 +38,6 @@ namespace Knot3.RenderEffects
 		}
 
 		#endregion
-
-		#region Methods
-
-		/// <summary>
-		/// Zeichnet das Rendertarget.
-		/// </summary>
-		protected override void DrawRenderTarget (GameTime GameTime)
-		{
-			spriteBatch.Draw (RenderTarget, Vector2.Zero, Color.White);
-		}
-
-		#endregion
-
 	}
 }
 
