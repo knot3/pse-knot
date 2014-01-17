@@ -196,7 +196,7 @@ namespace Knot3.Core
 		/// </summary>
 		public Ray GetMouseRay (Vector2 mousePosition)
 		{
-			Viewport viewport = Screen.Viewport;
+			Viewport viewport = World.Viewport;
 
 			Vector3 nearPoint = new Vector3 (mousePosition, 0);
 			Vector3 farPoint = new Vector3 (mousePosition, 1);
