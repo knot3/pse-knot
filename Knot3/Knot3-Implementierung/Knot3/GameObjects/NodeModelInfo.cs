@@ -104,7 +104,7 @@ namespace Knot3.GameObjects
 			{ JunctionDirection.DownLeft, 			Angles3.FromDegrees (180, 270, 0) },
 			{ JunctionDirection.DownRight, 			Angles3.FromDegrees (180, 90, 0) },
 			{ JunctionDirection.RightForward, 		Angles3.FromDegrees (0, 0, 270) },
-			{ JunctionDirection.RightBackward, 		Angles3.FromDegrees (0, 180, 270) },
+			{ JunctionDirection.RightBackward, 		Angles3.FromDegrees (0, 90, 270) },
 			{ JunctionDirection.LeftForward, 		Angles3.FromDegrees (0, 270, 270) },
 			{ JunctionDirection.LeftBackward, 		Angles3.FromDegrees (0, 180, 270) },
 			{ JunctionDirection.UpUp, 				Angles3.FromDegrees (90, 0, 0) },
