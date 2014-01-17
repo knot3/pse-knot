@@ -65,7 +65,7 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Settings",
-				onClick: (time) => {
+			onClick: (time) => {
 				Close (time);
 				Screen.NextScreen = new SettingsScreen (Screen.Game);
 			}
@@ -74,7 +74,7 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Back to Game",
-					onClick: (time) => {
+			onClick: (time) => {
 				Close (time);
 			}
 			);
@@ -82,7 +82,7 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Save",
-				onClick: (time) => {
+			onClick: (time) => {
 				Close (time);
 				KnotSave (time);
 			}
@@ -91,7 +91,7 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Save As",
-				onClick: (time) => {
+			onClick: (time) => {
 				Close (time);
 				KnotSaveAs (time);
 			}
@@ -100,7 +100,7 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Save and Exit",
-				onClick: (time) => {
+			onClick: (time) => {
 				Close (time);
 				KnotSave (time);
 				Screen.NextScreen = new StartScreen (Screen.Game);
@@ -110,7 +110,7 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Discard Changes and Exit",
-				onClick: (time) => {
+			onClick: (time) => {
 				Close (time);
 				Screen.NextScreen = new StartScreen (Screen.Game);
 			}
@@ -146,13 +146,13 @@ namespace Knot3.Widgets
 		private void KnotSaveAs (GameTime time)
 		{
 			TextInputDialog saveDialog = new TextInputDialog (
-				screen: Screen,
-				drawOrder: DisplayLayer.Dialog,
-				title: "Save Knot",
-				text: "Name:",
-				inputText: knot.Name != null ? knot.Name : ""
+			    screen: Screen,
+			    drawOrder: DisplayLayer.Dialog,
+			    title: "Save Knot",
+			    text: "Name:",
+			    inputText: knot.Name != null ? knot.Name : ""
 			);
-				
+
 			Screen.AddGameComponents (null, saveDialog);
 			saveDialog.Close += (t) => {
 				try {
@@ -161,9 +161,9 @@ namespace Knot3.Widgets
 				}
 				catch (IOException ex) {
 					ErrorDialog errorDialog = new ErrorDialog (
-						screen: Screen,
-						drawOrder: DisplayLayer.Dialog,
-						message: "Error in Knot.Save(): " + ex.ToString ()
+					    screen: Screen,
+					    drawOrder: DisplayLayer.Dialog,
+					    message: "Error in Knot.Save(): " + ex.ToString ()
 					);
 					Screen.AddGameComponents (null, errorDialog);
 				}

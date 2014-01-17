@@ -47,8 +47,9 @@ namespace Knot3.KnotData
 			}
 			set {
 				name = value;
-				if (Format == null)
+				if (Format == null) {
 					Format = new KnotFileIO ();
+				}
 
 				string extension;
 				if (Format.FileExtensions.Count () > 0) {
@@ -58,7 +59,7 @@ namespace Knot3.KnotData
 					throw new ArgumentException ("Every implementation of IKnotIO must have at least one file extension.");
 				}
 				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
-					+ FileUtility.ConvertToFileName (name) + extension;
+				           + FileUtility.ConvertToFileName (name) + extension;
 			}
 		}
 

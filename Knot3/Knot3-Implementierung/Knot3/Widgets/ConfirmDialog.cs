@@ -32,7 +32,7 @@ namespace Knot3.Widgets
 		/// Das Menü, das Schaltflächen enthält.
 		/// </summary>
 		private Menu buttons { get; set; }
-		
+
 		private VerticalMenu menu;
 
 		#endregion
@@ -61,8 +61,8 @@ namespace Knot3.Widgets
 			//die Texteingabe
 			TextItem textInput = new TextItem (Screen, DisplayLayer.MenuItem, text);
 			menu.Add (textInput);
-			
-			ValidKeys.AddRange (new Keys[]{ Keys.Enter, Keys.Escape });
+
+			ValidKeys.AddRange (new Keys[] { Keys.Enter, Keys.Escape });
 		}
 
 		#endregion

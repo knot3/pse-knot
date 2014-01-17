@@ -74,8 +74,8 @@ namespace Knot3.Widgets
 			textInput = new InputItem (Screen, DisplayLayer.MenuItem, text, inputText);
 			menu.Add (textInput);
 			textInput.IsEnabled = true;
-			
-			ValidKeys.AddRange (new Keys[]{ Keys.Enter, Keys.Escape });
+
+			ValidKeys.AddRange (new Keys[] { Keys.Enter, Keys.Escape });
 		}
 
 		#endregion

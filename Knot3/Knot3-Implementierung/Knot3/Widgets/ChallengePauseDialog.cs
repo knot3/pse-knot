@@ -61,7 +61,7 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Settings",
-				onClick: (time) => {
+			onClick: (time) => {
 				Close (time);
 				Screen.NextScreen = new SettingsScreen (Screen.Game);
 			}
@@ -70,7 +70,7 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Back to Game",
-				onClick: (time) => { Close (time); }
+			onClick: (time) => { Close (time); }
 			);
 
 			backButton.AddKey (Keys.Escape);
