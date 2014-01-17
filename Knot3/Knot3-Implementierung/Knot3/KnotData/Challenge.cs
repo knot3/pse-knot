@@ -46,7 +46,7 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
 		/// </summary>
-		public IEnumerator<KeyValuePair<string, int>> Highscore { get; set; }
+		public IEnumerable<KeyValuePair<string, int>> Highscore { get; set; }
 
 		/// <summary>
 		/// Die Metadaten der Challenge.

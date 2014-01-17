@@ -28,7 +28,9 @@ namespace Knot3.Widgets
 	public sealed class HighscoreDialog : Dialog
 	{
 		#region Properties
+
 		private VerticalMenu highscoreList;
+
 		#endregion
 
 		#region Constructors
@@ -52,11 +54,9 @@ namespace Knot3.Widgets
 
 			//Für Reine Textfelder oder Listen besitzen wir kein Widget. Also habe ich Buttons ohne Funktion verwendet.
 			if (!challenge.Highscore.Equals (null)) {
-				MenuButton firstScore = new MenuButton (screen, drawOrder, challenge.Highscore.Current.Value.ToString () + " " + challenge.Highscore.Current.Value, null);
-				highscoreList.Add (firstScore);
-				while (challenge.Highscore.MoveNext()) {
-					MenuButton nextScore = new MenuButton (screen, drawOrder, challenge.Highscore.Current.Value.ToString () + " " + challenge.Highscore.Current.Value, null);
-					highscoreList.Add (nextScore);
+				foreach (KeyValuePair<string, int> entry in challenge.Highscore) {
+					TextItem firstScore = new TextItem (screen, drawOrder, entry.Value.ToString () + " " + entry.Key);
+					highscoreList.Add (firstScore);
 				}
 			}
 
@@ -75,11 +75,9 @@ namespace Knot3.Widgets
 			//Button für die Rückkehr zum StartScreen
 			MenuButton returnButton = new MenuButton (screen, drawOrder, "Return to menu", returnToMenu);
 			highscoreList.Add (returnButton);
-
 		}
 	}
 
 	#endregion
-
 }
 

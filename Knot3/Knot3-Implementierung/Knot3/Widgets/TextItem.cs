@@ -46,7 +46,7 @@ namespace Knot3.Widgets
 		/// Erzeugt ein neues TextItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
 		/// Zudem sind Angabe der Zeichenreihenfolge und der Zeichenkette, die angezeigt wird, für Pflicht.
 		/// </summary>
-		public TextItem (GameScreen screen, DisplayLayer drawOrder, string name, Action onClick)
+		public TextItem (GameScreen screen, DisplayLayer drawOrder, string name)
 		: base(screen, drawOrder, name)
 		{
 		}

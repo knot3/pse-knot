@@ -149,10 +149,10 @@ namespace Knot3.Widgets
 			base.Draw (time);
 
 			// Wenn das DropDownMenuItem sichtbar ist und das Dropdown-Menü nicht...
-			if (IsVisible && !dropdown.IsVisible) {
-				// lade die Schrift
-				SpriteFont font = HfGDesign.MenuFont (Screen);
-			}
+			//if (IsVisible && !dropdown.IsVisible) {
+			//	// lade die Schrift
+			//	SpriteFont font = HfGDesign.MenuFont (Screen);
+			//}
 		}
 
 		#endregion
