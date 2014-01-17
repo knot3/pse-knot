@@ -61,11 +61,26 @@ namespace Knot3.Widgets
 		public SliderItem (GameScreen screen, DisplayLayer drawOrder, string text, int max, int min, int step, int value)
 		: base(screen, drawOrder, text)
 		{
-			throw new System.NotImplementedException ();
+            this.MaxValue = max;
+            this.MinValue = min;
+            this.Value = value;
+            this.Step = step;
+			//throw new System.NotImplementedException ();
 		}
 
 		#endregion
 
-	}
+		#region Methods
+
+        public override void Draw(GameTime time)
+        {
+            base.Draw(time);
+
+            spriteBatch.Begin();
+
+        }
+        #endregion
+
+    }
 }
 
