@@ -145,9 +145,13 @@ namespace Knot3.Core
 		public Vector3 TargetDirection
 		{
 			get {
-				Vector3 toTarget = Target - Position;
-				toTarget.Normalize ();
-				return toTarget;
+				return Vector3.Normalize(Target - Position);
+			}
+		}
+		public Vector3 ArcballTargetDirection
+		{
+			get {
+				return Vector3.Normalize(ArcballTarget - Position);
 			}
 		}
 

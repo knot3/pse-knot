@@ -54,6 +54,15 @@ namespace Knot3.Screens
 			settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
+			
+
+			CheckBoxItem showOverlay = new CheckBoxItem (
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    text: "Move Rotation Targets to Center",
+			    option: new BooleanOptionInfo ("video", "arcball-around-center", true, Options.Default)
+			);
+			settingsMenu.Add (showOverlay);
 
 
 			// Lade die Standardbelegung

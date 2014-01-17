@@ -248,12 +248,22 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void rotate (Vector2 move, GameTime time)
 		{
+			if (Options.Default ["video", "arcball-around-center", true]) {
+				rotateCenter (move, time);
+			}
+			else {
+				rotateEverywhere (move, time);
+			}
+		}
+
+		private void rotateCenter (Vector2 move, GameTime time)
+		{
 			// Wenn kein 3D-Objekt selektiert ist...
 			if (world.SelectedObject == null && world.Count () > 0) {
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+				).ElementAt (0);
 			}
 
 			// Überprüfe, wie weit das Kamera-Target von dem Objekt, um das rotiert werden soll,
@@ -279,8 +289,32 @@ namespace Knot3.GameObjects
 				// Berechne die Rotation
 				world.Camera.Target = new Vector3 (world.Camera.ArcballTarget.X, world.Camera.ArcballTarget.Y, world.Camera.ArcballTarget.Z);
 				world.Camera.Position = world.Camera.ArcballTarget
-				                        + (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+					+ (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				world.Camera.ArcballTargetDistance = oldDistance;
+				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
+				world.Redraw = true;
+			}
+		}
+
+		private void rotateEverywhere (Vector2 move, GameTime time)
+		{
+			// Wenn kein 3D-Objekt selektiert ist...
+			if (world.SelectedObject == null && world.Count () > 0) {
+				// selektiere das Objekt, das der Mausposition am nächsten ist!
+				world.SelectedObject = world.FindNearestObjects (
+				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
+				).ElementAt (0);
+			}
+
+			if (move.Length () > 0) {
+				move *= 3;
+				Vector3 targetDirection = world.Camera.ArcballTargetDirection;
+				Vector3 up = world.Camera.UpVector;
+				// Berechne die Rotation
+				world.Camera.Target = world.Camera.ArcballTarget
+					+ (world.Camera.Target - world.Camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+				world.Camera.Position = world.Camera.ArcballTarget
+					+ (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
 				world.Redraw = true;
 			}
