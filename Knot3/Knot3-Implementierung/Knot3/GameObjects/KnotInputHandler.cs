@@ -220,7 +220,7 @@ namespace Knot3.GameObjects
 			if (InputManager.CurrentMouseState != InputManager.PreviousMouseState) {
 				if (Screen.Input.GrabMouseMovement || (Screen.Input.CurrentInputAction == InputAction.ArcballMove)) {
 					Mouse.SetPosition (world.Viewport.X + world.Viewport.Width / 2,
-						                   world.Viewport.Y + world.Viewport.Height / 2);
+					                   world.Viewport.Y + world.Viewport.Height / 2);
 					InputManager.CurrentMouseState = Mouse.GetState ();
 				}
 			}
@@ -253,7 +253,7 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				).ElementAt (0);
+				                       ).ElementAt (0);
 			}
 
 			// Überprüfe, wie weit das Kamera-Target von dem Objekt, um das rotiert werden soll,
@@ -279,7 +279,7 @@ namespace Knot3.GameObjects
 				// Berechne die Rotation
 				world.Camera.Target = new Vector3 (world.Camera.ArcballTarget.X, world.Camera.ArcballTarget.Y, world.Camera.ArcballTarget.Z);
 				world.Camera.Position = world.Camera.ArcballTarget
-					+ (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+				                        + (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				world.Camera.ArcballTargetDistance = oldDistance;
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
 				world.Redraw = true;

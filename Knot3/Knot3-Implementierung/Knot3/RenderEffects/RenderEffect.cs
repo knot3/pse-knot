@@ -73,7 +73,7 @@ namespace Knot3.RenderEffects
 			RenderTarget = CurrentRenderTarget;
 			screen.CurrentRenderEffects.Push (this);
 			screen.Device.Clear (Color.Transparent);
-			
+
 			//spriteBatch.Begin (SpriteSortMode.Immediate, BlendState.NonPremultiplied);
 			//spriteBatch.Draw (TextureHelper.Create(screen.Device, screen.Viewport.Width, screen.Viewport.Height, background),
 			//                  Vector2.Zero, Color.White);
@@ -120,7 +120,7 @@ namespace Knot3.RenderEffects
 			foreach (ModelMesh mesh in model.Model.Meshes) {
 				mesh.Draw ();
 			}
-			
+
 			screen.Viewport = original;
 		}
 
@@ -181,7 +181,7 @@ namespace Knot3.RenderEffects
 		#region RenderTarget Cache
 
 		private Dictionary<Point,Dictionary<Rectangle, RenderTarget2D>> renderTargets
-			= new Dictionary<Point,Dictionary<Rectangle, RenderTarget2D>> ();
+		    = new Dictionary<Point,Dictionary<Rectangle, RenderTarget2D>> ();
 
 		public RenderTarget2D CurrentRenderTarget
 		{

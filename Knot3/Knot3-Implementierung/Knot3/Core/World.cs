@@ -163,7 +163,7 @@ namespace Knot3.Core
 		}
 
 		private Dictionary<Point,Dictionary<Vector4, Viewport>> viewportCache
-			= new Dictionary<Point,Dictionary<Vector4, Viewport>> ();
+		    = new Dictionary<Point,Dictionary<Vector4, Viewport>> ();
 
 		public Viewport Viewport
 		{
@@ -268,7 +268,7 @@ namespace Knot3.Core
 					Vector3 position3D = Camera.To3D (
 					                         position: nearTo,
 					                         nearTo: obj.Center ()
-					);
+					                     );
 					// Berechne die Distanz zwischen 3D-Mausposition und dem Spielobjekt
 					float distance = Math.Abs ((position3D - obj.Center ()).Length ());
 					distances [distance] = obj;
