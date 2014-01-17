@@ -54,7 +54,7 @@ namespace Knot3.Screens
 			settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
-			
+
 
 			CheckBoxItem showOverlay = new CheckBoxItem (
 			    screen: this,
