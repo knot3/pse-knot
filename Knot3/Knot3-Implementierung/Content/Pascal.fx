@@ -40,9 +40,13 @@ VertexShaderOutput VertexShaderFunction(VertexShaderInput input)
 
 float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
 {
-    // TODO: add your pixel shader code here.
+	// man muss alle deklarierten Variablen verwenden,
+	// sonst wirft sie der Konverter zu GLSL raus und
+	// es gibt NullReferenceExceptions in C#...
+	return color1+color2;
 
-    return float4(1, 0, 0, 1);
+    // TODO: add your pixel shader code here.
+    // return float4(1, 0, 0, 1);
 }
 
 technique Technique1
