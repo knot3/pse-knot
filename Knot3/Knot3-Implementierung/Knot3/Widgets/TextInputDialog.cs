@@ -38,7 +38,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public Action KeyEvent { get; set; }
 
-        private VerticalMenu inputMenu;
+		private VerticalMenu inputMenu;
 		#endregion
 
 		#region Constructors
@@ -49,20 +49,20 @@ namespace Knot3.Widgets
 		public TextInputDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
 		: base(screen, drawOrder, title, text)
 		{
-            // Der Titel-Text ist mittig ausgerichtet
-            AlignX = HorizontalAlignment.Center;
-            inputMenu = new VerticalMenu(Screen, DisplayLayer.Menu);
-            inputMenu.RelativePosition = () => RelativeContentPosition;
-            inputMenu.RelativeSize = () => RelativeContentSize;
-            inputMenu.RelativePadding = () => RelativePadding();
-            inputMenu.ItemForegroundColor = (s) => Color.White;
-            inputMenu.ItemBackgroundColor = (s) => (s == ItemState.Hovered) ? Color.White * 0.3f : Color.White * 0.1f;
-            inputMenu.ItemAlignX = HorizontalAlignment.Left;
-            inputMenu.ItemAlignY = VerticalAlignment.Center;
+			// Der Titel-Text ist mittig ausgerichtet
+			AlignX = HorizontalAlignment.Center;
+			inputMenu = new VerticalMenu(Screen, DisplayLayer.Menu);
+			inputMenu.RelativePosition = () => RelativeContentPosition;
+			inputMenu.RelativeSize = () => RelativeContentSize;
+			inputMenu.RelativePadding = () => RelativePadding();
+			inputMenu.ItemForegroundColor = (s) => Color.White;
+			inputMenu.ItemBackgroundColor = (s) => (s == ItemState.Hovered) ? Color.White * 0.3f : Color.White * 0.1f;
+			inputMenu.ItemAlignX = HorizontalAlignment.Left;
+			inputMenu.ItemAlignY = VerticalAlignment.Center;
 
-            //die Texteingabe
-            InputItem textInput = new InputItem(Screen, DisplayLayer.MenuItem, text, inputText);
-            inputMenu.Add(textInput);            
+			//die Texteingabe
+			InputItem textInput = new InputItem(Screen, DisplayLayer.MenuItem, text, inputText);
+			inputMenu.Add(textInput);
 		}
 
 		#endregion
