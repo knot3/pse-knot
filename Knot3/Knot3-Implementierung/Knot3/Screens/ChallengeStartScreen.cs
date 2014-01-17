@@ -123,7 +123,7 @@ namespace Knot3.Screens
 				ChallengeMetaData meta = fileFormat.LoadMetaData (filename);
 
 				// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
-				Action LoadFile = () => {
+				Action<GameTime> LoadFile = (time) => {
 					NextScreen = new ChallengeModeScreen (game: Game, challenge: fileFormat.Load (filename));
 				};
 

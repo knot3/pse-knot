@@ -66,7 +66,7 @@ namespace Knot3.Screens
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Creative",
-			    onClick: () => NextScreen = new CreativeMainScreen (Game)
+			    onClick: (time) => NextScreen = new CreativeMainScreen (Game)
 			);
 			creativeButton.SetCoordinates (left: 0.700f, top: 0.250f, right: 0.960f, bottom: 0.380f);
 
@@ -74,7 +74,7 @@ namespace Knot3.Screens
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Challenge",
-			    onClick: () => NextScreen = new ChallengeStartScreen (Game)
+			    onClick: (time) => NextScreen = new ChallengeStartScreen (Game)
 			);
 			challengeButton.SetCoordinates (left: 0.000f, top: 0.050f, right: 0.380f, bottom: 0.190f);
 
@@ -82,7 +82,7 @@ namespace Knot3.Screens
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Settings",
-			    onClick: () => NextScreen = new SettingsScreen (Game)
+			    onClick: (time) => NextScreen = new SettingsScreen (Game)
 			);
 			settingsButton.SetCoordinates (left: 0.260f, top: 0.840f, right: 0.480f, bottom: 0.950f);
 
@@ -90,7 +90,7 @@ namespace Knot3.Screens
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Exit",
-			    onClick: () => Game.Exit ()
+			    onClick: (time) => Game.Exit ()
 			);
 			exitButton.AddKey (Keys.Escape);
 			exitButton.SetCoordinates (left: 0.800f, top: 0.535f, right: 0.980f, bottom: 0.790f);

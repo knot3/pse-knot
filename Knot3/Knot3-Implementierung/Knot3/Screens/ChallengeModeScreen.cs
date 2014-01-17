@@ -102,12 +102,10 @@ namespace Knot3.Screens
 				// Event registrieren
 				_playerKnot.EdgesChanged += OnEdgesChanged;
 				// coloring.Knot = knot;
-				knotModified = false;
 			}
 		}
 
 		private Knot _playerKnot;
-		private bool knotModified;
 		private KnotInputHandler knotInput;
 		private ModelMouseHandler modelMouseHandler;
 		private MousePointer pointer;
@@ -178,7 +176,6 @@ namespace Knot3.Screens
 
 		private void OnEdgesChanged ()
 		{
-			knotModified = true;
 			Undo.Push (_playerKnot);
 			Redo.Clear ();
 		}
@@ -207,13 +204,9 @@ namespace Knot3.Screens
 			// wenn zur Zeit kein Dialog vorhanden ist, und Escape gedrückt wurde...
 			if (currentDialog == null && Keys.Escape.IsDown ()) {
 				// erstelle einen neuen Pausedialog
-				Dialog pauseDialog = new PauseDialog (screen: this, drawOrder: DisplayLayer.Dialog);
+				Dialog pauseDialog = new ChallengePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog);
 				// füge ihn in die Spielkomponentenliste hinzu
 				AddGameComponents (time, pauseDialog);
-				// wenn er geschlossen wird, entferne ihn wieder
-				pauseDialog.Close += () => {
-					RemoveGameComponents (time, pauseDialog);
-				};
 				// weise ihn als den aktuellen Dialog zu
 				currentDialog = pauseDialog;
 			}

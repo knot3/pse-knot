@@ -30,7 +30,6 @@ namespace Knot3.KnotData
 	/// </summary>
 	public class KnotMetaData
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -48,15 +47,18 @@ namespace Knot3.KnotData
 			}
 			set {
 				name = value;
+				if (Format == null)
+					Format = new KnotFileIO ();
+
 				string extension;
-				if (Format != null && Format.FileExtensions.Count () > 0) {
+				if (Format.FileExtensions.Count () > 0) {
 					extension = Format.FileExtensions.ElementAt (0);
 				}
 				else {
-					extension = ".knot";
+					throw new ArgumentException ("Every implementation of IKnotIO must have at least one file extension.");
 				}
 				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
-				           + FileUtility.ConvertToFileName (name) + extension;
+					+ FileUtility.ConvertToFileName (name) + extension;
 			}
 		}
 

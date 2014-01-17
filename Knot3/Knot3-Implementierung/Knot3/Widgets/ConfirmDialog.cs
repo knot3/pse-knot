@@ -32,6 +32,8 @@ namespace Knot3.Widgets
 		/// Das Menü, das Schaltflächen enthält.
 		/// </summary>
 		private Menu buttons { get; set; }
+		
+		private VerticalMenu menu;
 
 		#endregion
 
@@ -45,7 +47,45 @@ namespace Knot3.Widgets
 		public ConfirmDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text)
 		: base(screen, drawOrder, title, text)
 		{
-			throw new System.NotImplementedException ();
+			// Der Titel-Text ist mittig ausgerichtet
+			AlignX = HorizontalAlignment.Center;
+			menu = new VerticalMenu (Screen, DisplayLayer.Menu);
+			menu.RelativePosition = () => RelativeContentPosition;
+			menu.RelativeSize = () => RelativeContentSize;
+			menu.RelativePadding = () => RelativePadding ();
+			menu.ItemForegroundColor = (s) => Color.White;
+			menu.ItemBackgroundColor = (s) => Color.Transparent;
+			menu.ItemAlignX = HorizontalAlignment.Left;
+			menu.ItemAlignY = VerticalAlignment.Center;
+
+			//die Texteingabe
+			TextItem textInput = new TextItem (Screen, DisplayLayer.MenuItem, text);
+			menu.Add (textInput);
+			
+			ValidKeys.AddRange (new Keys[]{ Keys.Enter, Keys.Escape });
+		}
+
+		#endregion
+
+		#region Methods
+
+		/// <summary>
+		///
+		/// </summary>
+		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
+		{
+			if (key.Contains (Keys.Enter) || key.Contains (Keys.Escape)) {
+				Close (time);
+			}
+			base.OnKeyEvent (key, keyEvent, time);
+		}
+
+		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
+		{
+			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
+				yield return component;
+			}
+			yield return menu;
 		}
 
 		#endregion

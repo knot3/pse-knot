@@ -40,7 +40,7 @@ namespace Knot3.Widgets
 		public string Text { get; set; }
 
 		protected SpriteBatch spriteBatch;
-		public Action Close;
+		public Action<GameTime> Close;
 
 		protected Func<Color> TitleBackgroundColor { get; set; }
 
@@ -65,8 +65,9 @@ namespace Knot3.Widgets
 
 			// Dialoge sind nach dem erstellen sichtbar, und das Delegate zum schließen macht sie unsichtbar
 			IsVisible = true;
-			Close = () => {
+			Close = (time) => {
 				IsVisible = false;
+				Screen.RemoveGameComponents (time, this);
 			};
 
 			// Die Standardposition ist in der Mitte des Bildschirms

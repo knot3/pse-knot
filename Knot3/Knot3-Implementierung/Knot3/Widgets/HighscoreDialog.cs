@@ -61,7 +61,7 @@ namespace Knot3.Widgets
 			}
 
 			//Startet die Challenge erneut
-			Action restartChallenge = () => {
+			Action<GameTime> restartChallenge = (time) => {
 				Screen.NextScreen = new ChallengeModeScreen (Screen.Game, challenge);
 			};
 			//Button fürs Neustarten
@@ -69,7 +69,7 @@ namespace Knot3.Widgets
 			highscoreList.Add (restartButton);
 
 			//Kehrt zum Startscreen zurück
-			Action returnToMenu = () => {
+			Action<GameTime> returnToMenu = (time) => {
 				Screen.NextScreen = new StartScreen (Screen.Game);
 			};
 			//Button für die Rückkehr zum StartScreen

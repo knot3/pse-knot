@@ -31,14 +31,24 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Der Text, der durch den Spieler eingegeben wurde.
 		/// </summary>
-		public string InputText { get; set; }
+		public string InputText
+		{
+			get {
+				return textInput.InputText;
+			}
+			set {
+				textInput.InputText = value;
+			}
+		}
 
 		/// <summary>
 		///
 		/// </summary>
 		public Action KeyEvent { get; set; }
 
-		private VerticalMenu inputMenu;
+		private VerticalMenu menu;
+		private InputItem textInput;
+
 		#endregion
 
 		#region Constructors
@@ -51,18 +61,21 @@ namespace Knot3.Widgets
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
-			inputMenu = new VerticalMenu(Screen, DisplayLayer.Menu);
-			inputMenu.RelativePosition = () => RelativeContentPosition;
-			inputMenu.RelativeSize = () => RelativeContentSize;
-			inputMenu.RelativePadding = () => RelativePadding();
-			inputMenu.ItemForegroundColor = (s) => Color.White;
-			inputMenu.ItemBackgroundColor = (s) => (s == ItemState.Hovered) ? Color.White * 0.3f : Color.White * 0.1f;
-			inputMenu.ItemAlignX = HorizontalAlignment.Left;
-			inputMenu.ItemAlignY = VerticalAlignment.Center;
+			menu = new VerticalMenu (Screen, DisplayLayer.Menu);
+			menu.RelativePosition = () => RelativeContentPosition;
+			menu.RelativeSize = () => RelativeContentSize;
+			menu.RelativePadding = () => RelativePadding ();
+			menu.ItemForegroundColor = (s) => Color.White;
+			menu.ItemBackgroundColor = (s) => Color.Transparent;
+			menu.ItemAlignX = HorizontalAlignment.Left;
+			menu.ItemAlignY = VerticalAlignment.Center;
 
 			//die Texteingabe
-			InputItem textInput = new InputItem(Screen, DisplayLayer.MenuItem, text, inputText);
-			inputMenu.Add(textInput);
+			textInput = new InputItem (Screen, DisplayLayer.MenuItem, text, inputText);
+			menu.Add (textInput);
+			textInput.IsEnabled = true;
+			
+			ValidKeys.AddRange (new Keys[]{ Keys.Enter, Keys.Escape });
 		}
 
 		#endregion
@@ -74,11 +87,21 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
+			if (key.Contains (Keys.Enter) || key.Contains (Keys.Escape)) {
+				Close (time);
+			}
 			base.OnKeyEvent (key, keyEvent, time);
 		}
 
-		#endregion
+		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
+		{
+			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
+				yield return component;
+			}
+			yield return menu;
+		}
 
+		#endregion
 	}
 }
 

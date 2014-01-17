@@ -90,7 +90,7 @@ namespace Knot3.Widgets
 		{
 			foreach (string _value in option.ValidValues) {
 				string value = _value; // create a copy for the action
-				Action onSelected = () => {
+				Action<GameTime> onSelected = (time) => {
 					Console.WriteLine ("OnClick: " + value);
 					option.Value = value;
 					currentValue.InputText = value;

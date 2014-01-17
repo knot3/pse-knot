@@ -31,7 +31,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die Aktion, die ausgeführt wird, wenn der Spieler auf die Schaltfläche klickt.
 		/// </summary>
-		public Action OnClick { get; set; }
+		public Action<GameTime> OnClick { get; set; }
 
 		/// <summary>
 		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
@@ -52,7 +52,7 @@ namespace Knot3.Widgets
 		/// Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche
 		/// und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
 		/// </summary>
-		public MenuButton (GameScreen screen, DisplayLayer drawOrder, string name, Action onClick)
+		public MenuButton (GameScreen screen, DisplayLayer drawOrder, string name, Action<GameTime> onClick)
 		: base(screen, drawOrder, name)
 		{
 			OnClick = onClick;
@@ -67,7 +67,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-			OnClick ();
+			OnClick (time);
 		}
 
 		/// <summary>
@@ -76,7 +76,7 @@ namespace Knot3.Widgets
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 			if (keyEvent == KeyEvent.KeyDown) {
-				OnClick ();
+				OnClick (time);
 			}
 		}
 

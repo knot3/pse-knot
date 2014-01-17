@@ -62,37 +62,37 @@ namespace Knot3.Screens
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Debug",
-			    onClick: () => NextScreen = new DebugSettingsScreen (Game)
+			    onClick: (time) => NextScreen = new DebugSettingsScreen (Game)
 			);
 			MenuButton graphicsButton = new MenuButton (
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Video",
-			    onClick: () => NextScreen = new GraphicsSettingsScreen (Game)
+			    onClick: (time) => NextScreen = new GraphicsSettingsScreen (Game)
 			);
 			MenuButton audioButton = new MenuButton (
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Audio",
-			    onClick: () => NextScreen = new AudioSettingsScreen (Game)
+			    onClick: (time) => NextScreen = new AudioSettingsScreen (Game)
 			);
 			MenuButton controlsButton = new MenuButton (
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Controls",
-			    onClick: () => NextScreen = new ControlSettingsScreen (Game)
+			    onClick: (time) => NextScreen = new ControlSettingsScreen (Game)
 			);
 			MenuButton profileButton = new MenuButton (
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Profile",
-			    onClick: () => NextScreen = new ProfileSettingsScreen (Game)
+			    onClick: (time) => NextScreen = new ProfileSettingsScreen (Game)
 			);
 			MenuButton backButton = new MenuButton (
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Back",
-			    onClick: () => NextScreen = Game.Screens.Where ((s) => !(s is SettingsScreen)).ElementAt (0)
+			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is SettingsScreen)).ElementAt (0)
 			);
 			backButton.AddKey (Keys.Escape);
 

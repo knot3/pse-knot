@@ -57,7 +57,7 @@ namespace Knot3.Screens
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "NEW\nKnot",
-			    onClick: () => NextScreen = new CreativeModeScreen (Game, new Knot ())
+			    onClick: (time) => NextScreen = new CreativeModeScreen (Game, new Knot ())
 			);
 			newKnotButton.SetCoordinates (left: 0.100f, top: 0.150f, right: 0.300f, bottom: 0.350f);
 
@@ -65,7 +65,7 @@ namespace Knot3.Screens
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "LOAD\nKnot",
-			    onClick: () => NextScreen = new CreativeLoadScreen (Game)
+			    onClick: (time) => NextScreen = new CreativeLoadScreen (Game)
 			);
 			loadKnotButton.SetCoordinates (left: 0.675f, top: 0.300f, right: 0.875f, bottom: 0.475f);
 
@@ -73,7 +73,7 @@ namespace Knot3.Screens
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "NEW\nChallenge",
-			    onClick: () => NextScreen = new ChallengeCreateScreen (Game)
+			    onClick: (time) => NextScreen = new ChallengeCreateScreen (Game)
 			);
 			newChallengeButton.SetCoordinates (left: 0.250f, top: 0.525f, right: 0.600f, bottom: 0.750f);
 
@@ -81,7 +81,7 @@ namespace Knot3.Screens
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Back",
-			    onClick: () => NextScreen = Game.Screens.Where ((s) => !(s is CreativeMainScreen)).ElementAt (0)
+			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is CreativeMainScreen)).ElementAt (0)
 			);
 			backButton.AddKey (Keys.Escape);
 

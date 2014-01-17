@@ -66,7 +66,7 @@ namespace Knot3.RenderEffects
 			Camera camera = model.World.Camera;
 
 
-			lightDirection = new Vector4(-Vector3.Cross(Vector3.Normalize(camera.TargetDirection), camera.UpVector), 1);
+			//lightDirection = new Vector4(-Vector3.Cross(Vector3.Normalize(camera.TargetDirection), camera.UpVector), 1);
 			pascalEffect.Parameters["World"].SetValue(model.WorldMatrix * camera.WorldMatrix);
 			pascalEffect.Parameters["View"].SetValue(camera.ViewMatrix);
 			pascalEffect.Parameters["Projection"].SetValue(camera.ProjectionMatrix);
@@ -83,7 +83,6 @@ namespace Knot3.RenderEffects
 
 
 		Effect pascalEffect;
-		Vector4 lightDirection; // Light source for toon shader
-
+		//Vector4 lightDirection; // Light source for toon shader
 	}
 }

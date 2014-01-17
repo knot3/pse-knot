@@ -25,7 +25,7 @@ namespace Knot3.Widgets
 	/// Pausiert ein Spieler im Creative- oder Challenge-Modus das Spiel,
 	/// wird dieser Dialog über anderen Spielkomponenten angezeigt.
 	/// </summary>
-	public sealed class PauseDialog : Dialog
+	public sealed class ChallengePauseDialog : Dialog
 	{
 		#region Properties
 
@@ -41,7 +41,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		///
 		/// </summary>
-		public PauseDialog (GameScreen screen, DisplayLayer drawOrder)
+		public ChallengePauseDialog (GameScreen screen, DisplayLayer drawOrder)
 		: base(screen, drawOrder, "Pause", "")
 		{
 			// Der Titel-Text ist mittig ausgerichtet
@@ -61,8 +61,8 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Settings",
-			onClick: () => {
-				Close ();
+				onClick: (time) => {
+				Close (time);
 				Screen.NextScreen = new SettingsScreen (Screen.Game);
 			}
 			);
@@ -70,24 +70,13 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Back to Game",
-			onClick: () => {
-				Close ();
-			}
+				onClick: (time) => { Close (time); }
 			);
-			MenuButton exitButton = new MenuButton (
-			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
-			    name: "Exit Game",
-			onClick: () => {
-				Close ();
-				Screen.NextScreen = new StartScreen (Screen.Game);
-			}
-			);
+
 			backButton.AddKey (Keys.Escape);
 
 			pauseMenu.Add (settingsButton);
 			pauseMenu.Add (backButton);
-			pauseMenu.Add (exitButton);
 		}
 
 		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
