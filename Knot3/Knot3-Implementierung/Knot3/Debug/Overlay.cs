@@ -121,7 +121,7 @@ namespace Knot3.Debug
 			DrawVectorCoordinates (World.Camera.Target, width2, width3, width4, height);
 			height += 20;
 			DrawString ("Distance: ", width1, height, Color.White);
-			DrawString (World.Camera.TargetDistance, width2, height, Color.White);
+			DrawString (World.Camera.PositionToTargetDistance, width2, height, Color.White);
 			height += 20;
 			DrawString ("Selected Object: ", width1, height, Color.White);
 			if (World.SelectedObject != null) {

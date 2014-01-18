@@ -142,13 +142,13 @@ namespace Knot3.Core
 		/// <summary>
 		/// Die Blickrichtung.
 		/// </summary>
-		public Vector3 TargetDirection
+		public Vector3 PositionToTargetDirection
 		{
 			get {
 				return Vector3.Normalize(Target - Position);
 			}
 		}
-		public Vector3 ArcballTargetDirection
+		public Vector3 PositionToArcballTargetDirection
 		{
 			get {
 				return Vector3.Normalize(ArcballTarget - Position);
@@ -158,7 +158,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Der Abstand zwischen der Kamera und dem Kamera-Ziel.
 		/// </summary>
-		public float TargetDistance
+		public float PositionToTargetDistance
 		{
 			get {
 				return Position.DistanceTo (Target);
@@ -168,7 +168,7 @@ namespace Knot3.Core
 			}
 		}
 
-		public float ArcballTargetDistance
+		public float PositionToArcballTargetDistance
 		{
 			get {
 				return Position.DistanceTo (ArcballTarget);
