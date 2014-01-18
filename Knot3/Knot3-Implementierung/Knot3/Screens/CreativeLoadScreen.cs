@@ -36,6 +36,8 @@ namespace Knot3.Screens
 		/// </summary>
 		private VerticalMenu savegameMenu;
 
+		private TextItem title;
+
 		// files
 		private FileIndex fileIndex;
 		private IKnotIO fileFormat;
@@ -61,9 +63,12 @@ namespace Knot3.Screens
 			savegameMenu.ItemAlignX = HorizontalAlignment.Left;
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
 
-			lines.AddPoints (0, 50,
-			                 30, 970, 970, 50, 1000
-			                );
+			lines.AddPoints (0, 50, 30, 970, 970, 50, 1000);
+
+			title = new TextItem(screen: this, drawOrder: DisplayLayer.MenuItem, name: "Load Knot");
+			title.RelativePosition = () => new Vector2(0.100f, 0.050f);
+			title.RelativeSize = () => new Vector2(0.900f, 0.050f);
+			title.ForegroundColor = () => Color.White;
 		}
 
 		#endregion
@@ -149,21 +154,12 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Update (GameTime time)
 		{
+			base.Update (time);
 		}
 
 		public override void Draw (GameTime time)
 		{
-			spriteBatch.Begin ();
-			// text
-			spriteBatch.DrawStringInRectangle (
-			    font: HfGDesign.MenuFont (this),
-			    text: "Load Knot",
-			    color: Color.White,
-			    bounds: new Rectangle (100, 50, 900, 50).Scale (Viewport),
-			    alignX: HorizontalAlignment.Left,
-			    alignY: VerticalAlignment.Center
-			);
-			spriteBatch.End ();
+			base.Draw (time);
 		}
 
 		/// <summary>
@@ -173,7 +169,7 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, savegameMenu);
+			AddGameComponents (time, savegameMenu, title);
 		}
 
 		#endregion
