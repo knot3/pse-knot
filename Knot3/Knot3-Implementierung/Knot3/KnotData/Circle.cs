@@ -103,11 +103,22 @@ namespace Knot3.KnotData
 			return item != null;
 		}
 
+		public bool Contains (Func<T, bool> func, out Circle<T> item)
+		{
+			item = Find (func);
+			return item != null;
+		}
+
 		public Circle<T> Find (T obj)
+		{
+			return Find ((t) => t.Equals (obj));
+		}
+
+		public Circle<T> Find (Func<T, bool> func)
 		{
 			Circle<T> current = this;
 			do {
-				if (current.Content.Equals (obj)) {
+				if (func(current.Content)) {
 					return current;
 				}
 				current = current.Next;

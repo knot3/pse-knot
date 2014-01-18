@@ -161,9 +161,10 @@ namespace Knot3.Screens
 			PlayerEdgeMovement = new EdgeMovement (screen: this, world: PlayerWorld, position: Vector3.Zero);
 			PlayerWorld.Add (PlayerEdgeMovement);
 
+			// assign the specified challenge
+			Challenge = challenge;
 			// assign the specified player knot
 			PlayerKnot = challenge.Start.Clone () as Knot;
-
 			// assign the specified target knot
 			ChallengeKnotRenderer.Knot = challenge.Target;
 
@@ -220,6 +221,10 @@ namespace Knot3.Screens
 				AddGameComponents (time, pauseDialog);
 				// weise ihn als den aktuellen Dialog zu
 				currentDialog = pauseDialog;
+			}
+
+			if (PlayerKnot.Equals (Challenge.Target)) {
+				Console.WriteLine("Playerknot equals Target!");
 			}
 
 			// Die Zeit, die der Spieler zum Spielen der Challenge braucht
