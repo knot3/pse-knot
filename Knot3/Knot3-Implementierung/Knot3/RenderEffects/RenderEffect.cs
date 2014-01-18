@@ -121,7 +121,7 @@ namespace Knot3.RenderEffects
 			foreach (ModelMesh mesh in model.Model.Meshes) {
 				mesh.Draw ();
 			}
-			
+
 			// Setze den Viewport wieder auf den ganzen Screen
 			screen.Viewport = original;
 		}
