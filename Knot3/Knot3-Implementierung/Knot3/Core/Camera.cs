@@ -282,13 +282,13 @@ namespace Knot3.Core
 		/// </summary>
 		public Vector3 To3D (Vector2 position, Vector3 nearTo)
 		{
-			Vector3 screenLocation = Screen.Viewport.Project (
+			Vector3 screenLocation = World.Viewport.Project (
 			                             source: nearTo,
 			                             projection: World.Camera.ProjectionMatrix,
 			                             view: World.Camera.ViewMatrix,
 			                             world: World.Camera.WorldMatrix
 			                         );
-			Vector3 currentMousePosition = Screen.Viewport.Unproject (
+			Vector3 currentMousePosition = World.Viewport.Unproject (
 			                                   source: new Vector3 (position, screenLocation.Z),
 			                                   projection: World.Camera.ProjectionMatrix,
 			                                   view: World.Camera.ViewMatrix,
