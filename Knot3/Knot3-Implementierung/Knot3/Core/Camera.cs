@@ -128,7 +128,6 @@ namespace Knot3.Core
 			Rotation = Angles3.Zero;
 
 			FoV = MathHelper.ToDegrees (MathHelper.PiOver4);
-			aspectRatio = screen.Viewport.AspectRatio;
 			nearPlane = 0.5f;
 			farPlane = 10000.0f;
 
@@ -184,12 +183,20 @@ namespace Knot3.Core
 		/// </summary>
 		public override void Update (GameTime time)
 		{
+			// Setze den Viewport auf den der aktuellen Spielwelt
+			Viewport original = Screen.Viewport;
+			Screen.Viewport = World.Viewport;
+
 			UpdateMatrices (time);
 			UpdateSmoothMove (time);
+
+			// Setze den Viewport wieder auf den ganzen Screen
+			Screen.Viewport = original;
 		}
 
 		private void UpdateMatrices (GameTime time)
 		{
+			aspectRatio = Screen.Viewport.AspectRatio;
 			ViewMatrix = Matrix.CreateLookAt (Position, Target, UpVector);
 			WorldMatrix = Matrix.CreateFromYawPitchRoll (Rotation.Y, Rotation.X, Rotation.Z);
 			ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView (MathHelper.ToRadians (FoV), aspectRatio, nearPlane, farPlane);

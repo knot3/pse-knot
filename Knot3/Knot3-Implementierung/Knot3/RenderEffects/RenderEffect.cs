@@ -106,6 +106,7 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		public virtual void DrawModel (GameModel model, GameTime time)
 		{
+			// Setze den Viewport auf den der aktuellen Spielwelt
 			Viewport original = screen.Viewport;
 			screen.Viewport = model.World.Viewport;
 
@@ -120,7 +121,8 @@ namespace Knot3.RenderEffects
 			foreach (ModelMesh mesh in model.Model.Meshes) {
 				mesh.Draw ();
 			}
-
+			
+			// Setze den Viewport wieder auf den ganzen Screen
 			screen.Viewport = original;
 		}
 

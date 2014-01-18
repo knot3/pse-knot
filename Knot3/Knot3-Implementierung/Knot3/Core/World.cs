@@ -176,12 +176,10 @@ namespace Knot3.Core
 				}
 				if (!viewportCache [resolution].ContainsKey (key)) {
 					Rectangle subScreen = relativePosition.Scale (Screen.Viewport).CreateRectangle (relativeSize.Scale (Screen.Viewport));
-					Console.WriteLine ("relativePosition=" + relativePosition + ", relativeSize=" + relativeSize + ", subScreen=" + subScreen);
 					viewportCache [resolution] [key] = new Viewport (subScreen.X, subScreen.Y, subScreen.Width, subScreen.Height) {
 						MinDepth = 0,
 						MaxDepth = 1
 					};
-					Console.WriteLine ("pp => resolution = " + resolution);
 				}
 				return viewportCache [resolution] [key];
 			}

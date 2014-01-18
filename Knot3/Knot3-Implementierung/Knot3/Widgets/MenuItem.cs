@@ -43,7 +43,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Der Name des Menüeintrags, der auf der linken Seite angezeigt wird.
 		/// </summary>
-		public string Text { get; private set; }
+		public string Text { get; set; }
 
 		/// <summary>
 		/// Eine Referenz auf das Menu, in dem sich der Eintrag befindet.

@@ -32,6 +32,8 @@ namespace Knot3.Debug
 
 		// fonts
 		private SpriteFont font;
+		private float scale;
+		private int lineHeight;
 
 		public Overlay (GameScreen screen, World world)
 		: base(screen, DisplayLayer.Overlay)
@@ -72,6 +74,9 @@ namespace Knot3.Debug
 
 		public override void Update (GameTime time)
 		{
+			scale = Math.Max (0.7f, (float)Screen.Device.PresentationParameters.BackBufferWidth / 1366f);
+			lineHeight = (int)(20 * scale);
+
 			UpdateFPS (time);
 			base.Update (time);
 		}
@@ -105,7 +110,7 @@ namespace Knot3.Debug
 		{
 			spriteBatch.Begin ();
 
-			int height = 20;
+			int height = lineHeight;
 			int width1 = 20, width2 = 150, width3 = 210, width4 = 270;
 			DrawString ("Rotation: ", width1, height, Color.White);
 			float x, y, z;
@@ -113,28 +118,28 @@ namespace Knot3.Debug
 			DrawString (x, width2, height, Color.Green);
 			DrawString (y, width3, height, Color.Red);
 			DrawString (z, width4, height, Color.Yellow);
-			height += 20;
+			height += lineHeight;
 			DrawString ("Camera Position: ", width1, height, Color.White);
 			DrawVectorCoordinates (World.Camera.Position, width2, width3, width4, height);
-			height += 20;
+			height += lineHeight;
 			DrawString ("Camera Target: ", width1, height, Color.White);
 			DrawVectorCoordinates (World.Camera.Target, width2, width3, width4, height);
-			height += 20;
+			height += lineHeight;
 			DrawString ("Distance: ", width1, height, Color.White);
 			DrawString (World.Camera.PositionToTargetDistance, width2, height, Color.White);
-			height += 20;
+			height += lineHeight;
 			DrawString ("Selected Object: ", width1, height, Color.White);
 			if (World.SelectedObject != null) {
 				Vector3 selectedObjectCenter = World.SelectedObject.Center ();
 				DrawVectorCoordinates (selectedObjectCenter, width2, width3, width4, height);
 			}
-			height += 20;
+			height += lineHeight;
 			DrawString ("Distance: ", width1, height, Color.White);
 			DrawString (World.SelectedObjectDistance, width2, height, Color.White);
-			height += 20;
+			height += lineHeight;
 			DrawString ("FoV: ", width1, height, Color.White);
 			DrawString (World.Camera.FoV, width2, height, Color.White);
-			height += 20;
+			height += lineHeight;
 
 			spriteBatch.End ();
 		}
@@ -150,7 +155,7 @@ namespace Knot3.Debug
 		{
 			if (font != null) {
 				try {
-					spriteBatch.DrawString (font, str, new Vector2 (width, height), color);
+					spriteBatch.DrawString (font, str, new Vector2 (width, height), color, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
 
 				}
 				catch (ArgumentException exp) {
@@ -186,17 +191,17 @@ namespace Knot3.Debug
 		{
 			_total_frames++;
 			spriteBatch.Begin ();
-			DrawString ("FPS: " + _fps, Screen.Viewport.Width - 200, 20, Color.White);
+			DrawString ("FPS: " + _fps, Screen.Viewport.Width - (int)(170 * scale), (int)(50 * scale), Color.White);
 			spriteBatch.End ();
 		}
 
 		private void DrawProfiler (GameTime time)
 		{
 			spriteBatch.Begin ();
-			int height = 40;
+			int height = (int)(90 * scale);
 			foreach (string name in Profiler.ProfilerMap.Keys) {
-				DrawString (name + ": " + Profiler.ProfilerMap [name], Screen.Viewport.Width - 200, height, Color.White);
-				height += 20;
+				DrawString (name + ": " + Profiler.ProfilerMap [name], Screen.Viewport.Width - (int)(170 * scale), height, Color.White);
+				height += lineHeight;
 			}
 			spriteBatch.End ();
 		}

@@ -74,9 +74,20 @@ namespace Knot3.Widgets
 			);
 
 			backButton.AddKey (Keys.Escape);
+			MenuButton discardExitButton = new MenuButton (
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Discard Changes and Exit",
+			onClick: (time) => {
+				Close (time);
+				Screen.NextScreen = new StartScreen (Screen.Game);
+			}
+			);
+			backButton.AddKey (Keys.Escape);
 
 			pauseMenu.Add (settingsButton);
 			pauseMenu.Add (backButton);
+			pauseMenu.Add (discardExitButton);
 		}
 
 		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)

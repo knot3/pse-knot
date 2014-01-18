@@ -106,6 +106,11 @@ namespace Knot3.Widgets
 				points.Add (current);
 			}
 		}
+
+		public void Clear ()
+		{
+			points.Clear ();
+		}
 	}
 }
 

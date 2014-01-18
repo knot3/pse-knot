@@ -113,6 +113,9 @@ namespace Knot3.Screens
 		private Dialog currentDialog;
 		private Lines lines;
 		private DebugBoundings debugBoundings;
+		private TimeSpan playTime;
+		private TextItem playTimeDisplay;
+		private Border playTimeBorder;
 
 		#endregion
 
@@ -164,9 +167,17 @@ namespace Knot3.Screens
 			// assign the specified target knot
 			ChallengeKnotRenderer.Knot = challenge.Target;
 
+			// Die Spielzeit-Anzeige
+			playTimeDisplay = new TextItem (screen: this, drawOrder: DisplayLayer.MenuItem, name: "");
+			playTimeDisplay.RelativePosition = () => new Vector2 (0.800f, 0.01f);
+			playTimeDisplay.RelativeSize = () => new Vector2 (0.15f, 0.04f);
+			playTimeDisplay.BackgroundColor = () => Color.Black;
+			playTimeDisplay.ForegroundColor = () => Color.White;
+			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.MenuItem,
+			                             widget: playTimeDisplay, lineWidth: 2);
+
 			// die Linien
-			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 6);
-			//lines.AddPoints (050, 550, 450, 950, 050, 550);
+			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
 			lines.AddPoints (500, 0, 500, 1000);
 		}
 
@@ -211,6 +222,12 @@ namespace Knot3.Screens
 				currentDialog = pauseDialog;
 			}
 
+			// Die Zeit, die der Spieler zum Spielen der Challenge braucht
+			if (currentDialog == null) {
+				playTime += time.ElapsedGameTime;
+			}
+			playTimeDisplay.Text = (playTime.Hours * 60 + playTime.Minutes).ToString ("D2") + ":" + playTime.Seconds.ToString ("D2");
+
 			// wenn der aktuelle Dialog unsichtbar ist,
 			// befinden wir uns im 1. Frame nach dem Schließen des Dialogs
 			if (currentDialog != null && !currentDialog.IsVisible) {
@@ -224,7 +241,8 @@ namespace Knot3.Screens
 		public override void Entered (GameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, knotInput, overlay, pointer, ChallengeWorld, PlayerWorld, modelMouseHandler, lines);
+			AddGameComponents (time, knotInput, overlay, pointer, ChallengeWorld, PlayerWorld,
+			                   modelMouseHandler, lines, playTimeDisplay, playTimeBorder);
 
 			// Einstellungen anwenden
 			debugBoundings.Info.IsVisible = Options.Default ["debug", "show-boundings", false];
