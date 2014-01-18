@@ -74,6 +74,8 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private static Dictionary<PlayerActions, Action<GameTime>> ActionBindings;
 
+		private Camera camera { get { return world.Camera; } }
+
 		#endregion
 
 		#region Constructors
@@ -104,10 +106,10 @@ namespace Knot3.GameObjects
 				{ PlayerActions.MoveRight, 		(time) => move (Vector3.Right, time) },
 				{ PlayerActions.MoveForward, 	(time) => move (Vector3.Forward, time) },
 				{ PlayerActions.MoveBackward, 	(time) => move (Vector3.Backward, time) },
-				{ PlayerActions.RotateUp, 		(time) => rotate (-Vector2.UnitY, time) },
-				{ PlayerActions.RotateDown, 	(time) => rotate ( Vector2.UnitY, time) },
-				{ PlayerActions.RotateLeft, 	(time) => rotate (-Vector2.UnitX, time) },
-				{ PlayerActions.RotateRight, 	(time) => rotate ( Vector2.UnitX, time) },
+				{ PlayerActions.RotateUp, 		(time) => rotate (-Vector2.UnitY*4, time) },
+				{ PlayerActions.RotateDown, 	(time) => rotate ( Vector2.UnitY*4, time) },
+				{ PlayerActions.RotateLeft, 	(time) => rotate (-Vector2.UnitX*4, time) },
+				{ PlayerActions.RotateRight, 	(time) => rotate ( Vector2.UnitX*4, time) },
 				{ PlayerActions.ZoomIn, 		(time) => zoom (-1, time) },
 				{ PlayerActions.ZoomOut, 		(time) => zoom (+1, time) },
 			};
@@ -124,7 +126,11 @@ namespace Knot3.GameObjects
 		{
 			UpdateMouse (time);
 			ResetMousePosition ();
+			//rotateEverywhere(Vector2.UnitX*5, time);
+			//rotateEverywhere(Vector2.UnitY*5*(i%2==0?1:-1), time);
+			//i++;
 		}
+		//int i;
 
 		protected void UpdateMouse (GameTime time)
 		{
@@ -196,7 +202,7 @@ namespace Knot3.GameObjects
 			switch (action) {
 			case InputAction.ArcballMove:
 				// rotieren
-				rotate (mouseMove, time);
+				rotate (mouseMove * 1.5f, time);
 				break;
 			case InputAction.CameraTargetMove:
 				// verschieben
@@ -206,11 +212,11 @@ namespace Knot3.GameObjects
 
 			// scroll wheel zoom
 			if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
-				world.Camera.TargetDistance += 40;
+				camera.PositionToTargetDistance += 40;
 				world.Redraw = true;
 			}
 			else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
-				world.Camera.TargetDistance -= 40;
+				camera.PositionToTargetDistance -= 40;
 				world.Redraw = true;
 			}
 		}
@@ -233,11 +239,11 @@ namespace Knot3.GameObjects
 		{
 			if (move.Length () > 0) {
 				move *= 10;
-				Vector3 targetDirection = world.Camera.TargetDirection;
-				Vector3 up = world.Camera.UpVector;
+				Vector3 targetDirection = camera.PositionToTargetDirection;
+				Vector3 up = camera.UpVector;
 				// Führe die lineare Verschiebung durch
-				world.Camera.Target = world.Camera.Target.MoveLinear (move, up, targetDirection);
-				world.Camera.Position = world.Camera.Position.MoveLinear (move, up, targetDirection);
+				camera.Target = camera.Target.MoveLinear (move, up, targetDirection);
+				camera.Position = camera.Position.MoveLinear (move, up, targetDirection);
 				Screen.Input.CurrentInputAction = InputAction.FirstPersonCameraMove;
 				world.Redraw = true;
 			}
@@ -263,36 +269,36 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+				).ElementAt (0);
 			}
 
 			// Überprüfe, wie weit das Kamera-Target von dem Objekt, um das rotiert werden soll,
 			// entfernt ist
-			float arcballTargetDistance = Math.Abs (world.Camera.Target.DistanceTo (world.Camera.ArcballTarget));
+			float arcballTargetDistance = Math.Abs (camera.Target.DistanceTo (camera.ArcballTarget));
 
 			// Ist es mehr als 5 Pixel entfernt?
 			if (arcballTargetDistance > 5) {
 				// Falls noch kein SmoothMove gestartet ist, starte einen, um das Arcball-Target
 				// in den Fokus der Kamera zu rücken
-				if (!world.Camera.InSmoothMove) {
-					world.Camera.StartSmoothMove (target: world.Camera.ArcballTarget, time: time);
+				if (!camera.InSmoothMove) {
+					camera.StartSmoothMove (target: camera.ArcballTarget, time: time);
 				}
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
 
 			}
 			// Ist es weiter als 5 Pixel weg?
 			else if (move.Length () > 0) {
-				move *= 3;
-				Vector3 targetDirection = world.Camera.TargetDirection;
-				Vector3 up = world.Camera.UpVector;
-				float oldDistance = world.Camera.ArcballTargetDistance = world.Camera.ArcballTargetDistance.Clamp (500, 10000);
-				// Berechne die Rotation
-				world.Camera.Target = new Vector3 (world.Camera.ArcballTarget.X, world.Camera.ArcballTarget.Y, world.Camera.ArcballTarget.Z);
-				world.Camera.Position = world.Camera.ArcballTarget
-				                        + (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
-				world.Camera.ArcballTargetDistance = oldDistance;
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
 				world.Redraw = true;
+
+				// Berechne die Rotation
+				camera.Target = camera.ArcballTarget;
+				float oldDistance = camera.Position.DistanceTo(camera.Target);
+				Vector3 targetDirection = camera.PositionToTargetDirection;
+				Vector3 up = camera.UpVector;
+				camera.Position = camera.Target
+					+ (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
+				camera.Position = camera.Position.SetDistanceTo(camera.Target, oldDistance);
 			}
 		}
 
@@ -303,20 +309,24 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+				).ElementAt (0);
 			}
 
 			if (move.Length () > 0) {
-				move *= 3;
-				Vector3 targetDirection = world.Camera.ArcballTargetDirection;
-				Vector3 up = world.Camera.UpVector;
-				// Berechne die Rotation
-				world.Camera.Target = world.Camera.ArcballTarget
-				                      + (world.Camera.Target - world.Camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
-				world.Camera.Position = world.Camera.ArcballTarget
-				                        + (world.Camera.Position - world.Camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
 				world.Redraw = true;
+
+				// Berechne die Rotation
+				float oldPositionDistance = camera.Position.DistanceTo(camera.ArcballTarget);
+				float oldTargetDistance = camera.Target.DistanceTo(camera.Position);
+				Vector3 targetDirection = Vector3.Normalize (camera.ArcballTarget - camera.Position);
+				Vector3 up = camera.UpVector;
+				camera.Position = camera.ArcballTarget
+					+ (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+				camera.Target = camera.ArcballTarget
+					+ (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+				camera.Position = camera.Position.SetDistanceTo(camera.ArcballTarget, oldPositionDistance);
+				camera.Target = camera.Target.SetDistanceTo(camera.Position, oldTargetDistance);
 			}
 		}
 
@@ -325,7 +335,7 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void zoom (int value, GameTime time)
 		{
-			world.Camera.TargetDistance += value * 10;
+			camera.PositionToTargetDistance += value * 10;
 		}
 
 		public void OnKeyEvent (List<Keys> keys, KeyEvent keyEvent, GameTime time)

@@ -247,7 +247,7 @@ namespace Knot3.Core
 			if (InSmoothMove) {
 				float distance = MathHelper.SmoothStep (0, smoothDistance, smoothProgress);
 
-				smoothProgress += 0.02f;
+				smoothProgress += 0.05f;
 
 				//Console.WriteLine ("distance = " + distance);
 				Target = Target.SetDistanceTo (

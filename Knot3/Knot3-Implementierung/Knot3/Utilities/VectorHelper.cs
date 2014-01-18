@@ -25,20 +25,38 @@ namespace Knot3.Utilities
 {
 	public static class VectorHelper
 	{
-		public static Vector3 ArcBallMove (this Vector3 vectorToMove, Vector2 mouse, Vector3 up, Vector3 forward)
+		private static readonly float MinAngleY = 0.1f;
+		private static readonly float MaxAngleY = MathHelper.Pi - 0.1f;
+
+		public static Vector3 ArcBallMove (this Vector3 position, Vector2 mouse, Vector3 up, Vector3 forward)
 		{
-			Vector3 side = Vector3.Cross (up, forward);
-			Vector3 movedVector = vectorToMove.RotateY (MathHelper.Pi / 300f * mouse.X);
-			movedVector = movedVector.RotateAroundVector (-side, MathHelper.Pi / 200f * mouse.Y);
-			return movedVector;
+			Vector3 side = Vector3.Normalize (Vector3.Cross (up, forward));
+			Vector3 relUp = Vector3.Normalize (Vector3.Cross (side, forward));
+
+			// horizontal rotation
+			float diffAngleX = MathHelper.Pi / 300f * mouse.X;
+			Vector3 rotated = position.RotateAroundVector (up, diffAngleX);
+
+			// vertical rotation
+			float currentAngleY = position.AngleBetween (up);
+			float diffAngleY = MathHelper.Pi / 200f * mouse.Y;
+			if (currentAngleY + diffAngleY > MinAngleY && currentAngleY + diffAngleY < MaxAngleY) {
+				rotated = rotated.RotateAroundVector (-side, diffAngleY);
+			}
+			Console.WriteLine ("currentAngleY = " + MathHelper.ToDegrees (currentAngleY) +", "
+				+ "diffAngleY = " + MathHelper.ToDegrees (diffAngleY) + "°" +", "
+				+ "position = " + position +", " + "length=" + position.Length ()
+			);
+
+			return rotated;
 		}
 
 		public static Vector3 MoveLinear (this Vector3 vectorToMove, Vector3 mouse, Vector3 up, Vector3 forward)
 		{
 			Vector3 side = Vector3.Cross (up, forward);
-			side.Normalize();
+			side.Normalize ();
 			Vector3 relUp = Vector3.Cross (side, forward);
-			relUp.Normalize();
+			relUp.Normalize ();
 			Vector3 movedVector = vectorToMove - side * mouse.X - relUp * mouse.Y - forward * mouse.Z;
 			return movedVector;
 		}
@@ -46,6 +64,18 @@ namespace Knot3.Utilities
 		public static Vector3 MoveLinear (this Vector3 vectorToMove, Vector2 mouse, Vector3 up, Vector3 forward)
 		{
 			return vectorToMove.MoveLinear (new Vector3 (mouse.X, mouse.Y, 0), up, forward);
+		}
+
+		public static float AngleBetween (this Vector2 a, Vector2 b)
+		{
+			return ((b.X - a.X) > 0 ? 1 : -1)
+				* (float)Math.Acos ((double)Vector2.Dot (Vector2.Normalize (a), Vector2.Normalize (b)));
+		}
+
+		public static float AngleBetween (this Vector3 a, Vector3 b)
+		{
+			return //((b.X - a.X) > 0 ? 1 : -1) *
+				(float)Math.Acos ((double)Vector3.Dot (Vector3.Normalize (a), Vector3.Normalize (b)));
 		}
 
 		public static Vector3 RotateX (this Vector3 vectorToRotate, float angleRadians)
@@ -65,7 +95,7 @@ namespace Knot3.Utilities
 
 		public static Vector3 RotateAroundVector (this Vector3 vectorToRotate, Vector3 axis, float angleRadians)
 		{
-			return Vector3.Transform (vectorToRotate, Matrix.CreateFromAxisAngle (axis, angleRadians));
+			return Vector3.Transform (vectorToRotate, Quaternion.CreateFromAxisAngle (Vector3.Normalize(axis), angleRadians));
 		}
 
 		public static Vector3 Clamp (this Vector3 v, Vector3 lower, Vector3 higher)
@@ -74,7 +104,7 @@ namespace Knot3.Utilities
 			           MathHelper.Clamp (v.X, lower.X, higher.X),
 			           MathHelper.Clamp (v.Y, lower.Y, higher.Y),
 			           MathHelper.Clamp (v.Z, lower.Z, higher.Z)
-			       );
+			);
 		}
 
 		public static Vector3 Clamp (this Vector3 v, int minLength, int maxLength)
@@ -276,7 +306,7 @@ namespace Knot3.Utilities
 			return new Rectangle (
 			           rect.X * max.X / 1000, rect.Y * max.Y / 1000,
 			           rect.Width * max.X / 1000, rect.Height * max.Y / 1000
-			       );
+			);
 		}
 
 		public static Rectangle Grow (this Rectangle rect, int x, int y)
