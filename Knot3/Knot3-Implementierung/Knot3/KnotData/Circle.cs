@@ -97,34 +97,46 @@ namespace Knot3.KnotData
 			}
 		}
 
-		public bool Contains (T obj, out Circle<T> item)
+		public bool Contains (T obj, out IEnumerable<Circle<T>> item)
 		{
 			item = Find (obj);
+			return item.Count () > 0;
+		}
+
+		public bool Contains (Func<T, bool> func, out IEnumerable<Circle<T>> item)
+		{
+			item = Find (func);
+			return item.Count () > 0;
+		}
+
+		public bool Contains (T obj, out Circle<T> item)
+		{
+			item = Find (obj).ElementAtOrDefault(0);
 			return item != null;
 		}
 
 		public bool Contains (Func<T, bool> func, out Circle<T> item)
 		{
-			item = Find (func);
+			item = Find (func).ElementAtOrDefault(0);
 			return item != null;
 		}
 
-		public Circle<T> Find (T obj)
+		public IEnumerable<Circle<T>> Find (T obj)
 		{
 			return Find ((t) => t.Equals (obj));
 		}
 
-		public Circle<T> Find (Func<T, bool> func)
+		public IEnumerable<Circle<T>> Find (Func<T, bool> func)
 		{
 			Circle<T> current = this;
 			do {
-				if (func(current.Content)) {
-					return current;
+				if (func (current.Content)) {
+					yield return current;
 				}
 				current = current.Next;
 			}
 			while (current != this);
-			return null;
+			yield break;
 		}
 
 		public IEnumerable<T> RangeTo (Circle<T> other)

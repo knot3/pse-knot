@@ -88,7 +88,7 @@ namespace Knot3.KnotData
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
-			                         );
+			);
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -264,7 +264,7 @@ namespace Knot3.KnotData
 			               countEdges: () => 0,
 			               format: MetaData.Format,
 			               filename: MetaData.Filename
-			           ),
+			),
 			           edges: newCircle
 			) {
 				selectedEdges = new List<Edge>(selectedEdges),
@@ -287,7 +287,7 @@ namespace Knot3.KnotData
 			if (!selectedEdges.Contains (edge)) {
 				selectedEdges.Add (edge);
 			}
-			lastSelected = edges.Find (edge);
+			lastSelected = edges.Find (edge).ElementAt (0);
 			OnSelectionChanged ();
 		}
 
@@ -381,9 +381,7 @@ namespace Knot3.KnotData
 		{
 			Circle<Edge> startA = edges;
 			do {
-				Circle<Edge> startB;
-				if (other.edges.Contains ((edge) => edge.Direction == startA.Content.Direction, out startB)) {
-					Console.WriteLine("startA="+startA.Content);
+				foreach (Circle<Edge> startB in other.edges.Find ((edge) => edge.Direction == startA.Content.Direction)) {
 					// Vorwärts
 					Circle<Edge> currentA = startA.Next;
 					Circle<Edge> currentB = startB.Next;
@@ -394,10 +392,11 @@ namespace Knot3.KnotData
 						currentA = currentA.Next;
 						currentB = currentB.Next;
 					}
-
+				}
+				foreach (Circle<Edge> startB in other.edges.Find ((edge) => edge.Direction.ToVector3() == -startA.Content.Direction.ToVector3())) {
 					// Rückwärts
-					currentA = startA.Next;
-					currentB = startB.Previous;
+					Circle<Edge> currentA = startA.Next;
+					Circle<Edge> currentB = startB.Previous;
 					while (currentA.Content.Direction.ToVector3() == -currentB.Content.Direction.ToVector3()) {
 						if (currentA == startA) {
 							return true;
@@ -416,8 +415,8 @@ namespace Knot3.KnotData
 		public override string ToString ()
 		{
 			return "Knot(name=" + Name + ",#edgecount=" + edges.Count
-			       + ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
-			       + ")";
+				+ ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
+				+ ")";
 		}
 
 		/// <summary>
