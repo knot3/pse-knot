@@ -163,15 +163,15 @@ namespace Knot3.KnotData
 					}
 				}
 			}
-			Vector3 pos3D = new Vector3 (0, 0, 0);
+
+			Vector3 pos3D = Vector3.Zero;
 			HashSet<Vector3> occupancy = new HashSet<Vector3> ();
 			while (stack.Count > 0) {
-
-				if (occupancy.Contains ((pos3D + (stack.Peek ().ToVector3 () / 2)))) {
+				if (occupancy.Contains (pos3D + (stack.Peek ().ToVector3 () / 2))) {
 					return false;
 				}
 				else {
-					occupancy.Add ((pos3D + (stack.Peek ().ToVector3 () / 2)));
+					occupancy.Add (pos3D + (stack.Peek ().ToVector3 () / 2));
 					pos3D += stack.Pop ().ToVector3 ();
 				}
 			}
