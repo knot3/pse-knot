@@ -67,6 +67,8 @@ namespace Knot3.GameObjects
 			{ Keys.Right, 	PlayerActions.RotateRight },
 			{ Keys.Q, 		PlayerActions.ZoomIn },
 			{ Keys.E, 		PlayerActions.ZoomOut },
+			{ Keys.Enter, 	PlayerActions.ResetCamera },
+			{ Keys.Space,	PlayerActions.MoveToCenter },
 		};
 
 		/// <summary>
@@ -112,6 +114,8 @@ namespace Knot3.GameObjects
 				{ PlayerActions.RotateRight, 	(time) => rotate ( Vector2.UnitX*4, time) },
 				{ PlayerActions.ZoomIn, 		(time) => zoom (-1, time) },
 				{ PlayerActions.ZoomOut, 		(time) => zoom (+1, time) },
+				{ PlayerActions.ResetCamera, 	(time) => camera.ResetCamera() },
+				{ PlayerActions.MoveToCenter,	(time) => camera.StartSmoothMove (target: camera.ArcballTarget, time: time) }
 			};
 		}
 

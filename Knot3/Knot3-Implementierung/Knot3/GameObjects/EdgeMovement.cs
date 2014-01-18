@@ -233,10 +233,10 @@ namespace Knot3.GameObjects
 				}
 			}
 
-			Console.WriteLine ("selected:");
+			/*Console.WriteLine ("selected:");
 			foreach (Edge e in Knot.SelectedEdges) {
 				Console.WriteLine ("- " + e);
-			}
+			}*/
 		}
 
 		private void MovePipes (Vector3 currentMousePosition)

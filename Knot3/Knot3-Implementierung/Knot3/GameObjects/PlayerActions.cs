@@ -53,5 +53,9 @@ namespace Knot3.GameObjects
 		ZoomIn,
 		[Description("Zoom Out")]
 		ZoomOut,
+		[Description("Reset Camera")]
+		ResetCamera,
+		[Description("Move Selection to Center")]
+		MoveToCenter,
 	}
 }

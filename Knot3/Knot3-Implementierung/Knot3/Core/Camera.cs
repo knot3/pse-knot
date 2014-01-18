@@ -145,13 +145,14 @@ namespace Knot3.Core
 		public Vector3 PositionToTargetDirection
 		{
 			get {
-				return Vector3.Normalize(Target - Position);
+				return Vector3.Normalize (Target - Position);
 			}
 		}
+
 		public Vector3 PositionToArcballTargetDirection
 		{
 			get {
-				return Vector3.Normalize(ArcballTarget - Position);
+				return Vector3.Normalize (ArcballTarget - Position);
 			}
 		}
 
@@ -229,15 +230,24 @@ namespace Knot3.Core
 			}
 		}
 
+		public void ResetCamera ()
+		{
+			Position = defaultPosition;
+			Target = new Vector3 (0, 0, 0);
+			Rotation = Angles3.Zero;
+		}
+
 		private Vector3? smoothTarget = null;
 		private float smoothDistance = 0f;
 		private float smoothProgress = 0f;
 
 		public void StartSmoothMove (Vector3 target, GameTime time)
 		{
-			smoothTarget = target;
-			smoothDistance = Math.Abs (Target.DistanceTo (target));
-			smoothProgress = 0f;
+			if (!InSmoothMove) {
+				smoothTarget = target;
+				smoothDistance = Math.Abs (Target.DistanceTo (target));
+				smoothProgress = 0f;
+			}
 		}
 
 		public bool InSmoothMove { get { return smoothTarget.HasValue && smoothProgress <= 1f; } }
@@ -253,7 +263,7 @@ namespace Knot3.Core
 				Target = Target.SetDistanceTo (
 				             target: smoothTarget.Value,
 				             distance: Math.Max (0, smoothDistance - distance)
-				         );
+				);
 				World.Redraw = true;
 			}
 		}
@@ -270,13 +280,13 @@ namespace Knot3.Core
 			                             projection: World.Camera.ProjectionMatrix,
 			                             view: World.Camera.ViewMatrix,
 			                             world: World.Camera.WorldMatrix
-			                         );
+			);
 			Vector3 currentMousePosition = Screen.Viewport.Unproject (
 			                                   source: new Vector3 (position, screenLocation.Z),
 			                                   projection: World.Camera.ProjectionMatrix,
 			                                   view: World.Camera.ViewMatrix,
 			                                   world: Matrix.Identity
-			                               );
+			);
 			return currentMousePosition;
 		}
 
