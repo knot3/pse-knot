@@ -142,6 +142,11 @@ namespace Knot3.KnotData
 		{
 			return GetEnumerator (); // just return the generic version
 		}
+
+		public override string ToString ()
+		{
+			return "Circle(" + Content + ")";
+		}
 	}
 }
 

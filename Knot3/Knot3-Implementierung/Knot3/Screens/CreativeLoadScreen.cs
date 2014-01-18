@@ -29,8 +29,6 @@ namespace Knot3.Screens
 	{
 		#region Properties
 
-		private SpriteBatch spriteBatch;
-
 		/// <summary>
 		/// Das Menü, das die Spielstände enthält.
 		/// </summary>
@@ -52,8 +50,6 @@ namespace Knot3.Screens
 		public CreativeLoadScreen (Knot3Game game)
 		: base(game)
 		{
-			spriteBatch = new SpriteBatch (Device);
-
 			savegameMenu = new VerticalMenu (this, DisplayLayer.Menu);
 			savegameMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
 			savegameMenu.RelativeSize = () => new Vector2 (0.800f, 0.720f);
