@@ -48,7 +48,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Schrittweite zwischen zwei einstellbaren Werten.
 		/// </summary>
-		public int Step { get; set; }    
+		public int Step { get; set; }
 
 		#endregion
 
@@ -64,7 +64,7 @@ namespace Knot3.Widgets
 		{
 			this.MaxValue = max;
 			this.MinValue = min;
-            this.Step = step;
+			this.Step = step;
 			this.Value = value;
 
 		}
@@ -72,13 +72,13 @@ namespace Knot3.Widgets
 		#endregion
 
 		#region Methods
-    
-        
-        public override void Draw(GameTime time)
-		{
-            base.Draw(time);
 
-            spriteBatch.Begin();
+
+		public override void Draw(GameTime time)
+		{
+			base.Draw(time);
+
+			spriteBatch.Begin();
 
 		}
 		#endregion
