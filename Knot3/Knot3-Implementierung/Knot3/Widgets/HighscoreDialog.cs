@@ -53,7 +53,7 @@ namespace Knot3.Widgets
 			highscoreList.ItemAlignY = VerticalAlignment.Center;
 
 			//Für Reine Textfelder oder Listen besitzen wir kein Widget. Also habe ich Buttons ohne Funktion verwendet.
-			if (!challenge.Highscore.Equals (null)) {
+			if (challenge.Highscore != null) {
 				foreach (KeyValuePair<string, int> entry in challenge.Highscore) {
 					TextItem firstScore = new TextItem (screen, drawOrder, entry.Value.ToString () + " " + entry.Key);
 					highscoreList.Add (firstScore);
@@ -76,8 +76,20 @@ namespace Knot3.Widgets
 			MenuButton returnButton = new MenuButton (screen, drawOrder, "Return to menu", returnToMenu);
 			highscoreList.Add (returnButton);
 		}
-	}
 
-	#endregion
+		#endregion
+
+		#region Methods
+
+		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
+		{
+			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
+				yield return component;
+			}
+			yield return highscoreList;
+		}
+
+		#endregion
+	}
 }
 

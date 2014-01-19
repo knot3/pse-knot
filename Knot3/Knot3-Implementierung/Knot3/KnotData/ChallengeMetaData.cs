@@ -47,7 +47,7 @@ namespace Knot3.KnotData
 					extension = ".challenge";
 				}
 				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
-				           + FileUtility.ConvertToFileName (name) + extension;
+					+ FileUtility.ConvertToFileName (name) + extension;
 			}
 		}
 
@@ -76,7 +76,9 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
 		/// </summary>
-		public IEnumerable<KeyValuePair<string, int>> Highscore { get; private set; }
+		public IEnumerable<KeyValuePair<string, int>> Highscore { get { return highscore; } }
+
+		private Dictionary<string, int> highscore;
 
 		#endregion
 
@@ -85,14 +87,34 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Erstellt ein Challenge-Metadaten-Objekt mit einem gegebenen Namen und den Metadaten des Ausgangs- und Referenzknotens.
 		/// </summary>
-		public ChallengeMetaData (string name, KnotMetaData start, KnotMetaData target, string filename, IChallengeIO format)
+		public ChallengeMetaData (string name, KnotMetaData start, KnotMetaData target,
+		                          string filename, IChallengeIO format,
+		                          IEnumerable<KeyValuePair<string, int>> highscore)
 		{
 			this.name = name;
 			Start = start;
 			Target = target;
 			Filename = filename;
 			Format = format;
+
+			this.highscore = new Dictionary<string, int> ();
+			if (highscore != null) {
+				foreach (KeyValuePair<string, int> entry in highscore) {
+					this.highscore.Add (entry.Key, entry.Value);
+				}
+			}
 		}
+
+		/// <summary>
+		/// Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
+		/// </summary>
+		public void AddToHighscore (string name, int time)
+		{
+			if (!highscore.ContainsKey (name) || highscore [name] > time) {
+				highscore [name] = time;
+			}
+		}
+
 
 		#endregion
 	}

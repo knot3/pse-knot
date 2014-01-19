@@ -75,6 +75,8 @@ namespace Knot3.KnotData
 				// Zielknoten
 				parser = new KnotStringIO (challenge.Target);
 				zip.AddEntry ("target.knot", parser.Content);
+				// Highscore
+				zip.AddEntry ("highscore.txt", string.Join ("\n", printHighscore (challenge.Highscore)));
 				// ZIP-Datei speichern
 				zip.Save (challenge.MetaData.Filename);
 			}
@@ -119,7 +121,7 @@ namespace Knot3.KnotData
 			else {
 				throw new IOException (
 				    "Error! Invalid challenge file: " + filename
-				    + " (meta=" + meta + ",start=" + start + ",target=" + target + ")"
+					+ " (meta=" + meta + ",start=" + start + ",target=" + target + ")"
 				);
 			}
 		}
@@ -132,6 +134,7 @@ namespace Knot3.KnotData
 			string name = null;
 			KnotMetaData start = null;
 			KnotMetaData target = null;
+			IEnumerable<KeyValuePair<string, int>> highscore = null;
 			using (ZipFile zip = ZipFile.Read(filename)) {
 				foreach (ZipEntry entry in zip) {
 					string content = entry.ReadContent ();
@@ -152,22 +155,55 @@ namespace Knot3.KnotData
 					else if (entry.FileName.ToLower ().Contains ("name")) {
 						name = content.Trim ();
 					}
+
+					// für die Datei mit den Highscores
+					else if (entry.FileName.ToLower ().Contains ("highscore")) {
+						highscore = parseHighscore (content.Split (new char[] {'\r','\n'}, StringSplitOptions.RemoveEmptyEntries));
+					}
 				}
 			}
 			if (name != null && start != null && target != null) {
 				return new ChallengeMetaData (
-				           name: name,
-				           start: start,
-				           target: target,
-				           filename: filename,
-				           format: this
-				       );
+     				name: name,
+					start: start,
+					target: target,
+					filename: filename,
+					format: this,
+					highscore: highscore
+				);
+				Console.WriteLine ("Load challenge file: " + filename
+					+ " (name=" + name + ",start=" + start + ",target=" + target + ",highscore=" + highscore + ")"
+				);
 			}
 			else {
 				throw new IOException (
 				    "Error! Invalid challenge file: " + filename
-				    + " (name=" + name + ",start=" + start + ",target=" + target + ")"
+					+ " (name=" + name + ",start=" + start + ",target=" + target + ",highscore=" + highscore + ")"
 				);
+			}
+		}
+
+		IEnumerable<string> printHighscore (IEnumerable<KeyValuePair<string, int>> highscore)
+		{
+			foreach (KeyValuePair<string, int> entry in highscore) {
+				Console.WriteLine("Save Highscore: "+entry.Value + ":" + entry.Key);
+				yield return entry.Value + ":" + entry.Key;
+			}
+		}
+
+		IEnumerable<KeyValuePair<string, int>> parseHighscore (IEnumerable<string> highscore)
+		{
+			foreach (string line in highscore) {
+				Console.WriteLine("Load Highscore: "+line);
+				if (line.Contains (":")) {
+					string[] entry = line.Split (new char[] {':'}, 2, StringSplitOptions.RemoveEmptyEntries);
+					string name = entry [1].Trim ();
+					int time;
+					if (Int32.TryParse (entry [0], out time)) {
+				Console.WriteLine("=> "+name+":"+time);
+						yield return new KeyValuePair<string, int> (name, time);
+					}
+				}
 			}
 		}
 
@@ -180,8 +216,9 @@ namespace Knot3.KnotData
 		{
 			MemoryStream memory = new MemoryStream ();
 			entry.Extract (memory);
-			string content = Encoding.ASCII.GetString (memory.ToArray ());
-			return content;
+            memory.Position = 0;
+            var sr = new StreamReader(memory);
+            return sr.ReadToEnd();
 		}
 	}
 }

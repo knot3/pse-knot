@@ -46,7 +46,7 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Ein öffentlicher Enumerator, der die Bestenliste unabhängig von der darunterliegenden Datenstruktur zugänglich macht.
 		/// </summary>
-		public IEnumerable<KeyValuePair<string, int>> Highscore { get; set; }
+		public IEnumerable<KeyValuePair<string, int>> Highscore { get { return MetaData.Highscore; } }
 
 		/// <summary>
 		/// Die Metadaten der Challenge.
@@ -86,7 +86,16 @@ namespace Knot3.KnotData
 		/// </summary>
 		public void AddToHighscore (string name, int time)
 		{
-			throw new System.NotImplementedException ();
+			MetaData.AddToHighscore (name, time);
+			Save ();
+		}
+
+		/// <summary>
+		/// Speichert die Challenge.
+		/// </summary>
+		public void Save ()
+		{
+			MetaData.Format.Save (this);
 		}
 
 		#endregion

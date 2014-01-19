@@ -105,17 +105,24 @@ namespace Knot3.Screens
 			}
 		}
 
+		// der Knoten
 		private Knot _playerKnot;
+
+		// Spielkomponenten
 		private KnotInputHandler knotInput;
 		private ModelMouseHandler modelMouseHandler;
 		private MousePointer pointer;
 		private Overlay overlay;
-		private Dialog currentDialog;
 		private Lines lines;
 		private DebugBoundings debugBoundings;
+
+		// Zeitmessung und Zeitanzeige
 		private TimeSpan playTime;
 		private TextItem playTimeDisplay;
 		private Border playTimeBorder;
+
+		// Der Status, z.b. ist die Challenge beendet?
+		private ChallengeModeState state;
 
 		#endregion
 
@@ -180,6 +187,9 @@ namespace Knot3.Screens
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
 			lines.AddPoints (500, 0, 500, 1000);
+
+			// Status
+			state = ChallengeModeState.Running;
 		}
 
 		#endregion
@@ -213,31 +223,54 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-			// wenn zur Zeit kein Dialog vorhanden ist, und Escape gedrückt wurde...
-			if (currentDialog == null && Keys.Escape.IsDown ()) {
-				// erstelle einen neuen Pausedialog
-				Dialog pauseDialog = new ChallengePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog);
-				// füge ihn in die Spielkomponentenliste hinzu
-				AddGameComponents (time, pauseDialog);
-				// weise ihn als den aktuellen Dialog zu
-				currentDialog = pauseDialog;
-			}
+			// während die Challenge läuft...
+			if (state == ChallengeModeState.Running) {
+				// wenn zur Zeit kein Dialog vorhanden ist, und Escape gedrückt wurde...
+				if (Keys.Escape.IsDown ()) {
+					// erstelle einen neuen Pausedialog
+					Dialog pauseDialog = new ChallengePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog);
+					// pausiere die Zeitmessung
+					state = ChallengeModeState.Paused;
+					// wenn der Dialog geschlossen wird, starte die Zeitmessung wieder
+					pauseDialog.Close += (t) => {
+						state = ChallengeModeState.Running;
+					};
+					// füge ihn zur Spielkomponentenliste hinzu
+					AddGameComponents (time, pauseDialog);
+				}
 
-			if (PlayerKnot.Equals (Challenge.Target)) {
-				Console.WriteLine("Playerknot equals Target!");
-			}
-
-			// Die Zeit, die der Spieler zum Spielen der Challenge braucht
-			if (currentDialog == null) {
+				// vergleiche den Spielerknoten mit dem Zielknoten
+				if (PlayerKnot.Equals (Challenge.Target)) {
+					Console.WriteLine ("Playerknot equals Target!");
+					state = ChallengeModeState.Finished;
+					OnChallengeFinished (time);
+				}
+			
+				// die Zeit, die der Spieler zum Spielen der Challenge braucht
 				playTime += time.ElapsedGameTime;
+				// zeige die Zeit an
+				playTimeDisplay.Text = (playTime.Hours * 60 + playTime.Minutes).ToString ("D2") + ":" + playTime.Seconds.ToString ("D2");
 			}
-			playTimeDisplay.Text = (playTime.Hours * 60 + playTime.Minutes).ToString ("D2") + ":" + playTime.Seconds.ToString ("D2");
+		}
 
-			// wenn der aktuelle Dialog unsichtbar ist,
-			// befinden wir uns im 1. Frame nach dem Schließen des Dialogs
-			if (currentDialog != null && !currentDialog.IsVisible) {
-				currentDialog = null;
-			}
+		public void OnChallengeFinished (GameTime time)
+		{
+			// erstelle einen Dialog zum Eingeben des Spielernamens
+			TextInputDialog nameDialog = new TextInputDialog (screen: this, drawOrder: DisplayLayer.Dialog,
+			                                          title: "Challenge", text: "Your name:",
+			                                          inputText: "ABC");
+			// füge ihn zur Spielkomponentenliste hinzu
+			AddGameComponents (time, nameDialog);
+
+			// wenn der Dialog geschlossen wird...
+			nameDialog.Close += (t) => {
+				Challenge.AddToHighscore(name: nameDialog.InputText, time: (int)playTime.TotalSeconds);
+				// erstelle einen Highscoredialog
+				Dialog highscoreDialog = new HighscoreDialog (screen: this, drawOrder: DisplayLayer.Dialog,
+				                                             challenge: Challenge);
+				// füge ihn zur Spielkomponentenliste hinzu
+				AddGameComponents (time, highscoreDialog);
+			};
 		}
 
 		/// <summary>
@@ -255,6 +288,13 @@ namespace Knot3.Screens
 
 		#endregion
 
+		enum ChallengeModeState
+		{
+			Running,
+			Finished,
+			Paused
+		}
+		;
 	}
 }
 
