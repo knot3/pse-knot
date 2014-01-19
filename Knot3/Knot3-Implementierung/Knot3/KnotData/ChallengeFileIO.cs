@@ -121,7 +121,7 @@ namespace Knot3.KnotData
 			else {
 				throw new IOException (
 				    "Error! Invalid challenge file: " + filename
-					+ " (meta=" + meta + ",start=" + start + ",target=" + target + ")"
+				    + " (meta=" + meta + ",start=" + start + ",target=" + target + ")"
 				);
 			}
 		}
@@ -164,21 +164,21 @@ namespace Knot3.KnotData
 			}
 			if (name != null && start != null && target != null) {
 				return new ChallengeMetaData (
-     				name: name,
-					start: start,
-					target: target,
-					filename: filename,
-					format: this,
-					highscore: highscore
-				);
+				           name: name,
+				           start: start,
+				           target: target,
+				           filename: filename,
+				           format: this,
+				           highscore: highscore
+				       );
 				Console.WriteLine ("Load challenge file: " + filename
-					+ " (name=" + name + ",start=" + start + ",target=" + target + ",highscore=" + highscore + ")"
-				);
+				                   + " (name=" + name + ",start=" + start + ",target=" + target + ",highscore=" + highscore + ")"
+				                  );
 			}
 			else {
 				throw new IOException (
 				    "Error! Invalid challenge file: " + filename
-					+ " (name=" + name + ",start=" + start + ",target=" + target + ",highscore=" + highscore + ")"
+				    + " (name=" + name + ",start=" + start + ",target=" + target + ",highscore=" + highscore + ")"
 				);
 			}
 		}
@@ -200,7 +200,7 @@ namespace Knot3.KnotData
 					string name = entry [1].Trim ();
 					int time;
 					if (Int32.TryParse (entry [0], out time)) {
-				Console.WriteLine("=> "+name+":"+time);
+						Console.WriteLine("=> "+name+":"+time);
 						yield return new KeyValuePair<string, int> (name, time);
 					}
 				}
@@ -216,9 +216,9 @@ namespace Knot3.KnotData
 		{
 			MemoryStream memory = new MemoryStream ();
 			entry.Extract (memory);
-            memory.Position = 0;
-            var sr = new StreamReader(memory);
-            return sr.ReadToEnd();
+			memory.Position = 0;
+			var sr = new StreamReader(memory);
+			return sr.ReadToEnd();
 		}
 	}
 }

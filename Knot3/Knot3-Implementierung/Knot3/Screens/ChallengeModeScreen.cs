@@ -245,7 +245,7 @@ namespace Knot3.Screens
 					state = ChallengeModeState.Finished;
 					OnChallengeFinished (time);
 				}
-			
+
 				// die Zeit, die der Spieler zum Spielen der Challenge braucht
 				playTime += time.ElapsedGameTime;
 				// zeige die Zeit an
@@ -257,8 +257,8 @@ namespace Knot3.Screens
 		{
 			// erstelle einen Dialog zum Eingeben des Spielernamens
 			TextInputDialog nameDialog = new TextInputDialog (screen: this, drawOrder: DisplayLayer.Dialog,
-			                                          title: "Challenge", text: "Your name:",
-			                                          inputText: "ABC");
+			        title: "Challenge", text: "Your name:",
+			        inputText: "ABC");
 			// füge ihn zur Spielkomponentenliste hinzu
 			AddGameComponents (time, nameDialog);
 
@@ -267,7 +267,7 @@ namespace Knot3.Screens
 				Challenge.AddToHighscore(name: nameDialog.InputText, time: (int)playTime.TotalSeconds);
 				// erstelle einen Highscoredialog
 				Dialog highscoreDialog = new HighscoreDialog (screen: this, drawOrder: DisplayLayer.Dialog,
-				                                             challenge: Challenge);
+				        challenge: Challenge);
 				// füge ihn zur Spielkomponentenliste hinzu
 				AddGameComponents (time, highscoreDialog);
 			};
@@ -288,8 +288,7 @@ namespace Knot3.Screens
 
 		#endregion
 
-		enum ChallengeModeState
-		{
+		enum ChallengeModeState {
 			Running,
 			Finished,
 			Paused

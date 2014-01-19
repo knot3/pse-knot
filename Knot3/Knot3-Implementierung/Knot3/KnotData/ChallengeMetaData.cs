@@ -47,7 +47,7 @@ namespace Knot3.KnotData
 					extension = ".challenge";
 				}
 				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
-					+ FileUtility.ConvertToFileName (name) + extension;
+				           + FileUtility.ConvertToFileName (name) + extension;
 			}
 		}
 
