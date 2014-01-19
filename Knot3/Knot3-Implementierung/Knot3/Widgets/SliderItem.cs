@@ -18,6 +18,7 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
+using Knot3.Utilities;
 
 namespace Knot3.Widgets
 {
@@ -47,7 +48,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Schrittweite zwischen zwei einstellbaren Werten.
 		/// </summary>
-		public int Step { get; set; }
+		public int Step { get; set; }    
 
 		#endregion
 
@@ -63,20 +64,21 @@ namespace Knot3.Widgets
 		{
 			this.MaxValue = max;
 			this.MinValue = min;
+            this.Step = step;
 			this.Value = value;
-			this.Step = step;
-			//throw new System.NotImplementedException ();
+
 		}
 
 		#endregion
 
 		#region Methods
-
-		public override void Draw(GameTime time)
+    
+        
+        public override void Draw(GameTime time)
 		{
-			base.Draw(time);
+            base.Draw(time);
 
-			spriteBatch.Begin();
+            spriteBatch.Begin();
 
 		}
 		#endregion

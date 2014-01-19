@@ -54,8 +54,26 @@ namespace Knot3.Screens
 			settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
-			//throw new System.NotImplementedException();
 
+           /* SliderItem musicslider = new SliderItem(
+                screen: this,
+                drawOrder: DisplayLayer.MenuItem,
+                text: "Music",
+                max: 100,
+                min: 0,
+                step: 10,
+                value: 50
+            );
+
+             SliderItem soundslider = new SliderItem(
+                screen: this,
+                drawOrder: DisplayLayer.MenuItem,
+                text: "Sound",
+                max: 100,
+                min: 0,
+                step: 10,
+                value: 50
+            ); */
 		}
 
 		#endregion
