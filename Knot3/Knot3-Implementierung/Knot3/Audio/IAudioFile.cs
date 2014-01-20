@@ -38,12 +38,12 @@ namespace Knot3.Audio
 		/// Gibt an, ob die Wiedergabe läuft oder gestoppt bzw. pausiert ist.
 		/// </summary>
 		SoundState State { get; }
-		
+
 		/// <summary>
 		/// Starte die Wiedergabe.
 		/// </summary>
 		void Play ();
-		
+
 		/// <summary>
 		/// Stoppe die Wiedergabe.
 		/// </summary>
