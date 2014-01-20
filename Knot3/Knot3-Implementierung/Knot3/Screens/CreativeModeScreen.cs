@@ -20,6 +20,7 @@ using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
 using Knot3.Debug;
+using Knot3.Audio;
 
 namespace Knot3.Screens
 {
@@ -174,6 +175,7 @@ namespace Knot3.Screens
 		{
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler);
+			Audio.BackgroundMusic = Sound.CreativeMusic;
 
 			// Einstellungen anwenden
 			debugBoundings.Info.IsVisible = Options.Default ["debug", "show-boundings", false];

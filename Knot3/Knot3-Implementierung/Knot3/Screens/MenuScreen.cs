@@ -19,6 +19,7 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
+using Knot3.Audio;
 
 namespace Knot3.Screens
 {
@@ -66,6 +67,14 @@ namespace Knot3.Screens
 		{
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, pointer, lines);
+			Audio.BackgroundMusic = Sound.MenuMusic;
+
+			//test:
+			//MediaPlayer.IsRepeating = true;
+			//var song = Content.Load<Song>("Music-Challenge/Frame_-_13_-_Spiral_Beams");
+			//MediaPlayer.Play(song);
+			//System.Media.SoundPlayer player = new System.Media.SoundPlayer("Music-Challenge/Frame_-_13_-_Spiral_Beams.mp3");
+			//player.PlayLooping();
 		}
 
 		protected Color MenuItemBackgroundColor (ItemState itemState)

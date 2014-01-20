@@ -18,6 +18,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Audio;
 
 namespace Knot3.Core
 {
@@ -38,6 +39,8 @@ namespace Knot3.Core
 		/// Der Inputhandler des Spielzustands.
 		/// </summary>
 		public InputManager Input { get; set; }
+
+		public AudioManager Audio { get; private set; }
 
 		/// <summary>
 		/// Der aktuelle Postprocessing-Effekt des Spielzustands
@@ -85,6 +88,7 @@ namespace Knot3.Core
 			);
 			this.PostProcessingEffect = new StandardEffect (this);
 			this.Input = new InputManager (this);
+			this.Audio = new AudioManager (this);
 			this.BackgroundColor = Color.Black;
 		}
 
@@ -100,7 +104,7 @@ namespace Knot3.Core
 		public virtual void Entered (GameScreen previousScreen, GameTime time)
 		{
 			Console.WriteLine ("Entered: " + this);
-			AddGameComponents (time, Input, new WidgetKeyHandler (this), new WidgetMouseHandler (this));
+			AddGameComponents (time, Input, Audio, new WidgetKeyHandler (this), new WidgetMouseHandler (this));
 		}
 
 		/// <summary>
