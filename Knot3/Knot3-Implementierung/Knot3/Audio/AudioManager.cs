@@ -174,10 +174,12 @@ namespace Knot3.Audio
 
 		public void PlaySound (Sound sound)
 		{
-			if (AudioFiles [sound].Count > 0)
+			if (AudioFiles [sound].Count > 0) {
 				AudioFiles [sound].RandomElement ().Play ();
-			else 
+			}
+			else {
 				Console.WriteLine ("There are no audio files for: " + sound);
+			}
 		}
 
 		public override void Update (GameTime time)
