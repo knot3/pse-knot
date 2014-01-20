@@ -35,5 +35,5 @@ namespace Knot3.Audio
 
 		void Stop ();
 	}
-	
+
 }

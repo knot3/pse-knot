@@ -36,7 +36,7 @@ namespace Knot3.Audio
 			{ Sound.PipeSound,			"Sound-Pipe" },
 		};
 		private static Dictionary<Sound, HashSet<IAudioFile>> AudioFiles
-			= new Dictionary<Sound, HashSet<IAudioFile>> ();
+		    = new Dictionary<Sound, HashSet<IAudioFile>> ();
 		private static Sound _backgroundMusic = Sound.None;
 
 		public Sound BackgroundMusic
@@ -55,7 +55,7 @@ namespace Knot3.Audio
 		public static IPlaylist Playlist { get; set; }
 
 		public AudioManager (GameScreen screen)
-			: base(screen, DisplayLayer.None)
+		: base(screen, DisplayLayer.None)
 		{
 			// Erstelle für alle Enum-Werte von Sound ein HashSet
 			foreach (Sound soundType in typeof(Sound).ToEnumValues<Sound>()) {
@@ -63,10 +63,10 @@ namespace Knot3.Audio
 			}
 
 			// Suche nach XNA-Audio-Dateien
-			FileUtility.SearchFiles (".", new string[]{".xnb"}, AddXnaAudioFile);
+			FileUtility.SearchFiles (".", new string[] {".xnb"}, AddXnaAudioFile);
 
 			// Suche nach FFmpeg-Audio-Dateien
-			FileUtility.SearchFiles (".", new string[]{".mp3", ".ogg", ".wav", ".wma"}, AddFFmpegAudioFile);
+			FileUtility.SearchFiles (".", new string[] {".mp3", ".ogg", ".wav", ".wma"}, AddFFmpegAudioFile);
 		}
 
 		private void AddXnaAudioFile (string filepath)
@@ -108,8 +108,9 @@ namespace Knot3.Audio
 		private void LoadXnaSong (string filepath, string name, Sound soundType)
 		{
 			// nur unter Windows
-			if (MonoHelper.IsRunningOnMono ())
+			if (MonoHelper.IsRunningOnMono ()) {
 				return;
+			}
 
 			try {
 				// versuche, die Audiodatei als "Song" zu laden
@@ -120,7 +121,7 @@ namespace Knot3.Audio
 			catch (Exception ex) {
 				// egal, warum das laden nicht klappt; mehr als die Fehlermeldung anzeigen
 				// macht wegen einer fehlenden Musikdatei keinen Sinn
-				
+
 				Console.WriteLine ("Failed to load audio file (" + soundType + "): " + filepath);
 				Console.WriteLine (ex.ToString ());
 			}
@@ -144,8 +145,9 @@ namespace Knot3.Audio
 		private void LoadFFmpegAudioFile (string filepath, string name, Sound soundType)
 		{
 			// nur unter Linux
-			if (!MonoHelper.IsRunningOnMono ())
+			if (!MonoHelper.IsRunningOnMono ()) {
 				return;
+			}
 
 			try {
 				// erstelle ein AudioFile-Objekt
@@ -162,8 +164,9 @@ namespace Knot3.Audio
 
 		private void StartBackgroundMusic ()
 		{
-			if (Playlist != null)
+			if (Playlist != null) {
 				Playlist.Stop ();
+			}
 			Console.WriteLine ("Background Music: " + BackgroundMusic);
 			Playlist = new StandardPlaylist (AudioFiles [BackgroundMusic]);
 			Playlist.Start ();
@@ -171,8 +174,9 @@ namespace Knot3.Audio
 
 		public override void Update (GameTime time)
 		{
-			if (Playlist != null)
+			if (Playlist != null) {
 				Playlist.Update (time);
+			}
 			base.Update (time);
 		}
 
