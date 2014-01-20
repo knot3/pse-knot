@@ -31,7 +31,7 @@ namespace Knot3.Audio.XNA
 		public SoundState State
 		{
 			get {
-				Console.WriteLine (MediaPlayer.State);
+				//Console.WriteLine (MediaPlayer.State);
 				return MediaPlayer.State == MediaState.Playing ? SoundState.Playing
 					: MediaPlayer.State == MediaState.Stopped ? SoundState.Stopped
 					: MediaPlayer.State == MediaState.Paused ? SoundState.Paused
