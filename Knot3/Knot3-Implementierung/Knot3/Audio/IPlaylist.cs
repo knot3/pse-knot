@@ -24,12 +24,24 @@ using Knot3.Utilities;
 
 namespace Knot3.Audio
 {
+	/// <summary>
+	/// Dieses Interface repräsentiert eine Playlist.
+	/// </summary>
 	public interface IPlaylist
 	{
+		/// <summary>
+		/// Starte die Wiedergabe.
+		/// </summary>
 		void Start ();
 
+		/// <summary>
+		/// Stoppe die Wiedergabe.
+		/// </summary>
 		void Stop ();
 
+		/// <summary>
+		/// Wird für jeden Frame aufgerufen.
+		/// </summary>
 		void Update (GameTime time);
 	}
 }

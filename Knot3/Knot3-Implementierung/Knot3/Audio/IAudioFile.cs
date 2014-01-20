@@ -24,15 +24,29 @@ using Knot3.Utilities;
 
 namespace Knot3.Audio
 {
-
+	/// <summary>
+	/// Repräsentiert eine Audiodatei.
+	/// </summary>
 	public interface IAudioFile
 	{
+		/// <summary>
+		/// Der Anzeigename der Audiodatei.
+		/// </summary>
 		string Name { get; }
 
+		/// <summary>
+		/// Gibt an, ob die Wiedergabe läuft oder gestoppt bzw. pausiert ist.
+		/// </summary>
 		SoundState State { get; }
-
+		
+		/// <summary>
+		/// Starte die Wiedergabe.
+		/// </summary>
 		void Play ();
-
+		
+		/// <summary>
+		/// Stoppe die Wiedergabe.
+		/// </summary>
 		void Stop ();
 	}
 

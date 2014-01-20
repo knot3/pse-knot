@@ -24,16 +24,28 @@ using Knot3.Utilities;
 
 namespace Knot3.Audio.XNA
 {
+	/// <summary>
+	/// Ein Wrapper um die SoundEffect-Klasse des XNA-Frameworks.
+	/// </summary>
 	public class SoundEffectFile : IAudioFile
 	{
+		/// <summary>
+		/// Der Anzeigename des SoundEffects.
+		/// </summary>
 		public string Name { get; private set; }
 
+		/// <summary>
+		/// Gibt an, ob die Wiedergabe läuft oder gestoppt bzw. pausiert ist.
+		/// </summary>
 		public SoundState State { get { return Instance.State; } }
 
 		public SoundEffect SoundEffect { get; private set; }
 
 		private SoundEffectInstance Instance;
-
+		
+		/// <summary>
+		/// Erstellt eine neue SoundEffect-Datei mit dem angegebenen Anzeigenamen und des angegebenen SoundEffect-Objekts.
+		/// </summary>
 		public SoundEffectFile (string name, SoundEffect soundEffect)
 		{
 			Name = name;

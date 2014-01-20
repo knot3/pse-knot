@@ -24,6 +24,10 @@ using Knot3.Utilities;
 
 namespace Knot3.Audio
 {
+	/// <summary>
+	/// Diese Klasse repräsentiert eine Playlist, deren Audiodateien der reihe nach in einer
+	/// Endlosschleife abgespielt werden.
+	/// </summary>
 	public class LoopPlaylist : IPlaylist
 	{
 		private List<IAudioFile> Sounds;
@@ -31,6 +35,12 @@ namespace Knot3.Audio
 
 		public SoundState State { get; private set; }
 
+		/// <summary>
+		/// Erstellt eine neue Playlist.
+		/// </summary>
+		/// <param name='sounds'>
+		/// Die abzuspielenden Audiodateien.
+		/// </param>
 		public LoopPlaylist (IEnumerable<IAudioFile> sounds)
 		{
 			Sounds = sounds.ToList ();
@@ -43,6 +53,9 @@ namespace Knot3.Audio
 			}
 		}
 
+		/// <summary>
+		/// Starte die Wiedergabe.
+		/// </summary>
 		public void Start ()
 		{
 			if (Sounds.Count > 0) {
@@ -51,6 +64,9 @@ namespace Knot3.Audio
 			}
 		}
 
+		/// <summary>
+		/// Stoppe die Wiedergabe.
+		/// </summary>
 		public void Stop ()
 		{
 			if (Sounds.Count > 0) {
@@ -59,6 +75,9 @@ namespace Knot3.Audio
 			}
 		}
 
+		/// <summary>
+		/// Wird für jeden Frame aufgerufen.
+		/// </summary>
 		public void Update (GameTime time)
 		{
 			if (Sounds.Count > 0) {

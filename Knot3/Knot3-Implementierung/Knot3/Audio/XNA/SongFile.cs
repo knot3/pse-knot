@@ -24,10 +24,19 @@ using Knot3.Utilities;
 
 namespace Knot3.Audio.XNA
 {
+	/// <summary>
+	/// Ein Wrapper um die Song-Klasse des XNA-Frameworks.
+	/// </summary>
 	public class SongFile : IAudioFile
 	{
+		/// <summary>
+		/// Der Anzeigename des Songs.
+		/// </summary>
 		public string Name { get; private set; }
 
+		/// <summary>
+		/// Gibt an, ob die Wiedergabe läuft oder gestoppt bzw. pausiert ist.
+		/// </summary>
 		public SoundState State
 		{
 			get {
@@ -42,6 +51,9 @@ namespace Knot3.Audio.XNA
 		private Song Song;
         private bool valid;
 
+		/// <summary>
+		/// Erstellt eine neue Song-Datei mit dem angegebenen Anzeigenamen und des angegebenen Song-Objekts.
+		/// </summary>
 		public SongFile (string name, Song song)
 		{
 			Name = name;

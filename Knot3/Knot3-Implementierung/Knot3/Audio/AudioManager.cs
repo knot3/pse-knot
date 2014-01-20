@@ -28,6 +28,10 @@ namespace Knot3.Audio
 {
 	public class AudioManager : DrawableGameScreenComponent
 	{
+		/// <summary>
+		/// Eine Zuordnung zwischen dem Typ der Audiodateien und den Ordnern unter "Content/",
+		/// in denen sich die Audiodateien befinden.
+		/// </summary>
 		private static readonly Dictionary<Sound, string> AudioDirectories
 		= new Dictionary<Sound, string> {
 			{ Sound.CreativeMusic,		"Music-Creative" },
@@ -35,10 +39,14 @@ namespace Knot3.Audio
 			{ Sound.MenuMusic,			"Music-Menu" },
 			{ Sound.PipeSound,			"Sound-Pipe" },
 		};
+
+		// Enthält alle gefunden Audiodateien, sortiert nach ihrem Zweck
 		private static Dictionary<Sound, HashSet<IAudioFile>> AudioFiles
 		    = new Dictionary<Sound, HashSet<IAudioFile>> ();
-		private static Sound _backgroundMusic = Sound.None;
 
+		/// <summary>
+		/// Die aktuell verwendete Hintergrundmusik.
+		/// </summary>
 		public Sound BackgroundMusic
 		{
 			get {
@@ -51,9 +59,17 @@ namespace Knot3.Audio
 				}
 			}
 		}
+		private static Sound _backgroundMusic = Sound.None;
 
+		/// <summary>
+		/// Enthält die Playlist, die aktuell abgespielt wird,
+		/// oder null, falls keine Playlist abgespielt wird.
+		/// </summary>
 		public static IPlaylist Playlist { get; set; }
 
+		/// <summary>
+		/// Erstellt einen neuen AudioManager für den angegebenen Spielzustand.
+		/// </summary>
 		public AudioManager (GameScreen screen)
 		: base(screen, DisplayLayer.None)
 		{
