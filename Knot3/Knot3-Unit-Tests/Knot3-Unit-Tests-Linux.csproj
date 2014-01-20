@@ -39,4 +39,10 @@
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Knot3-Implementierung\Knot3-Linux.csproj">
+      <Project>{A7093300-1D0E-462B-83E2-A5DC7C3D145B}</Project>
+      <Name>Knot3-Linux</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
