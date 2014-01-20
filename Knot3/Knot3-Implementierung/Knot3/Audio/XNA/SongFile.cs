@@ -40,17 +40,30 @@ namespace Knot3.Audio.XNA
 		}
 
 		private Song Song;
+        private bool valid;
 
 		public SongFile (string name, Song song)
 		{
 			Name = name;
 			Song = song;
+            valid = true;
 		}
 
 		public void Play ()
 		{
-			Console.WriteLine ("Play: " + Name);
-			MediaPlayer.Play (Song);
+            if (valid)
+            {
+                Console.WriteLine("Play: " + Name);
+                try
+                {
+                    MediaPlayer.Play(Song);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    valid = false;
+                }
+            }
 		}
 
 		public void Stop ()

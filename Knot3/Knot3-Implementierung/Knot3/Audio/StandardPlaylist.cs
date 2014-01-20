@@ -45,22 +45,31 @@ namespace Knot3.Audio
 
 		public void Start ()
 		{
+            if (Sounds.Count > 0) {
 			State = SoundState.Playing;
-			Sounds [index].Play ();
+			Sounds .At(index).Play ();
+            }
 		}
 
 		public void Stop ()
 		{
-			State = SoundState.Stopped;
-			Sounds [index].Stop ();
+            if (Sounds.Count > 0)
+            {
+                State = SoundState.Stopped;
+                Sounds.At(index).Stop();
+            }
 		}
 
 		public void Update (GameTime time)
 		{
-			if (State == SoundState.Playing && Sounds.At (index).State != SoundState.Playing) {
-				++index;
-				Sounds.At (index).Play ();
-			}
+            if (Sounds.Count > 0)
+            {
+                if (State == SoundState.Playing && Sounds.At(index).State != SoundState.Playing)
+                {
+                    ++index;
+                    Sounds.At(index).Play();
+                }
+            }
 		}
 	}
 }
