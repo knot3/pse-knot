@@ -19,6 +19,7 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
+using Knot3.Audio;
 
 namespace Knot3.GameObjects
 {
@@ -227,6 +228,7 @@ namespace Knot3.GameObjects
 				try {
 					Knot.Move (direction, (int)Math.Round (count));
 					previousMousePosition = currentMousePosition;
+					screen.Audio.PlaySound(Sound.PipeSound);
 				}
 				catch (ArgumentOutOfRangeException exp) {
 					Console.WriteLine (exp.ToString ());

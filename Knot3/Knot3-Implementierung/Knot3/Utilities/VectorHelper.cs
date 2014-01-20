@@ -43,10 +43,10 @@ namespace Knot3.Utilities
 			if (currentAngleY + diffAngleY > MinAngleY && currentAngleY + diffAngleY < MaxAngleY) {
 				rotated = rotated.RotateAroundVector (-side, diffAngleY);
 			}
-			Console.WriteLine ("currentAngleY = " + MathHelper.ToDegrees (currentAngleY) +", "
-			                   + "diffAngleY = " + MathHelper.ToDegrees (diffAngleY) + "°" +", "
-			                   + "position = " + position +", " + "length=" + position.Length ()
-			                  );
+			Console.WriteLine ("currentAngleY = " + MathHelper.ToDegrees (currentAngleY) + ", "
+				+ "diffAngleY = " + MathHelper.ToDegrees (diffAngleY) + "°" + ", "
+				+ "position = " + position + ", " + "length=" + position.Length ()
+			);
 
 			return rotated;
 		}
@@ -69,7 +69,7 @@ namespace Knot3.Utilities
 		public static float AngleBetween (this Vector2 a, Vector2 b)
 		{
 			return ((b.X - a.X) > 0 ? 1 : -1)
-			       * (float)Math.Acos ((double)Vector2.Dot (Vector2.Normalize (a), Vector2.Normalize (b)));
+				* (float)Math.Acos ((double)Vector2.Dot (Vector2.Normalize (a), Vector2.Normalize (b)));
 		}
 
 		public static float AngleBetween (this Vector3 a, Vector3 b)
@@ -95,7 +95,7 @@ namespace Knot3.Utilities
 
 		public static Vector3 RotateAroundVector (this Vector3 vectorToRotate, Vector3 axis, float angleRadians)
 		{
-			return Vector3.Transform (vectorToRotate, Quaternion.CreateFromAxisAngle (Vector3.Normalize(axis), angleRadians));
+			return Vector3.Transform (vectorToRotate, Quaternion.CreateFromAxisAngle (Vector3.Normalize (axis), angleRadians));
 		}
 
 		public static Vector3 Clamp (this Vector3 v, Vector3 lower, Vector3 higher)
@@ -104,7 +104,7 @@ namespace Knot3.Utilities
 			           MathHelper.Clamp (v.X, lower.X, higher.X),
 			           MathHelper.Clamp (v.Y, lower.Y, higher.Y),
 			           MathHelper.Clamp (v.Z, lower.Z, higher.Z)
-			       );
+			);
 		}
 
 		public static Vector3 Clamp (this Vector3 v, int minLength, int maxLength)
@@ -306,7 +306,7 @@ namespace Knot3.Utilities
 			return new Rectangle (
 			           rect.X * max.X / 1000, rect.Y * max.Y / 1000,
 			           rect.Width * max.X / 1000, rect.Height * max.Y / 1000
-			       );
+			);
 		}
 
 		public static Rectangle Grow (this Rectangle rect, int x, int y)
@@ -395,6 +395,31 @@ namespace Knot3.Utilities
 				index = index % list.Count;
 			}
 			return list [index];
+		}
+
+		public static T At<T> (this IEnumerable<T> list, int index)
+		{
+			int count = list.Count ();
+			while (index < 0) {
+				index += count;
+			}
+			if (index >= count) {
+				index = index % count;
+			}
+			return list.ElementAt (index);
+		}
+
+		private static Random random = new Random (Guid.NewGuid ().GetHashCode ());
+
+		public static int RandomIndex<T> (this IEnumerable<T> list)
+		{
+			int index = random.Next (list.Count ());
+			return index;
+		}
+
+		public static T RandomElement<T> (this IEnumerable<T> list)
+		{
+			return list.At (list.RandomIndex ());
 		}
 
 		public static void SetCoordinates (this Widget widget, float left, float top, float right, float bottom)

@@ -66,7 +66,7 @@ namespace Knot3.Audio
 			FileUtility.SearchFiles (".", new string[] {".xnb"}, AddXnaAudioFile);
 
 			// Suche nach FFmpeg-Audio-Dateien
-			FileUtility.SearchFiles (".", new string[] {".mp3", ".ogg", ".wav", ".wma"}, AddFFmpegAudioFile);
+			FileUtility.SearchFiles (".", new string[] {".mp3", ".ogg", ".wma"}, AddFFmpegAudioFile);
 		}
 
 		private void AddXnaAudioFile (string filepath)
@@ -168,8 +168,16 @@ namespace Knot3.Audio
 				Playlist.Stop ();
 			}
 			Console.WriteLine ("Background Music: " + BackgroundMusic);
-			Playlist = new StandardPlaylist (AudioFiles [BackgroundMusic]);
+			Playlist = new LoopPlaylist (AudioFiles [BackgroundMusic]);
 			Playlist.Start ();
+		}
+
+		public void PlaySound (Sound sound)
+		{
+			if (AudioFiles [sound].Count > 0)
+				AudioFiles [sound].RandomElement ().Play ();
+			else 
+				Console.WriteLine ("There are no audio files for: " + sound);
 		}
 
 		public override void Update (GameTime time)
@@ -182,9 +190,9 @@ namespace Knot3.Audio
 
 		protected override void UnloadContent ()
 		{
-			Console.WriteLine("UnloadContent ()");
+			Console.WriteLine ("UnloadContent ()");
 			Playlist.Stop ();
-			base.UnloadContent();
+			base.UnloadContent ();
 		}
 	}
 }

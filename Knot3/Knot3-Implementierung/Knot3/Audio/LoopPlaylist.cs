@@ -24,14 +24,14 @@ using Knot3.Utilities;
 
 namespace Knot3.Audio
 {
-	public class StandardPlaylist : IPlaylist
+	public class LoopPlaylist : IPlaylist
 	{
 		private List<IAudioFile> Sounds;
 		private int index;
 
 		public SoundState State { get; private set; }
 
-		public StandardPlaylist (IEnumerable<IAudioFile> sounds)
+		public LoopPlaylist (IEnumerable<IAudioFile> sounds)
 		{
 			Sounds = sounds.ToList ();
 			index = 0;
