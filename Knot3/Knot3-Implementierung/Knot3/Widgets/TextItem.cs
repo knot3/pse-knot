@@ -52,6 +52,15 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
+
+		#region Methods
+
+		//Da TextItems werden nicht unterlegt um sie von Buttons abzugrenzen
+		public override  void SetHovered(bool hovered)
+		{
+			ItemState = ItemState.None;
+		}
+		#endregion
 	}
 }
 
