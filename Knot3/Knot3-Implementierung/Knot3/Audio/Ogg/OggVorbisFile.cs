@@ -33,26 +33,33 @@ namespace Knot3.Audio.Ogg
 
 		public SoundState State { get { return internalFile.State; } }
 
-		private string Filepath;
-		private Sound SoundType;
-		private OggDecoder decoder;
 		private SoundEffectFile internalFile;
 
 		public OggVorbisFile (string name, string filepath, Sound soundType)
 		{
 			Name = name;
-			Filepath = filepath;
-			SoundType = soundType;
+			string cachefile = System.IO.Path.GetTempPath () + FileUtility.Separator + name.GetHashCode () + ".wav";
 
-			Console.WriteLine ("Decode: " + Name);
+			byte[] data;
+			try {
+				Console.WriteLine ("Read from cache: " + cachefile);
+				data = File.ReadAllBytes (cachefile);
+			}
+			catch (Exception) {
+				Console.WriteLine ("Decode: " + name);
+				OggDecoder decoder = new OggDecoder ();
+				decoder.Initialize (TitleContainer.OpenStream (filepath));
+				data = decoder.SelectMany (chunk => chunk.Bytes.Take (chunk.Length)).ToArray ();
+				using (MemoryStream stream = new MemoryStream())
+				using (BinaryWriter writer = new BinaryWriter(stream)) {
+					WriteWave (writer, decoder.Stereo ? 2 : 1, decoder.SampleRate, data);
+					stream.Position = 0;
+					data = stream.ToArray ();
+				}
+				File.WriteAllBytes (cachefile, data);
+			}
 
-			decoder = new OggDecoder ();
-			decoder.Initialize (TitleContainer.OpenStream (filepath));
-			byte[] data = decoder.SelectMany (chunk => chunk.Bytes.Take (chunk.Length)).ToArray ();
-
-			using (MemoryStream stream = new MemoryStream())
-			using (BinaryWriter writer = new BinaryWriter(stream)) {
-				WriteWave (writer, decoder.Stereo ? 2 : 1, decoder.SampleRate, data);
+			using (MemoryStream stream = new MemoryStream(data)) {
 				stream.Position = 0;
 				SoundEffect soundEffect = SoundEffect.FromStream (stream);
 				internalFile = new SoundEffectFile (name, soundEffect, soundType);
@@ -61,13 +68,11 @@ namespace Knot3.Audio.Ogg
 
 		public void Play ()
 		{
-			Console.WriteLine ("Play: " + Name);
 			internalFile.Play ();
 		}
 
 		public void Stop ()
 		{
-			Console.WriteLine ("Stop: " + Name);
 			internalFile.Stop ();
 		}
 
