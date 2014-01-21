@@ -166,11 +166,6 @@ namespace Knot3.Audio
 
 		private void LoadOggAudioFile (string filepath, string name, Sound soundType)
 		{
-			// nur unter Linux
-			if (!MonoHelper.IsRunningOnMono ()) {
-				return;
-			}
-
 			try {
 				// erstelle ein AudioFile-Objekt
 				Console.WriteLine ("Load ogg audio file (" + soundType + "): " + filepath);
