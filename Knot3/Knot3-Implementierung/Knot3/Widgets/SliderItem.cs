@@ -111,10 +111,10 @@ namespace Knot3.Widgets
 			coordinateLine.Y += this.ScaledSize.Y / 2;
 
 			if (this.minXSliderRectangle < 0) {
-                this.coordinateRec = this.ScaledPosition;
-                this.coordinateRec.X += this.ScaledSize.X / 2 + ((this.Value/10)* (280/this.Step));
-                this.minXSliderRectangle = coordinateLine.X;
-                this.maxXSliderRectangle = coordinateLine.X + 280;
+				this.coordinateRec = this.ScaledPosition;
+				this.coordinateRec.X += this.ScaledSize.X / 2 + ((this.Value/10)* (280/this.Step));
+				this.minXSliderRectangle = coordinateLine.X;
+				this.maxXSliderRectangle = coordinateLine.X + 280;
 
 			}
 
