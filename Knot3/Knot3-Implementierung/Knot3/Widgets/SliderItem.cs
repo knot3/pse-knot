@@ -50,6 +50,10 @@ namespace Knot3.Widgets
 		/// </summary>
 		public int Step { get; set; }
 
+        private float minXSliderRectangle = -1.0f;
+        private float maxXSliderRectangle = -1.0f;
+        private Vector2 coordinateRec;
+
 		#endregion
 
 		#region Constructors
@@ -80,32 +84,73 @@ namespace Knot3.Widgets
 
 			spriteBatch.Begin();
 
-			int width = 100;
-			int height = 2;
+            int lineWidth = 300;
+            int lineHeight = 2;
+
+            int rectangleWidth = 20;
+            int rectangleHeight = (int) ScaledSize.Y;
 
 
-			Texture2D line = new Texture2D(Screen.Device, width, height);
+            Texture2D line = new Texture2D(Screen.Device, lineWidth, lineHeight);
+            Texture2D rectangle = new Texture2D(Screen.Device, rectangleWidth, rectangleHeight);
 
-			Color[] data = new Color[width * height];
-			for (int i = 0; i < data.Length; ++i) { data[i] = Color.White; }
-			line.SetData(data);
+            Color[] dataLine = new Color[lineWidth * lineHeight];
+            for (int i = 0; i < dataLine.Length; ++i)
+            {
+                dataLine[i] = Color.White;
+            }
+            line.SetData(dataLine);
 
+            Color[] dataRec = new Color[rectangleWidth * rectangleHeight];
+            for (int i = 0; i < dataRec.Length; ++i)
+            {
+                dataRec[i] = Color.YellowGreen;
+            }
+            rectangle.SetData(dataRec);
 
-			Vector2 coordinate = this.ScaledPosition;
-			coordinate.X += this.ScaledSize.X / 2;
-			coordinate.Y += this.ScaledSize.Y / 2;
+            Vector2 coordinateLine = this.ScaledPosition;
+            coordinateLine.X += this.ScaledSize.X / 2;
+            coordinateLine.Y += this.ScaledSize.Y / 2;
 
-			spriteBatch.Draw(line, coordinate, Color.White);
+            if (this.minXSliderRectangle < 0)
+            {
+                this.coordinateRec = this.ScaledPosition;
+                this.coordinateRec.X += this.ScaledSize.X / 2;
+                this.minXSliderRectangle = coordinateLine.X;
+                this.maxXSliderRectangle = this.coordinateRec.X + 280.0f;
 
+            }
+            
+          
 
-			//Rectangle line = Bounds();
-			//line.Height = 5;
-			//line.Width = line.Width / 2;
-			//spriteBatch.DrawColoredRectangle(Color.White, line);
+            spriteBatch.Draw(line, coordinateLine, Color.White);
+            spriteBatch.Draw(rectangle, coordinateRec, Color.YellowGreen);
 
 			spriteBatch.End();
 
 		}
+
+        public override void OnLeftClick(Vector2 position, ClickState state, GameTime time)
+        {
+            Vector2 mousePosition = this.ScaledPosition;
+            mousePosition.X += position.X + 6;
+            mousePosition.Y += position.Y;
+            Console.WriteLine("" + mousePosition.X + " rect " + coordinateRec.X);
+            if (mousePosition.X > this.coordinateRec.X && mousePosition.X < (this.coordinateRec.X + 20.0f))
+            {
+
+                
+                this.coordinateRec.X = mousePosition.X -10.0f;
+                if (this.coordinateRec.X < this.minXSliderRectangle) 
+                {
+                    this.coordinateRec.X = this.minXSliderRectangle;
+                }
+                else if (this.coordinateRec.X > this.maxXSliderRectangle) 
+                {
+                    this.coordinateRec.X = this.maxXSliderRectangle;
+                }
+            }
+        }
 		#endregion
 
 	}
