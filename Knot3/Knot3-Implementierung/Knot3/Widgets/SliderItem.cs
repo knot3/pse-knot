@@ -142,6 +142,7 @@ namespace Knot3.Widgets
 				else if (this.coordinateRec.X > this.maxXSliderRectangle) {
 					this.coordinateRec.X = this.maxXSliderRectangle;
 				}
+                this.Value = ((int)coordinateRec.X - (int)this.minXSliderRectangle) / (280 / (this.MaxValue / this.Step)) * this.Step;
 			}
 		}
 
