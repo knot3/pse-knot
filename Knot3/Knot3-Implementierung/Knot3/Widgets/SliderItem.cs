@@ -50,9 +50,9 @@ namespace Knot3.Widgets
 		/// </summary>
 		public int Step { get; set; }
 
-        private float minXSliderRectangle = -1.0f;
-        private float maxXSliderRectangle = -1.0f;
-        private Vector2 coordinateRec;
+		private float minXSliderRectangle = -1.0f;
+		private float maxXSliderRectangle = -1.0f;
+		private Vector2 coordinateRec;
 
 		#endregion
 
@@ -84,73 +84,67 @@ namespace Knot3.Widgets
 
 			spriteBatch.Begin();
 
-            int lineWidth = 300;
-            int lineHeight = 2;
+			int lineWidth = 300;
+			int lineHeight = 2;
 
-            int rectangleWidth = 20;
-            int rectangleHeight = (int) ScaledSize.Y;
+			int rectangleWidth = 20;
+			int rectangleHeight = (int) ScaledSize.Y;
 
 
-            Texture2D line = new Texture2D(Screen.Device, lineWidth, lineHeight);
-            Texture2D rectangle = new Texture2D(Screen.Device, rectangleWidth, rectangleHeight);
+			Texture2D line = new Texture2D(Screen.Device, lineWidth, lineHeight);
+			Texture2D rectangle = new Texture2D(Screen.Device, rectangleWidth, rectangleHeight);
 
-            Color[] dataLine = new Color[lineWidth * lineHeight];
-            for (int i = 0; i < dataLine.Length; ++i)
-            {
-                dataLine[i] = Color.White;
-            }
-            line.SetData(dataLine);
+			Color[] dataLine = new Color[lineWidth * lineHeight];
+			for (int i = 0; i < dataLine.Length; ++i) {
+				dataLine[i] = Color.White;
+			}
+			line.SetData(dataLine);
 
-            Color[] dataRec = new Color[rectangleWidth * rectangleHeight];
-            for (int i = 0; i < dataRec.Length; ++i)
-            {
-                dataRec[i] = Color.YellowGreen;
-            }
-            rectangle.SetData(dataRec);
+			Color[] dataRec = new Color[rectangleWidth * rectangleHeight];
+			for (int i = 0; i < dataRec.Length; ++i) {
+				dataRec[i] = Color.YellowGreen;
+			}
+			rectangle.SetData(dataRec);
 
-            Vector2 coordinateLine = this.ScaledPosition;
-            coordinateLine.X += this.ScaledSize.X / 2;
-            coordinateLine.Y += this.ScaledSize.Y / 2;
+			Vector2 coordinateLine = this.ScaledPosition;
+			coordinateLine.X += this.ScaledSize.X / 2;
+			coordinateLine.Y += this.ScaledSize.Y / 2;
 
-            if (this.minXSliderRectangle < 0)
-            {
-                this.coordinateRec = this.ScaledPosition;
-                this.coordinateRec.X += this.ScaledSize.X / 2;
-                this.minXSliderRectangle = coordinateLine.X;
-                this.maxXSliderRectangle = this.coordinateRec.X + 280.0f;
+			if (this.minXSliderRectangle < 0) {
+				this.coordinateRec = this.ScaledPosition;
+				this.coordinateRec.X += this.ScaledSize.X / 2;
+				this.minXSliderRectangle = coordinateLine.X;
+				this.maxXSliderRectangle = this.coordinateRec.X + 280.0f;
 
-            }
-            
-          
+			}
 
-            spriteBatch.Draw(line, coordinateLine, Color.White);
-            spriteBatch.Draw(rectangle, coordinateRec, Color.YellowGreen);
+
+
+			spriteBatch.Draw(line, coordinateLine, Color.White);
+			spriteBatch.Draw(rectangle, coordinateRec, Color.YellowGreen);
 
 			spriteBatch.End();
 
 		}
 
-        public override void OnLeftClick(Vector2 position, ClickState state, GameTime time)
-        {
-            Vector2 mousePosition = this.ScaledPosition;
-            mousePosition.X += position.X + 6;
-            mousePosition.Y += position.Y;
-            Console.WriteLine("" + mousePosition.X + " rect " + coordinateRec.X);
-            if (mousePosition.X > this.coordinateRec.X && mousePosition.X < (this.coordinateRec.X + 20.0f))
-            {
+		public override void OnLeftClick(Vector2 position, ClickState state, GameTime time)
+		{
+			Vector2 mousePosition = this.ScaledPosition;
+			mousePosition.X += position.X + 6;
+			mousePosition.Y += position.Y;
+			Console.WriteLine("" + mousePosition.X + " rect " + coordinateRec.X);
+			if (mousePosition.X > this.coordinateRec.X && mousePosition.X < (this.coordinateRec.X + 20.0f)) {
 
-                
-                this.coordinateRec.X = mousePosition.X -10.0f;
-                if (this.coordinateRec.X < this.minXSliderRectangle) 
-                {
-                    this.coordinateRec.X = this.minXSliderRectangle;
-                }
-                else if (this.coordinateRec.X > this.maxXSliderRectangle) 
-                {
-                    this.coordinateRec.X = this.maxXSliderRectangle;
-                }
-            }
-        }
+
+				this.coordinateRec.X = mousePosition.X -10.0f;
+				if (this.coordinateRec.X < this.minXSliderRectangle) {
+					this.coordinateRec.X = this.minXSliderRectangle;
+				}
+				else if (this.coordinateRec.X > this.maxXSliderRectangle) {
+					this.coordinateRec.X = this.maxXSliderRectangle;
+				}
+			}
+		}
 		#endregion
 
 	}
