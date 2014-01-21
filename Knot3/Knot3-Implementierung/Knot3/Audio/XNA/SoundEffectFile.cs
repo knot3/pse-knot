@@ -42,20 +42,24 @@ namespace Knot3.Audio.XNA
 		public SoundEffect SoundEffect { get; private set; }
 
 		private SoundEffectInstance Instance;
+
+		private Sound SoundType;
 		
 		/// <summary>
 		/// Erstellt eine neue SoundEffect-Datei mit dem angegebenen Anzeigenamen und des angegebenen SoundEffect-Objekts.
 		/// </summary>
-		public SoundEffectFile (string name, SoundEffect soundEffect)
+		public SoundEffectFile (string name, SoundEffect soundEffect, Sound soundType)
 		{
 			Name = name;
 			SoundEffect = soundEffect;
 			Instance = soundEffect.CreateInstance ();
+			SoundType = soundType;
 		}
 
 		public void Play ()
 		{
 			Console.WriteLine ("Play: " + Name);
+			Instance.Volume = AudioManager.Volume(SoundType);
 			Instance.Play ();
 		}
 

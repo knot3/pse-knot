@@ -49,33 +49,33 @@ namespace Knot3.Audio.XNA
 		}
 
 		private Song Song;
-        private bool valid;
+		private bool valid;
+		private Sound SoundType;
 
 		/// <summary>
 		/// Erstellt eine neue Song-Datei mit dem angegebenen Anzeigenamen und des angegebenen Song-Objekts.
 		/// </summary>
-		public SongFile (string name, Song song)
+		public SongFile (string name, Song song, Sound soundType)
 		{
 			Name = name;
 			Song = song;
-            valid = true;
+			valid = true;
+			SoundType = soundType;
 		}
 
 		public void Play ()
 		{
-            if (valid)
-            {
-                Console.WriteLine("Play: " + Name);
-                try
-                {
-                    MediaPlayer.Play(Song);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                    valid = false;
-                }
-            }
+			if (valid) {
+				Console.WriteLine ("Play: " + Name);
+				try {
+					MediaPlayer.Volume = AudioManager.Volume (SoundType);
+					MediaPlayer.Play (Song);
+				}
+				catch (Exception ex) {
+					Console.WriteLine (ex);
+					valid = false;
+				}
+			}
 		}
 
 		public void Stop ()

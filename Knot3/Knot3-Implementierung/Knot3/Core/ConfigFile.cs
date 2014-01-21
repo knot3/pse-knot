@@ -94,7 +94,42 @@ namespace Knot3.Core
 			return GetOption (section, option, defaultValue ? True : False) == True ? true : false;
 		}
 
+		public void SetOption (string section, string option, float _value)
+		{
+			SetOption (section, option, floatToString (_value));
+		}
+
+		public float GetOption (string section, string option, float defaultValue)
+		{
+			return stringToFloat (GetOption (section, option, floatToString (defaultValue)));
+		}
+
+		private string floatToString (float f)
+		{
+			return "" + (int)(f * 1000);
+		}
+
+		private float stringToFloat (string s)
+		{
+			int i;
+			bool result = Int32.TryParse (s, out i);
+			if (true == result)
+				return ((float)i) / 1000f;
+			else
+				return 0;
+		}
+
 		public bool this [string section, string option, bool defaultValue = false]
+		{
+			get {
+				return GetOption (section, option, defaultValue);
+			}
+			set {
+				SetOption (section, option, value);
+			}
+		}
+
+		public float this [string section, string option, float defaultValue = 0f]
 		{
 			get {
 				return GetOption (section, option, defaultValue);

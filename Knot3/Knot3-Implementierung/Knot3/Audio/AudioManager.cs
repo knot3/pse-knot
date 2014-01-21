@@ -59,6 +59,7 @@ namespace Knot3.Audio
 				}
 			}
 		}
+
 		private static Sound _backgroundMusic = Sound.None;
 
 		/// <summary>
@@ -66,6 +67,8 @@ namespace Knot3.Audio
 		/// oder null, falls keine Playlist abgespielt wird.
 		/// </summary>
 		public static IPlaylist Playlist { get; set; }
+
+		private static Dictionary<Sound, float> VolumeMap = new Dictionary<Sound, float> ();
 
 		/// <summary>
 		/// Erstellt einen neuen AudioManager für den angegebenen Spielzustand.
@@ -76,6 +79,7 @@ namespace Knot3.Audio
 			// Erstelle für alle Enum-Werte von Sound ein HashSet
 			foreach (Sound soundType in typeof(Sound).ToEnumValues<Sound>()) {
 				AudioFiles [soundType] = new HashSet<IAudioFile> ();
+				VolumeMap [soundType] = ValidVolume (Options.Default ["volume", soundType.ToString (), 1]);
 			}
 
 			// Suche nach XNA-Audio-Dateien
@@ -105,7 +109,7 @@ namespace Knot3.Audio
 			try {
 				// versuche, die Audiodatei als "SoundEffect" zu laden
 				SoundEffect soundEffect = Screen.Content.Load<SoundEffect> (filepath);
-				AudioFiles [soundType].Add (new SoundEffectFile (name, soundEffect));
+				AudioFiles [soundType].Add (new SoundEffectFile (name, soundEffect, soundType));
 				Console.WriteLine ("Load sound effect (" + soundType + "): " + filepath);
 			}
 			catch (Exception ex) {
@@ -131,7 +135,7 @@ namespace Knot3.Audio
 			try {
 				// versuche, die Audiodatei als "Song" zu laden
 				Song song = Screen.Content.Load<Song> (filepath);
-				AudioFiles [soundType].Add (new SongFile (name, song));
+				AudioFiles [soundType].Add (new SongFile (name, song, soundType));
 				Console.WriteLine ("Load song (" + soundType + "): " + filepath);
 			}
 			catch (Exception ex) {
@@ -167,7 +171,7 @@ namespace Knot3.Audio
 
 			try {
 				// erstelle ein AudioFile-Objekt
-				AudioFiles [soundType].Add (new AudioFile (name, filepath));
+				AudioFiles [soundType].Add (new AudioFile (name, filepath, soundType));
 				Console.WriteLine ("Load ffmpeg audio file (" + soundType + "): " + filepath);
 			}
 			catch (Exception ex) {
@@ -211,6 +215,21 @@ namespace Knot3.Audio
 			Console.WriteLine ("UnloadContent ()");
 			Playlist.Stop ();
 			base.UnloadContent ();
+		}
+
+		public static float Volume (Sound soundType)
+		{
+			return VolumeMap [soundType];
+		}
+
+		public static void SetVolume (Sound soundType, float volume)
+		{
+			VolumeMap [soundType] = ValidVolume (volume);
+		}
+
+		public static float ValidVolume (float volume)
+		{
+			return MathHelper.Clamp (volume, 0, 100);
 		}
 	}
 }
