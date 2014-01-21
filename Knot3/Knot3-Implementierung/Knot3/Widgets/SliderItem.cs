@@ -132,7 +132,7 @@ namespace Knot3.Widgets
 
 			Vector2 mousePosition = position;
 			Console.WriteLine("" + mousePosition.X + " rect " + coordinateRec.X);
-			if (mousePosition.X > minXSliderRectangle  && mousePosition.X< minXSliderRectangle + 290) {
+			if (mousePosition.X > minXSliderRectangle  && mousePosition.X< minXSliderRectangle + 300) {
 
 
 				this.coordinateRec.X = mousePosition.X -10.0f;

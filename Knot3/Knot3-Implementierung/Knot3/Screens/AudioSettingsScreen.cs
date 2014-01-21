@@ -73,7 +73,7 @@ namespace Knot3.Screens
 			    max: 100,
 			    min: 0,
 			    step: 5,
-			    value: 20
+			    value: 100
 			);
 			settingsMenu.Add(soundslider);
 		}
