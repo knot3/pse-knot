@@ -162,7 +162,11 @@ namespace Knot3.KnotData
 					}
 				}
 			}
-			if (name != null && start != null && target != null) {
+            if (name != null && start != null && target != null)
+            {
+                Console.WriteLine("Load challenge file: " + filename
+                                   + " (name=" + name + ",start=" + start + ",target=" + target + ",highscore=" + highscore + ")"
+                                  );
 				return new ChallengeMetaData (
 				           name: name,
 				           start: start,
@@ -171,9 +175,6 @@ namespace Knot3.KnotData
 				           format: this,
 				           highscore: highscore
 				       );
-				Console.WriteLine ("Load challenge file: " + filename
-				                   + " (name=" + name + ",start=" + start + ",target=" + target + ",highscore=" + highscore + ")"
-				                  );
 			}
 			else {
 				throw new IOException (
