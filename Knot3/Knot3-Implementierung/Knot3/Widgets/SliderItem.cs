@@ -112,7 +112,7 @@ namespace Knot3.Widgets
 
 			if (this.minXSliderRectangle < 0) {
 				this.coordinateRec = this.ScaledPosition;
-                this.coordinateRec.X += this.ScaledSize.X / 2 + (this.Value / this.Step) * (280 / (this.MaxValue/ this.Step));
+				this.coordinateRec.X += this.ScaledSize.X / 2 + (this.Value / this.Step) * (280 / (this.MaxValue/ this.Step));
 				this.minXSliderRectangle = coordinateLine.X;
 				this.maxXSliderRectangle = coordinateLine.X + 280;
 
@@ -130,7 +130,7 @@ namespace Knot3.Widgets
 		public override void OnLeftClick(Vector2 position, ClickState state, GameTime time)
 		{
 
-            Vector2 mousePosition = position;
+			Vector2 mousePosition = position;
 			//mousePosition.X += position.X + 6;
 			//mousePosition.Y += position.Y;
 			Console.WriteLine("" + mousePosition.X + " rect " + coordinateRec.X);
@@ -147,18 +147,17 @@ namespace Knot3.Widgets
 			}
 		}
 
-        public override void Update(GameTime gameTime)
-        {
-            if (this.ItemState == ItemState.Hovered && InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed)
-            {
-                Vector2 position = new Vector2(InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y);
-                this.OnLeftClick(position, ClickState.SingleClick, gameTime);
-                this.Draw(gameTime);
-                
-            }
-            
-            
-        }
+		public override void Update(GameTime gameTime)
+		{
+			if (this.ItemState == ItemState.Hovered && InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
+				Vector2 position = new Vector2(InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y);
+				this.OnLeftClick(position, ClickState.SingleClick, gameTime);
+				this.Draw(gameTime);
+
+			}
+
+
+		}
 		#endregion
 
 	}
