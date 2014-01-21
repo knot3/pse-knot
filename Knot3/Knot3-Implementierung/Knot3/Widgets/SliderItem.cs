@@ -78,30 +78,30 @@ namespace Knot3.Widgets
 		{
 			base.Draw(time);
 
-            spriteBatch.Begin();
+			spriteBatch.Begin();
 
-            int width = 100;
-            int height = 2;
-            
-
-            Texture2D line = new Texture2D(Screen.Device, width, height);
-
-            Color[] data = new Color[width * height];
-            for (int i = 0; i < data.Length; ++i) data[i] = Color.White;
-            line.SetData(data);
+			int width = 100;
+			int height = 2;
 
 
-            Vector2 coordinate = this.ScaledPosition;
-            coordinate.X += this.ScaledSize.X / 2;
-            coordinate.Y += this.ScaledSize.Y / 2;
+			Texture2D line = new Texture2D(Screen.Device, width, height);
 
-            spriteBatch.Draw(line, coordinate, Color.White);
+			Color[] data = new Color[width * height];
+			for (int i = 0; i < data.Length; ++i) { data[i] = Color.White; }
+			line.SetData(data);
 
-			
-            //Rectangle line = Bounds();
-            //line.Height = 5;
-            //line.Width = line.Width / 2;
-            //spriteBatch.DrawColoredRectangle(Color.White, line);
+
+			Vector2 coordinate = this.ScaledPosition;
+			coordinate.X += this.ScaledSize.X / 2;
+			coordinate.Y += this.ScaledSize.Y / 2;
+
+			spriteBatch.Draw(line, coordinate, Color.White);
+
+
+			//Rectangle line = Bounds();
+			//line.Height = 5;
+			//line.Width = line.Width / 2;
+			//spriteBatch.DrawColoredRectangle(Color.White, line);
 
 			spriteBatch.End();
 
