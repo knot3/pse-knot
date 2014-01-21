@@ -51,7 +51,7 @@ namespace Knot3.Widgets
 			highscoreList.ItemBackgroundColor = (s) => (s == ItemState.Hovered) ? Color.White * 0.3f : Color.White * 0.1f;
 			highscoreList.ItemAlignX = HorizontalAlignment.Left;
 			highscoreList.ItemAlignY = VerticalAlignment.Center;
-                        
+
 			if (challenge.Highscore != null) {
 				foreach (KeyValuePair<string, int> entry in challenge.Highscore.OrderBy(key => key.Value)) {
 					TextItem firstScore = new TextItem (screen, drawOrder, entry.Value.ToString () + " " + entry.Key);

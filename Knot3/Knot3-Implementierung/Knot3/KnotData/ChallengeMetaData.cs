@@ -114,7 +114,7 @@ namespace Knot3.KnotData
 				highscore [name] = time;
 
 			}
-            
+
 		}
 
 

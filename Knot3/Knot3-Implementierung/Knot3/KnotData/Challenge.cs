@@ -86,7 +86,7 @@ namespace Knot3.KnotData
 		/// </summary>
 		public void AddToHighscore (string name, int time)
 		{
-            MetaData.AddToHighscore (name, time);
+			MetaData.AddToHighscore (name, time);
 			Save ();
 		}
 
