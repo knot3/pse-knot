@@ -55,7 +55,7 @@ namespace Knot3.Screens
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
-			/* SliderItem musicslider = new SliderItem(
+			 SliderItem musicslider = new SliderItem(
 			     screen: this,
 			     drawOrder: DisplayLayer.MenuItem,
 			     text: "Music",
@@ -64,6 +64,7 @@ namespace Knot3.Screens
 			     step: 10,
 			     value: 50
 			 );
+             settingsMenu.Add(musicslider);
 
 			  SliderItem soundslider = new SliderItem(
 			     screen: this,
@@ -73,7 +74,8 @@ namespace Knot3.Screens
 			     min: 0,
 			     step: 10,
 			     value: 50
-			 ); */
+			 );
+              settingsMenu.Add(soundslider);
 		}
 
 		#endregion

@@ -80,6 +80,8 @@ namespace Knot3.Widgets
 
 			spriteBatch.Begin();
 
+            spriteBatch.End();
+
 		}
 		#endregion
 
