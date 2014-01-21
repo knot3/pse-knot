@@ -411,33 +411,31 @@ namespace Knot3.KnotData
 			while (startA != edges);
 			return false;
 		}
-        /// <summary>
-        /// Gibt Chrakteristische werte zurück, die bei gleichen Knoten gleich sind.
-        /// Einmal als Key ein eindeutiges Circle\<Edge\> Element und als Value
-        /// einen Charakteristischen Integer. Momentan die Anzahl der Kanten.
-        /// </summary>
-        private KeyValuePair<Circle<Edge>, int> Charakteristik()
-        {
-            Circle<Edge> charakteristikElement = edges;
-            Vector3 position3D = edges.Content.Direction.ToVector3();
-            Vector3 bestPosition3D = edges.Content.Direction.ToVector3() / 2;
-            Circle<Edge> edgePointer = edges.Next;
-            int edgecounter = 1;
-            while (edgePointer != edges)
-            {
-                if (((position3D + edgePointer.Content.Direction.ToVector3() / 2).X < bestPosition3D.X) ||
-                    ((position3D + edgePointer.Content.Direction.ToVector3() / 2).X == bestPosition3D.X && (position3D + edgePointer.Content.Direction.ToVector3() / 2).Y < bestPosition3D.Y) ||
-                    ((position3D + edgePointer.Content.Direction.ToVector3() / 2).X == bestPosition3D.X && (position3D + edgePointer.Content.Direction.ToVector3() / 2).Y == bestPosition3D.Y && (position3D + edgePointer.Content.Direction.ToVector3() / 2).Z < bestPosition3D.Z))
-                {
-                    bestPosition3D = position3D + edgePointer.Content.Direction.ToVector3() / 2;
-                    charakteristikElement = edgePointer;
-                }
-                edgecounter++;
-                position3D += edgePointer.Content.Direction.ToVector3();
-                edgePointer = edgePointer.Next;
-            }
-            return new KeyValuePair<Circle<Edge>, int>(charakteristikElement, edgecounter);
-        }
+		/// <summary>
+		/// Gibt Chrakteristische werte zurück, die bei gleichen Knoten gleich sind.
+		/// Einmal als Key ein eindeutiges Circle\<Edge\> Element und als Value
+		/// einen Charakteristischen Integer. Momentan die Anzahl der Kanten.
+		/// </summary>
+		private KeyValuePair<Circle<Edge>, int> Charakteristik()
+		{
+			Circle<Edge> charakteristikElement = edges;
+			Vector3 position3D = edges.Content.Direction.ToVector3();
+			Vector3 bestPosition3D = edges.Content.Direction.ToVector3() / 2;
+			Circle<Edge> edgePointer = edges.Next;
+			int edgecounter = 1;
+			while (edgePointer != edges) {
+				if (((position3D + edgePointer.Content.Direction.ToVector3() / 2).X < bestPosition3D.X) ||
+				        ((position3D + edgePointer.Content.Direction.ToVector3() / 2).X == bestPosition3D.X && (position3D + edgePointer.Content.Direction.ToVector3() / 2).Y < bestPosition3D.Y) ||
+				        ((position3D + edgePointer.Content.Direction.ToVector3() / 2).X == bestPosition3D.X && (position3D + edgePointer.Content.Direction.ToVector3() / 2).Y == bestPosition3D.Y && (position3D + edgePointer.Content.Direction.ToVector3() / 2).Z < bestPosition3D.Z)) {
+					bestPosition3D = position3D + edgePointer.Content.Direction.ToVector3() / 2;
+					charakteristikElement = edgePointer;
+				}
+				edgecounter++;
+				position3D += edgePointer.Content.Direction.ToVector3();
+				edgePointer = edgePointer.Next;
+			}
+			return new KeyValuePair<Circle<Edge>, int>(charakteristikElement, edgecounter);
+		}
 
 
 		public override string ToString ()
