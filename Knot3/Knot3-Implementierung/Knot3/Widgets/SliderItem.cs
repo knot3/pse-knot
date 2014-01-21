@@ -130,11 +130,9 @@ namespace Knot3.Widgets
 		public override void OnLeftClick(Vector2 position, ClickState state, GameTime time)
 		{
 
-			Vector2 mousePosition = position;
-			//mousePosition.X += position.X + 6;
-			//mousePosition.Y += position.Y;
+			Vector2 mousePosition = position;			
 			Console.WriteLine("" + mousePosition.X + " rect " + coordinateRec.X);
-			if (mousePosition.X > this.coordinateRec.X && mousePosition.X < (this.coordinateRec.X + 20.0f)) {
+			if (mousePosition.X > minXSliderRectangle  && mousePosition.X< minXSliderRectangle + 290) {
 
 
 				this.coordinateRec.X = mousePosition.X -10.0f;
