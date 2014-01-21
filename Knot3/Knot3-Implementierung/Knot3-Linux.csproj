@@ -50,6 +50,9 @@
     <Reference Include="Ionic.Zip">
       <HintPath>lib\Ionic.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="OggSharp">
+      <HintPath>lib\OggSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -190,8 +193,8 @@
     <Compile Include="Knot3\Audio\Sound.cs" />
     <Compile Include="Knot3\Audio\XNA\SongFile.cs" />
     <Compile Include="Knot3\Audio\XNA\SoundEffectFile.cs" />
-    <Compile Include="Knot3\Audio\FFmpeg\AudioFile.cs" />
     <Compile Include="Knot3\Audio\LoopPlaylist.cs" />
+    <Compile Include="Knot3\Audio\Ogg\OggVorbisFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />

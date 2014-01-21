@@ -22,7 +22,7 @@ using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
 using Knot3.Audio.XNA;
-using Knot3.Audio.FFmpeg;
+using Knot3.Audio.Ogg;
 
 namespace Knot3.Audio
 {
@@ -76,17 +76,19 @@ namespace Knot3.Audio
 		public AudioManager (GameScreen screen)
 		: base(screen, DisplayLayer.None)
 		{
-			// Erstelle für alle Enum-Werte von Sound ein HashSet
-			foreach (Sound soundType in typeof(Sound).ToEnumValues<Sound>()) {
-				AudioFiles [soundType] = new HashSet<IAudioFile> ();
-				VolumeMap [soundType] = ValidVolume (Options.Default ["volume", soundType.ToString (), 1]);
+			if (AudioFiles.Count == 0) {
+				// Erstelle für alle Enum-Werte von Sound ein HashSet
+				foreach (Sound soundType in typeof(Sound).ToEnumValues<Sound>()) {
+					AudioFiles [soundType] = new HashSet<IAudioFile> ();
+					VolumeMap [soundType] = ValidVolume (Options.Default ["volume", soundType.ToString (), 1]);
+				}
+
+				// Suche nach XNA-Audio-Dateien
+				FileUtility.SearchFiles (".", new string[] {".xnb"}, AddXnaAudioFile);
+
+				// Suche nach OGG-Dateien
+				FileUtility.SearchFiles (".", new string[] {".ogg"}, AddOggAudioFile);
 			}
-
-			// Suche nach XNA-Audio-Dateien
-			FileUtility.SearchFiles (".", new string[] {".xnb"}, AddXnaAudioFile);
-
-			// Suche nach FFmpeg-Audio-Dateien
-			FileUtility.SearchFiles (".", new string[] {".mp3", ".ogg", ".wma"}, AddFFmpegAudioFile);
 		}
 
 		private void AddXnaAudioFile (string filepath)
@@ -147,7 +149,7 @@ namespace Knot3.Audio
 			}
 		}
 
-		private void AddFFmpegAudioFile (string filepath)
+		private void AddOggAudioFile (string filepath)
 		{
 			filepath = filepath.Replace (@"\", "/");
 
@@ -156,13 +158,13 @@ namespace Knot3.Audio
 				string directory = pair.Value;
 				if (filepath.ToLower ().Contains (directory.ToLower ())) {
 					string name = Path.GetFileName (filepath);
-					LoadFFmpegAudioFile (filepath, name, soundType);
+					LoadOggAudioFile (filepath, name, soundType);
 					break;
 				}
 			}
 		}
 
-		private void LoadFFmpegAudioFile (string filepath, string name, Sound soundType)
+		private void LoadOggAudioFile (string filepath, string name, Sound soundType)
 		{
 			// nur unter Linux
 			if (!MonoHelper.IsRunningOnMono ()) {
@@ -171,8 +173,8 @@ namespace Knot3.Audio
 
 			try {
 				// erstelle ein AudioFile-Objekt
-				AudioFiles [soundType].Add (new AudioFile (name, filepath, soundType));
-				Console.WriteLine ("Load ffmpeg audio file (" + soundType + "): " + filepath);
+				Console.WriteLine ("Load ogg audio file (" + soundType + "): " + filepath);
+				AudioFiles [soundType].Add (new OggVorbisFile (name, filepath, soundType));
 			}
 			catch (Exception ex) {
 				// egal, warum das laden nicht klappt; mehr als die Fehlermeldung anzeigen
