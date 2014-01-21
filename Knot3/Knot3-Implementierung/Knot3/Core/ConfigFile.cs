@@ -113,10 +113,12 @@ namespace Knot3.Core
 		{
 			int i;
 			bool result = Int32.TryParse (s, out i);
-			if (true == result)
+			if (true == result) {
 				return ((float)i) / 1000f;
-			else
+			}
+			else {
 				return 0;
+			}
 		}
 
 		public bool this [string section, string option, bool defaultValue = false]
