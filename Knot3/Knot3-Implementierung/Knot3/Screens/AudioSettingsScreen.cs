@@ -61,7 +61,7 @@ namespace Knot3.Screens
 			    text: "Music",
 			    max: 100,
 			    min: 0,
-			    step: 10,
+			    step: 5,
 			    value: 50
 			);
 			settingsMenu.Add(musicslider);
@@ -72,8 +72,8 @@ namespace Knot3.Screens
 			    text: "Sound",
 			    max: 100,
 			    min: 0,
-			    step: 10,
-			    value: 100
+			    step: 5,
+			    value: 20
 			);
 			settingsMenu.Add(soundslider);
 		}
