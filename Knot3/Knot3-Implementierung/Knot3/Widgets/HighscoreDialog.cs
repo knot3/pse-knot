@@ -52,7 +52,7 @@ namespace Knot3.Widgets
 			highscoreList.ItemAlignX = HorizontalAlignment.Left;
 			highscoreList.ItemAlignY = VerticalAlignment.Center;
 
-			
+
 			if (challenge.Highscore != null) {
 				foreach (KeyValuePair<string, int> entry in challenge.Highscore) {
 					TextItem firstScore = new TextItem (screen, drawOrder, entry.Value.ToString () + " " + entry.Key);
@@ -60,18 +60,17 @@ namespace Knot3.Widgets
 				}
 			}
 
-			
+
 			//Button fürs Neustarten
-            MenuButton restartButton = new MenuButton(
-                screen: Screen,
-                drawOrder: DisplayLayer.MenuItem,
-                name: "Restart challenge",
-                onClick: (time) =>
-                {
-                    Close(time);
-                    Screen.NextScreen = new ChallengeModeScreen(Screen.Game, challenge);
-                }
-                );
+			MenuButton restartButton = new MenuButton(
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Restart challenge",
+			onClick: (time) => {
+				Close(time);
+				Screen.NextScreen = new ChallengeModeScreen(Screen.Game, challenge);
+			}
+			);
 
 			highscoreList.Add (restartButton);
 
@@ -79,18 +78,17 @@ namespace Knot3.Widgets
 			Action<GameTime> returnToMenu = (time) => {
 				Screen.NextScreen = new StartScreen (Screen.Game);
 			};
-            
+
 			//Button für die Rückkehr zum StartScreen
 			MenuButton returnButton = new MenuButton (
-                screen: Screen,
-                drawOrder: DisplayLayer.MenuItem,
-                name: "Return to menu",
-                onClick: (time) =>
-                {
-                    Close(time);
-                    Screen.NextScreen = new StartScreen(Screen.Game);
-                }
-                );
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Return to menu",
+			onClick: (time) => {
+				Close(time);
+				Screen.NextScreen = new StartScreen(Screen.Game);
+			}
+			);
 			highscoreList.Add (returnButton);
 		}
 
