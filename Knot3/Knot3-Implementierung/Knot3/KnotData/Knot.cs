@@ -379,43 +379,41 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Boolean Equals (Knot other)
 		{
-            KeyValuePair<Circle<Edge>, int> thisCharakteristik = Charakteristik();
-            KeyValuePair<Circle<Edge>, int> otherCharakteristik = other.Charakteristik();
-            if (thisCharakteristik.Value != otherCharakteristik.Value)
-                return false;
-            // Bei Struktur im gleicher Richtung
-            if (thisCharakteristik.Key.Content.Direction == otherCharakteristik.Key.Content.Direction)
-            {
-                Circle<Edge> currentThisCircleElement = thisCharakteristik.Key.Next;
-                Circle<Edge> currentOtherCircleElement = otherCharakteristik.Key.Next;
-                while (currentThisCircleElement != thisCharakteristik.Key)
-                {
-                    if (currentThisCircleElement.Content.Direction != currentOtherCircleElement.Content.Direction)
-                        return false;
-                    currentThisCircleElement = currentThisCircleElement.Next;
-                    currentOtherCircleElement = currentOtherCircleElement.Next;
-                }
-                return true;
-            }
-            // Bei Struktur in entgegengesetzter Richtung
-            else if (thisCharakteristik.Key.Content.Direction == otherCharakteristik.Key.Content.Direction.ReverseDirection())
-            {
-                Circle<Edge> currentThisCircleElement = thisCharakteristik.Key.Next;
-                Circle<Edge> currentOtherCircleElement = otherCharakteristik.Key.Next;
-                while (currentThisCircleElement != thisCharakteristik.Key)
-                {
-                    if (currentThisCircleElement.Content.Direction != currentOtherCircleElement.Content.Direction.ReverseDirection())
-                        return false;
-                    currentThisCircleElement = currentThisCircleElement.Next;
-                    currentOtherCircleElement = currentOtherCircleElement.Next;
-                }
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-            /*
+			KeyValuePair<Circle<Edge>, int> thisCharakteristik = Charakteristik();
+			KeyValuePair<Circle<Edge>, int> otherCharakteristik = other.Charakteristik();
+			if (thisCharakteristik.Value != otherCharakteristik.Value) {
+				return false;
+			}
+			// Bei Struktur im gleicher Richtung
+			if (thisCharakteristik.Key.Content.Direction == otherCharakteristik.Key.Content.Direction) {
+				Circle<Edge> currentThisCircleElement = thisCharakteristik.Key.Next;
+				Circle<Edge> currentOtherCircleElement = otherCharakteristik.Key.Next;
+				while (currentThisCircleElement != thisCharakteristik.Key) {
+					if (currentThisCircleElement.Content.Direction != currentOtherCircleElement.Content.Direction) {
+						return false;
+					}
+					currentThisCircleElement = currentThisCircleElement.Next;
+					currentOtherCircleElement = currentOtherCircleElement.Next;
+				}
+				return true;
+			}
+			// Bei Struktur in entgegengesetzter Richtung
+			else if (thisCharakteristik.Key.Content.Direction == otherCharakteristik.Key.Content.Direction.ReverseDirection()) {
+				Circle<Edge> currentThisCircleElement = thisCharakteristik.Key.Next;
+				Circle<Edge> currentOtherCircleElement = otherCharakteristik.Key.Next;
+				while (currentThisCircleElement != thisCharakteristik.Key) {
+					if (currentThisCircleElement.Content.Direction != currentOtherCircleElement.Content.Direction.ReverseDirection()) {
+						return false;
+					}
+					currentThisCircleElement = currentThisCircleElement.Next;
+					currentOtherCircleElement = currentOtherCircleElement.Next;
+				}
+				return true;
+			}
+			else {
+				return false;
+			}
+			/*
 			Circle<Edge> startA = edges;
 			do {
 				foreach (Circle<Edge> startB in other.edges.Find ((edge) => edge.Direction == startA.Content.Direction)) {
@@ -446,8 +444,8 @@ namespace Knot3.KnotData
 				startA = startA.Next;
 			}
 			while (startA != edges);
-			return false; 
-             */
+			return false;
+			 */
 		}
 		/// <summary>
 		/// Gibt Chrakteristische werte zurück, die bei gleichen Knoten gleich sind.
