@@ -112,7 +112,9 @@ namespace Knot3.KnotData
 		{
 			if (!highscore.ContainsKey (name) || highscore [name] > time) {
 				highscore [name] = time;
+
 			}
+            
 		}
 
 
