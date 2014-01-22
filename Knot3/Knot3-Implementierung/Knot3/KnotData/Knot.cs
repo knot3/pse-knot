@@ -423,19 +423,19 @@ namespace Knot3.KnotData
 		private KeyValuePair<Circle<Edge>, int> Charakteristic ()
 		{
 			Circle<Edge> charakteristikElement = edges;
-			Vector3 position3D = edges.Content.Direction.Vector;
-			Vector3 bestPosition3D = edges.Content.Direction.Vector / 2;
+			Vector3 position3D = edges.Content.Direction;
+			Vector3 bestPosition3D = edges.Content.Direction / 2;
 			Circle<Edge> edge = edges.Next;
 			int edgecounter = 1;
 			while (edge != edges) {
-				if (((position3D + edge.Content.Direction.Vector / 2).X < bestPosition3D.X) ||
-				        ((position3D + edge.Content.Direction.Vector / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction.Vector / 2).Y < bestPosition3D.Y) ||
-				        ((position3D + edge.Content.Direction.Vector / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction.Vector / 2).Y == bestPosition3D.Y && (position3D + edge.Content.Direction.Vector / 2).Z < bestPosition3D.Z)) {
-					bestPosition3D = position3D + edge.Content.Direction.Vector / 2;
+				if (((position3D + edge.Content.Direction / 2).X < bestPosition3D.X) ||
+					((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y < bestPosition3D.Y) ||
+					((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y == bestPosition3D.Y && (position3D + edge.Content.Direction / 2).Z < bestPosition3D.Z)) {
+					bestPosition3D = position3D + edge.Content.Direction / 2;
 					charakteristikElement = edge;
 				}
 				edgecounter++;
-				position3D += edge.Content.Direction.Vector;
+				position3D += edge.Content.Direction;
 				edge = edge.Next;
 			}
 			return new KeyValuePair<Circle<Edge>, int> (charakteristikElement, edgecounter);

@@ -24,6 +24,8 @@ namespace Knot3.KnotData
 	/// <summary>
 	/// Eine Wertesammlung der möglichen Richtungen in einem dreidimensionalen Raum.
 	/// Wird benutzt, damit keine ungültigen Kantenrichtungen angegeben werden können.
+	/// Dies ist eine Klasse und kein Enum, kann aber
+	/// uneingeschränkt wie eines benutzt werden (Typesafe Enum Pattern).
 	/// </summary>
 	public sealed class Direction : IEquatable<Direction>
 	{
