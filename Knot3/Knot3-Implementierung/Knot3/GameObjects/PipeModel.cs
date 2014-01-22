@@ -57,7 +57,7 @@ namespace Knot3.GameObjects
 			_bounds = VectorHelper.CylinderBounds (
 			              length: length,
 			              radius: radius,
-			              direction: Info.Edge.Direction.ToVector3 (),
+			              direction: Info.Edge.Direction.Vector,
 			              position: info.PositionFrom
 			          );
 		}

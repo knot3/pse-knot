@@ -23,68 +23,14 @@ namespace Knot3.KnotData
 {
 	public static class DirectionHelper
 	{
-		public static Direction ToDirection (this Vector3 v)
+		public static Direction ToDirection (this Vector3 vector)
 		{
-			if (v == Vector3.Up) {
-				return Direction.Up;
+			foreach (Direction direction in Direction.Values) {
+				if (direction.Vector == vector) {
+					return direction;
+				}
 			}
-			else if (v == Vector3.Down) {
-				return Direction.Down;
-			}
-			else if (v == Vector3.Left) {
-				return Direction.Left;
-			}
-			else if (v == Vector3.Right) {
-				return Direction.Right;
-			}
-			else if (v == Vector3.Forward) {
-				return Direction.Forward;
-			}
-			else if (v == Vector3.Backward) {
-				return Direction.Backward;
-			}
-			else {
-				return Direction.Zero;
-			}
-		}
-
-		public static Vector3 ToVector3 (this Direction d)
-		{
-			if (d == Direction.Up) {
-				return Vector3.Up;
-			}
-			else if (d == Direction.Down) {
-				return Vector3.Down;
-			}
-			else if (d == Direction.Left) {
-				return Vector3.Left;
-			}
-			else if (d == Direction.Right) {
-				return Vector3.Right;
-			}
-			else if (d == Direction.Forward) {
-				return Vector3.Forward;
-			}
-			else if (d == Direction.Backward) {
-				return Vector3.Backward;
-			}
-			else {
-				return Vector3.Zero;
-			}
-		}
-
-		public static Direction ReverseDirection (this Direction dir)
-		{
-			return (-dir.ToVector3 ()).ToDirection ();
-		}
-
-		private static Direction[] allDirections = new Direction[] {
-			Direction.Up, Direction.Down, Direction.Left, Direction.Right, Direction.Forward, Direction.Backward
-		};
-
-		public static Direction[] AllDirections ()
-		{
-			return allDirections;
+			return Direction.Zero;
 		}
 	}
 }

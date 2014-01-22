@@ -89,7 +89,7 @@ namespace Knot3.KnotData
 			float x = Offset.X, y = Offset.Y, z = Offset.Z;
 			foreach (Edge edge in Edges) {
 				fromMap [edge] = new Node ((int)x, (int)y, (int)z);
-				Vector3 v = edge.Direction.ToVector3 ();
+				Vector3 v = edge.Direction.Vector;
 				x += v.X;
 				y += v.Y;
 				z += v.Z;

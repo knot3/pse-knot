@@ -48,6 +48,16 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public Vector3 PositionTo { get; set; }
 
+		private Dictionary<Direction, Angles3> RotationMap = new Dictionary<Direction, Angles3> ()
+		{
+			{ Direction.Up, 		Angles3.FromDegrees (90, 0, 0) },
+			{ Direction.Down, 		Angles3.FromDegrees (270, 0, 0) },
+			{ Direction.Right, 		Angles3.FromDegrees (0, 90, 0) },
+			{ Direction.Left, 		Angles3.FromDegrees (0, 270, 0) },
+			{ Direction.Forward, 	Angles3.FromDegrees (0, 0, 0) },
+			{ Direction.Backward, 	Angles3.FromDegrees (0, 0, 0) },
+		};
+
 		#endregion
 
 		#region Constructors
@@ -75,21 +85,12 @@ namespace Knot3.GameObjects
 			IsSelectable = true;
 
 			// Berechne die Drehung
-			switch (Edge.Direction) {
-			case Direction.Up:
-				Rotation += Angles3.FromDegrees (90, 0, 0);
-				break;
-			case Direction.Down:
-				Rotation += Angles3.FromDegrees (270, 0, 0);
-				break;
-			case Direction.Right:
-				Rotation += Angles3.FromDegrees (0, 90, 0);
-				break;
-			case Direction.Left:
-				Rotation += Angles3.FromDegrees (0, 270, 0);
-				break;
-			}
+			Rotation += RotationMap [Edge.Direction];
 		}
+
+		#endregion
+
+		#region Methods
 
 		public override bool Equals (GameObjectInfo other)
 		{
