@@ -35,18 +35,19 @@ namespace Knot3.Screens
 		/// </summary>
 		private VerticalMenu settingsMenu { get; set; }
 
-		private Dictionary<string, HashSet<Sound>> soundCategories = new Dictionary<string, HashSet<Sound>>() {
+		private Dictionary<string, HashSet<Sound>> soundCategories = new Dictionary<string, HashSet<Sound>>()
+		{
 			{
 				"Music",
-				new HashSet<Sound>(){
+				new HashSet<Sound>() {
 					Sound.CreativeMusic,
 					Sound.ChallengeMusic,
 					Sound.MenuMusic,
 				}
-			},
-			{
+			}, {
 				"Sound",
-				new HashSet<Sound>(){
+				new HashSet<Sound>()
+				{
 					Sound.PipeSound,
 				}
 			},

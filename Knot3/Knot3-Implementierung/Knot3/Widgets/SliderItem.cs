@@ -141,8 +141,8 @@ namespace Knot3.Widgets
 					coordinateRec.X = maxXSliderRectangle;
 				}
 				Value = ((int)coordinateRec.X - (int)this.minXSliderRectangle)
-					/ (280 / (this.MaxValue / this.Step))
-					* this.Step;
+				        / (280 / (this.MaxValue / this.Step))
+				        * this.Step;
 			}
 		}
 
