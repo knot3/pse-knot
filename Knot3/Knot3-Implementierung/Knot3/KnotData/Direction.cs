@@ -66,7 +66,8 @@ namespace Knot3.KnotData
 			Left, Right, Up, Down, Forward,	Backward
 		};
 		private static readonly Dictionary<Direction, Direction> ReverseMap
-			= new Dictionary<Direction, Direction> () {
+		    = new Dictionary<Direction, Direction> ()
+		{
 			{ Left, Right }, { Right, Left },
 			{ Up, Down }, { Down, Up },
 			{ Forward, Backward }, { Backward, Forward },
@@ -96,7 +97,7 @@ namespace Knot3.KnotData
 		#endregion
 
 		#region Methods and Operators
-		
+
 		public override string ToString ()
 		{
 			return Description;

@@ -88,7 +88,7 @@ namespace Knot3.KnotData
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
-			);
+			                         );
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -264,7 +264,7 @@ namespace Knot3.KnotData
 			               countEdges: () => 0,
 			               format: MetaData.Format,
 			               filename: MetaData.Filename
-			),
+			           ),
 			           edges: newCircle
 			) {
 				selectedEdges = new List<Edge>(selectedEdges),
@@ -429,8 +429,8 @@ namespace Knot3.KnotData
 			int edgecounter = 1;
 			while (edge != edges) {
 				if (((position3D + edge.Content.Direction.Vector / 2).X < bestPosition3D.X) ||
-					((position3D + edge.Content.Direction.Vector / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction.Vector / 2).Y < bestPosition3D.Y) ||
-					((position3D + edge.Content.Direction.Vector / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction.Vector / 2).Y == bestPosition3D.Y && (position3D + edge.Content.Direction.Vector / 2).Z < bestPosition3D.Z)) {
+				        ((position3D + edge.Content.Direction.Vector / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction.Vector / 2).Y < bestPosition3D.Y) ||
+				        ((position3D + edge.Content.Direction.Vector / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction.Vector / 2).Y == bestPosition3D.Y && (position3D + edge.Content.Direction.Vector / 2).Z < bestPosition3D.Z)) {
 					bestPosition3D = position3D + edge.Content.Direction.Vector / 2;
 					charakteristikElement = edge;
 				}
@@ -444,8 +444,8 @@ namespace Knot3.KnotData
 		public override string ToString ()
 		{
 			return "Knot(name=" + Name + ",#edgecount=" + edges.Count
-				+ ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
-				+ ")";
+			       + ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
+			       + ")";
 		}
 
 		/// <summary>
