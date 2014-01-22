@@ -35,6 +35,8 @@ namespace Knot3.Widgets
 		public static Color LineColor = new Color (0xb4, 0xff, 0x00);
 		public static Color OutlineColor = new Color (0x3b, 0x54, 0x00);
 
+		public bool IsEnabled { get; set; }
+
 		public Lines (GameScreen screen, DisplayLayer drawOrder, int lineWidth)
 		: base(screen, drawOrder)
 		{
@@ -42,6 +44,7 @@ namespace Knot3.Widgets
 			points = new List<Vector2> ();
 			spriteBatch = new SpriteBatch (screen.Device);
 			texture = TextureHelper.Create (Screen.Device, Color.White);
+			IsEnabled = true;
 		}
 
 		public override void Draw (GameTime time)
@@ -75,10 +78,10 @@ namespace Knot3.Widgets
 				spriteBatch.Begin ();
 				foreach (Rectangle inner in rects) {
 					Rectangle outer = new Rectangle (inner.X - 1, inner.Y - 1, inner.Width + 2, inner.Height + 2);
-					spriteBatch.Draw (texture, outer, OutlineColor);
+					spriteBatch.Draw (texture, outer, OutlineColor * (IsEnabled ? 1f : 0.5f));
 				}
 				foreach (Rectangle rect in rects) {
-					spriteBatch.Draw (texture, rect, LineColor);
+					spriteBatch.Draw (texture, rect, LineColor * (IsEnabled ? 1f : 0.5f));
 				}
 				spriteBatch.End ();
 			}

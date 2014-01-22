@@ -89,6 +89,14 @@ namespace Knot3.Widgets
 			set {}
 		}
 
+		public virtual bool IsEnabled
+		{
+			get { return _isEnabled; }
+			set { _isEnabled = value; }
+		}
+
+		private bool _isEnabled;
+
 		#endregion
 
 		#region Constructors
@@ -109,6 +117,7 @@ namespace Knot3.Widgets
 			BackgroundColor = () => Color.Transparent;
 			ValidKeys = new List<Keys> ();
 			IsVisible = true;
+			_isEnabled = true;
 		}
 
 		#endregion

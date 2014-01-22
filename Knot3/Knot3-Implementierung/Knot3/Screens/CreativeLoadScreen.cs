@@ -33,12 +33,10 @@ namespace Knot3.Screens
 		/// Das Menü, das die Spielstände enthält.
 		/// </summary>
 		private VerticalMenu savegameMenu;
-
 		private TextItem title;
 
-		// files
-		private FileIndex fileIndex;
-		private IKnotIO fileFormat;
+		// Spielstand-Loader
+		private SavegameLoader<Knot, KnotMetaData> loader;
 
 		#endregion
 
@@ -61,10 +59,15 @@ namespace Knot3.Screens
 
 			lines.AddPoints (0, 50, 30, 970, 970, 50, 1000);
 
-			title = new TextItem(screen: this, drawOrder: DisplayLayer.MenuItem, name: "Load Knot");
-			title.RelativePosition = () => new Vector2(0.100f, 0.050f);
-			title.RelativeSize = () => new Vector2(0.900f, 0.050f);
+			title = new TextItem (screen: this, drawOrder: DisplayLayer.MenuItem, name: "Load Knot");
+			title.RelativePosition = () => new Vector2 (0.100f, 0.050f);
+			title.RelativeSize = () => new Vector2 (0.900f, 0.050f);
 			title.ForegroundColor = () => Color.White;
+			
+			// Erstelle einen Parser für das Dateiformat
+			KnotFileIO fileFormat = new KnotFileIO ();
+			// Erstelle einen Spielstand-Loader
+			loader = new SavegameLoader<Knot, KnotMetaData> (fileFormat, "index-knots");
 		}
 
 		#endregion
@@ -73,89 +76,34 @@ namespace Knot3.Screens
 
 		private void UpdateFiles ()
 		{
-			// Erstelle einen neuen Parser
-			fileFormat = new KnotFileIO ();
-			// Erstelle einen neuen Index, der die Datei "index.txt" im Spielstandverzeichnis einliest
-			fileIndex = new FileIndex (FileUtility.SavegameDirectory + FileUtility.Separator + "index-knots.txt");
-
-			// Diese Verzeichnisse werden nach Spielständen durchsucht
-			string[] searchDirectories = new string[] {
-				FileUtility.BaseDirectory,
-				FileUtility.SavegameDirectory
-			};
-			Console.WriteLine ("Search for Savegames: " + string.Join (", ", searchDirectories));
-
 			// Leere das Spielstand-Menü
 			savegameMenu.Clear ();
 
-			// Suche nach Spielstanddateien und fülle das Menü auf
-			FileUtility.SearchFiles (searchDirectories, fileFormat.FileExtensions, AddFileToList);
+			// Suche nach Spielständen
+			loader.FindSavegames (AddSavegameToList);
 		}
 
 		/// <summary>
 		/// Diese Methode wird für jede gefundene Spielstanddatei aufgerufen
 		/// </summary>
-		private void AddFileToList (string filename)
+		private void AddSavegameToList (string filename, KnotMetaData meta)
 		{
-			// Lese die Datei ein und erstelle einen Hashcode
-			string hashcode = FileUtility.GetHash (filename);
+			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
+			Action<GameTime> LoadFile = (time) => {
+				NextScreen = new CreativeModeScreen (game: Game, knot: loader.FileFormat.Load (filename));
+			};
 
-			// Ist dieser Hashcode im Index enthalten?
-			// Dann wäre der Spielstand gültig, sonst ungültig oder unbekannt.
-			bool isValid = fileIndex.Contains (hashcode);
+			// Finde den Namen des Knotens
+			string name = meta.Name.Length > 0 ? meta.Name : filename;
 
-			// Wenn der Spielstand ungültig oder unbekannt ist...
-			if (!isValid) {
-				try {
-					// Lade den Knoten und prüfe, ob Exceptions auftreten
-					fileFormat.Load (filename);
-					// Keine Exceptions? Dann ist enthält die Datei einen gültigen Knoten!
-					isValid = true;
-					fileIndex.Add (hashcode);
-
-				}
-				catch (Exception ex) {
-					// Es ist eine Exception aufgetreten, der Knoten ist offenbar ungültig.
-					Console.WriteLine (ex);
-					isValid = false;
-				}
-			}
-
-			// Falls der Knoten gültig ist, entweder laut Index oder nach Überprüfung, dann...
-			if (isValid) {
-				// Lade die Metadaten
-				KnotMetaData meta = fileFormat.LoadMetaData (filename);
-
-				// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
-				Action<GameTime> LoadFile = (time) => {
-					NextScreen = new CreativeModeScreen (game: Game, knot: fileFormat.Load (filename));
-				};
-
-				// Finde den Namen des Knotens
-				string name = meta.Name.Length > 0 ? meta.Name : filename;
-
-				// Erstelle den Menüeintrag
-				MenuButton button = new MenuButton (
-				    screen: this,
-				    drawOrder: DisplayLayer.MenuItem,
-				    name: name,
-				    onClick: LoadFile
-				);
-				savegameMenu.Add (button);
-			}
-		}
-
-		/// <summary>
-		/// Wird für jeden Frame aufgerufen.
-		/// </summary>
-		public override void Update (GameTime time)
-		{
-			base.Update (time);
-		}
-
-		public override void Draw (GameTime time)
-		{
-			base.Draw (time);
+			// Erstelle den Menüeintrag
+			MenuButton button = new MenuButton (
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: name,
+			    onClick: LoadFile
+			);
+			savegameMenu.Add (button);
 		}
 
 		/// <summary>

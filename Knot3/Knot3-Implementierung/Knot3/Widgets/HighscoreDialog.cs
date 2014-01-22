@@ -62,22 +62,17 @@ namespace Knot3.Widgets
 
 
 			//Button fürs Neustarten
-			MenuButton restartButton = new MenuButton(
+			MenuButton restartButton = new MenuButton (
 			    screen: Screen,
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Restart challenge",
 			onClick: (time) => {
-				Close(time);
-				Screen.NextScreen = new ChallengeModeScreen(Screen.Game, challenge);
+				Close (time);
+				Screen.NextScreen = new ChallengeModeScreen (Screen.Game, challenge);
 			}
 			);
 
 			highscoreList.Add (restartButton);
-
-			//Kehrt zum Startscreen zurück
-			Action<GameTime> returnToMenu = (time) => {
-				Screen.NextScreen = new StartScreen (Screen.Game);
-			};
 
 			//Button für die Rückkehr zum StartScreen
 			MenuButton returnButton = new MenuButton (
@@ -85,8 +80,8 @@ namespace Knot3.Widgets
 			    drawOrder: DisplayLayer.MenuItem,
 			    name: "Return to menu",
 			onClick: (time) => {
-				Close(time);
-				Screen.NextScreen = new StartScreen(Screen.Game);
+				Close (time);
+				Screen.NextScreen = new StartScreen (Screen.Game);
 			}
 			);
 			highscoreList.Add (returnButton);

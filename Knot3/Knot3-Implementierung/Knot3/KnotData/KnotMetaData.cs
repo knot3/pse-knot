@@ -28,7 +28,7 @@ namespace Knot3.KnotData
 	/// sondern nur Informationen über den Namen des Knoten und die Anzahl seiner Kanten. Es kann ohne ein
 	/// dazugehöriges Knoten-Objekt existieren, aber jedes Knoten-Objekt enthält genau ein Knoten-Metadaten-Objekt.
 	/// </summary>
-	public class KnotMetaData
+	public class KnotMetaData : IEquatable<KnotMetaData>
 	{
 		#region Properties
 
@@ -59,7 +59,7 @@ namespace Knot3.KnotData
 					throw new ArgumentException ("Every implementation of IKnotIO must have at least one file extension.");
 				}
 				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
-				           + FileUtility.ConvertToFileName (name) + extension;
+					+ FileUtility.ConvertToFileName (name) + extension;
 			}
 		}
 
@@ -118,6 +118,36 @@ namespace Knot3.KnotData
 
 		#endregion
 
+		#region Methods
+
+		public bool Equals (KnotMetaData other)
+		{
+			return other != null && name == other.name && countEdges () == other.countEdges ();
+		}
+
+		
+		public static bool operator == (KnotMetaData a, KnotMetaData b)
+		{
+			// If both are null, or both are same instance, return true.
+			if (System.Object.ReferenceEquals (a, b)) {
+				return true;
+			}
+
+			// If one is null, but not both, return false.
+			if (((object)a == null) || ((object)b == null)) {
+				return false;
+			}
+
+			// Return true if the fields match:
+			return a.Equals(b);
+		}
+
+		public static bool operator != (KnotMetaData a, KnotMetaData b)
+		{
+			return !(a == b);
+		}
+
+		#endregion
 	}
 }
 

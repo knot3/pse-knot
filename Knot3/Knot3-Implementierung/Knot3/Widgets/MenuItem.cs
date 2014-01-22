@@ -53,13 +53,18 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
-		protected virtual float NameWidth { get { return 0.5f; } }
+		public virtual float NameWidth { get { return _nameWidth; } set { _nameWidth = value; } }
+
+		private float _nameWidth = 0.5f;
 
 		/// <summary>
 		/// Wie viel Prozent der Wert des Eintrags (auf der rechten Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
-		protected virtual float ValueWidth { get { return 0.5f; } }
+		public virtual float ValueWidth { get { return _valueWidth; } set { _valueWidth = value; } }
 
+		private float _valueWidth = 0.5f;
+
+		// ein Spritebatch
 		protected SpriteBatch spriteBatch;
 
 		#endregion
@@ -132,7 +137,8 @@ namespace Knot3.Widgets
 				SpriteFont font = HfGDesign.MenuFont (Screen);
 
 				// zeichne die Schrift
-				spriteBatch.DrawStringInRectangle (font, Text, ForegroundColor (), Bounds (), AlignX, AlignY);
+				Color foreground = ForegroundColor () * (IsEnabled ? 1f : 0.5f);
+				spriteBatch.DrawStringInRectangle (font, Text, foreground, Bounds (), AlignX, AlignY);
 
 				spriteBatch.End ();
 			}

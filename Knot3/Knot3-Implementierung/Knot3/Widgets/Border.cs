@@ -28,18 +28,32 @@ namespace Knot3.Widgets
 
 		public int LineWidth { get; set; }
 
+		public int Padding { get; set; }
+
 		private Lines lines;
 		private Vector2 lastPosition = Vector2.Zero;
 		private Vector2 lastSize = Vector2.Zero;
+
+		public override bool IsEnabled
+		{
+			get {
+				return base.IsEnabled;
+			}
+			set {
+				base.IsEnabled = value;
+				lines.IsEnabled = value;
+			}
+		}
 
 		#endregion
 
 		#region Constructors
 
-		public Border (GameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth)
+		public Border (GameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth = 2, int padding = 0)
 		: base(screen, drawOrder)
 		{
 			LineWidth = lineWidth;
+			Padding = padding;
 			lines = new Lines (screen, drawOrder, lineWidth);
 			RelativePosition = () => widget.RelativePosition ();
 			RelativeSize = () => widget.RelativeSize ();
@@ -57,7 +71,15 @@ namespace Knot3.Widgets
 			if (position != lastPosition || size != lastSize) {
 				lastPosition = position;
 				lastSize = size;
-				lines.AddPoints (position.X, position.Y, position.X + size.X, position.Y + size.Y, position.X, position.Y);
+				Vector2 padding = Vector2.One*0.001f*Padding;
+				lines.AddPoints (
+					position.X - padding.X,
+					position.Y - padding.Y,
+					position.X + size.X + padding.X,
+					position.Y + size.Y + padding.Y,
+					position.X - padding.X,
+					position.Y - padding.Y
+				);
 			}
 
 			base.Update (time);
