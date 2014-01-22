@@ -88,7 +88,7 @@ namespace Knot3.KnotData
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
-			                         );
+			);
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -134,7 +134,7 @@ namespace Knot3.KnotData
 				Circle<Edge> pointer = currentBlock.Begin;
 				do {
 					stack.Push (pointer.Content.Direction);
-					pointer = pointer.Next;
+					pointer++;
 				}
 				while (pointer != currentBlock.End.Next);
 
@@ -147,12 +147,12 @@ namespace Knot3.KnotData
 						return false;
 					}
 					stack.Pop ();
-					pointer = pointer.Next;
+					pointer++;
 					counter++;
 				}
 				while (pointer != nextBlock.Begin) {
 					stack.Push (pointer.Content.Direction);
-					pointer = pointer.Next;
+					pointer++;
 				}
 				for (int i = 0; i < distance; i++) {
 					if (stack.Peek () == direction.Reverse) {
@@ -164,15 +164,15 @@ namespace Knot3.KnotData
 				}
 			}
 
-			Vector3 pos3D = Vector3.Zero;
+			Vector3 position3D = Vector3.Zero;
 			HashSet<Vector3> occupancy = new HashSet<Vector3> ();
 			while (stack.Count > 0) {
-				if (occupancy.Contains (pos3D + (stack.Peek ().Vector / 2))) {
+				if (occupancy.Contains (position3D + (stack.Peek () / 2))) {
 					return false;
 				}
 				else {
-					occupancy.Add (pos3D + (stack.Peek ().Vector / 2));
-					pos3D += stack.Pop ().Vector;
+					occupancy.Add (position3D + (stack.Peek () / 2));
+					position3D += stack.Pop ();
 				}
 			}
 			return true;
@@ -264,7 +264,7 @@ namespace Knot3.KnotData
 			               countEdges: () => 0,
 			               format: MetaData.Format,
 			               filename: MetaData.Filename
-			           ),
+			),
 			           edges: newCircle
 			) {
 				selectedEdges = new List<Edge>(selectedEdges),
@@ -436,7 +436,7 @@ namespace Knot3.KnotData
 				}
 				edgecounter++;
 				position3D += edge.Content.Direction;
-				edge = edge.Next;
+				edge ++;
 			}
 			return new KeyValuePair<Circle<Edge>, int> (charakteristikElement, edgecounter);
 		}
@@ -444,8 +444,8 @@ namespace Knot3.KnotData
 		public override string ToString ()
 		{
 			return "Knot(name=" + Name + ",#edgecount=" + edges.Count
-			       + ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
-			       + ")";
+				+ ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
+				+ ")";
 		}
 
 		/// <summary>
@@ -475,13 +475,13 @@ namespace Knot3.KnotData
 			if (selectedEdges.Contains (start.Content)) {
 				// Wenn "edges" in der Selektion ist geh nach links, bis zum Anfang des Blockes.
 				while (selectedEdges.Contains(start.Previous.Content)) {
-					start = start.Previous;
+					start --;
 				}
 			}
 			else {
 				// Wenn "edges" nicht selektiert ist, gehe nach rechts bis zum beginn des nächsten Blockes.
 				while (!selectedEdges.Contains(start.Content)) {
-					start = start.Next;
+					start ++;
 				}
 			}
 			do {
@@ -490,14 +490,14 @@ namespace Knot3.KnotData
 				stop = start;
 				// Gehe bis zum Ende des selektierten Blockes.
 				while (selectedEdges.Contains(stop.Next.Content)) {
-					stop = stop.Next;
+					stop ++;
 				}
 				Circle<Edge> end = stop;
 
 				// Gehe bis zum start des nächsten Blockes.
 				start = stop.Next;
 				while (!selectedEdges.Contains(start.Content)) {
-					start = start.Next;
+					start ++;
 				}
 
 				// Füge den Selektions-Block der Liste hinzu

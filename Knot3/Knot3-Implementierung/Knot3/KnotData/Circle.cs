@@ -111,13 +111,13 @@ namespace Knot3.KnotData
 
 		public bool Contains (T obj, out Circle<T> item)
 		{
-			item = Find (obj).ElementAtOrDefault(0);
+			item = Find (obj).ElementAtOrDefault (0);
 			return item != null;
 		}
 
 		public bool Contains (Func<T, bool> func, out Circle<T> item)
 		{
-			item = Find (func).ElementAtOrDefault(0);
+			item = Find (func).ElementAtOrDefault (0);
 			return item != null;
 		}
 
@@ -169,6 +169,35 @@ namespace Knot3.KnotData
 		public override string ToString ()
 		{
 			return "Circle(" + Content + ")";
+		}
+
+		public static Circle<T> operator + (Circle<T> circle, int i)
+		{
+			Circle<T> next = circle;
+			while (i > 0) {
+				next = next.Next;
+				i--;
+			}
+			while (i < 0) {
+				next = next.Previous;
+				i++;
+			}
+			return next;
+		}
+
+		public static Circle<T> operator - (Circle<T> circle, int i)
+		{
+			return circle + (-i);
+		}
+
+		public static Circle<T> operator ++ (Circle<T> circle)
+		{
+			return circle.Next;
+		}
+
+		public static Circle<T> operator -- (Circle<T> circle)
+		{
+			return circle.Previous;
 		}
 	}
 }
