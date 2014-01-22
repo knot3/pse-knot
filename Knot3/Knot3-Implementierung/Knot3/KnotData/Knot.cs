@@ -429,8 +429,8 @@ namespace Knot3.KnotData
 			int edgecounter = 1;
 			while (edge != edges) {
 				if (((position3D + edge.Content.Direction / 2).X < bestPosition3D.X) ||
-					((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y < bestPosition3D.Y) ||
-					((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y == bestPosition3D.Y && (position3D + edge.Content.Direction / 2).Z < bestPosition3D.Z)) {
+				        ((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y < bestPosition3D.Y) ||
+				        ((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y == bestPosition3D.Y && (position3D + edge.Content.Direction / 2).Z < bestPosition3D.Z)) {
 					bestPosition3D = position3D + edge.Content.Direction / 2;
 					charakteristikElement = edge;
 				}
