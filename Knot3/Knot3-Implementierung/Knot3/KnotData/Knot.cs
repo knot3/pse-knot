@@ -88,7 +88,7 @@ namespace Knot3.KnotData
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
-			                                );
+			);
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -264,7 +264,7 @@ namespace Knot3.KnotData
 			               countEdges: () => 0,
 			               format: MetaData.Format,
 			               filename: MetaData.Filename
-			           ),
+			),
 			           edges: newCircle
 			) {
 				selectedEdges = new List<Edge>(selectedEdges),
@@ -425,18 +425,18 @@ namespace Knot3.KnotData
 			Circle<Edge> charakteristikElement = startElement;
 			Vector3 position3D = startElement.Content.Direction;
 			Vector3 bestPosition3D = startElement.Content.Direction / 2;
-			Circle<Edge> edge = startElement.Next;
+			Circle<Edge> edgePointer = startElement.Next;
 			int edgeCount = 1;
-			while (edge != startElement) {
-				if (((position3D + edge.Content.Direction / 2).X < bestPosition3D.X) ||
-				        ((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y < bestPosition3D.Y) ||
-				        ((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y == bestPosition3D.Y && (position3D + edge.Content.Direction / 2).Z < bestPosition3D.Z)) {
-					bestPosition3D = position3D + edge.Content.Direction / 2;
-					charakteristikElement = edge;
+			for (edgeCount = 1; edgePointer != startElement; edgePointer ++, edgeCount ++) {
+				Vector3 nextPosition3D = position3D + edgePointer.Content.Direction / 2;
+				if ((nextPosition3D.X < bestPosition3D.X)
+					|| (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y < bestPosition3D.Y)
+					|| (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y == bestPosition3D.Y && nextPosition3D.Z < bestPosition3D.Z)) {
+
+					bestPosition3D = position3D + edgePointer.Content.Direction / 2;
+					charakteristikElement = edgePointer;
 				}
-				edgeCount++;
-				position3D += edge.Content.Direction;
-				edge ++;
+				position3D += edgePointer.Content.Direction;
 			}
 			return new KnotCharakteristic (charakteristikElement, edgeCount);
 		}
@@ -444,8 +444,8 @@ namespace Knot3.KnotData
 		public override string ToString ()
 		{
 			return "Knot(name=" + Name + ",#edgecount=" + startElement.Count
-			       + ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
-			       + ")";
+				+ ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
+				+ ")";
 		}
 
 		/// <summary>
@@ -524,7 +524,8 @@ namespace Knot3.KnotData
 			}
 		}
 
-		private struct KnotCharakteristic {
+		private struct KnotCharakteristic
+		{
 			public Circle<Edge> CharacteristicalEdge { get; private set; }
 
 			public int CountEdges { get; private set; }
