@@ -61,7 +61,7 @@ namespace Knot3.Screens
 			startKnotMenu = new VerticalMenu (this, DisplayLayer.Menu);
 			startKnotMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
 			startKnotMenu.RelativeSize = () => new Vector2 (0.375f, 0.620f);
-			
+
 			targetKnotMenu = new VerticalMenu (this, DisplayLayer.Menu);
 			targetKnotMenu.RelativePosition = () => new Vector2 (0.525f, 0.180f);
 			targetKnotMenu.RelativeSize = () => new Vector2 (0.375f, 0.620f);
@@ -72,7 +72,7 @@ namespace Knot3.Screens
 			challengeName.OnValueChanged += () => TryConstructChallenge ();
 			challengeName.NameWidth = 0.3f;
 			challengeName.ValueWidth = 0.7f;
-			
+
 			createButton = new MenuButton (
 			    screen: this,
 			    drawOrder: DisplayLayer.MenuItem,
@@ -95,7 +95,7 @@ namespace Knot3.Screens
 			title.RelativePosition = () => new Vector2 (0.100f, 0.050f);
 			title.RelativeSize = () => new Vector2 (0.900f, 0.050f);
 			title.ForegroundColor = () => Color.White;
-			
+
 			// Erstelle einen Parser für das Dateiformat
 			KnotFileIO fileFormat = new KnotFileIO ();
 			// Erstelle einen Spielstand-Loader
@@ -130,7 +130,7 @@ namespace Knot3.Screens
 				UpdateFiles ();
 				TryConstructChallenge ();
 			};
-			
+
 			// Erstelle die Lamdafunktionen, die beim Auswählen des Menüeintrags ausgeführt werden
 			Action<GameTime> SelectTargetKnot = (time) => {
 				selectedTargetKnot = loader.FileFormat.Load (filename);
@@ -168,8 +168,8 @@ namespace Knot3.Screens
 		{
 			get {
 				return selectedStartKnot != null && selectedTargetKnot != null &&
-					selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
-					&& challengeName.InputText.Length > 0;
+				       selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
+				       && challengeName.InputText.Length > 0;
 			}
 		}
 
@@ -179,17 +179,17 @@ namespace Knot3.Screens
 
 			if (can) {
 				ChallengeMetaData challengeMeta = new ChallengeMetaData (
-					name: challengeName.InputText,
-					start: selectedStartKnot.MetaData,
-					target: selectedTargetKnot.MetaData,
-					filename: null,
-					format: new ChallengeFileIO (),
-					highscore: new List<KeyValuePair<string,int>> ()
+				    name: challengeName.InputText,
+				    start: selectedStartKnot.MetaData,
+				    target: selectedTargetKnot.MetaData,
+				    filename: null,
+				    format: new ChallengeFileIO (),
+				    highscore: new List<KeyValuePair<string,int>> ()
 				);
 				selectedChallenge = new Challenge (
-					meta: challengeMeta,
-					start: selectedStartKnot,
-					target: selectedTargetKnot
+				    meta: challengeMeta,
+				    start: selectedStartKnot,
+				    target: selectedTargetKnot
 				);
 			}
 			else {

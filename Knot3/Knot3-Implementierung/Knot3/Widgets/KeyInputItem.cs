@@ -37,7 +37,8 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
-		public override float NameWidth {
+		public override float NameWidth
+		{
 			get { return Math.Min (0.70f, 1.0f - ValueWidth); }
 			set { throw new ArgumentException("You can't change the NameWidth of a KeyInputItem!"); }
 		}
@@ -45,7 +46,8 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Wie viel Prozent der Wert des Eintrags (auf der rechten Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
-		public override float ValueWidth {
+		public override float ValueWidth
+		{
 			get { return 3 * ScaledSize.Y / ScaledSize.X; }
 			set { throw new ArgumentException("You can't change the ValueWidth of a KeyInputItem!"); }
 		}

@@ -63,7 +63,7 @@ namespace Knot3.Screens
 			title.RelativePosition = () => new Vector2 (0.100f, 0.050f);
 			title.RelativeSize = () => new Vector2 (0.900f, 0.050f);
 			title.ForegroundColor = () => Color.White;
-			
+
 			// Erstelle einen Parser für das Dateiformat
 			KnotFileIO fileFormat = new KnotFileIO ();
 			// Erstelle einen Spielstand-Loader
