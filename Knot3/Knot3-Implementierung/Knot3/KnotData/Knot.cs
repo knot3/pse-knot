@@ -46,7 +46,7 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
 		/// </summary>
-		private Circle<Edge> edges;
+		private Circle<Edge> startElement;
 
 		/// <summary>
 		/// Die Metadaten des Knotens.
@@ -83,12 +83,12 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Knot ()
 		{
-			MetaData = new KnotMetaData ("", () => edges.Count, null, null);
-			edges = new Circle<Edge> (new Edge[] {
+			MetaData = new KnotMetaData ("", () => startElement.Count, null, null);
+			startElement = new Circle<Edge> (new Edge[] {
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
-			                         );
+			);
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -102,11 +102,11 @@ namespace Knot3.KnotData
 		{
 			MetaData = new KnotMetaData (
 			    name: metaData.Name,
-			    countEdges: () => this.edges.Count,
+			    countEdges: () => this.startElement.Count,
 			    format: metaData.Format,
 			    filename: metaData.Filename
 			);
-			this.edges = new Circle<Edge> (edges);
+			this.startElement = new Circle<Edge> (edges);
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -196,8 +196,8 @@ namespace Knot3.KnotData
 				for (int n = 0; n < distance; n++) {
 					if (pointer.Previous.Content.Direction == direction.Reverse) {
 						// Wenn die zu löschende Kante der Einstigspunkt ist, einen neuen setzten.
-						if (pointer.Previous == edges) {
-							edges = pointer;
+						if (pointer.Previous == startElement) {
+							startElement = pointer;
 						}
 						pointer.Previous.Remove ();
 					}
@@ -212,8 +212,8 @@ namespace Knot3.KnotData
 				for (int n = 0; n < distance; n++) {
 					if (pointer.Next.Content.Direction == direction) {
 						// Wenn die zu löschende Kante der Einstigspunkt ist, einen neuen setzten.
-						if (pointer.Next == edges) {
-							edges = edges.Previous;
+						if (pointer.Next == startElement) {
+							startElement = startElement.Previous;
 						}
 						pointer.Next.Remove ();
 					}
@@ -231,7 +231,7 @@ namespace Knot3.KnotData
 		/// </summary>
 		public IEnumerator<Edge> GetEnumerator ()
 		{
-			return edges.GetEnumerator ();
+			return startElement.GetEnumerator ();
 		}
 
 		/// <summary>
@@ -257,14 +257,14 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Object Clone ()
 		{
-			Circle<Edge> newCircle = new Circle<Edge> (edges as IEnumerable<Edge>);
+			Circle<Edge> newCircle = new Circle<Edge> (startElement as IEnumerable<Edge>);
 			return new Knot (
 			           metaData: new KnotMetaData (
 			               name: MetaData.Name,
 			               countEdges: () => 0,
 			               format: MetaData.Format,
 			               filename: MetaData.Filename
-			           ),
+			),
 			           edges: newCircle
 			) {
 				selectedEdges = new List<Edge>(selectedEdges),
@@ -287,7 +287,7 @@ namespace Knot3.KnotData
 			if (!selectedEdges.Contains (edge)) {
 				selectedEdges.Add (edge);
 			}
-			lastSelected = edges.Find (edge).ElementAt (0);
+			lastSelected = startElement.Find (edge).ElementAt (0);
 			OnSelectionChanged ();
 		}
 
@@ -322,7 +322,7 @@ namespace Knot3.KnotData
 		public void AddRangeToSelection (Edge selectedEdge)
 		{
 			Circle<Edge> selectedCircle = null;
-			if (edges.Contains (selectedEdge, out selectedCircle) && selectedEdge != lastSelected.Content) {
+			if (startElement.Contains (selectedEdge, out selectedCircle) && selectedEdge != lastSelected.Content) {
 				List<Edge> forward = new List<Edge> (lastSelected.RangeTo (selectedCircle));
 				List<Edge> backward = new List<Edge> (selectedCircle.RangeTo (lastSelected));
 
@@ -369,7 +369,7 @@ namespace Knot3.KnotData
 		public void Save (IKnotIO format, string filename)
 		{
 			KnotMetaData metaData = new KnotMetaData (MetaData.Name, () => MetaData.CountEdges, format, filename);
-			Knot knotToSave = new Knot (metaData, edges);
+			Knot knotToSave = new Knot (metaData, startElement);
 			format.Save (knotToSave);
 		}
 
@@ -379,34 +379,34 @@ namespace Knot3.KnotData
 		/// </summary>
 		public bool Equals (Knot other)
 		{
-			KeyValuePair<Circle<Edge>, int> thisCharakteristik = Charakteristic ();
-			KeyValuePair<Circle<Edge>, int> otherCharakteristik = other.Charakteristic ();
-			if (thisCharakteristik.Value != otherCharakteristik.Value) {
+			KnotCharakteristic thisCharakteristik = Charakteristic ();
+			KnotCharakteristic otherCharakteristik = other.Charakteristic ();
+			if (thisCharakteristik.CountEdges != otherCharakteristik.CountEdges) {
 				return false;
 			}
 			// Bei Struktur im gleicher Richtung
-			if (thisCharakteristik.Key.Content.Direction == otherCharakteristik.Key.Content.Direction) {
-				Circle<Edge> currentThisCircleElement = thisCharakteristik.Key.Next;
-				Circle<Edge> currentOtherCircleElement = otherCharakteristik.Key.Next;
-				while (currentThisCircleElement != thisCharakteristik.Key) {
-					if (currentThisCircleElement.Content.Direction != currentOtherCircleElement.Content.Direction) {
+			if (thisCharakteristik.CharacteristicalEdge.Content.Direction == otherCharakteristik.CharacteristicalEdge.Content.Direction) {
+				Circle<Edge> currentThisElement = thisCharakteristik.CharacteristicalEdge.Next;
+				Circle<Edge> currentOtherElement = otherCharakteristik.CharacteristicalEdge.Next;
+				while (currentThisElement != thisCharakteristik.CharacteristicalEdge) {
+					if (currentThisElement.Content.Direction != currentOtherElement.Content.Direction) {
 						return false;
 					}
-					currentThisCircleElement = currentThisCircleElement.Next;
-					currentOtherCircleElement = currentOtherCircleElement.Next;
+					currentThisElement ++;
+					currentOtherElement ++;
 				}
 				return true;
 			}
 			// Bei Struktur in entgegengesetzter Richtung
-			else if (thisCharakteristik.Key.Content.Direction == otherCharakteristik.Key.Content.Direction.Reverse) {
-				Circle<Edge> currentThisCircleElement = thisCharakteristik.Key.Next;
-				Circle<Edge> currentOtherCircleElement = otherCharakteristik.Key.Next;
-				while (currentThisCircleElement != thisCharakteristik.Key) {
-					if (currentThisCircleElement.Content.Direction != currentOtherCircleElement.Content.Direction.Reverse) {
+			else if (thisCharakteristik.CharacteristicalEdge.Content.Direction == otherCharakteristik.CharacteristicalEdge.Content.Direction.Reverse) {
+				Circle<Edge> currentThisElement = thisCharakteristik.CharacteristicalEdge.Next;
+				Circle<Edge> currentOtherElement = otherCharakteristik.CharacteristicalEdge.Next;
+				while (currentThisElement != thisCharakteristik.CharacteristicalEdge) {
+					if (currentThisElement.Content.Direction != currentOtherElement.Content.Direction.Reverse) {
 						return false;
 					}
-					currentThisCircleElement = currentThisCircleElement.Next;
-					currentOtherCircleElement = currentOtherCircleElement.Next;
+					currentThisElement ++;
+					currentOtherElement ++;
 				}
 				return true;
 			}
@@ -420,32 +420,32 @@ namespace Knot3.KnotData
 		/// Einmal als Key ein eindeutiges Circle\<Edge\> Element und als Value
 		/// einen Charakteristischen Integer. Momentan die Anzahl der Kanten.
 		/// </summary>
-		private KeyValuePair<Circle<Edge>, int> Charakteristic ()
+		private KnotCharakteristic Charakteristic ()
 		{
-			Circle<Edge> charakteristikElement = edges;
-			Vector3 position3D = edges.Content.Direction;
-			Vector3 bestPosition3D = edges.Content.Direction / 2;
-			Circle<Edge> edge = edges.Next;
-			int edgecounter = 1;
-			while (edge != edges) {
+			Circle<Edge> charakteristikElement = startElement;
+			Vector3 position3D = startElement.Content.Direction;
+			Vector3 bestPosition3D = startElement.Content.Direction / 2;
+			Circle<Edge> edge = startElement.Next;
+			int edgeCount = 1;
+			while (edge != startElement) {
 				if (((position3D + edge.Content.Direction / 2).X < bestPosition3D.X) ||
-				        ((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y < bestPosition3D.Y) ||
-				        ((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y == bestPosition3D.Y && (position3D + edge.Content.Direction / 2).Z < bestPosition3D.Z)) {
+					((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y < bestPosition3D.Y) ||
+					((position3D + edge.Content.Direction / 2).X == bestPosition3D.X && (position3D + edge.Content.Direction / 2).Y == bestPosition3D.Y && (position3D + edge.Content.Direction / 2).Z < bestPosition3D.Z)) {
 					bestPosition3D = position3D + edge.Content.Direction / 2;
 					charakteristikElement = edge;
 				}
-				edgecounter++;
+				edgeCount++;
 				position3D += edge.Content.Direction;
 				edge ++;
 			}
-			return new KeyValuePair<Circle<Edge>, int> (charakteristikElement, edgecounter);
+			return new KnotCharakteristic (charakteristikElement, edgeCount);
 		}
 
 		public override string ToString ()
 		{
-			return "Knot(name=" + Name + ",#edgecount=" + edges.Count
-			       + ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
-			       + ")";
+			return "Knot(name=" + Name + ",#edgecount=" + startElement.Count
+				+ ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
+				+ ")";
 		}
 
 		/// <summary>
@@ -466,10 +466,10 @@ namespace Knot3.KnotData
 			}
 			// wenn alles ausgewählt ist kann man die erstellung verkürzen.
 			if (selectedEdges.Count == MetaData.CountEdges) {
-				StructuredSelection.Add (new SelectionBlock (edges, edges.Previous));
+				StructuredSelection.Add (new SelectionBlock (startElement, startElement.Previous));
 				return;
 			}
-			Circle<Edge> start = edges;
+			Circle<Edge> start = startElement;
 			Circle<Edge> stop = start.Previous;
 			// Suche eine Stelle an der ein Selektionsblock beginnt.
 			if (selectedEdges.Contains (start.Content)) {
@@ -509,7 +509,7 @@ namespace Knot3.KnotData
 
 		#endregion
 
-		#region Classes
+		#region Classes and Structs
 
 		private class SelectionBlock
 		{
@@ -521,6 +521,19 @@ namespace Knot3.KnotData
 			{
 				Begin = begin;
 				End = end;
+			}
+		}
+
+		private struct KnotCharakteristic
+		{
+			public Circle<Edge> CharacteristicalEdge { get; private set; }
+
+			public int CountEdges { get; private set; }
+
+			public KnotCharakteristic (Circle<Edge> characteristicalEdge, int countEdges) : this()
+			{
+				CharacteristicalEdge = characteristicalEdge;
+				CountEdges = countEdges;
 			}
 		}
 
