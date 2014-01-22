@@ -32,7 +32,6 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Das Menü, das die Spielstände enthält.
 		/// </summary>
-		private FileIndex fileIndex;
 		private VerticalMenu savegameMenu;
 		private TextItem title;
 
