@@ -33,7 +33,13 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Der aktuelle Wert.
 		/// </summary>
-		public int Value { get; set; }
+		public int Value
+		{
+			get { return _value; }
+			set { if (_value != value) { _value = value; OnValueChanged (); } }
+		}
+
+		private int _value;
 
 		/// <summary>
 		/// Der minimale Wert.
@@ -50,6 +56,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public int Step { get; set; }
 
+		public Action OnValueChanged = () => {};
 		private float minXSliderRectangle = -1.0f;
 		private float maxXSliderRectangle = -1.0f;
 		private Vector2 coordinateRec;
@@ -66,99 +73,88 @@ namespace Knot3.Widgets
 		public SliderItem (GameScreen screen, DisplayLayer drawOrder, string text, int max, int min, int step, int value)
 		: base(screen, drawOrder, text)
 		{
-			this.MaxValue = max;
-			this.MinValue = min;
-			this.Step = step;
-			this.Value = value;
-
+			MaxValue = max;
+			MinValue = min;
+			Step = step;
+			_value = value;
 		}
 
 		#endregion
 
 		#region Methods
 
-
-		public override void Draw(GameTime time)
+		public override void Draw (GameTime time)
 		{
-			base.Draw(time);
+			base.Draw (time);
 
-			spriteBatch.Begin();
+			spriteBatch.Begin ();
 
 			int lineWidth = 300;
 			int lineHeight = 2;
 
 			int rectangleWidth = 20;
-			int rectangleHeight = (int) ScaledSize.Y;
+			int rectangleHeight = (int)ScaledSize.Y;
 
-
-			Texture2D line = new Texture2D(Screen.Device, lineWidth, lineHeight);
-			Texture2D rectangle = new Texture2D(Screen.Device, rectangleWidth, rectangleHeight);
+			Texture2D line = new Texture2D (Screen.Device, lineWidth, lineHeight);
+			Texture2D rectangle = new Texture2D (Screen.Device, rectangleWidth, rectangleHeight);
 
 			Color[] dataLine = new Color[lineWidth * lineHeight];
 			for (int i = 0; i < dataLine.Length; ++i) {
-				dataLine[i] = Color.White;
+				dataLine [i] = Color.White;
 			}
-			line.SetData(dataLine);
+			line.SetData (dataLine);
 
 			Color[] dataRec = new Color[rectangleWidth * rectangleHeight];
 			for (int i = 0; i < dataRec.Length; ++i) {
-				dataRec[i] = Color.YellowGreen;
+				dataRec [i] = Color.YellowGreen;
 			}
-			rectangle.SetData(dataRec);
+			rectangle.SetData (dataRec);
 
-			Vector2 coordinateLine = this.ScaledPosition;
-			coordinateLine.X += this.ScaledSize.X / 2;
-			coordinateLine.Y += this.ScaledSize.Y / 2;
+			Vector2 coordinateLine = ScaledPosition;
+			coordinateLine.X += ScaledSize.X / 2;
+			coordinateLine.Y += ScaledSize.Y / 2;
 
-			if (this.minXSliderRectangle < 0) {
-				this.coordinateRec = this.ScaledPosition;
-				this.coordinateRec.X += this.ScaledSize.X / 2 + (this.Value / this.Step) * (280 / (this.MaxValue/ this.Step));
-				this.minXSliderRectangle = coordinateLine.X;
-				this.maxXSliderRectangle = coordinateLine.X + 280;
+			if (minXSliderRectangle < 0) {
+				coordinateRec = ScaledPosition;
+				coordinateRec.X += ScaledSize.X / 2 + (Value / Step) * (280 / (MaxValue / Step));
+				minXSliderRectangle = coordinateLine.X;
+				maxXSliderRectangle = coordinateLine.X + 280;
 
 			}
 
+			spriteBatch.Draw (line, coordinateLine, Color.White);
+			spriteBatch.Draw (rectangle, coordinateRec, Color.YellowGreen);
 
-
-			spriteBatch.Draw(line, coordinateLine, Color.White);
-			spriteBatch.Draw(rectangle, coordinateRec, Color.YellowGreen);
-
-			spriteBatch.End();
-
+			spriteBatch.End ();
 		}
 
-		public override void OnLeftClick(Vector2 position, ClickState state, GameTime time)
+		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-
 			Vector2 mousePosition = position;
-			Console.WriteLine("" + mousePosition.X + " rect " + coordinateRec.X);
-			if (mousePosition.X > minXSliderRectangle  && mousePosition.X< minXSliderRectangle + 300) {
-
-
-				this.coordinateRec.X = mousePosition.X -10.0f;
-				if (this.coordinateRec.X < this.minXSliderRectangle) {
-					this.coordinateRec.X = this.minXSliderRectangle;
+			Console.WriteLine ("" + mousePosition.X + " rect " + coordinateRec.X);
+			if (mousePosition.X > minXSliderRectangle && mousePosition.X < minXSliderRectangle + 300) {
+				coordinateRec.X = mousePosition.X - 10.0f;
+				if (coordinateRec.X < minXSliderRectangle) {
+					coordinateRec.X = minXSliderRectangle;
 				}
-				else if (this.coordinateRec.X > this.maxXSliderRectangle) {
-					this.coordinateRec.X = this.maxXSliderRectangle;
+				else if (coordinateRec.X > maxXSliderRectangle) {
+					coordinateRec.X = maxXSliderRectangle;
 				}
-				this.Value = ((int)coordinateRec.X - (int)this.minXSliderRectangle) / (280 / (this.MaxValue / this.Step)) * this.Step;
+				Value = ((int)coordinateRec.X - (int)this.minXSliderRectangle)
+					/ (280 / (this.MaxValue / this.Step))
+					* this.Step;
 			}
 		}
 
-		public override void Update(GameTime gameTime)
+		public override void Update (GameTime gameTime)
 		{
 			if (this.ItemState == ItemState.Hovered && InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
-				Vector2 position = new Vector2(InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y);
-				this.OnLeftClick(position, ClickState.SingleClick, gameTime);
-				this.Draw(gameTime);
-
+				Vector2 position = new Vector2 (InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y);
+				OnLeftClick (position, ClickState.SingleClick, gameTime);
 			}
-
-
 		}
-		#endregion
 
+		#endregion
 	}
 }
 

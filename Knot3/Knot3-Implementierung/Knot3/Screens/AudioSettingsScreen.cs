@@ -18,6 +18,7 @@ using Knot3.GameObjects;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Audio;
 
 namespace Knot3.Screens
 {
@@ -34,6 +35,25 @@ namespace Knot3.Screens
 		/// </summary>
 		private VerticalMenu settingsMenu { get; set; }
 
+		private Dictionary<string, HashSet<Sound>> soundCategories = new Dictionary<string, HashSet<Sound>>() {
+			{
+				"Music",
+				new HashSet<Sound>(){
+					Sound.CreativeMusic,
+					Sound.ChallengeMusic,
+					Sound.MenuMusic,
+				}
+			},
+			{
+				"Sound",
+				new HashSet<Sound>(){
+					Sound.PipeSound,
+				}
+			},
+		};
+
+		private Action UpdateSliders = () => {};
+
 		#endregion
 
 		#region Constructors
@@ -46,36 +66,45 @@ namespace Knot3.Screens
 		{
 			MenuName = "Audio";
 
-			settingsMenu = new VerticalMenu(this, DisplayLayer.Menu);
-			settingsMenu.RelativePosition = () => new Vector2(0.400f, 0.180f);
-			settingsMenu.RelativeSize = () => new Vector2(0.500f, 0.770f);
-			settingsMenu.RelativePadding = () => new Vector2(0.010f, 0.010f);
+			settingsMenu = new VerticalMenu (this, DisplayLayer.Menu);
+			settingsMenu.RelativePosition = () => new Vector2 (0.400f, 0.180f);
+			settingsMenu.RelativeSize = () => new Vector2 (0.500f, 0.770f);
+			settingsMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
 			settingsMenu.ItemForegroundColor = base.MenuItemForegroundColor;
 			settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
-			SliderItem musicslider = new SliderItem(
-			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
-			    text: "Music",
-			    max: 100,
-			    min: 0,
-			    step: 5,
-			    value: 50
-			);
-			settingsMenu.Add(musicslider);
+			foreach (KeyValuePair<string, HashSet<Sound>> soundCategory in soundCategories) {
+				string volumeName = soundCategory.Key;
+				HashSet<Sound> sounds = soundCategory.Value;
 
-			SliderItem soundslider = new SliderItem(
-			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
-			    text: "Sound",
-			    max: 100,
-			    min: 0,
-			    step: 5,
-			    value: 100
-			);
-			settingsMenu.Add(soundslider);
+				SliderItem slider = new SliderItem (
+				    screen: this,
+				    drawOrder: DisplayLayer.MenuItem,
+				    text: volumeName,
+				    max: 100,
+				    min: 0,
+				    step: 1,
+				    value: 50
+				);
+				slider.OnValueChanged = () => {
+					float volume = (float)slider.Value / 100f;
+					foreach (Sound sound in sounds) {
+						AudioManager.SetVolume (soundType: sound, volume: volume);
+					}
+				};
+				settingsMenu.Add (slider);
+				UpdateSliders += () => {
+					float volume = 0f;
+					foreach (Sound sound in sounds) {
+						volume += AudioManager.Volume (soundType: sound) * 100f;
+					}
+					volume /= sounds.Count;
+					slider.Value = (int)volume;
+				};
+			}
+			UpdateSliders();
 		}
 
 		#endregion
@@ -83,21 +112,13 @@ namespace Knot3.Screens
 		#region Methods
 
 		/// <summary>
-		/// Wird für jeden Frame aufgerufen.
-		/// </summary>
-		public override void Update (GameTime time)
-		{
-			//throw new System.NotImplementedException();
-		}
-
-		/// <summary>
 		/// Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 		/// </summary>
 		public override void Entered (GameScreen previousScreen, GameTime GameTime)
 		{
-			base.Entered(previousScreen, GameTime);
-			AddGameComponents(GameTime, settingsMenu);
-			//throw new System.NotImplementedException();
+			base.Entered (previousScreen, GameTime);
+			AddGameComponents (GameTime, settingsMenu);
+			UpdateSliders();
 		}
 
 		#endregion

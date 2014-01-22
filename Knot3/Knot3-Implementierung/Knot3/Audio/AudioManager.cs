@@ -221,12 +221,15 @@ namespace Knot3.Audio
 
 		public static void SetVolume (Sound soundType, float volume)
 		{
-			VolumeMap [soundType] = ValidVolume (volume);
+			volume = ValidVolume (volume);
+			VolumeMap [soundType] = volume;
+			Options.Default ["volume", soundType.ToString (), 1] = volume;
+			Console.WriteLine("Set Volume ("+soundType+"): "+volume);
 		}
 
 		public static float ValidVolume (float volume)
 		{
-			return MathHelper.Clamp (volume, 0, 100);
+			return MathHelper.Clamp (volume, 0.0f, 2.0f);
 		}
 	}
 }

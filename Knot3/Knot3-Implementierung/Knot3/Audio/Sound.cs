@@ -24,7 +24,6 @@ using Knot3.Utilities;
 
 namespace Knot3.Audio
 {
-
 	public enum Sound {
 		None = 0,
 		CreativeMusic,
