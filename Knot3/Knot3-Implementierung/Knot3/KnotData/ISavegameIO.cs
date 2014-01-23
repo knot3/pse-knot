@@ -21,11 +21,35 @@ using Knot3.Widgets;
 
 namespace Knot3.KnotData
 {
-	/// <summary>
-	/// Diese Schnittstelle enthält Methoden, die von Speicherformaten für Knoten implementiert werden müssen.
-	/// </summary>
-	public interface IKnotIO : ISavegameIO<Knot, KnotMetaData>
+	public interface ISavegameIO<Savegame, SavegameMetaData>
 	{
+		#region Properties
+
+		/// <summary>
+		/// Aufzählung der Dateierweiterungen.
+		/// </summary>
+		IEnumerable<string> FileExtensions { get; }
+
+		#endregion
+
+		#region Methods
+
+		/// <summary>
+		/// Speichert einen Spielstand.
+		/// </summary>
+		void Save (Savegame knot);
+
+		/// <summary>
+		/// Lädt einen Spielstand.
+		/// </summary>
+		Savegame Load (string filename);
+
+		/// <summary>
+		/// Lädt die Metadaten eines Spielstands.
+		/// </summary>
+		SavegameMetaData LoadMetaData (string filename);
+
+		#endregion
 	}
 }
 

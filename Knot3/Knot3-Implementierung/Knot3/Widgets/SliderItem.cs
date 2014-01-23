@@ -33,7 +33,13 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Der aktuelle Wert.
 		/// </summary>
-		public int Value { get; set; }
+		public int Value
+		{
+			get { return _value; }
+			set { if (_value != value) { _value = value; OnValueChanged (); } }
+		}
+
+		private int _value;
 
 		/// <summary>
 		/// Der minimale Wert.
@@ -48,11 +54,56 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Schrittweite zwischen zwei einstellbaren Werten.
 		/// </summary>
-		public int Step { get; set; }
+		//public int Step { get; set; }
 
-		private float minXSliderRectangle = -1.0f;
-		private float maxXSliderRectangle = -1.0f;
-		private Vector2 coordinateRec;
+		/// <summary>
+		/// Wird aufgerufen, wenn der Wert geändert wurde
+		/// </summary>
+		public Action OnValueChanged = () => {};
+
+		/// <summary>
+		/// Die Breite des Rechtecks, abhängig von der Auflösung des Viewports.
+		/// </summary>
+		private float SliderRectangleWidth
+		{
+			get {
+				return new Vector2(0, 0.020f).Scale(Screen.Viewport).Y;
+			}
+		}
+		/// <summary>
+		/// Die geringste X-Position des Rechtecks (so weit links wie möglich), abhängig von der Auflösung des Viewports.
+		/// </summary>
+		private float SliderRectangleMinX
+		{
+			get {
+				return ValueBounds ().X + SliderRectangleWidth/2;
+			}
+		}
+		/// <summary>
+		/// Die höchste X-Position des Rechtecks (so weit rechts wie möglich), abhängig von der Auflösung des Viewports.
+		/// </summary>
+		private float SliderRectangleMaxX
+		{
+			get {
+				return SliderRectangleMinX + ValueBounds ().Width - SliderRectangleWidth/2;
+			}
+		}
+		/// <summary>
+		/// Die Position und Größe des Rechtecks.
+		/// </summary>
+		private Rectangle SliderRectangle
+		{
+			get {
+				Rectangle valueBounds = ValueBounds ();
+				Rectangle rect = new Rectangle();
+				rect.Height = valueBounds.Height;
+				rect.Width = (int)SliderRectangleWidth;
+				rect.Y = valueBounds.Y;
+				rect.X = (int)(SliderRectangleMinX + (SliderRectangleMaxX-SliderRectangleMinX)
+				               * (Value-MinValue) / (MaxValue-MinValue) - rect.Width/2);
+				return rect;
+			}
+		}
 
 		#endregion
 
@@ -66,98 +117,64 @@ namespace Knot3.Widgets
 		public SliderItem (GameScreen screen, DisplayLayer drawOrder, string text, int max, int min, int step, int value)
 		: base(screen, drawOrder, text)
 		{
-			this.MaxValue = max;
-			this.MinValue = min;
-			this.Step = step;
-			this.Value = value;
-
+			MaxValue = max;
+			MinValue = min;
+			//Step = step;
+			_value = value;
 		}
 
 		#endregion
 
 		#region Methods
 
-
-		public override void Draw(GameTime time)
+		public override void Draw (GameTime time)
 		{
-			base.Draw(time);
+			base.Draw (time);
 
-			spriteBatch.Begin();
+			Rectangle valueBounds = ValueBounds ();
 
-			int lineWidth = 300;
+			int lineWidth = valueBounds.Width;
 			int lineHeight = 2;
 
-			int rectangleWidth = 20;
-			int rectangleHeight = (int) ScaledSize.Y;
-
-
-			Texture2D line = new Texture2D(Screen.Device, lineWidth, lineHeight);
-			Texture2D rectangle = new Texture2D(Screen.Device, rectangleWidth, rectangleHeight);
+			Texture2D lineTexture = new Texture2D (Screen.Device, lineWidth, lineHeight);
+			Texture2D rectangleTexture = new Texture2D (Screen.Device, 1, 1);
 
 			Color[] dataLine = new Color[lineWidth * lineHeight];
 			for (int i = 0; i < dataLine.Length; ++i) {
-				dataLine[i] = Color.White;
+				dataLine [i] = Color.White;
 			}
-			line.SetData(dataLine);
+			lineTexture.SetData (dataLine);
 
-			Color[] dataRec = new Color[rectangleWidth * rectangleHeight];
-			for (int i = 0; i < dataRec.Length; ++i) {
-				dataRec[i] = Color.YellowGreen;
-			}
-			rectangle.SetData(dataRec);
+			Color[] dataRec = new Color[1];
+			dataRec [0] = Lines.LineColor;
+			rectangleTexture.SetData (dataRec);
 
-			Vector2 coordinateLine = this.ScaledPosition;
-			coordinateLine.X += this.ScaledSize.X / 2;
-			coordinateLine.Y += this.ScaledSize.Y / 2;
+			Vector2 coordinateLine = new Vector2(valueBounds.X, valueBounds.Y + ScaledSize.Y / 2);
 
-			if (this.minXSliderRectangle < 0) {
-				this.coordinateRec = this.ScaledPosition;
-				this.coordinateRec.X += this.ScaledSize.X / 2 + (this.Value / this.Step) * (280 / (this.MaxValue/ this.Step));
-				this.minXSliderRectangle = coordinateLine.X;
-				this.maxXSliderRectangle = coordinateLine.X + 280;
+			spriteBatch.Begin ();
 
-			}
+			spriteBatch.Draw (lineTexture, coordinateLine, Color.White);
+			spriteBatch.Draw (rectangleTexture, SliderRectangle, Lines.LineColor);
 
-
-
-			spriteBatch.Draw(line, coordinateLine, Color.White);
-			spriteBatch.Draw(rectangle, coordinateRec, Color.YellowGreen);
-
-			spriteBatch.End();
-
+			spriteBatch.End ();
 		}
 
-		public override void OnLeftClick(Vector2 position, ClickState state, GameTime time)
+		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-
-			Vector2 mousePosition = position;			
-			Console.WriteLine("" + mousePosition.X + " rect " + coordinateRec.X);
-			if (mousePosition.X > minXSliderRectangle  && mousePosition.X< minXSliderRectangle + 290) {
-
-
-				this.coordinateRec.X = mousePosition.X -10.0f;
-				if (this.coordinateRec.X < this.minXSliderRectangle) {
-					this.coordinateRec.X = this.minXSliderRectangle;
-				}
-				else if (this.coordinateRec.X > this.maxXSliderRectangle) {
-					this.coordinateRec.X = this.maxXSliderRectangle;
-				}
-			}
+			float mousePositionX = position.X.Clamp(SliderRectangleMinX, SliderRectangleMaxX);
+			float percent = (mousePositionX - SliderRectangleMinX)/(SliderRectangleMaxX-SliderRectangleMinX);
+			Value = (int)(MinValue + percent * (MaxValue-MinValue));
 		}
 
-		public override void Update(GameTime gameTime)
+		public override void Update (GameTime gameTime)
 		{
 			if (this.ItemState == ItemState.Hovered && InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
-				Vector2 position = new Vector2(InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y);
-				this.OnLeftClick(position, ClickState.SingleClick, gameTime);
-				this.Draw(gameTime);
-
+				Vector2 position = new Vector2 (InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y);
+				OnLeftClick (position, ClickState.SingleClick, gameTime);
 			}
-
-
 		}
-		#endregion
 
+		#endregion
 	}
 }
 

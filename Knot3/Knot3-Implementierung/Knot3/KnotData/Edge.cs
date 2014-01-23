@@ -64,14 +64,6 @@ namespace Knot3.KnotData
 
 		#region Methods
 
-		/// <summary>
-		/// Gibt die Richtung als normalisierten Vektor3 zurück.
-		/// </summary>
-		public Vector3 Get3DDirection ()
-		{
-			return Direction.ToVector3 ();
-		}
-
 		public static bool operator == (Edge a, Edge b)
 		{
 			// If both are null, or both are same instance, return true.
@@ -112,6 +104,16 @@ namespace Knot3.KnotData
 		public override string ToString ()
 		{
 			return Direction.ToString () + "/" + id;
+		}
+
+		public static implicit operator Direction (Edge edge)
+		{
+			return edge.Direction;
+		}
+
+		public static implicit operator Color (Edge edge)
+		{
+			return edge.Color;
 		}
 
 		#endregion

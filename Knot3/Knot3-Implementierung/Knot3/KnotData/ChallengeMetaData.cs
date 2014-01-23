@@ -39,12 +39,15 @@ namespace Knot3.KnotData
 			}
 			set {
 				name = value;
+				if (Format == null) {
+					Format = new ChallengeFileIO ();
+				}
 				string extension;
-				if (Format != null && Format.FileExtensions.Count () > 0) {
+				if (Format.FileExtensions.Count () > 0) {
 					extension = Format.FileExtensions.ElementAt (0);
 				}
 				else {
-					extension = ".challenge";
+					throw new ArgumentException ("Every implementation of IChallengeIO must have at least one file extension.");
 				}
 				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
 				           + FileUtility.ConvertToFileName (name) + extension;
@@ -91,11 +94,11 @@ namespace Knot3.KnotData
 		                          string filename, IChallengeIO format,
 		                          IEnumerable<KeyValuePair<string, int>> highscore)
 		{
-			this.name = name;
+			Name = name;
 			Start = start;
 			Target = target;
-			Filename = filename;
-			Format = format;
+			Format = format ?? Format;
+			Filename = filename ?? Filename;
 
 			this.highscore = new Dictionary<string, int> ();
 			if (highscore != null) {
@@ -112,11 +115,8 @@ namespace Knot3.KnotData
 		{
 			if (!highscore.ContainsKey (name) || highscore [name] > time) {
 				highscore [name] = time;
-
 			}
-
 		}
-
 
 		#endregion
 	}

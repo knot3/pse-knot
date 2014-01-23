@@ -51,24 +51,11 @@ namespace Knot3.GameObjects
 		public ArrowModel (GameScreen screen, ArrowModelInfo info)
 		: base(screen, info)
 		{
-			if (Info.Direction == Direction.Up) {
-				Info.Rotation += Angles3.FromDegrees (90, 0, 0);
-			}
-			else if (Info.Direction == Direction.Down) {
-				Info.Rotation += Angles3.FromDegrees (270, 0, 0);
-			}
-			if (Info.Direction == Direction.Right) {
-				Info.Rotation += Angles3.FromDegrees (0, 90, 0);
-			}
-			else if (Info.Direction == Direction.Left) {
-				Info.Rotation += Angles3.FromDegrees (0, 270, 0);
-			}
-
 			_bounds = VectorHelper.CylinderBounds (
 			              length: Info.Length,
 			              radius: Info.Diameter / 2,
-			              direction: Info.Direction.ToVector3 (),
-			              position: info.Position - info.Direction.ToVector3 () * Info.Length / 2
+			              direction: Info.Direction.Vector,
+			              position: info.Position - info.Direction.Vector * Info.Length / 2
 			          );
 		}
 

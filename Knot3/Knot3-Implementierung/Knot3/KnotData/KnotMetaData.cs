@@ -28,7 +28,7 @@ namespace Knot3.KnotData
 	/// sondern nur Informationen über den Namen des Knoten und die Anzahl seiner Kanten. Es kann ohne ein
 	/// dazugehöriges Knoten-Objekt existieren, aber jedes Knoten-Objekt enthält genau ein Knoten-Metadaten-Objekt.
 	/// </summary>
-	public class KnotMetaData
+	public class KnotMetaData : IEquatable<KnotMetaData>
 	{
 		#region Properties
 
@@ -50,7 +50,6 @@ namespace Knot3.KnotData
 				if (Format == null) {
 					Format = new KnotFileIO ();
 				}
-
 				string extension;
 				if (Format.FileExtensions.Count () > 0) {
 					extension = Format.FileExtensions.ElementAt (0);
@@ -98,10 +97,10 @@ namespace Knot3.KnotData
 		/// </summary>
 		public KnotMetaData (string name, Func<int> countEdges, IKnotIO format, string filename)
 		{
-			this.name = name;
+			Name = name;
 			this.countEdges = countEdges;
-			Format = format;
-			Filename = filename;
+			Format = format ?? Format;
+			Filename = filename ?? Filename;
 		}
 
 		/// <summary>
@@ -118,6 +117,45 @@ namespace Knot3.KnotData
 
 		#endregion
 
+		#region Methods
+
+		public bool Equals (KnotMetaData other)
+		{
+			return other != null && name == other.name && countEdges () == other.countEdges ();
+		}
+
+		public override bool Equals (object other)
+		{
+			return other != null && Equals (other as KnotMetaData);
+		}
+
+		public override int GetHashCode ()
+		{
+			return (countEdges () + (name ?? "")).GetHashCode ();
+		}
+
+		public static bool operator == (KnotMetaData a, KnotMetaData b)
+		{
+			// If both are null, or both are same instance, return true.
+			if (System.Object.ReferenceEquals (a, b)) {
+				return true;
+			}
+
+			// If one is null, but not both, return false.
+			if (((object)a == null) || ((object)b == null)) {
+				return false;
+			}
+
+			// Return true if the fields match:
+			return a.Equals (b);
+		}
+
+		public static bool operator != (KnotMetaData a, KnotMetaData b)
+		{
+			return !(a == b);
+		}
+
+		#endregion
 	}
 }
 

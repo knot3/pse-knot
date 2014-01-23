@@ -26,15 +26,15 @@ namespace Knot3.KnotData
 	/// </summary>
 	public class Circle<T> : IEnumerable<T>
 	{
-		public T Content { get; set; }
+		public T Value { get; set; }
 
 		public Circle<T> Next { get; set; }
 
 		public Circle<T> Previous { get; set; }
 
-		public Circle (T content)
+		public Circle (T value)
 		{
-			Content = content;
+			Value = value;
 			Previous = this;
 			Next = this;
 		}
@@ -45,7 +45,7 @@ namespace Knot3.KnotData
 			Circle<T> inserted = this;
 			foreach (T obj in list) {
 				if (first) {
-					Content = obj;
+					Value = obj;
 					Previous = this;
 					Next = this;
 				}
@@ -111,13 +111,13 @@ namespace Knot3.KnotData
 
 		public bool Contains (T obj, out Circle<T> item)
 		{
-			item = Find (obj).ElementAtOrDefault(0);
+			item = Find (obj).ElementAtOrDefault (0);
 			return item != null;
 		}
 
 		public bool Contains (Func<T, bool> func, out Circle<T> item)
 		{
-			item = Find (func).ElementAtOrDefault(0);
+			item = Find (func).ElementAtOrDefault (0);
 			return item != null;
 		}
 
@@ -130,7 +130,7 @@ namespace Knot3.KnotData
 		{
 			Circle<T> current = this;
 			do {
-				if (func (current.Content)) {
+				if (func (current.Value)) {
 					yield return current;
 				}
 				current = current.Next;
@@ -143,7 +143,7 @@ namespace Knot3.KnotData
 		{
 			Circle<T> current = this;
 			do {
-				yield return current.Content;
+				yield return current.Value;
 				current = current.Next;
 			}
 			while (current != other && current != this);
@@ -154,7 +154,7 @@ namespace Knot3.KnotData
 			Circle<T> current = this;
 			do {
 				//Console.WriteLine (this + " => " + current.Content);
-				yield return current.Content;
+				yield return current.Value;
 				current = current.Next;
 			}
 			while (current != this);
@@ -168,7 +168,48 @@ namespace Knot3.KnotData
 
 		public override string ToString ()
 		{
-			return "Circle(" + Content + ")";
+			return "Circle(" + Value + ")";
+		}
+
+		public static Circle<T> operator + (Circle<T> circle, int i)
+		{
+			Circle<T> next = circle;
+			while (i > 0) {
+				next = next.Next;
+				i--;
+			}
+			while (i < 0) {
+				next = next.Previous;
+				i++;
+			}
+			return next;
+		}
+
+		public T this [int index]
+		{
+			get {
+				return (this + index).Value;
+			}
+		}
+
+		public static Circle<T> operator - (Circle<T> circle, int i)
+		{
+			return circle + (-i);
+		}
+
+		public static Circle<T> operator ++ (Circle<T> circle)
+		{
+			return circle.Next;
+		}
+
+		public static Circle<T> operator -- (Circle<T> circle)
+		{
+			return circle.Previous;
+		}
+
+		public static implicit operator T (Circle<T> circle)
+		{
+			return circle.Value;
 		}
 	}
 }

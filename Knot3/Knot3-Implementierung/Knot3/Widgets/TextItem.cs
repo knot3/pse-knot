@@ -31,12 +31,20 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
-		protected override float NameWidth { get { return 1.00f; } }
+		public override float NameWidth
+		{
+			get { return 1.00f; }
+			set { throw new ArgumentException("You can't change the NameWidth of a TextItem!"); }
+		}
 
 		/// <summary>
 		/// Wie viel Prozent der Wert des Eintrags (auf der rechten Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
-		protected override float ValueWidth { get { return 0.00f; } }
+		public override float ValueWidth
+		{
+			get { return 0.00f; }
+			set { throw new ArgumentException("You can't change the ValueWidth of a TextItem!"); }
+		}
 
 		#endregion
 

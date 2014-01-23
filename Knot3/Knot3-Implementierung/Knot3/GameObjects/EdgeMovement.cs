@@ -306,7 +306,7 @@ namespace Knot3.GameObjects
 		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction, float count)
 		{
 			foreach (ShadowGameModel shadowObj in shadowObjects) {
-				shadowObj.ShadowPosition = shadowObj.OriginalPosition + direction.ToVector3 () * count * Node.Scale;
+				shadowObj.ShadowPosition = shadowObj.OriginalPosition + direction.Vector * count * Node.Scale;
 				shadowObj.ShadowAlpha = 1f;
 				shadowObj.ShadowColor = Color.White;
 			}

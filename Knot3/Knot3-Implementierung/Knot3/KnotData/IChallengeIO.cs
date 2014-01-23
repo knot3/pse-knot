@@ -24,35 +24,8 @@ namespace Knot3.KnotData
 	/// <summary>
 	/// Diese Schnittstelle enthält Methoden, die von Speicherformaten für Challenges implementiert werden müssen.
 	/// </summary>
-	public interface IChallengeIO
+	public interface IChallengeIO : ISavegameIO<Challenge, ChallengeMetaData>
 	{
-		#region Properties
-
-		/// <summary>
-		/// Aufzählung der Dateierweiterungen.
-		/// </summary>
-		IEnumerable<string> FileExtensions { get; }
-
-		#endregion
-
-		#region Methods
-
-		/// <summary>
-		/// Speichert eine Challenge.
-		/// </summary>
-		void Save (Challenge challenge);
-
-		/// <summary>
-		/// Lädt eine Challenge.
-		/// </summary>
-		Challenge Load (string filename);
-
-		/// <summary>
-		/// Lädt die Metadaten einer Challenge.
-		/// </summary>
-		ChallengeMetaData LoadMetaData (string filename);
-
-		#endregion
 	}
 }
 

@@ -34,10 +34,13 @@ namespace Knot3.Widgets
 		/// </summary>
 		public string InputText { get; set; }
 
+		public Action OnValueChanged = () => {};
+		public Action OnValueSubmitted = () => {};
+
 		/// <summary>
 		/// Gibt an, ob gerade auf einen Tastendruck gewartet wird.
 		/// </summary>
-		public bool IsEnabled { get; set; }
+		public override bool IsEnabled { get { return base.IsEnabled; } set { base.IsEnabled = value; } }
 
 		public override bool IsKeyEventEnabled
 		{
@@ -69,6 +72,7 @@ namespace Knot3.Widgets
 			InputText = inputText;
 			ValidKeys.AddRange (TextHelper.ValidKeys);
 			ValidKeys.Add (Keys.Enter);
+			IsEnabled = false;
 		}
 
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
@@ -76,8 +80,10 @@ namespace Knot3.Widgets
 			string temp = InputText;
 			TextHelper.TryTextInput (ref temp, time);
 			InputText = temp;
+			OnValueChanged ();
 			if (key.Contains (Keys.Enter)) {
 				IsEnabled = false;
+				OnValueSubmitted ();
 			}
 		}
 

@@ -32,12 +32,11 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Das Menü, das die Spielstände enthält.
 		/// </summary>
-		private FileIndex fileIndex;
 		private VerticalMenu savegameMenu;
 		private TextItem title;
 
-		// files
-		private IChallengeIO fileFormat;
+		// Spielstand-Loader
+		private SavegameLoader<Challenge, ChallengeMetaData> loader;
 
 		#endregion
 
@@ -65,6 +64,11 @@ namespace Knot3.Screens
 			title.RelativePosition = () => new Vector2 (0.100f, 0.050f);
 			title.RelativeSize = () => new Vector2 (0.900f, 0.050f);
 			title.ForegroundColor = () => Color.White;
+
+			// Erstelle einen Parser für das Dateiformat
+			ChallengeFileIO fileFormat = new ChallengeFileIO ();
+			// Erstelle einen Spielstand-Loader
+			loader = new SavegameLoader<Challenge, ChallengeMetaData> (fileFormat, "index-challenges");
 		}
 
 		#endregion
@@ -73,83 +77,34 @@ namespace Knot3.Screens
 
 		private void UpdateFiles ()
 		{
-			// Erstelle einen neuen Parser
-			fileFormat = new ChallengeFileIO ();
-			// Erstelle einen neuen Index, der die Datei "index.txt" im Spielstandverzeichnis einliest
-			fileIndex = new FileIndex (FileUtility.SavegameDirectory + FileUtility.Separator + "index-challenges.txt");
-
-			// Diese Verzeichnisse werden nach Spielständen durchsucht
-			string[] searchDirectories = new string[] {
-				FileUtility.BaseDirectory,
-				FileUtility.SavegameDirectory
-			};
-			Console.WriteLine ("Search for Challenges: " + string.Join (", ", searchDirectories));
-
 			// Leere das Spielstand-Menü
 			savegameMenu.Clear ();
 
-			// Suche nach Spielstanddateien und fülle das Menü auf
-			FileUtility.SearchFiles (searchDirectories, fileFormat.FileExtensions, AddFileToList);
+			// Suche nach Spielständen
+			loader.FindSavegames (AddSavegameToList);
 		}
 
 		/// <summary>
 		/// Diese Methode wird für jede gefundene Spielstanddatei aufgerufen
 		/// </summary>
-		private void AddFileToList (string filename)
+		private void AddSavegameToList (string filename, ChallengeMetaData meta)
 		{
-			// Lese die Datei ein und erstelle einen Hashcode
-			string hashcode = FileUtility.GetHash (filename);
+			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
+			Action<GameTime> LoadFile = (time) => {
+				NextScreen = new ChallengeModeScreen (game: Game, challenge: loader.FileFormat.Load (filename));
+			};
 
-			// Ist dieser Hashcode im Index enthalten?
-			// Dann wäre der Spielstand gültig, sonst ungültig oder unbekannt.
-			bool isValid = fileIndex.Contains (hashcode);
+			// Finde den Namen der Challenge
+			string name = meta.Name.Length > 0 ? meta.Name : filename;
 
-			// Wenn der Spielstand ungültig oder unbekannt ist...
-			if (!isValid) {
-				try {
-					// Lade die Challenge und prüfe, ob Exceptions auftreten
-					fileFormat.Load (filename);
-					// Keine Exceptions? Dann ist enthält die Datei eine gültige Challenge!
-					isValid = true;
-					fileIndex.Add (hashcode);
-
-				}
-				catch (Exception ex) {
-					// Es ist eine Exception aufgetreten, der Knoten ist offenbar ungültig.
-					Console.WriteLine (ex);
-					isValid = false;
-				}
-			}
-
-			// Falls die Challenge gültig ist, entweder laut Index oder nach Überprüfung, dann...
-			if (isValid) {
-				// Lade die Metadaten
-				ChallengeMetaData meta = fileFormat.LoadMetaData (filename);
-
-				// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
-				Action<GameTime> LoadFile = (time) => {
-					NextScreen = new ChallengeModeScreen (game: Game, challenge: fileFormat.Load (filename));
-				};
-
-				// Finde den Namen der Challenge
-				string name = meta.Name.Length > 0 ? meta.Name : filename;
-
-				// Erstelle den Menüeintrag
-				MenuButton button = new MenuButton (
-				    screen: this,
-				    drawOrder: DisplayLayer.MenuItem,
-				    name: name,
-				    onClick: LoadFile
-				);
-				savegameMenu.Add (button);
-			}
-		}
-
-		/// <summary>
-		/// Wird für jeden Frame aufgerufen.
-		/// </summary>
-		public override void Update (GameTime time)
-		{
+			// Erstelle den Menüeintrag
+			MenuButton button = new MenuButton (
+			    screen: this,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: name,
+			    onClick: LoadFile
+			);
+			savegameMenu.Add (button);
 		}
 
 		/// <summary>

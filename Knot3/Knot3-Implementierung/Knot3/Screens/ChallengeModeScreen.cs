@@ -295,7 +295,6 @@ namespace Knot3.Screens
 			Finished,
 			Paused
 		}
-		;
 	}
 }
 
