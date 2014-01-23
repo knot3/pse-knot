@@ -59,7 +59,7 @@ namespace Knot3.KnotData
 					throw new ArgumentException ("Every implementation of IKnotIO must have at least one file extension.");
 				}
 				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
-				           + FileUtility.ConvertToFileName (name) + extension;
+					+ FileUtility.ConvertToFileName (name) + extension;
 			}
 		}
 
@@ -125,6 +125,15 @@ namespace Knot3.KnotData
 			return other != null && name == other.name && countEdges () == other.countEdges ();
 		}
 
+		public override bool Equals (object other)
+		{
+			return other != null && Equals (other as KnotMetaData);
+		}
+
+		public override int GetHashCode ()
+		{
+			return (countEdges () + (name ?? "")).GetHashCode ();
+		}
 
 		public static bool operator == (KnotMetaData a, KnotMetaData b)
 		{
@@ -139,7 +148,7 @@ namespace Knot3.KnotData
 			}
 
 			// Return true if the fields match:
-			return a.Equals(b);
+			return a.Equals (b);
 		}
 
 		public static bool operator != (KnotMetaData a, KnotMetaData b)

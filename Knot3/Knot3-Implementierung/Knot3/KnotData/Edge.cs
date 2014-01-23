@@ -106,6 +106,16 @@ namespace Knot3.KnotData
 			return Direction.ToString () + "/" + id;
 		}
 
+		public static implicit operator Direction (Edge edge)
+		{
+			return edge.Direction;
+		}
+
+		public static implicit operator Color (Edge edge)
+		{
+			return edge.Color;
+		}
+
 		#endregion
 
 		#region Helper Methods

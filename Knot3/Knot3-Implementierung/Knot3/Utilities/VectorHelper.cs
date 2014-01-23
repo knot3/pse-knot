@@ -31,7 +31,7 @@ namespace Knot3.Utilities
 		public static Vector3 ArcBallMove (this Vector3 position, Vector2 mouse, Vector3 up, Vector3 forward)
 		{
 			Vector3 side = Vector3.Normalize (Vector3.Cross (up, forward));
-			Vector3 relUp = Vector3.Normalize (Vector3.Cross (side, forward));
+			//Vector3 relUp = Vector3.Normalize (Vector3.Cross (side, forward));
 
 			// horizontal rotation
 			float diffAngleX = MathHelper.Pi / 300f * mouse.X;
