@@ -11,7 +11,7 @@ namespace Knot3
 
 		/// <summary>
 		/// The main entry point for the application.
-		/// 
+		///
 		/// </summary>
 		///
 		[STAThread]
