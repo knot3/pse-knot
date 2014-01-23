@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Knot3.Core;
 
 namespace Knot3
@@ -12,7 +11,7 @@ namespace Knot3
 
 		/// <summary>
 		/// The main entry point for the application.
-		/// test
+		/// 
 		/// </summary>
 		///
 		[STAThread]
