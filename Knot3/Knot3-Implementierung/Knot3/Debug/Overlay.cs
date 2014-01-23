@@ -53,7 +53,7 @@ namespace Knot3.Debug
 			}
 
 			// load fonts
-			try {  
+			try {
 
 
 				font = Screen.Content.Load<SpriteFont> ("font-overlay");

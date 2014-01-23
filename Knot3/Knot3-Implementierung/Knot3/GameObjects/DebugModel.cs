@@ -28,7 +28,8 @@ namespace Knot3.GameObjects
 		{
 
 		}
-		public override void Update(GameTime gameTime){
+		public override void Update(GameTime gameTime)
+		{
 
 			Info.Position = World.Camera.Target;
 			base.Update (gameTime);
