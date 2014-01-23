@@ -216,11 +216,13 @@ namespace Knot3.GameObjects
 
 			// scroll wheel zoom
 			if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
-				camera.PositionToTargetDistance += 40;
+				//camera.PositionToTargetDistance += 40;
+				camera.FoV += 1;
 				world.Redraw = true;
 			}
 			else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
-				camera.PositionToTargetDistance -= 40;
+				//camera.PositionToTargetDistance -= 40;
+				camera.FoV -= 1;
 				world.Redraw = true;
 			}
 		}

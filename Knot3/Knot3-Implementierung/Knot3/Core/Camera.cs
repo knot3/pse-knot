@@ -69,7 +69,7 @@ namespace Knot3.Core
 		public float FoV
 		{
 			get { return _foV; }
-			set { _foV = MathHelper.Clamp (value, 40, 100); }
+			set { _foV = MathHelper.Clamp (value, 10, 70); }
 		}
 
 		/// <summary>
@@ -127,7 +127,7 @@ namespace Knot3.Core
 			UpVector = Vector3.Up;
 			Rotation = Angles3.Zero;
 
-			FoV = MathHelper.ToDegrees (MathHelper.PiOver4);
+			FoV = 45;
 			nearPlane = 0.5f;
 			farPlane = 10000.0f;
 
@@ -242,6 +242,7 @@ namespace Knot3.Core
 			Position = defaultPosition;
 			Target = new Vector3 (0, 0, 0);
 			Rotation = Angles3.Zero;
+			FoV = 45;
 		}
 
 		private Vector3? smoothTarget = null;
