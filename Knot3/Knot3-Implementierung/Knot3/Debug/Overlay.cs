@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -29,26 +27,35 @@ namespace Knot3.Debug
 		private BasicEffect effect;
 
 		private World World { get; set; }
-
 		// fonts
 		private SpriteFont font;
 		private float scale;
 		private int lineHeight;
+		private DebugModel debugModel;
+		private bool debugModelAdded;
 
 		public Overlay (GameScreen screen, World world)
-		: base(screen, DisplayLayer.Overlay)
+		: base (screen, DisplayLayer.Overlay)
 		{
 			// game world
 			World = world;
+
 
 			// create a new SpriteBatch, which can be used to draw textures
 			effect = new BasicEffect (screen.Device);
 			spriteBatch = new SpriteBatch (screen.Device);
 			effect.VertexColorEnabled = true;
 			effect.World = Matrix.CreateFromYawPitchRoll (0, 0, 0);
+			if (Options.Default ["video", "camera-overlay", true]) {
+				DebugModelInfo info = new DebugModelInfo ("sphere");
+				debugModel = new DebugModel (screen, info);
+				world.Add (debugModel);
+			}
 
 			// load fonts
-			try {
+			try {  
+
+
 				font = Screen.Content.Load<SpriteFont> ("font-overlay");
 			}
 			catch (ContentLoadException ex) {
@@ -77,6 +84,18 @@ namespace Knot3.Debug
 			scale = Math.Max (0.7f, (float)Screen.Device.PresentationParameters.BackBufferWidth / 1366f);
 			lineHeight = (int)(20 * scale);
 
+			if (Options.Default ["video", "camera-overlay", true]) {
+				if (!debugModelAdded) {
+					World.Add (debugModel);
+					debugModelAdded = true;
+				}
+			}
+			else {
+				if (debugModelAdded) {
+					World.Remove (debugModel);
+					debugModelAdded = false;
+				}
+			}
 			UpdateFPS (time);
 			base.Update (time);
 		}

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
@@ -27,6 +25,7 @@ namespace Knot3.Core
 	/// </summary>
 	public sealed class World : DrawableGameScreenComponent, IEnumerable<IGameObject>
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -49,7 +48,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Die Liste von Spielobjekten.
 		/// </summary>
-		public List<IGameObject> Objects { get; set; }
+		public HashSet<IGameObject> Objects { get; set; }
 
 		private IGameObject _selectedObject;
 
@@ -88,10 +87,10 @@ namespace Knot3.Core
 		/// </summary>
 		public IRenderEffect CurrentEffect { get; set; }
 
-		public Action<IGameObject> SelectionChanged = (o) => {};
+		public Action<IGameObject> SelectionChanged = (o) => {
+		};
 
 		public bool Redraw { get; set; }
-
 		//private ResizeEffect resizeEffect;
 		private Vector2 relativePosition;
 		private Vector2 relativeSize;
@@ -104,13 +103,13 @@ namespace Knot3.Core
 		/// Erstellt eine neue Spielwelt im angegebenen Spielzustand.
 		/// </summary>
 		public World (GameScreen screen)
-		: base(screen, DisplayLayer.GameWorld)
+		: base (screen, DisplayLayer.GameWorld)
 		{
 			// die Kamera für diese Spielwelt
 			_camera = new Camera (screen, this);
 
 			// die Liste der Spielobjekte
-			Objects = new List<IGameObject> ();
+			Objects = new HashSet<IGameObject> ();
 
 			// der Standardeffekt
 			if (Options.Default ["video", "cel-shading", false]) {
@@ -131,7 +130,7 @@ namespace Knot3.Core
 		}
 
 		public World (GameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
-		: this(screen)
+		: this (screen)
 		{
 			this.relativePosition = relativePosition;
 			this.relativeSize = relativeSize;
@@ -145,6 +144,12 @@ namespace Knot3.Core
 		{
 			Objects.Add (obj);
 			obj.World = this;
+		}
+
+		public void Remove (IGameObject obj)
+		{
+			Objects.Remove (obj);
+
 		}
 
 		/// <summary>
@@ -235,7 +240,6 @@ namespace Knot3.Core
 				}
 			}
 		}
-
 		// Explicit interface implementation for nongeneric interface
 		IEnumerator IEnumerable.GetEnumerator ()
 		{
@@ -264,8 +268,8 @@ namespace Knot3.Core
 				if (obj.Info.IsSelectable) {
 					// Berechne aus der angegebenen 2D-Position eine 3D-Position
 					Vector3 position3D = Camera.To3D (
-					                         position: nearTo,
-					                         nearTo: obj.Center ()
+						                     position: nearTo,
+						                     nearTo: obj.Center ()
 					                     );
 					// Berechne die Distanz zwischen 3D-Mausposition und dem Spielobjekt
 					float distance = Math.Abs ((position3D - obj.Center ()).Length ());
@@ -310,6 +314,7 @@ namespace Knot3.Core
 		}
 
 		#endregion
+
 	}
 }
 

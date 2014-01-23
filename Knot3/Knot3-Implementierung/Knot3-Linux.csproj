@@ -123,7 +123,9 @@
     <Compile Include="Knot3\GameObjects\GameObjectInfo.cs" />
     <Compile Include="Knot3\GameObjects\IGameObject.cs" />
     <Compile Include="Knot3\GameObjects\IJunction.cs" />
-    <Compile Include="Knot3\GameObjects\KnotInputHandler.cs" />
+    <Compile Include="Knot3\GameObjects\KnotInputHandler.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Knot3\GameObjects\KnotRenderer.cs" />
     <Compile Include="Knot3\GameObjects\ModelFactory.cs" />
     <Compile Include="Knot3\GameObjects\ModelMouseHandler.cs" />
@@ -199,6 +201,8 @@
     <Compile Include="Knot3\Utilities\SavegameLoader.cs" />
     <Compile Include="Knot3\Utilities\BoundingCylinder.cs" />
     <Compile Include="Knot3\Utilities\RayExtensions.cs" />
+    <Compile Include="Knot3\GameObjects\DebugModelInfo.cs" />
+    <Compile Include="Knot3\GameObjects\DebugModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -271,6 +275,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\Music-Creative\Jupiter_Makes_Me_Scream_-_05_-_Incidents.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Knot3\Screens\sphere.xnb" />
+    <None Include="Content\sphere.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
