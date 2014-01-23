@@ -181,7 +181,7 @@ namespace Knot3.Utilities
 			return Math.Abs (v);
 		}
 
-		public static float Clamp (this float v, int min, int max)
+		public static float Clamp (this float v, float min, float max)
 		{
 			return MathHelper.Clamp (v, min, max);
 		}
