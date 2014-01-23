@@ -35,6 +35,7 @@ namespace Knot3.Widgets
 		public string InputText { get; set; }
 
 		public Action OnValueChanged = () => {};
+		public Action OnValueSubmitted = () => {};
 
 		/// <summary>
 		/// Gibt an, ob gerade auf einen Tastendruck gewartet wird.
@@ -79,9 +80,10 @@ namespace Knot3.Widgets
 			string temp = InputText;
 			TextHelper.TryTextInput (ref temp, time);
 			InputText = temp;
+			OnValueChanged ();
 			if (key.Contains (Keys.Enter)) {
 				IsEnabled = false;
-				OnValueChanged ();
+				OnValueSubmitted ();
 			}
 		}
 

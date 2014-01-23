@@ -164,15 +164,22 @@ namespace Knot3.Screens
 			targetKnotMenu.Add (buttonTarget);
 		}
 
+		/// <summary>
+		/// Prüft, ob alle Werte vorhanden sind, um eine Challenge daraus zu erstellen.
+		/// Das ist dann der Fall, wenn zwei Knoten selektiert sind und ein Name eingegeben wurde.
+		/// </summary>
 		public bool CanCreateChallenge
 		{
 			get {
 				return selectedStartKnot != null && selectedTargetKnot != null &&
-				       selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
-				       && challengeName.InputText.Length > 0;
+					selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
+					&& challengeName.InputText.Length > 0;
 			}
 		}
 
+		/// <summary>
+		/// Versucht ein Challenge-Objekt zu erstellen.
+		/// </summary>
 		private bool TryConstructChallenge ()
 		{
 			bool can = createButton.IsEnabled = createButtonBorder.IsEnabled = CanCreateChallenge;
@@ -199,10 +206,21 @@ namespace Knot3.Screens
 			return can;
 		}
 
+		/// <summary>
+		/// Wird aufgerufen, wenn auf den Button zum Erstellen der Challenge gedrückt wird
+		/// </summary>
 		private void OnCreateChallenge (GameTime time)
 		{
 			if (TryConstructChallenge ()) {
-
+				Console.WriteLine ("Save Challenge: " + selectedChallenge);
+				try {
+					selectedChallenge.Save ();
+					NextScreen = new ChallengeStartScreen (Game);
+				}
+				catch (Exception ex) {
+					Dialog errorDialog = new ErrorDialog (this, ex.ToString ());
+					AddGameComponents(time, errorDialog);
+				}
 			}
 		}
 

@@ -50,7 +50,6 @@ namespace Knot3.KnotData
 				if (Format == null) {
 					Format = new KnotFileIO ();
 				}
-
 				string extension;
 				if (Format.FileExtensions.Count () > 0) {
 					extension = Format.FileExtensions.ElementAt (0);
@@ -98,10 +97,10 @@ namespace Knot3.KnotData
 		/// </summary>
 		public KnotMetaData (string name, Func<int> countEdges, IKnotIO format, string filename)
 		{
-			this.name = name;
+			Name = name;
 			this.countEdges = countEdges;
-			Format = format;
-			Filename = filename;
+			Format = format ?? Format;
+			Filename = filename ?? Filename;
 		}
 
 		/// <summary>
