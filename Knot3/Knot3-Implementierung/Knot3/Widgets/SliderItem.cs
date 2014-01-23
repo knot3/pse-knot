@@ -64,7 +64,8 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die Breite des Rechtecks, abhängig von der Auflösung des Viewports.
 		/// </summary>
-		private float SliderRectangleWidth {
+		private float SliderRectangleWidth
+		{
 			get {
 				return new Vector2(0, 0.020f).Scale(Screen.Viewport).Y;
 			}
@@ -72,7 +73,8 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die geringste X-Position des Rechtecks (so weit links wie möglich), abhängig von der Auflösung des Viewports.
 		/// </summary>
-		private float SliderRectangleMinX {
+		private float SliderRectangleMinX
+		{
 			get {
 				return ValueBounds ().X + SliderRectangleWidth/2;
 			}
@@ -80,7 +82,8 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die höchste X-Position des Rechtecks (so weit rechts wie möglich), abhängig von der Auflösung des Viewports.
 		/// </summary>
-		private float SliderRectangleMaxX {
+		private float SliderRectangleMaxX
+		{
 			get {
 				return SliderRectangleMinX + ValueBounds ().Width - SliderRectangleWidth/2;
 			}
@@ -97,7 +100,7 @@ namespace Knot3.Widgets
 				rect.Width = (int)SliderRectangleWidth;
 				rect.Y = valueBounds.Y;
 				rect.X = (int)(SliderRectangleMinX + (SliderRectangleMaxX-SliderRectangleMinX)
-					* (Value-MinValue) / (MaxValue-MinValue) - rect.Width/2);
+				               * (Value-MinValue) / (MaxValue-MinValue) - rect.Width/2);
 				return rect;
 			}
 		}
