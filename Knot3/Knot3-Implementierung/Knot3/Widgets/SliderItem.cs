@@ -162,7 +162,6 @@ namespace Knot3.Widgets
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
 			float mousePositionX = position.X.Clamp(SliderRectangleMinX, SliderRectangleMaxX);
-
 			float percent = (mousePositionX - SliderRectangleMinX)/(SliderRectangleMaxX-SliderRectangleMinX);
 			Value = (int)(MinValue + percent * (MaxValue-MinValue));
 		}

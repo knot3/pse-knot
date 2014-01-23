@@ -191,6 +191,7 @@ namespace Knot3.Audio
 
 		public void PlaySound (Sound sound)
 		{
+			Console.WriteLine ("Sound: " + sound);
 			if (AudioFiles [sound].Count > 0) {
 				AudioFiles [sound].RandomElement ().Play ();
 			}
