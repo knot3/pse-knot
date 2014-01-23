@@ -7,8 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Knot3.Knot3.Utilities
 {
-	public struct BoundingCylinder : IEquatable<BoundingCylinder>
-	{
+	public struct BoundingCylinder : IEquatable<BoundingCylinder> {
 		public Vector3 SideA;
 		public Vector3 SideB;
 		public float Radius;
