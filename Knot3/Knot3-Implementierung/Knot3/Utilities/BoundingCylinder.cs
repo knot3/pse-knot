@@ -42,7 +42,7 @@ namespace Knot3.Knot3.Utilities
 
 		public override bool Equals (object other)
 		{
-			return other != null && Equals (other as BoundingCylinder);
+			return other != null && Equals ((BoundingCylinder)other);
 		}
 
 		public override int GetHashCode ()
