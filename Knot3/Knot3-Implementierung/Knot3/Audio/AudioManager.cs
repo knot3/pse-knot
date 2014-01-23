@@ -34,10 +34,10 @@ namespace Knot3.Audio
 		/// </summary>
 		private static readonly Dictionary<Sound, string> AudioDirectories
 		= new Dictionary<Sound, string> {
-			{ Sound.CreativeMusic,		"Music-Creative" },
-			{ Sound.ChallengeMusic,		"Music-Challenge" },
-			{ Sound.MenuMusic,			"Music-Menu" },
-			{ Sound.PipeSound,			"Sound-Pipe" },
+			{ Sound.CreativeMusic,		"Music/Creative" },
+			{ Sound.ChallengeMusic,		"Music/Challenge" },
+			{ Sound.MenuMusic,			"Music/Menu" },
+			{ Sound.PipeSound,			"Sound/Pipe/Move" },
 		};
 
 		// Enthält alle gefunden Audiodateien, sortiert nach ihrem Zweck
@@ -93,7 +93,7 @@ namespace Knot3.Audio
 
 		private void AddXnaAudioFile (string filepath)
 		{
-			filepath = filepath.Replace (".xnb", "").Replace (@"Content\", "").Replace ("Content/", "");
+			filepath = filepath.Replace (".xnb", "").Replace (@"Content\", "").Replace ("Content/", "").Replace (@"\", "/");
 
 			foreach (KeyValuePair<Sound,string> pair in AudioDirectories) {
 				Sound soundType = pair.Key;
