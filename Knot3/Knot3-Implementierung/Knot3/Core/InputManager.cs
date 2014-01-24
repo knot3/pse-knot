@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
@@ -27,6 +25,7 @@ namespace Knot3.Core
 	/// </summary>
 	public sealed class InputManager : GameScreenComponent
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -83,7 +82,7 @@ namespace Knot3.Core
 		/// Erstellt ein neues InputManager-Objekt, das an den übergebenen Spielzustand gebunden ist.
 		/// </summary>
 		public InputManager (GameScreen screen)
-		: base(screen, DisplayLayer.None)
+		: base (screen, DisplayLayer.None)
 		{
 			CurrentInputAction = InputAction.FreeMouse;
 
@@ -141,13 +140,14 @@ namespace Knot3.Core
 			}
 
 			// fullscreen
-			if (Keys.G.IsDown () || Keys.F11.IsDown ()) {
+			if (Keys.F11.IsDown ()) {
 				Screen.Game.IsFullScreen = !Screen.Game.IsFullScreen;
-				FullscreenToggled = true;
+				FullscreenToggled = true; 
 			}
 		}
 
 		#endregion
+
 	}
 }
 
