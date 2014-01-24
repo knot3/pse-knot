@@ -14,23 +14,23 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
 using Knot3.Core;
+using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
 
-namespace Knot3.GameObjects
+namespace Knot3.Debug
 {
 	public class DebugModel:GameModel
 	{
-		public DebugModel (GameScreen screen,DebugModelInfo info):base(screen,info)
+		public DebugModel (GameScreen screen, DebugModelInfo info) : base(screen,info)
 		{
-
 		}
-		public override void Update(GameTime gameTime)
-		{
 
+		public override void Update (GameTime gameTime)
+		{
 			Info.Position = World.Camera.Target;
 			base.Update (gameTime);
 		}
