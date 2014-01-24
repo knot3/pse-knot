@@ -29,7 +29,8 @@ namespace Knot3.Core
 		#region Properties
 
 		private bool isFullscreen;
-		public Action FullScreenChanged = () => {
+		public Action FullScreenChanged = () =>
+		{
 		};
 
 		/// <summary>
