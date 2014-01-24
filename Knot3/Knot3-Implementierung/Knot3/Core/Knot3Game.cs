@@ -30,9 +30,7 @@ namespace Knot3.Core
 		#region Properties
 
 		private bool isFullscreen;
-		public Action FullScreenChanged = () =>
-		{
-		};
+		public Action FullScreenChanged = () => {};
 
 		/// <summary>
 		/// Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
@@ -105,11 +103,11 @@ namespace Knot3.Core
 		{
 			Graphics = new GraphicsDeviceManager (this);
 
-			Graphics.PreferredBackBufferWidth = Graphics.GraphicsDevice.DisplayMode.Width;
-			Graphics.PreferredBackBufferHeight = Graphics.GraphicsDevice.DisplayMode.Height;
+			Graphics.PreferredBackBufferWidth = (int)defaultSize.X;
+			Graphics.PreferredBackBufferHeight = (int)defaultSize.Y;
 
-			Graphics.IsFullScreen = true;
-			isFullscreen = true;
+			Graphics.IsFullScreen = false;
+			isFullscreen = false;
 			Graphics.ApplyChanges ();
 
 			Content.RootDirectory = "Content";

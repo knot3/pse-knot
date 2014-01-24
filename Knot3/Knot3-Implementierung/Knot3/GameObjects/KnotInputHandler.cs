@@ -410,9 +410,9 @@ namespace Knot3.GameObjects
 			ValidKeys.AddRange (CurrentKeyAssignment.Keys.AsEnumerable ());
 		}
 
-		public void OnStartEdgeChanged (Vector3 direction)
+		public void OnStartEdgeChanged(Vector3 direction)
 		{
-			Console.WriteLine ("OnStartEdgeChanged: " + direction);
+			Console.WriteLine("OnStartEdgeChanged: " + direction);
 			camera.Position -= direction * Node.Scale;
 			camera.Target -= direction * Node.Scale;
 		}
