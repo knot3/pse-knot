@@ -115,7 +115,7 @@ namespace Knot3.Utilities
 				                           font: font, text: text, scale: scale,
 				                           position: scaledPosition, size: scaledSize,
 				                           alignX: alignX, alignY: alignY
-				);
+				                       );
 
 				// zeichne die Schrift
 				spriteBatch.DrawString (font, text, textPosition, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.6f);
