@@ -188,7 +188,7 @@ namespace Knot3.Utilities
 
 		public static BoundingSphere[] Bounds (this Model model)
 		{
-            Console.WriteLine(model);
+			Console.WriteLine(model);
 			BoundingSphere[] bounds = new BoundingSphere[model.Meshes.Count];
 			int i = 0;
 			foreach (ModelMesh mesh in model.Meshes) {
