@@ -196,7 +196,7 @@ namespace Knot3.KnotData
 			foreach (string line in highscore) {
 				Console.WriteLine("Load Highscore: "+line);
 				if (line.Contains (":")) {
-					string[] entry = line.Split (new char[] {':'}, 2, StringSplitOptions.RemoveEmptyEntries);
+					string[] entry = line.Split (new char[] {':'}, 2, StringSplitOptions.None);
 					string name = entry [1].Trim ();
 					int time;
 					if (Int32.TryParse (entry [0], out time)) {
