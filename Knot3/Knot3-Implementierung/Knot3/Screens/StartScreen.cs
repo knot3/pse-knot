@@ -125,7 +125,7 @@ namespace Knot3.Screens
 		public override void Entered (GameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, buttons);
+			AddGameComponents (time, buttons, new World (this));
 		}
 
 		public override void Draw (GameTime time)

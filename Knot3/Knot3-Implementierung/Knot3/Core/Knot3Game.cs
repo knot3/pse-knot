@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.GameObjects;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
@@ -31,7 +29,8 @@ namespace Knot3.Core
 		#region Properties
 
 		private bool isFullscreen;
-		public Action FullScreenChanged = () => {};
+		public Action FullScreenChanged = () => {
+		};
 
 		/// <summary>
 		/// Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
@@ -104,11 +103,11 @@ namespace Knot3.Core
 		{
 			Graphics = new GraphicsDeviceManager (this);
 
-			Graphics.PreferredBackBufferWidth = (int)defaultSize.X;
-			Graphics.PreferredBackBufferHeight = (int)defaultSize.Y;
+			Graphics.PreferredBackBufferWidth = Graphics.GraphicsDevice.DisplayMode.Width;
+			Graphics.PreferredBackBufferHeight = Graphics.GraphicsDevice.DisplayMode.Height;
 
-			Graphics.IsFullScreen = false;
-			isFullscreen = false;
+			Graphics.IsFullScreen = true;
+			isFullscreen = true;
 			Graphics.ApplyChanges ();
 
 			Content.RootDirectory = "Content";
