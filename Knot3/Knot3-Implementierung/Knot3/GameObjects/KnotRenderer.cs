@@ -235,7 +235,7 @@ namespace Knot3.GameObjects
 				Node node1 = nodeMap.From (edge);
 				Node node2 = nodeMap.To (edge);
 				foreach (Direction direction in Direction.Values) {
-					if (knot.IsValidMove (direction, -1)) {
+					if (knot.IsValidMove (direction)) {
 						Vector3 towardsCamera = World.Camera.PositionToTargetDirection;
 						ArrowModelInfo info = new ArrowModelInfo (
 						    position: node1.CenterBetween (node2) - 25 * towardsCamera - 25 * towardsCamera.PrimaryDirection (),

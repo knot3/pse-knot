@@ -40,12 +40,12 @@ namespace Knot3.GameObjects
 
 		private Dictionary<Direction, Angles3> RotationMap = new Dictionary<Direction, Angles3> ()
 		{
-			{ Direction.Up, 		Angles3.FromDegrees (90, 0, 0) },
-			{ Direction.Down, 		Angles3.FromDegrees (270, 0, 0) },
-			{ Direction.Right, 		Angles3.FromDegrees (0, 90, 0) },
-			{ Direction.Left, 		Angles3.FromDegrees (0, 270, 0) },
-			{ Direction.Forward, 	Angles3.FromDegrees (0, 0, 0) },
-			{ Direction.Backward, 	Angles3.FromDegrees (0, 0, 0) },
+			{ Direction.Up, 		Angles3.FromDegrees (0, 0, 0) },
+			{ Direction.Down, 		Angles3.FromDegrees (180, 0, 0) },
+			{ Direction.Right, 		Angles3.FromDegrees (0, 0, 270) },
+			{ Direction.Left, 		Angles3.FromDegrees (0, 0, 90) },
+			{ Direction.Forward, 	Angles3.FromDegrees (270, 0, 0) },
+			{ Direction.Backward, 	Angles3.FromDegrees (90, 0, 0) },
 		};
 
 		#endregion
