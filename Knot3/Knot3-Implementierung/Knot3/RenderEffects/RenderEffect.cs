@@ -53,7 +53,7 @@ namespace Knot3.RenderEffects
 		{
 			this.screen = screen;
 			spriteBatch = new SpriteBatch (screen.Device);
-			screen.Game.FullScreenChanged += () => renderTargets.Clear();
+			screen.Game.FullScreenChanged += () => renderTargets.Clear ();
 		}
 
 		#endregion
@@ -150,6 +150,10 @@ namespace Knot3.RenderEffects
 					effect.DiffuseColor = model.BaseColor.ToVector3 ();
 				}
 			}
+
+			//effect.TextureEnabled = true;
+			//effect.Texture = TextureHelper.CreateGradient (screen.Device, model.BaseColor, Color.White.Mix (Color.Black, 0.2f));
+
 			effect.Alpha = model.Alpha;
 			effect.FogEnabled = false;
 		}
