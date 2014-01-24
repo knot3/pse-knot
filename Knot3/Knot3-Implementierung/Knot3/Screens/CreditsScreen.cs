@@ -26,7 +26,6 @@ namespace Knot3.Screens
 	/// </summary>
 	public class CreditsScreen : MenuScreen
 	{
-
 		#region Constructors
 
 		/// <summary>
@@ -59,7 +58,6 @@ namespace Knot3.Screens
 		}
 
 		#endregion
-
 	}
 }
 

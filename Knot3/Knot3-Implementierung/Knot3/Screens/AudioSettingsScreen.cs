@@ -27,7 +27,6 @@ namespace Knot3.Screens
 	/// </summary>
 	public class AudioSettingsScreen : SettingsScreen
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -123,7 +122,6 @@ namespace Knot3.Screens
 		}
 
 		#endregion
-
 	}
 }
 

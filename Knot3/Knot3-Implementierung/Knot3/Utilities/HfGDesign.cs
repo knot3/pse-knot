@@ -42,7 +42,6 @@ namespace Knot3.Utilities
 				return menuFont;
 			}
 		}
-
 	}
 }
 

@@ -18,7 +18,9 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+
 using System.ComponentModel;
+
 using Knot3.Utilities;
 
 namespace Knot3.GameObjects

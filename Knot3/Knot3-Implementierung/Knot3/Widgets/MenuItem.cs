@@ -169,7 +169,6 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
-
 	}
 }
 

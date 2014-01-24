@@ -26,7 +26,6 @@ namespace Knot3.Screens
 	/// </summary>
 	public class GraphicsSettingsScreen : SettingsScreen
 	{
-
 		#region Properties
 
 		/// <summary>

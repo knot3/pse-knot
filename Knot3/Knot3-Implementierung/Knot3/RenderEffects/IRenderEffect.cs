@@ -26,7 +26,6 @@ namespace Knot3.RenderEffects
 	/// </summary>
 	public interface IRenderEffect
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -67,7 +66,6 @@ namespace Knot3.RenderEffects
 		void DrawLastFrame (GameTime time);
 
 		#endregion
-
 	}
 }
 

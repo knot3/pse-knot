@@ -26,7 +26,6 @@ namespace Knot3.Core
 	/// </summary>
 	public class OptionInfo
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -80,7 +79,6 @@ namespace Knot3.Core
 		}
 
 		#endregion
-
 	}
 }
 

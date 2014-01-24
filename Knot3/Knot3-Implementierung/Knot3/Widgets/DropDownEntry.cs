@@ -26,7 +26,6 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class DropDownEntry
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -54,7 +53,6 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
-
 	}
 }
 

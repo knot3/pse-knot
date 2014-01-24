@@ -76,7 +76,6 @@ namespace Knot3.Widgets
 				best.receiver.OnKeyEvent (best.keys, best.keyEvent, time);
 			}
 		}
-
 	}
 }
 

@@ -27,7 +27,6 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public sealed class GameObjectDistance
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -41,7 +40,6 @@ namespace Knot3.GameObjects
 		public float Distance { get; set; }
 
 		#endregion
-
 	}
 }
 

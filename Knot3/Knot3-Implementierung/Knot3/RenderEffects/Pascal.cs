@@ -20,13 +20,10 @@ using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
 
-
-
 namespace Knot3.RenderEffects
 {
 	class Pascal : RenderEffect
 	{
-
 		public Pascal(GameScreen screen)
 		: base(screen)
 		{

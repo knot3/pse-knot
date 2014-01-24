@@ -26,7 +26,6 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public interface IJunction
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -40,7 +39,6 @@ namespace Knot3.GameObjects
 		Edge EdgeTo { get; set; }
 
 		#endregion
-
 	}
 }
 

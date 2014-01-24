@@ -26,7 +26,6 @@ namespace Knot3.Core
 	/// </summary>
 	public interface IMouseEventListener
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -66,7 +65,6 @@ namespace Knot3.Core
 		void SetHovered (bool hovered);
 
 		#endregion
-
 	}
 }
 

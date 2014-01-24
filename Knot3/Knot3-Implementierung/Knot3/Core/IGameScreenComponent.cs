@@ -26,7 +26,6 @@ namespace Knot3.Core
 	/// </summary>
 	public interface IGameScreenComponent : IGameComponent
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -50,7 +49,6 @@ namespace Knot3.Core
 		IEnumerable<IGameScreenComponent> SubComponents (GameTime time);
 
 		#endregion
-
 	}
 }
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -14,6 +15,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+
 using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
@@ -27,7 +29,6 @@ namespace Knot3.Utilities
 	/// </summary>
 	public static class FileUtility
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -170,7 +171,6 @@ namespace Knot3.Utilities
 		}
 
 		#endregion
-
 	}
 }
 

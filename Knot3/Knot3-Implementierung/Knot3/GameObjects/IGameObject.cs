@@ -27,7 +27,6 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public interface IGameObject
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -65,7 +64,6 @@ namespace Knot3.GameObjects
 		GameObjectDistance Intersects (Ray ray);
 
 		#endregion
-
 	}
 }
 

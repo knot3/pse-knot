@@ -26,7 +26,6 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class ColorPickItem : MenuItem
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -53,7 +52,6 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
-
 	}
 }
 

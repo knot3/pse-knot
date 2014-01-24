@@ -26,7 +26,6 @@ namespace Knot3.Screens
 	/// </summary>
 	public class ProfileSettingsScreen : SettingsScreen
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -95,7 +94,6 @@ namespace Knot3.Screens
 		}
 
 		#endregion
-
 	}
 }
 

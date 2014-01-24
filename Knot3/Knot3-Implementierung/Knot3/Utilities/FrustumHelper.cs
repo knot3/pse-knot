@@ -136,7 +136,6 @@ namespace Knot3.Utilities
 
 			return true;
 		}
-
 	}
 }
 
