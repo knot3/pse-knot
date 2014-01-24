@@ -111,6 +111,11 @@ namespace Knot3.KnotData
 			return edge.Direction;
 		}
 
+		public static implicit operator Vector3 (Edge edge)
+		{
+			return edge.Direction;
+		}
+
 		public static implicit operator Color (Edge edge)
 		{
 			return edge.Color;

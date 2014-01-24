@@ -56,7 +56,7 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Ein Ereignis, das in der Move-Methode ausgelöst wird, wenn sich die Struktur der Kanten geändert hat.
 		/// </summary>
-		public Action EdgesChanged { get; set; }
+		public Action EdgesChanged = () => {};
 
 		/// <summary>
 		/// Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
@@ -68,10 +68,10 @@ namespace Knot3.KnotData
 		/// <summary>
 		///
 		/// </summary>
-		public Action SelectionChanged { get; set; }
-
+		public Action SelectionChanged = () => {};
 		private List<SelectionBlock> StructuredSelection;
 		private Circle<Edge> lastSelected;
+		public Action<Vector3> StartEdgeChanged = (v) => {};
 
 		#endregion
 
@@ -88,7 +88,7 @@ namespace Knot3.KnotData
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
-			                                );
+			);
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -197,12 +197,21 @@ namespace Knot3.KnotData
 					if (pointer.Previous.Value.Direction == direction.Reverse) {
 						// Wenn die zu löschende Kante der Einstigspunkt ist, einen neuen setzten.
 						if (pointer.Previous == startElement) {
+							StartEdgeChanged (pointer.Previous.Value);
 							startElement = pointer;
 						}
 						pointer.Previous.Remove ();
 					}
 					else {
 						pointer.InsertBefore (new Edge (direction));
+					}
+				}
+				
+				//Console.WriteLine("startElement="+startElement);
+				for (pointer = currentBlock.Begin; pointer != currentBlock.End.Next; pointer++) {
+				//Console.WriteLine("pointer="+pointer);
+					if (pointer == startElement) {
+						StartEdgeChanged (direction * distance);
 					}
 				}
 
@@ -213,7 +222,8 @@ namespace Knot3.KnotData
 					if (pointer.Next.Value.Direction == direction) {
 						// Wenn die zu löschende Kante der Einstigspunkt ist, einen neuen setzten.
 						if (pointer.Next == startElement) {
-							startElement = startElement.Previous;
+							StartEdgeChanged (pointer.Value);
+							startElement = pointer;
 						}
 						pointer.Next.Remove ();
 					}
@@ -264,7 +274,7 @@ namespace Knot3.KnotData
 			               countEdges: () => 0,
 			               format: MetaData.Format,
 			               filename: MetaData.Filename
-			           ),
+			),
 			           edges: newCircle
 			) {
 				selectedEdges = new List<Edge>(selectedEdges),
@@ -430,8 +440,8 @@ namespace Knot3.KnotData
 			for (edgeCount = 1; edgePointer != startElement; edgePointer ++, edgeCount ++) {
 				Vector3 nextPosition3D = position3D + edgePointer.Value.Direction / 2;
 				if ((nextPosition3D.X < bestPosition3D.X)
-				        || (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y < bestPosition3D.Y)
-				        || (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y == bestPosition3D.Y && nextPosition3D.Z < bestPosition3D.Z)) {
+					|| (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y < bestPosition3D.Y)
+					|| (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y == bestPosition3D.Y && nextPosition3D.Z < bestPosition3D.Z)) {
 
 					bestPosition3D = position3D + edgePointer.Value.Direction / 2;
 					charakteristikElement = edgePointer;
@@ -444,8 +454,8 @@ namespace Knot3.KnotData
 		public override string ToString ()
 		{
 			return "Knot(name=" + Name + ",#edgecount=" + startElement.Count
-			       + ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
-			       + ")";
+				+ ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
+				+ ")";
 		}
 
 		/// <summary>
@@ -524,7 +534,8 @@ namespace Knot3.KnotData
 			}
 		}
 
-		private struct KnotCharakteristic {
+		private struct KnotCharakteristic
+		{
 			public Circle<Edge> CharacteristicalEdge { get; private set; }
 
 			public int CountEdges { get; private set; }

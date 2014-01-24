@@ -120,6 +120,11 @@ namespace Knot3.KnotData
 			return d.Vector / i;
 		}
 
+		public static Vector3 operator * (Direction d, int i)
+		{
+			return d.Vector * i;
+		}
+
 		public static bool operator == (Direction a, Direction b)
 		{
 			// If both are null, or both are same instance, return true.

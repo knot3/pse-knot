@@ -69,8 +69,9 @@ namespace Knot3.Screens
 				knotRenderer.Knot = knot;
 				// den Knoten dem Kantenverschieber zuweisen
 				edgeMovement.Knot = knot;
-				// Event registrieren
+				// Events registrieren
 				knot.EdgesChanged += OnEdgesChanged;
+				knot.StartEdgeChanged += knotInput.OnStartEdgeChanged;
 				// coloring.Knot = knot;
 			}
 		}
