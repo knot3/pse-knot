@@ -81,8 +81,8 @@ namespace Knot3.Core
 			this.Game = game;
 			this.NextScreen = this;
 			this.CurrentRenderEffects = new RenderEffectStack (
-				screen: this,
-				defaultEffect: new StandardEffect (this)
+			    screen: this,
+			    defaultEffect: new StandardEffect (this)
 			);
 			this.PostProcessingEffect = new StandardEffect (this);
 			this.Input = new InputManager (this);

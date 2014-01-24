@@ -87,7 +87,8 @@ namespace Knot3.Core
 		/// </summary>
 		public IRenderEffect CurrentEffect { get; set; }
 
-		public Action<IGameObject> SelectionChanged = (o) => {
+		public Action<IGameObject> SelectionChanged = (o) =>
+		{
 		};
 
 		public bool Redraw { get; set; }
@@ -268,8 +269,8 @@ namespace Knot3.Core
 				if (obj.Info.IsSelectable) {
 					// Berechne aus der angegebenen 2D-Position eine 3D-Position
 					Vector3 position3D = Camera.To3D (
-						                     position: nearTo,
-						                     nearTo: obj.Center ()
+					                         position: nearTo,
+					                         nearTo: obj.Center ()
 					                     );
 					// Berechne die Distanz zwischen 3D-Mausposition und dem Spielobjekt
 					float distance = Math.Abs ((position3D - obj.Center ()).Length ());

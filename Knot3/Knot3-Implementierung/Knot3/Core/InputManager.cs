@@ -142,7 +142,7 @@ namespace Knot3.Core
 			// fullscreen
 			if (Keys.F11.IsDown ()) {
 				Screen.Game.IsFullScreen = !Screen.Game.IsFullScreen;
-				FullscreenToggled = true; 
+				FullscreenToggled = true;
 			}
 		}
 
