@@ -166,55 +166,49 @@ namespace Knot3.KnotData
 			return IsValidStructure(stack);
 		}
 
-        /// <summary>
-        /// Prüft ob die gegeben Struktur einen Gültigen Knoten darstellt.
-        /// </summary>
-        public static bool IsValidStructure(Stack<Direction> knot)
-        {
-            Vector3 position3D = Vector3.Zero;
-            HashSet<Vector3> occupancy = new HashSet<Vector3>();
-            if (knot.Count < 4)
-                return false;
-            while (knot.Count > 0)
-            {
-                if (occupancy.Contains(position3D + (knot.Peek() / 2)))
-                {
-                    return false;
-                }
-                else
-                {
-                    occupancy.Add(position3D + (knot.Peek() / 2));
-                    position3D += knot.Pop();
-                }
-            }
-            if (position3D.DistanceTo(Vector3.Zero) > 0.00001f)
-                return false;
-            return true;
-        }
-        public bool IsValidMove(Direction dir)
-        {
-            CreateStructuredSelection();
-            if (StructuredSelection.Count == 0)
-            {
-                return false;
-            }
-            if (StructuredSelection[0].Begin == StructuredSelection[0].End.Next)
-            {
-                return true;
-            }
-            foreach (SelectionBlock block in StructuredSelection)
-            {
-                if (block.Begin.Value.Direction == dir.Reverse && block.Begin.Previous.Value.Direction != dir.Reverse)
-                {
-                    return false;
-                }
-                if (block.End.Value.Direction == dir && block.End.Next.Value.Direction != dir)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+		/// <summary>
+		/// Prüft ob die gegeben Struktur einen Gültigen Knoten darstellt.
+		/// </summary>
+		public static bool IsValidStructure(Stack<Direction> knot)
+		{
+			Vector3 position3D = Vector3.Zero;
+			HashSet<Vector3> occupancy = new HashSet<Vector3>();
+			if (knot.Count < 4) {
+				return false;
+			}
+			while (knot.Count > 0) {
+				if (occupancy.Contains(position3D + (knot.Peek() / 2))) {
+					return false;
+				}
+				else {
+					occupancy.Add(position3D + (knot.Peek() / 2));
+					position3D += knot.Pop();
+				}
+			}
+			if (position3D.DistanceTo(Vector3.Zero) > 0.00001f) {
+				return false;
+			}
+			return true;
+		}
+		public bool IsValidMove(Direction dir)
+		{
+			CreateStructuredSelection();
+			if (StructuredSelection.Count == 0) {
+				return false;
+			}
+			if (StructuredSelection[0].Begin == StructuredSelection[0].End.Next) {
+				return true;
+			}
+			foreach (SelectionBlock block in StructuredSelection) {
+				if (block.Begin.Value.Direction == dir.Reverse && block.Begin.Previous.Value.Direction != dir.Reverse) {
+					return false;
+				}
+				if (block.End.Value.Direction == dir && block.End.Next.Value.Direction != dir) {
+					return false;
+				}
+			}
+			return true;
+		}
 
 		/// <summary>
 		/// Verschiebt die aktuelle Kantenauswahl in die angegebene Richtung um die angegebene Distanz.
