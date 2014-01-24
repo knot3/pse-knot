@@ -41,11 +41,6 @@ namespace Knot3.Utilities
 
 		#region Dummy Textures
 
-		public static Texture2D CreateColorTexture (GraphicsDevice graphicsDevice)
-		{
-			return Create (graphicsDevice, 1, 1, new Color ());
-		}
-
 		public static Texture2D Create (GraphicsDevice graphicsDevice, Color color)
 		{
 			return Create (graphicsDevice, 1, 1, color);
@@ -68,6 +63,28 @@ namespace Knot3.Utilities
 				for (int i = 0; i < colors.Length; i++) {
 					colors [i] = new Color (color.ToVector3 ());
 				}
+				texture.SetData (colors);
+				textureCache [key] = texture;
+				return texture;
+			}
+		}
+
+		public static Texture2D CreateGradient (GraphicsDevice graphicsDevice, Color color1, Color color2)
+		{
+			string key = color1.ToString () + color2.ToString () + "gradient";
+			if (textureCache.ContainsKey (key)) {
+				return textureCache [key];
+			}
+			else {
+				// create a texture with the specified size
+				Texture2D texture = new Texture2D (graphicsDevice, 2, 2);
+
+				// fill it with the specified colors
+				Color[] colors = new Color[texture.Width*texture.Height];
+				colors[0] = color1;
+				colors[1] = color2;
+				colors[2] = color2;
+				colors[3] = color1;
 				texture.SetData (colors);
 				textureCache [key] = texture;
 				return texture;
@@ -98,7 +115,7 @@ namespace Knot3.Utilities
 				                           font: font, text: text, scale: scale,
 				                           position: scaledPosition, size: scaledSize,
 				                           alignX: alignX, alignY: alignY
-				                       );
+				);
 
 				// zeichne die Schrift
 				spriteBatch.DrawString (font, text, textPosition, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.6f);
