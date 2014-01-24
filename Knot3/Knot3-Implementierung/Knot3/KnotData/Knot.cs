@@ -126,9 +126,9 @@ namespace Knot3.KnotData
 			if (StructuredSelection [0].Begin == StructuredSelection [0].End.Next) {
 				return true;
 			}
-            if (!IsValidMove(direction)) {
-                return false;
-            }
+			if (!IsValidMove(direction)) {
+				return false;
+			}
 			Stack<Direction> stack = new Stack<Direction> ();
 			for (int b = 0; b < StructuredSelection.Count; ++b) {
 				SelectionBlock currentBlock = StructuredSelection [b];
@@ -193,26 +193,26 @@ namespace Knot3.KnotData
 			}
 			return true;
 		}
-        /// <summary>
-        /// Gibt an ob ein Move in diese Richtung überhaupt möglich ist.
-        /// </summary>
+		/// <summary>
+		/// Gibt an ob ein Move in diese Richtung überhaupt möglich ist.
+		/// </summary>
 		public bool IsValidMove(Direction dir)
 		{
 			CreateStructuredSelection();
 			if (StructuredSelection.Count == 0) {
 				return false;
 			}
-            // Alles selektiert
+			// Alles selektiert
 			if (StructuredSelection[0].Begin == StructuredSelection[0].End.Next) {
 				return true;
 			}
-            // Für Jeden Block werden Start und ende untersucht.
+			// Für Jeden Block werden Start und ende untersucht.
 			foreach (SelectionBlock block in StructuredSelection) {
-                // Wenn Kante nach der Bewegung gelöscht werden müsste ist ein Zug nicht möglich
+				// Wenn Kante nach der Bewegung gelöscht werden müsste ist ein Zug nicht möglich
 				if (block.Begin.Value.Direction == dir.Reverse && block.Begin.Previous.Value.Direction != dir.Reverse) {
 					return false;
 				}
-                // Wenn Kante nach der Bewegung gelöscht werden müsste ist ein Zug nicht möglich
+				// Wenn Kante nach der Bewegung gelöscht werden müsste ist ein Zug nicht möglich
 				if (block.End.Value.Direction == dir && block.End.Next.Value.Direction != dir) {
 					return false;
 				}
