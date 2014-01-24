@@ -62,27 +62,27 @@ namespace Knot3.Widgets
 
 			//Button fürs Neustarten
 			MenuButton restartButton = new MenuButton (
-				                           screen: Screen,
-				                           drawOrder: DisplayLayer.MenuItem,
-				                           name: "Restart challenge",
-				                           onClick: (time) => {
-					Close (time);
-					Screen.NextScreen = new ChallengeModeScreen (Screen.Game, challenge);
-				}
-			                           );
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Restart challenge",
+			onClick: (time) => {
+				Close (time);
+				Screen.NextScreen = new ChallengeModeScreen (Screen.Game, challenge);
+			}
+			);
 
 			highscoreList.Add (restartButton);
 
 			//Button für die Rückkehr zum StartScreen
 			MenuButton returnButton = new MenuButton (
-				                          screen: Screen,
-				                          drawOrder: DisplayLayer.MenuItem,
-				                          name: "Return to menu",
-				                          onClick: (time) => {
-					Close (time);
-					Screen.NextScreen = new StartScreen (Screen.Game);
-				}
-			                          );
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Return to menu",
+			onClick: (time) => {
+				Close (time);
+				Screen.NextScreen = new StartScreen (Screen.Game);
+			}
+			);
 			highscoreList.Add (returnButton);
 		}
 

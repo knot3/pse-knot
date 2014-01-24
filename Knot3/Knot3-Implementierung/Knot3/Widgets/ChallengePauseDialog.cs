@@ -57,33 +57,33 @@ namespace Knot3.Widgets
 			pauseMenu.ItemAlignY = VerticalAlignment.Center;
 
 			MenuButton settingsButton = new MenuButton (
-				                            screen: Screen,
-				                            drawOrder: DisplayLayer.MenuItem,
-				                            name: "Settings",
-				                            onClick: (time) => {
-					Close (time);
-					Screen.NextScreen = new SettingsScreen (Screen.Game);
-				}
-			                            );
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Settings",
+			onClick: (time) => {
+				Close (time);
+				Screen.NextScreen = new SettingsScreen (Screen.Game);
+			}
+			);
 			MenuButton backButton = new MenuButton (
-				                        screen: Screen,
-				                        drawOrder: DisplayLayer.MenuItem,
-				                        name: "Back to Game",
-				                        onClick: (time) => {
-					Close (time);
-				}
-			                        );
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Back to Game",
+			onClick: (time) => {
+				Close (time);
+			}
+			);
 
 			backButton.AddKey (Keys.Escape);
 			MenuButton discardExitButton = new MenuButton (
-				                               screen: Screen,
-				                               drawOrder: DisplayLayer.MenuItem,
-				                               name: "Discard Changes and Exit",
-				                               onClick: (time) => {
-					Close (time);
-					Screen.NextScreen = new StartScreen (Screen.Game);
-				}
-			                               );
+			    screen: Screen,
+			    drawOrder: DisplayLayer.MenuItem,
+			    name: "Discard Changes and Exit",
+			onClick: (time) => {
+				Close (time);
+				Screen.NextScreen = new StartScreen (Screen.Game);
+			}
+			);
 			backButton.AddKey (Keys.Escape);
 
 			pauseMenu.Add (settingsButton);

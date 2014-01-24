@@ -129,14 +129,14 @@ namespace Knot3.Screens
 		{
 			// world
 			PlayerWorld = new World (
-				screen: this,
-				relativePosition: new Vector2 (0.5f, 0f),
-				relativeSize: new Vector2 (0.5f, 1f)
+			    screen: this,
+			    relativePosition: new Vector2 (0.5f, 0f),
+			    relativeSize: new Vector2 (0.5f, 1f)
 			);
 			ChallengeWorld = new World (
-				screen: this,
-				relativePosition: new Vector2 (0.0f, 0.0f),
-				relativeSize: new Vector2 (0.5f, 1f)
+			    screen: this,
+			    relativePosition: new Vector2 (0.0f, 0.0f),
+			    relativeSize: new Vector2 (0.5f, 1f)
 			);
 			ChallengeWorld.Camera = PlayerWorld.Camera;
 			// input
@@ -175,7 +175,7 @@ namespace Knot3.Screens
 			playTimeDisplay.BackgroundColor = () => Color.Black;
 			playTimeDisplay.ForegroundColor = () => Color.White;
 			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.MenuItem,
-				widget: playTimeDisplay, lineWidth: 2);
+			                             widget: playTimeDisplay, lineWidth: 2);
 
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
@@ -255,8 +255,8 @@ namespace Knot3.Screens
 			knotInput.IsKeyEventEnabled = false;
 			// erstelle einen Dialog zum Eingeben des Spielernamens
 			TextInputDialog nameDialog = new TextInputDialog (screen: this, drawOrder: DisplayLayer.Dialog,
-				                             title: "Challenge", text: "Your name:",
-				                             inputText: "ABC");
+			        title: "Challenge", text: "Your name:",
+			        inputText: "ABC");
 			// füge ihn zur Spielkomponentenliste hinzu
 			AddGameComponents (time, nameDialog);
 
@@ -265,7 +265,7 @@ namespace Knot3.Screens
 				Challenge.AddToHighscore (name: nameDialog.InputText, time: (int)playTime.TotalSeconds);
 				// erstelle einen Highscoredialog
 				Dialog highscoreDialog = new HighscoreDialog (screen: this, drawOrder: DisplayLayer.Dialog,
-					                         challenge: Challenge);
+				        challenge: Challenge);
 				// füge ihn zur Spielkomponentenliste hinzu
 				AddGameComponents (time, highscoreDialog);
 			};
@@ -278,7 +278,7 @@ namespace Knot3.Screens
 		{
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, knotInput, overlay, pointer, ChallengeWorld, PlayerWorld,
-				modelMouseHandler, lines, playTimeDisplay, playTimeBorder);
+			                   modelMouseHandler, lines, playTimeDisplay, playTimeBorder);
 			Audio.BackgroundMusic = Sound.ChallengeMusic;
 
 			// Einstellungen anwenden
@@ -287,8 +287,7 @@ namespace Knot3.Screens
 
 		#endregion
 
-		enum ChallengeModeState
-		{
+		enum ChallengeModeState {
 			Running,
 			Finished,
 			Paused

@@ -115,9 +115,9 @@ namespace Knot3.Utilities
 		{
 			char[] arr = name.ToCharArray ();
 			arr = Array.FindAll<char> (arr, (c => (char.IsLetterOrDigit (c)
-			|| char.IsWhiteSpace (c)
-			|| c == '-'))
-			);
+			                                       || char.IsWhiteSpace (c)
+			                                       || c == '-'))
+			                          );
 			return new string (arr);
 		}
 
