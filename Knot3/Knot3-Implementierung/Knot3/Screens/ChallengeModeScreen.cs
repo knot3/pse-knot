@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.RenderEffects;
@@ -36,22 +34,18 @@ namespace Knot3.Screens
 		/// Die Spielwelt in der die 3D-Modelle des dargestellten Referenzknotens enthalten sind.
 		/// </summary>
 		private World ChallengeWorld;
-
 		/// <summary>
 		/// Die Spielwelt in der die 3D-Modelle des dargestellten Spielerknotens enthalten sind.
 		/// </summary>
 		private World PlayerWorld;
-
 		/// <summary>
 		/// Der Controller, der aus dem Referenzknoten die 3D-Modelle erstellt.
 		/// </summary>
 		private KnotRenderer ChallengeKnotRenderer;
-
 		/// <summary>
 		/// Der Controller, der aus dem Spielerknoten die 3D-Modelle erstellt.
 		/// </summary>
 		private KnotRenderer PlayerKnotRenderer;
-
 		/// <summary>
 		/// Der Inputhandler, der die Kantenverschiebungen des Spielerknotens durchführt.
 		/// </summary>
@@ -66,6 +60,8 @@ namespace Knot3.Screens
 		/// Der Redo-Stack.
 		/// </summary>
 		public Stack<Knot> Redo { get; set; }
+
+		private bool returnFromPause;
 
 		/// <summary>
 		/// Die Challenge.
@@ -105,10 +101,8 @@ namespace Knot3.Screens
 				// coloring.Knot = knot;
 			}
 		}
-
 		// der Knoten
 		private Knot _playerKnot;
-
 		// Spielkomponenten
 		private KnotInputHandler knotInput;
 		private ModelMouseHandler modelMouseHandler;
@@ -116,12 +110,10 @@ namespace Knot3.Screens
 		private Overlay overlay;
 		private Lines lines;
 		private DebugBoundings debugBoundings;
-
 		// Zeitmessung und Zeitanzeige
 		private TimeSpan playTime;
 		private TextItem playTimeDisplay;
 		private Border playTimeBorder;
-
 		// Der Status, z.b. ist die Challenge beendet?
 		private ChallengeModeState state;
 
@@ -133,18 +125,18 @@ namespace Knot3.Screens
 		/// Erzeugt eine neue Instanz eines ChallengeModeScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt, einem Spielerknoten playerKnot und dem Knoten challengeKnot, den der Spieler nachbauen soll.
 		/// </summary>
 		public ChallengeModeScreen (Knot3Game game, Challenge challenge)
-		: base(game)
+		: base (game)
 		{
 			// world
 			PlayerWorld = new World (
-			    screen: this,
-			    relativePosition: new Vector2 (0.5f, 0f),
-			    relativeSize: new Vector2 (0.5f, 1f)
+				screen: this,
+				relativePosition: new Vector2 (0.5f, 0f),
+				relativeSize: new Vector2 (0.5f, 1f)
 			);
 			ChallengeWorld = new World (
-			    screen: this,
-			    relativePosition: new Vector2 (0.0f, 0.0f),
-			    relativeSize: new Vector2 (0.5f, 1f)
+				screen: this,
+				relativePosition: new Vector2 (0.0f, 0.0f),
+				relativeSize: new Vector2 (0.5f, 1f)
 			);
 			ChallengeWorld.Camera = PlayerWorld.Camera;
 			// input
@@ -183,7 +175,7 @@ namespace Knot3.Screens
 			playTimeDisplay.BackgroundColor = () => Color.Black;
 			playTimeDisplay.ForegroundColor = () => Color.White;
 			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.MenuItem,
-			                             widget: playTimeDisplay, lineWidth: 2);
+				widget: playTimeDisplay, lineWidth: 2);
 
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
@@ -227,19 +219,22 @@ namespace Knot3.Screens
 			// während die Challenge läuft...
 			if (state == ChallengeModeState.Running) {
 				// wenn zur Zeit kein Dialog vorhanden ist, und Escape gedrückt wurde...
-				if (Keys.Escape.IsDown ()) {
+				if (Keys.Escape.IsDown () && !returnFromPause) {
 					// erstelle einen neuen Pausedialog
+					knotInput.IsKeyEventEnabled = false;
 					Dialog pauseDialog = new ChallengePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog);
 					// pausiere die Zeitmessung
 					state = ChallengeModeState.Paused;
 					// wenn der Dialog geschlossen wird, starte die Zeitmessung wieder
 					pauseDialog.Close += (t) => {
 						state = ChallengeModeState.Running;
+						knotInput.IsKeyEventEnabled = true;
+						returnFromPause = true;
 					};
 					// füge ihn zur Spielkomponentenliste hinzu
 					AddGameComponents (time, pauseDialog);
 				}
-
+				returnFromPause = false;
 				// vergleiche den Spielerknoten mit dem Zielknoten
 				if (PlayerKnot.Equals (Challenge.Target)) {
 					Console.WriteLine ("Playerknot equals Target!");
@@ -252,23 +247,25 @@ namespace Knot3.Screens
 				// zeige die Zeit an
 				playTimeDisplay.Text = (playTime.Hours * 60 + playTime.Minutes).ToString ("D2") + ":" + playTime.Seconds.ToString ("D2");
 			}
+
 		}
 
 		public void OnChallengeFinished (GameTime time)
 		{
+			knotInput.IsKeyEventEnabled = false;
 			// erstelle einen Dialog zum Eingeben des Spielernamens
 			TextInputDialog nameDialog = new TextInputDialog (screen: this, drawOrder: DisplayLayer.Dialog,
-			        title: "Challenge", text: "Your name:",
-			        inputText: "ABC");
+				                             title: "Challenge", text: "Your name:",
+				                             inputText: "ABC");
 			// füge ihn zur Spielkomponentenliste hinzu
 			AddGameComponents (time, nameDialog);
 
 			// wenn der Dialog geschlossen wird...
 			nameDialog.Close += (t) => {
-				Challenge.AddToHighscore(name: nameDialog.InputText, time: (int)playTime.TotalSeconds);
+				Challenge.AddToHighscore (name: nameDialog.InputText, time: (int)playTime.TotalSeconds);
 				// erstelle einen Highscoredialog
 				Dialog highscoreDialog = new HighscoreDialog (screen: this, drawOrder: DisplayLayer.Dialog,
-				        challenge: Challenge);
+					                         challenge: Challenge);
 				// füge ihn zur Spielkomponentenliste hinzu
 				AddGameComponents (time, highscoreDialog);
 			};
@@ -281,7 +278,7 @@ namespace Knot3.Screens
 		{
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, knotInput, overlay, pointer, ChallengeWorld, PlayerWorld,
-			                   modelMouseHandler, lines, playTimeDisplay, playTimeBorder);
+				modelMouseHandler, lines, playTimeDisplay, playTimeBorder);
 			Audio.BackgroundMusic = Sound.ChallengeMusic;
 
 			// Einstellungen anwenden
@@ -290,7 +287,8 @@ namespace Knot3.Screens
 
 		#endregion
 
-		enum ChallengeModeState {
+		enum ChallengeModeState
+		{
 			Running,
 			Finished,
 			Paused

@@ -5,7 +5,6 @@ using System.Linq;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -15,7 +14,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
@@ -29,6 +27,7 @@ namespace Knot3.Utilities
 	/// </summary>
 	public static class FileUtility
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -89,7 +88,7 @@ namespace Knot3.Utilities
 					string cwd = Directory.GetCurrentDirectory ();
 					string[] binDirectories = new string[] { "Debug", "Release", "x86", "bin" };
 					foreach (string dir in binDirectories) {
-						if (cwd.ToLower().EndsWith (dir.ToLower())) {
+						if (cwd.ToLower ().EndsWith (dir.ToLower ())) {
 							cwd = cwd.Substring (0, cwd.Length - dir.Length - 1);
 						}
 					}
@@ -116,9 +115,9 @@ namespace Knot3.Utilities
 		{
 			char[] arr = name.ToCharArray ();
 			arr = Array.FindAll<char> (arr, (c => (char.IsLetterOrDigit (c)
-			                                       || char.IsWhiteSpace (c)
-			                                       || c == '-'))
-			                          );
+			|| char.IsWhiteSpace (c)
+			|| c == '-'))
+			);
 			return new string (arr);
 		}
 
@@ -146,8 +145,8 @@ namespace Knot3.Utilities
 		public static IEnumerable<string> ReadFrom (string file)
 		{
 			string line;
-			using (var reader = File.OpenText(file)) {
-				while ((line = reader.ReadLine()) != null) {
+			using (var reader = File.OpenText (file)) {
+				while ((line = reader.ReadLine ()) != null) {
 					yield return line;
 				}
 			}
@@ -171,6 +170,7 @@ namespace Knot3.Utilities
 		}
 
 		#endregion
+
 	}
 }
 

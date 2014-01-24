@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.Screens;
 using Knot3.RenderEffects;
@@ -28,6 +26,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public class KnotInputHandler : GameScreenComponent, IKeyEventListener
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -43,13 +42,13 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Zeigt an, ob die Klasse zur Zeit auf Tastatureingaben reagiert.
 		/// </summary>
-		public bool IsKeyEventEnabled { get { return true; } }
+		public bool IsKeyEventEnabled { get { return true; } set { enabled = value; } }
 
+		private bool enabled;
 		/// <summary>
 		/// Die aktuelle Tastenbelegung
 		/// </summary>
 		public static Dictionary<Keys, PlayerActions> CurrentKeyAssignment = new Dictionary<Keys, PlayerActions> ();
-
 		/// <summary>
 		/// Die Standard-Tastenbelegung.
 		/// </summary>
@@ -58,7 +57,7 @@ namespace Knot3.GameObjects
 			{ Keys.W, 		PlayerActions.MoveUp },
 			{ Keys.S, 		PlayerActions.MoveDown },
 			{ Keys.A, 		PlayerActions.MoveLeft },
-			{ Keys.D, 		PlayerActions.MoveRight},
+			{ Keys.D, 		PlayerActions.MoveRight },
 			{ Keys.R, 		PlayerActions.MoveForward },
 			{ Keys.F, 		PlayerActions.MoveBackward },
 			{ Keys.Up, 		PlayerActions.RotateUp },
@@ -70,7 +69,6 @@ namespace Knot3.GameObjects
 			{ Keys.Enter, 	PlayerActions.ResetCamera },
 			{ Keys.Space,	PlayerActions.MoveToCenter },
 		};
-
 		/// <summary>
 		/// Was bei den jeweiligen Aktionen ausgeführt wird.
 		/// </summary>
@@ -87,8 +85,9 @@ namespace Knot3.GameObjects
 		/// [base=screen]
 		/// </summary>
 		public KnotInputHandler (GameScreen screen, World world)
-		: base(screen, DisplayLayer.None)
+		: base (screen, DisplayLayer.None)
 		{
+			enabled = true;
 			// Spielwelt
 			this.world = world;
 
@@ -108,13 +107,13 @@ namespace Knot3.GameObjects
 				{ PlayerActions.MoveRight, 		(time) => move (Vector3.Right, time) },
 				{ PlayerActions.MoveForward, 	(time) => move (Vector3.Forward, time) },
 				{ PlayerActions.MoveBackward, 	(time) => move (Vector3.Backward, time) },
-				{ PlayerActions.RotateUp, 		(time) => rotate (-Vector2.UnitY*4, time) },
-				{ PlayerActions.RotateDown, 	(time) => rotate ( Vector2.UnitY*4, time) },
-				{ PlayerActions.RotateLeft, 	(time) => rotate (-Vector2.UnitX*4, time) },
-				{ PlayerActions.RotateRight, 	(time) => rotate ( Vector2.UnitX*4, time) },
+				{ PlayerActions.RotateUp, 		(time) => rotate (-Vector2.UnitY * 4, time) },
+				{ PlayerActions.RotateDown, 	(time) => rotate (Vector2.UnitY * 4, time) },
+				{ PlayerActions.RotateLeft, 	(time) => rotate (-Vector2.UnitX * 4, time) },
+				{ PlayerActions.RotateRight, 	(time) => rotate (Vector2.UnitX * 4, time) },
 				{ PlayerActions.ZoomIn, 		(time) => zoom (-1, time) },
 				{ PlayerActions.ZoomOut, 		(time) => zoom (+1, time) },
-				{ PlayerActions.ResetCamera, 	(time) => camera.ResetCamera() },
+				{ PlayerActions.ResetCamera, 	(time) => camera.ResetCamera () },
 				{ PlayerActions.MoveToCenter,	(time) => camera.StartSmoothMove (target: camera.ArcballTarget, time: time) }
 			};
 		}
@@ -128,16 +127,18 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-			UpdateMouse (time);
-			ResetMousePosition ();
-			//rotateEverywhere(Vector2.UnitX*5, time);
-			//rotateEverywhere(Vector2.UnitY*5*(i%2==0?1:-1), time);
-			//i++;
+			if (enabled) {
+				UpdateMouse (time);
+				ResetMousePosition ();
+				//rotateEverywhere(Vector2.UnitX*5, time);
+				//rotateEverywhere(Vector2.UnitY*5*(i%2==0?1:-1), time);
+				//i++;
+			}
 		}
 		//int i;
-
 		protected void UpdateMouse (GameTime time)
 		{
+
 			// wurde im letzten Frame in den oder aus dem Vollbildmodus gewechselt?
 			// dann überpringe einen frame
 			if (InputManager.FullscreenToggled) {
@@ -152,9 +153,9 @@ namespace Knot3.GameObjects
 
 			// die aktuelle Mausbewegung
 			Vector2 mouseMove = new Vector2 (
-			    InputManager.CurrentMouseState.X - InputManager.PreviousMouseState.X,
-			    InputManager.CurrentMouseState.Y - InputManager.PreviousMouseState.Y
-			);
+				                    InputManager.CurrentMouseState.X - InputManager.PreviousMouseState.X,
+				                    InputManager.CurrentMouseState.Y - InputManager.PreviousMouseState.Y
+			                    );
 
 			InputAction action;
 			// wenn die Maus in der Mitte des Bildschirms gelockt ist
@@ -225,17 +226,20 @@ namespace Knot3.GameObjects
 				camera.FoV -= 1;
 				world.Redraw = true;
 			}
+
 		}
 
 		private void ResetMousePosition ()
 		{
+
 			if (InputManager.CurrentMouseState != InputManager.PreviousMouseState) {
 				if (Screen.Input.GrabMouseMovement || (Screen.Input.CurrentInputAction == InputAction.ArcballMove)) {
 					Mouse.SetPosition (world.Viewport.X + world.Viewport.Width / 2,
-					                   world.Viewport.Y + world.Viewport.Height / 2);
+						world.Viewport.Y + world.Viewport.Height / 2);
 					InputManager.CurrentMouseState = Mouse.GetState ();
 				}
 			}
+
 		}
 
 		/// <summary>
@@ -243,6 +247,7 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void move (Vector3 move, GameTime time)
 		{
+
 			if (move.Length () > 0) {
 				move *= 10;
 				Vector3 targetDirection = camera.PositionToTargetDirection;
@@ -253,6 +258,7 @@ namespace Knot3.GameObjects
 				Screen.Input.CurrentInputAction = InputAction.FirstPersonCameraMove;
 				world.Redraw = true;
 			}
+
 		}
 
 		/// <summary>
@@ -260,22 +266,25 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void rotate (Vector2 move, GameTime time)
 		{
+
 			if (Options.Default ["video", "arcball-around-center", true]) {
 				rotateCenter (move, time);
 			}
 			else {
 				rotateEverywhere (move, time);
 			}
+
 		}
 
 		private void rotateCenter (Vector2 move, GameTime time)
 		{
+
 			// Wenn kein 3D-Objekt selektiert ist...
 			if (world.SelectedObject == null && world.Count () > 0) {
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
-				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+					nearTo: InputManager.CurrentMouseState.ToVector2 ()
+				).ElementAt (0);
 			}
 
 			// Überprüfe, wie weit das Kamera-Target von dem Objekt, um das rotiert werden soll,
@@ -299,13 +308,14 @@ namespace Knot3.GameObjects
 
 				// Berechne die Rotation
 				camera.Target = camera.ArcballTarget;
-				float oldDistance = camera.Position.DistanceTo(camera.Target);
+				float oldDistance = camera.Position.DistanceTo (camera.Target);
 				Vector3 targetDirection = camera.PositionToTargetDirection;
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.Target
-				                  + (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
-				camera.Position = camera.Position.SetDistanceTo(camera.Target, oldDistance);
+				+ (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
+				camera.Position = camera.Position.SetDistanceTo (camera.Target, oldDistance);
 			}
+
 		}
 
 		private void rotateEverywhere (Vector2 move, GameTime time)
@@ -314,8 +324,8 @@ namespace Knot3.GameObjects
 			if (world.SelectedObject == null && world.Count () > 0) {
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
-				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+					nearTo: InputManager.CurrentMouseState.ToVector2 ()
+				).ElementAt (0);
 			}
 
 			if (move.Length () > 0) {
@@ -323,16 +333,16 @@ namespace Knot3.GameObjects
 				world.Redraw = true;
 
 				// Berechne die Rotation
-				float oldPositionDistance = camera.Position.DistanceTo(camera.ArcballTarget);
-				float oldTargetDistance = camera.Target.DistanceTo(camera.Position);
+				float oldPositionDistance = camera.Position.DistanceTo (camera.ArcballTarget);
+				float oldTargetDistance = camera.Target.DistanceTo (camera.Position);
 				Vector3 targetDirection = Vector3.Normalize (camera.ArcballTarget - camera.Position);
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.ArcballTarget
-				                  + (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+				+ (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Target = camera.ArcballTarget
-				                + (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
-				camera.Position = camera.Position.SetDistanceTo(camera.ArcballTarget, oldPositionDistance);
-				camera.Target = camera.Target.SetDistanceTo(camera.Position, oldTargetDistance);
+				+ (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+				camera.Position = camera.Position.SetDistanceTo (camera.ArcballTarget, oldPositionDistance);
+				camera.Target = camera.Target.SetDistanceTo (camera.Position, oldTargetDistance);
 			}
 		}
 
@@ -346,19 +356,21 @@ namespace Knot3.GameObjects
 
 		public void OnKeyEvent (List<Keys> keys, KeyEvent keyEvent, GameTime time)
 		{
-			// Bei einem Tastendruck wird die Spielwelt auf jeden Fall neu gezeichnet.
-			world.Redraw = true;
+			if (enabled) {
+				// Bei einem Tastendruck wird die Spielwelt auf jeden Fall neu gezeichnet.
+				world.Redraw = true;
 
-			// Iteriere über alle gedrückten Tasten
-			foreach (Keys key in keys) {
-				// Ist der Taste eine Aktion zugeordnet?
-				if (CurrentKeyAssignment.ContainsKey (key)) {
-					// Während die Taste gedrückt gehalten ist...
-					if (key.IsHeldDown ()) {
-						// führe die entsprechende Aktion aus!
-						PlayerActions action = CurrentKeyAssignment [key];
-						Action<GameTime> binding = ActionBindings [action];
-						binding (time);
+				// Iteriere über alle gedrückten Tasten
+				foreach (Keys key in keys) {
+					// Ist der Taste eine Aktion zugeordnet?
+					if (CurrentKeyAssignment.ContainsKey (key)) {
+						// Während die Taste gedrückt gehalten ist...
+						if (key.IsHeldDown ()) {
+							// führe die entsprechende Aktion aus!
+							PlayerActions action = CurrentKeyAssignment [key];
+							Action<GameTime> binding = ActionBindings [action];
+							binding (time);
+						}
 					}
 				}
 			}
@@ -383,11 +395,11 @@ namespace Knot3.GameObjects
 
 				// Erstelle eine Option...
 				KeyOptionInfo option = new KeyOptionInfo (
-				    section: "controls",
-				    name: actionName,
-				    defaultValue: defaultReversed [action],
-				    configFile: Options.Default
-				);
+					                       section: "controls",
+					                       name: actionName,
+					                       defaultValue: defaultReversed [action],
+					                       configFile: Options.Default
+				                       );
 				// und lese den Wert aus und speichere ihn in der Zuordnung.
 				CurrentKeyAssignment [option.Value] = action;
 			}
@@ -405,6 +417,7 @@ namespace Knot3.GameObjects
 		}
 
 		#endregion
+
 	}
 }
 

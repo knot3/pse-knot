@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -27,6 +25,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class HighscoreDialog : Dialog
 	{
+
 		#region Properties
 
 		private VerticalMenu highscoreList;
@@ -39,7 +38,7 @@ namespace Knot3.Widgets
 		///
 		/// </summary>
 		public HighscoreDialog (GameScreen screen, DisplayLayer drawOrder, Challenge challenge)
-		: base(screen, drawOrder, "Highscores", "")
+		: base (screen, drawOrder, "Highscores", "")
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
@@ -63,27 +62,27 @@ namespace Knot3.Widgets
 
 			//Button fürs Neustarten
 			MenuButton restartButton = new MenuButton (
-			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
-			    name: "Restart challenge",
-			onClick: (time) => {
-				Close (time);
-				Screen.NextScreen = new ChallengeModeScreen (Screen.Game, challenge);
-			}
-			);
+				                           screen: Screen,
+				                           drawOrder: DisplayLayer.MenuItem,
+				                           name: "Restart challenge",
+				                           onClick: (time) => {
+					Close (time);
+					Screen.NextScreen = new ChallengeModeScreen (Screen.Game, challenge);
+				}
+			                           );
 
 			highscoreList.Add (restartButton);
 
 			//Button für die Rückkehr zum StartScreen
 			MenuButton returnButton = new MenuButton (
-			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
-			    name: "Return to menu",
-			onClick: (time) => {
-				Close (time);
-				Screen.NextScreen = new StartScreen (Screen.Game);
-			}
-			);
+				                          screen: Screen,
+				                          drawOrder: DisplayLayer.MenuItem,
+				                          name: "Return to menu",
+				                          onClick: (time) => {
+					Close (time);
+					Screen.NextScreen = new StartScreen (Screen.Game);
+				}
+			                          );
 			highscoreList.Add (returnButton);
 		}
 
@@ -100,6 +99,7 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
+
 	}
 }
 

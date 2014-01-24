@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.RenderEffects;
@@ -27,6 +25,7 @@ namespace Knot3.Screens
 	/// </summary>
 	public sealed class ChallengeStartScreen : MenuScreen
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -34,7 +33,6 @@ namespace Knot3.Screens
 		/// </summary>
 		private VerticalMenu savegameMenu;
 		private TextItem title;
-
 		// Spielstand-Loader
 		private SavegameLoader<Challenge, ChallengeMetaData> loader;
 
@@ -47,7 +45,7 @@ namespace Knot3.Screens
 		/// initialisiert diese mit einem Knot3Game-Objekt.
 		/// </summary>
 		public ChallengeStartScreen (Knot3Game game)
-		: base(game)
+		: base (game)
 		{
 			savegameMenu = new VerticalMenu (this, DisplayLayer.Menu);
 			savegameMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
@@ -99,11 +97,11 @@ namespace Knot3.Screens
 
 			// Erstelle den Menüeintrag
 			MenuButton button = new MenuButton (
-			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
-			    name: name,
-			    onClick: LoadFile
-			);
+				                    screen: this,
+				                    drawOrder: DisplayLayer.MenuItem,
+				                    name: name,
+				                    onClick: LoadFile
+			                    );
 			savegameMenu.Add (button);
 		}
 

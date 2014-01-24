@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -26,6 +24,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class TextInputDialog : Dialog, IKeyEventListener
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -57,7 +56,7 @@ namespace Knot3.Widgets
 		///
 		/// </summary>
 		public TextInputDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
-		: base(screen, drawOrder, title, text)
+		: base (screen, drawOrder, title, text)
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
@@ -102,6 +101,7 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
+
 	}
 }
 

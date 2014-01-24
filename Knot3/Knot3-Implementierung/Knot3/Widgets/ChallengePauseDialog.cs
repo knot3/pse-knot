@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -27,6 +25,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class ChallengePauseDialog : Dialog
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -42,7 +41,7 @@ namespace Knot3.Widgets
 		///
 		/// </summary>
 		public ChallengePauseDialog (GameScreen screen, DisplayLayer drawOrder)
-		: base(screen, drawOrder, "Pause", "")
+		: base (screen, drawOrder, "Pause", "")
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
@@ -58,31 +57,33 @@ namespace Knot3.Widgets
 			pauseMenu.ItemAlignY = VerticalAlignment.Center;
 
 			MenuButton settingsButton = new MenuButton (
-			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
-			    name: "Settings",
-			onClick: (time) => {
-				Close (time);
-				Screen.NextScreen = new SettingsScreen (Screen.Game);
-			}
-			);
+				                            screen: Screen,
+				                            drawOrder: DisplayLayer.MenuItem,
+				                            name: "Settings",
+				                            onClick: (time) => {
+					Close (time);
+					Screen.NextScreen = new SettingsScreen (Screen.Game);
+				}
+			                            );
 			MenuButton backButton = new MenuButton (
-			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
-			    name: "Back to Game",
-			onClick: (time) => { Close (time); }
-			);
+				                        screen: Screen,
+				                        drawOrder: DisplayLayer.MenuItem,
+				                        name: "Back to Game",
+				                        onClick: (time) => {
+					Close (time);
+				}
+			                        );
 
 			backButton.AddKey (Keys.Escape);
 			MenuButton discardExitButton = new MenuButton (
-			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
-			    name: "Discard Changes and Exit",
-			onClick: (time) => {
-				Close (time);
-				Screen.NextScreen = new StartScreen (Screen.Game);
-			}
-			);
+				                               screen: Screen,
+				                               drawOrder: DisplayLayer.MenuItem,
+				                               name: "Discard Changes and Exit",
+				                               onClick: (time) => {
+					Close (time);
+					Screen.NextScreen = new StartScreen (Screen.Game);
+				}
+			                               );
 			backButton.AddKey (Keys.Escape);
 
 			pauseMenu.Add (settingsButton);
@@ -99,6 +100,7 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
+
 	}
 }
 
