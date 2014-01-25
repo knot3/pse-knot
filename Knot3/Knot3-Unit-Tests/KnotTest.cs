@@ -20,7 +20,7 @@ namespace Knot3.UnitTests
 		[Test, Description("Knot Contruction")]
 		public void ConstructTest ()
 		{
-			Edge[] edges = new Edge[]{
+			Edge[] edges = new Edge[] {
 				Edge.Up, Edge.Left, Edge.Down, Edge.Right
 			};
 			string name = "test";
@@ -38,7 +38,7 @@ namespace Knot3.UnitTests
 		[Test, Description("Knot Move")]
 		public void MoveTest ()
 		{
-			Edge[] edges = new Edge[]{
+			Edge[] edges = new Edge[] {
 				Edge.Up, Edge.Left, Edge.Down, Edge.Right
 			};
 			string name = "test";
@@ -62,7 +62,7 @@ namespace Knot3.UnitTests
 			Assert.IsTrue (success, "Gültige Richtung!");
 
 			Assert.AreEqual (knot.Count (), edges.Length + 2, "Knotenlänge nach Verschiebung #1");
-			
+
 			// noch mal nach oben schieben (2x)
 			success = knot.Move (direction: Direction.Up, distance: 2);
 
