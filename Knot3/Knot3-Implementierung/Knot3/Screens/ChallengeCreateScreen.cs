@@ -172,8 +172,8 @@ namespace Knot3.Screens
 		{
 			get {
 				return selectedStartKnot != null && selectedTargetKnot != null &&
-					selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
-					&& challengeName.InputText.Length > 0;
+				       selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
+				       && challengeName.InputText.Length > 0;
 			}
 		}
 
