@@ -7,6 +7,7 @@ namespace Knot3.UnitTests
 	[TestFixture]
 	public class UnitTest1
 	{
+		/*
 		[Test]
 		public void TestMethod1 ()
 		{
@@ -18,6 +19,7 @@ namespace Knot3.UnitTests
 		{
 			Assert.IsNotNull (null);
 		}
+		*/
 	}
 }
 

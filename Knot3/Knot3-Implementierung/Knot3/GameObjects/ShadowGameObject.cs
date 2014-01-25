@@ -57,7 +57,7 @@ namespace Knot3.GameObjects
 
 		protected IGameObject decoratedObject { get; private set; }
 
-		protected GameScreen screen;
+		protected IGameScreen screen;
 
 		#endregion
 
@@ -66,7 +66,7 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Erstellt ein neues Vorschauobjekt in dem angegebenen Spielzustand für das angegebene zu dekorierende Objekt.
 		/// </summary>
-		public ShadowGameObject (GameScreen screen, IGameObject decoratedObj)
+		public ShadowGameObject (IGameScreen screen, IGameObject decoratedObj)
 		{
 			this.screen = screen;
 			this.decoratedObject = decoratedObj;

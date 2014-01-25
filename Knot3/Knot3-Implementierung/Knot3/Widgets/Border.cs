@@ -49,7 +49,7 @@ namespace Knot3.Widgets
 
 		#region Constructors
 
-		public Border (GameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth = 2, int padding = 0)
+		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth = 2, int padding = 0)
 		: base(screen, drawOrder)
 		{
 			LineWidth = lineWidth;

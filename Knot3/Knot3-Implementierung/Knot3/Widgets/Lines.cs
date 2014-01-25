@@ -37,7 +37,7 @@ namespace Knot3.Widgets
 
 		public bool IsEnabled { get; set; }
 
-		public Lines (GameScreen screen, DisplayLayer drawOrder, int lineWidth)
+		public Lines (IGameScreen screen, DisplayLayer drawOrder, int lineWidth)
 		: base(screen, drawOrder)
 		{
 			this.lineWidth = lineWidth;

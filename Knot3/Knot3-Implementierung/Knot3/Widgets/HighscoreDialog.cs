@@ -38,7 +38,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		///
 		/// </summary>
-		public HighscoreDialog (GameScreen screen, DisplayLayer drawOrder, Challenge challenge)
+		public HighscoreDialog (IGameScreen screen, DisplayLayer drawOrder, Challenge challenge)
 		: base (screen, drawOrder, "Highscores", "")
 		{
 			// Der Titel-Text ist mittig ausgerichtet

@@ -105,7 +105,7 @@ namespace Knot3.Widgets
 		/// Erstellt ein neues grafisches Benutzerschnittstellenelement in dem angegebenen Spielzustand
 		/// mit der angegebenen Zeichenreihenfolge.
 		/// </summary>
-		public Widget (GameScreen screen, DisplayLayer drawOrder)
+		public Widget (IGameScreen screen, DisplayLayer drawOrder)
 		: base(screen, drawOrder)
 		{
 			RelativePosition = () => Vector2.Zero;

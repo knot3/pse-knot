@@ -18,19 +18,19 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.RenderEffects;
 
-namespace Knot3.RenderEffects
+namespace Knot3.UnitTests
 {
 	/// <summary>
 	/// Ein Stapel, der während der Draw-Aufrufe die Hierarchie der aktuell verwendeten Rendereffekte verwaltet
 	/// und automatisch das aktuell von XNA verwendete Rendertarget auf das Rendertarget des obersten Rendereffekts
 	/// setzt.
 	/// </summary>
-	public sealed class RenderEffectStack : IRenderEffectStack
+	public sealed class FakeEffectStack : IRenderEffectStack
 	{
 		#region Properties
 
-		private IGameScreen screen;
 		private static Stack<IRenderEffect> stack = new Stack<IRenderEffect> ();
 
 		/// <summary>
@@ -60,9 +60,8 @@ namespace Knot3.RenderEffects
 		/// <summary>
 		/// Erstellt einen neuen Rendereffekt-Stapel.
 		/// </summary>
-		public RenderEffectStack (IGameScreen screen, IRenderEffect defaultEffect)
+		public FakeEffectStack (IGameScreen screen, IRenderEffect defaultEffect)
 		{
-			this.screen = screen;
 			this.defaultEffect = defaultEffect;
 			stack = new Stack<IRenderEffect> ();
 		}
@@ -76,14 +75,7 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		public IRenderEffect Pop ()
 		{
-			IRenderEffect removed = stack.Pop ();
-			if (stack.Count > 0) {
-				screen.Device.SetRenderTarget (CurrentEffect.RenderTarget);
-			}
-			else {
-				screen.Device.SetRenderTarget (null);
-			}
-			return removed;
+			return stack.Pop ();
 		}
 
 		/// <summary>
@@ -92,7 +84,6 @@ namespace Knot3.RenderEffects
 		public void Push (IRenderEffect effect)
 		{
 			stack.Push (effect);
-			screen.Device.SetRenderTarget (effect.RenderTarget);
 		}
 
 		#endregion

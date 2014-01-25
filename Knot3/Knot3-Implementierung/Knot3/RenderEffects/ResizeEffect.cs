@@ -54,7 +54,7 @@ namespace Knot3.RenderEffects
 		/// Erstellt einen neuen Standardeffekt mit der angegebenen relativen Position und Größe in Prozent,
 		/// relativ zur aktuellen Auflösung des Viewports.
 		/// </summary>
-		public ResizeEffect (GameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
+		public ResizeEffect (IGameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
 		: base(screen)
 		{
 			this.relativePosition = relativePosition;

@@ -24,7 +24,7 @@ namespace Knot3.Utilities
 {
 	public static class ShaderHelper
 	{
-		public static Effect LoadEffect (this GameScreen screen, string name)
+		public static Effect LoadEffect (this IGameScreen screen, string name)
 		{
 			if (MonoHelper.IsRunningOnMono ()) {
 				return LoadEffectMono (screen, name);
@@ -34,12 +34,12 @@ namespace Knot3.Utilities
 			}
 		}
 
-		private static Effect LoadEffectMono (GameScreen screen, string name)
+		private static Effect LoadEffectMono (IGameScreen screen, string name)
 		{
 			return new Effect (screen.Device, System.IO.File.ReadAllBytes ("Content/" + name + ".mgfx"));
 		}
 
-		private static Effect LoadEffectDotnet (GameScreen screen, string name)
+		private static Effect LoadEffectDotnet (IGameScreen screen, string name)
 		{
 			return screen.Content.Load<Effect> (name);
 		}

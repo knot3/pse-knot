@@ -83,10 +83,10 @@ namespace Knot3.Widgets
 		#region Constructors
 
 		/// <summary>
-		/// Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+		/// Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen IGameScreen-Objekt.
 		/// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
 		/// </summary>
-		public Menu (GameScreen screen, DisplayLayer drawOrder)
+		public Menu (IGameScreen screen, DisplayLayer drawOrder)
 		: base(screen, drawOrder)
 		{
 			items = new List<MenuItem> ();

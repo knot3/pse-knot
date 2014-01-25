@@ -46,9 +46,9 @@ namespace Knot3.GameObjects
 		#region Constructors
 
 		/// <summary>
-		/// Erstellt ein neues Pfeilmodell in dem angegebenen GameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
+		/// Erstellt ein neues Pfeilmodell in dem angegebenen IGameScreen mit einem bestimmten Info-Objekt, das Position und Richtung des Pfeils festlegt.
 		/// </summary>
-		public ArrowModel (GameScreen screen, ArrowModelInfo info)
+		public ArrowModel (IGameScreen screen, ArrowModelInfo info)
 		: base(screen, info)
 		{
 			_bounds = VectorHelper.CylinderBounds (

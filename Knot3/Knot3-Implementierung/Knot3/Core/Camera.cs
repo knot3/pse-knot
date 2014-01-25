@@ -116,9 +116,9 @@ namespace Knot3.Core
 		#region Constructors
 
 		/// <summary>
-		/// Erstellt eine neue Kamera in einem bestimmten GameScreen für eine bestimmte Spielwelt.
+		/// Erstellt eine neue Kamera in einem bestimmten IGameScreen für eine bestimmte Spielwelt.
 		/// </summary>
-		public Camera (GameScreen screen, World world)
+		public Camera (IGameScreen screen, World world)
 		: base(screen, DisplayLayer.None)
 		{
 			World = world;

@@ -35,10 +35,10 @@ namespace Knot3.GameObjects
 		#region Constructors
 
 		/// <summary>
-		/// Erzeugt eine neue Instanz eines ModelMouseHandler-Objekts und ordnet dieser ein GameScreen-Objekt screen zu,
+		/// Erzeugt eine neue Instanz eines ModelMouseHandler-Objekts und ordnet dieser ein IGameScreen-Objekt screen zu,
 		/// sowie eine Spielwelt world.
 		/// </summary>
-		public ModelMouseHandler (GameScreen screen, World world)
+		public ModelMouseHandler (IGameScreen screen, World world)
 		: base(screen, DisplayLayer.None)
 		{
 			World = world;

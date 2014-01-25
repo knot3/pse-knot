@@ -27,7 +27,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class WidgetKeyHandler : GameScreenComponent
 	{
-		public WidgetKeyHandler (GameScreen screen)
+		public WidgetKeyHandler (IGameScreen screen)
 		: base(screen, DisplayLayer.None)
 		{
 		}

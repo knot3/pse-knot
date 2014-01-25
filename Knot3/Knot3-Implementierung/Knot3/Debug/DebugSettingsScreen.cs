@@ -111,7 +111,7 @@ namespace Knot3.Debug
 		/// <summary>
 		/// Fügt das Menü mit den Einstellungen in die Spielkomponentenliste ein.
 		/// </summary>
-		public override void Entered (GameScreen previousScreen, GameTime time)
+		public override void Entered (IGameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, settingsMenu);

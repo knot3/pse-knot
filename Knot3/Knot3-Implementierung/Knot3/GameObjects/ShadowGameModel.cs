@@ -52,7 +52,7 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Erstellt ein neues Vorschaumodell in dem angegebenen Spielzustand für das angegebene zu dekorierende Modell.
 		/// </summary>
-		public ShadowGameModel (GameScreen screen, GameModel decoratedModel)
+		public ShadowGameModel (IGameScreen screen, GameModel decoratedModel)
 		: base(screen, decoratedModel)
 		{
 		}

@@ -16,17 +16,18 @@ using Microsoft.Xna.Framework.Storage;
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
-using Knot3.RenderEffects;
 using Knot3.KnotData;
+using Knot3.Widgets;
 
-namespace Knot3.Widgets
+namespace Knot3.RenderEffects
 {
-	public class ErrorDialog : ConfirmDialog
+	public interface IRenderEffectStack
 	{
-		public ErrorDialog (IGameScreen screen, DisplayLayer drawIndex, string message)
-		: base(screen, drawIndex, "Error", message)
-		{
-		}
+		IRenderEffect CurrentEffect { get; }
+
+		IRenderEffect Pop ();
+
+		void Push (IRenderEffect effect);
 	}
 }
 

@@ -49,7 +49,7 @@ namespace Knot3.Widgets
 		/// Erzeugt eine neue Instanz eines ColorPicker-Objekts und initialisiert diese
 		/// mit der Farbe, auf welche der Farbwähler beim Aufruf aus Sicht des Spielers zeigt.
 		/// </summary>
-		public ColorPicker (GameScreen screen, DisplayLayer drawOrder, Color def)
+		public ColorPicker (IGameScreen screen, DisplayLayer drawOrder, Color def)
 		: base(screen, drawOrder)
 		{
 			BackgroundColor = () => Color.Black;

@@ -37,7 +37,7 @@ namespace Knot3.GameObjects
 		/// Ein Delegate, das beim Erstellen eines Zwischenspeichers zugewiesen wird und aus den
 		/// angegebenen Modellinformationen und dem angegebenen Spielzustand ein 3D-Modell erstellt.
 		/// </summary>
-		private Func<GameScreen, GameModelInfo, GameModel> createModel { get; set; }
+		private Func<IGameScreen, GameModelInfo, GameModel> createModel { get; set; }
 
 		#endregion
 
@@ -46,7 +46,7 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Erstellt einen neuen Zwischenspeicher.
 		/// </summary>
-		public ModelFactory (Func<GameScreen, GameModelInfo, GameModel> createModel)
+		public ModelFactory (Func<IGameScreen, GameModelInfo, GameModel> createModel)
 		{
 			this.createModel = createModel;
 			cache = new Dictionary<GameModelInfo, GameModel> ();
@@ -59,7 +59,7 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Falls das 3D-Modell zwischengespeichert ist, wird es zurückgegeben, sonst mit createModel() erstellt.
 		/// </summary>
-		public GameModel this [GameScreen screen, GameModelInfo info]
+		public GameModel this [IGameScreen screen, GameModelInfo info]
 		{
 			get {
 				if (cache.ContainsKey (info)) {

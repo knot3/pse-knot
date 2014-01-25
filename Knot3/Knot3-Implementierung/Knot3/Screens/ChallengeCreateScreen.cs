@@ -227,7 +227,7 @@ namespace Knot3.Screens
 		/// <summary>
 		///
 		/// </summary>
-		public override void Entered (GameScreen previousScreen, GameTime time)
+		public override void Entered (IGameScreen previousScreen, GameTime time)
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);

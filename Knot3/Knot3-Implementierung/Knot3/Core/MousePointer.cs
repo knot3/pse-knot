@@ -34,7 +34,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Erstellt einen neuen Mauszeiger für den angegebenen Spielzustand.
 		/// </summary>
-		public MousePointer (GameScreen screen)
+		public MousePointer (IGameScreen screen)
 		: base(screen, DisplayLayer.Cursor)
 		{
 			spriteBatch = new SpriteBatch (screen.Device);

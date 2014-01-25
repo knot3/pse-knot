@@ -25,7 +25,7 @@ namespace Knot3.Core
 	/// <summary>
 	/// Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
 	/// </summary>
-	public class GameScreen
+	public class GameScreen : IGameScreen
 	{
 		#region Properties
 
@@ -44,17 +44,17 @@ namespace Knot3.Core
 		/// <summary>
 		/// Der aktuelle Postprocessing-Effekt des Spielzustands
 		/// </summary>
-		public RenderEffect PostProcessingEffect { get; set; }
+		public IRenderEffect PostProcessingEffect { get; set; }
 
 		/// <summary>
 		/// Ein Stack, der während dem Aufruf der Draw-Methoden der Spielkomponenten die jeweils aktuellen Rendereffekte enthält.
 		/// </summary>
-		public RenderEffectStack CurrentRenderEffects { get; set; }
+		public IRenderEffectStack CurrentRenderEffects { get; set; }
 
 		/// <summary>
 		/// Der nächste Spielstand, der von Knot3Game gesetzt werden soll.
 		/// </summary>
-		public GameScreen NextScreen { get; set; }
+		public IGameScreen NextScreen { get; set; }
 
 		public GraphicsDeviceManager Graphics { get { return Game.Graphics; } }
 
@@ -75,20 +75,20 @@ namespace Knot3.Core
 		#region Constructors
 
 		/// <summary>
-		/// Erzeugt ein neues GameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
+		/// Erzeugt ein neues IGameScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 		/// </summary>
 		public GameScreen (Knot3Game game)
 		{
-			this.Game = game;
-			this.NextScreen = this;
-			this.CurrentRenderEffects = new RenderEffectStack (
+			Game = game;
+			NextScreen = this;
+			CurrentRenderEffects = new RenderEffectStack (
 			    screen: this,
 			    defaultEffect: new StandardEffect (this)
 			);
-			this.PostProcessingEffect = new StandardEffect (this);
-			this.Input = new InputManager (this);
-			this.Audio = new AudioManager (this);
-			this.BackgroundColor = Color.Black;
+			PostProcessingEffect = new StandardEffect (this);
+			Input = new InputManager (this);
+			Audio = new AudioManager (this);
+			BackgroundColor = Color.Black;
 		}
 
 		#endregion
@@ -97,10 +97,10 @@ namespace Knot3.Core
 
 		/// <summary>
 		/// Beginnt mit dem Füllen der Spielkomponentenliste des XNA-Frameworks und fügt sowohl für Tastatur- als auch für
-		/// Mauseingaben einen Inputhandler für Widgets hinzu. Wird in Unterklassen von GameScreen reimplementiert und fügt zusätzlich weitere
+		/// Mauseingaben einen Inputhandler für Widgets hinzu. Wird in Unterklassen von IGameScreen reimplementiert und fügt zusätzlich weitere
 		/// Spielkomponenten hinzu.
 		/// </summary>
-		public virtual void Entered (GameScreen previousScreen, GameTime time)
+		public virtual void Entered (IGameScreen previousScreen, GameTime time)
 		{
 			Console.WriteLine ("Entered: " + this);
 			AddGameComponents (time, Input, Audio, new WidgetKeyHandler (this), new WidgetMouseHandler (this));
@@ -109,14 +109,14 @@ namespace Knot3.Core
 		/// <summary>
 		/// Leert die Spielkomponentenliste des XNA-Frameworks.
 		/// </summary>
-		public virtual void BeforeExit (GameScreen nextScreen, GameTime time)
+		public virtual void BeforeExit (IGameScreen nextScreen, GameTime time)
 		{
 			Console.WriteLine ("BeforeExit: " + this);
 			Game.Components.Clear ();
 		}
 
 		/// <summary>
-		/// Zeichnet die Teile des GameScreens, die keine Spielkomponenten sind.
+		/// Zeichnet die Teile des IGameScreens, die keine Spielkomponenten sind.
 		/// </summary>
 		public virtual void Draw (GameTime time)
 		{

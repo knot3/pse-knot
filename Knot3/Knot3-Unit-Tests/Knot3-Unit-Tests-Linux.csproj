@@ -34,9 +34,19 @@
       <Private>False</Private>
       <Package>mono-nunit</Package>
     </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.0.1.0, Culture=neutral">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
+    <Compile Include="WorldTest.cs" />
+    <Compile Include="MockObjects\FakeScreen.cs" />
+    <Compile Include="MockObjects\FakeEffect.cs" />
+    <Compile Include="MockObjects\FakeEffectStack.cs" />
+    <Compile Include="KnotTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -44,5 +54,8 @@
       <Project>{A7093300-1D0E-462B-83E2-A5DC7C3D145B}</Project>
       <Name>Knot3-Linux</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MockObjects\" />
   </ItemGroup>
 </Project>

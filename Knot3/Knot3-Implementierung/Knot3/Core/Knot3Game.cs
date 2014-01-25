@@ -65,7 +65,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Enthält als oberste Element den aktuellen Spielzustand und darunter die zuvor aktiven Spielzustände.
 		/// </summary>
-		public Stack<GameScreen> Screens { get; set; }
+		public Stack<IGameScreen> Screens { get; set; }
 
 		/// <summary>
 		/// Dieses Attribut dient sowohl zum Setzen des Aktivierungszustandes der vertikalen Synchronisation,
@@ -136,7 +136,7 @@ namespace Knot3.Core
 			Graphics.PreferMultiSampling = true;
 
 			// screens
-			Screens = new Stack<GameScreen> ();
+			Screens = new Stack<IGameScreen> ();
 			Screens.Push (new StartScreen (this));
 			Screens.Peek ().Entered (null, null);
 
@@ -150,7 +150,7 @@ namespace Knot3.Core
 		protected override void Draw (GameTime time)
 		{
 			// Lade den aktuellen Screen
-			GameScreen current = Screens.Peek ();
+			IGameScreen current = Screens.Peek ();
 
 			// Starte den Post-Processing-Effekt des Screens
 			current.PostProcessingEffect.Begin (time);
@@ -179,8 +179,8 @@ namespace Knot3.Core
 		protected override void Update (GameTime time)
 		{
 			// falls der Screen gewechselt werden soll...
-			GameScreen current = Screens.Peek ();
-			GameScreen next = current.NextScreen;
+			IGameScreen current = Screens.Peek ();
+			IGameScreen next = current.NextScreen;
 			if (current != next) {
 				next.PostProcessingEffect = new FadeEffect (next, current);
 				current.BeforeExit (next, time);

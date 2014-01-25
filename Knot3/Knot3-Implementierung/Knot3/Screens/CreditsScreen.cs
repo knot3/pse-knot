@@ -52,7 +52,7 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Fügt das Menü mit den Mitwirkenden in die Spielkomponentenliste ein.
 		/// </summary>
-		public override void Entered (GameScreen previousScreen, GameTime GameTime)
+		public override void Entered (IGameScreen previousScreen, GameTime GameTime)
 		{
 			throw new System.NotImplementedException();
 		}

@@ -42,7 +42,7 @@ namespace Knot3.GameObjects
 		/// Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und dem angegebenen Informationsobjekt.
 		/// [base=screen, info]
 		/// </summary>
-		public NodeModel (GameScreen screen, NodeModelInfo info)
+		public NodeModel (IGameScreen screen, NodeModelInfo info)
 		: base(screen, info)
 		{
 		}

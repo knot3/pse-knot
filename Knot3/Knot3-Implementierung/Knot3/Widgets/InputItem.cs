@@ -63,10 +63,10 @@ namespace Knot3.Widgets
 		#region Constructors
 
 		/// <summary>
-		/// Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+		/// Erzeugt ein neues InputItem-Objekt und initialisiert dieses mit dem zugehörigen IGameScreen-Objekt.
 		/// Zudem sind Angaben zur Zeichenreihenfolge und für evtl. bereits vor-eingetragenen Text Pflicht.
 		/// </summary>
-		public InputItem (GameScreen screen, DisplayLayer drawOrder, string text, string inputText)
+		public InputItem (IGameScreen screen, DisplayLayer drawOrder, string text, string inputText)
 		: base(screen, drawOrder, text)
 		{
 			InputText = inputText;

@@ -31,7 +31,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Der zugewiesene Spielzustand.
 		/// </summary>
-		public GameScreen Screen { get; set; }
+		public IGameScreen Screen { get; set; }
 
 		private DisplayLayer _index;
 
@@ -52,10 +52,10 @@ namespace Knot3.Core
 		#region Constructors
 
 		/// <summary>
-		/// Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet dieser ein GameScreen-Objekt zu.
+		/// Erzeugt eine neue Instanz eines DrawableGameScreenComponent-Objekts und ordnet dieser ein IGameScreen-Objekt zu.
 		/// index bezeichnet die Zeichenebene, auf welche die Komponente zu zeichnen ist.
 		/// </summary>
-		public DrawableGameScreenComponent (GameScreen screen, DisplayLayer index)
+		public DrawableGameScreenComponent (IGameScreen screen, DisplayLayer index)
 		: base(screen.Game)
 		{
 			this.Screen = screen;

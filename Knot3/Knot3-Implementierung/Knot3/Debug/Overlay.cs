@@ -36,7 +36,7 @@ namespace Knot3.Debug
 		private DebugModel debugModel;
 		private bool debugModelAdded;
 
-		public Overlay (GameScreen screen, World world)
+		public Overlay (IGameScreen screen, World world)
 		: base (screen, DisplayLayer.Overlay)
 		{
 			// game world

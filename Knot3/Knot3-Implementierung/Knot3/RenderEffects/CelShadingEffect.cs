@@ -38,9 +38,9 @@ namespace Knot3.RenderEffects
 		#region Constructors
 
 		/// <summary>
-		/// Erstellt einen neuen Cel-Shading-Effekt für den angegebenen GameScreen.
+		/// Erstellt einen neuen Cel-Shading-Effekt für den angegebenen IGameScreen.
 		/// </summary>
-		public CelShadingEffect (GameScreen screen)
+		public CelShadingEffect (IGameScreen screen)
 		: base(screen)
 		{
 			/* Set our light direction for the cel-shader

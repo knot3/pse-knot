@@ -111,10 +111,10 @@ namespace Knot3.Widgets
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines SliderItem-Objekts und initialisiert diese
-		/// mit dem zugehörigen GameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
+		/// mit dem zugehörigen IGameScreen-Objekt. Zudem ist die Angabe der Zeichenreihenfolge,
 		/// einem minimalen einstellbaren Wert, einem maximalen einstellbaren Wert und einem Standardwert Pflicht.
 		/// </summary>
-		public SliderItem (GameScreen screen, DisplayLayer drawOrder, string text, int max, int min, int step, int value)
+		public SliderItem (IGameScreen screen, DisplayLayer drawOrder, string text, int max, int min, int step, int value)
 		: base(screen, drawOrder, text)
 		{
 			MaxValue = max;

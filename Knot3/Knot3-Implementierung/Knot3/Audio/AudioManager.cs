@@ -73,7 +73,7 @@ namespace Knot3.Audio
 		/// <summary>
 		/// Erstellt einen neuen AudioManager für den angegebenen Spielzustand.
 		/// </summary>
-		public AudioManager (GameScreen screen)
+		public AudioManager (IGameScreen screen)
 		: base(screen, DisplayLayer.None)
 		{
 			if (AudioFiles.Count == 0) {

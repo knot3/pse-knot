@@ -25,7 +25,7 @@ namespace Knot3.Debug
 {
 	public class DebugModel:GameModel
 	{
-		public DebugModel (GameScreen screen, DebugModelInfo info) : base(screen,info)
+		public DebugModel (IGameScreen screen, DebugModelInfo info) : base(screen,info)
 		{
 		}
 

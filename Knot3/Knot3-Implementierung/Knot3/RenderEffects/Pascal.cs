@@ -24,7 +24,7 @@ namespace Knot3.RenderEffects
 {
 	class Pascal : RenderEffect
 	{
-		public Pascal(GameScreen screen)
+		public Pascal(IGameScreen screen)
 		: base(screen)
 		{
 			pascalEffect = screen.LoadEffect("Pascal");

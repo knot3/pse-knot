@@ -39,7 +39,7 @@ namespace Knot3.Widgets
 
 		#region Constructors
 
-		public KnotSaveDialog (GameScreen screen, DisplayLayer drawOrder, Knot knot, Action onSave)
+		public KnotSaveDialog (IGameScreen screen, DisplayLayer drawOrder, Knot knot, Action onSave)
 		: base(screen, drawOrder, "Save Knot", "fuck you", knot != null ? knot.Name : "Untitled Knot")
 		{
 			OnSave = onSave;

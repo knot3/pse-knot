@@ -89,8 +89,8 @@ namespace Knot3.Core
 		public IRenderEffect CurrentEffect { get; set; }
 
 		public Action<IGameObject> SelectionChanged = (o) =>
-		{
-		};
+			{
+			};
 
 		public bool Redraw { get; set; }
 		//private ResizeEffect resizeEffect;
@@ -104,7 +104,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Erstellt eine neue Spielwelt im angegebenen Spielzustand.
 		/// </summary>
-		public World (GameScreen screen)
+		public World (IGameScreen screen, IRenderEffect effect)
 		: base (screen, DisplayLayer.GameWorld)
 		{
 			// die Kamera für diese Spielwelt
@@ -113,16 +113,7 @@ namespace Knot3.Core
 			// die Liste der Spielobjekte
 			Objects = new HashSet<IGameObject> ();
 
-			// der Standardeffekt
-			if (Options.Default ["video", "cel-shading", false]) {
-				CurrentEffect = new CelShadingEffect (screen);
-			}
-			else if (Options.Default ["video", "pascal-shader", false]) {
-				CurrentEffect = new Pascal (screen);
-			}
-			else {
-				CurrentEffect = new StandardEffect (screen);
-			}
+			CurrentEffect = effect;
 
 			// Die relative Standard-Position und Größe
 			this.relativePosition = Vector2.Zero;
@@ -131,11 +122,35 @@ namespace Knot3.Core
 			Screen.Game.FullScreenChanged += () => viewportCache.Clear ();
 		}
 
-		public World (GameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
-		: this (screen)
+		public World (IGameScreen screen, IRenderEffect effect, Vector2 relativePosition, Vector2 relativeSize)
+		: this (screen, effect)
 		{
 			this.relativePosition = relativePosition;
 			this.relativeSize = relativeSize;
+		}
+
+		public World (IGameScreen screen)
+		: this (screen, DefaultEffect(screen))
+		{
+		}
+
+		public World (IGameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
+		: this (screen, DefaultEffect(screen), relativePosition, relativeSize)
+		{
+		}
+
+		private static IRenderEffect DefaultEffect (IGameScreen screen)
+		{
+			// der Standardeffekt
+			if (Options.Default ["video", "cel-shading", false]) {
+				return new CelShadingEffect (screen);
+			}
+			else if (Options.Default ["video", "pascal-shader", false]) {
+				return new Pascal (screen);
+			}
+			else {
+				return new StandardEffect (screen);
+			}
 		}
 
 		#endregion
@@ -272,7 +287,7 @@ namespace Knot3.Core
 					Vector3 position3D = Camera.To3D (
 					                         position: nearTo,
 					                         nearTo: obj.Center ()
-					                     );
+					);
 					// Berechne die Distanz zwischen 3D-Mausposition und dem Spielobjekt
 					float distance = Math.Abs ((position3D - obj.Center ()).Length ());
 					distances [distance] = obj;

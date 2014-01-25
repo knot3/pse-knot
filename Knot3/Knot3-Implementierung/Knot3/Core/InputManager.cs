@@ -82,7 +82,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Erstellt ein neues InputManager-Objekt, das an den übergebenen Spielzustand gebunden ist.
 		/// </summary>
-		public InputManager (GameScreen screen)
+		public InputManager (IGameScreen screen)
 		: base (screen, DisplayLayer.None)
 		{
 			CurrentInputAction = InputAction.FreeMouse;

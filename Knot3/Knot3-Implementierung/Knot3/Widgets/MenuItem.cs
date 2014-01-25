@@ -71,7 +71,7 @@ namespace Knot3.Widgets
 
 		#region Constructors
 
-		public MenuItem (GameScreen screen, DisplayLayer drawOrder, string text)
+		public MenuItem (IGameScreen screen, DisplayLayer drawOrder, string text)
 		: base(screen, drawOrder)
 		{
 			Text = text;

@@ -59,10 +59,10 @@ namespace Knot3.Widgets
 		#region Constructors
 
 		/// <summary>
-		/// Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+		/// Erzeugt ein neues CheckBoxItem-Objekt und initialisiert dieses mit dem zugehörigen IGameScreen-Objekt.
 		/// Zudem sind Angaben zur Zeichenreihenfolge und der Auswahloption Pflicht.
 		/// </summary>
-		public CheckBoxItem (GameScreen screen, DisplayLayer drawOrder, string text, BooleanOptionInfo option)
+		public CheckBoxItem (IGameScreen screen, DisplayLayer drawOrder, string text, BooleanOptionInfo option)
 		: base(screen, drawOrder, text)
 		{
 			this.option = option;

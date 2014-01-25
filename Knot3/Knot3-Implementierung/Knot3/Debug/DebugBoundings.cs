@@ -27,7 +27,7 @@ namespace Knot3.Debug
 	{
 		#region Properties
 
-		private GameScreen screen;
+		private IGameScreen screen;
 
 		public GameObjectInfo Info { get; private set; }
 
@@ -41,7 +41,7 @@ namespace Knot3.Debug
 
 		#region Constructors
 
-		public DebugBoundings (GameScreen screen, Vector3 position)
+		public DebugBoundings (IGameScreen screen, Vector3 position)
 		{
 			this.screen = screen;
 			Info = new GameObjectInfo (position: position);

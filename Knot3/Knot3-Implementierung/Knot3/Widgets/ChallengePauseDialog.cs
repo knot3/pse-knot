@@ -41,7 +41,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		///
 		/// </summary>
-		public ChallengePauseDialog (GameScreen screen, DisplayLayer drawOrder)
+		public ChallengePauseDialog (IGameScreen screen, DisplayLayer drawOrder)
 		: base (screen, drawOrder, "Pause", "")
 		{
 			// Der Titel-Text ist mittig ausgerichtet

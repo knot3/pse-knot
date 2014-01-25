@@ -275,7 +275,7 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Fügt die 3D-Welten und den Inputhandler in die Spielkomponentenliste ein.
 		/// </summary>
-		public override void Entered (GameScreen previousScreen, GameTime time)
+		public override void Entered (IGameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, knotInput, overlay, pointer, ChallengeWorld, PlayerWorld,

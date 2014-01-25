@@ -49,7 +49,7 @@ namespace Knot3.GameObjects
 		/// Erstellt ein neues 3D-Modell mit dem angegebenen Spielzustand und den angegebenen Spielinformationen.
 		/// [base=screen, info]
 		/// </summary>
-		public PipeModel (GameScreen screen, PipeModelInfo info)
+		public PipeModel (IGameScreen screen, PipeModelInfo info)
 		: base(screen, info)
 		{
 			float length = (info.PositionTo - info.PositionFrom).Length ();

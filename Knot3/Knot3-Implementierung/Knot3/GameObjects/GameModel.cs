@@ -87,7 +87,7 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		protected GameScreen screen;
+		protected IGameScreen screen;
 
 		#endregion
 
@@ -96,7 +96,7 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Erstellt ein neues 3D-Modell in dem angegebenen Spielzustand mit den angegebenen Modellinformationen.
 		/// </summary>
-		public GameModel (GameScreen screen, GameModelInfo info)
+		public GameModel (IGameScreen screen, GameModelInfo info)
 		{
 			this.screen = screen;
 			Info = info;

@@ -56,7 +56,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		///
 		/// </summary>
-		public TextInputDialog (GameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
+		public TextInputDialog (IGameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
 		: base (screen, drawOrder, title, text)
 		{
 			// Der Titel-Text ist mittig ausgerichtet

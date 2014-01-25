@@ -38,7 +38,7 @@ namespace Knot3.RenderEffects
 		/// <summary>
 		/// Der Spielzustand, in dem der Effekt verwendet wird.
 		/// </summary>
-		protected GameScreen screen { get; set; }
+		protected IGameScreen screen { get; set; }
 
 		/// <summary>
 		/// Ein Spritestapel (s. Glossar oder http://msdn.microsoft.com/en-us/library/bb203919.aspx), der verwendet wird, um das Rendertarget dieses Rendereffekts auf das übergeordnete Rendertarget zu zeichnen.
@@ -49,7 +49,7 @@ namespace Knot3.RenderEffects
 
 		#region Constructors
 
-		public RenderEffect (GameScreen screen)
+		public RenderEffect (IGameScreen screen)
 		{
 			this.screen = screen;
 			spriteBatch = new SpriteBatch (screen.Device);

@@ -53,10 +53,10 @@ namespace Knot3.Widgets
 		#region Constructors
 
 		/// <summary>
-		/// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+		/// Erzeugt ein neues ConfirmDialog-Objekt und initialisiert dieses mit dem zugehörigen IGameScreen-Objekt.
 		/// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
 		/// </summary>
-		public DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder, string text)
+		public DropDownMenuItem (IGameScreen screen, DisplayLayer drawOrder, string text)
 		: base(screen, drawOrder, "")
 		{
 			dropdown = new VerticalMenu (screen: screen, drawOrder: Index+DisplayLayer.Menu);

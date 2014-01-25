@@ -36,7 +36,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Der zugewiesene Spielzustand.
 		/// </summary>
-		GameScreen Screen { get; set; }
+		IGameScreen Screen { get; set; }
 
 		#endregion
 

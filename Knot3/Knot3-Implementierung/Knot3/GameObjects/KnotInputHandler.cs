@@ -85,7 +85,7 @@ namespace Knot3.GameObjects
 		/// Erstellt einen neuen KnotInputHandler für den angegebenen Spielzustand und die angegebene Spielwelt.
 		/// [base=screen]
 		/// </summary>
-		public KnotInputHandler (GameScreen screen, World world)
+		public KnotInputHandler (IGameScreen screen, World world)
 		: base (screen, DisplayLayer.None)
 		{
 			enabled = true;

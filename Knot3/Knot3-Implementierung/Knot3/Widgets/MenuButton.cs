@@ -56,11 +56,11 @@ namespace Knot3.Widgets
 		#region Constructors
 
 		/// <summary>
-		/// Erzeugt ein neues MenuButton-Objekt und initialisiert dieses mit dem zugehörigen GameScreen-Objekt.
+		/// Erzeugt ein neues MenuButton-Objekt und initialisiert dieses mit dem zugehörigen IGameScreen-Objekt.
 		/// Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche
 		/// und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
 		/// </summary>
-		public MenuButton (GameScreen screen, DisplayLayer drawOrder, string name, Action<GameTime> onClick)
+		public MenuButton (IGameScreen screen, DisplayLayer drawOrder, string name, Action<GameTime> onClick)
 		: base(screen, drawOrder, name)
 		{
 			OnClick = onClick;

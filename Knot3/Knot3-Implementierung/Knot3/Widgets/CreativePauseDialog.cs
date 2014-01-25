@@ -43,7 +43,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		///
 		/// </summary>
-		public CreativePauseDialog (GameScreen screen, DisplayLayer drawOrder, Knot knot)
+		public CreativePauseDialog (IGameScreen screen, DisplayLayer drawOrder, Knot knot)
 		: base(screen, drawOrder, "Pause", "")
 		{
 			this.knot = knot;

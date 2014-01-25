@@ -30,7 +30,7 @@ namespace Knot3.GameObjects
 	{
 		#region Properties
 
-		private GameScreen screen;
+		private IGameScreen screen;
 
 		/// <summary>
 		/// Enthält Informationen über die Position des Knotens.
@@ -56,10 +56,10 @@ namespace Knot3.GameObjects
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines EdgeMovement-Objekts und initialisiert diese
-		/// mit ihrem zugehörigen GameScreen-Objekt screen, der Spielwelt world und
+		/// mit ihrem zugehörigen IGameScreen-Objekt screen, der Spielwelt world und
 		/// Objektinformationen info.
 		/// </summary>
-		public EdgeMovement (GameScreen screen, World world, Vector3 position)
+		public EdgeMovement (IGameScreen screen, World world, Vector3 position)
 		{
 			this.screen = screen;
 			World = world;
