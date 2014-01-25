@@ -59,7 +59,7 @@ namespace Knot3.GameObjects
 			              radius: radius,
 			              direction: Info.Edge.Direction.Vector,
 			              position: info.PositionFrom
-			);
+			          );
 		}
 
 		#endregion

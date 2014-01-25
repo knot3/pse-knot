@@ -118,7 +118,8 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		public override bool IsTransparent {
+		public override bool IsTransparent
+		{
 			get {
 				return Color1 == Color.Transparent && Color2 == Color.Transparent;
 			}

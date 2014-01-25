@@ -56,7 +56,7 @@ namespace Knot3.GameObjects
 			              radius: Info.Diameter / 2,
 			              direction: Info.Direction.Vector,
 			              position: info.Position - info.Direction.Vector * Info.Length / 2
-			);
+			          );
 		}
 
 		#endregion
