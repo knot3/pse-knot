@@ -59,7 +59,7 @@ namespace Knot3.GameObjects
 			              radius: radius,
 			              direction: Info.Edge.Direction.Vector,
 			              position: info.PositionFrom
-			          );
+			);
 		}
 
 		#endregion
@@ -68,17 +68,15 @@ namespace Knot3.GameObjects
 
 		public override void Draw (GameTime time)
 		{
-			BaseColor = Info.Edge.Color;
+			Coloring = new SingleColor (Info.Edge);
 			if (World.SelectedObject == this) {
-				HighlightIntensity = 0.40f;
-				HighlightColor = Color.White;
+				Coloring.Highlight (intensity: 0.40f, color: Color.White);
 			}
 			else if (Info.Knot.SelectedEdges.Contains (Info.Edge)) {
-				HighlightIntensity = 0.80f;
-				HighlightColor = Color.White;
+				Coloring.Highlight (intensity: 0.80f, color: Color.White);
 			}
 			else {
-				HighlightIntensity = 0f;
+				Coloring.Unhighlight ();
 			}
 
 			base.Draw (time);

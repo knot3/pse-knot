@@ -68,19 +68,16 @@ namespace Knot3.GameObjects
 		{
 			// swap position, colors, alpha
 			Vector3 originalPositon = decoratedModel.Info.Position;
-			float originalHighlightIntensity = decoratedModel.HighlightIntensity;
-			float originalAlpha = decoratedModel.Alpha;
+			ModelColoring originalColoring = decoratedModel.Coloring;
 			decoratedModel.Info.Position = ShadowPosition;
-			decoratedModel.HighlightIntensity = 0f;
-			decoratedModel.Alpha = ShadowAlpha;
+			decoratedModel.Coloring = new SingleColor(originalColoring.MixedColor, alpha: ShadowAlpha);
 
 			// draw
 			screen.CurrentRenderEffects.CurrentEffect.DrawModel (decoratedModel, time);
 
 			// swap everything back
 			decoratedModel.Info.Position = originalPositon;
-			decoratedModel.HighlightIntensity = originalHighlightIntensity;
-			decoratedModel.Alpha = originalAlpha;
+			decoratedModel.Coloring = originalColoring;
 		}
 
 		#endregion

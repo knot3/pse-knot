@@ -32,24 +32,9 @@ namespace Knot3.GameObjects
 		GameObjectInfo IGameObject.Info { get { return Info; } }
 
 		/// <summary>
-		/// Die Transparenz des Modells.
-		/// </summary>
-		public float Alpha { get; set; }
-
-		/// <summary>
 		/// Die Farbe des Modells.
 		/// </summary>
-		public Color BaseColor { get; set; }
-
-		/// <summary>
-		/// Die Auswahlfarbe des Modells.
-		/// </summary>
-		public Color HighlightColor { get; set; }
-
-		/// <summary>
-		/// Die Intensität der Auswahlfarbe.
-		/// </summary>
-		public float HighlightIntensity { get; set; }
+		public ModelColoring Coloring { get; set; }
 
 		/// <summary>
 		/// Die Modellinformationen wie Position, Skalierung und der Dateiname des 3D-Modells.
@@ -102,10 +87,7 @@ namespace Knot3.GameObjects
 			Info = info;
 
 			// default values
-			Alpha = 1f;
-			BaseColor = Color.Transparent;
-			HighlightColor = Color.Transparent;
-			HighlightIntensity = 0f;
+			Coloring = new SingleColor(Color.Transparent);
 		}
 
 		#endregion

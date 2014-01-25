@@ -56,7 +56,7 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public override void Draw (GameTime time)
 		{
-			BaseColor = Info.EdgeFrom.Color.Mix (Info.EdgeTo.Color);
+			Coloring = new GradientColor (Info.EdgeFrom, Info.EdgeTo);
 			base.Draw (time);
 		}
 

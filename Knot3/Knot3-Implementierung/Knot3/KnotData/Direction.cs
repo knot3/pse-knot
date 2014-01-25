@@ -153,7 +153,21 @@ namespace Knot3.KnotData
 
 		public override bool Equals (object other)
 		{
-			return other != null && Equals (other as Direction);
+			if (other == null) {
+				return false;
+			}
+			else if (other is Direction) {
+				return Equals (other as Direction);
+			}
+			else if (other is Vector3) {
+				return Vector.Equals ((Vector3)other);
+			}
+			else if (other is string) {
+				return Description.Equals ((string)other);
+			}
+			else {
+				return false;
+			}
 		}
 
 		public static implicit operator string (Direction direction)

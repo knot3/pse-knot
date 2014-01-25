@@ -142,19 +142,14 @@ namespace Knot3.RenderEffects
 			effect.Projection = model.World.Camera.ProjectionMatrix;
 
 			// colors
-			if (model.BaseColor != Color.Transparent) {
-				if (model.HighlightIntensity != 0f) {
-					effect.DiffuseColor = model.BaseColor.Mix (model.HighlightColor, model.HighlightIntensity).ToVector3 ();
-				}
-				else {
-					effect.DiffuseColor = model.BaseColor.ToVector3 ();
-				}
+			if (!model.Coloring.IsTransparent) {
+				effect.DiffuseColor = model.Coloring.MixedColor.ToVector3 ();
 			}
 
 			//effect.TextureEnabled = true;
 			//effect.Texture = TextureHelper.CreateGradient (screen.Device, model.BaseColor, Color.White.Mix (Color.Black, 0.2f));
 
-			effect.Alpha = model.Alpha;
+			effect.Alpha = model.Coloring.Alpha;
 			effect.FogEnabled = false;
 		}
 

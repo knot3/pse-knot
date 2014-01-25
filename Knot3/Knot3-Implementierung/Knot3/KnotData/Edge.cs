@@ -90,10 +90,26 @@ namespace Knot3.KnotData
 			return other != null && this.id == other.id;
 		}
 
-		public override bool Equals (object obj)
+		public override bool Equals (object other)
 		{
-			Edge other = obj as Edge;
-			return Equals (other);
+			if (other == null) {
+				return false;
+			}
+			else if (other is Edge) {
+				return Equals (other as Edge);
+			}
+			else if (other is Direction) {
+				return Direction.Equals (other as Direction);
+			}
+			else if (other is Vector3) {
+				return Direction.Vector.Equals ((Vector3)other);
+			}
+			else if (other is Color) {
+				return Color.Equals ((Color)other);
+			}
+			else {
+				return false;
+			}
 		}
 
 		public override int GetHashCode ()

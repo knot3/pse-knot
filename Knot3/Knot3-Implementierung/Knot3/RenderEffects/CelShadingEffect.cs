@@ -93,13 +93,8 @@ namespace Knot3.RenderEffects
 			celShader.Parameters ["Projection"].SetValue (camera.ProjectionMatrix);
 			celShader.CurrentTechnique = celShader.Techniques ["ToonShader"];
 
-			if (model.BaseColor != Color.Transparent) {
-				if (model.HighlightIntensity != 0f) {
-					Color = model.BaseColor.Mix (model.HighlightColor, model.HighlightIntensity);
-				}
-				else {
-					Color = model.BaseColor;
-				}
+			if (!model.Coloring.IsTransparent) {
+				Color = model.Coloring.MixedColor;
 			}
 
 			foreach (ModelMesh mesh in model.Model.Meshes) {

@@ -56,7 +56,7 @@ namespace Knot3.GameObjects
 			              radius: Info.Diameter / 2,
 			              direction: Info.Direction.Vector,
 			              position: info.Position - info.Direction.Vector * Info.Length / 2
-			          );
+			);
 		}
 
 		#endregion
@@ -68,13 +68,12 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public override void Draw (GameTime time)
 		{
-			BaseColor = Color.Red;
+			Coloring = new SingleColor (Color.Red);
 			if (World.SelectedObject == this) {
-				HighlightIntensity = 1f;
-				HighlightColor = Color.Orange;
+				Coloring.Highlight (intensity: 1f, color: Color.Orange);
 			}
 			else {
-				HighlightIntensity = 0f;
+				Coloring.Unhighlight ();
 			}
 
 			base.Draw (time);
