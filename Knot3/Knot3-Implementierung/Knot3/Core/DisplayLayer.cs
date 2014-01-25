@@ -36,35 +36,35 @@ namespace Knot3.Core
 		/// Steht für eine Ebene hinter der Spielwelt, z.B. um
 		/// Hintergrundbilder darzustellen.
 		/// </summary>
-		public static readonly DisplayLayer Background = new DisplayLayer (10, "");
+		public static readonly DisplayLayer Background = new DisplayLayer (10, "Background");
 		/// <summary>
 		/// Steht für die Ebene in der die Spielwelt dargestellt wird.
 		/// </summary>
-		public static readonly DisplayLayer GameWorld = new DisplayLayer (20, "");
-		public static readonly DisplayLayer ScreenUI = new DisplayLayer (30, "");
+		public static readonly DisplayLayer GameWorld = new DisplayLayer (20, "GameWorld");
+		public static readonly DisplayLayer ScreenUI = new DisplayLayer (30, "ScreenUI");
 		/// <summary>
 		/// Steht für die Ebene in der die Dialoge dargestellt werden.
 		/// Dialoge werden vor der Spielwelt gezeichnet, damit der Spieler damit interagieren kann.
 		/// </summary>
-		public static readonly DisplayLayer Dialog = new DisplayLayer (50, "");
+		public static readonly DisplayLayer Dialog = new DisplayLayer (50, "Dialog");
 		/// <summary>
 		/// Steht für die Ebene in der Menüs gezeichnet werden. Menüs werden innerhalb von Dialogen angezeigt, müssen also davor gezeichnet werden, damit sie nicht vom Hintergrund des Dialogs verdeckt werden.
 		/// </summary>
-		public static readonly DisplayLayer Menu = new DisplayLayer (10, "");
+		public static readonly DisplayLayer Menu = new DisplayLayer (10, "Menu");
 		/// <summary>
 		/// Steht für die Ebene in der Menüeinträge gezeichnet werden. Menüeinträge werden vor Menüs gezeichnet.
 		/// </summary>
-		public static readonly DisplayLayer MenuItem = new DisplayLayer (20, "");
+		public static readonly DisplayLayer MenuItem = new DisplayLayer (20, "MenuItem");
 		/// <summary>
 		/// Zum Anzeigen zusätzlicher Informationen bei der (Weiter-)Entwicklung oder beim Testen (z.B. ein FPS-Counter).
 		/// </summary>
-		public static readonly DisplayLayer Overlay = new DisplayLayer (300, "");
+		public static readonly DisplayLayer Overlay = new DisplayLayer (300, "Overlay");
 		/// <summary>
 		/// Die Maus ist das Hauptinteraktionswerkzeug, welches der Spieler
 		/// ständig verwendet. Daher muss die Maus bei der Interaktion immer
 		/// im Vordergrund sein. Cursor steht für die vorderste Ebene.
 		/// </summary>
-		public static readonly DisplayLayer Cursor = new DisplayLayer (301, "");
+		public static readonly DisplayLayer Cursor = new DisplayLayer (301, "Cursor");
 
 		#endregion
 
