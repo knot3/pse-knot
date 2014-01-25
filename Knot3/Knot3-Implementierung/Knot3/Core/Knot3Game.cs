@@ -88,7 +88,8 @@ namespace Knot3.Core
 		/// </summary>
 		public GraphicsDeviceManager Graphics { get; private set; }
 
-		private static Vector2 defaultSize = new Vector2 (1280, 720);
+		private static readonly Vector2 defaultSize = MonoHelper.IsRunningOnMono ()
+			? new Vector2 (1024, 600) : new Vector2 (1280, 720);
 
 		#endregion
 
@@ -109,6 +110,10 @@ namespace Knot3.Core
 			Graphics.IsFullScreen = false;
 			isFullscreen = false;
 			Graphics.ApplyChanges ();
+
+			if (MonoHelper.IsRunningOnMono ()) {
+				IsMouseVisible = true;
+			}
 
 			Content.RootDirectory = "Content";
 			Window.Title = "Test Game 1";
