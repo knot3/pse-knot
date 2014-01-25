@@ -35,7 +35,7 @@ namespace Knot3.Widgets
 		private class ClickEventComponent
 		{
 			public IMouseEventListener receiver;
-			public DisplayLayer layer = 0;
+			public DisplayLayer layer = DisplayLayer.None;
 			public Vector2 relativePosition;
 		}
 

@@ -45,7 +45,7 @@ namespace Knot3.Screens
 		public CreativeMainScreen (Knot3Game game)
 		: base(game)
 		{
-			buttons = new Menu (this, DisplayLayer.Menu);
+			buttons = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 
 			// menu
 			buttons.ItemForegroundColor = base.MenuItemForegroundColor;
@@ -55,7 +55,7 @@ namespace Knot3.Screens
 
 			MenuButton newKnotButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "NEW\nKnot",
 			    onClick: (time) => NextScreen = new CreativeModeScreen (Game, new Knot ())
 			);
@@ -63,7 +63,7 @@ namespace Knot3.Screens
 
 			MenuButton loadKnotButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "LOAD\nKnot",
 			    onClick: (time) => NextScreen = new CreativeLoadScreen (Game)
 			);
@@ -71,7 +71,7 @@ namespace Knot3.Screens
 
 			MenuButton newChallengeButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "NEW\nChallenge",
 			    onClick: (time) => NextScreen = new ChallengeCreateScreen (Game)
 			);
@@ -79,7 +79,7 @@ namespace Knot3.Screens
 
 			MenuButton backButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",
 			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is CreativeMainScreen)).ElementAt (0)
 			);

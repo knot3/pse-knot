@@ -22,8 +22,8 @@ using Knot3.KnotData;
 namespace Knot3.Widgets
 {
 	/// <summary>
-	///Dieser Dialog Zeigt den Highscore für die Gegebene Challenge an und bietet die Option
-	///zum Neustarten oder Rückkehr zum Hauptmenü
+	///Dieser Dialog Zeigt den Highscore fï¿½r die Gegebene Challenge an und bietet die Option
+	///zum Neustarten oder Rï¿½ckkehr zum Hauptmenï¿½
 	/// </summary>
 	public sealed class HighscoreDialog : Dialog
 	{
@@ -43,7 +43,7 @@ namespace Knot3.Widgets
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
-			highscoreList = new VerticalMenu (Screen, DisplayLayer.Menu);
+			highscoreList = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
 			highscoreList.RelativePosition = () => RelativeContentPosition;
 			highscoreList.RelativeSize = () => RelativeContentSize;
 			highscoreList.RelativePadding = () => RelativePadding ();
@@ -61,10 +61,10 @@ namespace Knot3.Widgets
 			}
 
 
-			//Button fürs Neustarten
+			//Button fï¿½rs Neustarten
 			MenuButton restartButton = new MenuButton (
 			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Restart challenge",
 			onClick: (time) => {
 				Close (time);
@@ -74,10 +74,10 @@ namespace Knot3.Widgets
 
 			highscoreList.Add (restartButton);
 
-			//Button für die Rückkehr zum StartScreen
+			//Button fï¿½r die Rï¿½ckkehr zum StartScreen
 			MenuButton returnButton = new MenuButton (
 			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Return to menu",
 			onClick: (time) => {
 				Close (time);

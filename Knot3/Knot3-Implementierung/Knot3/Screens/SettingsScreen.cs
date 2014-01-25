@@ -49,7 +49,7 @@ namespace Knot3.Screens
 
 			spriteBatch = new SpriteBatch (Device);
 
-			navigationMenu = new VerticalMenu (this, DisplayLayer.Menu);
+			navigationMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			navigationMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
 			navigationMenu.RelativeSize = () => new Vector2 (0.300f, 0.770f);
 			navigationMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
@@ -60,37 +60,37 @@ namespace Knot3.Screens
 
 			MenuButton debugButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Debug",
 			    onClick: (time) => NextScreen = new DebugSettingsScreen (Game)
 			);
 			MenuButton graphicsButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Video",
 			    onClick: (time) => NextScreen = new GraphicsSettingsScreen (Game)
 			);
 			MenuButton audioButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Audio",
 			    onClick: (time) => NextScreen = new AudioSettingsScreen (Game)
 			);
 			MenuButton controlsButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Controls",
 			    onClick: (time) => NextScreen = new ControlSettingsScreen (Game)
 			);
 			MenuButton profileButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Profile",
 			    onClick: (time) => NextScreen = new ProfileSettingsScreen (Game)
 			);
 			MenuButton backButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",
 			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is SettingsScreen)).ElementAt (0)
 			);

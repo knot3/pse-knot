@@ -52,7 +52,7 @@ namespace Knot3.Widgets
 			AlignX = HorizontalAlignment.Center;
 
 			// Erstelle das Pause-Menü
-			pauseMenu = new VerticalMenu (Screen, DisplayLayer.Menu);
+			pauseMenu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
 			pauseMenu.RelativePosition = () => RelativeContentPosition;
 			pauseMenu.RelativeSize = () => RelativeContentSize;
 			pauseMenu.RelativePadding = () => RelativePadding ();
@@ -63,7 +63,7 @@ namespace Knot3.Widgets
 
 			MenuButton settingsButton = new MenuButton (
 			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Settings",
 			onClick: (time) => {
 				Close (time);
@@ -72,7 +72,7 @@ namespace Knot3.Widgets
 			);
 			MenuButton backButton = new MenuButton (
 			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Back to Game",
 			onClick: (time) => {
 				Close (time);
@@ -80,7 +80,7 @@ namespace Knot3.Widgets
 			);
 			MenuButton saveButton = new MenuButton (
 			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Save",
 			onClick: (time) => {
 				Close (time);
@@ -89,7 +89,7 @@ namespace Knot3.Widgets
 			);
 			MenuButton saveAsButton = new MenuButton (
 			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Save As",
 			onClick: (time) => {
 				Close (time);
@@ -98,7 +98,7 @@ namespace Knot3.Widgets
 			);
 			MenuButton saveExitButton = new MenuButton (
 			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Save and Exit",
 			onClick: (time) => {
 				Close (time);
@@ -108,7 +108,7 @@ namespace Knot3.Widgets
 			);
 			MenuButton discardExitButton = new MenuButton (
 			    screen: Screen,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Discard Changes and Exit",
 			onClick: (time) => {
 				Close (time);
@@ -162,6 +162,7 @@ namespace Knot3.Widgets
 				catch (IOException ex) {
 					ErrorDialog errorDialog = new ErrorDialog (
 					    screen: Screen,
+						drawIndex: DisplayLayer.Dialog * 2,
 					    message: "Error in Knot.Save(): " + ex.ToString ()
 					);
 					Screen.AddGameComponents (null, errorDialog);

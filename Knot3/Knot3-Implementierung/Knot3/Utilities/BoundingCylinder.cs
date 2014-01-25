@@ -37,7 +37,7 @@ namespace Knot3.Knot3.Utilities
 
 		public bool Equals (BoundingCylinder other)
 		{
-			return other != null && SideA == other.SideA && SideB == other.SideB && Radius == other.Radius;
+			return SideA == other.SideA && SideB == other.SideB && Radius == other.Radius;
 		}
 
 		public override bool Equals (object other)

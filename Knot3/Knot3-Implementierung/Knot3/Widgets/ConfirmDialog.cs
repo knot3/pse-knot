@@ -49,7 +49,7 @@ namespace Knot3.Widgets
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
-			menu = new VerticalMenu (Screen, DisplayLayer.Menu);
+			menu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
 			menu.RelativePosition = () => RelativeContentPosition;
 			menu.RelativeSize = () => RelativeContentSize;
 			menu.RelativePadding = () => RelativePadding ();
@@ -59,7 +59,7 @@ namespace Knot3.Widgets
 			menu.ItemAlignY = VerticalAlignment.Center;
 
 			//die Texteingabe
-			TextItem textInput = new TextItem (Screen, DisplayLayer.MenuItem, text);
+			TextItem textInput = new TextItem (Screen, Index + DisplayLayer.MenuItem, text);
 			menu.Add (textInput);
 
 			ValidKeys.AddRange (new Keys[] { Keys.Enter, Keys.Escape });
@@ -74,8 +74,10 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
-			if (key.Contains (Keys.Enter) || key.Contains (Keys.Escape)) {
-				Close (time);
+			if (keyEvent == KeyEvent.KeyDown) {
+				if (key.Contains (Keys.Enter) || key.Contains (Keys.Escape)) {
+					Close (time);
+				}
 			}
 			base.OnKeyEvent (key, keyEvent, time);
 		}

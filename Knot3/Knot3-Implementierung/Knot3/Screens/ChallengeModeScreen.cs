@@ -170,12 +170,12 @@ namespace Knot3.Screens
 			ChallengeKnotRenderer.Knot = challenge.Target;
 
 			// Die Spielzeit-Anzeige
-			playTimeDisplay = new TextItem (screen: this, drawOrder: DisplayLayer.MenuItem, name: "");
+			playTimeDisplay = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "");
 			playTimeDisplay.RelativePosition = () => new Vector2 (0.800f, 0.01f);
 			playTimeDisplay.RelativeSize = () => new Vector2 (0.15f, 0.04f);
 			playTimeDisplay.BackgroundColor = () => Color.Black;
 			playTimeDisplay.ForegroundColor = () => Color.White;
-			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.MenuItem,
+			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                             widget: playTimeDisplay, lineWidth: 2);
 
 			// die Linien

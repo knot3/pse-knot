@@ -58,15 +58,15 @@ namespace Knot3.Screens
 		public ChallengeCreateScreen (Knot3Game game)
 		: base(game)
 		{
-			startKnotMenu = new VerticalMenu (this, DisplayLayer.Menu);
+			startKnotMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			startKnotMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
 			startKnotMenu.RelativeSize = () => new Vector2 (0.375f, 0.620f);
 
-			targetKnotMenu = new VerticalMenu (this, DisplayLayer.Menu);
+			targetKnotMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			targetKnotMenu.RelativePosition = () => new Vector2 (0.525f, 0.180f);
 			targetKnotMenu.RelativeSize = () => new Vector2 (0.375f, 0.620f);
 
-			challengeName = new InputItem (this, DisplayLayer.MenuItem, "Name:", "");
+			challengeName = new InputItem (this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, "Name:", "");
 			challengeName.RelativePosition = () => new Vector2 (0.100f, 0.860f);
 			challengeName.RelativeSize = () => new Vector2 (0.575f, 0.040f);
 			challengeName.OnValueChanged += () => TryConstructChallenge ();
@@ -75,7 +75,7 @@ namespace Knot3.Screens
 
 			createButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Create!",
 			    onClick: OnCreateChallenge
 			);
@@ -83,7 +83,7 @@ namespace Knot3.Screens
 			createButton.RelativeSize = () => new Vector2 (0.175f, 0.060f);
 			createButton.ForegroundColor = () => base.MenuItemForegroundColor (createButton.ItemState);
 			createButton.BackgroundColor = () => base.MenuItemBackgroundColor (createButton.ItemState);
-			createButtonBorder = new Border (this, DisplayLayer.MenuItem, createButton, 4, 4);
+			createButtonBorder = new Border (this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, createButton, 4, 4);
 
 			startKnotMenu.RelativePadding = targetKnotMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
 			startKnotMenu.ItemAlignX = targetKnotMenu.ItemAlignX = HorizontalAlignment.Left;
@@ -91,7 +91,7 @@ namespace Knot3.Screens
 
 			lines.AddPoints (0, 50, 30, 970, 970, 50, 1000);
 
-			title = new TextItem (screen: this, drawOrder: DisplayLayer.MenuItem, name: "Create Challenge");
+			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Create Challenge");
 			title.RelativePosition = () => new Vector2 (0.100f, 0.050f);
 			title.RelativeSize = () => new Vector2 (0.900f, 0.050f);
 			title.ForegroundColor = () => Color.White;
@@ -141,13 +141,13 @@ namespace Knot3.Screens
 			// Erstelle die Menüeinträge
 			MenuButton buttonStart = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: name,
 			    onClick: SelectStartKnot
 			);
 			MenuButton buttonTarget = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: name,
 			    onClick: SelectTargetKnot
 			);
@@ -172,8 +172,8 @@ namespace Knot3.Screens
 		{
 			get {
 				return selectedStartKnot != null && selectedTargetKnot != null &&
-				       selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
-				       && challengeName.InputText.Length > 0;
+					selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
+					&& challengeName.InputText.Length > 0;
 			}
 		}
 
@@ -218,8 +218,8 @@ namespace Knot3.Screens
 					NextScreen = new ChallengeStartScreen (Game);
 				}
 				catch (Exception ex) {
-					Dialog errorDialog = new ErrorDialog (this, ex.ToString ());
-					AddGameComponents(time, errorDialog);
+					Dialog errorDialog = new ErrorDialog (this, DisplayLayer.Dialog * 3, ex.ToString ());
+					AddGameComponents (time, errorDialog);
 				}
 			}
 		}

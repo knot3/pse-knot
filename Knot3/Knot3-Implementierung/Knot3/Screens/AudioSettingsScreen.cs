@@ -66,7 +66,7 @@ namespace Knot3.Screens
 		{
 			MenuName = "Audio";
 
-			settingsMenu = new VerticalMenu (this, DisplayLayer.Menu);
+			settingsMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			settingsMenu.RelativePosition = () => new Vector2 (0.400f, 0.180f);
 			settingsMenu.RelativeSize = () => new Vector2 (0.500f, 0.770f);
 			settingsMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
@@ -81,7 +81,7 @@ namespace Knot3.Screens
 
 				SliderItem slider = new SliderItem (
 				    screen: this,
-				    drawOrder: DisplayLayer.MenuItem,
+				    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 				    text: volumeName,
 				    max: 100,
 				    min: 0,

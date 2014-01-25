@@ -24,51 +24,153 @@ namespace Knot3.Core
 	/// <summary>
 	/// Die Zeichenreihenfolge der Elemente der grafischen Benutzeroberfläche.
 	/// </summary>
-	public enum DisplayLayer {
+	public class DisplayLayer : IEquatable<DisplayLayer>
+	{
+		#region Enumeration Values
+
 		/// <summary>
 		/// Steht für die hinterste Ebene bei der Zeichenreihenfolge.
 		/// </summary>
-		None=0,
+		public static readonly DisplayLayer None = new DisplayLayer (0, "None");
 		/// <summary>
 		/// Steht für eine Ebene hinter der Spielwelt, z.B. um
 		/// Hintergrundbilder darzustellen.
 		/// </summary>
-		Background=10,
+		public static readonly DisplayLayer Background = new DisplayLayer (10, "");
 		/// <summary>
 		/// Steht für die Ebene in der die Spielwelt dargestellt wird.
 		/// </summary>
-		GameWorld=20,
+		public static readonly DisplayLayer GameWorld = new DisplayLayer (20, "");
+		public static readonly DisplayLayer ScreenUI = new DisplayLayer (30, "");
 		/// <summary>
 		/// Steht für die Ebene in der die Dialoge dargestellt werden.
 		/// Dialoge werden vor der Spielwelt gezeichnet, damit der Spieler damit interagieren kann.
 		/// </summary>
-		Dialog=30,
+		public static readonly DisplayLayer Dialog = new DisplayLayer (50, "");
 		/// <summary>
 		/// Steht für die Ebene in der Menüs gezeichnet werden. Menüs werden innerhalb von Dialogen angezeigt, müssen also davor gezeichnet werden, damit sie nicht vom Hintergrund des Dialogs verdeckt werden.
 		/// </summary>
-		Menu=40,
+		public static readonly DisplayLayer Menu = new DisplayLayer (10, "");
 		/// <summary>
 		/// Steht für die Ebene in der Menüeinträge gezeichnet werden. Menüeinträge werden vor Menüs gezeichnet.
 		/// </summary>
-		MenuItem=50,
-		/// <summary>
-		/// Steht für die Ebene in der Untermenüs gezeichnet werden. Untermenüs befinden sich in einer Ebene vor Menüeinträgen.
-		/// </summary>
-		SubMenu=60,
-		/// <summary>
-		/// Steht für die Ebene in der Untermenüeinträge gezeichnet werden. Untermenüeinträge befinden sich in einer Ebene vor Untermenüs.
-		/// </summary>
-		SubMenuItem=70,
+		public static readonly DisplayLayer MenuItem = new DisplayLayer (20, "");
 		/// <summary>
 		/// Zum Anzeigen zusätzlicher Informationen bei der (Weiter-)Entwicklung oder beim Testen (z.B. ein FPS-Counter).
 		/// </summary>
-		Overlay=80,
+		public static readonly DisplayLayer Overlay = new DisplayLayer (300, "");
 		/// <summary>
 		/// Die Maus ist das Hauptinteraktionswerkzeug, welches der Spieler
 		/// ständig verwendet. Daher muss die Maus bei der Interaktion immer
 		/// im Vordergrund sein. Cursor steht für die vorderste Ebene.
 		/// </summary>
-		Cursor=90,
+		public static readonly DisplayLayer Cursor = new DisplayLayer (301, "");
+
+		#endregion
+
+		#region Static Attributes
+
+
+		#endregion
+
+		#region Properties
+
+		public int Index { get; private set; }
+
+		public string Description { get; private set; }
+
+		#endregion
+
+		#region Constructors
+
+		private DisplayLayer (int index, string desciption)
+		{
+			Index = index;
+			Description = desciption;
+		}
+
+		private DisplayLayer (DisplayLayer layer1, DisplayLayer layer2)
+		{
+			Index = layer1.Index + layer2.Index;
+			Description = layer1.Description + "+" + layer2.Description;
+		}
+
+		#endregion
+
+		#region Methods and Operators
+
+		public override string ToString ()
+		{
+			return Description;
+		}
+
+		public static DisplayLayer operator + (DisplayLayer layer1, DisplayLayer layer2)
+		{
+			return new DisplayLayer (layer1, layer2);
+		}
+
+		public static DisplayLayer operator + (DisplayLayer layer, Widget widget)
+		{
+			return new DisplayLayer (widget.Index, layer);
+		}
+
+		public static DisplayLayer operator + (Widget widget, DisplayLayer layer)
+		{
+			return new DisplayLayer (widget.Index, layer);
+		}
+
+		public static DisplayLayer operator * (DisplayLayer layer, int i)
+		{
+			return new DisplayLayer (layer.Index * i, "(" + layer + "*" + i + ")");
+		}
+
+		public static bool operator == (DisplayLayer a, DisplayLayer b)
+		{
+			// If both are null, or both are same instance, return true.
+			if (System.Object.ReferenceEquals (a, b)) {
+				return true;
+			}
+
+			// If one is null, but not both, return false.
+			if (((object)a == null) || ((object)b == null)) {
+				return false;
+			}
+
+			// Return true if the fields match:
+			return a.Index == b.Index;
+		}
+
+		public static bool operator != (DisplayLayer d1, DisplayLayer d2)
+		{
+			return !(d1 == d2);
+		}
+
+		public bool Equals (DisplayLayer other)
+		{
+			return other != null && Index == other.Index;
+		}
+
+		public override bool Equals (object other)
+		{
+			return other != null && Equals (other as DisplayLayer);
+		}
+
+		public static implicit operator string (DisplayLayer layer)
+		{
+			return layer.Description;
+		}
+
+		public static implicit operator int (DisplayLayer layer)
+		{
+			return layer.Index;
+		}
+
+		public override int GetHashCode ()
+		{
+			return Description.GetHashCode ();
+		}
+
+		#endregion
 	}
 }
 

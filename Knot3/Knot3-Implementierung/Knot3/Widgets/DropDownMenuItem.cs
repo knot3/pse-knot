@@ -59,7 +59,7 @@ namespace Knot3.Widgets
 		public DropDownMenuItem (GameScreen screen, DisplayLayer drawOrder, string text)
 		: base(screen, drawOrder, "")
 		{
-			dropdown = new VerticalMenu (screen: screen, drawOrder: DisplayLayer.SubMenu);
+			dropdown = new VerticalMenu (screen: screen, drawOrder: Index+DisplayLayer.Menu);
 			dropdown.RelativePosition = () => RelativePosition () + new Vector2 (x: ValueWidth * RelativeSize ().X, y: 0);
 			dropdown.RelativeSize = () => new Vector2 (x: ValueWidth * RelativeSize ().X, y: RelativeSize ().Y * 10);
 			dropdown.RelativePadding = () => new Vector2 (0.010f, 0.010f);
@@ -69,7 +69,7 @@ namespace Knot3.Widgets
 			dropdown.ItemAlignY = VerticalAlignment.Center;
 			dropdown.IsVisible = false;
 
-			currentValue = new InputItem (screen: screen, drawOrder: DisplayLayer.SubMenu, text: text, inputText: "");
+			currentValue = new InputItem (screen: screen, drawOrder: Index + DisplayLayer.Menu, text: text, inputText: "");
 			currentValue.RelativePosition = () => RelativePosition ();
 			currentValue.RelativeSize = () => RelativeSize ();
 			currentValue.RelativePadding = () => RelativePadding ();
@@ -98,7 +98,7 @@ namespace Knot3.Widgets
 				};
 				MenuButton button = new MenuButton (
 				    screen: Screen,
-				    drawOrder: DisplayLayer.SubMenuItem,
+				    drawOrder: Index + DisplayLayer.MenuItem,
 				    name: value,
 				    onClick: onSelected
 				);

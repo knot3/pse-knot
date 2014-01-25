@@ -45,7 +45,7 @@ namespace Knot3.Screens
 		{
 			MenuName = "Graphics";
 
-			settingsMenu = new VerticalMenu (this, DisplayLayer.Menu);
+			settingsMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			settingsMenu.RelativePosition = () => new Vector2 (0.400f, 0.180f);
 			settingsMenu.RelativeSize = () => new Vector2 (0.500f, 0.770f);
 			settingsMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
@@ -56,7 +56,7 @@ namespace Knot3.Screens
 
 			CheckBoxItem showArrows = new CheckBoxItem (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Show Arrows",
 			    option: new BooleanOptionInfo ("video", "arrows", false, Options.Default)
 			);
@@ -76,7 +76,7 @@ namespace Knot3.Screens
 			);
 			DropDownMenuItem resolutionItem = new DropDownMenuItem (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Resolution"
 			);
 			resolutionItem.AddEntries (resolutionOption);

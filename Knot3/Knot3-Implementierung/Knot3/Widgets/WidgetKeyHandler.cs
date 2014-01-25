@@ -35,7 +35,7 @@ namespace Knot3.Widgets
 		private class KeyEventComponent
 		{
 			public IKeyEventListener receiver;
-			public DisplayLayer layer = 0;
+			public DisplayLayer layer = DisplayLayer.None;
 			public KeyEvent keyEvent;
 			public List<Keys> keys;
 		}

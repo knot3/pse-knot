@@ -47,7 +47,7 @@ namespace Knot3.Debug
 		{
 			MenuName = "Debug";
 
-			settingsMenu = new VerticalMenu (this, DisplayLayer.Menu);
+			settingsMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			settingsMenu.RelativePosition = () => new Vector2 (0.400f, 0.180f);
 			settingsMenu.RelativeSize = () => new Vector2 (0.500f, 0.770f);
 			settingsMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
@@ -58,7 +58,7 @@ namespace Knot3.Debug
 
 			CheckBoxItem showOverlay = new CheckBoxItem (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Show Overlay",
 			    option: new BooleanOptionInfo ("video", "camera-overlay", false, Options.Default)
 			);
@@ -66,7 +66,7 @@ namespace Knot3.Debug
 
 			CheckBoxItem showFps = new CheckBoxItem (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Show FPS",
 			    option: new BooleanOptionInfo ("video", "fps-overlay", true, Options.Default)
 			);
@@ -74,7 +74,7 @@ namespace Knot3.Debug
 
 			CheckBoxItem showBoundings = new CheckBoxItem (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Show Bounding Boxes",
 			    option: new BooleanOptionInfo ("debug", "show-boundings", false, Options.Default)
 			);
@@ -82,7 +82,7 @@ namespace Knot3.Debug
 
 			CheckBoxItem shaderPascal = new CheckBoxItem (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Use Pascal's Shader",
 			    option: new BooleanOptionInfo ("video", "pascal-shader", false, Options.Default)
 			);
@@ -90,7 +90,7 @@ namespace Knot3.Debug
 
 			CheckBoxItem shaderCel = new CheckBoxItem (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Use Cel Shader",
 			    option: new BooleanOptionInfo ("video", "cel-shading", false, Options.Default)
 			);

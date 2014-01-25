@@ -47,7 +47,7 @@ namespace Knot3.Screens
 		public StartScreen (Knot3Game game)
 		: base (game)
 		{
-			buttons = new Menu (this, DisplayLayer.Menu);
+			buttons = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 
 			// logo
 			logo = TextureHelper.LoadTexture (Content, "logo");
@@ -63,7 +63,7 @@ namespace Knot3.Screens
 
 			MenuButton creativeButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Creative",
 			    onClick: (time) => NextScreen = new CreativeMainScreen (Game)
 			);
@@ -71,7 +71,7 @@ namespace Knot3.Screens
 
 			MenuButton challengeButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Challenge",
 			    onClick: (time) => NextScreen = new ChallengeStartScreen (Game)
 			);
@@ -79,7 +79,7 @@ namespace Knot3.Screens
 
 			MenuButton settingsButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Settings",
 			    onClick: (time) => NextScreen = new SettingsScreen (Game)
 			);
@@ -87,7 +87,7 @@ namespace Knot3.Screens
 
 			MenuButton exitButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Exit",
 			    onClick: (time) => Game.Exit ()
 			);

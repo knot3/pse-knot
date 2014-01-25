@@ -61,7 +61,7 @@ namespace Knot3.Widgets
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
-			menu = new VerticalMenu (Screen, DisplayLayer.Menu);
+			menu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
 			menu.RelativePosition = () => RelativeContentPosition;
 			menu.RelativeSize = () => RelativeContentSize;
 			menu.RelativePadding = () => RelativePadding ();
@@ -71,7 +71,7 @@ namespace Knot3.Widgets
 			menu.ItemAlignY = VerticalAlignment.Center;
 
 			//die Texteingabe
-			textInput = new InputItem (Screen, DisplayLayer.MenuItem, text, inputText);
+			textInput = new InputItem (Screen, Index + DisplayLayer.MenuItem, text, inputText);
 			menu.Add (textInput);
 			textInput.IsEnabled = true;
 

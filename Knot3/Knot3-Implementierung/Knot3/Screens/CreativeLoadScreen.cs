@@ -48,7 +48,7 @@ namespace Knot3.Screens
 		public CreativeLoadScreen (Knot3Game game)
 		: base(game)
 		{
-			savegameMenu = new VerticalMenu (this, DisplayLayer.Menu);
+			savegameMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			savegameMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
 			savegameMenu.RelativeSize = () => new Vector2 (0.800f, 0.720f);
 			savegameMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
@@ -59,7 +59,7 @@ namespace Knot3.Screens
 
 			lines.AddPoints (0, 50, 30, 970, 970, 50, 1000);
 
-			title = new TextItem (screen: this, drawOrder: DisplayLayer.MenuItem, name: "Load Knot");
+			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Knot");
 			title.RelativePosition = () => new Vector2 (0.100f, 0.050f);
 			title.RelativeSize = () => new Vector2 (0.900f, 0.050f);
 			title.ForegroundColor = () => Color.White;
@@ -99,7 +99,7 @@ namespace Knot3.Screens
 			// Erstelle den Menüeintrag
 			MenuButton button = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: name,
 			    onClick: LoadFile
 			);

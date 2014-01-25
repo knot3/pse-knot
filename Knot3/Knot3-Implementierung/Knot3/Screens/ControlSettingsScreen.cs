@@ -46,7 +46,7 @@ namespace Knot3.Screens
 		{
 			MenuName = "Controls";
 
-			settingsMenu = new VerticalMenu (this, DisplayLayer.Menu);
+			settingsMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			settingsMenu.RelativePosition = () => new Vector2 (0.400f, 0.180f);
 			settingsMenu.RelativeSize = () => new Vector2 (0.500f, 0.770f);
 			settingsMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
@@ -58,7 +58,7 @@ namespace Knot3.Screens
 
 			CheckBoxItem showOverlay = new CheckBoxItem (
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Move Rotation Targets to Center",
 			    option: new BooleanOptionInfo ("video", "arcball-around-center", true, Options.Default)
 			);
@@ -83,7 +83,7 @@ namespace Knot3.Screens
 				// Erstelle ein KeyInputItem zum Festlegen der Tastenbelegung
 				KeyInputItem item = new KeyInputItem (
 				    screen: this,
-				    drawOrder: DisplayLayer.MenuItem,
+				    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 				    text: actionName,
 				    option: option
 				);

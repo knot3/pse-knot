@@ -23,8 +23,8 @@ namespace Knot3.Widgets
 {
 	public class ErrorDialog : ConfirmDialog
 	{
-		public ErrorDialog (GameScreen screen, string message)
-		: base(screen, DisplayLayer.Dialog, "Error", message)
+		public ErrorDialog (GameScreen screen, DisplayLayer drawIndex, string message)
+		: base(screen, drawIndex, "Error", message)
 		{
 		}
 	}

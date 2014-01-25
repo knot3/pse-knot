@@ -45,7 +45,7 @@ namespace Knot3.Screens
 		{
 			MenuName = "Profiles";
 
-			settingsMenu = new VerticalMenu(this, DisplayLayer.Menu);
+			settingsMenu = new VerticalMenu(this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			settingsMenu.RelativePosition = () => new Vector2(0.400f, 0.180f);
 			settingsMenu.RelativeSize = () => new Vector2(0.500f, 0.770f);
 			settingsMenu.RelativePadding = () => new Vector2(0.010f, 0.010f);
@@ -57,7 +57,7 @@ namespace Knot3.Screens
 			InputItem playerNameInput = new InputItem(
 
 			    screen: this,
-			    drawOrder: DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Player Name:",
 			    inputText: "DEFAULT" // TODO
 			);
