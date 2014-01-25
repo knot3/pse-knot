@@ -89,7 +89,7 @@ namespace Knot3.Core
 		public GraphicsDeviceManager Graphics { get; private set; }
 
 		private static readonly Vector2 defaultSize = MonoHelper.IsRunningOnMono ()
-			? new Vector2 (1024, 600) : new Vector2 (1280, 720);
+		        ? new Vector2 (1024, 600) : new Vector2 (1280, 720);
 
 		#endregion
 
