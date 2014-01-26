@@ -63,7 +63,7 @@ namespace Knot3.Widgets
 		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding,
 		               Color lineColor, Color outlineColor)
 		: this(screen, drawOrder, widget.RelativePosition, widget.RelativeSize, lineWidth, padding,
-			       lineColor, outlineColor)
+		       lineColor, outlineColor)
 		{
 		}
 
@@ -74,7 +74,7 @@ namespace Knot3.Widgets
 
 		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding)
 		: this(screen: screen, drawOrder: drawOrder, widget: widget, lineWidth: 2, padding: 0,
-			       lineColor: Lines.DefaultLineColor, outlineColor: Lines.DefaultOutlineColor)
+		       lineColor: Lines.DefaultLineColor, outlineColor: Lines.DefaultOutlineColor)
 		{
 		}
 

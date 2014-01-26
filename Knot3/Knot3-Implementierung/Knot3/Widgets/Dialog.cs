@@ -85,25 +85,25 @@ namespace Knot3.Widgets
 
 			// Einen Rahmen um den Titel des Dialogs
 			titleBorder = new Border (
-				screen: screen,
-				drawOrder: Index,
-				position: () => RelativeTitlePosition,
-				size: () => RelativeTitleSize,
-				lineWidth: 2,
-				padding: 1,
-				lineColor: TitleBackgroundColor(),
-				outlineColor: Lines.DefaultOutlineColor * 0.75f
+			    screen: screen,
+			    drawOrder: Index,
+			    position: () => RelativeTitlePosition,
+			    size: () => RelativeTitleSize,
+			    lineWidth: 2,
+			    padding: 1,
+			    lineColor: TitleBackgroundColor(),
+			    outlineColor: Lines.DefaultOutlineColor * 0.75f
 			);
 
 			// Einen Rahmen um den Dialog
 			dialogBorder = new Border (
-				screen: screen,
-				drawOrder: Index,
-				widget: this,
-				lineWidth: 2,
-				padding: 1,
-				lineColor: TitleBackgroundColor(),
-				outlineColor: Lines.DefaultOutlineColor * 0.75f
+			    screen: screen,
+			    drawOrder: Index,
+			    widget: this,
+			    lineWidth: 2,
+			    padding: 1,
+			    lineColor: TitleBackgroundColor(),
+			    outlineColor: Lines.DefaultOutlineColor * 0.75f
 			);
 
 			// Tasten, auf die wir reagieren
