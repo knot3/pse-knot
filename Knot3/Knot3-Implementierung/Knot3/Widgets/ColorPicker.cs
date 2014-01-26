@@ -25,7 +25,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein Steuerelement der grafischen Benutzeroberfläche, das eine Auswahl von Farben ermöglicht.
 	/// </summary>
-	public sealed class ColorPicker : Widget, IKeyEventListener, IMouseEventListener
+	public sealed class ColorPicker : Widget, IKeyEventListener, IMouseClickEventListener
 	{
 		#region Properties
 

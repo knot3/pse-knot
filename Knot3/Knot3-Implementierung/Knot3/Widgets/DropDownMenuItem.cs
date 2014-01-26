@@ -83,7 +83,7 @@ namespace Knot3.Widgets
 			currentValue.ForegroundColor = () => ForegroundColor ();
 			currentValue.BackgroundColor = () => Color.Transparent;
 			currentValue.IsVisible = IsVisible;
-			currentValue.IsMouseEventEnabled = false;
+			currentValue.IsMouseClickEventEnabled = false;
 
 			ValidKeys.Add (Keys.Escape);
 		}

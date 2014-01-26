@@ -34,9 +34,18 @@ namespace Knot3.Widgets
 
 		private class ClickEventComponent
 		{
-			public IMouseEventListener receiver;
+			public IMouseClickEventListener receiver;
 			public DisplayLayer layer = DisplayLayer.None;
 			public Vector2 relativePosition;
+		}
+
+		private class MoveEventComponent
+		{
+			public IMouseMoveEventListener receiver;
+			public DisplayLayer layer = DisplayLayer.None;
+			public Vector2 relativePositionPrevious;
+			public Vector2 relativePositionCurrent;
+			public Vector2 relativePositionMove;
 		}
 
 		/// <summary>
@@ -44,13 +53,19 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void Update (GameTime time)
 		{
+			UpdateMouseClick (time);
+			UpdateMouseMove (time);
+		}
+
+		private void UpdateMouseClick (GameTime time)
+		{
+			// Mausklicks
 			ClickEventComponent best = null;
-			foreach (IMouseEventListener receiver in Screen.Game.Components.OfType<IMouseEventListener>()) {
-				// mouse input
+			foreach (IMouseClickEventListener receiver in Screen.Game.Components.OfType<IMouseClickEventListener>()) {
 				Rectangle bounds = receiver.Bounds ();
 				bool hovered = bounds.Contains (InputManager.CurrentMouseState.ToPoint ());
 				receiver.SetHovered (hovered);
-				if (hovered && receiver.IsMouseEventEnabled && (best == null || receiver.Index > best.layer)) {
+				if (hovered && receiver.IsMouseClickEventEnabled && (best == null || receiver.Index > best.layer)) {
 					best = new ClickEventComponent {
 						receiver = receiver,
 						layer = receiver.Index,
@@ -70,6 +85,57 @@ namespace Knot3.Widgets
 				}
 				else if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
 					best.receiver.OnScroll (+1);
+				}
+			}
+		}
+
+		private void UpdateMouseMove (GameTime time)
+		{
+			// Mausbewegungen
+			MoveEventComponent best = null;
+			foreach (IMouseMoveEventListener receiver in Screen.Game.Components.OfType<IMouseMoveEventListener>()) {
+				Rectangle bounds = receiver.Bounds ();
+				bool hovered = bounds.Contains (InputManager.PreviousMouseState.ToPoint ());
+
+				if (hovered && receiver.IsMouseMoveEventEnabled && (best == null || receiver.Index > best.layer)) {
+					Vector2 current = InputManager.CurrentMouseState.ToVector2 ();
+					Vector2 previous = InputManager.PreviousMouseState.ToVector2 ();
+
+					best = new MoveEventComponent {
+						receiver = receiver,
+						layer = receiver.Index,
+						relativePositionPrevious = previous-bounds.Location.ToVector2(),
+						relativePositionCurrent = current-bounds.Location.ToVector2(),
+						relativePositionMove = current - previous
+					};
+				}
+			}
+			if (best != null) {
+				if (best.relativePositionMove.Length () > 0) {
+					if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
+						best.receiver.OnLeftMove (
+							previousPosition: best.relativePositionPrevious,
+							currentPosition: best.relativePositionCurrent,
+							move: best.relativePositionMove,
+							time: time
+						);
+					}
+					else if (InputManager.CurrentMouseState.RightButton == ButtonState.Pressed) {
+						best.receiver.OnRightMove (
+							previousPosition: best.relativePositionPrevious,
+							currentPosition: best.relativePositionCurrent,
+							move: best.relativePositionMove,
+							time: time
+						);
+					}
+					else {
+						best.receiver.OnMove (
+							previousPosition: best.relativePositionPrevious,
+							currentPosition: best.relativePositionCurrent,
+							move: best.relativePositionMove,
+							time: time
+						);
+					}
 				}
 			}
 		}

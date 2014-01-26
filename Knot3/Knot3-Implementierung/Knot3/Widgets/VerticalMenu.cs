@@ -24,7 +24,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein Menü, das alle Einträge vertikal anordnet.
 	/// </summary>
-	public sealed class VerticalMenu : Menu, IMouseEventListener
+	public sealed class VerticalMenu : Menu, IMouseClickEventListener
 	{
 		#region Properties
 

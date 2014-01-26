@@ -156,10 +156,7 @@ namespace Knot3.GameObjects
 			}
 
 			// die aktuelle Mausbewegung
-			Vector2 mouseMove = new Vector2 (
-			    InputManager.CurrentMouseState.X - InputManager.PreviousMouseState.X,
-			    InputManager.CurrentMouseState.Y - InputManager.PreviousMouseState.Y
-			);
+			Vector2 mouseMove = InputManager.CurrentMouseState.ToVector2() - InputManager.PreviousMouseState.ToVector2();
 
 			InputAction action;
 			// wenn die Maus in der Mitte des Bildschirms gelockt ist

@@ -24,7 +24,7 @@ namespace Knot3.Core
 	/// <summary>
 	/// Eine Schnittstelle, die von Klassen implementiert wird, die auf Maus-Klicks reagieren.
 	/// </summary>
-	public interface IMouseEventListener
+	public interface IMouseMoveEventListener
 	{
 		#region Properties
 
@@ -36,7 +36,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Ob die Klasse zur Zeit auf Mausklicks reagiert.
 		/// </summary>
-		bool IsMouseEventEnabled { get; }
+		bool IsMouseMoveEventEnabled { get; }
 
 		#endregion
 
@@ -47,22 +47,11 @@ namespace Knot3.Core
 		/// </summary>
 		Rectangle Bounds ();
 
-		/// <summary>
-		/// Die Reaktion auf einen Linksklick.
-		/// </summary>
-		void OnLeftClick (Vector2 position, ClickState state, GameTime time);
+		void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time);
 
-		/// <summary>
-		/// Die Reaktion auf einen Rechtsklick.
-		/// </summary>
-		void OnRightClick (Vector2 position, ClickState state, GameTime time);
+		void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time);
 
-		/// <summary>
-		/// Die Reaktion auf ein Scrollen. Der Wert ist relativ zum letzten Frame.
-		/// </summary>
-		void OnScroll (int scrollWheelValue);
-
-		void SetHovered (bool hovered);
+		void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time);
 
 		#endregion
 	}

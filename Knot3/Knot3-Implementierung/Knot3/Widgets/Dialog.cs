@@ -25,7 +25,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
 	/// </summary>
-	public abstract class Dialog : Widget, IKeyEventListener, IMouseEventListener
+	public abstract class Dialog : Widget, IKeyEventListener, IMouseClickEventListener
 	{
 		#region Properties
 

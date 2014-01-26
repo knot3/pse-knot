@@ -50,13 +50,13 @@ namespace Knot3.Widgets
 
 		private bool? isKeyEventEnabled = null;
 
-		public override bool IsMouseEventEnabled
+		public override bool IsMouseClickEventEnabled
 		{
-			get { return isMouseEventEnabled.HasValue ? isMouseEventEnabled.Value : base.IsMouseEventEnabled; }
-			set { isMouseEventEnabled = value; }
+			get { return isMouseClickEventEnabled.HasValue ? isMouseClickEventEnabled.Value : base.IsMouseClickEventEnabled; }
+			set { isMouseClickEventEnabled = value; }
 		}
 
-		private bool? isMouseEventEnabled = null;
+		private bool? isMouseClickEventEnabled = null;
 
 		#endregion
 
