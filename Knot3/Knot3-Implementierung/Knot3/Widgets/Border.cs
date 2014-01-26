@@ -45,7 +45,7 @@ namespace Knot3.Widgets
 			}
 		}
 
-		private Action<GameTime> OnUpdate;
+		private Action<GameTime> OnUpdate = (time) => {};
 
 		#endregion
 
