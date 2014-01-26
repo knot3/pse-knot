@@ -52,8 +52,8 @@ namespace Knot3.Widgets
 			pauseMenu.RelativePosition = () => RelativeContentPosition;
 			pauseMenu.RelativeSize = () => RelativeContentSize;
 			pauseMenu.RelativePadding = () => RelativePadding ();
-			pauseMenu.ItemForegroundColor = (s) => Color.White;
-			pauseMenu.ItemBackgroundColor = (s) => (s == ItemState.Hovered) ? Color.White * 0.3f : Color.White * 0.1f;
+			pauseMenu.ItemForegroundColor = MenuItemForegroundColor;
+			pauseMenu.ItemBackgroundColor = MenuItemBackgroundColor;
 			pauseMenu.ItemAlignX = HorizontalAlignment.Left;
 			pauseMenu.ItemAlignY = VerticalAlignment.Center;
 

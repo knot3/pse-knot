@@ -176,7 +176,7 @@ namespace Knot3.Screens
 			playTimeDisplay.BackgroundColor = () => Color.Black;
 			playTimeDisplay.ForegroundColor = () => Color.White;
 			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			                             widget: playTimeDisplay, lineWidth: 2);
+			                             widget: playTimeDisplay, lineWidth: 2, padding: 0);
 
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
@@ -222,14 +222,14 @@ namespace Knot3.Screens
 				// wenn zur Zeit kein Dialog vorhanden ist, und Escape gedrückt wurde...
 				if (Keys.Escape.IsDown () && !returnFromPause) {
 					// erstelle einen neuen Pausedialog
-					knotInput.IsKeyEventEnabled = false;
+					knotInput.IsEnabled = false;
 					Dialog pauseDialog = new ChallengePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog);
 					// pausiere die Zeitmessung
 					state = ChallengeModeState.Paused;
 					// wenn der Dialog geschlossen wird, starte die Zeitmessung wieder
 					pauseDialog.Close += (t) => {
 						state = ChallengeModeState.Running;
-						knotInput.IsKeyEventEnabled = true;
+						knotInput.IsEnabled = true;
 						returnFromPause = true;
 					};
 					// füge ihn zur Spielkomponentenliste hinzu
@@ -248,12 +248,11 @@ namespace Knot3.Screens
 				// zeige die Zeit an
 				playTimeDisplay.Text = (playTime.Hours * 60 + playTime.Minutes).ToString ("D2") + ":" + playTime.Seconds.ToString ("D2");
 			}
-
 		}
 
 		public void OnChallengeFinished (GameTime time)
 		{
-			knotInput.IsKeyEventEnabled = false;
+			knotInput.IsEnabled = false;
 			// erstelle einen Dialog zum Eingeben des Spielernamens
 			TextInputDialog nameDialog = new TextInputDialog (screen: this, drawOrder: DisplayLayer.Dialog,
 			        title: "Challenge", text: "Your name:",

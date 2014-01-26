@@ -249,7 +249,7 @@ namespace Knot3.Screens
 		protected Color MenuItemBackgroundColor (ItemState itemState, Func<bool> matches)
 		{
 			if (matches ()) {
-				return Lines.LineColor;
+				return Lines.DefaultLineColor;
 			}
 			else {
 				return base.MenuItemBackgroundColor (itemState);

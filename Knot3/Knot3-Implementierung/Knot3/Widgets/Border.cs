@@ -49,14 +49,33 @@ namespace Knot3.Widgets
 
 		#region Constructors
 
-		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth = 2, int padding = 0)
+		public Border (IGameScreen screen, DisplayLayer drawOrder, Func<Vector2> position, Func<Vector2> size,
+		               int lineWidth, int padding, Color lineColor, Color outlineColor)
 		: base(screen, drawOrder)
 		{
 			LineWidth = lineWidth;
 			Padding = padding;
-			lines = new Lines (screen, drawOrder, lineWidth);
-			RelativePosition = () => widget.RelativePosition ();
-			RelativeSize = () => widget.RelativeSize ();
+			lines = new Lines (screen, drawOrder, lineWidth, lineColor, outlineColor);
+			RelativePosition = () => position ();
+			RelativeSize = () => size ();
+		}
+
+		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding,
+		               Color lineColor, Color outlineColor)
+		: this(screen, drawOrder, widget.RelativePosition, widget.RelativeSize, lineWidth, padding,
+			       lineColor, outlineColor)
+		{
+		}
+
+		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget)
+		: this(screen: screen, drawOrder: drawOrder, widget: widget, lineWidth: 2, padding: 0)
+		{
+		}
+
+		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding)
+		: this(screen: screen, drawOrder: drawOrder, widget: widget, lineWidth: 2, padding: 0,
+			       lineColor: Lines.DefaultLineColor, outlineColor: Lines.DefaultOutlineColor)
+		{
 		}
 
 		#endregion
@@ -71,7 +90,7 @@ namespace Knot3.Widgets
 			if (position != lastPosition || size != lastSize) {
 				lastPosition = position;
 				lastSize = size;
-				Vector2 padding = Vector2.One*0.001f*Padding;
+				Vector2 padding = Vector2.One * 0.001f * Padding;
 				lines.AddPoints (
 				    position.X - padding.X,
 				    position.Y - padding.Y,

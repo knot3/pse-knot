@@ -43,9 +43,10 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Zeigt an, ob die Klasse zur Zeit auf Tastatureingaben reagiert.
 		/// </summary>
-		public bool IsKeyEventEnabled { get { return true; } set { enabled = value; } }
+		public bool IsKeyEventEnabled { get { return IsEnabled; } }
 
-		private bool enabled;
+		public bool IsEnabled { get; set; }
+
 		/// <summary>
 		/// Die aktuelle Tastenbelegung
 		/// </summary>
@@ -88,7 +89,9 @@ namespace Knot3.GameObjects
 		public KnotInputHandler (IGameScreen screen, World world)
 		: base (screen, DisplayLayer.None)
 		{
-			enabled = true;
+			// Standardmäßig aktiviert
+			IsEnabled = true;
+
 			// Spielwelt
 			this.world = world;
 
@@ -128,15 +131,15 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-			if (enabled) {
+			if (IsEnabled) {
 				UpdateMouse (time);
 				ResetMousePosition ();
-				//rotateEverywhere(Vector2.UnitX*5, time);
-				//rotateEverywhere(Vector2.UnitY*5*(i%2==0?1:-1), time);
-				//i++;
+			}
+			else {
+				Screen.Input.CurrentInputAction = InputAction.FreeMouse;
 			}
 		}
-		//int i;
+
 		protected void UpdateMouse (GameTime time)
 		{
 
@@ -285,7 +288,7 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+				).ElementAt (0);
 			}
 
 			// Überprüfe, wie weit das Kamera-Target von dem Objekt, um das rotiert werden soll,
@@ -313,7 +316,7 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = camera.PositionToTargetDirection;
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.Target
-				                  + (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
+					+ (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.Target, oldDistance);
 			}
 
@@ -326,7 +329,7 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+				).ElementAt (0);
 			}
 
 			if (move.Length () > 0) {
@@ -339,9 +342,9 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = Vector3.Normalize (camera.ArcballTarget - camera.Position);
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.ArcballTarget
-				                  + (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+					+ (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Target = camera.ArcballTarget
-				                + (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+					+ (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.ArcballTarget, oldPositionDistance);
 				camera.Target = camera.Target.SetDistanceTo (camera.Position, oldTargetDistance);
 			}
@@ -357,7 +360,7 @@ namespace Knot3.GameObjects
 
 		public void OnKeyEvent (List<Keys> keys, KeyEvent keyEvent, GameTime time)
 		{
-			if (enabled) {
+			if (IsEnabled) {
 				// Bei einem Tastendruck wird die Spielwelt auf jeden Fall neu gezeichnet.
 				world.Redraw = true;
 
@@ -410,9 +413,9 @@ namespace Knot3.GameObjects
 			ValidKeys.AddRange (CurrentKeyAssignment.Keys.AsEnumerable ());
 		}
 
-		public void OnStartEdgeChanged(Vector3 direction)
+		public void OnStartEdgeChanged (Vector3 direction)
 		{
-			Console.WriteLine("OnStartEdgeChanged: " + direction);
+			Console.WriteLine ("OnStartEdgeChanged: " + direction);
 			camera.Position -= direction * Node.Scale;
 			camera.Target -= direction * Node.Scale;
 		}

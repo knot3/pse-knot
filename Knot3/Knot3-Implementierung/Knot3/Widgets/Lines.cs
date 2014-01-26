@@ -27,17 +27,23 @@ namespace Knot3.Widgets
 		private Texture2D texture;
 		private SpriteBatch spriteBatch;
 
+		public bool IsEnabled { get; set; }
+
 		// die Punkte, zwischen denen die Linien gezeichnet werden sollen
 		private List<Vector2> points;
 
 		// die Dicke der Linien
 		private int lineWidth;
-		public static Color LineColor = new Color (0xb4, 0xff, 0x00);
-		public static Color OutlineColor = new Color (0x3b, 0x54, 0x00);
 
-		public bool IsEnabled { get; set; }
+		// die Farben der Linien
+		public Color LineColor { get; private set; }
+		public Color OutlineColor { get; private set; }
 
-		public Lines (IGameScreen screen, DisplayLayer drawOrder, int lineWidth)
+		// die Standardfarben der Linien
+		public static readonly Color DefaultLineColor = new Color (0xb4, 0xff, 0x00);
+		public static readonly Color DefaultOutlineColor = new Color (0x3b, 0x54, 0x00);
+
+		public Lines (IGameScreen screen, DisplayLayer drawOrder, int lineWidth, Color lineColor, Color outlineColor)
 		: base(screen, drawOrder)
 		{
 			this.lineWidth = lineWidth;
@@ -45,6 +51,13 @@ namespace Knot3.Widgets
 			spriteBatch = new SpriteBatch (screen.Device);
 			texture = TextureHelper.Create (Screen.Device, Color.White);
 			IsEnabled = true;
+			LineColor = lineColor;
+			OutlineColor = outlineColor;
+		}
+
+		public Lines (IGameScreen screen, DisplayLayer drawOrder, int lineWidth)
+		: this(screen, drawOrder, lineWidth, DefaultLineColor, DefaultOutlineColor)
+		{
 		}
 
 		public override void Draw (GameTime time)
@@ -78,10 +91,10 @@ namespace Knot3.Widgets
 				spriteBatch.Begin ();
 				foreach (Rectangle inner in rects) {
 					Rectangle outer = new Rectangle (inner.X - 1, inner.Y - 1, inner.Width + 2, inner.Height + 2);
-					spriteBatch.Draw (texture, outer, OutlineColor * (IsEnabled ? 1f : 0.5f));
+					spriteBatch.Draw (texture, outer, DefaultOutlineColor * (IsEnabled ? 1f : 0.5f));
 				}
 				foreach (Rectangle rect in rects) {
-					spriteBatch.Draw (texture, rect, LineColor * (IsEnabled ? 1f : 0.5f));
+					spriteBatch.Draw (texture, rect, DefaultLineColor * (IsEnabled ? 1f : 0.5f));
 				}
 				spriteBatch.End ();
 			}

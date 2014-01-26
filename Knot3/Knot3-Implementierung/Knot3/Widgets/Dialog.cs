@@ -43,6 +43,8 @@ namespace Knot3.Widgets
 		public Action<GameTime> Close;
 
 		protected Func<Color> TitleBackgroundColor { get; set; }
+		private Border titleBorder;
+		private Border dialogBorder;
 
 		#endregion
 
@@ -77,11 +79,34 @@ namespace Knot3.Widgets
 			// Der Standardabstand
 			RelativePadding = () => new Vector2 (0.010f, 0.010f);
 			// Die Standardfarben
-			BackgroundColor = () => screen.BackgroundColor.Mix (Color.White, 0.15f);
+			BackgroundColor = () => screen.BackgroundColor.Mix (Color.White, 0.05f);
 			ForegroundColor = () => Color.Black;
-			TitleBackgroundColor = () => new Color (0xb4, 0xff, 0x00) * 0.75f;
+			TitleBackgroundColor = () => Lines.DefaultLineColor * 0.75f;
 
-			// ...
+			// Einen Rahmen um den Titel des Dialogs
+			titleBorder = new Border (
+				screen: screen,
+				drawOrder: Index,
+				position: () => RelativeTitlePosition,
+				size: () => RelativeTitleSize,
+				lineWidth: 2,
+				padding: 1,
+				lineColor: TitleBackgroundColor(),
+				outlineColor: Lines.DefaultOutlineColor * 0.75f
+			);
+
+			// Einen Rahmen um den Dialog
+			dialogBorder = new Border (
+				screen: screen,
+				drawOrder: Index,
+				widget: this,
+				lineWidth: 2,
+				padding: 1,
+				lineColor: TitleBackgroundColor(),
+				outlineColor: Lines.DefaultOutlineColor * 0.75f
+			);
+
+			// Tasten, auf die wir reagieren
 			ValidKeys = new List<Keys> ();
 		}
 
@@ -108,6 +133,15 @@ namespace Knot3.Widgets
 			spriteBatch.End ();
 		}
 
+		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
+		{
+			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
+				yield return component;
+			}
+			yield return titleBorder;
+			yield return dialogBorder;
+		}
+
 		protected Vector2 RelativeTitlePosition
 		{
 			get {
@@ -121,7 +155,7 @@ namespace Knot3.Widgets
 		{
 			get {
 				Vector2 size = RelativeSize ();
-				size.Y = 0.075f;
+				size.Y = 0.050f;
 				return size;
 			}
 		}
@@ -156,6 +190,21 @@ namespace Knot3.Widgets
 		{
 			return RelativeContentPosition.Scale (Screen.Viewport)
 			       .CreateRectangle (RelativeContentSize.Scale (Screen.Viewport));
+		}
+
+		protected virtual Color MenuItemBackgroundColor (ItemState itemState)
+		{
+			return Color.Transparent;
+		}
+
+		protected virtual Color MenuItemForegroundColor (ItemState itemState)
+		{
+			if (itemState == ItemState.Hovered) {
+				return Color.White;
+			}
+			else {
+				return Color.White * 0.7f;
+			}
 		}
 
 		/// <summary>

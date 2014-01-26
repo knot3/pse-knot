@@ -47,8 +47,8 @@ namespace Knot3.Widgets
 			highscoreList.RelativePosition = () => RelativeContentPosition;
 			highscoreList.RelativeSize = () => RelativeContentSize;
 			highscoreList.RelativePadding = () => RelativePadding ();
-			highscoreList.ItemForegroundColor = (s) => Color.White;
-			highscoreList.ItemBackgroundColor = (s) => (s == ItemState.Hovered) ? Color.White * 0.3f : Color.White * 0.1f;
+			highscoreList.ItemForegroundColor = MenuItemForegroundColor;
+			highscoreList.ItemBackgroundColor = MenuItemBackgroundColor;
 			highscoreList.ItemAlignX = HorizontalAlignment.Left;
 			highscoreList.ItemAlignY = VerticalAlignment.Center;
 
