@@ -146,7 +146,7 @@ namespace Knot3.KnotData
 				yield return current.Value;
 				current = current.Next;
 			}
-			while (current != other && current != this);
+			while (current != other.Next && current != this);
 		}
 
 		public IEnumerator<T> GetEnumerator ()
