@@ -50,7 +50,7 @@ namespace Knot3.Screens
 			buttons = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 
 			// logo
-			logo = TextureHelper.LoadTexture (Content, "logo");
+			logo = this.LoadTexture ("logo");
 
 			// create a new SpriteBatch, which can be used to draw textures
 			spriteBatch = new SpriteBatch (Device);

@@ -32,13 +32,7 @@ namespace Knot3.Utilities
 			}
 			else {
 				// lade die Schriftart der Menüs in das private Attribut
-				try {
-					menuFont = screen.Content.Load<SpriteFont> ("font-menu");
-				}
-				catch (ContentLoadException ex) {
-					menuFont = null;
-					Console.WriteLine (ex.Message);
-				}
+				menuFont = screen.LoadFont ("font-menu");
 				return menuFont;
 			}
 		}

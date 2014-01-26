@@ -37,11 +37,11 @@ namespace Knot3.Utilities
 		private static Effect LoadEffectMono (IGameScreen screen, string name)
 		{
 			string[] filenames = {
-				"Content/" + name + ".mgfx",
-				"Content/" + name + "_3.0.mgfx",
-				"Content/" + name + "_3.1.mgfx"
+				"Content/Shader/" + name + ".mgfx",
+				"Content/Shader/" + name + "_3.0.mgfx",
+				"Content/Shader/" + name + "_3.1.mgfx"
 			};
-			Exception lastException = new Exception("Could not find shader: " + name);
+			Exception lastException = new Exception ("Could not find shader: " + name);
 			foreach (string filename in filenames) {
 				try {
 					Effect effect = new Effect (screen.Device, System.IO.File.ReadAllBytes (filename));
@@ -56,7 +56,7 @@ namespace Knot3.Utilities
 
 		private static Effect LoadEffectDotnet (IGameScreen screen, string name)
 		{
-			return screen.Content.Load<Effect> (name);
+			return screen.Content.Load<Effect> ("Shader/" + name);
 		}
 	}
 }

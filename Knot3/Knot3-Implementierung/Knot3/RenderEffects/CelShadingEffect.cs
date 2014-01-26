@@ -51,7 +51,7 @@ namespace Knot3.RenderEffects
 			 */
 			celShader = screen.LoadEffect ("CelShader");
 			celShader.Parameters ["LightDirection"].SetValue (lightDirection);
-			celMap = screen.Content.Load<Texture2D> ("CelMap");
+			celMap = screen.LoadTexture("CelMap");
 			celShader.Parameters ["Color"].SetValue (Color.Green.ToVector4 ());
 			celShader.Parameters ["CelMap"].SetValue (celMap);
 

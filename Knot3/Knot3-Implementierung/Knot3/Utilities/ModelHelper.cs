@@ -62,7 +62,7 @@ namespace Knot3.Utilities
 			}
 			else {
 				try {
-					Model model = content.Load<Model> (name);
+					Model model = content.Load<Model> ("Models/" + name);
 					pp.RemapModel (model);
 					return model;
 				}

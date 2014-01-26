@@ -26,10 +26,21 @@ namespace Knot3.Utilities
 	{
 		#region Real Textures
 
-		public static Texture2D LoadTexture (ContentManager content, string name)
+		public static Texture2D LoadTexture (this IGameScreen screen, string name)
 		{
 			try {
-				return content.Load<Texture2D> (name);
+				return screen.Content.Load<Texture2D> ("Textures/" + name);
+			}
+			catch (ContentLoadException ex) {
+				Console.WriteLine (ex.ToString ());
+				return null;
+			}
+		}
+
+		public static SpriteFont LoadFont (this IGameScreen screen, string name)
+		{
+			try {
+				return screen.Content.Load<SpriteFont> ("Fonts/" + name);
 			}
 			catch (ContentLoadException ex) {
 				Console.WriteLine (ex.ToString ());
@@ -80,11 +91,11 @@ namespace Knot3.Utilities
 				Texture2D texture = new Texture2D (graphicsDevice, 2, 2);
 
 				// fill it with the specified colors
-				Color[] colors = new Color[texture.Width*texture.Height];
-				colors[0] = color1;
-				colors[1] = color2;
-				colors[2] = color2;
-				colors[3] = color1;
+				Color[] colors = new Color[texture.Width * texture.Height];
+				colors [0] = color1;
+				colors [1] = color2;
+				colors [2] = color2;
+				colors [3] = color1;
 				texture.SetData (colors);
 				textureCache [key] = texture;
 				return texture;
@@ -115,7 +126,7 @@ namespace Knot3.Utilities
 				                           font: font, text: text, scale: scale,
 				                           position: scaledPosition, size: scaledSize,
 				                           alignX: alignX, alignY: alignY
-				                       );
+				);
 
 				// zeichne die Schrift
 				spriteBatch.DrawString (font, text, textPosition, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.6f);

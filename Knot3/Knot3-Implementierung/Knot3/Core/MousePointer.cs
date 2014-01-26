@@ -28,6 +28,7 @@ namespace Knot3.Core
 	public sealed class MousePointer : DrawableGameScreenComponent
 	{
 		private SpriteBatch spriteBatch;
+		private Texture2D cursorTex;
 
 		#region Constructors
 
@@ -37,6 +38,7 @@ namespace Knot3.Core
 		public MousePointer (IGameScreen screen)
 		: base(screen, DisplayLayer.Cursor)
 		{
+			cursorTex = Screen.LoadTexture ("cursor");
 			spriteBatch = new SpriteBatch (screen.Device);
 		}
 
@@ -57,7 +59,6 @@ namespace Knot3.Core
 			if (!MonoHelper.IsRunningOnMono ()) {
 				spriteBatch.Begin ();
 
-				Texture2D cursorTex = Screen.Content.Load<Texture2D> ("cursor");
 				if (Screen.Input.GrabMouseMovement || Screen.Input.CurrentInputAction == InputAction.CameraTargetMove
 				        || (Screen.Input.CurrentInputAction == InputAction.ArcballMove
 				            && (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed

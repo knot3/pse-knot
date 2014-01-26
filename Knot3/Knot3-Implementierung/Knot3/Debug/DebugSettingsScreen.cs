@@ -86,7 +86,7 @@ namespace Knot3.Debug
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Use Pascal's Shader",
 			    option: new BooleanOptionInfo ("video", "pascal-shader", false, Options.Default)
-			);
+			);te
 			settingsMenu.Add (shaderPascal);
 
 			CheckBoxItem shaderCel = new CheckBoxItem (

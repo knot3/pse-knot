@@ -19,6 +19,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Utilities;
 
 namespace Knot3.Debug
 {
@@ -56,9 +57,7 @@ namespace Knot3.Debug
 
 			// load fonts
 			try {
-
-
-				font = Screen.Content.Load<SpriteFont> ("font-overlay");
+				font = Screen.LoadFont ("font-overlay");
 			}
 			catch (ContentLoadException ex) {
 				font = null;
