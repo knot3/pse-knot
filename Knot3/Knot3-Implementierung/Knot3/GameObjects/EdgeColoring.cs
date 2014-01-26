@@ -27,7 +27,7 @@ namespace Knot3.GameObjects
 		public Knot Knot { get; set; }
 
 		public EdgeColoring (GameScreen screen)
-			: base(screen, DisplayLayer.None)
+		: base(screen, DisplayLayer.None)
 		{
 			ValidKeys = new List<Keys> ();
 			ValidKeys.Add (Keys.C);
@@ -36,16 +36,16 @@ namespace Knot3.GameObjects
 		public override void Update (GameTime time)
 		{
 		}
-		
+
 		public void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 			// Soll die Farbe geändert wurde?
 			if (Knot.SelectedEdges.Count () > 0 && Keys.C.IsDown ()) {
 				Color currentColor = Knot.SelectedEdges.ElementAt (0);
 				ColorPickDialog picker = new ColorPickDialog (
-					screen: Screen,
-					drawOrder: DisplayLayer.Dialog,
-					selectedColor: currentColor
+				    screen: Screen,
+				    drawOrder: DisplayLayer.Dialog,
+				    selectedColor: currentColor
 				);
 				foreach (Edge edge in Knot.SelectedEdges) {
 					picker.Close += (t) => {

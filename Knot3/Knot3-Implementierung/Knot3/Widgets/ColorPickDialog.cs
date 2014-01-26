@@ -24,7 +24,7 @@ namespace Knot3.Widgets
 	public class ColorPickDialog : Dialog
 	{
 		#region Properties
-		
+
 		/// <summary>
 		/// Die ausgewählte Farbe.
 		/// </summary>

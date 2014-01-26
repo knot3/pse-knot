@@ -121,11 +121,11 @@ namespace Knot3.Widgets
 			int i = 0;
 			foreach (Vector2 tile in tiles) {
 				Console.WriteLine ("ColorPicker: tile=" + tile + "  "
-					+ (tile.X <= position.X) + " " + (tile.X + tileSize.X > position.X) + " " + (
+				                   + (tile.X <= position.X) + " " + (tile.X + tileSize.X > position.X) + " " + (
 				                       tile.Y <= position.Y) + " " + (tile.Y + tileSize.Y > position.Y)
-				);
+				                  );
 				if (tile.X <= position.X && tile.X + tileSize.X > position.X
-					&& tile.Y <= position.Y && tile.Y + tileSize.Y > position.Y) {
+				        && tile.Y <= position.Y && tile.Y + tileSize.Y > position.Y) {
 					Console.WriteLine ("ColorPicker: color=" + colors [i]);
 
 					ColorSelected (colors [i], time);
