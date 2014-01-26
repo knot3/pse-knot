@@ -24,22 +24,21 @@ namespace Knot3.RenderEffects
 	public class RenderEffectLibrary
 	{
 		private static EffectFactory[] EffectLibrary
-			= new EffectFactory[]
-		{
+		= new EffectFactory[] {
 			new EffectFactory (
-				name: "default",
-				displayName: "Default",
-				createInstance: (screen) => new StandardEffect (screen)
+			    name: "default",
+			    displayName: "Default",
+			    createInstance: (screen) => new StandardEffect (screen)
 			),
 			new EffectFactory (
-				name: "celshader",
-				displayName: "Cel Shading",
-				createInstance: (screen) => new CelShadingEffect (screen)
+			    name: "celshader",
+			    displayName: "Cel Shading",
+			    createInstance: (screen) => new CelShadingEffect (screen)
 			),
 			new EffectFactory (
-				name: "pascal",
-				displayName: "Pascal",
-				createInstance: (screen) => new Pascal (screen)
+			    name: "pascal",
+			    displayName: "Pascal",
+			    createInstance: (screen) => new Pascal (screen)
 			),
 		};
 
@@ -48,7 +47,7 @@ namespace Knot3.RenderEffects
 			get {
 				foreach (EffectFactory factory in EffectLibrary) {
 					yield return factory.Name;
-				} 
+				}
 			}
 		}
 
