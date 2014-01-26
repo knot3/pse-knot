@@ -80,6 +80,7 @@ namespace Knot3.Debug
 			);
 			settingsMenu.Add (showBoundings);
 
+			/*
 			CheckBoxItem shaderPascal = new CheckBoxItem (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
@@ -95,6 +96,7 @@ namespace Knot3.Debug
 			    option: new BooleanOptionInfo ("video", "cel-shading", false, Options.Default)
 			);
 			settingsMenu.Add (shaderCel);
+			*/
 		}
 
 		#endregion
