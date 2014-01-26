@@ -81,6 +81,22 @@ namespace Knot3.Screens
 			);
 			resolutionItem.AddEntries (resolutionOption);
 			settingsMenu.Add (resolutionItem);
+
+			string[] validRenderEffects = RenderEffectLibrary.Names.ToArray();
+			DistinctOptionInfo renderEffectOption = new DistinctOptionInfo (
+			    section: "video",
+			    name: "knot-shader",
+			    defaultValue: "default",
+			    validValues: validRenderEffects,
+			    configFile: Options.Default
+			);
+			DropDownMenuItem renderEffectItem = new DropDownMenuItem (
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    text: "Render Effect"
+			);
+			renderEffectItem.AddEntries (renderEffectOption);
+			settingsMenu.Add (renderEffectItem);
 		}
 
 		#endregion
