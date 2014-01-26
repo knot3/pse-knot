@@ -114,26 +114,26 @@ namespace Knot3.Widgets
 				if (best.relativePositionMove.Length () > 0) {
 					if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
 						best.receiver.OnLeftMove (
-							previousPosition: best.relativePositionPrevious,
-							currentPosition: best.relativePositionCurrent,
-							move: best.relativePositionMove,
-							time: time
+						    previousPosition: best.relativePositionPrevious,
+						    currentPosition: best.relativePositionCurrent,
+						    move: best.relativePositionMove,
+						    time: time
 						);
 					}
 					else if (InputManager.CurrentMouseState.RightButton == ButtonState.Pressed) {
 						best.receiver.OnRightMove (
-							previousPosition: best.relativePositionPrevious,
-							currentPosition: best.relativePositionCurrent,
-							move: best.relativePositionMove,
-							time: time
+						    previousPosition: best.relativePositionPrevious,
+						    currentPosition: best.relativePositionCurrent,
+						    move: best.relativePositionMove,
+						    time: time
 						);
 					}
 					else {
 						best.receiver.OnMove (
-							previousPosition: best.relativePositionPrevious,
-							currentPosition: best.relativePositionCurrent,
-							move: best.relativePositionMove,
-							time: time
+						    previousPosition: best.relativePositionPrevious,
+						    currentPosition: best.relativePositionCurrent,
+						    move: best.relativePositionMove,
+						    time: time
 						);
 					}
 				}
