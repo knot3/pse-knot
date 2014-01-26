@@ -62,7 +62,7 @@ namespace Knot3.Widgets
 
 		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding,
 		               Color lineColor, Color outlineColor)
-		: this(screen, drawOrder, widget.RelativePosition, widget.RelativeSize, lineWidth, padding,
+		: this(screen, drawOrder, ()=>widget.RelativePosition(), ()=>widget.RelativeSize(), lineWidth, padding,
 		       lineColor, outlineColor)
 		{
 		}

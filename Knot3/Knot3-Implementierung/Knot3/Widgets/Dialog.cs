@@ -43,6 +43,7 @@ namespace Knot3.Widgets
 		public Action<GameTime> Close;
 
 		protected Func<Color> TitleBackgroundColor { get; set; }
+
 		private Border titleBorder;
 		private Border dialogBorder;
 
@@ -91,7 +92,7 @@ namespace Knot3.Widgets
 			    size: () => RelativeTitleSize,
 			    lineWidth: 2,
 			    padding: 1,
-			    lineColor: TitleBackgroundColor(),
+			    lineColor: TitleBackgroundColor (),
 			    outlineColor: Lines.DefaultOutlineColor * 0.75f
 			);
 
@@ -102,7 +103,7 @@ namespace Knot3.Widgets
 			    widget: this,
 			    lineWidth: 2,
 			    padding: 1,
-			    lineColor: TitleBackgroundColor(),
+			    lineColor: TitleBackgroundColor (),
 			    outlineColor: Lines.DefaultOutlineColor * 0.75f
 			);
 
@@ -177,6 +178,10 @@ namespace Knot3.Widgets
 				size.Y -= RelativeTitleSize.Y;
 				size -= RelativePadding () * 2;
 				return size;
+			}
+			set {
+				Vector2 newSize = value + new Vector2 (0, RelativeTitleSize.Y) + RelativePadding () * 2;
+				RelativeSize = () => newSize;
 			}
 		}
 

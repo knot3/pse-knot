@@ -115,12 +115,12 @@ namespace Knot3.KnotData
 			return v - d.Vector;
 		}
 
-		public static Vector3 operator / (Direction d, int i)
+		public static Vector3 operator / (Direction d, float i)
 		{
 			return d.Vector / i;
 		}
 
-		public static Vector3 operator * (Direction d, int i)
+		public static Vector3 operator * (Direction d, float i)
 		{
 			return d.Vector * i;
 		}

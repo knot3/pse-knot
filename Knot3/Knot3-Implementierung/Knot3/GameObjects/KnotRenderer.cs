@@ -199,20 +199,14 @@ namespace Knot3.GameObjects
 		{
 			nodes.Clear ();
 
-			var nodeJunctionMap = new Dictionary<Node, List<IJunction>> ();
-			var edgeList = new List<Edge> (knot);
-			for (int n = 0; n < edgeList.Count; n++) {
-				Edge edgeA = edgeList.At (n);
-				Edge edgeB = edgeList.At (n + 1);
-				Node node = nodeMap.To (edgeA);
-				IJunction junction = new NodeModelInfo (nodeMap, knot, edgeA, edgeB);
-				nodeJunctionMap.Add (node, junction);
-			}
-
-			foreach (Node node in nodeJunctionMap.Keys) {
-				List<IJunction> junctions = nodeJunctionMap [node];
+			foreach (Node node in nodeMap.Nodes) {
+				List<IJunction> junctions = nodeMap.JunctionsAtNode (node);
+				// zeige zwischen zwei Kanten in der selben Richtung keinen Übergang an,
+				// wenn sie alleine an dem Kantenpunkt sind
+				if (junctions.Count == 1 && junctions [0].EdgeFrom.Direction == junctions [0].EdgeTo.Direction) {
+					continue;
+				}
 				foreach (NodeModelInfo junction in junctions.OfType<NodeModelInfo>()) {
-					junction.JunctionCountAtNode = junctions.Count;
 					NodeModel model = nodeFactory [screen, junction] as NodeModel;
 					model.World = World;
 					nodes.Add (model);
@@ -232,8 +226,8 @@ namespace Knot3.GameObjects
 		private void CreateArrow (Edge edge)
 		{
 			try {
-				Node node1 = nodeMap.From (edge);
-				Node node2 = nodeMap.To (edge);
+				Node node1 = nodeMap.NodeBeforeEdge (edge);
+				Node node2 = nodeMap.NodeAfterEdge (edge);
 				foreach (Direction direction in Direction.Values) {
 					if (knot.IsValidMove (direction)) {
 						Vector3 towardsCamera = World.Camera.PositionToTargetDirection;

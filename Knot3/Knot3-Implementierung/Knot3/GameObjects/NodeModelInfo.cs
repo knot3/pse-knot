@@ -38,18 +38,12 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public Edge EdgeTo { get; set; }
 
-		/// <summary>
-		/// Der Knoten, der die Kanten enthält.
-		/// </summary>
-		public Knot Knot { get; set; }
+		private NodeMap NodeMap;
 
-		private int junctionCountAtNode = 1;
-
-		public int JunctionCountAtNode
+		public List<IJunction> JunctionsAtNode
 		{
-			set {
-				junctionCountAtNode = value;
-				chooseModel ();
+			get {
+				return NodeMap.JunctionsAtNode(NodeMap.NodeAfterEdge(EdgeFrom));
 			}
 		}
 
@@ -120,17 +114,21 @@ namespace Knot3.GameObjects
 		/// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
 		/// [base="node1", Angles3.Zero, new Vector3(1,1,1)]
 		/// </summary>
-		public NodeModelInfo (NodeMap nodeMap, Knot knot, Edge from, Edge to)
+		public NodeModelInfo (NodeMap nodeMap, Edge from, Edge to)
 		: base("pipe-straight", Angles3.Zero, Vector3.One * 25f)
 		{
 			EdgeFrom = from;
 			EdgeTo = to;
-			Position = nodeMap.To (EdgeFrom).ToVector ();
+			NodeMap = nodeMap;
+			Position = nodeMap.NodeAfterEdge (EdgeFrom);
 
 			// Kanten sind sichtbar, nicht auswählbar und nicht verschiebbar
 			IsVisible = true;
 			IsSelectable = false;
 			IsMovable = false;
+
+			// Wähle das Modell aus
+			nodeMap.IndexRebuilt += () => chooseModel ();
 		}
 
 		#endregion
@@ -143,7 +141,7 @@ namespace Knot3.GameObjects
 				Modelname = "pipe-straight";
 			}
 			else {
-				if (junctionCountAtNode == 1) {
+				if (JunctionsAtNode.Count == 1) {
 					Modelname = "pipe-angled";
 				}
 				else {

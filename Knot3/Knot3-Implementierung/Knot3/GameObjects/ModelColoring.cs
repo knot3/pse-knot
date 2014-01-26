@@ -82,7 +82,7 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public Color BaseColor { get; set; }
 
-		public override Color MixedColor { get { return BaseColor; } }
+		public override Color MixedColor { get { return BaseColor.Mix (HighlightColor, HighlightIntensity); } }
 
 		public override bool IsTransparent { get { return BaseColor == Color.Transparent; } }
 	}
@@ -114,7 +114,7 @@ namespace Knot3.GameObjects
 		public override Color MixedColor
 		{
 			get {
-				return Color1.Mix (Color2, 0.5f);
+				return Color1.Mix (Color2, 0.5f).Mix (HighlightColor, HighlightIntensity);
 			}
 		}
 

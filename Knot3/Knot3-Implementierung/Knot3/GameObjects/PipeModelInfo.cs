@@ -74,10 +74,10 @@ namespace Knot3.GameObjects
 			Edge = edge;
 
 			// Berechne die beiden Positionen, zwischen denen die Kante gezeichnet wird
-			Node node1 = nodeMap.From (edge);
-			Node node2 = nodeMap.To (edge);
-			PositionFrom = node1.ToVector ();
-			PositionTo = node2.ToVector ();
+			Node node1 = nodeMap.NodeBeforeEdge (edge);
+			Node node2 = nodeMap.NodeAfterEdge (edge);
+			PositionFrom = node1;
+			PositionTo = node2;
 			Position = node1.CenterBetween (node2);
 
 			// Kanten sind verschiebbar und auswählbar
@@ -86,6 +86,18 @@ namespace Knot3.GameObjects
 
 			// Berechne die Drehung
 			Rotation += RotationMap [Edge.Direction];
+
+			// Berechne die Skalierung bei überlangen Kanten
+			List<IJunction> junctions1 = nodeMap.JunctionsBeforeEdge (edge);
+			List<IJunction> junctions2 = nodeMap.JunctionsAfterEdge (edge);
+			if (junctions1.Count == 1 && junctions1 [0].EdgeFrom.Direction == junctions1 [0].EdgeTo.Direction) {
+				Scale += new Vector3 (0, 0, 12.5f);
+				Position -= edge.Direction * 12.5f;
+			}
+			if (junctions2.Count == 1 && junctions2 [0].EdgeFrom.Direction == junctions2 [0].EdgeTo.Direction) {
+				Scale += new Vector3 (0, 0, 12.5f);
+				Position += edge.Direction * 12.5f;
+			}
 		}
 
 		#endregion

@@ -18,6 +18,7 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.Widgets;
+using Knot3.Utilities;
 
 namespace Knot3.KnotData
 {
@@ -30,6 +31,7 @@ namespace Knot3.KnotData
 
 		private Hashtable fromMap = new Hashtable ();
 		private Hashtable toMap = new Hashtable ();
+		private Dictionary<Node, List<IJunction>> junctionMap = new Dictionary<Node, List<IJunction>> ();
 
 		/// <summary>
 		/// Die Skalierung, die bei einer Konvertierung in einen Vector3 des XNA-Frameworks durch die ToVector()-Methode der Node-Objekte verwendet wird.
@@ -39,6 +41,8 @@ namespace Knot3.KnotData
 		public IEnumerable<Edge> Edges { get; set; }
 
 		public Vector3 Offset { get; set; }
+
+		public Action IndexRebuilt;
 
 		#endregion
 
@@ -61,7 +65,7 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Gibt die Rasterposition des Übergangs am Anfang der Kante zurück.
 		/// </summary>
-		public Node From (Edge edge)
+		public Node NodeBeforeEdge (Edge edge)
 		{
 			return (Node)fromMap [edge];
 		}
@@ -69,9 +73,31 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Gibt die Rasterposition des Übergangs am Ende der Kante zurück.
 		/// </summary>
-		public Node To (Edge edge)
+		public Node NodeAfterEdge (Edge edge)
 		{
 			return (Node)toMap [edge];
+		}
+
+		public List<IJunction> JunctionsAtNode (Node node)
+		{
+			return junctionMap [node];
+		}
+
+		public List<IJunction> JunctionsBeforeEdge (Edge edge)
+		{
+			return junctionMap [NodeBeforeEdge (edge)];
+		}
+
+		public List<IJunction> JunctionsAfterEdge (Edge edge)
+		{
+			return junctionMap [NodeAfterEdge (edge)];
+		}
+
+		public IEnumerable<Node> Nodes
+		{
+			get {
+				return junctionMap.Keys;
+			}
 		}
 
 		/// <summary>
@@ -95,6 +121,18 @@ namespace Knot3.KnotData
 				z += v.Z;
 				toMap [edge] = new Node ((int)x, (int)y, (int)z);
 			}
+
+			IndexRebuilt = () => {};
+			junctionMap.Clear ();
+			for (int n = 0; n < Edges.Count(); n++) {
+				Edge edgeA = Edges.At (n);
+				Edge edgeB = Edges.At (n + 1);
+				Node node = NodeAfterEdge (edgeA);
+				IJunction junction = new NodeModelInfo (nodeMap: this, from: edgeA, to: edgeB);
+				junctionMap.Add (node, junction);
+			}
+
+			IndexRebuilt ();
 		}
 
 		#endregion

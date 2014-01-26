@@ -21,19 +21,16 @@ using Knot3.KnotData;
 
 namespace Knot3.Widgets
 {
-	/// <summary>
-	/// Ein Dialog, der Schaltflächen zum Bestätigen einer Aktion anzeigt.
-	/// </summary>
-	public abstract class ConfirmDialog : Dialog
+	public class ColorPickDialog : Dialog
 	{
 		#region Properties
-
+		
 		/// <summary>
-		/// Das Menü, das Schaltflächen enthält.
+		/// Die ausgewählte Farbe.
 		/// </summary>
-		private Menu buttons { get; set; }
+		public Color SelectedColor { get; private set; }
 
-		private VerticalMenu menu;
+		private ColorPicker colorPicker;
 
 		#endregion
 
@@ -44,27 +41,23 @@ namespace Knot3.Widgets
 		/// Zudem sind Angaben zur Zeichenreihenfolge, einer Zeichenkette für den Titel und für den eingeblendeten Text Pflicht.
 		/// [base=screen, drawOrder, title, text]
 		/// </summary>
-		public ConfirmDialog (IGameScreen screen, DisplayLayer drawOrder, string title, string text)
-		: base(screen, drawOrder, title, text)
+		public ColorPickDialog (IGameScreen screen, DisplayLayer drawOrder, Color selectedColor)
+		: base(screen, drawOrder, "Select a color", "")
 		{
+			// Die ausgewählte Farbe
+			SelectedColor = selectedColor;
+
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
 
-			// Menü, in dem die Textanzeige angezeigt wird
-			menu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
-			menu.RelativePosition = () => RelativeContentPosition;
-			menu.RelativeSize = () => RelativeContentSize;
-			menu.RelativePadding = () => RelativePadding ();
-			menu.ItemForegroundColor = (s) => Color.White;
-			menu.ItemBackgroundColor = (s) => Color.Transparent;
-			menu.ItemAlignX = HorizontalAlignment.Left;
-			menu.ItemAlignY = VerticalAlignment.Center;
+			// Der Colorpicker
+			colorPicker = new ColorPicker (Screen, Index + DisplayLayer.MenuItem, selectedColor);
+			colorPicker.RelativePosition = () => RelativeContentPosition;
+			colorPicker.ColorSelected += OnColorSelected;
+			RelativeContentSize = colorPicker.RelativeSize ();
 
-			// Die Textanzeige
-			TextItem textInput = new TextItem (Screen, Index + DisplayLayer.MenuItem, text);
-			menu.Add (textInput);
-
-			ValidKeys.AddRange (new Keys[] { Keys.Enter, Keys.Escape });
+			// Diese Tasten werden akzeptiert
+			ValidKeys.AddRange (new Keys[] { Keys.Escape });
 		}
 
 		#endregion
@@ -77,11 +70,17 @@ namespace Knot3.Widgets
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 			if (keyEvent == KeyEvent.KeyDown) {
-				if (key.Contains (Keys.Enter) || key.Contains (Keys.Escape)) {
+				if (key.Contains (Keys.Escape)) {
 					Close (time);
 				}
 			}
 			base.OnKeyEvent (key, keyEvent, time);
+		}
+
+		private void OnColorSelected (Color obj, GameTime time)
+		{
+			SelectedColor = colorPicker.SelectedColor;
+			Close (time);
 		}
 
 		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
@@ -89,7 +88,7 @@ namespace Knot3.Widgets
 			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
 				yield return component;
 			}
-			yield return menu;
+			yield return colorPicker;
 		}
 
 		#endregion

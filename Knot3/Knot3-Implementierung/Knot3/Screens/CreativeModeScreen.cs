@@ -69,10 +69,11 @@ namespace Knot3.Screens
 				knotRenderer.Knot = knot;
 				// den Knoten dem Kantenverschieber zuweisen
 				edgeMovement.Knot = knot;
-				// Events registrieren
+				// den Knoten dem Kanteneinfärber zuweisen
+				edgeColoring.Knot = knot;
+				// die Events registrieren
 				knot.EdgesChanged += OnEdgesChanged;
 				knot.StartEdgeChanged += knotInput.OnStartEdgeChanged;
-				// coloring.Knot = knot;
 			}
 		}
 
@@ -80,6 +81,7 @@ namespace Knot3.Screens
 		private KnotInputHandler knotInput;
 		private ModelMouseHandler modelMouseHandler;
 		private EdgeMovement edgeMovement;
+		private EdgeColoring edgeColoring;
 		private MousePointer pointer;
 		private Overlay overlay;
 		private Dialog currentDialog;
@@ -95,27 +97,30 @@ namespace Knot3.Screens
 		public CreativeModeScreen (Knot3Game game, Knot knot)
 		: base(game)
 		{
-			// world
+			// die Spielwelt
 			world = new World (screen: this);
-			// input
+			// der Input-Handler
 			knotInput = new KnotInputHandler (screen: this, world: world);
-			// overlay
+			// das Overlay zum Debuggen
 			overlay = new Overlay (screen: this, world: world);
-			// pointer
+			// der Mauszeiger
 			pointer = new MousePointer (screen: this);
-			// model mouse handler
+			// der Maus-Handler für die 3D-Modelle
 			modelMouseHandler = new ModelMouseHandler (screen: this, world: world);
 
-			// knot renderer
+			// der Knoten-Renderer
 			knotRenderer = new KnotRenderer (screen: this, position: Vector3.Zero);
 			world.Add (knotRenderer);
 
-			// debug displays
+			// visualisiert die BoundingSpheres
 			debugBoundings = new DebugBoundings (screen: this, position: Vector3.Zero);
 
-			// edge movements
+			// der Input-Handler zur Kanten-Verschiebung
 			edgeMovement = new EdgeMovement (screen: this, world: world, position: Vector3.Zero);
 			world.Add (edgeMovement);
+
+			// der Input-Handler zur Kanten-Einfärbung
+			edgeColoring = new EdgeColoring (screen: this);
 
 			// assign the specified knot
 			Knot = knot;
@@ -175,7 +180,7 @@ namespace Knot3.Screens
 		public override void Entered (IGameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler);
+			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler, edgeColoring);
 			Audio.BackgroundMusic = Sound.CreativeMusic;
 
 			// Einstellungen anwenden

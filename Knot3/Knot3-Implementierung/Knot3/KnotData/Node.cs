@@ -25,7 +25,7 @@ namespace Knot3.KnotData
 	/// Eine Position im 3D-Raster. Die Werte für alle drei Koordinaten sind Integer, wobei 1 die Breite der Raster-Abschnitte angibt.
 	/// Eine Skalierung auf Koordinaten im 3D-Raum und damit einhergehend eine Konvertierung in ein Vector3-Objekt des XNA-Frameworks kann mit der Methode ToVector() angefordert werden.
 	/// </summary>
-	public class Node : IEquatable<Node>, ICloneable
+	public sealed class Node : IEquatable<Node>, ICloneable
 	{
 		#region Properties
 
@@ -71,15 +71,22 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Liefert die x-, y- und z-Koordinaten im 3D-Raum als ein Vektor3 der Form (x, y, z).
 		/// </summary>
-		public virtual Vector3 ToVector ( )
+		public Vector3 Vector
 		{
-			return new Vector3 (X * Scale, Y * Scale, Z * Scale);
+			get {
+				return new Vector3 (X * Scale, Y * Scale, Z * Scale);
+			}
+		}
+
+		public static implicit operator Vector3 (Node node)
+		{
+			return node.Vector;
 		}
 
 		public Vector3 CenterBetween (Node other)
 		{
-			Vector3 positionFrom = this.ToVector ();
-			Vector3 positionTo = other.ToVector ();
+			Vector3 positionFrom = this.Vector;
+			Vector3 positionTo = other.Vector;
 			return positionFrom + (positionTo - positionFrom) / 2;
 		}
 
