@@ -45,6 +45,8 @@ namespace Knot3.Widgets
 			}
 		}
 
+		private Action<GameTime> OnUpdate;
+
 		#endregion
 
 		#region Constructors
@@ -65,16 +67,17 @@ namespace Knot3.Widgets
 		: this(screen, drawOrder, ()=>widget.RelativePosition(), ()=>widget.RelativeSize(), lineWidth, padding,
 		       lineColor, outlineColor)
 		{
+			OnUpdate += (time) => IsVisible = lines.IsVisible = widget.IsVisible;
+		}
+
+		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding)
+		: this(screen: screen, drawOrder: drawOrder, widget: widget, lineWidth: lineWidth, padding: lineWidth,
+		       lineColor: Lines.DefaultLineColor, outlineColor: Lines.DefaultOutlineColor)
+		{
 		}
 
 		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget)
 		: this(screen: screen, drawOrder: drawOrder, widget: widget, lineWidth: 2, padding: 0)
-		{
-		}
-
-		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding)
-		: this(screen: screen, drawOrder: drawOrder, widget: widget, lineWidth: 2, padding: 0,
-		       lineColor: Lines.DefaultLineColor, outlineColor: Lines.DefaultOutlineColor)
 		{
 		}
 
@@ -100,6 +103,8 @@ namespace Knot3.Widgets
 				    position.Y - padding.Y
 				);
 			}
+
+			OnUpdate (time);
 
 			base.Update (time);
 		}

@@ -40,11 +40,11 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Gibt an, ob gerade auf einen Tastendruck gewartet wird.
 		/// </summary>
-		public override bool IsEnabled { get { return base.IsEnabled; } set { base.IsEnabled = value; } }
+		public bool IsInputEnabled { get; set; }
 
 		public override bool IsKeyEventEnabled
 		{
-			get { return isKeyEventEnabled.HasValue ? isKeyEventEnabled.Value : IsVisible && IsEnabled; }
+			get { return isKeyEventEnabled.HasValue ? isKeyEventEnabled.Value : IsVisible && IsEnabled && IsInputEnabled; }
 			set { isKeyEventEnabled = value; }
 		}
 
@@ -72,7 +72,7 @@ namespace Knot3.Widgets
 			InputText = inputText;
 			ValidKeys.AddRange (TextHelper.ValidKeys);
 			ValidKeys.Add (Keys.Enter);
-			IsEnabled = false;
+			IsInputEnabled = false;
 		}
 
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
@@ -82,7 +82,7 @@ namespace Knot3.Widgets
 			InputText = temp;
 			OnValueChanged ();
 			if (key.Contains (Keys.Enter)) {
-				IsEnabled = false;
+				IsInputEnabled = false;
 				OnValueSubmitted ();
 			}
 		}
@@ -93,7 +93,7 @@ namespace Knot3.Widgets
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
 			if (IsVisible) {
-				IsEnabled = true;
+				IsInputEnabled = true;
 			}
 		}
 
@@ -108,7 +108,7 @@ namespace Knot3.Widgets
 
 			// zeichne den Hintergrund des Eingabefelds
 			spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds);
-			Color backgroundColor = IsEnabled ? Color.Black.Mix (Color.White, 0.25f) : Color.Black;
+			Color backgroundColor = IsInputEnabled ? Color.Black.Mix (Color.White, 0.25f) : Color.Black;
 			spriteBatch.DrawColoredRectangle (backgroundColor, bounds.Shrink (xy: 2));
 
 			// lade die Schrift

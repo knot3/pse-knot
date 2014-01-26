@@ -32,8 +32,8 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
 		/// </summary>
-		private VerticalMenu dropdown { get; set; }
-
+		private VerticalMenu dropdown;
+		private Border dropdownBorder;
 		private InputItem currentValue;
 
 		public override bool IsVisible
@@ -59,17 +59,24 @@ namespace Knot3.Widgets
 		public DropDownMenuItem (IGameScreen screen, DisplayLayer drawOrder, string text)
 		: base(screen, drawOrder, "")
 		{
-			dropdown = new VerticalMenu (screen: screen, drawOrder: Index+DisplayLayer.Menu);
+			dropdown = new VerticalMenu (screen: screen, drawOrder: Index + DisplayLayer.Menu);
 			dropdown.RelativePosition = () => RelativePosition () + new Vector2 (x: ValueWidth * RelativeSize ().X, y: 0);
 			dropdown.RelativeSize = () => new Vector2 (x: ValueWidth * RelativeSize ().X, y: RelativeSize ().Y * 10);
 			dropdown.RelativePadding = () => new Vector2 (0.010f, 0.010f);
 			dropdown.ItemForegroundColor = (i) => Menu.ItemForegroundColor (i);
-			dropdown.ItemBackgroundColor = (i) => Menu.ItemBackgroundColor (i);
+			dropdown.ItemBackgroundColor = (i) => Color.Black;
 			dropdown.ItemAlignX = HorizontalAlignment.Left;
 			dropdown.ItemAlignY = VerticalAlignment.Center;
 			dropdown.IsVisible = false;
+			dropdownBorder = new Border (
+				screen: screen,
+				drawOrder: Index + DisplayLayer.Menu,
+				widget: dropdown,
+				lineWidth: 2,
+				padding: 2
+			);
 
-			currentValue = new InputItem (screen: screen, drawOrder: Index + DisplayLayer.Menu, text: text, inputText: "");
+			currentValue = new InputItem (screen: screen, drawOrder: Index, text: text, inputText: "");
 			currentValue.RelativePosition = () => RelativePosition ();
 			currentValue.RelativeSize = () => RelativeSize ();
 			currentValue.RelativePadding = () => RelativePadding ();
@@ -77,6 +84,8 @@ namespace Knot3.Widgets
 			currentValue.BackgroundColor = () => Color.Transparent;
 			currentValue.IsVisible = IsVisible;
 			currentValue.IsMouseEventEnabled = false;
+
+			ValidKeys.Add (Keys.Escape);
 		}
 
 		#endregion
@@ -114,6 +123,14 @@ namespace Knot3.Widgets
 		{
 			throw new System.NotImplementedException ();
 		}
+		
+		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
+		{
+			if (key.Contains (Keys.Escape)) {
+				Menu.Collapse ();
+				dropdown.IsVisible = false;
+			}
+		}
 
 		/// <summary>
 		/// Reaktionen auf einen Linksklick.
@@ -141,18 +158,13 @@ namespace Knot3.Widgets
 				yield return component;
 			}
 			yield return dropdown;
+			yield return dropdownBorder;
 			yield return currentValue;
 		}
 
 		public override void Draw (GameTime time)
 		{
 			base.Draw (time);
-
-			// Wenn das DropDownMenuItem sichtbar ist und das Dropdown-Menü nicht...
-			//if (IsVisible && !dropdown.IsVisible) {
-			//	// lade die Schrift
-			//	SpriteFont font = HfGDesign.MenuFont (Screen);
-			//}
 		}
 
 		#endregion

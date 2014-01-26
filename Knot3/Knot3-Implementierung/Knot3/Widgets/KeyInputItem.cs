@@ -78,7 +78,7 @@ namespace Knot3.Widgets
 			if (keys.Count > 0) {
 				option.Value = keys [0];
 				InputText = (option as DistinctOptionInfo).Value;
-				IsEnabled = false;
+				IsInputEnabled = false;
 			}
 		}
 
@@ -87,13 +87,13 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-			if (IsEnabled) {
+			if (IsInputEnabled) {
 				ValidKeys.Clear ();
-				IsEnabled = false;
+				IsInputEnabled = false;
 			}
 			else {
 				ValidKeys.AddRange (typeof(Keys).ToEnumValues<Keys> ());
-				IsEnabled = true;
+				IsInputEnabled = true;
 				InputText = "";
 			}
 		}
