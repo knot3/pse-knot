@@ -69,11 +69,11 @@ namespace Knot3.Widgets
 			dropdown.ItemAlignY = VerticalAlignment.Center;
 			dropdown.IsVisible = false;
 			dropdownBorder = new Border (
-				screen: screen,
-				drawOrder: Index + DisplayLayer.Menu,
-				widget: dropdown,
-				lineWidth: 2,
-				padding: 2
+			    screen: screen,
+			    drawOrder: Index + DisplayLayer.Menu,
+			    widget: dropdown,
+			    lineWidth: 2,
+			    padding: 2
 			);
 
 			currentValue = new InputItem (screen: screen, drawOrder: Index, text: text, inputText: "");
@@ -123,7 +123,7 @@ namespace Knot3.Widgets
 		{
 			throw new System.NotImplementedException ();
 		}
-		
+
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 			if (key.Contains (Keys.Escape)) {
