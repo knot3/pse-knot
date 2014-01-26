@@ -158,7 +158,7 @@ namespace Knot3.GameObjects
 				Vector3 currentMousePosition = World.Camera.To3D (
 				                                   position: InputManager.CurrentMouseState.ToVector2 (),
 				                                   nearTo: selectedModel.Center ()
-				                               );
+				);
 
 				// Wenn die Maus gedrückt gehalten ist und wir mitten im Ziehen der Kante
 				// an die neue Position sind
@@ -226,9 +226,13 @@ namespace Knot3.GameObjects
 			float count = ComputeLength (currentMousePosition);
 			if (count > 0) {
 				try {
-					Knot.Move (direction, (int)Math.Round (count));
+					if (Knot.Move (direction, (int)Math.Round (count))) {
+						screen.Audio.PlaySound (Sound.PipeMoveSound);
+					}else {
+						screen.Audio.PlaySound (Sound.PipeInvalidMoveSound);
+					}
 					previousMousePosition = currentMousePosition;
-					screen.Audio.PlaySound(Sound.PipeSound);
+
 				}
 				catch (ArgumentOutOfRangeException exp) {
 					Console.WriteLine (exp.ToString ());

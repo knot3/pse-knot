@@ -29,6 +29,7 @@ namespace Knot3.Audio
 		CreativeMusic,
 		ChallengeMusic,
 		MenuMusic,
-		PipeSound,
+		PipeMoveSound,
+		PipeInvalidMoveSound,
 	}
 }

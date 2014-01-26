@@ -47,7 +47,7 @@ namespace Knot3.Screens
 				"Sound",
 				new HashSet<Sound>()
 				{
-					Sound.PipeSound,
+					Sound.PipeMoveSound,
 				}
 			},
 		};

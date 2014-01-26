@@ -34,10 +34,11 @@ namespace Knot3.Audio
 		/// </summary>
 		private static readonly Dictionary<Sound, string> AudioDirectories
 		= new Dictionary<Sound, string> {
-			{ Sound.CreativeMusic,		"Music/Creative" },
-			{ Sound.ChallengeMusic,		"Music/Challenge" },
-			{ Sound.MenuMusic,			"Music/Menu" },
-			{ Sound.PipeSound,			"Sound/Pipe/Move" },
+			{ Sound.CreativeMusic,			"Music/Creative" },
+			{ Sound.ChallengeMusic,			"Music/Challenge" },
+			{ Sound.MenuMusic,				"Music/Menu" },
+			{ Sound.PipeMoveSound,			"Sound/Pipe/Move" },
+			{ Sound.PipeInvalidMoveSound,	"Sound/Pipe/Invalid-Move" },
 		};
 
 		// Enthält alle gefunden Audiodateien, sortiert nach ihrem Zweck
