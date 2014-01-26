@@ -25,7 +25,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein Dialog ist ein im Vordergrund erscheinendes Fenster, das auf Nutzerinteraktionen wartet.
 	/// </summary>
-	public abstract class Dialog : Widget, IKeyEventListener, IMouseClickEventListener
+	public abstract class Dialog : Widget, IKeyEventListener, IMouseClickEventListener, IMouseMoveEventListener
 	{
 		#region Properties
 
@@ -244,6 +244,28 @@ namespace Knot3.Widgets
 		public virtual void OnScroll (int scrollValue)
 		{
 		}
+		
+		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
+			Console.WriteLine("OnLeftMove("+previousPosition+","+currentPosition+","+move+")");
+			Rectangle titleBounds = Vector2.Zero.CreateRectangle(RelativeTitleSize.Scale(Screen.Viewport));
+			if (titleBounds.Contains (previousPosition.ToPoint ())) {
+			Console.WriteLine("TitleBounds ="+Vector2.Zero.CreateRectangle(RelativeTitleSize)+"; previousPosition="+previousPosition);
+				Vector2 newRelativePosition = RelativePosition() + move / Screen.Viewport.ToVector2();
+				RelativePosition = () => newRelativePosition;
+			}
+		}
+
+		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
+
+		}
+
+		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
+
+		}
+
 
 		#endregion
 	}

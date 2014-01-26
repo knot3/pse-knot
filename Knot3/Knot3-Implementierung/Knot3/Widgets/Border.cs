@@ -94,6 +94,7 @@ namespace Knot3.Widgets
 				lastPosition = position;
 				lastSize = size;
 				Vector2 padding = Vector2.One * 0.001f * Padding;
+				lines.Clear ();
 				lines.AddPoints (
 				    position.X - padding.X,
 				    position.Y - padding.Y,
