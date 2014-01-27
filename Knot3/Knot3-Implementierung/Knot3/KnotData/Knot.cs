@@ -115,7 +115,8 @@ namespace Knot3.KnotData
 		#region Methods
 
 		/// <summary>
-		/// Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung um die angegebene Distanz gültig ist.
+		/// Prüft, ob eine Verschiebung der aktuellen Kantenauswahl in die angegebene Richtung
+		/// um die angegebene Distanz gültig ist.
 		/// </summary>
 		public bool IsValidMove (Direction direction, int distance)
 		{
@@ -170,7 +171,7 @@ namespace Knot3.KnotData
 		}
 
 		/// <summary>
-		/// Prüft ob die gegeben Struktur einen Gültigen Knoten darstellt.
+		/// Prüft ob die gegeben Struktur einen gültigen Knoten darstellt.
 		/// </summary>
 		public static bool IsValidStructure(Stack<Direction> knot)
 		{
