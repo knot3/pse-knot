@@ -39,6 +39,12 @@ namespace Knot3.Widgets
 			public Vector2 relativePosition;
 		}
 
+		private class ScrollEventComponent
+		{
+			public IMouseScrollEventListener receiver;
+			public DisplayLayer layer = DisplayLayer.None;
+		}
+
 		private class MoveEventComponent
 		{
 			public IMouseMoveEventListener receiver;
@@ -54,6 +60,7 @@ namespace Knot3.Widgets
 		public override void Update (GameTime time)
 		{
 			UpdateMouseClick (time);
+			UpdateMouseScroll (time);
 			UpdateMouseMove (time);
 		}
 
@@ -80,7 +87,25 @@ namespace Knot3.Widgets
 				else if (InputManager.RightMouseButton != ClickState.None) {
 					best.receiver.OnRightClick (best.relativePosition, InputManager.RightMouseButton, time);
 				}
-				else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
+			}
+		}
+
+		private void UpdateMouseScroll (GameTime time)
+		{
+			ScrollEventComponent best = null;
+			foreach (IMouseScrollEventListener receiver in Screen.Game.Components.OfType<IMouseScrollEventListener>()) {
+				Rectangle bounds = receiver.Bounds ();
+				bool hovered = bounds.Contains (InputManager.CurrentMouseState.ToPoint ());
+
+				if (hovered && receiver.IsMouseScrollEventEnabled && (best == null || receiver.Index > best.layer)) {
+					best = new ScrollEventComponent {
+						receiver = receiver,
+						layer = receiver.Index,
+					};
+				}
+			}
+			if (best != null) {
+				if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
 					best.receiver.OnScroll (-1);
 				}
 				else if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {

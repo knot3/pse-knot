@@ -238,13 +238,6 @@ namespace Knot3.Widgets
 		{
 		}
 
-		/// <summary>
-		///
-		/// </summary>
-		public virtual void OnScroll (int scrollValue)
-		{
-		}
-
 		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
 			Console.WriteLine("OnLeftMove("+previousPosition+","+currentPosition+","+move+")");

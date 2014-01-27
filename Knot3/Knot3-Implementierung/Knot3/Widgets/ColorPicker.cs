@@ -141,10 +141,6 @@ namespace Knot3.Widgets
 		{
 		}
 
-		public void OnScroll (int scrollValue)
-		{
-		}
-
 		public void SetHovered (bool hovered)
 		{
 		}

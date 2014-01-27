@@ -26,7 +26,7 @@ namespace Knot3.GameObjects
 	/// Verarbeitet die Maus- und Tastatureingaben des Spielers und modifiziert die Kamera-Position
 	/// und das Kamera-Ziel.
 	/// </summary>
-	public class KnotInputHandler : GameScreenComponent, IKeyEventListener
+	public class KnotInputHandler : GameScreenComponent, IKeyEventListener, IMouseMoveEventListener, IMouseScrollEventListener
 	{
 		#region Properties
 
@@ -41,11 +41,24 @@ namespace Knot3.GameObjects
 		public List<Keys> ValidKeys { get; private set; }
 
 		/// <summary>
+		/// Zeigt an, ob die Klasse zur Zeit auf Eingaben reagiert.
+		/// </summary>
+		public bool IsEnabled { get; set; }
+
+		/// <summary>
 		/// Zeigt an, ob die Klasse zur Zeit auf Tastatureingaben reagiert.
 		/// </summary>
 		public bool IsKeyEventEnabled { get { return IsEnabled; } }
-
-		public bool IsEnabled { get; set; }
+		
+		/// <summary>
+		/// Zeigt an, ob die Klasse zur Zeit auf Mausbewegungen reagiert.
+		/// </summary>
+		public bool IsMouseMoveEventEnabled { get { return IsEnabled; } }
+		
+		/// <summary>
+		/// Zeigt an, ob die Klasse zur Zeit auf Mausrad-Bewegungen reagiert.
+		/// </summary>
+		public bool IsMouseScrollEventEnabled { get { return IsEnabled; } }
 
 		/// <summary>
 		/// Die aktuelle Tastenbelegung
@@ -131,18 +144,31 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-			if (IsEnabled) {
-				UpdateMouse (time);
-				ResetMousePosition ();
-			}
-			else {
+			if (!IsEnabled) {
 				Screen.Input.CurrentInputAction = InputAction.FreeMouse;
 			}
 		}
-
-		protected void UpdateMouse (GameTime time)
+		
+		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
+			UpdateMouse (move, time);
+			ResetMousePosition ();
+		}
 
+		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
+			UpdateMouse (move, time);
+			ResetMousePosition ();
+		}
+
+		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
+			UpdateMouse (move, time);
+			ResetMousePosition ();
+		}
+
+		protected void UpdateMouse (Vector2 mouseMove, GameTime time)
+		{
 			// wurde im letzten Frame in den oder aus dem Vollbildmodus gewechselt?
 			// dann überpringe einen frame
 			if (InputManager.FullscreenToggled) {
@@ -156,7 +182,7 @@ namespace Knot3.GameObjects
 			}
 
 			// die aktuelle Mausbewegung
-			Vector2 mouseMove = InputManager.CurrentMouseState.ToVector2() - InputManager.PreviousMouseState.ToVector2();
+			// Vector2 mouseMove = InputManager.CurrentMouseState.ToVector2 () - InputManager.PreviousMouseState.ToVector2 ();
 
 			InputAction action;
 			// wenn die Maus in der Mitte des Bildschirms gelockt ist
@@ -215,19 +241,19 @@ namespace Knot3.GameObjects
 				move (new Vector3 (mouseMove, 0), time);
 				break;
 			}
+		}
 
+		public void OnScroll (int scrollWheelValue)
+		{
 			// scroll wheel zoom
 			if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
-				//camera.PositionToTargetDistance += 40;
 				camera.FoV += 1;
 				world.Redraw = true;
 			}
 			else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
-				//camera.PositionToTargetDistance -= 40;
 				camera.FoV -= 1;
 				world.Redraw = true;
 			}
-
 		}
 
 		private void ResetMousePosition ()
@@ -285,7 +311,7 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+				).ElementAt (0);
 			}
 
 			// Überprüfe, wie weit das Kamera-Target von dem Objekt, um das rotiert werden soll,
@@ -313,7 +339,7 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = camera.PositionToTargetDirection;
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.Target
-				                  + (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
+					+ (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.Target, oldDistance);
 			}
 
@@ -326,7 +352,7 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+				).ElementAt (0);
 			}
 
 			if (move.Length () > 0) {
@@ -339,9 +365,9 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = Vector3.Normalize (camera.ArcballTarget - camera.Position);
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.ArcballTarget
-				                  + (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+					+ (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Target = camera.ArcballTarget
-				                + (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+					+ (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.ArcballTarget, oldPositionDistance);
 				camera.Target = camera.Target.SetDistanceTo (camera.Position, oldTargetDistance);
 			}
@@ -415,6 +441,11 @@ namespace Knot3.GameObjects
 			Console.WriteLine ("OnStartEdgeChanged: " + direction);
 			camera.Position -= direction * Node.Scale;
 			camera.Target -= direction * Node.Scale;
+		}
+
+		public Rectangle Bounds ()
+		{
+			return Vector2.Zero.CreateRectangle (Vector2.One.Scale (Screen.Viewport));
 		}
 
 		#endregion

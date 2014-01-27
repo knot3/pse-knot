@@ -34,7 +34,7 @@ namespace Knot3.Core
 		DisplayLayer Index { get; }
 
 		/// <summary>
-		/// Ob die Klasse zur Zeit auf Mausklicks reagiert.
+		/// Ob die Klasse zur Zeit auf Mausbewegungen reagiert.
 		/// </summary>
 		bool IsMouseMoveEventEnabled { get; }
 
