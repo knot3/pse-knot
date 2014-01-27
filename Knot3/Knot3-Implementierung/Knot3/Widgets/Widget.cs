@@ -95,6 +95,12 @@ namespace Knot3.Widgets
 			set {}
 		}
 
+		public virtual bool IsMouseScrollEventEnabled
+		{
+			get { return IsVisible; }
+			set {}
+		}
+
 		public virtual bool IsEnabled
 		{
 			get { return _isEnabled; }

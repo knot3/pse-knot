@@ -25,7 +25,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Ein abstrakte Klasse für Menüeinträge.
 	/// </summary>
-	public abstract class MenuItem : Widget, IKeyEventListener, IMouseClickEventListener
+	public abstract class MenuItem : Widget, IKeyEventListener, IMouseClickEventListener, IMouseScrollEventListener
 	{
 		#region Properties
 
@@ -113,7 +113,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die Reaktion auf eine Bewegung des Mausrads.
 		/// </summary>
-		public virtual void OnScroll (int scrollValue)
+		public void OnScroll (int scrollValue)
 		{
 			if (Menu != null) {
 				Menu.OnScroll (scrollValue);
