@@ -52,15 +52,14 @@ namespace Knot3.Widgets
 
 			if (challenge.Highscore != null) {
 				//sotiert die Highscoreliste wird nach der Zeit sotiert
-                int highscoreCounter = 0;
+				int highscoreCounter = 0;
 				foreach (KeyValuePair<string, int> entry in challenge.Highscore.OrderBy(key => key.Value)) {
 					TextItem firstScore = new TextItem (screen, drawOrder, entry.Value.ToString () + " " + entry.Key);
 					highscoreList.Add (firstScore);
-                    highscoreCounter++;
-                    if (highscoreCounter >8)
-                    {
-                        break;
-                    }
+					highscoreCounter++;
+					if (highscoreCounter >8) {
+						break;
+					}
 				}
 			}
 
