@@ -136,7 +136,9 @@ namespace Knot3.Widgets
 				}
 			}
 			if (best != null) {
-				if (best.relativePositionMove.Length () > 0) {
+				if (best.relativePositionMove.Length () > 0
+				    || InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton
+				    || InputManager.PreviousMouseState.RightButton != InputManager.CurrentMouseState.RightButton) {
 					if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
 						best.receiver.OnLeftMove (
 						    previousPosition: best.relativePositionPrevious,
