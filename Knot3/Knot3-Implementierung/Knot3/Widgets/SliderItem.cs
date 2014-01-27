@@ -26,7 +26,7 @@ namespace Knot3.Widgets
 	/// Ein Menüeintrag, der einen Schieberegler bereitstellt, mit dem man einen Wert zwischen einem minimalen
 	/// und einem maximalen Wert über Verschiebung einstellen kann.
 	/// </summary>
-	public sealed class SliderItem : MenuItem
+	public sealed class SliderItem : MenuItem, IMouseClickEventListener, IMouseMoveEventListener
 	{
 		#region Properties
 
@@ -76,7 +76,7 @@ namespace Knot3.Widgets
 		private float SliderRectangleMinX
 		{
 			get {
-				return ValueBounds ().X + SliderRectangleWidth/2;
+				return ValueBounds.X + SliderRectangleWidth/2;
 			}
 		}
 		/// <summary>
@@ -85,7 +85,7 @@ namespace Knot3.Widgets
 		private float SliderRectangleMaxX
 		{
 			get {
-				return SliderRectangleMinX + ValueBounds ().Width - SliderRectangleWidth/2;
+				return SliderRectangleMinX + ValueBounds.Width - SliderRectangleWidth/2;
 			}
 		}
 		/// <summary>
@@ -94,7 +94,7 @@ namespace Knot3.Widgets
 		private Rectangle SliderRectangle
 		{
 			get {
-				Rectangle valueBounds = ValueBounds ();
+				Rectangle valueBounds = ValueBounds;
 				Rectangle rect = new Rectangle();
 				rect.Height = valueBounds.Height;
 				rect.Width = (int)SliderRectangleWidth;
@@ -104,6 +104,9 @@ namespace Knot3.Widgets
 				return rect;
 			}
 		}
+
+		public Rectangle MouseClickBounds { get { return ValueBounds; } }
+		public Rectangle MouseMoveBounds { get { return ValueBounds; } }
 
 		#endregion
 
@@ -131,7 +134,7 @@ namespace Knot3.Widgets
 		{
 			base.Draw (time);
 
-			Rectangle valueBounds = ValueBounds ();
+			Rectangle valueBounds = ValueBounds;
 
 			int lineWidth = valueBounds.Width;
 			int lineHeight = 2;
@@ -159,19 +162,29 @@ namespace Knot3.Widgets
 			spriteBatch.End ();
 		}
 
-		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+		private void UpdateSlider (Vector2 position)
 		{
-			float mousePositionX = position.X.Clamp(SliderRectangleMinX, SliderRectangleMaxX);
-			float percent = (mousePositionX - SliderRectangleMinX)/(SliderRectangleMaxX-SliderRectangleMinX);
+			float min = SliderRectangleMinX-ValueBounds.X;
+			float max = SliderRectangleMaxX-ValueBounds.X;
+			Console.WriteLine("position="+position+", min="+min+", max="+max);
+			float mousePositionX = position.X.Clamp(min, max);
+			float percent = (mousePositionX - min)/(max-min);
 			Value = (int)(MinValue + percent * (MaxValue-MinValue));
 		}
 
-		public override void Update (GameTime gameTime)
+		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-			if (this.ItemState == ItemState.Hovered && InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
-				Vector2 position = new Vector2 (InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y);
-				OnLeftClick (position, ClickState.SingleClick, gameTime);
-			}
+			UpdateSlider(position);
+		}
+		
+		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time) {
+			UpdateSlider(currentPosition);
+		}
+
+		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time) {
+		}
+
+		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time) {
 		}
 
 		#endregion

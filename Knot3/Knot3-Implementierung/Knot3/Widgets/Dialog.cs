@@ -40,12 +40,28 @@ namespace Knot3.Widgets
 		public string Text { get; set; }
 
 		protected SpriteBatch spriteBatch;
+
+		/// <summary>
+		/// Wird aufgerufen, wenn der Dialog geschlossen wird.
+		/// </summary>
 		public Action<GameTime> Close;
 
+		/// <summary>
+		/// Die Hintergrundfarbe der Titelleiste.
+		/// </summary>
 		protected Func<Color> TitleBackgroundColor { get; set; }
 
 		private Border titleBorder;
 		private Border dialogBorder;
+
+		public Rectangle MouseClickBounds { get { return Bounds; } }
+
+		public Rectangle MouseMoveBounds
+		{
+			get {
+				return Vector2.Zero.CreateRectangle (RelativeTitleSize.Scale (Screen.Viewport));
+			}
+		}
 
 		#endregion
 
@@ -122,7 +138,7 @@ namespace Knot3.Widgets
 			spriteBatch.Begin ();
 
 			// zeichne den Hintergrund
-			spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds ());
+			spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds);
 
 			// lade die Schrift
 			SpriteFont font = HfGDesign.MenuFont (Screen);
@@ -240,11 +256,10 @@ namespace Knot3.Widgets
 
 		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
-			Console.WriteLine("OnLeftMove("+previousPosition+","+currentPosition+","+move+")");
-			Rectangle titleBounds = Vector2.Zero.CreateRectangle(RelativeTitleSize.Scale(Screen.Viewport));
-			if (titleBounds.Contains (previousPosition.ToPoint ())) {
-				Console.WriteLine("TitleBounds ="+Vector2.Zero.CreateRectangle(RelativeTitleSize)+"; previousPosition="+previousPosition);
-				Vector2 newRelativePosition = RelativePosition() + move / Screen.Viewport.ToVector2();
+			Console.WriteLine ("OnLeftMove(" + previousPosition + "," + currentPosition + "," + move + ")");
+			if (MouseMoveBounds.Contains (previousPosition.ToPoint ())) {
+				Console.WriteLine ("TitleBounds =" + Vector2.Zero.CreateRectangle (RelativeTitleSize) + "; previousPosition=" + previousPosition);
+				Vector2 newRelativePosition = RelativePosition () + move / Screen.Viewport.ToVector2 ();
 				RelativePosition = () => newRelativePosition;
 			}
 		}

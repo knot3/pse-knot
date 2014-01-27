@@ -69,7 +69,7 @@ namespace Knot3.Widgets
 			// Mausklicks
 			ClickEventComponent best = null;
 			foreach (IMouseClickEventListener receiver in Screen.Game.Components.OfType<IMouseClickEventListener>()) {
-				Rectangle bounds = receiver.Bounds ();
+				Rectangle bounds = receiver.MouseClickBounds;
 				bool hovered = bounds.Contains (InputManager.CurrentMouseState.ToPoint ());
 				receiver.SetHovered (hovered);
 				if (hovered && receiver.IsMouseClickEventEnabled && (best == null || receiver.Index > best.layer)) {
@@ -94,7 +94,7 @@ namespace Knot3.Widgets
 		{
 			ScrollEventComponent best = null;
 			foreach (IMouseScrollEventListener receiver in Screen.Game.Components.OfType<IMouseScrollEventListener>()) {
-				Rectangle bounds = receiver.Bounds ();
+				Rectangle bounds = receiver.MouseScrollBounds;
 				bool hovered = bounds.Contains (InputManager.CurrentMouseState.ToPoint ());
 
 				if (hovered && receiver.IsMouseScrollEventEnabled && (best == null || receiver.Index > best.layer)) {
@@ -119,7 +119,7 @@ namespace Knot3.Widgets
 			// Mausbewegungen
 			MoveEventComponent best = null;
 			foreach (IMouseMoveEventListener receiver in Screen.Game.Components.OfType<IMouseMoveEventListener>()) {
-				Rectangle bounds = receiver.Bounds ();
+				Rectangle bounds = receiver.MouseMoveBounds;
 				bool hovered = bounds.Contains (InputManager.PreviousMouseState.ToPoint ());
 
 				if (hovered && receiver.IsMouseMoveEventEnabled && (best == null || receiver.Index > best.layer)) {

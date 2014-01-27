@@ -139,11 +139,11 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die Ausmaße des grafischen Elements
 		/// </summary>
-		public Rectangle Bounds ()
+		public Rectangle Bounds
 		{
-			Point topLeft = ScaledPosition.ToPoint ();
-			Point size = ScaledSize.ToPoint ();
-			return new Rectangle (topLeft.X, topLeft.Y, size.X, size.Y);
+			get {
+				return ScaledPosition.CreateRectangle(ScaledSize);
+			}
 		}
 
 		public Vector2 ScaledPosition

@@ -104,7 +104,7 @@ namespace Knot3.Widgets
 			spriteBatch.Begin ();
 
 			// berechne die Ausmaße des Eingabefelds
-			Rectangle bounds = ValueBounds ();
+			Rectangle bounds = ValueBounds;
 
 			// zeichne den Hintergrund des Eingabefelds
 			spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds);

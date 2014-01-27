@@ -66,6 +66,10 @@ namespace Knot3.Widgets
 
 		// ein Spritebatch
 		protected SpriteBatch spriteBatch;
+		
+		public Rectangle MouseClickBounds { get { return Bounds; } }
+
+		public Rectangle MouseScrollBounds { get { return Bounds; } }
 
 		#endregion
 
@@ -131,14 +135,14 @@ namespace Knot3.Widgets
 				spriteBatch.Begin ();
 
 				// zeichne den Hintergrund
-				spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds ());
+				spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds);
 
 				// lade die Schrift
 				SpriteFont font = HfGDesign.MenuFont (Screen);
 
 				// zeichne die Schrift
 				Color foreground = ForegroundColor () * (IsEnabled ? 1f : 0.5f);
-				spriteBatch.DrawStringInRectangle (font, Text, foreground, Bounds (), AlignX, AlignY);
+				spriteBatch.DrawStringInRectangle (font, Text, foreground, Bounds, AlignX, AlignY);
 
 				spriteBatch.End ();
 			}
@@ -147,21 +151,25 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Berechnet die Ausmaße des Namens des Menüeintrags.
 		/// </summary>
-		protected virtual Rectangle NameBounds ()
+		protected virtual Rectangle NameBounds
 		{
-			Vector2 size = new Vector2 (ScaledSize.X * NameWidth, ScaledSize.Y);
-			Vector2 topLeft = ScaledPosition + ScaledSize - size;
-			return topLeft.CreateRectangle (size);
+			get {
+				Vector2 size = new Vector2 (ScaledSize.X * NameWidth, ScaledSize.Y);
+				Vector2 topLeft = ScaledPosition + ScaledSize - size;
+				return topLeft.CreateRectangle (size);
+			}
 		}
 
 		/// <summary>
 		/// Berechnet die Ausmaße des Wertes des Menüeintrags.
 		/// </summary>
-		protected virtual Rectangle ValueBounds ()
+		protected virtual Rectangle ValueBounds
 		{
-			Vector2 size = new Vector2 (ScaledSize.X * ValueWidth, ScaledSize.Y);
-			Vector2 topLeft = ScaledPosition + ScaledSize - size;
-			return topLeft.CreateRectangle (size);
+			get {
+				Vector2 size = new Vector2 (ScaledSize.X * ValueWidth, ScaledSize.Y);
+				Vector2 topLeft = ScaledPosition + ScaledSize - size;
+				return topLeft.CreateRectangle (size);
+			}
 		}
 
 		public virtual void Collapse ()

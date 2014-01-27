@@ -80,7 +80,7 @@ namespace Knot3.Widgets
 			spriteBatch.Begin ();
 
 			// berechne die Ausmaße des Wertefelds
-			Rectangle bounds = ValueBounds ();
+			Rectangle bounds = ValueBounds;
 
 			// zeichne den Hintergrund des Wertefelds
 			spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds);

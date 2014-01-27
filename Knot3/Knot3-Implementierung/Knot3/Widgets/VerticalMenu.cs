@@ -62,6 +62,8 @@ namespace Knot3.Widgets
 		/// </value>
 		public float RelativeItemHeight { get; set; }
 
+		public Rectangle MouseClickBounds { get { return Bounds; } }
+
 		#endregion
 
 		#region Constructors
