@@ -52,9 +52,7 @@ namespace Knot3.Widgets
 
 			// Menü, in dem die Textanzeige angezeigt wird
 			menu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
-			menu.RelativePosition = () => RelativeContentPosition;
-			menu.RelativeSize = () => RelativeContentSize;
-			menu.RelativePadding = () => RelativePadding ();
+			menu.Bounds = ContentBounds;
 			menu.ItemForegroundColor = (s) => Color.White;
 			menu.ItemBackgroundColor = (s) => Color.Transparent;
 			menu.ItemAlignX = HorizontalAlignment.Left;

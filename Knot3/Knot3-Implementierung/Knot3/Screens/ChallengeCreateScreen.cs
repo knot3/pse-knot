@@ -59,16 +59,16 @@ namespace Knot3.Screens
 		: base(game)
 		{
 			startKnotMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
-			startKnotMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
-			startKnotMenu.RelativeSize = () => new Vector2 (0.375f, 0.620f);
+			startKnotMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
+			startKnotMenu.Bounds.Size = new ScreenPoint (this, 0.375f, 0.620f);
 
 			targetKnotMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
-			targetKnotMenu.RelativePosition = () => new Vector2 (0.525f, 0.180f);
-			targetKnotMenu.RelativeSize = () => new Vector2 (0.375f, 0.620f);
+			targetKnotMenu.Bounds.Position = new ScreenPoint (this, 0.525f, 0.180f);
+			targetKnotMenu.Bounds.Size = new ScreenPoint (this, 0.375f, 0.620f);
 
 			challengeName = new InputItem (this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, "Name:", "");
-			challengeName.RelativePosition = () => new Vector2 (0.100f, 0.860f);
-			challengeName.RelativeSize = () => new Vector2 (0.575f, 0.040f);
+			challengeName.Bounds.Position = new ScreenPoint (this, 0.100f, 0.860f);
+			challengeName.Bounds.Size = new ScreenPoint (this, 0.575f, 0.040f);
 			challengeName.OnValueChanged += () => TryConstructChallenge ();
 			challengeName.NameWidth = 0.3f;
 			challengeName.ValueWidth = 0.7f;
@@ -79,21 +79,21 @@ namespace Knot3.Screens
 			    name: "Create!",
 			    onClick: OnCreateChallenge
 			);
-			createButton.RelativePosition = () => new Vector2 (0.725f, 0.840f);
-			createButton.RelativeSize = () => new Vector2 (0.175f, 0.060f);
+			createButton.Bounds.Position = new ScreenPoint (this, 0.725f, 0.840f);
+			createButton.Bounds.Size = new ScreenPoint (this, 0.175f, 0.060f);
 			createButton.ForegroundColor = () => base.MenuItemForegroundColor (createButton.ItemState);
 			createButton.BackgroundColor = () => base.MenuItemBackgroundColor (createButton.ItemState);
 			createButtonBorder = new Border (this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, createButton, 4, 4);
 
-			startKnotMenu.RelativePadding = targetKnotMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
+			startKnotMenu.Bounds.Padding = targetKnotMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			startKnotMenu.ItemAlignX = targetKnotMenu.ItemAlignX = HorizontalAlignment.Left;
 			startKnotMenu.ItemAlignY = targetKnotMenu.ItemAlignY = VerticalAlignment.Center;
 
 			lines.AddPoints (0, 50, 30, 970, 970, 50, 1000);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Create Challenge");
-			title.RelativePosition = () => new Vector2 (0.100f, 0.050f);
-			title.RelativeSize = () => new Vector2 (0.900f, 0.050f);
+			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
+			title.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
 			title.ForegroundColor = () => Color.White;
 
 			// Erstelle einen Parser für das Dateiformat

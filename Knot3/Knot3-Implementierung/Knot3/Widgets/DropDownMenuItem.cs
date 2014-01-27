@@ -60,9 +60,9 @@ namespace Knot3.Widgets
 		: base(screen, drawOrder, "")
 		{
 			dropdown = new VerticalMenu (screen: screen, drawOrder: Index + DisplayLayer.Menu);
-			dropdown.RelativePosition = () => RelativePosition () + new Vector2 (x: ValueWidth * RelativeSize ().X, y: 0);
-			dropdown.RelativeSize = () => new Vector2 (x: ValueWidth * RelativeSize ().X, y: RelativeSize ().Y * 10);
-			dropdown.RelativePadding = () => new Vector2 (0.010f, 0.010f);
+			dropdown.Bounds.Position = ValueBounds.Position;
+			dropdown.Bounds.Size = new ScreenPoint(Screen, () => ValueBounds.Size.OnlyX + ValueBounds.Size.OnlyY * 10);
+			dropdown.Bounds.Padding = new ScreenPoint (screen, 0.010f, 0.010f);
 			dropdown.ItemForegroundColor = (i) => Menu.ItemForegroundColor (i);
 			dropdown.ItemBackgroundColor = (i) => Color.Black;
 			dropdown.ItemAlignX = HorizontalAlignment.Left;
@@ -77,9 +77,7 @@ namespace Knot3.Widgets
 			);
 
 			currentValue = new InputItem (screen: screen, drawOrder: Index, text: text, inputText: "");
-			currentValue.RelativePosition = () => RelativePosition ();
-			currentValue.RelativeSize = () => RelativeSize ();
-			currentValue.RelativePadding = () => RelativePadding ();
+			currentValue.Bounds = Bounds;
 			currentValue.ForegroundColor = () => ForegroundColor ();
 			currentValue.BackgroundColor = () => Color.Transparent;
 			currentValue.IsVisible = IsVisible;

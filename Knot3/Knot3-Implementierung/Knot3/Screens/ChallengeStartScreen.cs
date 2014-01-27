@@ -49,9 +49,9 @@ namespace Knot3.Screens
 		: base (game)
 		{
 			savegameMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
-			savegameMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
-			savegameMenu.RelativeSize = () => new Vector2 (0.800f, 0.720f);
-			savegameMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
+			savegameMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
+			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.800f, 0.720f);
+			savegameMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			savegameMenu.ItemForegroundColor = base.MenuItemForegroundColor;
 			savegameMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			savegameMenu.ItemAlignX = HorizontalAlignment.Left;
@@ -60,8 +60,8 @@ namespace Knot3.Screens
 			lines.AddPoints (0, 50, 30, 970, 970, 50, 1000);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Challenge");
-			title.RelativePosition = () => new Vector2 (0.100f, 0.050f);
-			title.RelativeSize = () => new Vector2 (0.900f, 0.050f);
+			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
+			title.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
 			title.ForegroundColor = () => Color.White;
 
 			// Erstelle einen Parser für das Dateiformat

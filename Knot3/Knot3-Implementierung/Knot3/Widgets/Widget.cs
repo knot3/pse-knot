@@ -30,26 +30,16 @@ namespace Knot3.Widgets
 		#region Properties
 
 		/// <summary>
-		/// Die von der Auflösung unabhängige Größe in Prozent.
+		/// Die Ausmaße des Widgets.
 		/// </summary>
-		public Func<Vector2> RelativeSize { get; set; }
-
-		/// <summary>
-		/// Die von der Auflösung unabhängige Position in Prozent.
-		/// </summary>
-		public Func<Vector2> RelativePosition { get; set; }
-
-		/// <summary>
-		/// Der von der Auflösung unabhängige Abstand in Prozent.
-		/// </summary>
-		public Func<Vector2> RelativePadding { get; set; }
+		public Bounds Bounds { get; set; }
 
 		/// <summary>
 		/// Gibt an, ob das grafische Element sichtbar ist.
 		/// </summary>
 		public virtual bool IsVisible
 		{
-			get { return _isVisible && RelativeSize ().Length () > 0; }
+			get { return _isVisible && Bounds.Size.Absolute.Length () > 0; }
 			set { _isVisible = value; }
 		}
 
@@ -120,9 +110,7 @@ namespace Knot3.Widgets
 		public Widget (IGameScreen screen, DisplayLayer drawOrder)
 		: base(screen, drawOrder)
 		{
-			RelativePosition = () => Vector2.Zero;
-			RelativeSize = () => Vector2.Zero;
-			RelativePadding = () => Vector2.Zero;
+			Bounds = Bounds.Zero (screen);
 			AlignX = HorizontalAlignment.Left;
 			AlignY = VerticalAlignment.Center;
 			ForegroundColor = () => Color.Gray;
@@ -130,41 +118,6 @@ namespace Knot3.Widgets
 			ValidKeys = new List<Keys> ();
 			IsVisible = true;
 			_isEnabled = true;
-		}
-
-		#endregion
-
-		#region Methods
-
-		/// <summary>
-		/// Die Ausmaße des grafischen Elements
-		/// </summary>
-		public Rectangle Bounds
-		{
-			get {
-				return ScaledPosition.CreateRectangle(ScaledSize);
-			}
-		}
-
-		public Vector2 ScaledPosition
-		{
-			get {
-				return RelativePosition ().Scale (Screen.Viewport);
-			}
-		}
-
-		public Vector2 ScaledSize
-		{
-			get {
-				return RelativeSize ().Scale (Screen.Viewport);
-			}
-		}
-
-		public Vector2 ScaledPadding
-		{
-			get {
-				return RelativePadding ().Scale (Screen.Viewport);
-			}
 		}
 
 		#endregion

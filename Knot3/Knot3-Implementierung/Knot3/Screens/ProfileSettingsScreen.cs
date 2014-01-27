@@ -46,9 +46,9 @@ namespace Knot3.Screens
 			MenuName = "Profiles";
 
 			settingsMenu = new VerticalMenu(this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
-			settingsMenu.RelativePosition = () => new Vector2(0.400f, 0.180f);
-			settingsMenu.RelativeSize = () => new Vector2(0.500f, 0.770f);
-			settingsMenu.RelativePadding = () => new Vector2(0.010f, 0.010f);
+			settingsMenu.Bounds.Position = new ScreenPoint (this, 0.400f, 0.180f);
+			settingsMenu.Bounds.Size = new ScreenPoint (this, 0.500f, 0.770f);
+			settingsMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			settingsMenu.ItemForegroundColor = base.MenuItemForegroundColor;
 			settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;

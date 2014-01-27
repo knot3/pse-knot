@@ -191,10 +191,10 @@ namespace Knot3.Widgets
 		private void assignMenuItemInformation (MenuItem item)
 		{
 			if (RelativeItemPosition != null) {
-				item.RelativePosition = () => RelativeItemPosition (item.ItemOrder);
+				item.Bounds.Position.RelativeFunc = () => RelativeItemPosition (item.ItemOrder);
 			}
 			if (RelativeItemSize != null) {
-				item.RelativeSize = () => RelativeItemSize (item.ItemOrder);
+				item.Bounds.Size.RelativeFunc = () => RelativeItemSize (item.ItemOrder);
 			}
 			if (ItemForegroundColor != null) {
 				item.ForegroundColor = () => ItemForegroundColor (item.ItemState);

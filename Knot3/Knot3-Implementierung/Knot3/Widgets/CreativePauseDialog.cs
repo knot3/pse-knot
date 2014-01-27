@@ -53,9 +53,7 @@ namespace Knot3.Widgets
 
 			// Erstelle das Pause-Menü
 			pauseMenu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
-			pauseMenu.RelativePosition = () => RelativeContentPosition;
-			pauseMenu.RelativeSize = () => RelativeContentSize;
-			pauseMenu.RelativePadding = () => RelativePadding ();
+			pauseMenu.Bounds = ContentBounds;
 			pauseMenu.ItemForegroundColor = MenuItemForegroundColor;
 			pauseMenu.ItemBackgroundColor = MenuItemBackgroundColor;
 			pauseMenu.ItemAlignX = HorizontalAlignment.Left;

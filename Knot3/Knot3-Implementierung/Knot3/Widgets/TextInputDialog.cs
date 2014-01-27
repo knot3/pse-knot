@@ -62,9 +62,7 @@ namespace Knot3.Widgets
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
 			menu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
-			menu.RelativePosition = () => RelativeContentPosition;
-			menu.RelativeSize = () => RelativeContentSize;
-			menu.RelativePadding = () => RelativePadding ();
+			menu.Bounds = ContentBounds;
 			menu.ItemForegroundColor = (s) => Color.White;
 			menu.ItemBackgroundColor = (s) => Color.Transparent;
 			menu.ItemAlignX = HorizontalAlignment.Left;

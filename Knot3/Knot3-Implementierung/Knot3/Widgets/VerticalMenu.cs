@@ -91,8 +91,8 @@ namespace Knot3.Widgets
 				return Vector2.Zero;
 			}
 			else {
-				float itemHeight = RelativeItemHeight + RelativePadding ().Y;
-				return RelativePosition () + new Vector2 (0, itemHeight * (itemNumber - currentScrollPosition));
+				float itemHeight = RelativeItemHeight + Bounds.Padding.Relative.Y;
+				return Bounds.Position.Relative + new Vector2 (0, itemHeight * (itemNumber - currentScrollPosition));
 			}
 		}
 
@@ -105,7 +105,7 @@ namespace Knot3.Widgets
 				return Vector2.Zero;
 			}
 			else {
-				return new Vector2 (RelativeSize ().X, RelativeItemHeight);
+				return new Vector2 (Bounds.Size.Relative.X, RelativeItemHeight);
 			}
 		}
 
@@ -165,7 +165,7 @@ namespace Knot3.Widgets
 		private int pageScrollPosition
 		{
 			get {
-				return (int)Math.Ceiling (RelativeSize ().Y / (RelativeItemHeight + RelativePadding ().Y));
+				return (int)Math.Ceiling (Bounds.Size.Relative.Y / (RelativeItemHeight + Bounds.Padding.Relative.Y));
 			}
 		}
 

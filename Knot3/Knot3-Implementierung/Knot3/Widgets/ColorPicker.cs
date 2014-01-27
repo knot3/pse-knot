@@ -40,11 +40,11 @@ namespace Knot3.Widgets
 		public Action<Color, GameTime> ColorSelected { get; set; }
 
 		private List<Color> colors;
-		private List<Vector2> tiles;
-		private static readonly Vector2 tileSize = new Vector2 (0.032f, 0.032f);
+		private List<ScreenPoint> tiles;
+		private ScreenPoint tileSize;
 		private SpriteBatch spriteBatch;
 
-		public Rectangle MouseClickBounds { get { return Bounds; } }
+		public Rectangle MouseClickBounds { get { return Bounds.Rectangle; } }
 
 		#endregion
 
@@ -57,6 +57,8 @@ namespace Knot3.Widgets
 		public ColorPicker (IGameScreen screen, DisplayLayer drawOrder, Color def)
 		: base(screen, drawOrder)
 		{
+			tileSize = new ScreenPoint (screen, 0.032f, 0.032f);
+
 			// Widget-Attribute
 			BackgroundColor = () => Color.Black;
 			ForegroundColor = () => Color.White;
@@ -66,14 +68,14 @@ namespace Knot3.Widgets
 			// die Farb-Tiles
 			colors = new List<Color> (CreateColors (64));
 			colors.Sort (ColorHelper.SortColorsByLuminance);
-			tiles = new List<Vector2> (CreateTiles (colors));
+			tiles = new List<ScreenPoint> (CreateTiles (colors));
 
 			// einen Spritebatch
 			spriteBatch = new SpriteBatch (screen.Device);
 
 			// Position und Größe
-			RelativePosition = () => (Vector2.One - RelativeSize ()) / 2;
-			RelativeSize = () => {
+			Bounds.Position = ScreenPoint.Centered (screen, Bounds);
+			Bounds.Size.RelativeFunc = () => {
 				float sqrt = (float)Math.Ceiling (Math.Sqrt (colors.Count));
 				return tileSize * sqrt;
 			};
@@ -95,10 +97,9 @@ namespace Knot3.Widgets
 
 				// color tiles
 				int i = 0;
-				foreach (Vector2 tile in tiles) {
-					Vector2 topLeft = ScaledPosition + tile.Scale (Screen.Viewport);
-					Vector2 size = tileSize.Scale (Screen.Viewport);
-					Rectangle rect = topLeft.CreateRectangle (size).Shrink (1);
+				foreach (ScreenPoint tile in tiles) {
+					Bounds tileBounds = new Bounds (Bounds.Position + tile, tileSize);
+					Rectangle rect = tileBounds.Rectangle.Shrink (1);
 					Texture2D dummyTexture = TextureHelper.Create (Screen.Device, colors [i]);
 					spriteBatch.Draw (dummyTexture, rect, Color.White);
 
@@ -124,13 +125,13 @@ namespace Knot3.Widgets
 			position = position.RelativeTo (Screen.Viewport);
 			Console.WriteLine ("ColorPicker.OnLeftClick: positon=" + position);
 			int i = 0;
-			foreach (Vector2 tile in tiles) {
-				Console.WriteLine ("ColorPicker: tile=" + tile + "  "
-				                   + (tile.X <= position.X) + " " + (tile.X + tileSize.X > position.X) + " " + (
-				                       tile.Y <= position.Y) + " " + (tile.Y + tileSize.Y > position.Y)
-				                  );
-				if (tile.X <= position.X && tile.X + tileSize.X > position.X
-				        && tile.Y <= position.Y && tile.Y + tileSize.Y > position.Y) {
+			foreach (ScreenPoint tile in tiles) {
+				//Console.WriteLine ("ColorPicker: tile=" + tile + "  "
+				//	+ (tile.X <= position.X) + " " + (tile.X + tileSize.X > position.X) + " " + (
+				//                       tile.Y <= position.Y) + " " + (tile.Y + tileSize.Y > position.Y)
+				//);
+				if (tile.Absolute.X <= position.X && tile.Absolute.X + tileSize.Absolute.X > position.X
+					&& tile.Absolute.Y <= position.Y && tile.Absolute.Y + tileSize.Absolute.Y > position.Y) {
 					Console.WriteLine ("ColorPicker: color=" + colors [i]);
 
 					ColorSelected (colors [i], time);
@@ -164,14 +165,14 @@ namespace Knot3.Widgets
 			}
 		}
 
-		private static IEnumerable<Vector2> CreateTiles (IEnumerable<Color> _colors)
+		private IEnumerable<ScreenPoint> CreateTiles (IEnumerable<Color> _colors)
 		{
 			Color[] colors = _colors.ToArray ();
 			float sqrt = (float)Math.Sqrt (colors.Count ());
 			int row = 0;
 			int column = 0;
 			foreach (Color color in colors) {
-				yield return new Vector2 (tileSize.X * column, tileSize.Y * row);
+				yield return new ScreenPoint(Screen, tileSize * new Vector2(column, row));
 
 				++column;
 				if (column >= sqrt) {

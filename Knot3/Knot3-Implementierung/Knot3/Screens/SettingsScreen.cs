@@ -50,9 +50,9 @@ namespace Knot3.Screens
 			spriteBatch = new SpriteBatch (Device);
 
 			navigationMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
-			navigationMenu.RelativePosition = () => new Vector2 (0.100f, 0.180f);
-			navigationMenu.RelativeSize = () => new Vector2 (0.300f, 0.770f);
-			navigationMenu.RelativePadding = () => new Vector2 (0.010f, 0.010f);
+			navigationMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
+			navigationMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.770f);
+			navigationMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			navigationMenu.ItemForegroundColor = base.MenuItemForegroundColor;
 			navigationMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			navigationMenu.ItemAlignX = HorizontalAlignment.Left;

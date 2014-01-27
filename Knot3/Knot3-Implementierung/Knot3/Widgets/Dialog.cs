@@ -54,12 +54,12 @@ namespace Knot3.Widgets
 		private Border titleBorder;
 		private Border dialogBorder;
 
-		public Rectangle MouseClickBounds { get { return Bounds; } }
+		public Rectangle MouseClickBounds { get { return Bounds.Rectangle; } }
 
 		public Rectangle MouseMoveBounds
 		{
 			get {
-				return Vector2.Zero.CreateRectangle (RelativeTitleSize.Scale (Screen.Viewport));
+				return Vector2.Zero.CreateRectangle (TitleBounds.Size);
 			}
 		}
 
@@ -90,11 +90,11 @@ namespace Knot3.Widgets
 			};
 
 			// Die Standardposition ist in der Mitte des Bildschirms
-			RelativePosition = () => (Vector2.One - RelativeSize ()) / 2;
+			Bounds.Position = ScreenPoint.Centered(screen, Bounds);
 			// Die Standardgröße
-			RelativeSize = () => new Vector2 (0.500f, 0.500f);
+			Bounds.Size = new ScreenPoint (screen, 0.500f, 0.500f);
 			// Der Standardabstand
-			RelativePadding = () => new Vector2 (0.010f, 0.010f);
+			Bounds.Padding = new ScreenPoint (screen, 0.010f, 0.010f);
 			// Die Standardfarben
 			BackgroundColor = () => screen.BackgroundColor.Mix (Color.White, 0.05f);
 			ForegroundColor = () => Color.Black;
@@ -104,8 +104,7 @@ namespace Knot3.Widgets
 			titleBorder = new Border (
 			    screen: screen,
 			    drawOrder: Index,
-			    position: () => RelativeTitlePosition,
-			    size: () => RelativeTitleSize,
+			    bounds: TitleBounds,
 			    lineWidth: 2,
 			    padding: 1,
 			    lineColor: TitleBackgroundColor (),
@@ -138,14 +137,14 @@ namespace Knot3.Widgets
 			spriteBatch.Begin ();
 
 			// zeichne den Hintergrund
-			spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds);
+			spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds.Rectangle);
 
 			// lade die Schrift
 			SpriteFont font = HfGDesign.MenuFont (Screen);
 
 			// zeichne den Titel des Dialogs
-			spriteBatch.DrawColoredRectangle (TitleBackgroundColor (), TitleBounds ());
-			spriteBatch.DrawStringInRectangle (font, Title, ForegroundColor (), TitleBounds (), AlignX, AlignY);
+			spriteBatch.DrawColoredRectangle (TitleBackgroundColor (), TitleBounds.Rectangle);
+			spriteBatch.DrawStringInRectangle (font, Title, ForegroundColor (), TitleBounds.Rectangle, AlignX, AlignY);
 
 			spriteBatch.End ();
 		}
@@ -159,58 +158,27 @@ namespace Knot3.Widgets
 			yield return dialogBorder;
 		}
 
-		protected Vector2 RelativeTitlePosition
+		protected Bounds TitleBounds
 		{
 			get {
-				Vector2 pos = RelativePosition ();
-				pos.Y += 0.000f;
-				return pos;
+				ScreenPoint pos = Bounds.Position;
+				ScreenPoint size = new ScreenPoint(Screen, Bounds.Size.Relative.X, 0.050f);
+				return new Bounds(pos, size);
 			}
 		}
 
-		protected Vector2 RelativeTitleSize
+		protected Bounds ContentBounds
 		{
 			get {
-				Vector2 size = RelativeSize ();
-				size.Y = 0.050f;
-				return size;
-			}
-		}
-
-		protected Vector2 RelativeContentPosition
-		{
-			get {
-				Vector2 pos = RelativePosition ();
-				pos.Y += RelativeTitleSize.Y;
-				pos += RelativePadding ();
-				return pos;
-			}
-		}
-
-		protected Vector2 RelativeContentSize
-		{
-			get {
-				Vector2 size = RelativeSize ();
-				size.Y -= RelativeTitleSize.Y;
-				size -= RelativePadding () * 2;
-				return size;
+				ScreenPoint pos = Bounds.Position + TitleBounds.Size.OnlyY + Bounds.Padding;
+				ScreenPoint size = Bounds.Size - TitleBounds.Size.OnlyY - Bounds.Padding * 2;
+				return new Bounds(pos, size);
 			}
 			set {
-				Vector2 newSize = value + new Vector2 (0, RelativeTitleSize.Y) + RelativePadding () * 2;
-				RelativeSize = () => newSize;
+// TODO
+//				Vector2 newSize = value + new Vector2 (0, RelativeTitleSize.Y) + RelativePadding () * 2;
+//				RelativeSize = () => newSize;
 			}
-		}
-
-		protected Rectangle TitleBounds ()
-		{
-			return RelativeTitlePosition.Scale (Screen.Viewport)
-			       .CreateRectangle (RelativeTitleSize.Scale (Screen.Viewport));
-		}
-
-		protected Rectangle ContentBounds ()
-		{
-			return RelativeContentPosition.Scale (Screen.Viewport)
-			       .CreateRectangle (RelativeContentSize.Scale (Screen.Viewport));
 		}
 
 		protected virtual Color MenuItemBackgroundColor (ItemState itemState)
@@ -258,9 +226,8 @@ namespace Knot3.Widgets
 		{
 			Console.WriteLine ("OnLeftMove(" + previousPosition + "," + currentPosition + "," + move + ")");
 			if (MouseMoveBounds.Contains (previousPosition.ToPoint ())) {
-				Console.WriteLine ("TitleBounds =" + Vector2.Zero.CreateRectangle (RelativeTitleSize) + "; previousPosition=" + previousPosition);
-				Vector2 newRelativePosition = RelativePosition () + move / Screen.Viewport.ToVector2 ();
-				RelativePosition = () => newRelativePosition;
+				Console.WriteLine ("TitleBounds =" + Vector2.Zero.CreateRectangle (TitleBounds.Size) + "; previousPosition=" + previousPosition);
+				Bounds.Position = Bounds.Position + new ScreenPoint(Screen, move / Screen.Viewport.ToVector2 ());
 			}
 		}
 

@@ -44,9 +44,9 @@ namespace Knot3.Utilities
 				rotated = rotated.RotateAroundVector (-side, diffAngleY);
 			}
 			Console.WriteLine ("currentAngleY = " + MathHelper.ToDegrees (currentAngleY) + ", "
-			                   + "diffAngleY = " + MathHelper.ToDegrees (diffAngleY) + "°" + ", "
-			                   + "position = " + position + ", " + "length=" + position.Length ()
-			                  );
+				+ "diffAngleY = " + MathHelper.ToDegrees (diffAngleY) + "°" + ", "
+				+ "position = " + position + ", " + "length=" + position.Length ()
+			);
 
 			return rotated;
 		}
@@ -69,7 +69,7 @@ namespace Knot3.Utilities
 		public static float AngleBetween (this Vector2 a, Vector2 b)
 		{
 			return ((b.X - a.X) > 0 ? 1 : -1)
-			       * (float)Math.Acos ((double)Vector2.Dot (Vector2.Normalize (a), Vector2.Normalize (b)));
+				* (float)Math.Acos ((double)Vector2.Dot (Vector2.Normalize (a), Vector2.Normalize (b)));
 		}
 
 		public static float AngleBetween (this Vector3 a, Vector3 b)
@@ -104,7 +104,7 @@ namespace Knot3.Utilities
 			           MathHelper.Clamp (v.X, lower.X, higher.X),
 			           MathHelper.Clamp (v.Y, lower.Y, higher.Y),
 			           MathHelper.Clamp (v.Z, lower.Z, higher.Z)
-			       );
+			);
 		}
 
 		public static Vector3 Clamp (this Vector3 v, int minLength, int maxLength)
@@ -253,9 +253,14 @@ namespace Knot3.Utilities
 			return new Vector2 (viewport.Width, viewport.Height) / 2;
 		}
 
-		public static Vector2 ToVector2 (this Point v)
+		public static float Length (this Point p)
 		{
-			return new Vector2 (v.X, v.Y);
+			return p.ToVector2 ().Length ();
+		}
+
+		public static Vector2 ToVector2 (this Point p)
+		{
+			return new Vector2 (p.X, p.Y);
 		}
 
 		public static Point ToPoint (this Vector2 v)
@@ -307,7 +312,7 @@ namespace Knot3.Utilities
 			return new Rectangle (
 			           rect.X * max.X / 1000, rect.Y * max.Y / 1000,
 			           rect.Width * max.X / 1000, rect.Height * max.Y / 1000
-			       );
+			);
 		}
 
 		public static Rectangle Grow (this Rectangle rect, int x, int y)
@@ -425,8 +430,8 @@ namespace Knot3.Utilities
 
 		public static void SetCoordinates (this Widget widget, float left, float top, float right, float bottom)
 		{
-			widget.RelativePosition = () => new Vector2 (left, top);
-			widget.RelativeSize = () => new Vector2 (right - left, bottom - top);
+			widget.Bounds.Position = new ScreenPoint (widget.Screen, left, top);
+			widget.Bounds.Size = new ScreenPoint (widget.Screen, right - left, bottom - top);
 		}
 
 		public static Dictionary<A, B> ReverseDictionary<A,B> (this Dictionary<B,A> dict)

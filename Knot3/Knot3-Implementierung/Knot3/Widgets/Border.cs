@@ -51,20 +51,19 @@ namespace Knot3.Widgets
 
 		#region Constructors
 
-		public Border (IGameScreen screen, DisplayLayer drawOrder, Func<Vector2> position, Func<Vector2> size,
+		public Border (IGameScreen screen, DisplayLayer drawOrder, Bounds bounds,
 		               int lineWidth, int padding, Color lineColor, Color outlineColor)
 		: base(screen, drawOrder)
 		{
 			LineWidth = lineWidth;
 			Padding = padding;
 			lines = new Lines (screen, drawOrder, lineWidth, lineColor, outlineColor);
-			RelativePosition = () => position ();
-			RelativeSize = () => size ();
+			Bounds = bounds;
 		}
 
 		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding,
 		               Color lineColor, Color outlineColor)
-		: this(screen, drawOrder, ()=>widget.RelativePosition(), ()=>widget.RelativeSize(), lineWidth, padding,
+		: this(screen, drawOrder, widget.Bounds, lineWidth, padding,
 		       lineColor, outlineColor)
 		{
 			OnUpdate += (time) => IsVisible = lines.IsVisible = widget.IsVisible;
@@ -87,8 +86,8 @@ namespace Knot3.Widgets
 
 		public override void Update (GameTime time)
 		{
-			Vector2 position = RelativePosition ();
-			Vector2 size = RelativeSize ();
+			Vector2 position = Bounds.Position.Relative;
+			Vector2 size = Bounds.Size.Relative;
 
 			if (position != lastPosition || size != lastSize) {
 				lastPosition = position;

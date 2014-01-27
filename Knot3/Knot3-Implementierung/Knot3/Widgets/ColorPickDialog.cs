@@ -52,9 +52,10 @@ namespace Knot3.Widgets
 
 			// Der Colorpicker
 			colorPicker = new ColorPicker (Screen, Index + DisplayLayer.MenuItem, selectedColor);
-			colorPicker.RelativePosition = () => RelativeContentPosition;
+			colorPicker.Bounds.Position = ContentBounds.Position;
 			colorPicker.ColorSelected += OnColorSelected;
-			RelativeContentSize = colorPicker.RelativeSize ();
+			//TODO
+			//RelativeContentSize = colorPicker.RelativeSize ();
 
 			// Diese Tasten werden akzeptiert
 			ValidKeys.AddRange (new Keys[] { Keys.Escape });

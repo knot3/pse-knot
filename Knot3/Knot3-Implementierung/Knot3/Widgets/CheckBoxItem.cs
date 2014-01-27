@@ -48,7 +48,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override float ValueWidth
 		{
-			get { return ScaledSize.Y / ScaledSize.X; }
+			get { return Bounds.Size.Relative.Y / Bounds.Size.Relative.X; }
 			set { throw new ArgumentException("You can't change the ValueWidth of a CheckBoxItem!"); }
 		}
 
@@ -80,7 +80,7 @@ namespace Knot3.Widgets
 			spriteBatch.Begin ();
 
 			// berechne die Ausmaße des Wertefelds
-			Rectangle bounds = ValueBounds;
+			Rectangle bounds = ValueBounds.Rectangle;
 
 			// zeichne den Hintergrund des Wertefelds
 			spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds);

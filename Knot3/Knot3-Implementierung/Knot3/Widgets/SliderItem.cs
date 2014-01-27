@@ -76,7 +76,7 @@ namespace Knot3.Widgets
 		private float SliderRectangleMinX
 		{
 			get {
-				return ValueBounds.X + SliderRectangleWidth/2;
+				return ValueBounds.Rectangle.X + SliderRectangleWidth/2;
 			}
 		}
 		/// <summary>
@@ -85,7 +85,7 @@ namespace Knot3.Widgets
 		private float SliderRectangleMaxX
 		{
 			get {
-				return SliderRectangleMinX + ValueBounds.Width - SliderRectangleWidth/2;
+				return SliderRectangleMinX + ValueBounds.Rectangle.Width - SliderRectangleWidth/2;
 			}
 		}
 		/// <summary>
@@ -152,7 +152,7 @@ namespace Knot3.Widgets
 			dataRec [0] = Lines.DefaultLineColor;
 			rectangleTexture.SetData (dataRec);
 
-			Vector2 coordinateLine = new Vector2(valueBounds.X, valueBounds.Y + ScaledSize.Y / 2);
+			Vector2 coordinateLine = new Vector2(valueBounds.X, valueBounds.Y + Bounds.Size.Absolute.Y / 2);
 
 			spriteBatch.Begin ();
 
@@ -164,8 +164,8 @@ namespace Knot3.Widgets
 
 		private void UpdateSlider (Vector2 position)
 		{
-			float min = SliderRectangleMinX-ValueBounds.X;
-			float max = SliderRectangleMaxX-ValueBounds.X;
+			float min = SliderRectangleMinX-ValueBounds.Rectangle.X;
+			float max = SliderRectangleMaxX-ValueBounds.Rectangle.X;
 			Console.WriteLine("position="+position+", min="+min+", max="+max);
 			float mousePositionX = position.X.Clamp(min, max);
 			float percent = (mousePositionX - min)/(max-min);

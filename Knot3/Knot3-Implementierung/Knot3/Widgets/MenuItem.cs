@@ -151,24 +151,20 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Berechnet die Ausmaße des Namens des Menüeintrags.
 		/// </summary>
-		protected virtual Rectangle NameBounds
+		protected virtual Bounds NameBounds
 		{
 			get {
-				Vector2 size = new Vector2 (ScaledSize.X * NameWidth, ScaledSize.Y);
-				Vector2 topLeft = ScaledPosition + ScaledSize - size;
-				return topLeft.CreateRectangle (size);
+				return Bounds.FromLeft(() => NameWidth);
 			}
 		}
 
 		/// <summary>
 		/// Berechnet die Ausmaße des Wertes des Menüeintrags.
 		/// </summary>
-		protected virtual Rectangle ValueBounds
+		protected virtual Bounds ValueBounds
 		{
 			get {
-				Vector2 size = new Vector2 (ScaledSize.X * ValueWidth, ScaledSize.Y);
-				Vector2 topLeft = ScaledPosition + ScaledSize - size;
-				return topLeft.CreateRectangle (size);
+				return Bounds.FromRight(() => ValueWidth);
 			}
 		}
 
