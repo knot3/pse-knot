@@ -33,7 +33,7 @@ namespace Knot3.Screens
 		/// Das Menü, das die Einstellungen enthält.
 		/// </summary>
 		private VerticalMenu settingsMenu;
-		public static Action ControlSettingsChanged = ()=>{};
+		public static Action ControlSettingsChanged = ()=> {};
 
 		#endregion
 
