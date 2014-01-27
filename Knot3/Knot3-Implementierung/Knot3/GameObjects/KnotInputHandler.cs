@@ -115,6 +115,7 @@ namespace Knot3.GameObjects
 			// Tasten
 			ValidKeys = new List<Keys> ();
 			OnControlSettingsChanged ();
+			ControlSettingsScreen.ControlSettingsChanged += OnControlSettingsChanged;
 
 			// Lege die Bedeutungen der PlayerActions fest
 			ActionBindings = new Dictionary<PlayerActions, Action<GameTime>> {

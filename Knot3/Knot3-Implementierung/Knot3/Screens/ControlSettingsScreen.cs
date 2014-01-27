@@ -33,6 +33,7 @@ namespace Knot3.Screens
 		/// Das Menü, das die Einstellungen enthält.
 		/// </summary>
 		private VerticalMenu settingsMenu;
+		public static Action ControlSettingsChanged = ()=>{};
 
 		#endregion
 
@@ -55,7 +56,6 @@ namespace Knot3.Screens
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
-
 			CheckBoxItem showOverlay = new CheckBoxItem (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
@@ -64,9 +64,8 @@ namespace Knot3.Screens
 			);
 			settingsMenu.Add (showOverlay);
 
-
 			// Lade die Standardbelegung
-			Dictionary<PlayerActions, Keys> defaultReversed = KnotInputHandler.DefaultKeyAssignment.ReverseDictionary();
+			Dictionary<PlayerActions, Keys> defaultReversed = KnotInputHandler.DefaultKeyAssignment.ReverseDictionary ();
 
 			// Iteriere dazu über alle gültigen PlayerActions...
 			foreach (PlayerActions action in typeof(PlayerActions).ToEnumValues<PlayerActions>()) {
@@ -87,9 +86,10 @@ namespace Knot3.Screens
 				    text: actionName,
 				    option: option
 				);
+				item.OnValueChanged += () => ControlSettingsChanged ();
 
 				// Füge es in das Menü ein
-				settingsMenu.Add(item);
+				settingsMenu.Add (item);
 			}
 		}
 

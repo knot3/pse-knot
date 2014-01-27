@@ -40,7 +40,7 @@ namespace Knot3.Widgets
 		public override float NameWidth
 		{
 			get { return Math.Min (0.70f, 1.0f - ValueWidth); }
-			set { throw new ArgumentException("You can't change the NameWidth of a KeyInputItem!"); }
+			set { throw new ArgumentException ("You can't change the NameWidth of a KeyInputItem!"); }
 		}
 
 		/// <summary>
@@ -49,7 +49,7 @@ namespace Knot3.Widgets
 		public override float ValueWidth
 		{
 			get { return 3 * Bounds.Size.Relative.Y / Bounds.Size.Relative.X; }
-			set { throw new ArgumentException("You can't change the ValueWidth of a KeyInputItem!"); }
+			set { throw new ArgumentException ("You can't change the ValueWidth of a KeyInputItem!"); }
 		}
 
 		#endregion
@@ -79,6 +79,8 @@ namespace Knot3.Widgets
 				option.Value = keys [0];
 				InputText = (option as DistinctOptionInfo).Value;
 				IsInputEnabled = false;
+				OnValueChanged ();
+				OnValueSubmitted ();
 			}
 		}
 
