@@ -69,7 +69,10 @@ namespace Knot3.Core
 		public float FoV
 		{
 			get { return _foV; }
-			set { _foV = MathHelper.Clamp (value, 10, 70); }
+			set {
+				_foV = MathHelper.Clamp (value, 10, 70);
+				OnViewChanged ();
+			}
 		}
 
 		/// <summary>
