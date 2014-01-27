@@ -33,7 +33,7 @@ namespace Knot3.Screens
 		/// Das Menü, das die Einstellungen enthält.
 		/// </summary>
 		private VerticalMenu settingsMenu;
-		public static Action ControlSettingsChanged = ()=> {};
+		public static Action ControlSettingsChanged = () => {};
 
 		#endregion
 
@@ -56,13 +56,13 @@ namespace Knot3.Screens
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
-			CheckBoxItem showOverlay = new CheckBoxItem (
+			CheckBoxItem moveToCenter = new CheckBoxItem (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Move Rotation Targets to Center",
 			    option: new BooleanOptionInfo ("video", "arcball-around-center", true, Options.Default)
 			);
-			settingsMenu.Add (showOverlay);
+			settingsMenu.Add (moveToCenter);
 
 			// Lade die Standardbelegung
 			Dictionary<PlayerActions, Keys> defaultReversed = KnotInputHandler.DefaultKeyAssignment.ReverseDictionary ();
