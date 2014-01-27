@@ -206,6 +206,7 @@ namespace Knot3.GameObjects
 				if (junctions.Count == 1 && junctions [0].EdgeFrom.Direction == junctions [0].EdgeTo.Direction) {
 					continue;
 				}
+
 				foreach (NodeModelInfo junction in junctions.OfType<NodeModelInfo>()) {
 					NodeModel model = nodeFactory [screen, junction] as NodeModel;
 					model.World = World;

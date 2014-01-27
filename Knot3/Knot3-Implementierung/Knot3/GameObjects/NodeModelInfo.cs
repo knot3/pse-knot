@@ -43,7 +43,7 @@ namespace Knot3.GameObjects
 		public List<IJunction> JunctionsAtNode
 		{
 			get {
-				return NodeMap.JunctionsAtNode(NodeMap.NodeAfterEdge(EdgeFrom));
+				return NodeMap.JunctionsAtNode (NodeMap.NodeAfterEdge (EdgeFrom));
 			}
 		}
 
@@ -137,15 +137,20 @@ namespace Knot3.GameObjects
 
 		private void chooseModel ()
 		{
-			if (EdgeFrom.Direction == EdgeTo.Direction) {
-				Modelname = "pipe-straight";
-			}
-			else {
-				if (JunctionsAtNode.Count == 1) {
-					Modelname = "pipe-angled";
+			if (JunctionsAtNode.Count == 1) {
+				if (EdgeFrom.Direction == EdgeTo.Direction) {
+					Modelname = "pipe-straight";
 				}
 				else {
+					Modelname = "pipe-angled";
+				}
+			}
+			else {
+				if (EdgeFrom.Direction == EdgeTo.Direction) {
 					Modelname = "pipe-curved1";
+				}
+				else {
+					Modelname = "pipe-angled";
 				}
 			}
 
@@ -162,8 +167,8 @@ namespace Knot3.GameObjects
 
 			if (other is NodeModelInfo) {
 				if (this.EdgeFrom == (other as NodeModelInfo).EdgeFrom
-				        && this.EdgeTo == (other as NodeModelInfo).EdgeTo
-				        && base.Equals (other)) {
+					&& this.EdgeTo == (other as NodeModelInfo).EdgeTo
+					&& base.Equals (other)) {
 					return true;
 				}
 				else {
@@ -178,7 +183,8 @@ namespace Knot3.GameObjects
 		#endregion
 	}
 
-	enum JunctionDirection {
+	enum JunctionDirection
+	{
 		UpForward,
 		UpBackward,
 		UpLeft,
