@@ -67,7 +67,7 @@ namespace Knot3.Widgets
 		// ein Spritebatch
 		protected SpriteBatch spriteBatch;
 
-		public Rectangle MouseClickBounds { get { return Bounds; } }
+		public virtual Rectangle MouseClickBounds { get { return Bounds; } }
 
 		public Rectangle MouseScrollBounds { get { return Bounds; } }
 
