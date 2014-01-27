@@ -153,14 +153,17 @@ namespace Knot3.Core
 
 		public void Add (IGameObject obj)
 		{
-			Objects.Add (obj);
-			obj.World = this;
+			if (obj != null) {
+				Objects.Add (obj);
+				obj.World = this;
+			}
 		}
 
 		public void Remove (IGameObject obj)
 		{
-			Objects.Remove (obj);
-
+			if (obj != null) {
+				Objects.Remove (obj);
+			}
 		}
 
 		/// <summary>
