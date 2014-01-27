@@ -176,15 +176,18 @@ namespace Knot3.Widgets
 		{
 			UpdateSlider(position);
 		}
-		
-		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time) {
+
+		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
 			UpdateSlider(currentPosition);
 		}
 
-		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time) {
+		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
 		}
 
-		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time) {
+		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
 		}
 
 		#endregion

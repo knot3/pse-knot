@@ -43,7 +43,7 @@ namespace Knot3.Widgets
 		private List<Vector2> tiles;
 		private static readonly Vector2 tileSize = new Vector2 (0.032f, 0.032f);
 		private SpriteBatch spriteBatch;
-		
+
 		public Rectangle MouseClickBounds { get { return Bounds; } }
 
 		#endregion
