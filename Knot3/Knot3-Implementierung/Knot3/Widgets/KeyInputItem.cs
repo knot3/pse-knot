@@ -48,7 +48,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override float ValueWidth
 		{
-			get { return 3 * Bounds.Size.Absolute.Y / Bounds.Size.Absolute.X; }
+			get { return 3 * Bounds.Size.Relative.Y / Bounds.Size.Relative.X; }
 			set { throw new ArgumentException("You can't change the ValueWidth of a KeyInputItem!"); }
 		}
 
