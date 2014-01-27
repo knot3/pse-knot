@@ -167,8 +167,8 @@ namespace Knot3.GameObjects
 
 			if (other is NodeModelInfo) {
 				if (this.EdgeFrom == (other as NodeModelInfo).EdgeFrom
-					&& this.EdgeTo == (other as NodeModelInfo).EdgeTo
-					&& base.Equals (other)) {
+				        && this.EdgeTo == (other as NodeModelInfo).EdgeTo
+				        && base.Equals (other)) {
 					return true;
 				}
 				else {
@@ -183,8 +183,7 @@ namespace Knot3.GameObjects
 		#endregion
 	}
 
-	enum JunctionDirection
-	{
+	enum JunctionDirection {
 		UpForward,
 		UpBackward,
 		UpLeft,
