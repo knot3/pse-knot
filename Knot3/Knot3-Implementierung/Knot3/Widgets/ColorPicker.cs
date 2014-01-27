@@ -131,7 +131,7 @@ namespace Knot3.Widgets
 				//                       tile.Y <= position.Y) + " " + (tile.Y + tileSize.Y > position.Y)
 				//);
 				if (tile.Absolute.X <= position.X && tile.Absolute.X + tileSize.Absolute.X > position.X
-					&& tile.Absolute.Y <= position.Y && tile.Absolute.Y + tileSize.Absolute.Y > position.Y) {
+				        && tile.Absolute.Y <= position.Y && tile.Absolute.Y + tileSize.Absolute.Y > position.Y) {
 					Console.WriteLine ("ColorPicker: color=" + colors [i]);
 
 					ColorSelected (colors [i], time);

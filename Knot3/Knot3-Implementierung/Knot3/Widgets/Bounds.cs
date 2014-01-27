@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 using Microsoft.Xna.Framework;
+
 using Knot3.Utilities;
 using Knot3.Core;
 
@@ -11,7 +13,7 @@ namespace Knot3.Widgets
 	public class Bounds
 	{
 		#region Properties
-		
+
 		/// <summary>
 		/// Die von der Auflösung unabhängige Position in Prozent.
 		/// </summary>
@@ -56,7 +58,7 @@ namespace Knot3.Widgets
 				return new Rectangle (pos.X, pos.Y, size.X, size.Y);
 			}
 		}
-		
+
 		#endregion
 
 		#region Constructors
@@ -82,28 +84,28 @@ namespace Knot3.Widgets
 		public static Bounds Zero (IGameScreen screen)
 		{
 			return new Bounds (
-				position: new ScreenPoint (screen, Vector2.Zero),
-				size: new ScreenPoint (screen, Vector2.Zero),
-				padding: new ScreenPoint (screen, Vector2.Zero)
-			);
+			           position: new ScreenPoint (screen, Vector2.Zero),
+			           size: new ScreenPoint (screen, Vector2.Zero),
+			           padding: new ScreenPoint (screen, Vector2.Zero)
+			       );
 		}
 
 		public Bounds FromLeft (Func<float> percent)
 		{
 			return new Bounds (
-				position: Position,
-				size: new ScreenPoint (Size.Screen, () => Size.Relative.X * percent (), () => Size.Relative.Y),
-				padding: Padding
-			);
+			           position: Position,
+			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X * percent (), () => Size.Relative.Y),
+			           padding: Padding
+			       );
 		}
 
 		public Bounds FromRight (Func<float> percent)
 		{
 			return new Bounds (
-				position: Position + new ScreenPoint (Size.Screen, () => Size.Relative.X * (1f - percent ()), () => 0),
-				size: new ScreenPoint (Size.Screen, () => Size.Relative.X * percent (), () => Size.Relative.Y),
-				padding: Padding
-			);
+			           position: Position + new ScreenPoint (Size.Screen, () => Size.Relative.X * (1f - percent ()), () => 0),
+			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X * percent (), () => Size.Relative.Y),
+			           padding: Padding
+			       );
 		}
 
 		public Bounds FromLeft (float percent)

@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 using Microsoft.Xna.Framework;
+
 using Knot3.Core;
 using Knot3.Utilities;
 
@@ -50,7 +52,7 @@ namespace Knot3.Widgets
 				return new ScreenPoint (Screen, () => new Vector2 (0, RelativeFunc ().Y));
 			}
 		}
-		
+
 		#endregion
 
 		#region Constructors
@@ -118,7 +120,7 @@ namespace Knot3.Widgets
 		{
 			return point.Absolute;
 		}
-		
+
 		public override string ToString ()
 		{
 			return "(" + Relative.X + "x" + Relative.Y + ")";
