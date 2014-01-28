@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
 using Knot3.Core;
+using Knot3.Debug;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
@@ -275,16 +276,18 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void move (Vector3 move, GameTime time)
 		{
-			if (move.Length () > 0) {
-				move *= 10;
-				Vector3 targetDirection = camera.PositionToTargetDirection;
-				Vector3 up = camera.UpVector;
-				// Führe die lineare Verschiebung durch
-				camera.Target = camera.Target.MoveLinear (move, up, targetDirection);
-				camera.Position = camera.Position.MoveLinear (move, up, targetDirection);
-				Screen.Input.CurrentInputAction = InputAction.FirstPersonCameraMove;
-				world.Redraw = true;
-			}
+			Profiler.ProfileDelegate ["Move"] = () => {
+				if (move.Length () > 0) {
+					move *= 10;
+					Vector3 targetDirection = camera.PositionToTargetDirection;
+					Vector3 up = camera.UpVector;
+					// Führe die lineare Verschiebung durch
+					//camera.Target = camera.Target.MoveLinear (move, up, targetDirection);
+					//camera.Position = camera.Position.MoveLinear (move, up, targetDirection);
+					Screen.Input.CurrentInputAction = InputAction.FirstPersonCameraMove;
+					world.Redraw = true;
+				}
+			};
 		}
 
 		/// <summary>
@@ -380,24 +383,26 @@ namespace Knot3.GameObjects
 
 		public void OnKeyEvent (List<Keys> keys, KeyEvent keyEvent, GameTime time)
 		{
-			if (IsEnabled) {
-				// Bei einem Tastendruck wird die Spielwelt auf jeden Fall neu gezeichnet.
-				world.Redraw = true;
+			Profiler.ProfileDelegate ["OnKey"] = () => {
+				if (IsEnabled) {
+					// Bei einem Tastendruck wird die Spielwelt auf jeden Fall neu gezeichnet.
+					world.Redraw = true;
 
-				// Iteriere über alle gedrückten Tasten
-				foreach (Keys key in keys) {
-					// Ist der Taste eine Aktion zugeordnet?
-					if (CurrentKeyAssignment.ContainsKey (key)) {
-						// Während die Taste gedrückt gehalten ist...
-						if (key.IsHeldDown ()) {
-							// führe die entsprechende Aktion aus!
-							PlayerActions action = CurrentKeyAssignment [key];
-							Action<GameTime> binding = ActionBindings [action];
-							binding (time);
+					// Iteriere über alle gedrückten Tasten
+					foreach (Keys key in keys) {
+						// Ist der Taste eine Aktion zugeordnet?
+						if (CurrentKeyAssignment.ContainsKey (key)) {
+							// Während die Taste gedrückt gehalten ist...
+							if (key.IsHeldDown ()) {
+								// führe die entsprechende Aktion aus!
+								PlayerActions action = CurrentKeyAssignment [key];
+								Action<GameTime> binding = ActionBindings [action];
+								binding (time);
+							}
 						}
 					}
 				}
-			}
+			};
 		}
 
 		/// <summary>

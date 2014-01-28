@@ -54,6 +54,7 @@ namespace Knot3.GameObjects
 			get { return _world; }
 			set {
 				_world = value;
+				_world.Camera.OnViewChanged -= OnViewChanged;
 				_world.Camera.OnViewChanged += OnViewChanged;
 				OnViewChanged ();
 			}

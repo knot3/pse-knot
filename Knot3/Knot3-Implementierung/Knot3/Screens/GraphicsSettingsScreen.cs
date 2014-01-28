@@ -62,6 +62,13 @@ namespace Knot3.Screens
 			);
 			settingsMenu.Add (showArrows);
 
+			CheckBoxItem selectiveRender = new CheckBoxItem (
+				screen: this,
+				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				text: "Selective Rendering",
+				option: new BooleanOptionInfo ("video", "selectiveRendering", false, Options.Default)
+			);
+			settingsMenu.Add (selectiveRender);
 			string currentResolution = Viewport.Width + "x" + Viewport.Height;
 			string[] validResolutions = {
 				"1280x720", "1920x1080", "1366x768", "1024x768", "1280x800", "1680x1050", "1440x900", "1600x900",
