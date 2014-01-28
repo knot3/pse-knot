@@ -116,7 +116,7 @@ namespace Knot3.Core
 			}
 
 			Content.RootDirectory = "Content";
-			Window.Title = "Test Game 1";
+			Window.Title = "Knot3";
 		}
 
 		#endregion
