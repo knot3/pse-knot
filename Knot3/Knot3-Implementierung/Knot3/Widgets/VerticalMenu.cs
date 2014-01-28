@@ -55,18 +55,18 @@ namespace Knot3.Widgets
 			RelativeItemHeight = 0.040f;
 			spriteBatch = new SpriteBatch (screen.Device);
 		}
-		
+
 		private Bounds ScrollBarBounds
 		{
 			get {
 				Bounds bounds = new Bounds (
-					new ScreenPoint (Screen, Bounds.Position.Relative + Bounds.Size.OnlyX.Relative),
-					new ScreenPoint (Screen, 0.02f, Bounds.Size.Relative.Y)
+				    new ScreenPoint (Screen, Bounds.Position.Relative + Bounds.Size.OnlyX.Relative),
+				    new ScreenPoint (Screen, 0.02f, Bounds.Size.Relative.Y)
 				);
 				return bounds;
 			}
 		}
-		
+
 		public Rectangle MouseMoveBounds
 		{
 			get {
@@ -84,8 +84,8 @@ namespace Knot3.Widgets
 				float currentValue = (float)currentScrollPosition / (maxValue - pageValue);
 				// Console.WriteLine ("currentValue=" + currentValue + ", pos=" + moveBounds.FromTop (currentValue).Position);
 				Bounds bounds = new Bounds (
-					position: moveBounds.Size.OnlyY * currentValue * (1f - visiblePercent),
-					size: moveBounds.Size.ScaleY (visiblePercent)
+				    position: moveBounds.Size.OnlyY * currentValue * (1f - visiblePercent),
+				    size: moveBounds.Size.ScaleY (visiblePercent)
 				);
 				return bounds;
 			}
@@ -111,7 +111,7 @@ namespace Knot3.Widgets
 			return new Bounds (
 			           position: new ScreenPoint (Screen, () => verticalRelativeItemPosition (itemOrder)),
 			           size: new ScreenPoint (Screen, () => verticalRelativeItemSize (itemOrder))
-			);
+			       );
 		}
 
 		private Vector2 verticalRelativeItemPosition (int itemOrder)
@@ -226,7 +226,7 @@ namespace Knot3.Widgets
 				spriteBatch.End ();
 			}
 		}
-		
+
 		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
 			//currentScrollPosition += (int)((move.Y / RelativeItemHeight)
