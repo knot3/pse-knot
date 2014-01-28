@@ -218,9 +218,10 @@ namespace Knot3.Widgets
 
 			if (IsVisible && IsEnabled && HasScrollbar) {
 				spriteBatch.Begin ();
-				Texture2D rectangleTexture = TextureHelper.Create (Screen.Device, Lines.DefaultLineColor);
+				Texture2D rectangleTexture = TextureHelper.Create (Screen.Device, Color.White);
 				Bounds sliderBounds = ScrollSliderInBarBounds.In (ScrollBarBounds);
-				spriteBatch.Draw (rectangleTexture, sliderBounds, Lines.DefaultLineColor);
+				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle.Grow(1), Lines.DefaultOutlineColor);
+				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle, Lines.DefaultLineColor);
 				// Console.WriteLine ("ScrollSliderBounds=" + sliderBounds.Rectangle);
 				// Console.WriteLine ("ScrollBarBounds=" + ScrollBarBounds.Rectangle);
 				spriteBatch.End ();

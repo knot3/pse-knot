@@ -114,31 +114,79 @@ namespace Knot3.Widgets
 			}
 		}
 
+		private Point? lastLeftClickPosition;
+		private Point? lastRightClickPosition;
+
 		private void UpdateMouseMove (GameTime time)
 		{
-			// Mausbewegungen
+			// zuweisen der Positionen beim Drücken der Maus
+			if (InputManager.PreviousMouseState.LeftButton == ButtonState.Released && InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
+				lastLeftClickPosition = InputManager.CurrentMouseState.ToPoint ();
+			}
+			else if (InputManager.CurrentMouseState.LeftButton == ButtonState.Released) {
+				lastLeftClickPosition = null;
+			}
+			if (InputManager.PreviousMouseState.RightButton == ButtonState.Released && InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
+				lastRightClickPosition = InputManager.CurrentMouseState.ToPoint ();
+			}
+			else if (InputManager.CurrentMouseState.RightButton == ButtonState.Released) {
+				lastRightClickPosition = null;
+			}
+
+			// die obersten Komponenten
 			MoveEventComponent best = null;
+
+			// aktuelle Position und die des letzten Frames
+			Vector2 current = InputManager.CurrentMouseState.ToVector2 ();
+			Vector2 previous = InputManager.PreviousMouseState.ToVector2 ();
+
 			foreach (IMouseMoveEventListener receiver in Screen.Game.Components.OfType<IMouseMoveEventListener>()) {
 				Rectangle bounds = receiver.MouseMoveBounds;
-				bool hovered = bounds.Contains (InputManager.PreviousMouseState.ToPoint ());
 
-				if (hovered && receiver.IsMouseMoveEventEnabled && (best == null || receiver.Index > best.layer)) {
-					Vector2 current = InputManager.CurrentMouseState.ToVector2 ();
-					Vector2 previous = InputManager.PreviousMouseState.ToVector2 ();
+				// wenn die Komponente die Position beim Drücken der linken Maustaste enthält
+				if (lastLeftClickPosition.HasValue && bounds.Contains (lastLeftClickPosition.Value)) {
+					if (receiver.IsMouseMoveEventEnabled && (best == null || receiver.Index > best.layer)) {
+						best = new MoveEventComponent {
+							receiver = receiver,
+							layer = receiver.Index,
+							relativePositionPrevious = previous-bounds.Location.ToVector2(),
+							relativePositionCurrent = current-bounds.Location.ToVector2(),
+							relativePositionMove = current - previous
+						};
+					}
+				}
 
-					best = new MoveEventComponent {
-						receiver = receiver,
-						layer = receiver.Index,
-						relativePositionPrevious = previous-bounds.Location.ToVector2(),
-						relativePositionCurrent = current-bounds.Location.ToVector2(),
-						relativePositionMove = current - previous
-					};
+				// wenn die Komponente die Position beim Drücken der rechten Maustaste enthält
+				else if (lastRightClickPosition.HasValue && bounds.Contains (lastRightClickPosition.Value)) {
+					if (receiver.IsMouseMoveEventEnabled && (best == null || receiver.Index > best.layer)) {
+						best = new MoveEventComponent {
+							receiver = receiver,
+							layer = receiver.Index,
+							relativePositionPrevious = previous-bounds.Location.ToVector2(),
+							relativePositionCurrent = current-bounds.Location.ToVector2(),
+							relativePositionMove = current - previous
+						};
+					}
+				}
+
+				// wenn die Komponente die aktuelle Position enthält
+				else if (!lastLeftClickPosition.HasValue && !lastRightClickPosition.HasValue
+				         && bounds.Contains (previous.ToPoint())) {
+					if (receiver.IsMouseMoveEventEnabled && (best == null || receiver.Index > best.layer)) {
+						best = new MoveEventComponent {
+							receiver = receiver,
+							layer = receiver.Index,
+							relativePositionPrevious = previous-bounds.Location.ToVector2(),
+							relativePositionCurrent = current-bounds.Location.ToVector2(),
+							relativePositionMove = current - previous
+						};
+					}
 				}
 			}
 			if (best != null) {
 				if (best.relativePositionMove.Length () > 0
-				        || InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton
-				        || InputManager.PreviousMouseState.RightButton != InputManager.CurrentMouseState.RightButton) {
+					|| InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton
+					|| InputManager.PreviousMouseState.RightButton != InputManager.CurrentMouseState.RightButton) {
 					if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
 						best.receiver.OnLeftMove (
 						    previousPosition: best.relativePositionPrevious,

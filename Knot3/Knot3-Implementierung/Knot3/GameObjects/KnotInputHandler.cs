@@ -282,8 +282,8 @@ namespace Knot3.GameObjects
 					Vector3 targetDirection = camera.PositionToTargetDirection;
 					Vector3 up = camera.UpVector;
 					// Führe die lineare Verschiebung durch
-					//camera.Target = camera.Target.MoveLinear (move, up, targetDirection);
-					//camera.Position = camera.Position.MoveLinear (move, up, targetDirection);
+					camera.Target = camera.Target.MoveLinear (move, up, targetDirection);
+					camera.Position = camera.Position.MoveLinear (move, up, targetDirection);
 					Screen.Input.CurrentInputAction = InputAction.FirstPersonCameraMove;
 					world.Redraw = true;
 				}
