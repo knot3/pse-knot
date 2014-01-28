@@ -53,6 +53,8 @@ namespace Knot3.Widgets
 			}
 		}
 
+		public bool IsEmpty { get { return Relative.Length () == 0; } }
+
 		#endregion
 
 		#region Constructors
@@ -119,6 +121,11 @@ namespace Knot3.Widgets
 		public static implicit operator Point (ScreenPoint point)
 		{
 			return point.Absolute;
+		}
+
+		public static implicit operator bool (ScreenPoint point)
+		{
+			return !point.IsEmpty;
 		}
 
 		public override string ToString ()

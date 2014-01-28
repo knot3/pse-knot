@@ -31,16 +31,6 @@ namespace Knot3.Widgets
 		#region Properties
 
 		/// <summary>
-		/// Die von der Auflösung unabhängige Größe der Menüeinträge in Prozent.
-		/// </summary>
-		public virtual Func<int, Vector2> RelativeItemSize { get; set; }
-
-		/// <summary>
-		/// Die von der Auflösung unabhängige Position der Menüeinträge in Prozent.
-		/// </summary>
-		public virtual Func<int, Vector2> RelativeItemPosition { get; set; }
-
-		/// <summary>
 		/// Die vom Zustand des Menüeintrags abhängige Vordergrundfarbe des Menüeintrags.
 		/// </summary>
 		public Func<ItemState, Color> ItemForegroundColor { get; set; }
@@ -188,14 +178,8 @@ namespace Knot3.Widgets
 		{
 		}
 
-		private void assignMenuItemInformation (MenuItem item)
+		protected virtual void assignMenuItemInformation (MenuItem item)
 		{
-			if (RelativeItemPosition != null) {
-				item.Bounds.Position.RelativeFunc = () => RelativeItemPosition (item.ItemOrder);
-			}
-			if (RelativeItemSize != null) {
-				item.Bounds.Size.RelativeFunc = () => RelativeItemSize (item.ItemOrder);
-			}
 			if (ItemForegroundColor != null) {
 				item.ForegroundColor = () => ItemForegroundColor (item.ItemState);
 			}

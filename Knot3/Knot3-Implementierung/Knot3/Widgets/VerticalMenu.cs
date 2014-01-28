@@ -29,32 +29,6 @@ namespace Knot3.Widgets
 		#region Properties
 
 		/// <summary>
-		/// Die von der Auflösung unabhängige Größe der Menüeinträge in Prozent.
-		/// </summary>
-		public override Func<int, Vector2> RelativeItemPosition
-		{
-			get {
-				return VerticalRelativeItemPosition;
-			}
-			set {
-				throw new InvalidOperationException ("Cannot assign a RelativeItemPosition to a VerticalMenu! It is computed automatically.");
-			}
-		}
-
-		/// <summary>
-		/// Die von der Auflösung unabhängige Position der Menüeinträge in Prozent.
-		/// </summary>
-		public override Func<int, Vector2> RelativeItemSize
-		{
-			get {
-				return VerticalRelativeItemSize;
-			}
-			set {
-				throw new InvalidOperationException ("Cannot assign a RelativeItemSize to a VerticalMenu! It is computed automatically.");
-			}
-		}
-
-		/// <summary>
 		/// Die von der Auflösung unabhängige Höhe der Menüeinträge in Prozent.
 		/// </summary>
 		/// <value>
@@ -82,26 +56,45 @@ namespace Knot3.Widgets
 
 		#region Methods
 
-		public Vector2 VerticalRelativeItemPosition (int itemNumber)
+		protected override void assignMenuItemInformation (MenuItem item)
 		{
-			if (itemNumber < currentScrollPosition) {
+			Bounds itemBounds = ItemBounds (item.ItemOrder);
+			item.Bounds.Position = itemBounds.Position;
+			item.Bounds.Size = itemBounds.Size;
+			base.assignMenuItemInformation (item);
+		}
+
+		/// <summary>
+		/// Die von der Auflösung unabhängigen Ausmaße der Menüeinträge.
+		/// </summary>
+		public Bounds ItemBounds (int itemOrder)
+		{
+			return new Bounds (
+				position: new ScreenPoint (Screen, () => verticalRelativeItemPosition (itemOrder)),
+				size: new ScreenPoint (Screen, () => verticalRelativeItemSize (itemOrder))
+			);
+		}
+
+		private Vector2 verticalRelativeItemPosition (int itemOrder)
+		{
+			if (itemOrder < currentScrollPosition) {
 				return Vector2.Zero;
 			}
-			else if (itemNumber > currentScrollPosition + pageScrollPosition - 1) {
+			else if (itemOrder > currentScrollPosition + pageScrollPosition - 1) {
 				return Vector2.Zero;
 			}
 			else {
 				float itemHeight = RelativeItemHeight + Bounds.Padding.Relative.Y;
-				return Bounds.Position.Relative + new Vector2 (0, itemHeight * (itemNumber - currentScrollPosition));
+				return Bounds.Position.Relative + new Vector2 (0, itemHeight * (itemOrder - currentScrollPosition));
 			}
 		}
 
-		public Vector2 VerticalRelativeItemSize (int itemNumber)
+		private Vector2 verticalRelativeItemSize (int itemOrder)
 		{
-			if (itemNumber < currentScrollPosition) {
+			if (itemOrder < currentScrollPosition) {
 				return Vector2.Zero;
 			}
-			else if (itemNumber > currentScrollPosition + pageScrollPosition - 1) {
+			else if (itemOrder > currentScrollPosition + pageScrollPosition - 1) {
 				return Vector2.Zero;
 			}
 			else {
