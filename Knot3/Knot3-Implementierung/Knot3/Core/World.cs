@@ -88,12 +88,25 @@ namespace Knot3.Core
 		/// </summary>
 		public IRenderEffect CurrentEffect { get; set; }
 
-		public Action<IGameObject> SelectionChanged = (o) =>
-		{
-		};
+		/// <summary>
+		/// Wird ausgelöst, wenn das selektierte Spielobjekt geändert wurde.
+		/// </summary>
+		public Action<IGameObject> SelectionChanged = (o) => {};
 
+		/// <summary>
+		/// Gibt an, ob die Spielwelt im folgenden Frame neugezeichnet wird
+		/// oder nur der letzte Frame wiedergegeben wird.
+		/// </summary>
 		public bool Redraw { get; set; }
 
+		/// <summary>
+		/// Wird ausgelöst, wenn die Spielwelt neu gezeichnet wird.
+		/// </summary>
+		public Action OnRedraw = () => {};
+
+		/// <summary>
+		/// Die Ausmaße der Welt auf dem Screen.
+		/// </summary>
 		public Bounds Bounds { get; private set; }
 
 		#endregion
@@ -150,7 +163,7 @@ namespace Knot3.Core
 			return new Bounds (
 			           position: new ScreenPoint (screen, Vector2.Zero),
 			           size: new ScreenPoint (screen, Vector2.One)
-			       );
+			);
 		}
 
 		private static IRenderEffect DefaultEffect (IGameScreen screen)
@@ -229,6 +242,7 @@ namespace Knot3.Core
 		public override void Draw (GameTime time)
 		{
 			if (Redraw) {
+				OnRedraw ();
 				Redraw = false;
 
 				//Screen.BackgroundColor = CurrentEffect is CelShadingEffect ? Color.CornflowerBlue : Color.Black;
@@ -303,7 +317,7 @@ namespace Knot3.Core
 					Vector3 position3D = Camera.To3D (
 					                         position: nearTo,
 					                         nearTo: obj.Center ()
-					                     );
+					);
 					// Berechne die Distanz zwischen 3D-Mausposition und dem Spielobjekt
 					float distance = Math.Abs ((position3D - obj.Center ()).Length ());
 					distances [distance] = obj;
