@@ -63,10 +63,10 @@ namespace Knot3.Screens
 			settingsMenu.Add (showArrows);
 
 			CheckBoxItem selectiveRender = new CheckBoxItem (
-				screen: this,
-				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				text: "Selective Rendering",
-				option: new BooleanOptionInfo ("video", "selectiveRendering", false, Options.Default)
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    text: "Selective Rendering",
+			    option: new BooleanOptionInfo ("video", "selectiveRendering", false, Options.Default)
 			);
 			settingsMenu.Add (selectiveRender);
 			string currentResolution = Viewport.Width + "x" + Viewport.Height;
