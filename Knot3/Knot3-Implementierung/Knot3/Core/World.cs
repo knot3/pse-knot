@@ -171,6 +171,7 @@ namespace Knot3.Core
 				Objects.Add (obj);
 				obj.World = this;
 			}
+			Redraw = true;
 		}
 
 		public void Remove (IGameObject obj)
@@ -178,6 +179,7 @@ namespace Knot3.Core
 			if (obj != null) {
 				Objects.Remove (obj);
 			}
+			Redraw = true;
 		}
 
 		/// <summary>
@@ -240,7 +242,7 @@ namespace Knot3.Core
 				CurrentEffect.End (time);
 			}
 			else {
-				Screen.PostProcessingEffect.DrawLastFrame (time);
+				CurrentEffect.DrawLastFrame (time);
 			}
 		}
 

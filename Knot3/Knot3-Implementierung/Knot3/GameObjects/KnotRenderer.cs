@@ -177,6 +177,8 @@ namespace Knot3.GameObjects
 			if (showArrows) {
 				CreateArrows ();
 			}
+
+			World.Redraw = true;
 		}
 
 		private void OnSelectionChanged ()
@@ -184,6 +186,7 @@ namespace Knot3.GameObjects
 			if (showArrows) {
 				CreateArrows ();
 			}
+			World.Redraw = true;
 		}
 
 		private void CreatePipes ()

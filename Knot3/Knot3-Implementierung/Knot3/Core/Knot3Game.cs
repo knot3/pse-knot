@@ -190,6 +190,10 @@ namespace Knot3.Core
 				next.Entered (current, time);
 			}
 
+			if (current.PostProcessingEffect is FadeEffect && (current.PostProcessingEffect as FadeEffect).IsFinished) {
+				current.PostProcessingEffect = new StandardEffect (current);
+			}
+
 			if (Keys.F8.IsDown ()) {
 				this.Exit ();
 				return;

@@ -33,7 +33,7 @@ namespace Knot3.RenderEffects
 		/// <summary>
 		/// Gibt an, ob die Überblendung abgeschlossen ist und das RenderTarget nur noch den neuen Spielzustand darstellt.
 		/// </summary>
-		private Boolean IsFinished { get { return alpha <= 0; } }
+		public Boolean IsFinished { get { return alpha <= 0; } }
 
 		/// <summary>
 		/// Der zuletzt gerenderte Frame im bisherigen Spielzustand.
