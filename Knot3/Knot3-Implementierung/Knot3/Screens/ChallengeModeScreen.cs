@@ -216,7 +216,8 @@ namespace Knot3.Screens
 		public override void Update (GameTime time)
 		{
 			// während die Challenge läuft...
-			if (state == ChallengeModeState.Running) {
+			if (state == ChallengeModeState.Running || state == ChallengeModeState.Start) {
+				ChallengeModeState oldState = state;
 				// wenn zur Zeit kein Dialog vorhanden ist, und Escape gedrückt wurde...
 				if (Keys.Escape.IsDown () && !returnFromPause) {
 					// erstelle einen neuen Pausedialog
@@ -226,7 +227,7 @@ namespace Knot3.Screens
 					state = ChallengeModeState.Paused;
 					// wenn der Dialog geschlossen wird, starte die Zeitmessung wieder
 					pauseDialog.Close += (t) => {
-						state = ChallengeModeState.Running;
+						state = oldState;
 						knotInput.IsEnabled = true;
 						returnFromPause = true;
 					};
@@ -234,6 +235,10 @@ namespace Knot3.Screens
 					AddGameComponents (time, pauseDialog);
 				}
 				returnFromPause = false;
+			}
+
+			// während die Challenge läuft...
+			if (state == ChallengeModeState.Running) {
 				// vergleiche den Spielerknoten mit dem Zielknoten
 				if (PlayerKnot.Equals (Challenge.Target)) {
 					Console.WriteLine ("Playerknot equals Target!");
