@@ -46,6 +46,7 @@ namespace Knot3.Screens
 		private KnotMetaData previewKnotMetaData;
 		private Border previewBorder;
 		private KnotInputHandler previewInput;
+		private ModelMouseHandler previewMouseHandler;
 
 		#endregion
 
@@ -96,6 +97,7 @@ namespace Knot3.Screens
 			    padding: 0
 			);
 			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
+			previewMouseHandler = new ModelMouseHandler (screen: this, world: previewWorld);
 		}
 
 		#endregion
@@ -149,7 +151,7 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput);
+			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler);
 		}
 
 		#endregion
