@@ -174,9 +174,9 @@ namespace Knot3.Screens
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
 			lines.AddPoints (500, 0, 500, 1000);
-
+			
 			// Status
-			state = ChallengeModeState.Running;
+			state = ChallengeModeState.Start;
 		}
 
 		#endregion
@@ -187,6 +187,10 @@ namespace Knot3.Screens
 		{
 			Undo.Push (_playerKnot);
 			Redo.Clear ();
+			
+			// Status
+			if (state == ChallengeModeState.Start)
+			state = ChallengeModeState.Running;
 		}
 
 		private void OnUndo ()
@@ -281,6 +285,7 @@ namespace Knot3.Screens
 		#endregion
 
 		enum ChallengeModeState {
+			Start,
 			Running,
 			Finished,
 			Paused
