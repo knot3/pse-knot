@@ -124,6 +124,24 @@ namespace Knot3.Widgets
 			       );
 		}
 
+		public Bounds FromTop (Func<float> percent)
+		{
+			return new Bounds (
+			           position: Position,
+			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X, () => Size.Relative.Y * percent ()),
+			           padding: Padding
+			       );
+		}
+
+		public Bounds FromBottom (Func<float> percent)
+		{
+			return new Bounds (
+			           position: Position + new ScreenPoint (Size.Screen, () => 0, () => Size.Relative.Y * (1f - percent ())),
+			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X, () => Size.Relative.Y * percent ()),
+			           padding: Padding
+			       );
+		}
+
 		public Bounds FromLeft (float percent)
 		{
 			return FromLeft (() => percent);
@@ -132,6 +150,11 @@ namespace Knot3.Widgets
 		public Bounds FromRight (float percent)
 		{
 			return FromRight (() => percent);
+		}
+
+		public Bounds FromTop (float percent)
+		{
+			return FromTop (() => percent);
 		}
 
 		public static implicit operator Rectangle (Bounds bounds)

@@ -18,13 +18,14 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
+using Knot3.Utilities;
 
 namespace Knot3.Widgets
 {
 	/// <summary>
 	/// Ein Menü, das alle Einträge vertikal anordnet.
 	/// </summary>
-	public sealed class VerticalMenu : Menu, IMouseClickEventListener
+	public sealed class VerticalMenu : Menu, IMouseClickEventListener, IMouseMoveEventListener
 	{
 		#region Properties
 
@@ -38,6 +39,8 @@ namespace Knot3.Widgets
 
 		public Rectangle MouseClickBounds { get { return Bounds; } }
 
+		private SpriteBatch spriteBatch;
+
 		#endregion
 
 		#region Constructors
@@ -50,6 +53,37 @@ namespace Knot3.Widgets
 		: base(screen, drawOrder)
 		{
 			RelativeItemHeight = 0.040f;
+			spriteBatch = new SpriteBatch (screen.Device);
+		}
+		
+		private Bounds ScrollBarBounds
+		{
+			get {
+				Bounds bounds = Bounds.FromLeft (1f);
+				bounds.Size += new ScreenPoint (Screen, 0.01f, 0);
+				return bounds;
+			}
+		}
+		
+		public Rectangle MouseMoveBounds
+		{
+			get {
+				return ScrollBarBounds;
+			}
+		}
+
+		private Bounds ScrollSliderBounds
+		{
+			get {
+				Bounds moveBounds = ScrollBarBounds;
+				float currentValue = (currentScrollPosition - minScrollPosition) / (maxScrollPosition - minScrollPosition);
+				float visiblePercent = pageScrollPosition / (maxScrollPosition - minScrollPosition);
+				Bounds bounds = new Bounds (
+					position: moveBounds.FromTop (currentValue).Position,
+					size: moveBounds.FromTop (visiblePercent).Size
+				);
+				return bounds;
+			}
 		}
 
 		#endregion
@@ -182,6 +216,31 @@ namespace Knot3.Widgets
 		public void SetHovered (bool hovered, GameTime time)
 		{
 		}
+
+		public override void Draw (GameTime time)
+		{
+			base.Draw (time);
+
+			spriteBatch.Begin ();
+			Texture2D rectangleTexture = TextureHelper.Create (Screen.Device, Lines.DefaultLineColor);
+			spriteBatch.Draw (rectangleTexture, ScrollSliderBounds, Lines.DefaultLineColor);
+			spriteBatch.End ();
+		}
+		
+		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
+			currentScrollPosition += (int)((move.Y / RelativeItemHeight)
+				* ((float)minScrollPosition / (maxScrollPosition - pageScrollPosition)));
+		}
+
+		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
+		}
+
+		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
+		}
+
 
 		#endregion
 	}
