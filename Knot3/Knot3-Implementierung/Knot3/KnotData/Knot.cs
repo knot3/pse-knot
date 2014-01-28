@@ -100,6 +100,15 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Knot (KnotMetaData metaData, IEnumerable<Edge> edges)
 		{
+            Stack<Direction> structure = new Stack<Direction>();
+            foreach (Edge edge in edges)
+            {
+                structure.Push(edge.Direction);
+            }
+            if (!IsValidStructure(structure))
+            {
+                throw new InvalidDataException();
+            }
 			MetaData = new KnotMetaData (
 			    name: metaData.Name,
 			    countEdges: () => this.startElement.Count,
