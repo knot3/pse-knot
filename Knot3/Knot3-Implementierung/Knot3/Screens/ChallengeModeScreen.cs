@@ -129,8 +129,8 @@ namespace Knot3.Screens
 		: base (game)
 		{
 			// world
-			PlayerWorld = new World (screen: this, bounds: Bounds.FromLeft (percent: 0.5f));
-			ChallengeWorld = new World (screen: this, bounds: Bounds.FromRight (percent: 0.5f));
+			PlayerWorld = new World (screen: this, bounds: Bounds.FromRight (percent: 0.5f));
+			ChallengeWorld = new World (screen: this, bounds: Bounds.FromLeft (percent: 0.5f));
 			ChallengeWorld.Camera = PlayerWorld.Camera;
 			// input
 			knotInput = new KnotInputHandler (screen: this, world: PlayerWorld);

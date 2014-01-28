@@ -40,6 +40,7 @@ namespace Knot3.Screens
 		private KnotRenderer previewRenderer;
 		private KnotMetaData previewKnotMetaData;
 		private Border previewBorder;
+		private KnotInputHandler previewInput;
 
 		// Spielstand-Loader
 		private SavegameLoader<Knot, KnotMetaData> loader;
@@ -56,7 +57,7 @@ namespace Knot3.Screens
 		{
 			savegameMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			savegameMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
-			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.800f, 0.720f);
+			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.720f);
 			savegameMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			savegameMenu.ItemForegroundColor = base.MenuItemForegroundColor;
 			savegameMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
@@ -76,7 +77,7 @@ namespace Knot3.Screens
 			loader = new SavegameLoader<Knot, KnotMetaData> (fileFormat, "index-knots");
 
 			// Preview
-			Bounds previewBounds = new Bounds (this, 0.4f, 0.1f, 0.5f, 0.8f);
+			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.45f, 0.8f);
 			previewWorld = new World (
 			    screen: this,
 			    drawIndex: DisplayLayer.ScreenUI + DisplayLayer.GameWorld,
@@ -91,6 +92,7 @@ namespace Knot3.Screens
 			    lineWidth: 2,
 			    padding: 0
 			);
+			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 		}
 
 		#endregion
@@ -144,7 +146,7 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder);
+			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput);
 		}
 
 		#endregion

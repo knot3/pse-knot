@@ -100,7 +100,7 @@ namespace Knot3.GameObjects
 		/// [base=screen]
 		/// </summary>
 		public KnotInputHandler (IGameScreen screen, World world)
-		: base (screen, DisplayLayer.None)
+		: base (screen, world.Index)
 		{
 			// Standardmäßig aktiviert
 			IsEnabled = true;
@@ -275,7 +275,6 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void move (Vector3 move, GameTime time)
 		{
-
 			if (move.Length () > 0) {
 				move *= 10;
 				Vector3 targetDirection = camera.PositionToTargetDirection;
@@ -286,7 +285,6 @@ namespace Knot3.GameObjects
 				Screen.Input.CurrentInputAction = InputAction.FirstPersonCameraMove;
 				world.Redraw = true;
 			}
-
 		}
 
 		/// <summary>
@@ -327,7 +325,6 @@ namespace Knot3.GameObjects
 					camera.StartSmoothMove (target: camera.ArcballTarget, time: time);
 				}
 				Screen.Input.CurrentInputAction = InputAction.ArcballMove;
-
 			}
 			// Ist es weiter als 5 Pixel weg?
 			else if (move.Length () > 0) {
@@ -343,7 +340,6 @@ namespace Knot3.GameObjects
 				                  + (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.Target, oldDistance);
 			}
-
 		}
 
 		private void rotateEverywhere (Vector2 move, GameTime time)
@@ -444,16 +440,9 @@ namespace Knot3.GameObjects
 			camera.Target -= direction * Node.Scale;
 		}
 
-		public Rectangle Bounds
-		{
-			get {
-				return Vector2.Zero.CreateRectangle (Vector2.One.Scale (Screen.Viewport));
-			}
-		}
+		public Rectangle MouseMoveBounds { get { return world.Bounds; } }
 
-		public Rectangle MouseMoveBounds { get { return Bounds; } }
-
-		public Rectangle MouseScrollBounds { get { return Bounds; } }
+		public Rectangle MouseScrollBounds { get { return world.Bounds; } }
 
 		#endregion
 	}
