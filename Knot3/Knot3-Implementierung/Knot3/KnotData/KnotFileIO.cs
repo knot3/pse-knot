@@ -40,10 +40,10 @@ namespace Knot3.KnotData
 				yield return ".knt";
 			}
 		}
-		
+
 		private Dictionary<string, Knot> KnotCache = new Dictionary<string, Knot> ();
 		private Dictionary<string, KnotMetaData> KnotMetaDataCache = new Dictionary<string, KnotMetaData> ();
-		
+
 		#endregion
 
 		#region Constructors
@@ -86,8 +86,8 @@ namespace Knot3.KnotData
 				Console.WriteLine ("Load knot from " + filename);
 				KnotStringIO parser = new KnotStringIO (content: string.Join ("\n", FileUtility.ReadFrom (filename)));
 				return KnotCache [filename] = new Knot (
-			           new KnotMetaData (parser.Name, () => parser.CountEdges, this, filename),
-			           parser.Edges
+				    new KnotMetaData (parser.Name, () => parser.CountEdges, this, filename),
+				    parser.Edges
 				);
 			}
 		}
@@ -103,10 +103,10 @@ namespace Knot3.KnotData
 			else {
 				KnotStringIO parser = new KnotStringIO (content: string.Join ("\n", FileUtility.ReadFrom (filename)));
 				return KnotMetaDataCache [filename] = new KnotMetaData (
-					name: parser.Name,
-					countEdges: () => parser.CountEdges,
-					format: this,
-					filename: filename
+				    name: parser.Name,
+				    countEdges: () => parser.CountEdges,
+				    format: this,
+				    filename: filename
 				);
 			}
 		}

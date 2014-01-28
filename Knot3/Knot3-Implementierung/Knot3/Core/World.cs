@@ -89,8 +89,8 @@ namespace Knot3.Core
 		public IRenderEffect CurrentEffect { get; set; }
 
 		public Action<IGameObject> SelectionChanged = (o) =>
-			{
-			};
+		{
+		};
 
 		public bool Redraw { get; set; }
 
@@ -148,9 +148,9 @@ namespace Knot3.Core
 		private static Bounds DefaultBounds (IGameScreen screen)
 		{
 			return new Bounds (
-				position: new ScreenPoint (screen, Vector2.Zero),
-				size: new ScreenPoint (screen, Vector2.One)
-			);
+			           position: new ScreenPoint (screen, Vector2.Zero),
+			           size: new ScreenPoint (screen, Vector2.One)
+			       );
 		}
 
 		private static IRenderEffect DefaultEffect (IGameScreen screen)
@@ -298,7 +298,7 @@ namespace Knot3.Core
 					Vector3 position3D = Camera.To3D (
 					                         position: nearTo,
 					                         nearTo: obj.Center ()
-					);
+					                     );
 					// Berechne die Distanz zwischen 3D-Mausposition und dem Spielobjekt
 					float distance = Math.Abs ((position3D - obj.Center ()).Length ());
 					distances [distance] = obj;

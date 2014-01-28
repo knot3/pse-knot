@@ -279,8 +279,7 @@ namespace Knot3.Screens
 
 		#endregion
 
-		enum ChallengeModeState
-		{
+		enum ChallengeModeState {
 			Running,
 			Finished,
 			Paused
