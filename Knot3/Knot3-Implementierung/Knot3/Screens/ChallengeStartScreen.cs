@@ -33,9 +33,19 @@ namespace Knot3.Screens
 		/// Das Menü, das die Spielstände enthält.
 		/// </summary>
 		private VerticalMenu savegameMenu;
+
+		// Der Titel des Screens
 		private TextItem title;
+
 		// Spielstand-Loader
 		private SavegameLoader<Challenge, ChallengeMetaData> loader;
+
+		// Preview
+		private World previewWorld;
+		private KnotRenderer previewRenderer;
+		private KnotMetaData previewKnotMetaData;
+		private Border previewBorder;
+		private KnotInputHandler previewInput;
 
 		#endregion
 
@@ -50,7 +60,7 @@ namespace Knot3.Screens
 		{
 			savegameMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			savegameMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
-			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.800f, 0.720f);
+			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.720f);
 			savegameMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			savegameMenu.ItemForegroundColor = base.MenuItemForegroundColor;
 			savegameMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
@@ -68,6 +78,24 @@ namespace Knot3.Screens
 			ChallengeFileIO fileFormat = new ChallengeFileIO ();
 			// Erstelle einen Spielstand-Loader
 			loader = new SavegameLoader<Challenge, ChallengeMetaData> (fileFormat, "index-challenges");
+
+			// Preview
+			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.48f, 0.8f);
+			previewWorld = new World (
+			    screen: this,
+			    drawIndex: DisplayLayer.ScreenUI + DisplayLayer.GameWorld,
+			    bounds: previewBounds
+			);
+			previewRenderer = new KnotRenderer (screen: this, position: Vector3.Zero);
+			previewWorld.Add (previewRenderer);
+			previewBorder = new Border (
+			    screen: this,
+			    drawOrder: DisplayLayer.GameWorld,
+			    bounds: previewBounds,
+			    lineWidth: 2,
+			    padding: 0
+			);
+			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 		}
 
 		#endregion
@@ -103,6 +131,14 @@ namespace Knot3.Screens
 			    name: name,
 			    onClick: LoadFile
 			);
+			button.Hovered += (isHovered, time) => {
+				if (isHovered) {
+					if (previewKnotMetaData != meta.Target) {
+						previewRenderer.Knot = loader.FileFormat.Load (filename).Target;
+						previewKnotMetaData = meta.Target;
+					}
+				}
+			};
 			savegameMenu.Add (button);
 		}
 
@@ -113,7 +149,7 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, savegameMenu, title);
+			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput);
 		}
 
 		#endregion

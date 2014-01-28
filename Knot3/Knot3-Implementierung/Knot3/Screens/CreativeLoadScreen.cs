@@ -33,7 +33,12 @@ namespace Knot3.Screens
 		/// Das Menü, das die Spielstände enthält.
 		/// </summary>
 		private VerticalMenu savegameMenu;
+
+		// Der Titel des Screens
 		private TextItem title;
+
+		// Spielstand-Loader
+		private SavegameLoader<Knot, KnotMetaData> loader;
 
 		// Preview
 		private World previewWorld;
@@ -41,9 +46,6 @@ namespace Knot3.Screens
 		private KnotMetaData previewKnotMetaData;
 		private Border previewBorder;
 		private KnotInputHandler previewInput;
-
-		// Spielstand-Loader
-		private SavegameLoader<Knot, KnotMetaData> loader;
 
 		#endregion
 
@@ -77,7 +79,7 @@ namespace Knot3.Screens
 			loader = new SavegameLoader<Knot, KnotMetaData> (fileFormat, "index-knots");
 
 			// Preview
-			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.45f, 0.8f);
+			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.48f, 0.8f);
 			previewWorld = new World (
 			    screen: this,
 			    drawIndex: DisplayLayer.ScreenUI + DisplayLayer.GameWorld,
