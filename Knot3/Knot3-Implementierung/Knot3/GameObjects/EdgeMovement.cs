@@ -319,7 +319,7 @@ namespace Knot3.GameObjects
 
 		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction)
 		{
-			Console.WriteLine ("XXX: " + direction);
+			//Console.WriteLine ("XXX: " + direction);
 			float count = ComputeLength (currentMousePosition);
 			UpdateShadowPipes (currentMousePosition, direction, count);
 		}
