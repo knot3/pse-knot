@@ -20,29 +20,16 @@ using Knot3.Widgets;
 
 namespace Knot3.Utilities
 {
-	public static class InputHelper
+	public class MonoHelper
 	{
-		/// <summary>
-		/// Wurde die aktuelle Taste gedrückt und war sie im letzten Frame nicht gedrückt?
-		/// </summary>
-		public static bool IsDown (this Keys key)
+		public static bool IsRunningOnMono ()
 		{
-			// Is the key down?
-			if (InputManager.CurrentKeyboardState.IsKeyDown (key)) {
-				// If not down last update, key has just been pressed.
-				if (!InputManager.PreviousKeyboardState.IsKeyDown (key)) {
-					return true;
-				}
-			}
 			return false;
 		}
 
-		/// <summary>
-		/// Wird die aktuelle Taste gedrückt gehalten?
-		/// </summary>
-		public static bool IsHeldDown (this Keys key)
+		public static bool IsRunningOnMonogame ()
 		{
-			return InputManager.CurrentKeyboardState.IsKeyDown (key);
+			return false;
 		}
 	}
 }
