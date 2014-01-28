@@ -70,7 +70,7 @@ namespace Knot3.Widgets
 		public Rectangle MouseMoveBounds
 		{
 			get {
-				return ScrollBarBounds;
+				return new Bounds(Bounds.Position, Bounds.Size+ScrollBarBounds.Size.OnlyX);
 			}
 		}
 
@@ -216,7 +216,7 @@ namespace Knot3.Widgets
 		{
 			base.Draw (time);
 
-			if (HasScrollbar) {
+			if (IsVisible && IsEnabled && HasScrollbar) {
 				spriteBatch.Begin ();
 				Texture2D rectangleTexture = TextureHelper.Create (Screen.Device, Lines.DefaultLineColor);
 				Bounds sliderBounds = ScrollSliderInBarBounds.In (ScrollBarBounds);
@@ -232,7 +232,14 @@ namespace Knot3.Widgets
 			//currentScrollPosition += (int)((move.Y / RelativeItemHeight)
 			//	* ((float)minScrollPosition / (maxScrollPosition - pageScrollPosition)));
 
-			if (HasScrollbar) {
+			if (IsVisible && IsEnabled && HasScrollbar) {
+				Bounds slider = ScrollSliderInBarBounds;
+				Bounds bar = ScrollBarBounds;
+
+				float percentOfBar = move.Y / bar.Size.Absolute.Y;
+				currentScrollPosition += percentOfBar * maxScrollPosition;
+
+				/*
 				float maxValue = maxScrollPosition;
 				float pageValue = pageScrollPosition;
 				float visiblePercent = (pageValue / maxValue).Clamp (0.05f, 1f);
@@ -244,6 +251,7 @@ namespace Knot3.Widgets
 					+ ", bar.Size.Y=" + ScrollBarBounds.Size.Absolute.Y
 				);
 				currentScrollPosition = (int)(sliderPosition * (maxValue - pageValue));
+				*/
 			}
 		}
 
