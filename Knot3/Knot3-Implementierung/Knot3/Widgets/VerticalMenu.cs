@@ -59,8 +59,10 @@ namespace Knot3.Widgets
 		private Bounds ScrollBarBounds
 		{
 			get {
-				Bounds bounds = Bounds.FromLeft (1f);
-				bounds.Size += new ScreenPoint (Screen, 0.01f, 0);
+				Bounds bounds = new Bounds (
+					new ScreenPoint (Screen, Bounds.Position.Relative + Bounds.Size.OnlyX.Relative),
+					new ScreenPoint (Screen, 0.02f, Bounds.Size.Relative.Y)
+				);
 				return bounds;
 			}
 		}
@@ -72,15 +74,18 @@ namespace Knot3.Widgets
 			}
 		}
 
-		private Bounds ScrollSliderBounds
+		private Bounds ScrollSliderInBarBounds
 		{
 			get {
 				Bounds moveBounds = ScrollBarBounds;
-				float currentValue = (currentScrollPosition - minScrollPosition) / (maxScrollPosition - minScrollPosition);
-				float visiblePercent = pageScrollPosition / (maxScrollPosition - minScrollPosition);
+				float maxValue = maxScrollPosition;
+				float pageValue = pageScrollPosition;
+				float visiblePercent = (pageValue / maxValue).Clamp (0.05f, 1f);
+				float currentValue = (float)currentScrollPosition / (maxValue - pageValue);
+				// Console.WriteLine ("currentValue=" + currentValue + ", pos=" + moveBounds.FromTop (currentValue).Position);
 				Bounds bounds = new Bounds (
-					position: moveBounds.FromTop (currentValue).Position,
-					size: moveBounds.FromTop (visiblePercent).Size
+					position: moveBounds.Size.OnlyY * currentValue * (1f - visiblePercent),
+					size: moveBounds.Size.ScaleY (visiblePercent)
 				);
 				return bounds;
 			}
@@ -106,7 +111,7 @@ namespace Knot3.Widgets
 			return new Bounds (
 			           position: new ScreenPoint (Screen, () => verticalRelativeItemPosition (itemOrder)),
 			           size: new ScreenPoint (Screen, () => verticalRelativeItemSize (itemOrder))
-			       );
+			);
 		}
 
 		private Vector2 verticalRelativeItemPosition (int itemOrder)
@@ -163,38 +168,28 @@ namespace Knot3.Widgets
 
 		private int tempScrollValue = 0;
 
-		private int currentScrollPosition
+		private float currentScrollPosition
 		{
 			get {
 				return _currentScrollPosition;
 			}
 			set {
-				_currentScrollPosition = (int)MathHelper.Clamp (value, minScrollPosition, maxScrollPosition - pageScrollPosition);
+				_currentScrollPosition = MathHelper.Clamp (value, 0, maxScrollPosition - pageScrollPosition);
 			}
 		}
 
-		private int _currentScrollPosition;
+		private float _currentScrollPosition;
 
-		private int minScrollPosition
-		{
-			get {
-				return 0;
-			}
-		}
+		private float maxScrollPosition { get { return items.Count; } }
 
-		private int maxScrollPosition
-		{
-			get {
-				return items.Count;
-			}
-		}
-
-		private int pageScrollPosition
+		private float pageScrollPosition
 		{
 			get {
 				return (int)Math.Ceiling (Bounds.Size.Relative.Y / (RelativeItemHeight + Bounds.Padding.Relative.Y));
 			}
 		}
+
+		private bool HasScrollbar { get { return maxScrollPosition > pageScrollPosition; } }
 
 		/// <summary>
 		/// Tut nichts.
@@ -221,16 +216,35 @@ namespace Knot3.Widgets
 		{
 			base.Draw (time);
 
-			spriteBatch.Begin ();
-			Texture2D rectangleTexture = TextureHelper.Create (Screen.Device, Lines.DefaultLineColor);
-			spriteBatch.Draw (rectangleTexture, ScrollSliderBounds, Lines.DefaultLineColor);
-			spriteBatch.End ();
+			if (HasScrollbar) {
+				spriteBatch.Begin ();
+				Texture2D rectangleTexture = TextureHelper.Create (Screen.Device, Lines.DefaultLineColor);
+				Bounds sliderBounds = ScrollSliderInBarBounds.In (ScrollBarBounds);
+				spriteBatch.Draw (rectangleTexture, sliderBounds, Lines.DefaultLineColor);
+				// Console.WriteLine ("ScrollSliderBounds=" + sliderBounds.Rectangle);
+				// Console.WriteLine ("ScrollBarBounds=" + ScrollBarBounds.Rectangle);
+				spriteBatch.End ();
+			}
 		}
 		
 		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
-			currentScrollPosition += (int)((move.Y / RelativeItemHeight)
-				* ((float)minScrollPosition / (maxScrollPosition - pageScrollPosition)));
+			//currentScrollPosition += (int)((move.Y / RelativeItemHeight)
+			//	* ((float)minScrollPosition / (maxScrollPosition - pageScrollPosition)));
+
+			if (HasScrollbar) {
+				float maxValue = maxScrollPosition;
+				float pageValue = pageScrollPosition;
+				float visiblePercent = (pageValue / maxValue).Clamp (0.05f, 1f);
+				float sliderPosition = ScrollSliderInBarBounds.Position.Absolute.Y / ScrollBarBounds.Size.Absolute.Y;
+				Console.WriteLine ("sliderPosition=" + sliderPosition + ", ScrollSliderInBarBounds=" + ScrollSliderInBarBounds);
+				sliderPosition = move.Y / ScrollBarBounds.Size.Absolute.Y;
+
+				Console.WriteLine ("sliderPosition new=" + sliderPosition + ", current.Y=" + currentPosition.Y
+					+ ", bar.Size.Y=" + ScrollBarBounds.Size.Absolute.Y
+				);
+				currentScrollPosition = (int)(sliderPosition * (maxValue - pageValue));
+			}
 		}
 
 		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)

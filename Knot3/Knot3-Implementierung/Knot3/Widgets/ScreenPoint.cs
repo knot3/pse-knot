@@ -158,6 +158,16 @@ namespace Knot3.Widgets
 			return new ScreenPoint (a.Screen, () => a.Relative - b.Relative);
 		}
 
+		public ScreenPoint ScaleX (float percent)
+		{
+			return new ScreenPoint (Screen, () => new Vector2 (Relative.X * percent, Relative.Y));
+		}
+
+		public ScreenPoint ScaleY (float percent)
+		{
+			return new ScreenPoint (Screen, () => new Vector2 (Relative.X, Relative.Y * percent));
+		}
+
 		public static bool operator == (ScreenPoint a, ScreenPoint b)
 		{
 			if (System.Object.ReferenceEquals (a, b)) {
