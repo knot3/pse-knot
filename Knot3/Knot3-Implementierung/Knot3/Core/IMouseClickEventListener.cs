@@ -57,7 +57,7 @@ namespace Knot3.Core
 		/// </summary>
 		void OnRightClick (Vector2 position, ClickState state, GameTime time);
 
-		void SetHovered (bool hovered);
+		void SetHovered (bool hovered, GameTime time);
 
 		#endregion
 	}

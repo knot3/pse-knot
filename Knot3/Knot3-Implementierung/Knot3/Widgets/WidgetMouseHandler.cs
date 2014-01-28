@@ -71,7 +71,7 @@ namespace Knot3.Widgets
 			foreach (IMouseClickEventListener receiver in Screen.Game.Components.OfType<IMouseClickEventListener>()) {
 				Rectangle bounds = receiver.MouseClickBounds;
 				bool hovered = bounds.Contains (InputManager.CurrentMouseState.ToPoint ());
-				receiver.SetHovered (hovered);
+				receiver.SetHovered (hovered, time);
 				if (hovered && receiver.IsMouseClickEventEnabled && (best == null || receiver.Index > best.layer)) {
 					best = new ClickEventComponent {
 						receiver = receiver,

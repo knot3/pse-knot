@@ -70,6 +70,11 @@ namespace Knot3.Core
 
 		public Color BackgroundColor { get; protected set; }
 
+		public Bounds Bounds
+		{
+			get { return new Bounds (screen: this, relX: 0f, relY: 0f, relWidth: 1f, relHeight: 1f); }
+		}
+
 		#endregion
 
 		#region Constructors

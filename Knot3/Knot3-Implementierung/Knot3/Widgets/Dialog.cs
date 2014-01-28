@@ -204,7 +204,7 @@ namespace Knot3.Widgets
 		{
 		}
 
-		public virtual void SetHovered (bool hovered)
+		public virtual void SetHovered (bool hovered, GameTime time)
 		{
 		}
 

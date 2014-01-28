@@ -63,10 +63,15 @@ namespace Knot3.Widgets
 
 		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding,
 		               Color lineColor, Color outlineColor)
-		: this(screen, drawOrder, widget.Bounds, lineWidth, padding,
-		       lineColor, outlineColor)
+		: this(screen, drawOrder, widget.Bounds, lineWidth, padding, lineColor, outlineColor)
 		{
 			OnUpdate += (time) => IsVisible = lines.IsVisible = widget.IsVisible;
+		}
+
+		public Border (IGameScreen screen, DisplayLayer drawOrder, Bounds bounds, int lineWidth, int padding)
+		: this(screen: screen, drawOrder: drawOrder, bounds: bounds, lineWidth: lineWidth, padding: lineWidth,
+		       lineColor: Lines.DefaultLineColor, outlineColor: Lines.DefaultOutlineColor)
+		{
 		}
 
 		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding)

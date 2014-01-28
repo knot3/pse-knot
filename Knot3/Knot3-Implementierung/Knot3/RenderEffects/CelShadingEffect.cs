@@ -84,6 +84,10 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		public override void DrawModel (GameModel model, GameTime time)
 		{
+			// Setze den Viewport auf den der aktuellen Spielwelt
+			Viewport original = screen.Viewport;
+			screen.Viewport = model.World.Viewport;
+
 			Camera camera = model.World.Camera;
 			lightDirection = new Vector4 (-Vector3.Cross (Vector3.Normalize (camera.PositionToTargetDirection), camera.UpVector), 1);
 			celShader.Parameters ["LightDirection"].SetValue (lightDirection);
@@ -100,6 +104,9 @@ namespace Knot3.RenderEffects
 			foreach (ModelMesh mesh in model.Model.Meshes) {
 				mesh.Draw ();
 			}
+
+			// Setze den Viewport wieder auf den ganzen Screen
+			screen.Viewport = original;
 		}
 
 		/// <summary>

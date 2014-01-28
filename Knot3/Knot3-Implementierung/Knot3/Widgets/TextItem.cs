@@ -34,7 +34,7 @@ namespace Knot3.Widgets
 		public override float NameWidth
 		{
 			get { return 1.00f; }
-			set { throw new ArgumentException("You can't change the NameWidth of a TextItem!"); }
+			set { throw new ArgumentException ("You can't change the NameWidth of a TextItem!"); }
 		}
 
 		/// <summary>
@@ -43,7 +43,7 @@ namespace Knot3.Widgets
 		public override float ValueWidth
 		{
 			get { return 0.00f; }
-			set { throw new ArgumentException("You can't change the ValueWidth of a TextItem!"); }
+			set { throw new ArgumentException ("You can't change the ValueWidth of a TextItem!"); }
 		}
 
 		#endregion
@@ -64,7 +64,7 @@ namespace Knot3.Widgets
 		#region Methods
 
 		//Da TextItems werden nicht unterlegt um sie von Buttons abzugrenzen
-		public override  void SetHovered(bool hovered)
+		public override void SetHovered (bool hovered, GameTime time)
 		{
 			ItemState = ItemState.None;
 		}

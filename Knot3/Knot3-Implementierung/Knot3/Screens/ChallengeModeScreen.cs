@@ -129,16 +129,8 @@ namespace Knot3.Screens
 		: base (game)
 		{
 			// world
-			PlayerWorld = new World (
-			    screen: this,
-			    relativePosition: new Vector2 (0.5f, 0f),
-			    relativeSize: new Vector2 (0.5f, 1f)
-			);
-			ChallengeWorld = new World (
-			    screen: this,
-			    relativePosition: new Vector2 (0.0f, 0.0f),
-			    relativeSize: new Vector2 (0.5f, 1f)
-			);
+			PlayerWorld = new World (screen: this, bounds: Bounds.FromLeft (percent: 0.5f));
+			ChallengeWorld = new World (screen: this, bounds: Bounds.FromRight (percent: 0.5f));
 			ChallengeWorld.Camera = PlayerWorld.Camera;
 			// input
 			knotInput = new KnotInputHandler (screen: this, world: PlayerWorld);
@@ -287,7 +279,8 @@ namespace Knot3.Screens
 
 		#endregion
 
-		enum ChallengeModeState {
+		enum ChallengeModeState
+		{
 			Running,
 			Finished,
 			Paused

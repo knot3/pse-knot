@@ -89,13 +89,12 @@ namespace Knot3.Core
 		public IRenderEffect CurrentEffect { get; set; }
 
 		public Action<IGameObject> SelectionChanged = (o) =>
-		{
-		};
+			{
+			};
 
 		public bool Redraw { get; set; }
-		//private ResizeEffect resizeEffect;
-		private Vector2 relativePosition;
-		private Vector2 relativeSize;
+
+		public Bounds Bounds { get; private set; }
 
 		#endregion
 
@@ -104,8 +103,8 @@ namespace Knot3.Core
 		/// <summary>
 		/// Erstellt eine neue Spielwelt im angegebenen Spielzustand.
 		/// </summary>
-		public World (IGameScreen screen, IRenderEffect effect)
-		: base (screen, DisplayLayer.GameWorld)
+		public World (IGameScreen screen, DisplayLayer drawIndex, IRenderEffect effect, Bounds bounds)
+		: base (screen, drawIndex)
 		{
 			// die Kamera für diese Spielwelt
 			_camera = new Camera (screen, this);
@@ -116,27 +115,42 @@ namespace Knot3.Core
 			CurrentEffect = effect;
 
 			// Die relative Standard-Position und Größe
-			this.relativePosition = Vector2.Zero;
-			this.relativeSize = Vector2.One;
+			Bounds = bounds;
 
 			Screen.Game.FullScreenChanged += () => viewportCache.Clear ();
 		}
 
-		public World (IGameScreen screen, IRenderEffect effect, Vector2 relativePosition, Vector2 relativeSize)
-		: this (screen, effect)
-		{
-			this.relativePosition = relativePosition;
-			this.relativeSize = relativeSize;
-		}
-
-		public World (IGameScreen screen)
-		: this (screen, DefaultEffect(screen))
+		public World (IGameScreen screen, DisplayLayer drawIndex, IRenderEffect effect)
+		: this (screen, drawIndex, effect, DefaultBounds(screen))
 		{
 		}
 
-		public World (IGameScreen screen, Vector2 relativePosition, Vector2 relativeSize)
-		: this (screen, DefaultEffect(screen), relativePosition, relativeSize)
+		public World (IGameScreen screen, DisplayLayer drawIndex, Bounds bounds)
+		: this (screen, drawIndex, DefaultEffect(screen), bounds)
 		{
+		}
+
+		public World (IGameScreen screen, IRenderEffect effect, Bounds bounds)
+		: this (screen, DisplayLayer.GameWorld, effect, bounds)
+		{
+		}
+
+		public World (IGameScreen screen, IRenderEffect effect)
+		: this (screen, DisplayLayer.GameWorld, effect, DefaultBounds(screen))
+		{
+		}
+
+		public World (IGameScreen screen, Bounds bounds)
+		: this (screen, DisplayLayer.GameWorld, DefaultEffect(screen), bounds)
+		{
+		}
+
+		private static Bounds DefaultBounds (IGameScreen screen)
+		{
+			return new Bounds (
+				position: new ScreenPoint (screen, Vector2.Zero),
+				size: new ScreenPoint (screen, Vector2.One)
+			);
 		}
 
 		private static IRenderEffect DefaultEffect (IGameScreen screen)
@@ -189,12 +203,12 @@ namespace Knot3.Core
 			get {
 				PresentationParameters pp = Screen.Device.PresentationParameters;
 				Point resolution = new Point (pp.BackBufferWidth, pp.BackBufferHeight);
-				Vector4 key = new Vector4 (relativePosition.X, relativePosition.Y, relativeSize.X, relativeSize.Y);
+				Vector4 key = Bounds.Vector4;
 				if (!viewportCache.ContainsKey (resolution)) {
 					viewportCache [resolution] = new Dictionary<Vector4, Viewport> ();
 				}
 				if (!viewportCache [resolution].ContainsKey (key)) {
-					Rectangle subScreen = relativePosition.Scale (Screen.Viewport).CreateRectangle (relativeSize.Scale (Screen.Viewport));
+					Rectangle subScreen = Bounds.Rectangle;
 					viewportCache [resolution] [key] = new Viewport (subScreen.X, subScreen.Y, subScreen.Width, subScreen.Height) {
 						MinDepth = 0,
 						MaxDepth = 1
@@ -284,7 +298,7 @@ namespace Knot3.Core
 					Vector3 position3D = Camera.To3D (
 					                         position: nearTo,
 					                         nearTo: obj.Center ()
-					                     );
+					);
 					// Berechne die Distanz zwischen 3D-Mausposition und dem Spielobjekt
 					float distance = Math.Abs ((position3D - obj.Center ()).Length ());
 					distances [distance] = obj;

@@ -30,12 +30,10 @@ namespace Knot3.RenderEffects
 			pascalEffect = screen.LoadEffect("Pascal");
 		}
 
-
 		protected override void DrawRenderTarget(GameTime GameTime)
 		{
 			spriteBatch.Draw(RenderTarget, Vector2.Zero, Color.White);
 		}
-
 
 		public override void RemapModel(Model model)
 		{
@@ -56,12 +54,13 @@ namespace Knot3.RenderEffects
 			}
 		}
 
-
-
 		public override void DrawModel(GameModel model, GameTime time)
 		{
-			Camera camera = model.World.Camera;
+			// Setze den Viewport auf den der aktuellen Spielwelt
+			Viewport original = screen.Viewport;
+			screen.Viewport = model.World.Viewport;
 
+			Camera camera = model.World.Camera;
 
 			//lightDirection = new Vector4(-Vector3.Cross(Vector3.Normalize(camera.TargetDirection), camera.UpVector), 1);
 			pascalEffect.Parameters["World"].SetValue(model.WorldMatrix * camera.WorldMatrix);
@@ -76,8 +75,10 @@ namespace Knot3.RenderEffects
 			foreach (ModelMesh mesh in model.Model.Meshes) {
 				mesh.Draw();
 			}
-		}
 
+			// Setze den Viewport wieder auf den ganzen Screen
+			screen.Viewport = original;
+		}
 
 		Effect pascalEffect;
 		//Vector4 lightDirection; // Light source for toon shader

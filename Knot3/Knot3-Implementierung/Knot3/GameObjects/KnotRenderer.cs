@@ -65,6 +65,9 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public Knot Knot
 		{
+			get {
+				return knot;
+			}
 			set {
 				knot = value;
 				nodeMap.Edges = knot;
