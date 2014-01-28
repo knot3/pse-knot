@@ -443,6 +443,7 @@ namespace Knot3.GameObjects
 			Console.WriteLine ("OnStartEdgeChanged: " + direction);
 			camera.Position -= direction * Node.Scale;
 			camera.Target -= direction * Node.Scale;
+            Screen.Input.CurrentInputAction = InputAction.FreeMouse;
 		}
 
 		public Rectangle MouseMoveBounds { get { return world.Bounds; } }
