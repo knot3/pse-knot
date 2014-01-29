@@ -64,13 +64,13 @@ namespace Knot3.RenderEffects
 
 			//lightDirection = new Vector4(-Vector3.Cross(Vector3.Normalize(camera.TargetDirection), camera.UpVector), 1);
 			zNebulaEffect.Parameters["World"].SetValue(model.WorldMatrix * camera.WorldMatrix);
-            zNebulaEffect.Parameters["View"].SetValue(camera.ViewMatrix);
-            zNebulaEffect.Parameters["Projection"].SetValue(camera.ProjectionMatrix);
+			zNebulaEffect.Parameters["View"].SetValue(camera.ViewMatrix);
+			zNebulaEffect.Parameters["Projection"].SetValue(camera.ProjectionMatrix);
 
-            zNebulaEffect.Parameters["color1"].SetValue(Color.Yellow.ToVector4());
-            zNebulaEffect.Parameters["color2"].SetValue(Color.Red.ToVector4());
+			zNebulaEffect.Parameters["color1"].SetValue(Color.Yellow.ToVector4());
+			zNebulaEffect.Parameters["color2"].SetValue(Color.Red.ToVector4());
 
-            zNebulaEffect.CurrentTechnique = zNebulaEffect.Techniques["Technique1"];
+			zNebulaEffect.CurrentTechnique = zNebulaEffect.Techniques["Technique1"];
 
 			foreach (ModelMesh mesh in model.Model.Meshes) {
 				mesh.Draw();
@@ -80,7 +80,7 @@ namespace Knot3.RenderEffects
 			screen.Viewport = original;
 		}
 
-        Effect zNebulaEffect;
+		Effect zNebulaEffect;
 		//Vector4 lightDirection; // Light source for toon shader
 	}
 }
