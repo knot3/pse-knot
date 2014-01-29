@@ -42,6 +42,11 @@ namespace Knot3.RenderEffects
 			    displayName: "Pascal",
 			    createInstance: (screen) => new Pascal (screen)
 			),
+            new EffectFactory (
+			    name: "Z-Nebula",
+			    displayName: "Z-Nebula",
+			    createInstance: (screen) => new Z_Nebula (screen)
+			),
 		};
 
 		public static IEnumerable<string> Names
