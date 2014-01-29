@@ -213,7 +213,8 @@ namespace Knot3.RenderEffects
 						    false, SurfaceFormat.Color, DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
 						);
 						break;
-					} catch (NotSupportedException ex) {
+					}
+					catch (NotSupportedException ex) {
 						RenderEffectLibrary.Supersampling *= 0.8f;
 						continue;
 					}
