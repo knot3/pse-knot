@@ -68,12 +68,12 @@ namespace Knot3.Core
 				else {
 					spriteBatch.Draw (
 					    cursorTex,
-					    new Vector2 (InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y)* RenderEffectLibrary.Supersampling,
+					    new Vector2 (InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y)* Options.Default["video","Supersamples",1],
 					    null,
 					    Color.White,
 					    0f,
 					    Vector2.Zero,
-					    Vector2.One *RenderEffectLibrary.Supersampling,
+					    Vector2.One *Options.Default["video","Supersamples",1],
 					    SpriteEffects.None,
 					    1f
 					);

@@ -33,6 +33,7 @@ namespace Knot3.Core
 		/// </summary>
 		public HashSet<string> ValidValues { get; private set; }
 
+		public virtual Dictionary<string,string> DisplayValidValues { get; private set; }
 		/// <summary>
 		/// Eine Eigenschaft, die den aktuell abgespeicherten Wert zurück gibt.
 		/// </summary>
@@ -50,6 +51,13 @@ namespace Knot3.Core
 				}
 			}
 		}
+		public virtual string DisplayValue{
+		
+			get{
+				return Value;
+			}
+		
+		} 
 
 		#endregion
 
@@ -65,6 +73,7 @@ namespace Knot3.Core
 		{
 			ValidValues = new HashSet<string> (validValues);
 			ValidValues.Add (defaultValue);
+			DisplayValidValues = new Dictionary<string,string> (ValidValues.ToDictionary(x=>x,x=>x));
 		}
 
 		#endregion

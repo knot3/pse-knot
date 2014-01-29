@@ -88,7 +88,23 @@ namespace Knot3.Screens
 			);
 			resolutionItem.AddEntries (resolutionOption);
 			settingsMenu.Add (resolutionItem);
-
+			float[] validSupersamples = {
+				1f, 1.25f, 1.5f, 1.75f, 2f
+			};
+			FloatOptionInfo supersamplesOption = new FloatOptionInfo (
+				section: "video",
+				name: "Supersamples",
+				defaultValue: 1f,
+				validValues: validSupersamples,
+				configFile: Options.Default
+			);
+			DropDownMenuItem supersamplesItem = new DropDownMenuItem (
+				screen: this,
+				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				text: "Supersamples"
+			);
+			supersamplesItem.AddEntries (supersamplesOption);
+			settingsMenu.Add (supersamplesItem);
 			string[] validRenderEffects = RenderEffectLibrary.Names.ToArray();
 			DistinctOptionInfo renderEffectOption = new DistinctOptionInfo (
 			    section: "video",
