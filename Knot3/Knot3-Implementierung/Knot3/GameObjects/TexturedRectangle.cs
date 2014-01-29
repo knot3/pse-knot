@@ -84,7 +84,7 @@ namespace Knot3.GameObjects
 		public void Draw (GameTime time)
 		{
 			if (Info.IsVisible) {
-				Console.WriteLine ("basicEffect=" + World);
+				//Console.WriteLine ("basicEffect=" + World);
 				basicEffect.World = World.Camera.WorldMatrix;
 				basicEffect.View = World.Camera.ViewMatrix;
 				basicEffect.Projection = World.Camera.ProjectionMatrix;
@@ -99,7 +99,6 @@ namespace Knot3.GameObjects
 				if (Keys.Tab.IsHeldDown ()) {
 					basicEffect.EnableDefaultLighting ();  // Beleuchtung aktivieren
 				}
-				Console.WriteLine ("...");
 
 				foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes) {
 					pass.Apply ();
