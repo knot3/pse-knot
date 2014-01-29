@@ -206,11 +206,17 @@ namespace Knot3.RenderEffects
 				if (!renderTargets.ContainsKey (resolution)) {
 					renderTargets [resolution] = new Dictionary<Rectangle, RenderTarget2D> ();
 				}
-				if (!renderTargets [resolution].ContainsKey (viewport)) {
-					renderTargets [resolution] [viewport] = new RenderTarget2D (
-					    screen.Device, (int)(viewport.Width * Supersampling), (int)(viewport.Height * Supersampling),
-					    false, SurfaceFormat.Color, DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
-					);
+				while (!renderTargets [resolution].ContainsKey (viewport)) {
+					try {
+						renderTargets [resolution] [viewport] = new RenderTarget2D (
+						    screen.Device, (int)(viewport.Width * Supersampling), (int)(viewport.Height * Supersampling),
+						    false, SurfaceFormat.Color, DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
+						);
+						break;
+					} catch (NotSupportedException ex) {
+						RenderEffectLibrary.Supersampling *= 0.8f;
+						continue;
+					}
 				}
 				return renderTargets [resolution] [viewport];
 			}
