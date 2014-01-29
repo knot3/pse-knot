@@ -60,7 +60,7 @@ namespace Knot3.Widgets
 		{
 			get {
 				Bounds bounds = new Bounds (
-				    new ScreenPoint (Screen, Bounds.Position.Relative + Bounds.Size.OnlyX.Relative),
+				    Bounds.Position + Bounds.Size.OnlyX + new ScreenPoint (Screen, 0.005f, 0f),
 				    new ScreenPoint (Screen, 0.02f, Bounds.Size.Relative.Y)
 				);
 				return bounds;
@@ -70,7 +70,7 @@ namespace Knot3.Widgets
 		public Rectangle MouseMoveBounds
 		{
 			get {
-				return new Bounds(Bounds.Position, Bounds.Size+ScrollBarBounds.Size.OnlyX);
+				return new Bounds (Bounds.Position, Bounds.Size + ScrollBarBounds.Size.OnlyX);
 			}
 		}
 
@@ -111,7 +111,7 @@ namespace Knot3.Widgets
 			return new Bounds (
 			           position: new ScreenPoint (Screen, () => verticalRelativeItemPosition (itemOrder)),
 			           size: new ScreenPoint (Screen, () => verticalRelativeItemSize (itemOrder))
-			       );
+			);
 		}
 
 		private Vector2 verticalRelativeItemPosition (int itemOrder)
@@ -220,7 +220,7 @@ namespace Knot3.Widgets
 				spriteBatch.Begin ();
 				Texture2D rectangleTexture = TextureHelper.Create (Screen.Device, Color.White);
 				Bounds sliderBounds = ScrollSliderInBarBounds.In (ScrollBarBounds);
-				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle.Grow(1), Lines.DefaultOutlineColor);
+				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle.Grow (1), Lines.DefaultOutlineColor);
 				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle, Lines.DefaultLineColor);
 				// Console.WriteLine ("ScrollSliderBounds=" + sliderBounds.Rectangle);
 				// Console.WriteLine ("ScrollBarBounds=" + ScrollBarBounds.Rectangle);

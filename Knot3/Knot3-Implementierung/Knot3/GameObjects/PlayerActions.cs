@@ -59,5 +59,7 @@ namespace Knot3.GameObjects
 		ResetCamera,
 		[Description("Move Selection to Center")]
 		MoveToCenter,
+		[Description("Toggle Mouse Lock")]
+		ToggleMouseLock,
 	}
 }
