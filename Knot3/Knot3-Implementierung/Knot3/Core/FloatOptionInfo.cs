@@ -38,7 +38,7 @@ namespace Knot3.Core
 				return stringToFloat (base.Value);
 			}
 			set {
-				base.Value = convertToString (value); 
+				base.Value = convertToString (value);
 			}
 		}
 
@@ -67,16 +67,17 @@ namespace Knot3.Core
 		/// [base=section, name, defaultValue?ConfigFile.True:ConfigFile.False, ValidValues, configFile]
 		/// </summary>
 		public FloatOptionInfo (string section, string name, float defaultValue, IEnumerable<float> validValues, ConfigFile configFile)
-			: base(section, name, convertToString( defaultValue),validValues.Select(convertToString), configFile)
+		: base(section, name, convertToString( defaultValue),validValues.Select(convertToString), configFile)
 		{
-		
+
 		}
 
-		private static String convertToString(float f){
+		private static String convertToString(float f)
+		{
 
 			return ("" + (int)(f*1000f));
 
-		
+
 		}
 		private static float stringToFloat (string s)
 		{

@@ -194,7 +194,7 @@ namespace Knot3.RenderEffects
 		#region RenderTarget Cache
 
 		private Dictionary<Point,Dictionary<Rectangle,Dictionary<float, RenderTarget2D>>> renderTargets
-		= new Dictionary<Point,Dictionary<Rectangle,Dictionary<float, RenderTarget2D>>> ();
+		    = new Dictionary<Point,Dictionary<Rectangle,Dictionary<float, RenderTarget2D>>> ();
 
 		public RenderTarget2D CurrentRenderTarget
 		{
@@ -223,7 +223,7 @@ namespace Knot3.RenderEffects
 						if (Options.Default ["video", "Supersamples", 1] > 1) {
 							Options.Default ["video", "Supersamples", 1] *= 0.8f;
 						}
-						else{throw;}
+						else {throw;}
 						continue;
 					}
 				}
