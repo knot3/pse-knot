@@ -63,7 +63,7 @@ namespace Knot3.Core
 				        || (Screen.Input.CurrentInputAction == InputAction.ArcballMove
 				            && (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed
 				                || InputManager.CurrentMouseState.RightButton == ButtonState.Pressed))) {
-					spriteBatch.Draw (cursorTex, Screen.Device.Viewport.Center (), Color.White);
+					//spriteBatch.Draw (cursorTex, Screen.Device.Viewport.Center (), Color.White);
 				}
 				else {
 					spriteBatch.Draw (cursorTex, new Vector2 (InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y), Color.White);

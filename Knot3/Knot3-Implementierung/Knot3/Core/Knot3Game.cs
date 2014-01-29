@@ -114,6 +114,10 @@ namespace Knot3.Core
 			if (MonoHelper.IsRunningOnMono ()) {
 				IsMouseVisible = true;
 			}
+			else {
+				IsMouseVisible = false;
+				System.Windows.Forms.Cursor.Hide(); 
+			}
 
 			Content.RootDirectory = "Content";
 			Window.Title = "Knot3";
@@ -132,7 +136,7 @@ namespace Knot3.Core
 			VSync = true;
 
 			// anti aliasing
-			Graphics.GraphicsDevice.PresentationParameters.MultiSampleCount = 4;
+			Graphics.GraphicsDevice.PresentationParameters.MultiSampleCount = 8;
 			Graphics.PreferMultiSampling = true;
 
 			// screens
