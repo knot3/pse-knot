@@ -124,6 +124,9 @@ namespace Knot3.Screens
 
 			// assign the specified knot
 			Knot = knot;
+
+			SkyCube skyCube = new SkyCube (screen: this, position: Vector3.Zero, distance: world.Camera.MaxPositionDistance + 500);
+			world.Add (skyCube);
 		}
 
 		#endregion

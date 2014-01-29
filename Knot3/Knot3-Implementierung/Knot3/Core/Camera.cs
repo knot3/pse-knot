@@ -43,7 +43,9 @@ namespace Knot3.Core
 			get { return _position; }
 			set {
 				OnViewChanged ();
-				_position = value;
+				if (MaxPositionDistance == 0 || value.Length ().Abs () <= MaxPositionDistance) {
+					_position = value;
+				}
 			}
 		}
 
@@ -108,6 +110,8 @@ namespace Knot3.Core
 
 		public Vector3 UpVector { get; private set; }
 
+		public float MaxPositionDistance { get; private set; }
+
 		public Action OnViewChanged = () => {};
 		private float aspectRatio;
 		private float nearPlane;
@@ -126,13 +130,14 @@ namespace Knot3.Core
 		{
 			World = world;
 			Position = defaultPosition;
-			Target = new Vector3 (0, 0, 0);
+			Target = Vector3.Zero;
 			UpVector = Vector3.Up;
 			Rotation = Angles3.Zero;
-
+			MaxPositionDistance = 5000;
+			
 			FoV = 45;
 			nearPlane = 0.5f;
-			farPlane = 10000.0f;
+			farPlane = 15000.0f;
 
 			UpdateMatrices (null);
 		}
@@ -274,7 +279,7 @@ namespace Knot3.Core
 				Target = Target.SetDistanceTo (
 				             target: smoothTarget.Value,
 				             distance: Math.Max (0, smoothDistance - distance)
-				         );
+				);
 				World.Redraw = true;
 			}
 		}
@@ -291,13 +296,13 @@ namespace Knot3.Core
 			                             projection: World.Camera.ProjectionMatrix,
 			                             view: World.Camera.ViewMatrix,
 			                             world: World.Camera.WorldMatrix
-			                         );
+			);
 			Vector3 currentMousePosition = World.Viewport.Unproject (
 			                                   source: new Vector3 (position, screenLocation.Z),
 			                                   projection: World.Camera.ProjectionMatrix,
 			                                   view: World.Camera.ViewMatrix,
 			                                   world: Matrix.Identity
-			                               );
+			);
 			return currentMousePosition;
 		}
 

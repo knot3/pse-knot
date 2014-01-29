@@ -321,7 +321,6 @@ namespace Knot3.GameObjects
 			return GetEnumerator (); // Just return the generic version
 		}
 
-
 		#endregion
 	}
 }
