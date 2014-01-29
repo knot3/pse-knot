@@ -56,7 +56,7 @@ namespace Knot3.Core
 
 		private void DrawCursor (GameTime time)
 		{
-			if (!MonoHelper.IsRunningOnMono ()) {
+			if (!MonoHelper.IsRunningOnLinux()) {
 				spriteBatch.Begin ();
 
 				if (Screen.Input.GrabMouseMovement || Screen.Input.CurrentInputAction == InputAction.CameraTargetMove
