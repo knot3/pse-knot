@@ -44,9 +44,21 @@ namespace Knot3.KnotData
 		{
 			get {
 				Console.WriteLine ("KnotStringIO.Edges[get] = " + edgeLines.Count ());
-				foreach (string line in edgeLines) {
+				foreach (string _line in edgeLines) {
+					string line = _line;
 					Edge edge = DecodeEdge (line [0]);
-					edge.Color = DecodeColor (line.Substring (1, 8));
+					line = line.Substring (1);
+					if (line.StartsWith ("#"))
+						line = line.Substring (1);
+					edge.Color = DecodeColor (line.Substring (0, 8));
+					line = line.Substring (8);
+					if (line.StartsWith ("#"))
+						line = line.Substring (1);
+					if (line.Length > 0) {
+						foreach (int rect in line.Split(',').Select(int.Parse).ToList()) {
+							edge.Rectangles.Add (rect);
+						}
+					}
 					yield return edge;
 				}
 			}
@@ -129,7 +141,7 @@ namespace Knot3.KnotData
 		private static IEnumerable<string> ToLines (IEnumerable<Edge> edges)
 		{
 			foreach (Edge edge in edges) {
-				yield return EncodeEdge (edge) + EncodeColor (edge.Color);
+				yield return EncodeEdge (edge) + "#" + EncodeColor (edge.Color) + "#" + string.Join (",", edge.Rectangles);
 			}
 		}
 

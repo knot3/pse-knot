@@ -93,12 +93,24 @@ namespace Knot3.GameObjects
 				    up: up,
 				    height: 2 * distance
 				);
+				
 				rectangles.Add (new TexturedRectangle (Screen, info));
 			}
 			assignWorld ();
 		}
 
 		private Texture2D CreateSkyTexture ()
+		{
+			string effectName = Options.Default ["video", "knot-shader", "default"];
+			if (effectName == "celshader") {
+				return TextureHelper.Create(Screen.Device, Color.CornflowerBlue);
+			}
+			else {
+				return CreateSpaceTexture ();
+			}
+		}
+
+		private Texture2D CreateSpaceTexture ()
 		{
 			int width = 2000;
 			int height = 2000;
