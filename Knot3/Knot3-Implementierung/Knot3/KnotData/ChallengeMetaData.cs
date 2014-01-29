@@ -50,7 +50,7 @@ namespace Knot3.KnotData
 					throw new ArgumentException ("Every implementation of IChallengeIO must have at least one file extension.");
 				}
 				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
-				           + FileUtility.ConvertToFileName (name) + extension;
+					+ FileUtility.ConvertToFileName (name) + extension;
 			}
 		}
 
@@ -81,7 +81,7 @@ namespace Knot3.KnotData
 		/// </summary>
 		public IEnumerable<KeyValuePair<string, int>> Highscore { get { return highscore; } }
 
-		private Dictionary<string, int> highscore;
+		private List<KeyValuePair<string, int>> highscore;
 
 		#endregion
 
@@ -100,10 +100,10 @@ namespace Knot3.KnotData
 			Format = format ?? Format;
 			Filename = filename ?? Filename;
 
-			this.highscore = new Dictionary<string, int> ();
+			this.highscore = new List<KeyValuePair<string, int>> ();
 			if (highscore != null) {
 				foreach (KeyValuePair<string, int> entry in highscore) {
-					this.highscore.Add (entry.Key, entry.Value);
+					this.highscore.Add (entry);
 				}
 			}
 		}
@@ -113,8 +113,9 @@ namespace Knot3.KnotData
 		/// </summary>
 		public void AddToHighscore (string name, int time)
 		{
-			if (!highscore.ContainsKey (name) || highscore [name] > time) {
-				highscore [name] = time;
+			KeyValuePair<string, int> entry = new KeyValuePair<string, int> (name, time);
+			if (!highscore.Contains (entry)) {
+				highscore.Add (entry);
 			}
 		}
 
