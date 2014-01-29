@@ -215,6 +215,8 @@ namespace Knot3.RenderEffects
 						break;
 					}
 					catch (NotSupportedException ex) {
+						ex.Source=null; //um den compiler zufrieden zu stellen
+
 						RenderEffectLibrary.Supersampling *= 0.8f;
 						continue;
 					}

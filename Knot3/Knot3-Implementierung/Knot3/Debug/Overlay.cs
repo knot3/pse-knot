@@ -211,7 +211,7 @@ namespace Knot3.Debug
 		{
 			_total_frames++;
 			spriteBatch.Begin ();
-			DrawString ("FPS: " + _fps, Screen.Viewport.Width - (int)(170 * scale), (int)(50 * scale), Color.White);
+			DrawString ("FPS: " + _fps, (int)(Screen.Viewport.Width/RenderEffectLibrary.Supersampling) - (int)(170 * scale), (int)(50 * scale), Color.White);
 			spriteBatch.End ();
 		}
 
@@ -220,7 +220,7 @@ namespace Knot3.Debug
 			spriteBatch.Begin ();
 			int height = (int)(90 * scale);
 			foreach (string name in Profiler.ProfilerMap.Keys) {
-				DrawString (name + ": " + Profiler.ProfilerMap [name], Screen.Viewport.Width - (int)(170 * scale), height, Color.White);
+				DrawString (name + ": " + Profiler.ProfilerMap [name], (int)(Screen.Viewport.Width/RenderEffectLibrary.Supersampling) - (int)(170 * scale), height, Color.White);
 				height += lineHeight;
 			}
 			spriteBatch.End ();
