@@ -196,7 +196,7 @@ namespace Knot3.RenderEffects
 				}
 				if (!renderTargets [resolution].ContainsKey (viewport)) {
 					renderTargets [resolution] [viewport] = new RenderTarget2D (
-						screen.Device, viewport.Width, viewport.Height, false, SurfaceFormat.Color,
+					    screen.Device, viewport.Width, viewport.Height, false, SurfaceFormat.Color,
 					    DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
 					);
 				}
