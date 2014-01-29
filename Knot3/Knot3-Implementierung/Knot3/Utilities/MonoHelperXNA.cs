@@ -33,6 +33,16 @@ namespace Knot3.Utilities
 		{
 			return false;
 		}
+
+		public static bool IsRunningOnLinux ()
+		{
+			return false;
+		}
+
+		public static bool IsRunningOnWindows ()
+		{
+			return true;
+		}
 	}
 }
 

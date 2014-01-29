@@ -33,6 +33,16 @@ namespace Knot3.Utilities
 		{
 			return true;
 		}
+
+		public static bool IsRunningOnLinux ()
+		{
+			return Environment.OSVersion.Platform == PlatformID.Unix;
+		}
+
+		public static bool IsRunningOnWindows ()
+		{
+			return !IsRunningOnLinux ();
+		}
 	}
 }
 
