@@ -23,7 +23,6 @@ namespace Knot3.RenderEffects
 {
 	public class RenderEffectLibrary
 	{
-
 		private static EffectFactory[] EffectLibrary
 		= new EffectFactory[] {
 			new EffectFactory (
