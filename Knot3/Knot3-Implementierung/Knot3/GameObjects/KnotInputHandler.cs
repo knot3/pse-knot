@@ -242,7 +242,7 @@ namespace Knot3.GameObjects
 				break;
 			case InputAction.CameraTargetMove:
 				// verschieben
-				moveTarget (new Vector3 (mouseMove, 0), time);
+				moveTarget (new Vector3 (mouseMove.X, -mouseMove.Y, 0) * 0.3f, time);
 				break;
 			}
 		}
