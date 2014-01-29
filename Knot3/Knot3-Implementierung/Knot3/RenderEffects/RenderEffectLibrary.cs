@@ -23,6 +23,8 @@ namespace Knot3.RenderEffects
 {
 	public class RenderEffectLibrary
 	{
+		public static float Supersampling = 2;
+
 		private static EffectFactory[] EffectLibrary
 		= new EffectFactory[] {
 			new EffectFactory (

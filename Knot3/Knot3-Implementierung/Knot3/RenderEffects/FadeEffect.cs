@@ -70,19 +70,35 @@ namespace Knot3.RenderEffects
 		{
 			if (PreviousRenderTarget != null) {
 				alpha -= 0.05f;
+				
 				spriteBatch.Draw (
-				    PreviousRenderTarget,
-				    Vector2.Zero,
-				    new Rectangle (0, 0, screen.Viewport.Width, screen.Viewport.Height),
-				    Color.White
+					PreviousRenderTarget,
+					new Vector2 (screen.Viewport.X, screen.Viewport.Y),
+					null,
+					Color.White,
+					0f,
+					Vector2.Zero,
+					Vector2.One / Supersampling,
+					SpriteEffects.None,
+					1f
 				);
 			}
 			if (alpha <= 0) {
 				PreviousRenderTarget = null;
 				alpha = 0.0f;
 			}
-
-			spriteBatch.Draw (RenderTarget, Vector2.Zero, Color.White * (1 - alpha));
+			
+			spriteBatch.Draw (
+				RenderTarget,
+				new Vector2 (screen.Viewport.X, screen.Viewport.Y),
+				null,
+				Color.White * (1 - alpha),
+				0f,
+				Vector2.Zero,
+				Vector2.One / Supersampling,
+				SpriteEffects.None,
+				1f
+			);
 		}
 
 		#endregion
