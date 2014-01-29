@@ -119,7 +119,8 @@ namespace Knot3.Screens
 			);
 			backButton.AddKey(Keys.Escape);
 			backButton.SetCoordinates(left: 0.170f, top: 0.895f, right: 0.270f, bottom: 0.970f);
-			backButton.BackgroundColor = () => Color.Azure;
+			//backButton.BackgroundColor = () => Color.Azure;
+			backButton.AlignX = HorizontalAlignment.Center;
 
 			//backButton.Bounds.Size = new ScreenPoint(this, 0.300f, 0.270f);
 			// backButton.Bounds.Padding = new ScreenPoint (this, 0.300f, 0.770f);

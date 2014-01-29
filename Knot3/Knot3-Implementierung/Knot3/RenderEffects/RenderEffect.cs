@@ -208,6 +208,7 @@ namespace Knot3.RenderEffects
 				}
 				while (!renderTargets [resolution].ContainsKey (viewport)) {
 					try {
+						Console.WriteLine("Supersampling="+Supersampling);
 						renderTargets [resolution] [viewport] = new RenderTarget2D (
 						    screen.Device, (int)(viewport.Width * Supersampling), (int)(viewport.Height * Supersampling),
 						    false, SurfaceFormat.Color, DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
@@ -215,6 +216,7 @@ namespace Knot3.RenderEffects
 						break;
 					}
 					catch (NotSupportedException ex) {
+						Console.WriteLine(ex);
 						RenderEffectLibrary.Supersampling *= 0.8f;
 						continue;
 					}
