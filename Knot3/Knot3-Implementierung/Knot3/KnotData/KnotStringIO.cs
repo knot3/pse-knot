@@ -48,12 +48,14 @@ namespace Knot3.KnotData
 					string line = _line;
 					Edge edge = DecodeEdge (line [0]);
 					line = line.Substring (1);
-					if (line.StartsWith ("#"))
+					if (line.StartsWith ("#")) {
 						line = line.Substring (1);
+					}
 					edge.Color = DecodeColor (line.Substring (0, 8));
 					line = line.Substring (8);
-					if (line.StartsWith ("#"))
+					if (line.StartsWith ("#")) {
 						line = line.Substring (1);
+					}
 					if (line.Length > 0) {
 						foreach (int rect in line.Split(',').Select(int.Parse).ToList()) {
 							edge.Rectangles.Add (rect);

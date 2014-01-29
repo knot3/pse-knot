@@ -93,7 +93,7 @@ namespace Knot3.GameObjects
 				    up: up,
 				    height: 2 * distance
 				);
-				
+
 				rectangles.Add (new TexturedRectangle (Screen, info));
 			}
 			assignWorld ();
