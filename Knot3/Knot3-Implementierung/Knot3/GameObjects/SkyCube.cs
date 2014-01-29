@@ -85,13 +85,13 @@ namespace Knot3.GameObjects
 				Vector3 up = direction == Direction.Up || direction == Direction.Down ? Vector3.Forward : Vector3.Up;
 				Vector3 left = Vector3.Normalize (Vector3.Cross (position, up));
 				TexturedRectangleInfo info = new TexturedRectangleInfo (
-					// texturename: "sky1",
-					texture: CreateSkyTexture (),
-					origin: position,
-					left: left,
-					width: 2 * distance,
-					up: up,
-					height: 2 * distance
+				    // texturename: "sky1",
+				    texture: CreateSkyTexture (),
+				    origin: position,
+				    left: left,
+				    width: 2 * distance,
+				    up: up,
+				    height: 2 * distance
 				);
 				rectangles.Add (new TexturedRectangle (Screen, info));
 			}

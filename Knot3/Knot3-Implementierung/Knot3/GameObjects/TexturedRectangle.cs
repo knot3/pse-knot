@@ -58,10 +58,12 @@ namespace Knot3.GameObjects
 			SetPosition (Info.Position);
 
 			basicEffect = new BasicEffect (screen.Device);
-			if (info.Texture != null)
+			if (info.Texture != null) {
 				texture = info.Texture;
-			else
-				texture = screen.LoadTexture (info.Texturename);	
+			}
+			else {
+				texture = screen.LoadTexture (info.Texturename);
+			}
 			if (texture != null) {
 				FillVertices ();
 			}
@@ -70,7 +72,7 @@ namespace Knot3.GameObjects
 		#endregion
 
 		#region Update
-		
+
 		public void Update (GameTime time)
 		{
 		}
@@ -103,7 +105,7 @@ namespace Knot3.GameObjects
 					pass.Apply ();
 
 					Screen.Device.DrawUserIndexedPrimitives<VertexPositionNormalTexture> (
-                    PrimitiveType.TriangleList, Vertices, 0, Vertices.Length, Indexes, 0, Indexes.Length / 3
+					    PrimitiveType.TriangleList, Vertices, 0, Vertices.Length, Indexes, 0, Indexes.Length / 3
 					);
 				}
 			}
@@ -146,7 +148,7 @@ namespace Knot3.GameObjects
 			Indexes [3] = 2;
 			Indexes [4] = 1;
 			Indexes [5] = 3;
-			
+
 			Indexes [6] = 2;
 			Indexes [7] = 1;
 			Indexes [8] = 0;
@@ -172,10 +174,10 @@ namespace Knot3.GameObjects
 		{
 			return Info.Left * Info.Width + Info.Up * Info.Height;
 		}
-		
+
 		public BoundingBox[] Bounds ()
 		{
-			return new BoundingBox[]{
+			return new BoundingBox[] {
 				LowerLeft.Bounds (UpperRight - LowerLeft), LowerRight.Bounds (UpperLeft - LowerRight),
 				UpperRight.Bounds (LowerLeft - UpperRight), UpperLeft.Bounds (LowerRight - UpperLeft)
 			};
