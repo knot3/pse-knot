@@ -25,7 +25,7 @@ namespace Knot3.GameObjects
 	/// <summary>
 	/// Eine frei in der Spielwelt liegende Textur, die auf ein Rechteck gezeichnet wird.
 	/// </summary>
-	public sealed class TexturedRectangle : IGameObject
+	public sealed class TexturedRectangle : IGameObject, IDisposable
 	{
 		#region Attributes and Properties
 
@@ -84,6 +84,10 @@ namespace Knot3.GameObjects
 		public void Draw (GameTime time)
 		{
 			if (Info.IsVisible) {
+				// Setze den Viewport auf den der aktuellen Spielwelt
+				Viewport original = Screen.Viewport;
+				Screen.Viewport = World.Viewport;
+
 				//Console.WriteLine ("basicEffect=" + World);
 				basicEffect.World = World.Camera.WorldMatrix;
 				basicEffect.View = World.Camera.ViewMatrix;
@@ -108,6 +112,9 @@ namespace Knot3.GameObjects
 					    PrimitiveType.TriangleList, Vertices, 0, Vertices.Length, Indexes, 0, Indexes.Length / 3
 					);
 				}
+
+				// Setze den Viewport wieder auf den ganzen Screen
+				Screen.Viewport = original;
 			}
 		}
 
@@ -200,6 +207,19 @@ namespace Knot3.GameObjects
 		public Vector3 Center ()
 		{
 			return LowerLeft + (UpperRight - LowerLeft) / 2;
+		}
+
+		public override string ToString ()
+		{
+			return "TexturedRectangle(" + UpperLeft + "," + UpperRight + "," + LowerRight + "," + LowerLeft + ")";
+		}
+
+		public void Dispose ()
+		{
+			if (texture != null) {
+				texture.Dispose ();
+				texture = null;
+			}
 		}
 	}
 }

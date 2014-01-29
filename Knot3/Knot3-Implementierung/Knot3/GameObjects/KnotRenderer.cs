@@ -61,6 +61,11 @@ namespace Knot3.GameObjects
 		private List<PipeModel> pipes;
 
 		/// <summary>
+		/// Die Liste der Flächen zwischen den Kanten.
+		/// </summary>
+		private List<TexturedRectangle> rectangles;
+
+		/// <summary>
 		/// Der Knoten, für den 3D-Modelle erstellt werden sollen.
 		/// </summary>
 		public Knot Knot
@@ -119,6 +124,7 @@ namespace Knot3.GameObjects
 			pipes = new List<PipeModel> ();
 			nodes = new List<NodeModel> ();
 			arrows = new List<ArrowModel> ();
+			rectangles = new List<TexturedRectangle> ();
 			pipeFactory = new ModelFactory ((s, i) => new PipeModel (s, i as PipeModelInfo));
 			nodeFactory = new ModelFactory ((s, i) => new NodeModel (s, i as NodeModelInfo));
 			arrowFactory = new ModelFactory ((s, i) => new ArrowModel (s, i as ArrowModelInfo));
@@ -177,6 +183,7 @@ namespace Knot3.GameObjects
 			if (showArrows) {
 				CreateArrows ();
 			}
+			CreateRectangles ();
 
 			World.Redraw = true;
 		}
@@ -254,6 +261,61 @@ namespace Knot3.GameObjects
 			}
 		}
 
+		private void CreateRectangles ()
+		{
+			foreach (TexturedRectangle rectangle in rectangles) {
+				rectangle.Dispose ();
+			}
+			rectangles.Clear ();
+
+			foreach (Node node in nodeMap.Nodes) {
+				List<IJunction> junctions = nodeMap.JunctionsAtNode (node);
+
+				if (junctions.Count == 1) {
+					CreateRectangle (junctions [0]);
+				}
+			}
+		}
+
+		private void CreateRectangle (IJunction junction)
+		{
+			Edge from = junction.EdgeFrom;
+			Edge to = junction.EdgeTo;
+			if (from.Rectangles.Intersect (to.Rectangles).Count () > 0) {
+				Node node = nodeMap.NodeAfterEdge (from);
+				Vector3 origin = node.Vector + (to.Direction - from.Direction) / 2 * Node.Scale;
+				Texture2D texture = CreateRectangleTexture (from.Color, to.Color);
+				TexturedRectangleInfo info = new TexturedRectangleInfo (
+					texture: texture,
+					origin: origin,
+					left: from.Direction,
+					width: Node.Scale,
+					up: to.Direction.Reverse,
+					height: Node.Scale
+				);
+				TexturedRectangle rectangle = new TexturedRectangle (screen: screen, info: info);
+				rectangle.World = World;
+				Console.WriteLine ("rectangle=" + rectangle);
+				rectangles.Add (rectangle);
+			}
+		}
+
+		private Texture2D CreateRectangleTexture (Color fromColor, Color toColor)
+		{
+			int width = 100;
+			int height = 100;
+			Texture2D texture = new Texture2D (screen.Device, width, height);
+			Color[] colors = new Color[width * height];
+			for (int w = 0; w < width; ++w) {
+				for (int h = 0; h < height; ++h) {
+					//Console.WriteLine((w - h));
+					colors [h * width + w] = toColor.Mix (fromColor, 0.5f + (float)(w - h) / (float)Math.Max(width, height));
+				}
+			}
+			texture.SetData (colors);
+			return texture;
+		}
+
 		/// <summary>
 		/// Ruft die Update()-Methoden der Kanten, Übergänge und Pfeile auf.
 		/// </summary>
@@ -267,6 +329,9 @@ namespace Knot3.GameObjects
 			}
 			foreach (ArrowModel arrow in arrows) {
 				arrow.Update (time);
+			}
+			foreach (TexturedRectangle rectangle in rectangles) {
+				rectangle.Update (time);
 			}
 		}
 
@@ -293,6 +358,11 @@ namespace Knot3.GameObjects
 						arrow.Draw (time);
 					}
 				};
+				Profiler.ProfileDelegate ["Rectangles"] = () => {
+					foreach (TexturedRectangle rectangle in rectangles) {
+						rectangle.Draw (time);
+					}
+				};
 				Profiler.Values ["# Pipes"] = pipes.Count ();
 				Profiler.Values ["# Nodes"] = nodes.Count ();
 			}
@@ -312,6 +382,9 @@ namespace Knot3.GameObjects
 			}
 			foreach (ArrowModel arrow in arrows) {
 				yield return arrow;
+			}
+			foreach (TexturedRectangle rectangle in rectangles) {
+				yield return rectangle;
 			}
 		}
 

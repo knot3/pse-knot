@@ -162,6 +162,11 @@ namespace Knot3.Screens
 			// assign the specified target knot
 			ChallengeKnotRenderer.Knot = challenge.Target;
 
+			SkyCube playerSkyCube = new SkyCube (screen: this, position: Vector3.Zero, distance: PlayerWorld.Camera.MaxPositionDistance + 500);
+			PlayerWorld.Add (playerSkyCube);
+			SkyCube challengeSkyCube = new SkyCube (screen: this, position: Vector3.Zero, distance: ChallengeWorld.Camera.MaxPositionDistance + 500);
+			ChallengeWorld.Add (challengeSkyCube);
+
 			// Die Spielzeit-Anzeige
 			playTimeDisplay = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "");
 			playTimeDisplay.Bounds.Position = new ScreenPoint (this, 0.800f, 0.01f);
@@ -290,7 +295,8 @@ namespace Knot3.Screens
 
 		#endregion
 
-		enum ChallengeModeState {
+		enum ChallengeModeState
+		{
 			Start,
 			Running,
 			Finished,
