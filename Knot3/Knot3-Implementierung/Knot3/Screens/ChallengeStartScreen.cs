@@ -110,7 +110,6 @@ namespace Knot3.Screens
 			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 			previewMouseHandler = new ModelMouseHandler (screen: this, world: previewWorld);
 
-			////////////
 			backButton = new MenuButton(
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
@@ -118,23 +117,9 @@ namespace Knot3.Screens
 			    onClick: (time) => NextScreen = Game.Screens.Where((s) => !(s is ChallengeStartScreen)).ElementAt(0)
 			);
 			backButton.AddKey(Keys.Escape);
-			backButton.SetCoordinates(left: 0.170f, top: 0.895f, right: 0.270f, bottom: 0.970f);
-			//backButton.BackgroundColor = () => Color.Azure;
+			backButton.SetCoordinates(left: 0.170f, top: 0.910f, right: 0.270f, bottom: 0.960f);
+			// backButton.BackgroundColor = () => Color.Azure;
 			backButton.AlignX = HorizontalAlignment.Center;
-
-			//backButton.Bounds.Size = new ScreenPoint(this, 0.300f, 0.270f);
-			// backButton.Bounds.Padding = new ScreenPoint (this, 0.300f, 0.770f);
-			// backButton.ForegroundColor = base.MenuItemForegroundColor
-			/*
-
-			navigationMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.770f);
-			navigationMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
-			navigationMenu.ItemForegroundColor = base.MenuItemForegroundColor;
-			navigationMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
-
-
-			 */
-			//////////////
 		}
 
 		#endregion
