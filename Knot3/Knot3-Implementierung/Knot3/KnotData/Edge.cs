@@ -41,7 +41,7 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Die Liste der Flächennummern, die an die Kante angrenzen.
 		/// </summary>
-		public List<int> Rectangles { get; set; }
+		public List<int> Rectangles { get; private set; }
 
 		private int id;
 		private static int previousId = 0;
@@ -58,6 +58,7 @@ namespace Knot3.KnotData
 			Direction = direction;
 			Color = DefaultColor;
 			id = ++previousId;
+			Rectangles = new List<int> ();
 		}
 
 		#endregion
