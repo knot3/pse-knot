@@ -175,7 +175,7 @@ namespace Knot3.Debug
 		{
 			if (font != null) {
 				try {
-					spriteBatch.DrawString (font, str, new Vector2 (width, height), color, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+					spriteBatch.DrawString (font, str, new Vector2 (width, height)*RenderEffectLibrary.Supersampling, color, 0f, Vector2.Zero, scale*RenderEffectLibrary.Supersampling, SpriteEffects.None, 0f);
 
 				}
 				catch (ArgumentException exp) {
