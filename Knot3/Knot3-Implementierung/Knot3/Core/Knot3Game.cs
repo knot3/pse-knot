@@ -116,7 +116,7 @@ namespace Knot3.Core
 			}
 			else {
 				IsMouseVisible = false;
-				System.Windows.Forms.Cursor.Hide(); 
+				System.Windows.Forms.Cursor.Hide();
 			}
 
 			Content.RootDirectory = "Content";
