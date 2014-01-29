@@ -286,12 +286,12 @@ namespace Knot3.GameObjects
 				Vector3 origin = node.Vector + (to.Direction - from.Direction) / 2 * Node.Scale;
 				Texture2D texture = CreateRectangleTexture (from.Color, to.Color);
 				TexturedRectangleInfo info = new TexturedRectangleInfo (
-				    texture: texture,
-				    origin: origin,
-				    left: from.Direction,
-				    width: Node.Scale,
-				    up: to.Direction.Reverse,
-				    height: Node.Scale
+					texture: texture,
+					origin: origin,
+					left: from.Direction,
+					width: Node.Scale,
+					up: to.Direction.Reverse,
+					height: Node.Scale
 				);
 				TexturedRectangle rectangle = new TexturedRectangle (screen: screen, info: info);
 				rectangle.World = World;
@@ -309,7 +309,7 @@ namespace Knot3.GameObjects
 			for (int w = 0; w < width; ++w) {
 				for (int h = 0; h < height; ++h) {
 					//Console.WriteLine((w - h));
-					colors [h * width + w] = toColor.Mix (fromColor, 0.5f + (float)(w - h) / (float)Math.Max(width, height));
+					colors [h * width + w] = toColor.Mix (fromColor, 0.5f + (float)(w - h) / (float)Math.Max(width, height)) * 0.9f;
 				}
 			}
 			texture.SetData (colors);
