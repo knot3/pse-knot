@@ -91,7 +91,7 @@ namespace Knot3.Screens
 			    name: "Back",
 			    onClick: (time) => NextScreen = new StartScreen(Game)
 			);
-			returnButton.SetCoordinates (left: 0.750f, top: 0.850f, right: 1.050f, bottom: 0.950f);
+			returnButton.SetCoordinates (left: 0.825f, top: 0.850f, right: 0.975f, bottom: 0.950f);
 
 			buttons.Add (newKnotButton);
 			buttons.Add (loadKnotButton);
