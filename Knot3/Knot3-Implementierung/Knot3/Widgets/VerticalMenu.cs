@@ -111,7 +111,7 @@ namespace Knot3.Widgets
 			return new Bounds (
 			           position: new ScreenPoint (Screen, () => verticalRelativeItemPosition (itemOrder)),
 			           size: new ScreenPoint (Screen, () => verticalRelativeItemSize (itemOrder))
-			);
+			       );
 		}
 
 		private Vector2 verticalRelativeItemPosition (int itemOrder)

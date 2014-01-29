@@ -333,7 +333,7 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				).ElementAt (0);
+				                       ).ElementAt (0);
 			}
 
 			// Überprüfe, wie weit das Kamera-Target von dem Objekt, um das rotiert werden soll,
@@ -360,7 +360,7 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = camera.PositionToTargetDirection;
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.Target
-					+ (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
+				                  + (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.Target, oldDistance);
 			}
 		}
@@ -372,7 +372,7 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				).ElementAt (0);
+				                       ).ElementAt (0);
 			}
 
 			if (move.Length () > 0) {
@@ -385,9 +385,9 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = Vector3.Normalize (camera.ArcballTarget - camera.Position);
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.ArcballTarget
-					+ (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+				                  + (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Target = camera.ArcballTarget
-					+ (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+				                + (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.ArcballTarget, oldPositionDistance);
 				camera.Target = camera.Target.SetDistanceTo (camera.Position, oldTargetDistance);
 			}
