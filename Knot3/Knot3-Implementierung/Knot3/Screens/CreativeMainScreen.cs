@@ -103,7 +103,7 @@ namespace Knot3.Screens
 			lines.AddPoints (0.000f, 0.150f,
 			                 0.300f, 0.350f, 0.100f, 0.070f, 0.600f, 0.750f, 0.250f,
 			                 0.525f, 0.875f, 0.300f, 0.675f, 0.475f, 0.950f, 0.000f
-			);
+			                );
 
 			lines.AddPoints (0.975f, 0.850f, 0.825f, 0.950f, 0.975f, 0.850f);
 		}
