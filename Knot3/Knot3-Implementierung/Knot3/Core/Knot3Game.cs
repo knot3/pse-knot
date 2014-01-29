@@ -111,12 +111,15 @@ namespace Knot3.Core
 			isFullscreen = false;
 			Graphics.ApplyChanges ();
 
-			if (MonoHelper.IsRunningOnMono ()) {
+			if (MonoHelper.IsRunningOnLinux ()) {
 				IsMouseVisible = true;
 			}
-			else {
+			else if (MonoHelper.IsRunningOnWindows()) {
 				IsMouseVisible = false;
-				System.Windows.Forms.Cursor.Hide();
+				System.Windows.Forms.Cursor.Hide ();
+			}
+			else {
+				throw new Exception ("Unsupported Plattform Exception");
 			}
 
 			Content.RootDirectory = "Content";

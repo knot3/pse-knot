@@ -315,7 +315,7 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void rotate (Vector2 move, GameTime time)
 		{
-
+			Screen.Input.CurrentInputAction = InputAction.ArcballMove;
 			if (Options.Default ["video", "arcball-around-center", true]) {
 				rotateCenter (move, time);
 			}

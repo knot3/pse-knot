@@ -45,6 +45,8 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		protected SpriteBatch spriteBatch { get; set; }
 
+		protected float Supersampling { get { return RenderEffectLibrary.Supersampling; } }
+
 		#endregion
 
 		#region Constructors
@@ -167,7 +169,17 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		protected virtual void DrawRenderTarget (GameTime GameTime)
 		{
-			spriteBatch.Draw (RenderTarget, new Vector2 (screen.Viewport.X, screen.Viewport.Y), Color.White);
+			spriteBatch.Draw (
+			    RenderTarget,
+			    new Vector2 (screen.Viewport.X, screen.Viewport.Y),
+			    null,
+			    Color.White,
+			    0f,
+			    Vector2.Zero,
+			    Vector2.One / Supersampling,
+			    SpriteEffects.None,
+			    1f
+			);
 		}
 
 		public void DrawLastFrame (GameTime time)
@@ -194,11 +206,25 @@ namespace Knot3.RenderEffects
 				if (!renderTargets.ContainsKey (resolution)) {
 					renderTargets [resolution] = new Dictionary<Rectangle, RenderTarget2D> ();
 				}
-				if (!renderTargets [resolution].ContainsKey (viewport)) {
-					renderTargets [resolution] [viewport] = new RenderTarget2D (
-					    screen.Device, viewport.Width, viewport.Height, false, SurfaceFormat.Color,
-					    DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
-					);
+				while (!renderTargets [resolution].ContainsKey (viewport)) {
+					try {
+						Console.WriteLine("Supersampling="+Supersampling);
+						renderTargets [resolution] [viewport] = new RenderTarget2D (
+						    screen.Device, (int)(viewport.Width * Supersampling), (int)(viewport.Height * Supersampling),
+						    false, SurfaceFormat.Color, DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
+						);
+						break;
+					}
+					catch (NotSupportedException ex) {
+
+						ex.Source=null; //um den compiler zufrieden zu stellen
+
+
+						Console.WriteLine(ex);
+
+						RenderEffectLibrary.Supersampling *= 0.8f;
+						continue;
+					}
 				}
 				return renderTargets [resolution] [viewport];
 			}

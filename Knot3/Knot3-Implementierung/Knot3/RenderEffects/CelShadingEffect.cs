@@ -75,7 +75,18 @@ namespace Knot3.RenderEffects
 		{
 			spriteBatch.End ();
 			spriteBatch.Begin (SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, outlineShader);
-			spriteBatch.Draw (RenderTarget, Vector2.Zero, Color.White);
+
+			spriteBatch.Draw (
+			    RenderTarget,
+			    new Vector2 (screen.Viewport.X, screen.Viewport.Y),
+			    null,
+			    Color.White,
+			    0f,
+			    Vector2.Zero,
+			    Vector2.One / Supersampling,
+			    SpriteEffects.None,
+			    1f
+			);
 		}
 
 		/// <summary>

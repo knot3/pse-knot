@@ -56,7 +56,7 @@ namespace Knot3.Core
 
 		private void DrawCursor (GameTime time)
 		{
-			if (!MonoHelper.IsRunningOnMono ()) {
+			if (!MonoHelper.IsRunningOnLinux()) {
 				spriteBatch.Begin ();
 
 				if (Screen.Input.GrabMouseMovement || Screen.Input.CurrentInputAction == InputAction.CameraTargetMove
@@ -66,7 +66,17 @@ namespace Knot3.Core
 					//spriteBatch.Draw (cursorTex, Screen.Device.Viewport.Center (), Color.White);
 				}
 				else {
-					spriteBatch.Draw (cursorTex, new Vector2 (InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y), Color.White);
+					spriteBatch.Draw (
+					    cursorTex,
+					    new Vector2 (InputManager.CurrentMouseState.X, InputManager.CurrentMouseState.Y)* RenderEffectLibrary.Supersampling,
+					    null,
+					    Color.White,
+					    0f,
+					    Vector2.Zero,
+					    Vector2.One *RenderEffectLibrary.Supersampling,
+					    SpriteEffects.None,
+					    1f
+					);
 				}
 
 				spriteBatch.End ();
