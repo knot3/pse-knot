@@ -43,24 +43,25 @@ namespace Knot3.KnotData
 
 		#region Methods
 
-		public void AddEdge (Edge edge)
+		public void AddEdge (Edge edge, bool isVirtual)
 		{
 			Node a = NodeMap.NodeBeforeEdge (edge);
 			Node b = NodeMap.NodeAfterEdge (edge);
-			AddEdge (edge, a, b);
+			AddEdge (edge, a, b, isVirtual);
 		}
 
-		public void AddEdge (Edge edge, Node a, Node b)
+		public void AddEdge (Edge edge, Node nodeA, Node nodeB, bool isVirtual)
 		{
-			Vector3 edgeCenter = a.CenterBetween (b);
+			Vector3 edgeCenter = nodeA.CenterBetween (nodeB);
 			foreach (Direction direction in Direction.Values) {
 				if (direction.Axis != edge.Direction.Axis) {
 					Vector3 rectangleCenter = edgeCenter + direction * Node.Scale / 2;
 					PossibleRectanglePosition rectanglePosition = new PossibleRectanglePosition {
 						Edge = edge,
-						NodeA = a,
-						NodeB = b,
-						Position = rectangleCenter
+						NodeA = nodeA,
+						NodeB = nodeB,
+						Position = rectangleCenter,
+						IsVirtual = isVirtual
 					};
 					positions.Add (rectangleCenter, rectanglePosition);
 				}
@@ -103,7 +104,8 @@ namespace Knot3.KnotData
 									NodeA = nodeA,
 									NodeB = nodeB1,
 									NodeC = nodeC,
-									Position = pos[first].Position
+									Position = pos[first].Position,
+									IsVirtual = pos[first].IsVirtual || pos[second].IsVirtual
 								};
 								yield return valid;
 							}
@@ -121,6 +123,7 @@ namespace Knot3.KnotData
 		public Node NodeA;
 		public Node NodeB;
 		public Vector3 Position;
+		public bool IsVirtual;
 	}
 
 	public struct ValidRectanglePosition {
@@ -130,6 +133,7 @@ namespace Knot3.KnotData
 		public Node NodeB;
 		public Node NodeC;
 		public Vector3 Position;
+		public bool IsVirtual;
 	}
 }
 

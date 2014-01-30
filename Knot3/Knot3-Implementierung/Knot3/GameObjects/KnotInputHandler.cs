@@ -297,7 +297,7 @@ namespace Knot3.GameObjects
 		{
 			Profiler.ProfileDelegate ["Move"] = () => {
 				if (move.Length () > 0) {
-					move *= 10;
+					move *= 5;
 					Vector3 targetDirection = camera.PositionToTargetDirection;
 					Vector3 up = camera.UpVector;
 					// Führe die lineare Verschiebung durch
@@ -316,7 +316,7 @@ namespace Knot3.GameObjects
 		{
 			Profiler.ProfileDelegate ["Move"] = () => {
 				if (move.Length () > 0) {
-					move *= 10;
+					move *= 5;
 					Vector3 targetDirection = camera.PositionToTargetDirection;
 					Vector3 up = camera.UpVector;
 					// Führe die lineare Verschiebung durch
@@ -415,7 +415,7 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void zoom (int value, GameTime time)
 		{
-			camera.PositionToTargetDistance += value * 10;
+			camera.PositionToTargetDistance += value * 5;
 		}
 
 		public void OnKeyEvent (List<Keys> keys, KeyEvent keyEvent, GameTime time)
@@ -486,7 +486,9 @@ namespace Knot3.GameObjects
 
 		private void toggleMouseLock (GameTime time)
 		{
-			Screen.Input.GrabMouseMovement = !Screen.Input.GrabMouseMovement;
+			if (CurrentKeyAssignmentReversed [PlayerActions.ToggleMouseLock].IsDown ()) {
+				Screen.Input.GrabMouseMovement = !Screen.Input.GrabMouseMovement;
+			}
 		}
 
 		public Rectangle MouseMoveBounds { get { return world.Bounds; } }

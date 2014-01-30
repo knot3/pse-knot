@@ -67,7 +67,7 @@ namespace Knot3.GameObjects
 		/// [base="pipe1", Angles3.Zero, new Vector3(10,10,10)]
 		/// </summary>
 		public PipeModelInfo (NodeMap nodeMap, Knot knot, Edge edge)
-		: base("pipe-straight", Angles3.Zero, Vector3.One * 25f)
+		: base("pipe-straight", Angles3.Zero, new Vector3(25f, 25f, 25f))
 		{
 			// Weise Knoten und Kante zu
 			Knot = knot;
@@ -87,9 +87,21 @@ namespace Knot3.GameObjects
 			// Berechne die Drehung
 			Rotation += RotationMap [Edge.Direction];
 
-			// Berechne die Skalierung bei überlangen Kanten
+			// Berechne die Skalierung bei abgeschnittenen Übergängen
 			List<IJunction> junctions1 = nodeMap.JunctionsBeforeEdge (edge);
 			List<IJunction> junctions2 = nodeMap.JunctionsAfterEdge (edge);
+			IJunction myJunction1 = junctions1.Where (j => j.EdgeTo == edge).ElementAtOrDefault (0) ?? junctions1 [0];
+			IJunction myJunction2 = junctions2.Where (j => j.EdgeFrom == edge).ElementAtOrDefault (0) ?? junctions2 [0];
+			if (myJunction1.EdgeFrom.Direction != myJunction1.EdgeTo.Direction) {
+				Scale += new Vector3 (0, 0, 8f);
+				Position -= edge.Direction * 8f;
+			}
+			if (myJunction2.EdgeFrom.Direction != myJunction2.EdgeTo.Direction) {
+				Scale += new Vector3 (0, 0, 8f);
+				Position += edge.Direction * 8f;
+			}
+
+			// Berechne die Skalierung bei überlangen Kanten
 			if (junctions1.Count == 1 && junctions1 [0].EdgeFrom.Direction == junctions1 [0].EdgeTo.Direction) {
 				Scale += new Vector3 (0, 0, 12.5f);
 				Position -= edge.Direction * 12.5f;

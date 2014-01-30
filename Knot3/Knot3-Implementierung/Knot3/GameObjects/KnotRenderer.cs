@@ -287,7 +287,7 @@ namespace Knot3.GameObjects
 
 			RectangleMap rectMap = new RectangleMap (nodeMap);
 			foreach (Edge edge in knot) {
-				rectMap.AddEdge (edge);
+				rectMap.AddEdge (edge: edge, isVirtual: false);
 			}
 
 			int newRectangles;
@@ -307,7 +307,7 @@ namespace Knot3.GameObjects
 			Edge from = rect.EdgeAB;
 			Edge to = rect.EdgeBC;
 			Node node = rect.NodeB;
-			if (from.Rectangles.Intersect (to.Rectangles).Count () > 0) {
+			if (rect.IsVirtual || from.Rectangles.Intersect (to.Rectangles).Count () > 0) {
 				Texture2D texture = CreateRectangleTexture (from.Color, to.Color);
 
 				TexturedRectangleInfo info = new TexturedRectangleInfo (
@@ -325,10 +325,10 @@ namespace Knot3.GameObjects
 				if (!rectangles.Contains (rectangle)) {
 					rectangles.Add (rectangle);
 					if (!rectMap.ContainsEdge(node - from, node + from + to)) {
-						rectMap.AddEdge(to, node - from, node + from + to);
+						rectMap.AddEdge(edge: to, nodeA: node - from, nodeB: node + from + to, isVirtual: true);
 					}
 					if (!rectMap.ContainsEdge(node - from + to, node + to)) {
-						rectMap.AddEdge(from, node - from + to, node + to);
+						rectMap.AddEdge(edge: from, nodeA: node - from + to, nodeB: node + to, isVirtual: true);
 					}
 					return true;
 				}

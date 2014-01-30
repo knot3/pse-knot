@@ -135,7 +135,7 @@ namespace Knot3.Core
 			Rotation = Angles3.Zero;
 			MaxPositionDistance = 5000;
 
-			FoV = 45;
+			FoV = 60;
 			nearPlane = 0.5f;
 			farPlane = 15000.0f;
 

@@ -224,7 +224,6 @@ namespace Knot3.GameObjects
 					Modelname = "pipe-curved1";
 					Rotation = Angles3.FromDegrees(0,0,0)+curvedJunctionRotationMap [EdgeFrom.Direction];
 
-					IJunction otherJunction = OtherJunctionsAtNode.ElementAt (0);
 					/*
 					KnotData.Axis evadeAxis = DirectionHelper.Axes.Where (x => x != EdgeFrom.Direction.Axis && x != otherJunction.EdgeFrom.Direction.Axis).ElementAt (0);
 					Direction a = Direction.FromAxis (evadeAxis); // +
