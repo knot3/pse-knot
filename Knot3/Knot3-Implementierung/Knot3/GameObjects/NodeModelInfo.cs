@@ -147,35 +147,35 @@ namespace Knot3.GameObjects
 		private static Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> curvedJunctionBumpRotationMap
 		    = new Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> ()
 		{
-			{ Tuple.Create(Direction.Up, Direction.Left), 			Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Up, Direction.Right), 			Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Up, Direction.Forward), 		Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Up, Direction.Backward), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Up, Direction.Left), 			Tuple.Create(90f, 0f) },//works
+			{ Tuple.Create(Direction.Up, Direction.Right), 			Tuple.Create(-90f, 0f) },//works
+			{ Tuple.Create(Direction.Up, Direction.Forward), 		Tuple.Create(0f, 180f) },//works
+			{ Tuple.Create(Direction.Up, Direction.Backward), 		Tuple.Create(0f, 0f) },//works
 
-			{ Tuple.Create(Direction.Down, Direction.Left), 		Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Down, Direction.Right), 		Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Down, Direction.Forward), 		Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Down, Direction.Backward), 	Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Down, Direction.Left), 		Tuple.Create(-90f, 0f) },//works
+			{ Tuple.Create(Direction.Down, Direction.Right), 		Tuple.Create(90f, 0f) },//works
+			{ Tuple.Create(Direction.Down, Direction.Forward), 		Tuple.Create(0f, 180f) },//works
+			{ Tuple.Create(Direction.Down, Direction.Backward), 	Tuple.Create(0f, 0f) },//works
 
-			{ Tuple.Create(Direction.Left, Direction.Up), 			Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Left, Direction.Down), 		Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Left, Direction.Forward), 		Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Left, Direction.Backward), 	Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Left, Direction.Up), 			Tuple.Create(0f, 90f) },//works
+			{ Tuple.Create(Direction.Left, Direction.Down), 		Tuple.Create(0f, -90f) },
+			{ Tuple.Create(Direction.Left, Direction.Forward), 		Tuple.Create(-90f, 90f) },//works
+			{ Tuple.Create(Direction.Left, Direction.Backward), 	Tuple.Create(-90f, -90f) },//works
 
-			{ Tuple.Create(Direction.Right, Direction.Up), 			Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Right, Direction.Up), 			Tuple.Create(0f, -90f) },//works
 			{ Tuple.Create(Direction.Right, Direction.Down), 		Tuple.Create(0f, 90f) }, // works
-			{ Tuple.Create(Direction.Right, Direction.Forward), 	Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Right, Direction.Backward), 	Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Right, Direction.Forward), 	Tuple.Create(90f, -90f) },//works
+			{ Tuple.Create(Direction.Right, Direction.Backward), 	Tuple.Create(-90f, -90f) },//works
 
-			{ Tuple.Create(Direction.Forward, Direction.Left), 		Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Forward, Direction.Right), 	Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Forward, Direction.Up), 		Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Forward, Direction.Down), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Forward, Direction.Left), 		Tuple.Create(90f, -90f) },//works
+			{ Tuple.Create(Direction.Forward, Direction.Right), 	Tuple.Create(90f, -90f) },//works
+			{ Tuple.Create(Direction.Forward, Direction.Up), 		Tuple.Create(180f, 0f) },//works
+			{ Tuple.Create(Direction.Forward, Direction.Down), 		Tuple.Create(180f, 0f) },//works
 
-			{ Tuple.Create(Direction.Backward, Direction.Left), 	Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Backward, Direction.Left), 	Tuple.Create(90f, 90f) },//works
 			{ Tuple.Create(Direction.Backward, Direction.Right), 	Tuple.Create(-90f, -90f) }, // works
-			{ Tuple.Create(Direction.Backward, Direction.Up), 		Tuple.Create(0f, 0f) },
-			{ Tuple.Create(Direction.Backward, Direction.Down), 	Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Backward, Direction.Up), 		Tuple.Create(0f, 0f) },//works
+			{ Tuple.Create(Direction.Backward, Direction.Down), 	Tuple.Create(0f, 0f) },//works
 		};
 
 
