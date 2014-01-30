@@ -43,7 +43,6 @@ namespace Knot3.KnotData
 		public Vector3 Offset { get; set; }
 
 		public Action IndexRebuilt = () => {};
-		private HashSet<VirtualEdge> VirtualEdges = new HashSet<VirtualEdge> ();
 
 		#endregion
 
@@ -137,21 +136,7 @@ namespace Knot3.KnotData
 			IndexRebuilt ();
 		}
 
-		public void AddVirtualEdge (Node a, Node b, Color color)
-		{
-			VirtualEdges.Add (new VirtualEdge () { NodeA = a, NodeB = b, Color = color });
-
-		}
-
 		#endregion
-	}
-
-	public struct VirtualEdge {
-		public Color Color { get; set; }
-
-		public Node NodeA { get; set; }
-
-		public Node NodeB { get; set; }
 	}
 }
 

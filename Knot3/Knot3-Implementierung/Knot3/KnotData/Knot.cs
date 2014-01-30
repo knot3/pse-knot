@@ -381,6 +381,10 @@ namespace Knot3.KnotData
 		/// </summary>
 		public void AddRangeToSelection (Edge selectedEdge)
 		{
+			if (lastSelected == null) {
+				AddToSelection (selectedEdge);
+				return;
+			}
 			Circle<Edge> selectedCircle = null;
 			if (startElement.Contains (selectedEdge, out selectedCircle) && selectedEdge != lastSelected.Value) {
 				List<Edge> forward = new List<Edge> (lastSelected.RangeTo (selectedCircle));

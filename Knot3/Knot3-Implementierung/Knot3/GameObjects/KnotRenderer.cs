@@ -212,6 +212,7 @@ namespace Knot3.GameObjects
 		}
 
 		private void CreateStartArrow()
+		private void CreateStartArrow ()
 		{
 			Edge edge = knot.ElementAt (0);
 			Vector3 towardsCamera = World.Camera.PositionToTargetDirection;
@@ -285,34 +286,34 @@ namespace Knot3.GameObjects
 			}
 			rectangles.Clear ();
 
-			NodeMap virtualNodeMap = new NodeMap (knot);
+			RectangleMap rectMap = new RectangleMap (nodeMap);
+			foreach (Edge edge in knot) {
+				rectMap.AddEdge (edge);
+			}
 
 			int newRectangles;
 			do {
 				newRectangles = 0;
-				foreach (Node node in virtualNodeMap.Nodes) {
-					List<IJunction> junctions = virtualNodeMap.JunctionsAtNode (node);
-
-					if (junctions.Count == 1) {
-						newRectangles += CreateRectangle (junctions [0], ref virtualNodeMap) ? 1 : 0;
-					}
+				ValidRectanglePosition[] validPositions = rectMap.ValidPositions().ToArray();
+				foreach (ValidRectanglePosition validPosition in validPositions) {
+					Console.WriteLine ("validPosition=" + validPosition);
+					newRectangles += CreateRectangle (validPosition, ref rectMap) ? 1 : 0;
 				}
 			}
 			while (newRectangles > 0);
 		}
 
-		private bool CreateRectangle (IJunction junction, ref NodeMap virtualNodeMap)
+		private bool CreateRectangle (ValidRectanglePosition rect, ref RectangleMap rectMap)
 		{
-			Edge from = junction.EdgeFrom;
-			Edge to = junction.EdgeTo;
-			Node node = junction.Node;
+			Edge from = rect.EdgeAB;
+			Edge to = rect.EdgeBC;
+			Node node = rect.NodeB;
 			if (from.Rectangles.Intersect (to.Rectangles).Count () > 0) {
-				Vector3 origin = node.Vector + (to.Direction - from.Direction) / 2 * Node.Scale;
 				Texture2D texture = CreateRectangleTexture (from.Color, to.Color);
 
 				TexturedRectangleInfo info = new TexturedRectangleInfo (
 				    texture: texture,
-				    origin: origin,
+				    origin: rect.Position,
 				    left: from.Direction,
 				    width: Node.Scale,
 				    up: to.Direction.Reverse,
@@ -324,10 +325,10 @@ namespace Knot3.GameObjects
 
 				if (!rectangles.Contains (rectangle)) {
 					rectangles.Add (rectangle);
-
-					virtualNodeMap.AddVirtualEdge (node - from, node + to, from.Color);
-					virtualNodeMap.AddVirtualEdge (node - from + to, node + to, to.Color);
-
+					if (!rectMap.ContainsEdge(node - from, node + from + to))
+					rectMap.AddEdge(to, node - from, node + from + to);
+					if (!rectMap.ContainsEdge(node - from + to, node + to))
+					rectMap.AddEdge(from, node - from + to, node + to);
 					return true;
 				}
 			}
