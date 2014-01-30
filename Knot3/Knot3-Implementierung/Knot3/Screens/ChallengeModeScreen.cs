@@ -205,6 +205,7 @@ namespace Knot3.Screens
 			Knot previous = Undo.Peek ();
 			Redo.Push (current);
 			_playerKnot = previous;
+			_playerKnot.EdgesChanged();
 		}
 
 		private void OnRedo ()
@@ -213,6 +214,7 @@ namespace Knot3.Screens
 			Redo.Push (_playerKnot);
 			Undo.Push (_playerKnot);
 			_playerKnot = next;
+			_playerKnot.EdgesChanged();
 		}
 
 		/// <summary>
