@@ -162,15 +162,14 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-            if (Undo.Count > 1)
-            {
-                Console.WriteLine("undo");
-                Knot current = Undo.Pop ();
-			    Knot previous = Undo.Peek ();
-			    Redo.Push (current);
-			    knot = previous;               
-            }
-			        
+			if (Undo.Count > 1) {
+				Console.WriteLine("undo");
+				Knot current = Undo.Pop ();
+				Knot previous = Undo.Peek ();
+				Redo.Push (current);
+				knot = previous;
+			}
+
 		}
 
 		private void OnRedo ()
@@ -178,7 +177,7 @@ namespace Knot3.Screens
 			Knot next = Redo.Pop ();
 			Redo.Push (knot);
 			Undo.Push (knot);
-			knot = next;            
+			knot = next;
 		}
 
 		/// <summary>
