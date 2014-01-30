@@ -215,7 +215,7 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-			if (Undo.Count > 1) {				
+			if (Undo.Count > 1) {
 				Knot current = Undo.Pop ();
 				Knot previous = Undo.Peek ();
 				Redo.Push (current);
