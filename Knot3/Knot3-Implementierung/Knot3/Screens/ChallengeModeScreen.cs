@@ -178,6 +178,19 @@ namespace Knot3.Screens
 			playTimeDisplay.ForegroundColor = () => Color.White;
 			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                             widget: playTimeDisplay, lineWidth: 2, padding: 0);
+<<<<<<< HEAD
+            //Undo-Button
+            undoButton = new MenuButton(screen: this,
+                                        drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+                                        name: "Undo",
+                                        onClick: (time) => OnUndo());
+            undoButton.SetCoordinates(left: 0.55f, top: 0.900f, right: 0.65f, bottom: 0.95f);
+            undoButton.BackgroundColor = () => Color.Black;
+            undoButton.ForegroundColor = () => Color.White;
+            undoButtonBorder = new Border(screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+                                         widget: undoButton, lineWidth: 2, padding: 0);
+            undoButton.AlignX = HorizontalAlignment.Center;
+=======
 			//Undo-Button
 			undoButton = new MenuButton(screen: this,
 			                            drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
@@ -189,6 +202,7 @@ namespace Knot3.Screens
 			undoButtonBorder = new Border(screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                              widget: undoButton, lineWidth: 2, padding: 0);
 			undoButton.AlignX = HorizontalAlignment.Center;
+>>>>>>> 78d3b85ace79dc5fe15d605f20cbcacd99f8c967
 
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
@@ -215,11 +229,15 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-			Knot current = Undo.Pop ();
-			Knot previous = Undo.Peek ();
-			Redo.Push (current);
-			_playerKnot = previous;
-			_playerKnot.EdgesChanged();
+            if (Undo.Count > 1)
+            {
+                Console.WriteLine("Undo");
+                Knot current = Undo.Pop ();
+		    	Knot previous = Undo.Peek ();
+		    	Redo.Push (current);
+		    	_playerKnot = previous;
+		    	_playerKnot.EdgesChanged();
+            }			
 		}
 
 		private void OnRedo ()
