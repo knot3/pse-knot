@@ -116,8 +116,8 @@ namespace Knot3.Screens
 			// backButton.BackgroundColor = () => Color.Azure;
 			backButton.AlignX = HorizontalAlignment.Center;
 
-            backButton.ForegroundColor = () => base.MenuItemForegroundColor(backButton.ItemState);
-            backButton.BackgroundColor = () => base.MenuItemBackgroundColor(backButton.ItemState);
+			backButton.ForegroundColor = () => base.MenuItemForegroundColor(backButton.ItemState);
+			backButton.BackgroundColor = () => base.MenuItemBackgroundColor(backButton.ItemState);
 		}
 
 		#endregion
