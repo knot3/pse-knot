@@ -71,10 +71,10 @@ namespace Knot3.Screens
 
 			challengeName = new InputItem (this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, "Name:", "");
 			challengeName.Bounds.Position = new ScreenPoint (this, 0.100f, 0.860f);
-			challengeName.Bounds.Size = new ScreenPoint (this, 0.575f, 0.040f);
+			challengeName.Bounds.Size = new ScreenPoint (this, 0.375f, 0.040f);
 			challengeName.OnValueChanged += () => TryConstructChallenge ();
-			challengeName.NameWidth = 0.3f;
-			challengeName.ValueWidth = 0.7f;
+			challengeName.NameWidth = 0.2f;
+			challengeName.ValueWidth = 0.8f;
 
 			createButton = new MenuButton (
 			    screen: this,
@@ -82,17 +82,25 @@ namespace Knot3.Screens
 			    name: "Create!",
 			    onClick: OnCreateChallenge
 			);
-			createButton.Bounds.Position = new ScreenPoint (this, 0.725f, 0.840f);
-			createButton.Bounds.Size = new ScreenPoint (this, 0.175f, 0.060f);
+			createButton.Bounds.Position = new ScreenPoint (this, 0.525f, 0.8525f);
+			createButton.Bounds.Size = new ScreenPoint (this, 0.125f, 0.050f);
 			createButton.ForegroundColor = () => base.MenuItemForegroundColor (createButton.ItemState);
 			createButton.BackgroundColor = () => base.MenuItemBackgroundColor (createButton.ItemState);
 			createButtonBorder = new Border (this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, createButton, 4, 4);
+            createButton.AlignX = HorizontalAlignment.Center;
 
 			startKnotMenu.Bounds.Padding = targetKnotMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			startKnotMenu.ItemAlignX = targetKnotMenu.ItemAlignX = HorizontalAlignment.Left;
 			startKnotMenu.ItemAlignY = targetKnotMenu.ItemAlignY = VerticalAlignment.Center;
 
-			lines.AddPoints (0, 50, 30, 970, 970, 50, 1000);
+			lines.AddPoints (0, 50, 
+                
+                
+                30, 970,
+                770, 895,
+                870, 970,
+                970, 50, 1000
+                );
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Create Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -112,8 +120,8 @@ namespace Knot3.Screens
 			    onClick: (time) => NextScreen = Game.Screens.Where((s) => !(s is ChallengeCreateScreen)).ElementAt(0)
 			);
 			backButton.AddKey(Keys.Escape);
-			backButton.SetCoordinates(left: 0.730f, top: 0.910f, right: 0.830f, bottom: 0.960f);
-			// backButton.BackgroundColor = () => Color.Azure;
+			backButton.SetCoordinates(left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
+			
 			backButton.AlignX = HorizontalAlignment.Center;
 
             backButton.ForegroundColor = () => base.MenuItemForegroundColor(backButton.ItemState);
