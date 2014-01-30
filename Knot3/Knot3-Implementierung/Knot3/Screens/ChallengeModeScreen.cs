@@ -266,7 +266,7 @@ namespace Knot3.Screens
 			// erstelle einen Dialog zum Eingeben des Spielernamens
 			TextInputDialog nameDialog = new TextInputDialog (screen: this, drawOrder: DisplayLayer.Dialog,
 			        title: "Challenge", text: "Your name:",
-			        inputText: "ABC");
+			        inputText: Options.Default["profile", "name", ""]);
 			// füge ihn zur Spielkomponentenliste hinzu
 			AddGameComponents (time, nameDialog);
 
