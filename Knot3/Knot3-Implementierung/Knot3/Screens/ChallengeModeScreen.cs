@@ -92,7 +92,7 @@ namespace Knot3.Screens
 				// Undo- und Redo-Stacks neu erstellen
 				Redo = new Stack<Knot> ();
 				Undo = new Stack<Knot> ();
-				Undo.Push (_playerKnot);
+				Undo.Push ((Knot)_playerKnot.Clone());
 				// den Knoten dem KnotRenderer zuweisen
 				PlayerKnotRenderer.Knot = _playerKnot;
 				// den Knoten dem Kantenverschieber zuweisen
@@ -220,7 +220,9 @@ namespace Knot3.Screens
 				Knot previous = Undo.Peek ();
 				Redo.Push (current);
 				_playerKnot = previous;
-				_playerKnot.EdgesChanged();
+				PlayerKnotRenderer.Knot = previous;
+				PlayerEdgeMovement.Knot = previous;
+
 			}
 		}
 
