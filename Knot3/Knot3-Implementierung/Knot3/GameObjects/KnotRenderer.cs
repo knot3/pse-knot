@@ -63,7 +63,7 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Die Liste der Flächen zwischen den Kanten.
 		/// </summary>
-		private List<TexturedRectangle> rectangles;
+		private HashSet<TexturedRectangle> rectangles;
 
 		/// <summary>
 		/// Der Knoten, für den 3D-Modelle erstellt werden sollen.
@@ -124,7 +124,7 @@ namespace Knot3.GameObjects
 			pipes = new List<PipeModel> ();
 			nodes = new List<NodeModel> ();
 			arrows = new List<ArrowModel> ();
-			rectangles = new List<TexturedRectangle> ();
+			rectangles = new HashSet<TexturedRectangle> ();
 			pipeFactory = new ModelFactory ((s, i) => new PipeModel (s, i as PipeModelInfo));
 			nodeFactory = new ModelFactory ((s, i) => new NodeModel (s, i as NodeModelInfo));
 			arrowFactory = new ModelFactory ((s, i) => new ArrowModel (s, i as ArrowModelInfo));
@@ -268,23 +268,31 @@ namespace Knot3.GameObjects
 			}
 			rectangles.Clear ();
 
-			foreach (Node node in nodeMap.Nodes) {
-				List<IJunction> junctions = nodeMap.JunctionsAtNode (node);
+			NodeMap virtualNodeMap = new NodeMap (knot);
 
-				if (junctions.Count == 1) {
-					CreateRectangle (junctions [0]);
+			int newRectangles;
+			do {
+				newRectangles = 0;
+				foreach (Node node in virtualNodeMap.Nodes) {
+					List<IJunction> junctions = virtualNodeMap.JunctionsAtNode (node);
+
+					if (junctions.Count == 1) {
+						newRectangles += CreateRectangle (junctions [0], ref virtualNodeMap) ? 1 : 0;
+					}
 				}
 			}
+			while (newRectangles > 0);
 		}
 
-		private void CreateRectangle (IJunction junction)
+		private bool CreateRectangle (IJunction junction, ref NodeMap virtualNodeMap)
 		{
 			Edge from = junction.EdgeFrom;
 			Edge to = junction.EdgeTo;
+			Node node = junction.Node;
 			if (from.Rectangles.Intersect (to.Rectangles).Count () > 0) {
-				Node node = nodeMap.NodeAfterEdge (from);
 				Vector3 origin = node.Vector + (to.Direction - from.Direction) / 2 * Node.Scale;
 				Texture2D texture = CreateRectangleTexture (from.Color, to.Color);
+
 				TexturedRectangleInfo info = new TexturedRectangleInfo (
 				    texture: texture,
 				    origin: origin,
@@ -296,8 +304,17 @@ namespace Knot3.GameObjects
 				TexturedRectangle rectangle = new TexturedRectangle (screen: screen, info: info);
 				rectangle.World = World;
 				Console.WriteLine ("rectangle=" + rectangle);
-				rectangles.Add (rectangle);
+
+				if (!rectangles.Contains (rectangle)) {
+					rectangles.Add (rectangle);
+
+					virtualNodeMap.AddVirtualEdge (node - from, node + to, from.Color);
+					virtualNodeMap.AddVirtualEdge (node - from + to, node + to, to.Color);
+
+					return true;
+				}
 			}
+			return false;
 		}
 
 		private Texture2D CreateRectangleTexture (Color fromColor, Color toColor)
@@ -309,7 +326,7 @@ namespace Knot3.GameObjects
 			for (int w = 0; w < width; ++w) {
 				for (int h = 0; h < height; ++h) {
 					//Console.WriteLine((w - h));
-					colors [h * width + w] = toColor.Mix (fromColor, 0.5f + (float)(w - h) / (float)Math.Max(width, height)) * 0.9f;
+					colors [h * width + w] = toColor.Mix (fromColor, 0.5f + (float)(w - h) / (float)Math.Max (width, height)) * 0.9f;
 				}
 			}
 			texture.SetData (colors);

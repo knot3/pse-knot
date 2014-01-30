@@ -31,12 +31,14 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Die Kante vor dem Übergang.
 		/// </summary>
-		Edge EdgeFrom { get; set; }
+		Edge EdgeFrom { get; }
 
 		/// <summary>
 		/// Die Kante nach dem Übergang.
 		/// </summary>
-		Edge EdgeTo { get; set; }
+		Edge EdgeTo { get; }
+
+		Node Node { get; }
 
 		#endregion
 	}

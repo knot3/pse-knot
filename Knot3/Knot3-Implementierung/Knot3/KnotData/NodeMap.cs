@@ -42,7 +42,8 @@ namespace Knot3.KnotData
 
 		public Vector3 Offset { get; set; }
 
-		public Action IndexRebuilt;
+		public Action IndexRebuilt = () => {};
+		private HashSet<VirtualEdge> VirtualEdges = new HashSet<VirtualEdge> ();
 
 		#endregion
 
@@ -128,14 +129,29 @@ namespace Knot3.KnotData
 				Edge edgeA = Edges.At (n);
 				Edge edgeB = Edges.At (n + 1);
 				Node node = NodeAfterEdge (edgeA);
-				IJunction junction = new NodeModelInfo (nodeMap: this, from: edgeA, to: edgeB);
+				IJunction junction = new NodeModelInfo (nodeMap: this, from: edgeA, to: edgeB, node: node);
 				junctionMap.Add (node, junction);
 			}
 
 			IndexRebuilt ();
 		}
 
+		public void AddVirtualEdge (Node a, Node b, Color color)
+		{
+			VirtualEdges.Add (new VirtualEdge () { NodeA = a, NodeB = b, Color = color });
+
+		}
+
 		#endregion
+	}
+		
+	public struct VirtualEdge
+	{
+		public Color Color { get; set; }
+
+		public Node NodeA { get; set; }
+
+		public Node NodeB { get; set; }
 	}
 }
 

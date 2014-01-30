@@ -38,6 +38,8 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public Edge EdgeTo { get; set; }
 
+		public Node Node { get; set; }
+
 		private NodeMap NodeMap;
 
 		public List<IJunction> JunctionsAtNode
@@ -114,11 +116,12 @@ namespace Knot3.GameObjects
 		/// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
 		/// [base="node1", Angles3.Zero, new Vector3(1,1,1)]
 		/// </summary>
-		public NodeModelInfo (NodeMap nodeMap, Edge from, Edge to)
+		public NodeModelInfo (NodeMap nodeMap, Edge from, Edge to, Node node)
 		: base("pipe-straight", Angles3.Zero, Vector3.One * 25f)
 		{
 			EdgeFrom = from;
 			EdgeTo = to;
+			Node = node;
 			NodeMap = nodeMap;
 			Position = nodeMap.NodeAfterEdge (EdgeFrom);
 
