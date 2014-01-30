@@ -55,8 +55,9 @@ namespace Knot3.GameObjects
 			get {
 				int i = 0;
 				foreach (IJunction junction in JunctionsAtNode) {
-					if (junction == this as IJunction)
+					if (junction == this as IJunction) {
 						break;
+					}
 					++i;
 				}
 				return i;
@@ -133,7 +134,8 @@ namespace Knot3.GameObjects
 
 
 		private static Dictionary<Direction, Angles3> curvedJunctionRotationMap
-		= new Dictionary<Direction, Angles3> () {
+		    = new Dictionary<Direction, Angles3> ()
+		{
 			{ Direction.Up,			Angles3.FromDegrees (90, 0, 0) },
 			{ Direction.Down,		Angles3.FromDegrees (270, 0, 0) },
 			{ Direction.Left,		Angles3.FromDegrees (0, 90, 0) },
@@ -143,7 +145,8 @@ namespace Knot3.GameObjects
 		};
 
 		private static Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> curvedJunctionBumpRotationMap
-		= new Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> () {
+		    = new Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> ()
+		{
 			{ Tuple.Create(Direction.Up, Direction.Left), 			Tuple.Create(0f, 0f) },
 			{ Tuple.Create(Direction.Up, Direction.Right), 			Tuple.Create(0f, 0f) },
 			{ Tuple.Create(Direction.Up, Direction.Forward), 		Tuple.Create(0f, 0f) },
@@ -174,7 +177,7 @@ namespace Knot3.GameObjects
 			{ Tuple.Create(Direction.Backward, Direction.Up), 		Tuple.Create(0f, 0f) },
 			{ Tuple.Create(Direction.Backward, Direction.Down), 	Tuple.Create(0f, 0f) },
 		};
-	
+
 
 
 		#endregion
@@ -232,8 +235,8 @@ namespace Knot3.GameObjects
 					float bumpRotationZ = JunctionsAtNodeIndex == 0 ? bumpRotationsZ.Item1 : bumpRotationsZ.Item2;
 					Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
 					Console.WriteLine ("Index="
-						+ Index+", Directions="+directions+", Rotation="+Rotation+", bumpRotationZ="+bumpRotationZ+", ...="
-						+Angles3.FromDegrees (0, 0, bumpRotationZ) );
+					                   + Index+", Directions="+directions+", Rotation="+Rotation+", bumpRotationZ="+bumpRotationZ+", ...="
+					                   +Angles3.FromDegrees (0, 0, bumpRotationZ) );
 				}
 				else {
 					Modelname = "pipe-angled";

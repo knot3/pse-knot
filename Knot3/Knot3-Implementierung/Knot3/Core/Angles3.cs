@@ -173,7 +173,8 @@ namespace Knot3.Core
 			return new Angles3 (value.X * scaleFactor, value.Y * scaleFactor, value.Z * scaleFactor);
 		}
 
-		public override string ToString()  {
+		public override string ToString()
+		{
 			float x, y, z;
 			ToDegrees (out x, out y, out z);
 			return "Angles3(" + x + "," + y + "," + z + ")";

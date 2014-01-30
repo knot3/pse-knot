@@ -211,13 +211,13 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		private void CreateStartArrow() 
+		private void CreateStartArrow()
 		{
 			Edge edge = knot.ElementAt (0);
 			Vector3 towardsCamera = World.Camera.PositionToTargetDirection;
 			ArrowModelInfo info = new ArrowModelInfo (
-				position: Vector3.Zero - 10 * towardsCamera - 10 * towardsCamera.PrimaryDirection (),
-				direction: edge
+			    position: Vector3.Zero - 10 * towardsCamera - 10 * towardsCamera.PrimaryDirection (),
+			    direction: edge
 			);
 			ArrowModel arrow = arrowFactory [screen, info] as ArrowModel;
 			arrow.Info.IsVisible = true;
