@@ -144,9 +144,8 @@ namespace Knot3.KnotData
 
 		#endregion
 	}
-		
-	public struct VirtualEdge
-	{
+
+	public struct VirtualEdge {
 		public Color Color { get; set; }
 
 		public Node NodeA { get; set; }
