@@ -64,15 +64,9 @@ namespace Knot3.Screens
 				// Undo- und Redo-Stacks neu erstellen
 				Redo = new Stack<Knot> ();
 				Undo = new Stack<Knot> ();
-				Undo.Push (knot);
-				// den Knoten dem KnotRenderer zuweisen
-				knotRenderer.Knot = knot;
-				// den Knoten dem Kantenverschieber zuweisen
-				edgeMovement.Knot = knot;
-				// den Knoten dem Kanteneinfärber zuweisen
-				edgeColoring.Knot = knot;
-				// den Knoten dem Flächendings zuweisen
-				edgeRectangles.Knot = knot;
+				Undo.Push (knot.Clone () as Knot);
+				// den Knoten den Inputhandlern und Renderern zuweisen
+				registerCurrentKnot ();
 				// die Events registrieren
 				knot.EdgesChanged += OnEdgesChanged;
 				knot.StartEdgeChanged += knotInput.OnStartEdgeChanged;
@@ -89,9 +83,14 @@ namespace Knot3.Screens
 		private Overlay overlay;
 		private Dialog currentDialog;
 		private DebugBoundings debugBoundings;
+
 		// Undo-Button
 		private MenuButton undoButton;
 		private Border undoButtonBorder;
+		// Redo-Button
+		private MenuButton redoButton;
+		private Border redoButtonBorder;
+
 		#endregion
 
 		#region Constructors
@@ -127,20 +126,8 @@ namespace Knot3.Screens
 			// der Input-Handler zur Kanten-Einfärbung
 			edgeColoring = new EdgeColoring (screen: this);
 
-			//Undo-Button
-			undoButton = new MenuButton(screen: this,
-			                            drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			                            name: "Undo",
-			                            onClick: (time) => OnUndo());
-			undoButton.SetCoordinates(left: 0.05f, top: 0.900f, right: 0.15f, bottom: 0.95f);
-			undoButton.BackgroundColor = () => Color.Black;
-			undoButton.ForegroundColor = () => Color.White;
-			undoButtonBorder = new Border(screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			                              widget: undoButton, lineWidth: 2, padding: 0);
-			undoButton.AlignX = HorizontalAlignment.Center;
-
 			// Flächen zwischen Kanten
-			edgeRectangles = new EdgeRectangles(screen: this);
+			edgeRectangles = new EdgeRectangles (screen: this);
 
 			// assign the specified knot
 			Knot = knot;
@@ -148,6 +135,34 @@ namespace Knot3.Screens
 			// Hintergrund
 			SkyCube skyCube = new SkyCube (screen: this, position: Vector3.Zero, distance: world.Camera.MaxPositionDistance + 500);
 			world.Add (skyCube);
+
+			// Undo-Button
+			undoButton = new MenuButton (
+				screen: this,
+				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				name: "Undo",
+				onClick: (time) => OnUndo ()
+			);
+			undoButton.SetCoordinates (left: 0.05f, top: 0.900f, right: 0.15f, bottom: 0.95f);
+			undoButton.BackgroundColor = () => Color.Black;
+			undoButton.ForegroundColor = () => Color.White;
+			undoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			                              widget: undoButton, lineWidth: 2, padding: 0);
+			undoButton.AlignX = HorizontalAlignment.Center;
+
+			// Redo-Button
+			redoButton = new MenuButton (
+				screen: this,
+				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				name: "Redo",
+				onClick: (time) => OnRedo ()
+			);
+			redoButton.SetCoordinates (left: 0.20f, top: 0.900f, right: 0.30f, bottom: 0.95f);
+			redoButton.BackgroundColor = () => Color.Black;
+			redoButton.ForegroundColor = () => Color.White;
+			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			                              widget: redoButton, lineWidth: 2, padding: 0);
+			redoButton.AlignX = HorizontalAlignment.Center;
 		}
 
 		#endregion
@@ -162,21 +177,40 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-			if (Undo.Count > 1) {
+			Console.WriteLine ("Undo: Undo.Count=" + Undo.Count);
+			if (Undo.Count >= 2) {
 				Knot current = Undo.Pop ();
 				Knot previous = Undo.Peek ();
 				Redo.Push (current);
 				knot = previous;
+				// den Knoten den Inputhandlern und Renderern zuweisen
+				registerCurrentKnot ();
 			}
-
 		}
 
 		private void OnRedo ()
 		{
-			Knot next = Redo.Pop ();
-			Redo.Push (knot);
-			Undo.Push (knot);
-			knot = next;
+			Console.WriteLine ("Redo: Redo.Count=" + Redo.Count);
+			if (Redo.Count >= 1) {
+				Knot next = Redo.Pop ();
+				Redo.Push (knot);
+				Undo.Push (knot);
+				knot = next;
+				// den Knoten den Inputhandlern und Renderern zuweisen
+				registerCurrentKnot ();
+			}
+		}
+
+		private void registerCurrentKnot ()
+		{
+			// den Knoten dem KnotRenderer zuweisen
+			knotRenderer.Knot = knot;
+			// den Knoten dem Kantenverschieber zuweisen
+			edgeMovement.Knot = knot;
+			// den Knoten dem Kanteneinfärber zuweisen
+			edgeColoring.Knot = knot;
+			// den Knoten dem Flächendings zuweisen
+			edgeRectangles.Knot = knot;
 		}
 
 		/// <summary>
@@ -207,7 +241,9 @@ namespace Knot3.Screens
 		public override void Entered (IGameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler, edgeColoring, edgeRectangles, undoButton, undoButtonBorder);
+			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler,
+			                   edgeColoring, edgeRectangles, undoButton, undoButtonBorder,
+			                   redoButton, redoButtonBorder);
 			Audio.BackgroundMusic = Sound.CreativeMusic;
 
 			// Einstellungen anwenden
