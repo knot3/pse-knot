@@ -84,20 +84,13 @@ namespace Knot3.Screens
 			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is CreativeMainScreen)).ElementAt (0)
 			);
 			backButton.AddKey (Keys.Escape);
-
-			MenuButton returnButton = new MenuButton (
-			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			    name: "Back",
-			    onClick: (time) => NextScreen = new StartScreen (Game)
-			);
-			returnButton.SetCoordinates (left: 0.825f, top: 0.850f, right: 0.975f, bottom: 0.950f);
+			backButton.SetCoordinates (left: 0.825f, top: 0.850f, right: 0.975f, bottom: 0.950f);
 
 			buttons.Add (newKnotButton);
 			buttons.Add (loadKnotButton);
 			buttons.Add (newChallengeButton);
 			buttons.Add (backButton);
-			buttons.Add (returnButton);
+			buttons.IsVisible = true;
 
 			// die Linien
 			lines.AddPoints (0.000f, 0.150f,

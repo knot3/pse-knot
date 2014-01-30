@@ -41,12 +41,13 @@ namespace Knot3.GameObjects
 		public Node Node { get; set; }
 
 		private NodeMap NodeMap;
+
 		public int Index { get; private set; }
 
 		public List<IJunction> JunctionsAtNode
 		{
 			get {
-				return (from j in NodeMap.JunctionsAtNode (NodeMap.NodeAfterEdge (EdgeFrom)) orderby j.Index ascending select j).ToList();
+				return (from j in NodeMap.JunctionsAtNode (NodeMap.NodeAfterEdge (EdgeFrom)) orderby j.Index ascending select j).ToList ();
 			}
 		}
 
@@ -67,7 +68,7 @@ namespace Knot3.GameObjects
 		public List<IJunction> OtherJunctionsAtNode
 		{
 			get {
-				return JunctionsAtNode.Where(x => x != this as IJunction).ToList();
+				return JunctionsAtNode.Where (x => x != this as IJunction).ToList ();
 			}
 		}
 
@@ -129,10 +130,6 @@ namespace Knot3.GameObjects
 			{ JunctionDirection.RightRight, 		Angles3.FromDegrees (0, 90, 0) },
 			{ JunctionDirection.BackwardBackward, 	Angles3.FromDegrees (0, 0, 0) },
 		};
-
-
-
-
 		private static Dictionary<Direction, Angles3> curvedJunctionRotationMap
 		    = new Dictionary<Direction, Angles3> ()
 		{
@@ -143,7 +140,6 @@ namespace Knot3.GameObjects
 			{ Direction.Forward,	Angles3.FromDegrees (0, 0, 0) },
 			{ Direction.Backward,	Angles3.FromDegrees (0, 0, 180) },
 		};
-
 		private static Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> curvedJunctionBumpRotationMap
 		    = new Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> ()
 		{
@@ -177,6 +173,11 @@ namespace Knot3.GameObjects
 			{ Tuple.Create(Direction.Backward, Direction.Up), 		Tuple.Create(0f, 0f) },//works
 			{ Tuple.Create(Direction.Backward, Direction.Down), 	Tuple.Create(0f, 0f) },//works
 		};
+		private static Dictionary<Tuple<Direction, Direction, Direction>, Tuple<float, float, float>> curvedJunctionBumpRotationMap2
+		    = new Dictionary<Tuple<Direction, Direction, Direction>, Tuple<float, float, float>> ()
+		{
+
+		};
 
 
 
@@ -204,7 +205,14 @@ namespace Knot3.GameObjects
 			IsMovable = false;
 
 			// Wähle das Modell aus
-			nodeMap.IndexRebuilt += () => chooseModel ();
+			nodeMap.IndexRebuilt += () => {
+				try {
+					chooseModel ();
+				}
+				catch (Exception ex) {
+					Console.WriteLine (ex);
+				}
+			};
 		}
 
 		#endregion
@@ -222,7 +230,7 @@ namespace Knot3.GameObjects
 			else if (JunctionsAtNode.Count == 2) {
 				if (EdgeFrom.Direction == EdgeTo.Direction) {
 					Modelname = "pipe-curved1";
-					Rotation = Angles3.FromDegrees(0,0,0)+curvedJunctionRotationMap [EdgeFrom.Direction];
+					Rotation = Angles3.FromDegrees (0, 0, 0) + curvedJunctionRotationMap [EdgeFrom.Direction];
 
 					/*
 					KnotData.Axis evadeAxis = DirectionHelper.Axes.Where (x => x != EdgeFrom.Direction.Axis && x != otherJunction.EdgeFrom.Direction.Axis).ElementAt (0);
@@ -234,8 +242,26 @@ namespace Knot3.GameObjects
 					float bumpRotationZ = JunctionsAtNodeIndex == 0 ? bumpRotationsZ.Item1 : bumpRotationsZ.Item2;
 					Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
 					Console.WriteLine ("Index="
-					                   + Index+", Directions="+directions+", Rotation="+Rotation+", bumpRotationZ="+bumpRotationZ+", ...="
-					                   +Angles3.FromDegrees (0, 0, bumpRotationZ) );
+						+ Index + ", Directions=" + directions + ", Rotation=" + Rotation + ", bumpRotationZ=" + bumpRotationZ + ", ...="
+						+ Angles3.FromDegrees (0, 0, bumpRotationZ)
+					);
+				}
+				else {
+					Modelname = "pipe-angled";
+					Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
+				}
+			}
+			else if (JunctionsAtNode.Count == 3) {
+				if (EdgeFrom.Direction == EdgeTo.Direction) {
+					Modelname = "pipe-curved1";
+					Rotation = Angles3.FromDegrees (0, 0, 0) + curvedJunctionRotationMap [EdgeFrom.Direction];
+
+					var directions = Tuple.Create (JunctionsAtNode [0].EdgeFrom.Direction, JunctionsAtNode [1].EdgeFrom.Direction, JunctionsAtNode [2].EdgeFrom.Direction);
+					var bumpRotationsZ = curvedJunctionBumpRotationMap2 [directions];
+					float bumpRotationZ = JunctionsAtNodeIndex == 0 ? bumpRotationsZ.Item1
+						: JunctionsAtNodeIndex == 1 ? bumpRotationsZ.Item2
+						: bumpRotationsZ.Item3;
+					Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
 				}
 				else {
 					Modelname = "pipe-angled";
@@ -255,8 +281,8 @@ namespace Knot3.GameObjects
 
 			if (other is NodeModelInfo) {
 				if (this.EdgeFrom == (other as NodeModelInfo).EdgeFrom
-				        && this.EdgeTo == (other as NodeModelInfo).EdgeTo
-				        && base.Equals (other)) {
+					&& this.EdgeTo == (other as NodeModelInfo).EdgeTo
+					&& base.Equals (other)) {
 					return true;
 				}
 				else {
@@ -271,7 +297,8 @@ namespace Knot3.GameObjects
 		#endregion
 	}
 
-	enum JunctionDirection {
+	enum JunctionDirection
+	{
 		UpForward,
 		UpBackward,
 		UpLeft,

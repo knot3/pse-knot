@@ -83,6 +83,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
+			// Console.WriteLine("OnKeyEvent: " + key[0]);
 			if (keyEvent == KeyEvent.KeyDown) {
 				OnClick (time);
 			}
