@@ -61,5 +61,9 @@ namespace Knot3.GameObjects
 		MoveToCenter,
 		[Description("Toggle Mouse Lock")]
 		ToggleMouseLock,
+		[Description("Add to Selection")]
+		AddToEdgeSelection,
+		[Description("Add Range to Selection")]
+		AddRangeToEdgeSelection,
 	}
 }

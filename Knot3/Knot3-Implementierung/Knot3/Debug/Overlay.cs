@@ -160,6 +160,9 @@ namespace Knot3.Debug
 					string str = pipe.Info.Edge.Direction + "   #" + pipe.Info.Knot.ToList().FindIndex(g => g == pipe.Info.Edge);
 					DrawString (str, width2, height, Color.Yellow);
 				}
+				else {
+					height += lineHeight;
+				}
 			}
 			height += lineHeight;
 			DrawString ("Distance: ", width1, height, Color.White);

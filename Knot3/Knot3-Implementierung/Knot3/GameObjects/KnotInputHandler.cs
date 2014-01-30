@@ -65,26 +65,29 @@ namespace Knot3.GameObjects
 		/// Die aktuelle Tastenbelegung
 		/// </summary>
 		public static Dictionary<Keys, PlayerActions> CurrentKeyAssignment = new Dictionary<Keys, PlayerActions> ();
+		public static Dictionary<PlayerActions, Keys> CurrentKeyAssignmentReversed = new Dictionary<PlayerActions, Keys> ();
 		/// <summary>
 		/// Die Standard-Tastenbelegung.
 		/// </summary>
 		public static readonly Dictionary<Keys, PlayerActions> DefaultKeyAssignment
 		= new Dictionary<Keys, PlayerActions> {
-			{ Keys.W, 		PlayerActions.MoveUp },
-			{ Keys.S, 		PlayerActions.MoveDown },
-			{ Keys.A, 		PlayerActions.MoveLeft },
-			{ Keys.D, 		PlayerActions.MoveRight },
-			{ Keys.R, 		PlayerActions.MoveForward },
-			{ Keys.F, 		PlayerActions.MoveBackward },
-			{ Keys.Up, 		PlayerActions.RotateUp },
-			{ Keys.Down, 	PlayerActions.RotateDown },
-			{ Keys.Left, 	PlayerActions.RotateLeft },
-			{ Keys.Right, 	PlayerActions.RotateRight },
-			{ Keys.Q, 		PlayerActions.ZoomIn },
-			{ Keys.E, 		PlayerActions.ZoomOut },
-			{ Keys.Enter, 	PlayerActions.ResetCamera },
-			{ Keys.Space,	PlayerActions.MoveToCenter },
-			{ Keys.LeftAlt,	PlayerActions.ToggleMouseLock },
+			{ Keys.W, 				PlayerActions.MoveForward },
+			{ Keys.S, 				PlayerActions.MoveBackward },
+			{ Keys.A, 				PlayerActions.MoveLeft },
+			{ Keys.D, 				PlayerActions.MoveRight },
+			{ Keys.LeftShift,		PlayerActions.MoveUp },
+			{ Keys.LeftControl,		PlayerActions.MoveDown },
+			{ Keys.Up, 				PlayerActions.RotateUp },
+			{ Keys.Down, 			PlayerActions.RotateDown },
+			{ Keys.Left, 			PlayerActions.RotateLeft },
+			{ Keys.Right, 			PlayerActions.RotateRight },
+			{ Keys.Q, 				PlayerActions.ZoomIn },
+			{ Keys.E, 				PlayerActions.ZoomOut },
+			{ Keys.Enter, 			PlayerActions.ResetCamera },
+			{ Keys.Space,			PlayerActions.MoveToCenter },
+			{ Keys.LeftAlt,			PlayerActions.ToggleMouseLock },
+			{ Keys.RightControl,	PlayerActions.AddToEdgeSelection },
+			{ Keys.RightShift,		PlayerActions.AddRangeToEdgeSelection },
 		};
 		/// <summary>
 		/// Was bei den jeweiligen Aktionen ausgeführt wird.
@@ -121,21 +124,23 @@ namespace Knot3.GameObjects
 
 			// Lege die Bedeutungen der PlayerActions fest
 			ActionBindings = new Dictionary<PlayerActions, Action<GameTime>> {
-				{ PlayerActions.MoveUp, 			(time) => move (Vector3.Up, time) },
-				{ PlayerActions.MoveDown, 			(time) => move (Vector3.Down, time) },
-				{ PlayerActions.MoveLeft, 			(time) => move (Vector3.Left, time) },
-				{ PlayerActions.MoveRight, 			(time) => move (Vector3.Right, time) },
-				{ PlayerActions.MoveForward, 		(time) => move (Vector3.Forward, time) },
-				{ PlayerActions.MoveBackward, 		(time) => move (Vector3.Backward, time) },
-				{ PlayerActions.RotateUp, 			(time) => rotate (-Vector2.UnitY * 4, time) },
-				{ PlayerActions.RotateDown, 		(time) => rotate (Vector2.UnitY * 4, time) },
-				{ PlayerActions.RotateLeft, 		(time) => rotate (-Vector2.UnitX * 4, time) },
-				{ PlayerActions.RotateRight, 		(time) => rotate (Vector2.UnitX * 4, time) },
-				{ PlayerActions.ZoomIn, 			(time) => zoom (-1, time) },
-				{ PlayerActions.ZoomOut, 			(time) => zoom (+1, time) },
-				{ PlayerActions.ResetCamera, 		(time) => camera.ResetCamera () },
-				{ PlayerActions.MoveToCenter,		(time) => camera.StartSmoothMove (target: camera.ArcballTarget, time: time) },
-				{ PlayerActions.ToggleMouseLock,	(time) => toggleMouseLock (time) },
+				{ PlayerActions.MoveUp, 				(time) => move (Vector3.Up, time) },
+				{ PlayerActions.MoveDown, 				(time) => move (Vector3.Down, time) },
+				{ PlayerActions.MoveLeft, 				(time) => move (Vector3.Left, time) },
+				{ PlayerActions.MoveRight, 				(time) => move (Vector3.Right, time) },
+				{ PlayerActions.MoveForward, 			(time) => move (Vector3.Forward, time) },
+				{ PlayerActions.MoveBackward, 			(time) => move (Vector3.Backward, time) },
+				{ PlayerActions.RotateUp, 				(time) => rotate (-Vector2.UnitY * 4, time) },
+				{ PlayerActions.RotateDown, 			(time) => rotate (Vector2.UnitY * 4, time) },
+				{ PlayerActions.RotateLeft, 			(time) => rotate (-Vector2.UnitX * 4, time) },
+				{ PlayerActions.RotateRight, 			(time) => rotate (Vector2.UnitX * 4, time) },
+				{ PlayerActions.ZoomIn, 				(time) => zoom (-1, time) },
+				{ PlayerActions.ZoomOut, 				(time) => zoom (+1, time) },
+				{ PlayerActions.ResetCamera, 			(time) => camera.ResetCamera () },
+				{ PlayerActions.MoveToCenter,			(time) => camera.StartSmoothMove (target: camera.ArcballTarget, time: time) },
+				{ PlayerActions.ToggleMouseLock,		(time) => toggleMouseLock (time) },
+				{ PlayerActions.AddToEdgeSelection,		(time) => {} },
+				{ PlayerActions.AddRangeToEdgeSelection,(time) => {} },
 			};
 		}
 
@@ -462,6 +467,7 @@ namespace Knot3.GameObjects
 				// und lese den Wert aus und speichere ihn in der Zuordnung.
 				CurrentKeyAssignment [option.Value] = action;
 			}
+			CurrentKeyAssignmentReversed = CurrentKeyAssignment.ReverseDictionary();
 
 			// Aktualisiere die Liste von Tasten, zu denen wir als IKeyEventListener benachrichtigt werden
 			ValidKeys.Clear ();
