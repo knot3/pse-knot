@@ -70,16 +70,23 @@ namespace Knot3.Screens
 			savegameMenu.ItemAlignX = HorizontalAlignment.Left;
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
 
-			lines.AddPoints (
+/*			lines.AddPoints (
 
-			    /* Start */ 0, 50,
+			   0, 50,
 
 			    30, 970,
 			    170, 895,
 			    270, 970,
 			    970, 50,
 			    1000
-			);
+			);*/
+
+            lines.AddPoints(0, 50,
+                 30, 970,
+                 770, 895,
+                 870, 970,
+                 970, 50, 1000
+                );
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -92,7 +99,7 @@ namespace Knot3.Screens
 			loader = new SavegameLoader<Challenge, ChallengeMetaData> (fileFormat, "index-challenges");
 
 			// Preview
-			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.48f, 0.8f);
+			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.48f, 0.7f);
 			previewWorld = new World (
 			    screen: this,
 			    drawIndex: DisplayLayer.ScreenUI + DisplayLayer.GameWorld,
@@ -117,8 +124,7 @@ namespace Knot3.Screens
 			    onClick: (time) => NextScreen = Game.Screens.Where((s) => !(s is ChallengeStartScreen)).ElementAt(0)
 			);
 			backButton.AddKey(Keys.Escape);
-			backButton.SetCoordinates(left: 0.170f, top: 0.910f, right: 0.270f, bottom: 0.960f);
-			// backButton.BackgroundColor = () => Color.Azure;
+            backButton.SetCoordinates(left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
 			backButton.AlignX = HorizontalAlignment.Center;
 
 			backButton.ForegroundColor = () => base.MenuItemForegroundColor(backButton.ItemState);
