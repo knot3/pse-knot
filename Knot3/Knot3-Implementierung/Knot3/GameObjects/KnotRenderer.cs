@@ -211,7 +211,6 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		private void CreateStartArrow()
 		private void CreateStartArrow ()
 		{
 			Edge edge = knot.ElementAt (0);
