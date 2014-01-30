@@ -23,7 +23,7 @@ using Knot3.Utilities;
 namespace Knot3.RenderEffects
 {
 	class Z_Nebula : RenderEffect
-	{
+	{  
 		public Z_Nebula(IGameScreen screen)
 		: base(screen)
 		{
