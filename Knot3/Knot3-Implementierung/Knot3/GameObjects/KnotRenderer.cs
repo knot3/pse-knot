@@ -181,7 +181,9 @@ namespace Knot3.GameObjects
 			nodeMap.OnEdgesChanged ();
 
 			CreatePipes ();
-			CreateStartArrow ();
+			if (Options.Default ["debug", "show-startedge-direction", false]) {
+				CreateStartArrow ();
+			}
 			CreateNodes ();
 			if (showArrows) {
 				CreateArrows ();
@@ -293,7 +295,7 @@ namespace Knot3.GameObjects
 			int newRectangles;
 			do {
 				newRectangles = 0;
-				ValidRectanglePosition[] validPositions = rectMap.ValidPositions().ToArray();
+				ValidRectanglePosition[] validPositions = rectMap.ValidPositions ().ToArray ();
 				foreach (ValidRectanglePosition validPosition in validPositions) {
 					Console.WriteLine ("validPosition=" + validPosition);
 					newRectangles += CreateRectangle (validPosition, ref rectMap) ? 1 : 0;
@@ -304,18 +306,26 @@ namespace Knot3.GameObjects
 
 		private bool CreateRectangle (ValidRectanglePosition rect, ref RectangleMap rectMap)
 		{
-			Edge from = rect.EdgeAB;
-			Edge to = rect.EdgeBC;
-			Node node = rect.NodeB;
-			if (rect.IsVirtual || from.Rectangles.Intersect (to.Rectangles).Count () > 0) {
-				Texture2D texture = CreateRectangleTexture (from.Color, to.Color);
+			Edge edgeAB = rect.EdgeAB;
+			Edge edgeCD = rect.EdgeCD;
+			Node nodeA = rect.NodeA;
+			Node nodeB = rect.NodeB;
+			Node nodeC = rect.NodeC;
+			Node nodeD = rect.NodeD;
+
+			if (rect.IsVirtual || edgeAB.Rectangles.Intersect (edgeCD.Rectangles).Count () > 0) {
+				Texture2D texture;
+				if (rect.NodeB == rect.NodeC)
+					texture = CreateDiagonalRectangleTexture (edgeAB.Color, edgeCD.Color);
+				else
+					texture = CreateParallelRectangleTexture (edgeAB.Color, edgeCD.Color);
 
 				TexturedRectangleInfo info = new TexturedRectangleInfo (
 				    texture: texture,
 				    origin: rect.Position,
-				    left: from.Direction,
+				    left: edgeAB.Direction,
 				    width: Node.Scale,
-				    up: to.Direction.Reverse,
+				    up: edgeCD.Direction.Reverse,
 				    height: Node.Scale
 				);
 				TexturedRectangle rectangle = new TexturedRectangle (screen: screen, info: info);
@@ -324,11 +334,21 @@ namespace Knot3.GameObjects
 
 				if (!rectangles.Contains (rectangle)) {
 					rectangles.Add (rectangle);
-					if (!rectMap.ContainsEdge(node - from, node + from + to)) {
-						rectMap.AddEdge(edge: to, nodeA: node - from, nodeB: node + from + to, isVirtual: true);
-					}
-					if (!rectMap.ContainsEdge(node - from + to, node + to)) {
-						rectMap.AddEdge(edge: from, nodeA: node - from + to, nodeB: node + to, isVirtual: true);
+					
+					if (rect.NodeB == rect.NodeC) {
+						if (!rectMap.ContainsEdge (nodeB - edgeAB, nodeB + edgeAB + edgeCD)) {
+							rectMap.AddEdge (edge: edgeCD, nodeA: nodeB - edgeAB, nodeB: nodeB + edgeAB + edgeCD, isVirtual: true);
+						}
+						if (!rectMap.ContainsEdge (nodeB - edgeAB + edgeCD, nodeB + edgeCD)) {
+							rectMap.AddEdge (edge: edgeAB, nodeA: nodeB - edgeAB + edgeCD, nodeB: nodeB + edgeCD, isVirtual: true);
+						}
+					}else {
+						Edge edgeAC = new Edge((rect.NodeC - rect.NodeA).ToDirection());
+						Edge edgeBD = new Edge((rect.NodeD - rect.NodeB).ToDirection());
+						if (!rectMap.ContainsEdge(nodeA + edgeAC, nodeC))
+							rectMap.AddEdge (edge: edgeAC, nodeA: nodeA + edgeAC, nodeB: nodeC, isVirtual: true);
+						if (!rectMap.ContainsEdge(nodeB + edgeBD, nodeD))
+							rectMap.AddEdge (edge: edgeBD, nodeA: nodeB + edgeBD, nodeB: nodeD, isVirtual: true);
 					}
 					return true;
 				}
@@ -336,15 +356,29 @@ namespace Knot3.GameObjects
 			return false;
 		}
 
-		private Texture2D CreateRectangleTexture (Color fromColor, Color toColor)
+		private Texture2D CreateParallelRectangleTexture (Color fromColor, Color toColor)
 		{
-			int width = 100;
-			int height = 100;
+			int width = 50;
+			int height = 50;
 			Texture2D texture = new Texture2D (screen.Device, width, height);
 			Color[] colors = new Color[width * height];
 			for (int w = 0; w < width; ++w) {
 				for (int h = 0; h < height; ++h) {
-					//Console.WriteLine((w - h));
+					colors [h * width + w] = toColor.Mix (fromColor, 0.5f + (float)(width / 2 - w) / (float)(width / 2) * 0.9f);
+				}
+			}
+			texture.SetData (colors);
+			return texture;
+		}
+
+		private Texture2D CreateDiagonalRectangleTexture (Color fromColor, Color toColor)
+		{
+			int width = 50;
+			int height = 50;
+			Texture2D texture = new Texture2D (screen.Device, width, height);
+			Color[] colors = new Color[width * height];
+			for (int w = 0; w < width; ++w) {
+				for (int h = 0; h < height; ++h) {
 					colors [h * width + w] = toColor.Mix (fromColor, 0.5f + (float)(w - h) / (float)Math.Max (width, height)) * 0.9f;
 				}
 			}

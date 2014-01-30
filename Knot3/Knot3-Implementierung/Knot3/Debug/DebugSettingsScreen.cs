@@ -80,6 +80,14 @@ namespace Knot3.Debug
 			);
 			settingsMenu.Add (showBoundings);
 
+			CheckBoxItem showStartEdgeArrow = new CheckBoxItem (
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    text: "Show Start Edge Direction",
+			    option: new BooleanOptionInfo ("debug", "show-startedge-direction", false, Options.Default)
+			);
+			settingsMenu.Add (showStartEdgeArrow);
+
 			/*
 			CheckBoxItem shaderPascal = new CheckBoxItem (
 			    screen: this,

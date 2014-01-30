@@ -92,18 +92,19 @@ namespace Knot3.KnotData
 							int first = i % 2;
 							int second = (i + 1) % 2;
 							Edge edgeAB = pos [first].Edge;
-							Edge edgeBC = pos [second].Edge;
+							Edge edgeCD = pos [second].Edge;
 							Node nodeA = pos [first].NodeA;
-							Node nodeB1 = pos [first].NodeB;
-							Node nodeB2 = pos [second].NodeA;
-							Node nodeC = pos [second].NodeB;
-							if (nodeB1 == nodeB2) {
+							Node nodeB = pos [first].NodeB;
+							Node nodeC = pos [second].NodeA;
+							Node nodeD = pos [second].NodeB;
+							if (nodeB == nodeC || (nodeA-nodeB) == (nodeC-nodeD)) {
 								var valid = new ValidRectanglePosition {
 									EdgeAB = edgeAB,
-									EdgeBC = edgeBC,
+									EdgeCD = edgeCD,
 									NodeA = nodeA,
-									NodeB = nodeB1,
+									NodeB = nodeB,
 									NodeC = nodeC,
+									NodeD = nodeD,
 									Position = pos[first].Position,
 									IsVirtual = pos[first].IsVirtual || pos[second].IsVirtual
 								};
@@ -128,10 +129,11 @@ namespace Knot3.KnotData
 
 	public struct ValidRectanglePosition {
 		public Edge EdgeAB;
-		public Edge EdgeBC;
+		public Edge EdgeCD;
 		public Node NodeA;
 		public Node NodeB;
 		public Node NodeC;
+		public Node NodeD;
 		public Vector3 Position;
 		public bool IsVirtual;
 	}
