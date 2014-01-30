@@ -40,7 +40,7 @@ namespace Knot3.RenderEffects
 			    displayName: "opaque",
 			    createInstance: (screen) => new OpaqueEffect (screen)
 			),
-            new EffectFactory (
+			new EffectFactory (
 			    name: "z-nebula",
 			    displayName: "Z-Nebula",
 			    createInstance: (screen) => new Z_Nebula (screen)

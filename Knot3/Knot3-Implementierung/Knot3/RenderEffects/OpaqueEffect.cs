@@ -24,7 +24,7 @@ namespace Knot3.RenderEffects
 {
 	class OpaqueEffect : RenderEffect
 	{
-        public OpaqueEffect(IGameScreen screen)
+		public OpaqueEffect(IGameScreen screen)
 		: base(screen)
 		{
 			pascalEffect = screen.LoadEffect("OpaqueShader");
