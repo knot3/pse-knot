@@ -28,8 +28,8 @@ namespace Knot3.KnotData
 
 		private NodeMap NodeMap;
 		private Dictionary<Vector3, List<PossibleRectanglePosition>> positions
-			= new Dictionary<Vector3, List<PossibleRectanglePosition>> ();
-		
+		    = new Dictionary<Vector3, List<PossibleRectanglePosition>> ();
+
 		#endregion
 
 		#region Constructors
@@ -83,9 +83,9 @@ namespace Knot3.KnotData
 		{
 			foreach (List<PossibleRectanglePosition> many in positions.Values) {
 				foreach (var pair in many.SelectMany ((value, index) => many.Skip (index + 1),
-                               (first, second) => new { first, second })) {
+				(first, second) => new { first, second })) {
 					List<PossibleRectanglePosition> pos
-						= new PossibleRectanglePosition[]{ pair.first, pair.second }.ToList ();
+					    = new PossibleRectanglePosition[] { pair.first, pair.second } .ToList ();
 					if (pos.Count == 2) {
 						for (int i = 0; i <= 1; ++i) {
 							int first = i % 2;
@@ -112,20 +112,18 @@ namespace Knot3.KnotData
 				}
 			}
 		}
-		
+
 		#endregion
 	}
 
-	public struct PossibleRectanglePosition
-	{
+	public struct PossibleRectanglePosition {
 		public Edge Edge;
 		public Node NodeA;
 		public Node NodeB;
 		public Vector3 Position;
 	}
 
-	public struct ValidRectanglePosition
-	{
+	public struct ValidRectanglePosition {
 		public Edge EdgeAB;
 		public Edge EdgeBC;
 		public Node NodeA;

@@ -325,10 +325,12 @@ namespace Knot3.GameObjects
 
 				if (!rectangles.Contains (rectangle)) {
 					rectangles.Add (rectangle);
-					if (!rectMap.ContainsEdge(node - from, node + from + to))
-					rectMap.AddEdge(to, node - from, node + from + to);
-					if (!rectMap.ContainsEdge(node - from + to, node + to))
-					rectMap.AddEdge(from, node - from + to, node + to);
+					if (!rectMap.ContainsEdge(node - from, node + from + to)) {
+						rectMap.AddEdge(to, node - from, node + from + to);
+					}
+					if (!rectMap.ContainsEdge(node - from + to, node + to)) {
+						rectMap.AddEdge(from, node - from + to, node + to);
+					}
 					return true;
 				}
 			}
