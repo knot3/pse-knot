@@ -40,8 +40,8 @@ namespace Knot3.Screens
 		// Spielstand-Loader
 		private SavegameLoader<Knot, KnotMetaData> loader;
 
-        // Zurück-Button
-        private MenuButton backButton;
+		// Zurück-Button
+		private MenuButton backButton;
 
 		// Preview
 		private World previewWorld;
@@ -72,16 +72,16 @@ namespace Knot3.Screens
 
 			//lines.AddPoints (0, 50, 30, 970, 970, 50, 1000);
 
-            lines.AddPoints(
+			lines.AddPoints(
 
-                /* Start */ 0, 50,
+			    /* Start */ 0, 50,
 
-                 30, 970,
-                 170, 895,
-                 270, 970,
-                 970, 50,
-                 1000
-            );
+			    30, 970,
+			    170, 895,
+			    270, 970,
+			    970, 50,
+			    1000
+			);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Knot");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -112,16 +112,16 @@ namespace Knot3.Screens
 			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 			previewMouseHandler = new ModelMouseHandler (screen: this, world: previewWorld);
 
-            backButton = new MenuButton(
-                screen: this,
-                drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-                name: "Back",
-                onClick: (time) => NextScreen = Game.Screens.Where((s) => !(s is CreativeLoadScreen)).ElementAt(0)
-            );
-            backButton.AddKey(Keys.Escape);
-            backButton.SetCoordinates(left: 0.170f, top: 0.910f, right: 0.270f, bottom: 0.960f);
-            // backButton.BackgroundColor = () => Color.Azure;
-            backButton.AlignX = HorizontalAlignment.Center;
+			backButton = new MenuButton(
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Back",
+			    onClick: (time) => NextScreen = Game.Screens.Where((s) => !(s is CreativeLoadScreen)).ElementAt(0)
+			);
+			backButton.AddKey(Keys.Escape);
+			backButton.SetCoordinates(left: 0.170f, top: 0.910f, right: 0.270f, bottom: 0.960f);
+			// backButton.BackgroundColor = () => Color.Azure;
+			backButton.AlignX = HorizontalAlignment.Center;
 		}
 
 		#endregion
