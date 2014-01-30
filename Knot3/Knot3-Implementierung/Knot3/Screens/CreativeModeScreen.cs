@@ -156,19 +156,18 @@ namespace Knot3.Screens
 
 		private void OnEdgesChanged ()
 		{
-			Undo.Push (knot);
+			Undo.Push ((Knot) knot.Clone());
 			Redo.Clear ();
 		}
 
 		private void OnUndo ()
 		{
-			if (Undo.Count > 1) {
-				Console.WriteLine("undo");
+			if (Undo.Count > 1) {				
 				Knot current = Undo.Pop ();
 				Knot previous = Undo.Peek ();
 				Redo.Push (current);
 				knot = previous;
-			}
+			}           
 
 		}
 

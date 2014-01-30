@@ -204,7 +204,7 @@ namespace Knot3.Screens
 
 		private void OnEdgesChanged ()
 		{
-			Undo.Push (_playerKnot);
+			Undo.Push ((Knot) _playerKnot.Clone());
 			Redo.Clear ();
 
 			// Status
@@ -215,8 +215,7 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-			if (Undo.Count > 1) {
-				Console.WriteLine("Undo");
+			if (Undo.Count > 1) {				
 				Knot current = Undo.Pop ();
 				Knot previous = Undo.Peek ();
 				Redo.Push (current);
