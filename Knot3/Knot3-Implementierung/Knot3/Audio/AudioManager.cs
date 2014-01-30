@@ -21,8 +21,6 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
-using Knot3.Audio.XNA;
-using Knot3.Audio.Ogg;
 
 namespace Knot3.Audio
 {
@@ -116,37 +114,7 @@ namespace Knot3.Audio
 				Console.WriteLine ("Load sound effect (" + soundType + "): " + filepath);
 			}
 			catch (Exception ex) {
-				// wenn man versucht, einen "Song" als "SoundEffect" zu laden,
-				// dann bekommt man unter Windows eine "ContentLoadException"
-				// und unter Linux eine "InvalidCastException"
-				if (ex is ContentLoadException || ex is InvalidCastException) {
-					LoadXnaSong (filepath, name, soundType);
-				}
-				else {
-					throw;
-				}
-			}
-		}
-
-		private void LoadXnaSong (string filepath, string name, Sound soundType)
-		{
-			// nur unter Windows
-			if (MonoHelper.IsRunningOnMono ()) {
-				return;
-			}
-
-			try {
-				// versuche, die Audiodatei als "Song" zu laden
-				Song song = Screen.Content.Load<Song> (filepath);
-				AudioFiles [soundType].Add (new SongFile (name, song, soundType));
-				Console.WriteLine ("Load song (" + soundType + "): " + filepath);
-			}
-			catch (Exception ex) {
-				// egal, warum das laden nicht klappt; mehr als die Fehlermeldung anzeigen
-				// macht wegen einer fehlenden Musikdatei keinen Sinn
-
-				Console.WriteLine ("Failed to load audio file (" + soundType + "): " + filepath);
-				Console.WriteLine (ex.ToString ());
+				Console.WriteLine (ex);
 			}
 		}
 
@@ -226,7 +194,7 @@ namespace Knot3.Audio
 			volume = ValidVolume (volume);
 			VolumeMap [soundType] = volume;
 			Options.Default ["volume", soundType.ToString (), 1] = volume;
-			Console.WriteLine("Set Volume ("+soundType+"): "+volume);
+			Console.WriteLine ("Set Volume (" + soundType + "): " + volume);
 		}
 
 		public static float ValidVolume (float volume)

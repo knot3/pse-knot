@@ -22,7 +22,7 @@ using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
 
-namespace Knot3.Audio.XNA
+namespace Knot3.Audio
 {
 	/// <summary>
 	/// Ein Wrapper um die SoundEffect-Klasse des XNA-Frameworks.
@@ -44,6 +44,7 @@ namespace Knot3.Audio.XNA
 		private SoundEffectInstance Instance;
 
 		private Sound SoundType;
+		private float volume;
 		
 		/// <summary>
 		/// Erstellt eine neue SoundEffect-Datei mit dem angegebenen Anzeigenamen und des angegebenen SoundEffect-Objekts.
@@ -59,7 +60,7 @@ namespace Knot3.Audio.XNA
 		public void Play ()
 		{
 			Console.WriteLine ("Play: " + Name);
-			Instance.Volume = AudioManager.Volume(SoundType);
+			Instance.Volume = volume = AudioManager.Volume(SoundType);
 			Instance.Play ();
 		}
 
@@ -67,6 +68,13 @@ namespace Knot3.Audio.XNA
 		{
 			Console.WriteLine ("Stop: " + Name);
 			Instance.Stop ();
+		}
+
+		public void Update (GameTime time)
+		{
+			if (volume != AudioManager.Volume (SoundType)) {
+				Instance.Volume = volume = AudioManager.Volume(SoundType);
+			}
 		}
 	}
 }

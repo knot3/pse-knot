@@ -86,6 +86,7 @@ namespace Knot3.Audio
 					Sounds.At(index).Play();
 				}
 			}
+			Sounds.At(index).Update (time);
 		}
 	}
 }
