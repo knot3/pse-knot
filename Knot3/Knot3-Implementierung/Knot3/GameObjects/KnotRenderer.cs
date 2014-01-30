@@ -297,7 +297,7 @@ namespace Knot3.GameObjects
 				newRectangles = 0;
 				ValidRectanglePosition[] validPositions = rectMap.ValidPositions ().ToArray ();
 				foreach (ValidRectanglePosition validPosition in validPositions) {
-					Console.WriteLine ("validPosition=" + validPosition);
+					//Console.WriteLine ("validPosition=" + validPosition);
 					newRectangles += CreateRectangle (validPosition, ref rectMap) ? 1 : 0;
 				}
 			}
