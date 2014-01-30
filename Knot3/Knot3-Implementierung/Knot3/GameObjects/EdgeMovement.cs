@@ -116,11 +116,11 @@ namespace Knot3.GameObjects
 						Console.WriteLine ("knot.Count() = " + Knot.Count ());
 
 						// Ctrl gedrückt
-						if (Keys.LeftControl.IsHeldDown ()) {
+						if (KnotInputHandler.CurrentKeyAssignmentReversed[PlayerActions.AddToEdgeSelection].IsHeldDown ()) {
 							Knot.AddToSelection (selectedEdge);
 						}
 						// Shift gedrückt
-						else if (Keys.LeftShift.IsHeldDown ()) {
+						else if (KnotInputHandler.CurrentKeyAssignmentReversed[PlayerActions.AddRangeToEdgeSelection].IsHeldDown ()) {
 							Knot.AddRangeToSelection (selectedEdge);
 						}
 						// keine Taste gedrückt

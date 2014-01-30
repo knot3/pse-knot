@@ -76,6 +76,15 @@ namespace Knot3.KnotData
 			{ Zero, Zero }
 		};
 
+		private static readonly Dictionary<Direction, Axis> AxisMap
+		    = new Dictionary<Direction, Axis> ()
+		{
+			{ Left, Axis.X }, { Right, Axis.X },
+			{ Up, Axis.Y }, { Down, Axis.Y },
+			{ Forward, Axis.Z }, { Backward, Axis.Z },
+			{ Zero, Axis.Zero }
+		};
+
 		#endregion
 
 		#region Properties
@@ -85,6 +94,8 @@ namespace Knot3.KnotData
 		public string Description { get; private set; }
 
 		public Direction Reverse { get { return ReverseMap [this]; } }
+
+		public Axis Axis { get { return AxisMap[this]; } }
 
 		#endregion
 
@@ -99,6 +110,11 @@ namespace Knot3.KnotData
 		#endregion
 
 		#region Methods and Operators
+
+		public static Direction FromAxis(Axis axis)
+		{
+			return axis == Axis.X ? Right : axis == Axis.Y ? Up : axis == Axis.Z ? Backward : Zero;
+		}
 
 		public override string ToString ()
 		{
@@ -186,6 +202,10 @@ namespace Knot3.KnotData
 		}
 
 		#endregion
+	}
+
+	public enum Axis {
+		X, Y, Z, Zero
 	}
 
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,15 +23,17 @@ using Knot3.Audio;
 
 namespace Knot3.GameObjects
 {
-	public class EdgeColoring : GameScreenComponent, IKeyEventListener
+	public class EdgeRectangles : GameScreenComponent, IKeyEventListener
 	{
 		public Knot Knot { get; set; }
 
-		public EdgeColoring (GameScreen screen)
+		private Random random = new Random ();
+
+		public EdgeRectangles (GameScreen screen)
 		: base(screen, DisplayLayer.None)
 		{
 			ValidKeys = new List<Keys> ();
-			ValidKeys.Add (Keys.C);
+			ValidKeys.Add (Keys.N);
 		}
 
 		public override void Update (GameTime time)
@@ -40,20 +43,13 @@ namespace Knot3.GameObjects
 		public void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 			// Soll die Farbe geändert wurde?
-			if (Knot.SelectedEdges.Count () > 0 && Keys.C.IsDown ()) {
-				Color currentColor = Knot.SelectedEdges.ElementAt (0);
-				ColorPickDialog picker = new ColorPickDialog (
-				    screen: Screen,
-				    drawOrder: DisplayLayer.Dialog,
-				    selectedColor: currentColor
-				);
+			if (Knot.SelectedEdges.Count () > 0 && Keys.N.IsDown ()) {
+				int rectId = random.Next ();
 				foreach (Edge edge in Knot.SelectedEdges) {
-					picker.Close += (t) => {
-						edge.Color = picker.SelectedColor;
-					};
+					edge.Rectangles.Add (rectId);
+					Console.WriteLine ("edge=" + edge + ", edge.Rectangles=" + string.Join (",", edge.Rectangles));
 				}
 				Knot.EdgesChanged ();
-				Screen.AddGameComponents (time, picker);
 			}
 		}
 
@@ -62,4 +58,3 @@ namespace Knot3.GameObjects
 		public bool IsKeyEventEnabled { get { return true; } }
 	}
 }
-

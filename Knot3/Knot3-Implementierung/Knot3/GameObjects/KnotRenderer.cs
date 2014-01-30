@@ -61,6 +61,12 @@ namespace Knot3.GameObjects
 		private List<PipeModel> pipes;
 
 		/// <summary>
+		/// Die Liste der Flächen zwischen den Kanten.
+		/// </summary>
+		private HashSet<TexturedRectangle> rectangles;
+		private List<GameModel> debugModels;
+
+		/// <summary>
 		/// Der Knoten, für den 3D-Modelle erstellt werden sollen.
 		/// </summary>
 		public Knot Knot
@@ -119,6 +125,8 @@ namespace Knot3.GameObjects
 			pipes = new List<PipeModel> ();
 			nodes = new List<NodeModel> ();
 			arrows = new List<ArrowModel> ();
+			rectangles = new HashSet<TexturedRectangle> ();
+			debugModels = new List<GameModel> ();
 			pipeFactory = new ModelFactory ((s, i) => new PipeModel (s, i as PipeModelInfo));
 			nodeFactory = new ModelFactory ((s, i) => new NodeModel (s, i as NodeModelInfo));
 			arrowFactory = new ModelFactory ((s, i) => new ArrowModel (s, i as ArrowModelInfo));
@@ -173,10 +181,14 @@ namespace Knot3.GameObjects
 			nodeMap.OnEdgesChanged ();
 
 			CreatePipes ();
+			if (Options.Default ["debug", "show-startedge-direction", false]) {
+				CreateStartArrow ();
+			}
 			CreateNodes ();
 			if (showArrows) {
 				CreateArrows ();
 			}
+			CreateRectangles ();
 
 			World.Redraw = true;
 		}
@@ -199,6 +211,20 @@ namespace Knot3.GameObjects
 				pipe.World = World;
 				pipes.Add (pipe);
 			}
+		}
+
+		private void CreateStartArrow ()
+		{
+			Edge edge = knot.ElementAt (0);
+			Vector3 towardsCamera = World.Camera.PositionToTargetDirection;
+			ArrowModelInfo info = new ArrowModelInfo (
+			    position: Vector3.Zero - 10 * towardsCamera - 10 * towardsCamera.PrimaryDirection (),
+			    direction: edge
+			);
+			ArrowModel arrow = arrowFactory [screen, info] as ArrowModel;
+			arrow.Info.IsVisible = true;
+			arrow.World = World;
+			debugModels.Add (arrow);
 		}
 
 		private void CreateNodes ()
@@ -254,6 +280,117 @@ namespace Knot3.GameObjects
 			}
 		}
 
+		private void CreateRectangles ()
+		{
+			foreach (TexturedRectangle rectangle in rectangles) {
+				rectangle.Dispose ();
+			}
+			rectangles.Clear ();
+
+			RectangleMap rectMap = new RectangleMap (nodeMap);
+			foreach (Edge edge in knot) {
+				rectMap.AddEdge (edge: edge, isVirtual: false);
+			}
+
+			int newRectangles;
+			do {
+				newRectangles = 0;
+				ValidRectanglePosition[] validPositions = rectMap.ValidPositions ().ToArray ();
+				foreach (ValidRectanglePosition validPosition in validPositions) {
+					Console.WriteLine ("validPosition=" + validPosition);
+					newRectangles += CreateRectangle (validPosition, ref rectMap) ? 1 : 0;
+				}
+			}
+			while (newRectangles > 0);
+		}
+
+		private bool CreateRectangle (ValidRectanglePosition rect, ref RectangleMap rectMap)
+		{
+			Edge edgeAB = rect.EdgeAB;
+			Edge edgeCD = rect.EdgeCD;
+			Node nodeA = rect.NodeA;
+			Node nodeB = rect.NodeB;
+			Node nodeC = rect.NodeC;
+			Node nodeD = rect.NodeD;
+
+			if (rect.IsVirtual || edgeAB.Rectangles.Intersect (edgeCD.Rectangles).Count () > 0) {
+				Texture2D texture;
+				if (rect.NodeB == rect.NodeC) {
+					texture = CreateDiagonalRectangleTexture (edgeAB.Color, edgeCD.Color);
+				}
+				else {
+					texture = CreateParallelRectangleTexture (edgeAB.Color, edgeCD.Color);
+				}
+
+				TexturedRectangleInfo info = new TexturedRectangleInfo (
+				    texture: texture,
+				    origin: rect.Position,
+				    left: edgeAB.Direction,
+				    width: Node.Scale,
+				    up: edgeCD.Direction.Reverse,
+				    height: Node.Scale
+				);
+				TexturedRectangle rectangle = new TexturedRectangle (screen: screen, info: info);
+				rectangle.World = World;
+				Console.WriteLine ("rectangle=" + rectangle);
+
+				if (!rectangles.Contains (rectangle)) {
+					rectangles.Add (rectangle);
+
+					if (rect.NodeB == rect.NodeC) {
+						if (!rectMap.ContainsEdge (nodeB - edgeAB, nodeB + edgeAB + edgeCD)) {
+							rectMap.AddEdge (edge: edgeCD, nodeA: nodeB - edgeAB, nodeB: nodeB + edgeAB + edgeCD, isVirtual: true);
+						}
+						if (!rectMap.ContainsEdge (nodeB - edgeAB + edgeCD, nodeB + edgeCD)) {
+							rectMap.AddEdge (edge: edgeAB, nodeA: nodeB - edgeAB + edgeCD, nodeB: nodeB + edgeCD, isVirtual: true);
+						}
+					}
+					else {
+						Edge edgeAC = new Edge((rect.NodeC - rect.NodeA).ToDirection());
+						Edge edgeBD = new Edge((rect.NodeD - rect.NodeB).ToDirection());
+						if (!rectMap.ContainsEdge(nodeA + edgeAC, nodeC)) {
+							rectMap.AddEdge (edge: edgeAC, nodeA: nodeA + edgeAC, nodeB: nodeC, isVirtual: true);
+						}
+						if (!rectMap.ContainsEdge(nodeB + edgeBD, nodeD)) {
+							rectMap.AddEdge (edge: edgeBD, nodeA: nodeB + edgeBD, nodeB: nodeD, isVirtual: true);
+						}
+					}
+					return true;
+				}
+			}
+			return false;
+		}
+
+		private Texture2D CreateParallelRectangleTexture (Color fromColor, Color toColor)
+		{
+			int width = 50;
+			int height = 50;
+			Texture2D texture = new Texture2D (screen.Device, width, height);
+			Color[] colors = new Color[width * height];
+			for (int w = 0; w < width; ++w) {
+				for (int h = 0; h < height; ++h) {
+					colors [h * width + w] = toColor.Mix (fromColor, 0.5f + (float)(width / 2 - w) / (float)(width / 2) * 0.9f);
+				}
+			}
+			texture.SetData (colors);
+			return texture;
+		}
+
+		private Texture2D CreateDiagonalRectangleTexture (Color fromColor, Color toColor)
+		{
+			int width = 50;
+			int height = 50;
+			Texture2D texture = new Texture2D (screen.Device, width, height);
+			Color[] colors = new Color[width * height];
+			for (int w = 0; w < width; ++w) {
+				for (int h = 0; h < height; ++h) {
+					colors [h * width + w] = toColor.Mix (fromColor, 0.5f + (float)(w - h) / (float)Math.Max (width, height)) * 0.9f;
+				}
+			}
+			texture.SetData (colors);
+			return texture;
+		}
+
 		/// <summary>
 		/// Ruft die Update()-Methoden der Kanten, Übergänge und Pfeile auf.
 		/// </summary>
@@ -267,6 +404,9 @@ namespace Knot3.GameObjects
 			}
 			foreach (ArrowModel arrow in arrows) {
 				arrow.Update (time);
+			}
+			foreach (TexturedRectangle rectangle in rectangles) {
+				rectangle.Update (time);
 			}
 		}
 
@@ -293,6 +433,14 @@ namespace Knot3.GameObjects
 						arrow.Draw (time);
 					}
 				};
+				Profiler.ProfileDelegate ["Rectangles"] = () => {
+					foreach (TexturedRectangle rectangle in rectangles) {
+						rectangle.Draw (time);
+					}
+				};
+				foreach (GameModel model in debugModels) {
+					model.Draw (time);
+				}
 				Profiler.Values ["# Pipes"] = pipes.Count ();
 				Profiler.Values ["# Nodes"] = nodes.Count ();
 			}
@@ -312,6 +460,9 @@ namespace Knot3.GameObjects
 			}
 			foreach (ArrowModel arrow in arrows) {
 				yield return arrow;
+			}
+			foreach (TexturedRectangle rectangle in rectangles) {
+				yield return rectangle;
 			}
 		}
 

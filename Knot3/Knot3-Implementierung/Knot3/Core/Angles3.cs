@@ -133,10 +133,7 @@ namespace Knot3.Core
 
 		public static Angles3 operator + (Angles3 value1, Angles3 value2)
 		{
-			value1.X += value2.X;
-			value1.Y += value2.Y;
-			value1.Z += value2.Z;
-			return value1;
+			return new Angles3 (value1.X + value2.X, value1.Y + value2.Y, value1.Z + value2.Z);
 		}
 
 		public static Angles3 operator - (Angles3 value)
@@ -147,51 +144,40 @@ namespace Knot3.Core
 
 		public static Angles3 operator - (Angles3 value1, Angles3 value2)
 		{
-			value1.X -= value2.X;
-			value1.Y -= value2.Y;
-			value1.Z -= value2.Z;
-			return value1;
+			return new Angles3 (value1.X - value2.X, value1.Y - value2.Y, value1.Z - value2.Z);
 		}
 
 		public static Angles3 operator * (Angles3 value1, Angles3 value2)
 		{
-			value1.X *= value2.X;
-			value1.Y *= value2.Y;
-			value1.Z *= value2.Z;
-			return value1;
+			return new Angles3 (value1.X * value2.X, value1.Y * value2.Y, value1.Z * value2.Z);
 		}
 
 		public static Angles3 operator * (Angles3 value, float scaleFactor)
 		{
-			value.X *= scaleFactor;
-			value.Y *= scaleFactor;
-			value.Z *= scaleFactor;
-			return value;
+			return new Angles3 (value.X * scaleFactor, value.Y * scaleFactor, value.Z * scaleFactor);
 		}
 
 		public static Angles3 operator * (float scaleFactor, Angles3 value)
 		{
-			value.X *= scaleFactor;
-			value.Y *= scaleFactor;
-			value.Z *= scaleFactor;
-			return value;
+			return new Angles3 (value.X * scaleFactor, value.Y * scaleFactor, value.Z * scaleFactor);
 		}
 
 		public static Angles3 operator / (Angles3 value1, Angles3 value2)
 		{
-			value1.X /= value2.X;
-			value1.Y /= value2.Y;
-			value1.Z /= value2.Z;
-			return value1;
+			return new Angles3 (value1.X / value2.X, value1.Y / value2.Y, value1.Z / value2.Z);
 		}
 
 		public static Angles3 operator / (Angles3 value, float divider)
 		{
-			float factor = 1 / divider;
-			value.X *= factor;
-			value.Y *= factor;
-			value.Z *= factor;
-			return value;
+			float scaleFactor = 1 / divider;
+			return new Angles3 (value.X * scaleFactor, value.Y * scaleFactor, value.Z * scaleFactor);
+		}
+
+		public override string ToString()
+		{
+			float x, y, z;
+			ToDegrees (out x, out y, out z);
+			return "Angles3(" + x + "," + y + "," + z + ")";
 		}
 
 		#endregion

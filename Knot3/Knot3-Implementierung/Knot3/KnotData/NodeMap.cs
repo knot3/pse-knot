@@ -42,7 +42,7 @@ namespace Knot3.KnotData
 
 		public Vector3 Offset { get; set; }
 
-		public Action IndexRebuilt;
+		public Action IndexRebuilt = () => {};
 
 		#endregion
 
@@ -124,11 +124,12 @@ namespace Knot3.KnotData
 
 			IndexRebuilt = () => {};
 			junctionMap.Clear ();
-			for (int n = 0; n < Edges.Count(); n++) {
+			List<Edge> EdgeList = Edges.ToList ();
+			for (int n = 0; n < EdgeList.Count; n++) {
 				Edge edgeA = Edges.At (n);
 				Edge edgeB = Edges.At (n + 1);
 				Node node = NodeAfterEdge (edgeA);
-				IJunction junction = new NodeModelInfo (nodeMap: this, from: edgeA, to: edgeB);
+				IJunction junction = new NodeModelInfo (nodeMap: this, from: edgeA, to: edgeB, node: node, index: n);
 				junctionMap.Add (node, junction);
 			}
 

@@ -152,6 +152,17 @@ namespace Knot3.Debug
 			if (World.SelectedObject != null) {
 				Vector3 selectedObjectCenter = World.SelectedObject.Center ();
 				DrawVectorCoordinates (selectedObjectCenter, width2, width3, width4, height);
+
+				if (World.SelectedObject is PipeModel) {
+					DrawString ("Pipe: ", width1, height, Color.White);
+					PipeModel pipe = World.SelectedObject as PipeModel;
+					height += lineHeight;
+					string str = pipe.Info.Edge.Direction + "   #" + pipe.Info.Knot.ToList().FindIndex(g => g == pipe.Info.Edge);
+					DrawString (str, width2, height, Color.Yellow);
+				}
+				else {
+					height += lineHeight;
+				}
 			}
 			height += lineHeight;
 			DrawString ("Distance: ", width1, height, Color.White);
@@ -175,7 +186,7 @@ namespace Knot3.Debug
 		{
 			if (font != null) {
 				try {
-					spriteBatch.DrawString (font, str, new Vector2 (width, height)*RenderEffectLibrary.Supersampling, color, 0f, Vector2.Zero, scale*RenderEffectLibrary.Supersampling, SpriteEffects.None, 0f);
+					spriteBatch.DrawString (font, str, new Vector2 (width, height)*Options.Default["video","Supersamples",1], color, 0f, Vector2.Zero, scale*Options.Default["video","Supersamples",1], SpriteEffects.None, 0f);
 
 				}
 				catch (ArgumentException exp) {
@@ -211,7 +222,7 @@ namespace Knot3.Debug
 		{
 			_total_frames++;
 			spriteBatch.Begin ();
-			DrawString ("FPS: " + _fps, (int)(Screen.Viewport.Width/RenderEffectLibrary.Supersampling) - (int)(170 * scale), (int)(50 * scale), Color.White);
+			DrawString ("FPS: " + _fps, (int)(Screen.Viewport.Width/Options.Default["video","Supersamples",1]) - (int)(170 * scale), (int)(50 * scale), Color.White);
 			spriteBatch.End ();
 		}
 
@@ -220,7 +231,7 @@ namespace Knot3.Debug
 			spriteBatch.Begin ();
 			int height = (int)(90 * scale);
 			foreach (string name in Profiler.ProfilerMap.Keys) {
-				DrawString (name + ": " + Profiler.ProfilerMap [name], (int)(Screen.Viewport.Width/RenderEffectLibrary.Supersampling) - (int)(170 * scale), height, Color.White);
+				DrawString (name + ": " + Profiler.ProfilerMap [name], (int)(Screen.Viewport.Width/Options.Default["video","Supersamples",1]) - (int)(170 * scale), height, Color.White);
 				height += lineHeight;
 			}
 			spriteBatch.End ();

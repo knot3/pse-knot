@@ -45,7 +45,7 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		protected SpriteBatch spriteBatch { get; set; }
 
-		protected float Supersampling { get { return RenderEffectLibrary.Supersampling; } }
+		protected float Supersampling { get { return Options.Default["video","Supersamples",1]; } }
 
 		#endregion
 
@@ -193,8 +193,8 @@ namespace Knot3.RenderEffects
 
 		#region RenderTarget Cache
 
-		private Dictionary<Point,Dictionary<Rectangle, RenderTarget2D>> renderTargets
-		    = new Dictionary<Point,Dictionary<Rectangle, RenderTarget2D>> ();
+		private Dictionary<Point,Dictionary<Rectangle,Dictionary<float, RenderTarget2D>>> renderTargets
+		    = new Dictionary<Point,Dictionary<Rectangle,Dictionary<float, RenderTarget2D>>> ();
 
 		public RenderTarget2D CurrentRenderTarget
 		{
@@ -204,29 +204,30 @@ namespace Knot3.RenderEffects
 				Rectangle viewport = new Rectangle (screen.Viewport.X, screen.Viewport.Y,
 				                                    screen.Viewport.Width, screen.Viewport.Height);
 				if (!renderTargets.ContainsKey (resolution)) {
-					renderTargets [resolution] = new Dictionary<Rectangle, RenderTarget2D> ();
+					renderTargets [resolution] = new Dictionary<Rectangle, Dictionary<float, RenderTarget2D>> ();
 				}
-				while (!renderTargets [resolution].ContainsKey (viewport)) {
+				if (!renderTargets[resolution].ContainsKey (viewport)) {
+					renderTargets [resolution][viewport] = new Dictionary<float, RenderTarget2D> ();
+				}
+				while (!renderTargets [resolution][viewport].ContainsKey (Supersampling)) {
 					try {
 						Console.WriteLine("Supersampling="+Supersampling);
-						renderTargets [resolution] [viewport] = new RenderTarget2D (
+						renderTargets [resolution] [viewport] [Supersampling] = new RenderTarget2D (
 						    screen.Device, (int)(viewport.Width * Supersampling), (int)(viewport.Height * Supersampling),
 						    false, SurfaceFormat.Color, DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
 						);
 						break;
 					}
 					catch (NotSupportedException ex) {
-
-						ex.Source=null; //um den compiler zufrieden zu stellen
-
-
 						Console.WriteLine(ex);
-
-						RenderEffectLibrary.Supersampling *= 0.8f;
+						if (Options.Default ["video", "Supersamples", 1] > 1) {
+							Options.Default ["video", "Supersamples", 1] *= 0.8f;
+						}
+						else {throw;}
 						continue;
 					}
 				}
-				return renderTargets [resolution] [viewport];
+				return renderTargets [resolution] [viewport][Supersampling];
 			}
 		}
 

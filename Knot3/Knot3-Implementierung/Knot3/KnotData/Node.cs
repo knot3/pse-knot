@@ -100,6 +100,26 @@ namespace Knot3.KnotData
 			return new Vector3 (a.X - b.X, a.Y - b.Y, a.Z - b.Z);
 		}
 
+		public static Node operator + (Node a, Direction b)
+		{
+			return new Node (a.X + (int)b.Vector.X, a.Y + (int)b.Vector.Y, a.Z + (int)b.Vector.Z);
+		}
+
+		public static Node operator - (Node a, Direction b)
+		{
+			return new Node (a.X - (int)b.Vector.X, a.Y - (int)b.Vector.Y, a.Z - (int)b.Vector.Z);
+		}
+
+		public static Node operator + (Direction a, Node b)
+		{
+			return b+a;
+		}
+
+		public static Node operator - (Direction a, Node b)
+		{
+			return b-a;
+		}
+
 		public override int GetHashCode ()
 		{
 			return X * 10000 + Y * 100 + Z;

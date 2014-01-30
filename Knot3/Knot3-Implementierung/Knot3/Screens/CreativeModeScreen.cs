@@ -71,6 +71,8 @@ namespace Knot3.Screens
 				edgeMovement.Knot = knot;
 				// den Knoten dem Kanteneinfärber zuweisen
 				edgeColoring.Knot = knot;
+				// den Knoten dem Flächendings zuweisen
+				edgeRectangles.Knot = knot;
 				// die Events registrieren
 				knot.EdgesChanged += OnEdgesChanged;
 				knot.StartEdgeChanged += knotInput.OnStartEdgeChanged;
@@ -82,6 +84,7 @@ namespace Knot3.Screens
 		private ModelMouseHandler modelMouseHandler;
 		private EdgeMovement edgeMovement;
 		private EdgeColoring edgeColoring;
+		private EdgeRectangles edgeRectangles;
 		private MousePointer pointer;
 		private Overlay overlay;
 		private Dialog currentDialog;
@@ -122,9 +125,13 @@ namespace Knot3.Screens
 			// der Input-Handler zur Kanten-Einfärbung
 			edgeColoring = new EdgeColoring (screen: this);
 
+			// Flächen zwischen Kanten
+			edgeRectangles = new EdgeRectangles(screen: this);
+
 			// assign the specified knot
 			Knot = knot;
 
+			// Hintergrund
 			SkyCube skyCube = new SkyCube (screen: this, position: Vector3.Zero, distance: world.Camera.MaxPositionDistance + 500);
 			world.Add (skyCube);
 		}
@@ -183,7 +190,7 @@ namespace Knot3.Screens
 		public override void Entered (IGameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler, edgeColoring);
+			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler, edgeColoring, edgeRectangles);
 			Audio.BackgroundMusic = Sound.CreativeMusic;
 
 			// Einstellungen anwenden

@@ -23,8 +23,6 @@ namespace Knot3.RenderEffects
 {
 	public class RenderEffectLibrary
 	{
-		public static float Supersampling = 2;
-
 		private static EffectFactory[] EffectLibrary
 		= new EffectFactory[] {
 			new EffectFactory (
@@ -37,13 +35,20 @@ namespace Knot3.RenderEffects
 			    displayName: "Cel Shading",
 			    createInstance: (screen) => new CelShadingEffect (screen)
 			),
+			/*
 			new EffectFactory (
 			    name: "opaque",
 			    displayName: "Opaque",
 			    createInstance: (screen) => new OpaqueEffect (screen)
 			),
+<<<<<<< HEAD
             new EffectFactory (
 			    name: "z-nebula",
+=======
+			*/
+			new EffectFactory (
+			    name: "Z-Nebula",
+>>>>>>> 6fb68c31804116a0388fa0484cb70c011410081e
 			    displayName: "Z-Nebula",
 			    createInstance: (screen) => new Z_Nebula (screen)
 			),
