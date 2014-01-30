@@ -138,30 +138,30 @@ namespace Knot3.Screens
 
 			// Undo-Button
 			undoButton = new MenuButton (
-				screen: this,
-				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				name: "Undo",
-				onClick: (time) => OnUndo ()
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Undo",
+			    onClick: (time) => OnUndo ()
 			);
 			undoButton.SetCoordinates (left: 0.05f, top: 0.900f, right: 0.15f, bottom: 0.95f);
 			undoButton.BackgroundColor = () => Color.Black;
 			undoButton.ForegroundColor = () => Color.White;
 			undoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			                              widget: undoButton, lineWidth: 2, padding: 0);
+			                               widget: undoButton, lineWidth: 2, padding: 0);
 			undoButton.AlignX = HorizontalAlignment.Center;
 
 			// Redo-Button
 			redoButton = new MenuButton (
-				screen: this,
-				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				name: "Redo",
-				onClick: (time) => OnRedo ()
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Redo",
+			    onClick: (time) => OnRedo ()
 			);
 			redoButton.SetCoordinates (left: 0.20f, top: 0.900f, right: 0.30f, bottom: 0.95f);
 			redoButton.BackgroundColor = () => Color.Black;
 			redoButton.ForegroundColor = () => Color.White;
 			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			                              widget: redoButton, lineWidth: 2, padding: 0);
+			                               widget: redoButton, lineWidth: 2, padding: 0);
 			redoButton.AlignX = HorizontalAlignment.Center;
 		}
 
