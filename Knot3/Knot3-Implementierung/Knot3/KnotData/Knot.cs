@@ -318,15 +318,13 @@ namespace Knot3.KnotData
 		public Object Clone ()
 		{
 			Circle<Edge> newCircle = new Circle<Edge> (startElement as IEnumerable<Edge>);
-			return new Knot (
-			           metaData: new KnotMetaData (
-			               name: MetaData.Name,
-			               countEdges: () => 0,
-			               format: MetaData.Format,
-			               filename: MetaData.Filename
-			           ),
-			           edges: newCircle
-			) {
+			KnotMetaData metaData = new KnotMetaData (
+               name: MetaData.Name,
+               countEdges: () => 0,
+               format: MetaData.Format,
+               filename: MetaData.Filename
+			);
+			return new Knot (metaData: metaData, edges: newCircle) {
 				selectedEdges = new List<Edge>(selectedEdges),
 				EdgesChanged = EdgesChanged,
 				SelectionChanged = SelectionChanged,
