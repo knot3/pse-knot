@@ -315,10 +315,12 @@ namespace Knot3.GameObjects
 
 			if (rect.IsVirtual || edgeAB.Rectangles.Intersect (edgeCD.Rectangles).Count () > 0) {
 				Texture2D texture;
-				if (rect.NodeB == rect.NodeC)
+				if (rect.NodeB == rect.NodeC) {
 					texture = CreateDiagonalRectangleTexture (edgeAB.Color, edgeCD.Color);
-				else
+				}
+				else {
 					texture = CreateParallelRectangleTexture (edgeAB.Color, edgeCD.Color);
+				}
 
 				TexturedRectangleInfo info = new TexturedRectangleInfo (
 				    texture: texture,
@@ -334,7 +336,7 @@ namespace Knot3.GameObjects
 
 				if (!rectangles.Contains (rectangle)) {
 					rectangles.Add (rectangle);
-					
+
 					if (rect.NodeB == rect.NodeC) {
 						if (!rectMap.ContainsEdge (nodeB - edgeAB, nodeB + edgeAB + edgeCD)) {
 							rectMap.AddEdge (edge: edgeCD, nodeA: nodeB - edgeAB, nodeB: nodeB + edgeAB + edgeCD, isVirtual: true);
@@ -342,13 +344,16 @@ namespace Knot3.GameObjects
 						if (!rectMap.ContainsEdge (nodeB - edgeAB + edgeCD, nodeB + edgeCD)) {
 							rectMap.AddEdge (edge: edgeAB, nodeA: nodeB - edgeAB + edgeCD, nodeB: nodeB + edgeCD, isVirtual: true);
 						}
-					}else {
+					}
+					else {
 						Edge edgeAC = new Edge((rect.NodeC - rect.NodeA).ToDirection());
 						Edge edgeBD = new Edge((rect.NodeD - rect.NodeB).ToDirection());
-						if (!rectMap.ContainsEdge(nodeA + edgeAC, nodeC))
+						if (!rectMap.ContainsEdge(nodeA + edgeAC, nodeC)) {
 							rectMap.AddEdge (edge: edgeAC, nodeA: nodeA + edgeAC, nodeB: nodeC, isVirtual: true);
-						if (!rectMap.ContainsEdge(nodeB + edgeBD, nodeD))
+						}
+						if (!rectMap.ContainsEdge(nodeB + edgeBD, nodeD)) {
 							rectMap.AddEdge (edge: edgeBD, nodeA: nodeB + edgeBD, nodeB: nodeD, isVirtual: true);
+						}
 					}
 					return true;
 				}
