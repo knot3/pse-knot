@@ -189,7 +189,7 @@ namespace Knot3.Screens
 			undoButtonBorder = new Border(screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                              widget: undoButton, lineWidth: 2, padding: 0);
 			undoButton.AlignX = HorizontalAlignment.Center;
-			
+
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
 			lines.AddPoints (500, 0, 500, 1000);
