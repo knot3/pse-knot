@@ -87,20 +87,20 @@ namespace Knot3.Screens
 			createButton.ForegroundColor = () => base.MenuItemForegroundColor (createButton.ItemState);
 			createButton.BackgroundColor = () => base.MenuItemBackgroundColor (createButton.ItemState);
 			createButtonBorder = new Border (this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, createButton, 4, 4);
-            createButton.AlignX = HorizontalAlignment.Center;
+			createButton.AlignX = HorizontalAlignment.Center;
 
 			startKnotMenu.Bounds.Padding = targetKnotMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			startKnotMenu.ItemAlignX = targetKnotMenu.ItemAlignX = HorizontalAlignment.Left;
 			startKnotMenu.ItemAlignY = targetKnotMenu.ItemAlignY = VerticalAlignment.Center;
 
-			lines.AddPoints (0, 50, 
-                
-                
-                30, 970,
-                770, 895,
-                870, 970,
-                970, 50, 1000
-                );
+			lines.AddPoints (0, 50,
+
+
+			                 30, 970,
+			                 770, 895,
+			                 870, 970,
+			                 970, 50, 1000
+			                );
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Create Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -121,7 +121,7 @@ namespace Knot3.Screens
 			);
 			backButton.AddKey(Keys.Escape);
 			backButton.SetCoordinates(left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
-			
+
 			backButton.AlignX = HorizontalAlignment.Center;
 
 			backButton.ForegroundColor = () => base.MenuItemForegroundColor(backButton.ItemState);
