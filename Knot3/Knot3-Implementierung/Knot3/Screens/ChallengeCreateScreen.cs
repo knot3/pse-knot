@@ -42,6 +42,9 @@ namespace Knot3.Screens
 		private MenuButton createButton;
 		private Border createButtonBorder;
 
+        // Zurück-Button.
+        private MenuButton backButton;
+
 		// Spielstand-Loader
 		private SavegameLoader<Knot, KnotMetaData> loader;
 		private Knot selectedStartKnot;
@@ -100,6 +103,18 @@ namespace Knot3.Screens
 			KnotFileIO fileFormat = new KnotFileIO ();
 			// Erstelle einen Spielstand-Loader
 			loader = new SavegameLoader<Knot, KnotMetaData> (fileFormat, "index-knots");
+
+
+            backButton = new MenuButton(
+                screen: this,
+                drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+                name: "Back",
+                onClick: (time) => NextScreen = Game.Screens.Where((s) => !(s is ChallengeStartScreen)).ElementAt(0)
+            );
+            backButton.AddKey(Keys.Escape);
+            backButton.SetCoordinates(left: 0.170f, top: 0.910f, right: 0.270f, bottom: 0.960f);
+            // backButton.BackgroundColor = () => Color.Azure;
+            backButton.AlignX = HorizontalAlignment.Center;
 		}
 
 		#endregion
@@ -232,7 +247,7 @@ namespace Knot3.Screens
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, startKnotMenu, targetKnotMenu, challengeName, createButton,
-			                   createButtonBorder, title);
+			                   createButtonBorder, title, backButton);
 			TryConstructChallenge ();
 		}
 
