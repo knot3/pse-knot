@@ -149,7 +149,7 @@ namespace Knot3.Screens
 			undoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                               widget: undoButton, lineWidth: 2, padding: 0);
 			undoButton.AlignX = HorizontalAlignment.Center;
-
+            undoButton.IsVisible = false;
 			// Redo-Button
 			redoButton = new MenuButton (
 			    screen: this,
@@ -163,6 +163,7 @@ namespace Knot3.Screens
 			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                               widget: redoButton, lineWidth: 2, padding: 0);
 			redoButton.AlignX = HorizontalAlignment.Center;
+            redoButton.IsVisible = false;
 		}
 
 		#endregion
