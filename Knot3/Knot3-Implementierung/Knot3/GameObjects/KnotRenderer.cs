@@ -64,6 +64,7 @@ namespace Knot3.GameObjects
 		/// Die Liste der Flächen zwischen den Kanten.
 		/// </summary>
 		private HashSet<TexturedRectangle> rectangles;
+		private List<GameModel> debugModels;
 
 		/// <summary>
 		/// Der Knoten, für den 3D-Modelle erstellt werden sollen.
@@ -125,6 +126,7 @@ namespace Knot3.GameObjects
 			nodes = new List<NodeModel> ();
 			arrows = new List<ArrowModel> ();
 			rectangles = new HashSet<TexturedRectangle> ();
+			debugModels = new List<GameModel> ();
 			pipeFactory = new ModelFactory ((s, i) => new PipeModel (s, i as PipeModelInfo));
 			nodeFactory = new ModelFactory ((s, i) => new NodeModel (s, i as NodeModelInfo));
 			arrowFactory = new ModelFactory ((s, i) => new ArrowModel (s, i as ArrowModelInfo));
@@ -179,6 +181,7 @@ namespace Knot3.GameObjects
 			nodeMap.OnEdgesChanged ();
 
 			CreatePipes ();
+			CreateStartArrow ();
 			CreateNodes ();
 			if (showArrows) {
 				CreateArrows ();
@@ -206,6 +209,20 @@ namespace Knot3.GameObjects
 				pipe.World = World;
 				pipes.Add (pipe);
 			}
+		}
+
+		private void CreateStartArrow() 
+		{
+			Edge edge = knot.ElementAt (0);
+			Vector3 towardsCamera = World.Camera.PositionToTargetDirection;
+			ArrowModelInfo info = new ArrowModelInfo (
+				position: Vector3.Zero - 10 * towardsCamera - 10 * towardsCamera.PrimaryDirection (),
+				direction: edge
+			);
+			ArrowModel arrow = arrowFactory [screen, info] as ArrowModel;
+			arrow.Info.IsVisible = true;
+			arrow.World = World;
+			debugModels.Add (arrow);
 		}
 
 		private void CreateNodes ()
@@ -380,6 +397,9 @@ namespace Knot3.GameObjects
 						rectangle.Draw (time);
 					}
 				};
+				foreach (GameModel model in debugModels) {
+					model.Draw (time);
+				}
 				Profiler.Values ["# Pipes"] = pipes.Count ();
 				Profiler.Values ["# Nodes"] = nodes.Count ();
 			}

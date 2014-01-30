@@ -152,6 +152,14 @@ namespace Knot3.Debug
 			if (World.SelectedObject != null) {
 				Vector3 selectedObjectCenter = World.SelectedObject.Center ();
 				DrawVectorCoordinates (selectedObjectCenter, width2, width3, width4, height);
+
+				if (World.SelectedObject is PipeModel) {
+					DrawString ("Pipe: ", width1, height, Color.White);
+					PipeModel pipe = World.SelectedObject as PipeModel;
+					height += lineHeight;
+					string str = pipe.Info.Edge.Direction + "   #" + pipe.Info.Knot.ToList().FindIndex(g => g == pipe.Info.Edge);
+					DrawString (str, width2, height, Color.Yellow);
+				}
 			}
 			height += lineHeight;
 			DrawString ("Distance: ", width1, height, Color.White);

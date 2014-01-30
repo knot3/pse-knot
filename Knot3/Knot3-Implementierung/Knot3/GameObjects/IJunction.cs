@@ -40,6 +40,8 @@ namespace Knot3.GameObjects
 
 		Node Node { get; }
 
+		int Index { get; }
+
 		#endregion
 	}
 }

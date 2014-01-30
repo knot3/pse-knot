@@ -41,15 +41,36 @@ namespace Knot3.GameObjects
 		public Node Node { get; set; }
 
 		private NodeMap NodeMap;
+		public int Index { get; private set; }
 
 		public List<IJunction> JunctionsAtNode
 		{
 			get {
-				return NodeMap.JunctionsAtNode (NodeMap.NodeAfterEdge (EdgeFrom));
+				return (from j in NodeMap.JunctionsAtNode (NodeMap.NodeAfterEdge (EdgeFrom)) orderby j.Index ascending select j).ToList();
 			}
 		}
 
-		private static Dictionary<Tuple<Direction, Direction>, JunctionDirection> junctionDirectionMap
+		public int JunctionsAtNodeIndex
+		{
+			get {
+				int i = 0;
+				foreach (IJunction junction in JunctionsAtNode) {
+					if (junction == this as IJunction)
+						break;
+					++i;
+				}
+				return i;
+			}
+		}
+
+		public List<IJunction> OtherJunctionsAtNode
+		{
+			get {
+				return JunctionsAtNode.Where(x => x != this as IJunction).ToList();
+			}
+		}
+
+		private static Dictionary<Tuple<Direction, Direction>, JunctionDirection> angledJunctionDirectionMap
 		    = new Dictionary<Tuple<Direction, Direction>, JunctionDirection> ()
 		{
 			{ Tuple.Create(Direction.Up, Direction.Up), 			JunctionDirection.UpUp },
@@ -88,7 +109,7 @@ namespace Knot3.GameObjects
 			{ Tuple.Create(Direction.Backward, Direction.Up), 		JunctionDirection.DownForward },
 			{ Tuple.Create(Direction.Backward, Direction.Down), 	JunctionDirection.UpForward },
 		};
-		private static Dictionary<JunctionDirection, Angles3> junctionRotationMap
+		private static Dictionary<JunctionDirection, Angles3> angledJunctionRotationMap
 		    = new Dictionary<JunctionDirection, Angles3> ()
 		{
 			{ JunctionDirection.UpForward, 			Angles3.FromDegrees (0, 0, 0) },
@@ -108,6 +129,54 @@ namespace Knot3.GameObjects
 			{ JunctionDirection.BackwardBackward, 	Angles3.FromDegrees (0, 0, 0) },
 		};
 
+
+
+
+		private static Dictionary<Direction, Angles3> curvedJunctionRotationMap
+		= new Dictionary<Direction, Angles3> () {
+			{ Direction.Up,			Angles3.FromDegrees (90, 0, 0) },
+			{ Direction.Down,		Angles3.FromDegrees (270, 0, 0) },
+			{ Direction.Left,		Angles3.FromDegrees (0, 90, 0) },
+			{ Direction.Right,		Angles3.FromDegrees (0, 270, 0) },
+			{ Direction.Forward,	Angles3.FromDegrees (0, 0, 0) },
+			{ Direction.Backward,	Angles3.FromDegrees (0, 0, 180) },
+		};
+
+		private static Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> curvedJunctionBumpRotationMap
+		= new Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> () {
+			{ Tuple.Create(Direction.Up, Direction.Left), 			Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Up, Direction.Right), 			Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Up, Direction.Forward), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Up, Direction.Backward), 		Tuple.Create(0f, 0f) },
+
+			{ Tuple.Create(Direction.Down, Direction.Left), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Down, Direction.Right), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Down, Direction.Forward), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Down, Direction.Backward), 	Tuple.Create(0f, 0f) },
+
+			{ Tuple.Create(Direction.Left, Direction.Up), 			Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Left, Direction.Down), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Left, Direction.Forward), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Left, Direction.Backward), 	Tuple.Create(0f, 0f) },
+
+			{ Tuple.Create(Direction.Right, Direction.Up), 			Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Right, Direction.Down), 		Tuple.Create(0f, 90f) }, // works
+			{ Tuple.Create(Direction.Right, Direction.Forward), 	Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Right, Direction.Backward), 	Tuple.Create(0f, 0f) },
+
+			{ Tuple.Create(Direction.Forward, Direction.Left), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Forward, Direction.Right), 	Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Forward, Direction.Up), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Forward, Direction.Down), 		Tuple.Create(0f, 0f) },
+
+			{ Tuple.Create(Direction.Backward, Direction.Left), 	Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Backward, Direction.Right), 	Tuple.Create(-90f, -90f) }, // works
+			{ Tuple.Create(Direction.Backward, Direction.Up), 		Tuple.Create(0f, 0f) },
+			{ Tuple.Create(Direction.Backward, Direction.Down), 	Tuple.Create(0f, 0f) },
+		};
+	
+
+
 		#endregion
 
 		#region Constructors
@@ -116,13 +185,14 @@ namespace Knot3.GameObjects
 		/// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das einen Kantenübergang darstellt.
 		/// [base="node1", Angles3.Zero, new Vector3(1,1,1)]
 		/// </summary>
-		public NodeModelInfo (NodeMap nodeMap, Edge from, Edge to, Node node)
+		public NodeModelInfo (NodeMap nodeMap, Edge from, Edge to, Node node, int index)
 		: base("pipe-straight", Angles3.Zero, Vector3.One * 25f)
 		{
 			EdgeFrom = from;
 			EdgeTo = to;
 			Node = node;
 			NodeMap = nodeMap;
+			Index = index;
 			Position = nodeMap.NodeAfterEdge (EdgeFrom);
 
 			// Kanten sind sichtbar, nicht auswählbar und nicht verschiebbar
@@ -141,25 +211,38 @@ namespace Knot3.GameObjects
 		private void chooseModel ()
 		{
 			if (JunctionsAtNode.Count == 1) {
-				if (EdgeFrom.Direction == EdgeTo.Direction) {
-					Modelname = "pipe-straight";
-				}
-				else {
+				if (EdgeFrom.Direction != EdgeTo.Direction) {
 					Modelname = "pipe-angled";
+					Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 				}
 			}
-			else {
+			else if (JunctionsAtNode.Count == 2) {
 				if (EdgeFrom.Direction == EdgeTo.Direction) {
 					Modelname = "pipe-curved1";
+					Rotation = Angles3.FromDegrees(0,0,0)+curvedJunctionRotationMap [EdgeFrom.Direction];
+
+					IJunction otherJunction = OtherJunctionsAtNode.ElementAt (0);
+					/*
+					KnotData.Axis evadeAxis = DirectionHelper.Axes.Where (x => x != EdgeFrom.Direction.Axis && x != otherJunction.EdgeFrom.Direction.Axis).ElementAt (0);
+					Direction a = Direction.FromAxis (evadeAxis); // +
+					Direction b = a.Reverse; // -
+					*/
+					var directions = Tuple.Create (JunctionsAtNode [0].EdgeFrom.Direction, JunctionsAtNode [1].EdgeFrom.Direction);
+					var bumpRotationsZ = curvedJunctionBumpRotationMap [directions];
+					float bumpRotationZ = JunctionsAtNodeIndex == 0 ? bumpRotationsZ.Item1 : bumpRotationsZ.Item2;
+					Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
+					Console.WriteLine ("Index="
+						+ Index+", Directions="+directions+", Rotation="+Rotation+", bumpRotationZ="+bumpRotationZ+", ...="
+						+Angles3.FromDegrees (0, 0, bumpRotationZ) );
 				}
 				else {
 					Modelname = "pipe-angled";
+					Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 				}
 			}
 
 			// Berechne die Drehung
 			//Console.WriteLine ("directions = " + EdgeFrom.Direction + ", " + EdgeTo.Direction);
-			Rotation = junctionRotationMap [junctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 		}
 
 		public override bool Equals (GameObjectInfo other)
