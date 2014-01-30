@@ -193,7 +193,6 @@ namespace Knot3.Screens
 			Console.WriteLine ("Redo: Redo.Count=" + Redo.Count);
 			if (Redo.Count >= 1) {
 				Knot next = Redo.Pop ();
-				Redo.Push (knot);
 				Undo.Push (knot);
 				knot = next;
 				// den Knoten den Inputhandlern und Renderern zuweisen
