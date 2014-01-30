@@ -38,12 +38,12 @@ namespace Knot3.RenderEffects
 			    createInstance: (screen) => new CelShadingEffect (screen)
 			),
 			new EffectFactory (
-			    name: "pascal",
-			    displayName: "Pascal",
-			    createInstance: (screen) => new Pascal (screen)
+			    name: "opaque",
+			    displayName: "Opaque",
+			    createInstance: (screen) => new OpaqueEffect (screen)
 			),
             new EffectFactory (
-			    name: "Z-Nebula",
+			    name: "z-nebula",
 			    displayName: "Z-Nebula",
 			    createInstance: (screen) => new Z_Nebula (screen)
 			),

@@ -22,12 +22,12 @@ using Knot3.Utilities;
 
 namespace Knot3.RenderEffects
 {
-	class Pascal : RenderEffect
+	class OpaqueEffect : RenderEffect
 	{
-		public Pascal(IGameScreen screen)
+        public OpaqueEffect(IGameScreen screen)
 		: base(screen)
 		{
-			pascalEffect = screen.LoadEffect("Pascal");
+			pascalEffect = screen.LoadEffect("OpaqueShader");
 		}
 
 		protected override void DrawRenderTarget(GameTime GameTime)

@@ -40,6 +40,9 @@ namespace Knot3.Screens
 		// Spielstand-Loader
 		private SavegameLoader<Knot, KnotMetaData> loader;
 
+        // Zurück-Button
+        private MenuButton backButton;
+
 		// Preview
 		private World previewWorld;
 		private KnotRenderer previewRenderer;
@@ -60,14 +63,25 @@ namespace Knot3.Screens
 		{
 			savegameMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			savegameMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
-			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.720f);
+			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.620f);
 			savegameMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			savegameMenu.ItemForegroundColor = base.MenuItemForegroundColor;
 			savegameMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			savegameMenu.ItemAlignX = HorizontalAlignment.Left;
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
 
-			lines.AddPoints (0, 50, 30, 970, 970, 50, 1000);
+			//lines.AddPoints (0, 50, 30, 970, 970, 50, 1000);
+
+            lines.AddPoints(
+
+                /* Start */ 0, 50,
+
+                 30, 970,
+                 170, 895,
+                 270, 970,
+                 970, 50,
+                 1000
+            );
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Knot");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -97,6 +111,17 @@ namespace Knot3.Screens
 			);
 			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 			previewMouseHandler = new ModelMouseHandler (screen: this, world: previewWorld);
+
+            backButton = new MenuButton(
+                screen: this,
+                drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+                name: "Back",
+                onClick: (time) => NextScreen = Game.Screens.Where((s) => !(s is CreativeLoadScreen)).ElementAt(0)
+            );
+            backButton.AddKey(Keys.Escape);
+            backButton.SetCoordinates(left: 0.170f, top: 0.910f, right: 0.270f, bottom: 0.960f);
+            // backButton.BackgroundColor = () => Color.Azure;
+            backButton.AlignX = HorizontalAlignment.Center;
 		}
 
 		#endregion
@@ -150,7 +175,7 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler);
+			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler, backButton);
 		}
 
 		#endregion
