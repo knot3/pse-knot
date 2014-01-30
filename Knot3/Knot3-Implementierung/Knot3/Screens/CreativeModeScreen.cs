@@ -173,8 +173,8 @@ namespace Knot3.Screens
 		{
 			Undo.Push ((Knot) knot.Clone());
 			Redo.Clear ();
-            redoButton.IsVisible = false;
-            undoButton.IsVisible = true;
+			redoButton.IsVisible = false;
+			undoButton.IsVisible = true;
 		}
 
 		private void OnUndo ()
@@ -187,13 +187,12 @@ namespace Knot3.Screens
 				knot = previous;
 				// den Knoten den Inputhandlern und Renderern zuweisen
 				registerCurrentKnot ();
-                redoButton.IsVisible = true;
-            }
-            else
-            {
-                undoButton.IsVisible = false;
-            }
-			
+				redoButton.IsVisible = true;
+			}
+			else {
+				undoButton.IsVisible = false;
+			}
+
 		}
 
 		private void OnRedo ()
@@ -207,10 +206,9 @@ namespace Knot3.Screens
 				registerCurrentKnot ();
 
 			}
-            else
-            {
-                redoButton.IsVisible = false;
-            }
+			else {
+				redoButton.IsVisible = false;
+			}
 		}
 
 		private void registerCurrentKnot ()
