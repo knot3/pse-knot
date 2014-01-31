@@ -79,6 +79,21 @@ namespace Knot3.Utilities
 			}
 		}
 
+		public static string DecodedMusicCache
+		{
+			get {
+				string directory;
+				if (MonoHelper.IsRunningOnMono ()) {
+					directory = "/var/tmp/knot3/";
+				}
+				else {
+					directory = Environment.GetFolderPath (System.Environment.SpecialFolder.MyMusic) + "\\Knot3\\";
+				}
+				Directory.CreateDirectory (directory);
+				return directory;
+			}
+		}
+
 		public static string BaseDirectory
 		{
 			get {

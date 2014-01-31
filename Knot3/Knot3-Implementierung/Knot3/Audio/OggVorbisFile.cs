@@ -38,7 +38,7 @@ namespace Knot3.Audio
 		public OggVorbisFile (string name, string filepath, Sound soundType)
 		{
 			Name = name;
-			string cachefile = System.IO.Path.GetTempPath () + FileUtility.Separator + name.GetHashCode () + ".wav";
+			string cachefile = FileUtility.DecodedMusicCache + FileUtility.Separator + soundType + "_" + name.GetHashCode () + ".wav";
 
 			byte[] data;
 			try {
