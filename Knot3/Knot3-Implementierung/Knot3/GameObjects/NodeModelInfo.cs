@@ -289,7 +289,7 @@ namespace Knot3.GameObjects
 			else if (Type == JunctionType.Straight) {
 
 				// Drehung des Übergangs
-				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-curved2"];
+				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-curved1"];
 				Rotation = Angles3.FromDegrees (0, 0, 0) + straightJunctionRotationMap [EdgeFrom.Direction];
 
 				// Drehung der Delle

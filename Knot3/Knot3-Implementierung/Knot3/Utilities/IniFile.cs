@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 
 namespace Knot3.Utilities
 {
@@ -52,9 +53,9 @@ namespace Knot3.Utilities
 		public void Save ()
 		{
 			using (StreamWriter writer = new StreamWriter(Filename)) {
-				foreach (string section in Data.Keys) {
+				foreach (string section in Data.Keys.OrderBy(x => x)) {
 					writer.WriteLine ("[" + section + "]");
-					foreach (string key  in Data[section].Keys) {
+					foreach (string key  in Data[section].Keys.OrderBy(x => x)) {
 						writer.WriteLine (key + "=" + Data [section] [key]);
 					}
 				}
