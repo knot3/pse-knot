@@ -62,4 +62,3 @@ namespace Knot3.GameObjects
 		public bool IsKeyEventEnabled { get { return true; } }
 	}
 }
-

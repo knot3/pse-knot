@@ -77,9 +77,6 @@ namespace Knot3.Screens
 			//player.PlayLooping();
 		}
 
-
-
 		#endregion
 	}
 }
-

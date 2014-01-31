@@ -56,4 +56,3 @@ namespace Knot3.Core
 		#endregion
 	}
 }
-

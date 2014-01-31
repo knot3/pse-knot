@@ -66,7 +66,6 @@ namespace Knot3.RenderEffects
 			zNebulaEffect.Parameters["View"].SetValue(camera.ViewMatrix);
 			zNebulaEffect.Parameters["Projection"].SetValue(camera.ProjectionMatrix);
 
-
 			zNebulaEffect.CurrentTechnique = zNebulaEffect.Techniques["Simplest"];
 
 			foreach (ModelMesh mesh in model.Model.Meshes) {

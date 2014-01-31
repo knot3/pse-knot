@@ -30,4 +30,3 @@ namespace Knot3.Debug
 		}
 	}
 }
-

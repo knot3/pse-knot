@@ -45,4 +45,3 @@ namespace Knot3.Utilities
 		}
 	}
 }
-

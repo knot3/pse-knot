@@ -28,7 +28,6 @@ namespace Knot3.Core
 	{
 		#region Properties
 
-
 		/// <summary>
 		/// Eine Eigenschaft, die den aktuell abgespeicherten Wert zurückgibt.
 		/// </summary>
@@ -77,7 +76,6 @@ namespace Knot3.Core
 
 			return ("" + (int)(f*1000f));
 
-
 		}
 		private static float stringToFloat (string s)
 		{
@@ -93,4 +91,3 @@ namespace Knot3.Core
 		#endregion
 	}
 }
-

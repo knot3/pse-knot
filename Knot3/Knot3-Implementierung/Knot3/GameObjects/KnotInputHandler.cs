@@ -154,7 +154,6 @@ namespace Knot3.GameObjects
 		public override void Update (GameTime time)
 		{
 
-
 			// und die linke Maustaste gedrückt gehalten wird
 			if (InputManager.CurrentMouseState.MiddleButton == ButtonState.Pressed && InputManager.PreviousMouseState.MiddleButton == ButtonState.Released) {
 				Screen.Input.GrabMouseMovement = true;
@@ -500,4 +499,3 @@ namespace Knot3.GameObjects
 		#endregion
 	}
 }
-

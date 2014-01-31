@@ -145,7 +145,6 @@ namespace Knot3.GameObjects
 			Vertices [3].Position = UpperRight;
 			Vertices [3].TextureCoordinate = textureUpperRight;
 
-
 			// Set the index buffer for each vertex, using
 			// clockwise winding
 			Indexes = new short[12];
@@ -264,4 +263,3 @@ namespace Knot3.GameObjects
 		}
 	}
 }
-

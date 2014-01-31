@@ -135,4 +135,3 @@ namespace Knot3.Widgets
 		}
 	}
 }
-

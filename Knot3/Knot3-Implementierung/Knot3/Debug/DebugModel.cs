@@ -35,6 +35,4 @@ namespace Knot3.Debug
 			base.Update (gameTime);
 		}
 	}
-
 }
-

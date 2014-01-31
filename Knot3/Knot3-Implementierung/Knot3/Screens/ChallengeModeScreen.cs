@@ -192,7 +192,6 @@ namespace Knot3.Screens
 			undoButton.AlignX = HorizontalAlignment.Center;
 			undoButton.IsVisible = false;
 
-
 			//Redo-Button
 			redoButton = new MenuButton (screen: this,
 			                             drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
@@ -282,7 +281,6 @@ namespace Knot3.Screens
 				registerCurrentKnot ();
 
 				redoButton.IsVisible = true;
-
 
 			}
 			if (Redo.Count == 0) {
@@ -389,4 +387,3 @@ namespace Knot3.Screens
 		}
 	}
 }
-

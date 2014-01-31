@@ -147,4 +147,3 @@ namespace Knot3.Debug
 		#endregion
 	}
 }
-

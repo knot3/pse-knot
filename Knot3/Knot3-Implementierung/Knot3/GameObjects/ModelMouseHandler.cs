@@ -44,7 +44,6 @@ namespace Knot3.GameObjects
 			World = world;
 		}
 
-
 		#endregion
 
 		#region Methods
@@ -102,4 +101,3 @@ namespace Knot3.GameObjects
 		#endregion
 	}
 }
-

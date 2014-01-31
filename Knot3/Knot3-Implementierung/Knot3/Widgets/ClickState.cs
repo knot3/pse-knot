@@ -33,4 +33,3 @@ namespace Knot3.Widgets
 		DoubleClick=2,
 	}
 }
-

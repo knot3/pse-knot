@@ -95,7 +95,6 @@ namespace Knot3.Screens
 
 			lines.AddPoints (0, 50,
 
-
 			                 30, 970,
 			                 770, 895,
 			                 870, 970,
@@ -111,7 +110,6 @@ namespace Knot3.Screens
 			KnotFileIO fileFormat = new KnotFileIO ();
 			// Erstelle einen Spielstand-Loader
 			loader = new SavegameLoader<Knot, KnotMetaData> (fileFormat, "index-knots");
-
 
 			backButton = new MenuButton(
 			    screen: this,
@@ -285,4 +283,3 @@ namespace Knot3.Screens
 		#endregion
 	}
 }
-

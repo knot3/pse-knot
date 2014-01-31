@@ -159,4 +159,3 @@ namespace Knot3.KnotData
 		#endregion
 	}
 }
-

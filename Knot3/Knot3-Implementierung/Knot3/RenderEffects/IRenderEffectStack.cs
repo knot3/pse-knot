@@ -30,4 +30,3 @@ namespace Knot3.RenderEffects
 		void Push (IRenderEffect effect);
 	}
 }
-

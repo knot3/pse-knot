@@ -39,4 +39,3 @@ namespace Knot3.Widgets
 		Bottom=2,
 	}
 }
-

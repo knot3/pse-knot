@@ -38,7 +38,6 @@ namespace Knot3.Debug
 		public static HashtableActionWrapper ProfileDelegate = new HashtableActionWrapper ();
 		public static HashtableWrapper Values = new HashtableWrapper ();
 
-
 		public class HashtableWrapper
 		{
 			public double this [string str]
@@ -68,4 +67,3 @@ namespace Knot3.Debug
 		}
 	}
 }
-

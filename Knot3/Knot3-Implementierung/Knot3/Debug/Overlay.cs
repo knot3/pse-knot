@@ -43,7 +43,6 @@ namespace Knot3.Debug
 			// game world
 			World = world;
 
-
 			// create a new SpriteBatch, which can be used to draw textures
 			effect = new BasicEffect (screen.Device);
 			spriteBatch = new SpriteBatch (screen.Device);
@@ -243,4 +242,3 @@ namespace Knot3.Debug
 		}
 	}
 }
-

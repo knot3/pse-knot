@@ -218,4 +218,3 @@ namespace Knot3.KnotData
 		X, Y, Z, Zero
 	}
 }
-

@@ -70,7 +70,6 @@ namespace Knot3.Core
 
 		#region Static Attributes
 
-
 		#endregion
 
 		#region Properties
@@ -173,4 +172,3 @@ namespace Knot3.Core
 		#endregion
 	}
 }
-

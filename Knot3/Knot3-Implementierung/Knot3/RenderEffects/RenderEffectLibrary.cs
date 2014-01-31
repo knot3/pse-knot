@@ -93,4 +93,3 @@ namespace Knot3.RenderEffects
 		}
 	}
 }
-

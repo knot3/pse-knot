@@ -145,4 +145,3 @@ namespace Knot3.RenderEffects
 		#endregion
 	}
 }
-

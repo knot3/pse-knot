@@ -63,7 +63,6 @@ namespace Knot3.Widgets
 				}
 			}
 
-
 			//Button f�rs Neustarten
 			MenuButton restartButton = new MenuButton (
 			    screen: Screen,
@@ -105,4 +104,3 @@ namespace Knot3.Widgets
 		#endregion
 	}
 }
-
