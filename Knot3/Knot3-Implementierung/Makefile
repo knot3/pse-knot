@@ -15,14 +15,16 @@ build:
 	xbuild $(SOLUTION)
 
 install: build
-	install --mode=755 $(NAME) $(BINDIR)/
+	$(MKDIR) $(BINDIR)
+	install --mode=755 $(NAME) $(BINDIR)/$(NAME)
 	$(MKDIR) $(GAMEDIR)
+	unzip -o -d bin/Debug/ lib/MonoGame-Linux-3.1.2.zip
 	$(CPR) bin/Debug/* $(GAMEDIR)/
 
 clean: distclean
 
 distclean:
-	$(RMR) Knot3-Implementierung/bin Knot3-Unit-Tests/bin
+	$(RMR) bin
 
 uninstall:
 	$(RM) $(BINDIR)/$(NAME)
