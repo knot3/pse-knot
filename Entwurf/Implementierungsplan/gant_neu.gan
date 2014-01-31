@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="Knot3" company="PSE" webLink="http://" view-date="2013-12-24" view-index="0" gantt-divider-location="315" resource-divider-location="300" version="2.0" locale="de_DE">
+<?xml version="1.0" encoding="UTF-8"?><project name="Knot3" company="PSE" webLink="http://" view-date="2013-12-24" view-index="1" gantt-divider-location="315" resource-divider-location="300" version="2.0" locale="de_DE">
     <description/>
     <view zooming-state="default:1" id="gantt-chart">
         <field id="tpd3" name="Vorgang" width="67" order="0"/>
@@ -7,8 +6,8 @@
         <field id="tpd5" name="Ende" width="21" order="2"/>
     </view>
     <view id="resource-table">
-        <field id="0" name="Ressource" width="50" order="0"/>
-        <field id="1" name="Rolle" width="49" order="1"/>
+        <field id="0" name="Ressource" width="71" order="0"/>
+        <field id="1" name="Rolle" width="28" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -99,7 +98,7 @@
             <depend id="129" type="2" difference="0" hardness="Strong"/>
             <depend id="131" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="7" name="Datenstruktur" color="#ff0033" meeting="false" start="2013-12-23" duration="4" complete="0" expand="true">
+        <task id="7" name="Datenstruktur" color="#ff0033" meeting="false" start="2013-12-23" duration="24" complete="0" expand="true">
             <depend id="19" type="2" difference="0" hardness="Strong"/>
             <depend id="74" type="2" difference="0" hardness="Strong"/>
             <depend id="199" type="2" difference="0" hardness="Strong"/>
@@ -117,13 +116,13 @@
             <depend id="141" type="2" difference="0" hardness="Strong"/>
             <depend id="142" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="19" name="3D-Modell-Klassen" color="#3333ff" meeting="false" start="2014-01-21" duration="11" complete="0" expand="true">
+        <task id="19" name="3D-Modell-Klassen" color="#3333ff" meeting="false" start="2014-01-26" duration="11" complete="0" expand="true">
             <depend id="74" type="2" difference="0" hardness="Strong"/>
-            <task id="141" name="Kantendarstellung" color="#ff0033" meeting="false" start="2014-01-21" duration="1" complete="0" expand="true"/>
-            <task id="142" name="Übergangsdarstellung" color="#ff0033" meeting="false" start="2014-01-21" duration="10" complete="0" expand="true">
+            <task id="141" name="Kantendarstellung" color="#ff0033" meeting="false" start="2014-01-26" duration="1" complete="0" expand="true"/>
+            <task id="142" name="Übergangsdarstellung" color="#ff0033" meeting="false" start="2014-01-26" duration="10" complete="0" expand="true">
                 <depend id="145" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="145" name="Flächen" color="#33ff00" meeting="false" start="2014-01-31" duration="1" complete="0" expand="true"/>
+            <task id="145" name="Flächen" color="#33ff00" meeting="false" start="2014-02-05" duration="1" complete="0" expand="true"/>
         </task>
         <task id="129" name="Bugfixes" color="#33ff00" meeting="false" start="2014-01-02" duration="30" complete="0" expand="true">
             <depend id="209" type="2" difference="0" hardness="Strong"/>
@@ -154,14 +153,14 @@
             <depend id="74" type="2" difference="0" hardness="Strong"/>
             <depend id="164" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="74" name="Eastereggs" color="#ff00ff" meeting="false" start="2014-02-01" duration="1" complete="0" expand="true">
+        <task id="74" name="Eastereggs" color="#ff00ff" meeting="false" start="2014-02-06" duration="1" complete="0" expand="true">
             <depend id="209" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="198" name="Eingabe/Ausgabe" color="#3333ff" meeting="false" start="2014-01-05" duration="8" complete="0" expand="true">
-            <task id="199" name="Standardformate" color="#ff0033" meeting="false" start="2014-01-05" duration="8" complete="0" expand="true"/>
-            <task id="200" name="3D-Drucker-Formate" color="#33ff33" meeting="false" start="2014-01-05" duration="3" complete="0" expand="true"/>
+        <task id="198" name="Eingabe/Ausgabe" color="#3333ff" meeting="false" start="2014-01-26" duration="8" complete="0" expand="true">
+            <task id="199" name="Standardformate" color="#ff0033" meeting="false" start="2014-01-26" duration="8" complete="0" expand="true"/>
+            <task id="200" name="3D-Drucker-Formate" color="#33ff33" meeting="false" start="2014-01-26" duration="3" complete="0" expand="true"/>
         </task>
-        <task id="209" name="Ende" color="#ff0033" meeting="true" start="2014-02-02" duration="0" complete="0" expand="true"/>
+        <task id="209" name="Ende" color="#ff0033" meeting="true" start="2014-02-07" duration="0" complete="0" expand="true"/>
     </tasks>
     <resources>
         <resource id="0" name="Gerd" function="Default:1" contacts="" phone=""/>
@@ -173,7 +172,7 @@
         <resource id="6" name="Extern" function="SoftwareDevelopment:5" contacts="" phone=""/>
     </resources>
     <allocations>
-        <allocation task-id="7" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="7" resource-id="0" function="Default:1" responsible="true" load="20.0"/>
         <allocation task-id="18" resource-id="0" function="Default:1" responsible="true" load="10.0"/>
         <allocation task-id="74" resource-id="0" function="Default:1" responsible="false" load="5.0"/>
         <allocation task-id="129" resource-id="0" function="Default:1" responsible="true" load="10.0"/>
@@ -184,6 +183,7 @@
         <allocation task-id="74" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="5.0"/>
         <allocation task-id="164" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="90.0"/>
         <allocation task-id="165" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
+        <allocation task-id="7" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="80.0"/>
         <allocation task-id="23" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
         <allocation task-id="74" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="5.0"/>
         <allocation task-id="19" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="70.0"/>
