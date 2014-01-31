@@ -61,16 +61,16 @@ namespace Knot3.KnotData
 			Rectangles = new HashSet<int> ();
 		}
 
-        /// <summary>
-        /// Erstellt eine neue Kante mit der angegebenen Richtung und Farbe.
-        /// </summary>
-        public Edge(Direction direction, Color color)
-        {
-            Direction = direction;
-            Color = color;
-            id = ++previousId;
-            Rectangles = new HashSet<int>();
-        }
+		/// <summary>
+		/// Erstellt eine neue Kante mit der angegebenen Richtung und Farbe.
+		/// </summary>
+		public Edge(Direction direction, Color color)
+		{
+			Direction = direction;
+			Color = color;
+			id = ++previousId;
+			Rectangles = new HashSet<int>();
+		}
 
 		#endregion
 

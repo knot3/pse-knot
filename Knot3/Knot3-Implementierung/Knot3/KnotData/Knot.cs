@@ -297,7 +297,7 @@ namespace Knot3.KnotData
 						pointer.Next.Remove ();
 					}
 					else {
-                        pointer.InsertAfter(new Edge(direction.Reverse, pointer.Value.Color));
+						pointer.InsertAfter(new Edge(direction.Reverse, pointer.Value.Color));
 					}
 				}
 			}
