@@ -4,10 +4,10 @@ CPR = cp -rvf
 RM = rm -v
 RMR = rm -rvf
 MKDIR = mkdir -p
-BINDIR = $(DESTDIR)/usr/bin
-GAMEDIR = $(DESTDIR)/usr/games/knot3
+BINDIR = $(DESTDIR)/usr/games
+GAMEDIR = $(DESTDIR)/usr/share/knot3
 NAME = knot3
-SOLUTION=Knot3-Linux.sln
+SOLUTION=Knot3-Linux.csproj
 
 all: build
 
@@ -15,9 +15,9 @@ build:
 	xbuild $(SOLUTION)
 
 install: build
-	#install --mode=755 $(NAME) $(BINDIR)/
+	install --mode=755 $(NAME) $(BINDIR)/
 	$(MKDIR) $(GAMEDIR)
-	$(CPR) Knot3-Implementierung/bin/* $(GAMEDIR)/
+	$(CPR) bin/Debug/* $(GAMEDIR)/
 
 clean: distclean
 
