@@ -1,61 +1,51 @@
 float4x4 World;
 float4x4 View;
 float4x4 Projection;
-//float4 LightDirection;
 
-float4 color1;
-float4 color2;
-
-// TODO: add effect parameters here.
-
-struct VertexShaderInput
+struct VertexToPixel
 {
-    float4 Position : POSITION0;
-
-    // TODO: add input channels such as texture
-    // coordinates and vertex colors here.
+	float4 Position : POSITION0;
+    float4 Color        : COLOR0;
 };
 
-struct VertexShaderOutput
-{
-    float4 Position : POSITION0;
 
-    // TODO: add vertex shader outputs such as colors and texture
-    // coordinates here. These values will automatically be interpolated
-    // over the triangle, and provided as input to your pixel shader.
+struct PixelToFrame
+{
+    float4 Color        : COLOR0;
 };
 
-VertexShaderOutput VertexShaderFunction(VertexShaderInput input)
-{
-    VertexShaderOutput output;
-
-    float4 worldPosition = mul(input.Position, World);
+ 
+ VertexToPixel SimplestVertexShader( float4 inPos : POSITION0 )
+ {
+     VertexToPixel Output = (VertexToPixel) 0;
+     
+    float4 worldPosition = mul(inPos, World);
     float4 viewPosition = mul(worldPosition, View);
-    output.Position = mul(viewPosition, Projection);
+    Output.Color.rgba = mul(viewPosition, Projection);
+	Output.Position = mul(viewPosition, Projection);
 
-    // TODO: add your vertex shader code here.
+ 
+     return Output;
+ }
+ 
+ 
+ float4 OurFirstPixelShader(VertexToPixel PSIn) : COLOR0
+ {
+     //PixelToFrame Output = (PixelToFrame) 0;
 
-    return output;
-}
+	 //Output.Color = ;
 
-float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
-{
-	// man muss alle deklarierten Variablen verwenden,
-	// sonst wirft sie der Konverter zu GLSL raus und
-	// es gibt NullReferenceExceptions in C#...
-	return color1+color2;
-
-    // TODO: add your pixel shader code here.
-    // return float4(1, 0, 0, 1);
-}
-
-technique Technique1
-{
-    pass Pass1
-    {
-        // TODO: set renderstates here.
-
-        VertexShader = compile vs_2_0 VertexShaderFunction();
-        PixelShader = compile ps_2_0 PixelShaderFunction();
-    }
-}
+	 float4 pos = PSIn.Color.rgba;
+	 //float depth = P
+ 
+     return float4(pos.z, pos.z, pos.z, 1);
+ }
+ 
+ technique Simplest
+ {
+     pass Pass0
+     {
+         VertexShader = compile vs_2_0 SimplestVertexShader();
+         PixelShader = compile ps_2_0 OurFirstPixelShader();
+     }
+ }
