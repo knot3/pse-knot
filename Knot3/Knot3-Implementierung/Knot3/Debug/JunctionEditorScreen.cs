@@ -44,6 +44,7 @@ namespace Knot3.Debug
 		private DebugBoundings debugBoundings;
 		private MenuButton backButton;
 		private VerticalMenu settingsMenu;
+		private DropDownMenuItem[] itemBumpRotation;
 
 		#endregion
 
@@ -56,7 +57,7 @@ namespace Knot3.Debug
 		: base(game)
 		{
 			// die Spielwelt
-			world = new World (screen: this, bounds: Bounds.FromLeft (0.70f));
+			world = new World (screen: this, bounds: Bounds.FromLeft (0.60f));
 			// der Input-Handler
 			knotInput = new KnotInputHandler (screen: this, world: world);
 			// das Overlay zum Debuggen
@@ -80,7 +81,7 @@ namespace Knot3.Debug
 			// Backbutton
 			backButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.Overlay + DisplayLayer.MenuItem,
 			    name: "Back",
 			    onClick: (time) => NextScreen = new StartScreen (Game)
 			);
@@ -89,7 +90,7 @@ namespace Knot3.Debug
 
 			// Menü
 			settingsMenu = new VerticalMenu (this, DisplayLayer.Overlay + DisplayLayer.Menu);
-			settingsMenu.Bounds = Bounds.FromRight (0.30f).FromBottom (0.9f).FromLeft (0.8f);
+			settingsMenu.Bounds = Bounds.FromRight (0.40f).FromBottom (0.9f).FromLeft (0.8f);
 			settingsMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			settingsMenu.ItemForegroundColor = (state) => Color.White;
 			settingsMenu.ItemBackgroundColor = (state) => Color.Black;
@@ -115,28 +116,21 @@ namespace Knot3.Debug
 				settingsMenu.Add (item);
 			}
 
-			OnDirectionsChanged (null);
-			float[] validAngles = new float[] {
-
-				0, 45, 90, 135, 180, 225, 270, 315
-			};
+			itemBumpRotation = new DropDownMenuItem[3];
 			for (int i = 0; i < 3; ++i) {
-				FloatOptionInfo option = new FloatOptionInfo (
-				    section: "debug",
-				    name: "debug_junction_angle_bump" + i,
-				    defaultValue: 0,
-				    validValues: validAngles,
-				    configFile: Options.Default
-				);
 				DropDownMenuItem item = new DropDownMenuItem (
 				    screen: this,
 				    drawOrder: DisplayLayer.Overlay + DisplayLayer.MenuItem,
 				    text: "Bump Angle " + i
 				);
-				item.AddEntries (option);
 				item.ValueChanged += OnAnglesChanged;
 				settingsMenu.Add (item);
+				itemBumpRotation [i] = item;
 			}
+
+			OnDirectionsChanged (null);
+
+			settingsMenu.Add (backButton);
 
 			world.Camera.PositionToTargetDistance = 180;
 		}
@@ -148,18 +142,36 @@ namespace Knot3.Debug
 		private void OnDirectionsChanged (GameTime time)
 		{
 			var directions = Directions;
+			float[] validAngles = new float[]{
+				0, 45, 90, 135, 180, 225, 270, 315
+			};
 			for (int i = 0; i < 3; ++i) {
-				Options.Default ["debug", "debug_junction_angle_bump" + i, 0f] = Options.Models [NodeConfigKey (directions.ToEnumerable ()), "bump" + i, 0f];
+				FloatOptionInfo option = new FloatOptionInfo (
+				    section: NodeConfigKey (directions.ToEnumerable ()),
+				    name: "dbump" + i,
+				    defaultValue: 0,
+				    validValues: validAngles,
+				    configFile: Options.Models
+				);
+				itemBumpRotation [i].AddEntries (option);
 			}
+
+			/*
+			for (int i = 0; i < 3; ++i) {
+				Options.Default ["debug", "debug_junction_angle_bump" + i, 0f] = Options.Models [, "i, 0f];
+			}
+			*/
 			knotRenderer.Render (directions: directions);
 		}
 
 		private void OnAnglesChanged (GameTime time)
 		{
 			var directions = Directions;
+			/*
 			for (int i = 0; i < 3; ++i) {
 				Options.Models [NodeConfigKey (directions.ToEnumerable ()), "bump" + i, 0f] = Options.Default ["debug", "debug_junction_angle_bump" + i, 0f];
 			}
+			*/
 
 			knotRenderer.Render (directions: Directions);
 		}
@@ -195,7 +207,7 @@ namespace Knot3.Debug
 		public override void Entered (IGameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler, backButton, settingsMenu);
+			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler, settingsMenu);
 			Audio.BackgroundMusic = Sound.CreativeMusic;
 
 			// Einstellungen anwenden
