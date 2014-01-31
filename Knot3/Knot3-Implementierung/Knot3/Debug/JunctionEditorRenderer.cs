@@ -130,6 +130,8 @@ namespace Knot3.Debug
 			else {
 				pipes.Clear ();
 				nodes.Clear ();
+
+				World.Redraw = true;
 			}
 		}
 

@@ -154,6 +154,8 @@ namespace Knot3.Debug
 				    configFile: Options.Models
 				);
 				itemBumpRotation [i].AddEntries (option);
+				RemoveGameComponents (time, itemBumpRotation [i]);
+				AddGameComponents (time, itemBumpRotation [i]);
 			}
 
 			/*
