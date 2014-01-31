@@ -96,6 +96,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public void AddEntries (DistinctOptionInfo option)
 		{
+			dropdown.Clear ();
 			foreach (string _value in option.DisplayValidValues.Keys) {
 				string value = _value; // create a copy for the action
 				Action<GameTime> onSelected = (time) => {

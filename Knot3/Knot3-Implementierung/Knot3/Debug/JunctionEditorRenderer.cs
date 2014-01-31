@@ -23,7 +23,7 @@ using Knot3.GameObjects;
 
 namespace Knot3.Debug
 {
-	public class DebugJunctionKnotRenderer : IGameObject, IEnumerable<IGameObject>
+	public class JunctionEditorRenderer : IGameObject, IEnumerable<IGameObject>
 	{
 		#region Properties
 
@@ -62,7 +62,7 @@ namespace Knot3.Debug
 		/// <summary>
 		/// Die Zuordnung zwischen Kanten und den dreidimensionalen Rasterpunkten, an denen sich die die Kantenübergänge befinden.
 		/// </summary>
-		private DebugJunctionNodeMap nodeMap;
+		private JunctionEditorNodeMap nodeMap;
 
 		#endregion
 
@@ -72,7 +72,7 @@ namespace Knot3.Debug
 		/// Erstellt ein neues KnotRenderer-Objekt für den angegebenen Spielzustand mit den angegebenen
 		/// Spielobjekt-Informationen, die unter Anderem die Position des Knotenursprungs enthalten.
 		/// </summary>
-		public DebugJunctionKnotRenderer (IGameScreen screen, Vector3 position)
+		public JunctionEditorRenderer (IGameScreen screen, Vector3 position)
 		{
 			this.screen = screen;
 			Info = new GameObjectInfo (position: position);
@@ -80,7 +80,7 @@ namespace Knot3.Debug
 			nodes = new List<NodeModel> ();
 			pipeFactory = new ModelFactory ((s, i) => new PipeModel (s, i as PipeModelInfo));
 			nodeFactory = new ModelFactory ((s, i) => new NodeModel (s, i as NodeModelInfo));
-			nodeMap = new DebugJunctionNodeMap ();
+			nodeMap = new JunctionEditorNodeMap ();
 		}
 
 		#endregion
@@ -114,14 +114,12 @@ namespace Knot3.Debug
 			return nearest;
 		}
 
-		public void Render (Tuple<Direction, Direction, Direction> direction, Angles3 rotations)
+		public void Render (Tuple<Direction, Direction, Direction> directions)
 		{
-			if (direction.Item1.Axis != direction.Item2.Axis && direction.Item1.Axis != direction.Item3.Axis &&
-			        direction.Item2.Axis != direction.Item3.Axis) {
+			if (directions.Item1.Axis != directions.Item2.Axis && directions.Item1.Axis != directions.Item3.Axis &&
+			        directions.Item2.Axis != directions.Item3.Axis) {
 
-				NodeModelInfo.curvedJunctionBumpRotationMap2 [direction] = Tuple.Create (rotations.X, rotations.Y, rotations.Z);
-
-				nodeMap.Render (direction, rotations);
+				nodeMap.Render (directions);
 				nodeMap.Offset = Info.Position;
 
 				CreatePipes ();
@@ -132,6 +130,8 @@ namespace Knot3.Debug
 			else {
 				pipes.Clear ();
 				nodes.Clear ();
+
+				World.Redraw = true;
 			}
 		}
 

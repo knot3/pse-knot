@@ -411,6 +411,29 @@ namespace Knot3.Utilities
 			return list.ElementAt (index);
 		}
 
+		public static T At<T> (this Tuple<T,T> tuple, int i)
+		{
+			return i == 0 ? tuple.Item1 : i == 1 ? tuple.Item2 : default(T);
+		}
+
+		public static T At<T> (this Tuple<T,T,T> tuple, int i)
+		{
+			return i == 0 ? tuple.Item1 : i == 1 ? tuple.Item2 : i == 2 ? tuple.Item3 : default(T);
+		}
+
+		public static IEnumerable<T> ToEnumerable<T> (this Tuple<T,T> tuple)
+		{
+			yield return tuple.Item1;
+			yield return tuple.Item2;
+		}
+
+		public static IEnumerable<T> ToEnumerable<T> (this Tuple<T,T,T> tuple)
+		{
+			yield return tuple.Item1;
+			yield return tuple.Item2;
+			yield return tuple.Item3;
+		}
+
 		private static Random random = new Random (Guid.NewGuid ().GetHashCode ());
 
 		public static int RandomIndex<T> (this IEnumerable<T> list)

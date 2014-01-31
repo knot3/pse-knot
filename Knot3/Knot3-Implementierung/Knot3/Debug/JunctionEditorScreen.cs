@@ -24,7 +24,7 @@ using Knot3.Screens;
 
 namespace Knot3.Debug
 {
-	public class DebugJunctionScreen : GameScreen
+	public class JunctionEditorScreen : GameScreen
 	{
 		#region Properties
 
@@ -36,7 +36,7 @@ namespace Knot3.Debug
 		/// <summary>
 		/// Der Controller, der aus dem Knoten die 3D-Modelle erstellt.
 		/// </summary>
-		private DebugJunctionKnotRenderer knotRenderer;
+		private JunctionEditorRenderer knotRenderer;
 		private KnotInputHandler knotInput;
 		private ModelMouseHandler modelMouseHandler;
 		private MousePointer pointer;
@@ -44,7 +44,7 @@ namespace Knot3.Debug
 		private DebugBoundings debugBoundings;
 		private MenuButton backButton;
 		private VerticalMenu settingsMenu;
-		private string Code;
+		private DropDownMenuItem[] itemBumpRotation;
 
 		#endregion
 
@@ -53,11 +53,11 @@ namespace Knot3.Debug
 		/// <summary>
 		/// Erzeugt eine neue Instanz eines CreativeModeScreen-Objekts und initialisiert diese mit einem Knot3Game-Objekt game, sowie einem Knoten knot.
 		/// </summary>
-		public DebugJunctionScreen (Knot3Game game)
+		public JunctionEditorScreen (Knot3Game game)
 		: base(game)
 		{
 			// die Spielwelt
-			world = new World (screen: this, bounds: Bounds.FromLeft (0.70f));
+			world = new World (screen: this, bounds: Bounds.FromLeft (0.60f));
 			// der Input-Handler
 			knotInput = new KnotInputHandler (screen: this, world: world);
 			// das Overlay zum Debuggen
@@ -68,7 +68,7 @@ namespace Knot3.Debug
 			modelMouseHandler = new ModelMouseHandler (screen: this, world: world);
 
 			// der Knoten-Renderer
-			knotRenderer = new DebugJunctionKnotRenderer (screen: this, position: Vector3.Zero);
+			knotRenderer = new JunctionEditorRenderer (screen: this, position: Vector3.Zero);
 			world.Add (knotRenderer);
 
 			// visualisiert die BoundingSpheres
@@ -81,7 +81,7 @@ namespace Knot3.Debug
 			// Backbutton
 			backButton = new MenuButton (
 			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.Overlay + DisplayLayer.MenuItem,
 			    name: "Back",
 			    onClick: (time) => NextScreen = new StartScreen (Game)
 			);
@@ -90,7 +90,7 @@ namespace Knot3.Debug
 
 			// Menü
 			settingsMenu = new VerticalMenu (this, DisplayLayer.Overlay + DisplayLayer.Menu);
-			settingsMenu.Bounds = Bounds.FromRight (0.30f).FromBottom (0.9f).FromLeft (0.8f);
+			settingsMenu.Bounds = Bounds.FromRight (0.40f).FromBottom (0.9f).FromLeft (0.8f);
 			settingsMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			settingsMenu.ItemForegroundColor = (state) => Color.White;
 			settingsMenu.ItemBackgroundColor = (state) => Color.Black;
@@ -98,11 +98,11 @@ namespace Knot3.Debug
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
 			Direction[] validDirections = Direction.Values;
-			for (int i = 1; i <= 3; ++i) {
+			for (int i = 0; i < 3; ++i) {
 				DistinctOptionInfo option = new DistinctOptionInfo (
 				    section: "debug",
 				    name: "debug_junction_direction" + i,
-				    defaultValue: validDirections [(i - 1) * 2],
+				    defaultValue: validDirections [i * 2],
 				    validValues: validDirections.Select (d => d.Description),
 				    configFile: Options.Default
 				);
@@ -112,56 +112,87 @@ namespace Knot3.Debug
 				    text: "Direction " + i
 				);
 				item.AddEntries (option);
-				item.ValueChanged += UpdateEdges;
+				item.ValueChanged += OnDirectionsChanged;
 				settingsMenu.Add (item);
 			}
 
-			float[] validAngles = new float[] {
-				0, 45, 90, 135, 180, 225, 270, 315
-			};
-			for (int i = 1; i <= 3; ++i) {
-				FloatOptionInfo option = new FloatOptionInfo (
-				    section: "debug",
-				    name: "debug_junction_angle_bump" + i,
-				    defaultValue: 0,
-				    validValues: validAngles,
-				    configFile: Options.Default
-				);
+			itemBumpRotation = new DropDownMenuItem[3];
+			for (int i = 0; i < 3; ++i) {
 				DropDownMenuItem item = new DropDownMenuItem (
 				    screen: this,
 				    drawOrder: DisplayLayer.Overlay + DisplayLayer.MenuItem,
-				    text: "Z-Angle " + i
+				    text: "Bump Angle " + i
 				);
-				item.AddEntries (option);
-				item.ValueChanged += UpdateEdges;
+				item.ValueChanged += OnAnglesChanged;
 				settingsMenu.Add (item);
+				itemBumpRotation [i] = item;
 			}
 
-			world.Camera.PositionToTargetDistance = 180;
+			OnDirectionsChanged (null);
 
-			UpdateEdges (null);
+			settingsMenu.Add (backButton);
+
+			world.Camera.PositionToTargetDistance = 180;
 		}
 
 		#endregion
 
 		#region Methods
 
-		private void UpdateEdges (GameTime time)
+		private void OnDirectionsChanged (GameTime time)
 		{
-			Direction[] validDirections = Direction.Values;
-			Direction d1 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 1, validDirections [0]]);
-			Direction d2 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 2, validDirections [2]]);
-			Direction d3 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 3, validDirections [4]]);
-			Tuple<Direction, Direction, Direction> directions = Tuple.Create (d1, d2, d3);
+			var directions = Directions;
+			float[] validAngles = new float[] {
+				0, 45, 90, 135, 180, 225, 270, 315
+			};
+			for (int i = 0; i < 3; ++i) {
+				FloatOptionInfo option = new FloatOptionInfo (
+				    section: NodeConfigKey (directions.ToEnumerable ()),
+				    name: "bump" + i,
+				    defaultValue: 0,
+				    validValues: validAngles,
+				    configFile: Options.Models
+				);
+				itemBumpRotation [i].AddEntries (option);
+				RemoveGameComponents (time, itemBumpRotation [i]);
+				AddGameComponents (time, itemBumpRotation [i]);
+			}
 
-			float z1 = Options.Default ["debug", "debug_junction_angle_bump" + 1, 0f];
-			float z2 = Options.Default ["debug", "debug_junction_angle_bump" + 2, 0f];
-			float z3 = Options.Default ["debug", "debug_junction_angle_bump" + 3, 0f];
-			Angles3 rotations = new Angles3 (z1, z2, z3);
+			/*
+			for (int i = 0; i < 3; ++i) {
+				Options.Default ["debug", "debug_junction_angle_bump" + i, 0f] = Options.Models [, "i, 0f];
+			}
+			*/
+			knotRenderer.Render (directions: directions);
+		}
 
-			knotRenderer.Render (direction: directions, rotations: rotations);
+		private void OnAnglesChanged (GameTime time)
+		{
+			var directions = Directions;
+			/*
+			for (int i = 0; i < 3; ++i) {
+				Options.Models [NodeConfigKey (directions.ToEnumerable ()), "bump" + i, 0f] = Options.Default ["debug", "debug_junction_angle_bump" + i, 0f];
+			}
+			*/
 
-			Code = "{ Tuple.Create(Direction." + d1 + ", Direction." + d2 + ", Direction." + d3 + "),\t\tTuple.Create(" + (int)(z1) + ", " + (int)(z2) + ", " + (int)(z3) + ") },";
+			knotRenderer.Render (directions: Directions);
+		}
+
+		private Tuple<Direction, Direction, Direction> Directions
+		{
+			get {
+				Direction[] validDirections = Direction.Values;
+				Direction d1 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 0, validDirections [0]]);
+				Direction d2 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 1, validDirections [2]]);
+				Direction d3 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 2, validDirections [4]]);
+				return Tuple.Create (d1, d2, d3);
+			}
+		}
+
+		public static string NodeConfigKey (IEnumerable<Direction> directions)
+		{
+			IEnumerable<string> _directions = directions.Select (direction => direction + "" + direction);
+			return "Node" + directions.Count () + ":" + string.Join (",", _directions);
 		}
 
 		/// <summary>
@@ -170,13 +201,6 @@ namespace Knot3.Debug
 		public override void Update (GameTime time)
 		{
 			Profiler.ProfilerMap.Clear ();
-
-			if (Keys.C.IsDown ()) {
-				using (StreamWriter w = File.AppendText(FileUtility.BaseDirectory+FileUtility.Separator+"junctions.cs")) {
-					w.WriteLine (Code);
-					w.Flush ();
-				}
-			}
 		}
 
 		/// <summary>
@@ -185,7 +209,7 @@ namespace Knot3.Debug
 		public override void Entered (IGameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler, backButton, settingsMenu);
+			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler, settingsMenu);
 			Audio.BackgroundMusic = Sound.CreativeMusic;
 
 			// Einstellungen anwenden

@@ -44,6 +44,19 @@ namespace Knot3.Core
 
 		private static ConfigFile _default;
 
+		public static ConfigFile Models
+		{
+			get {
+				if (_models == null) {
+					_models = new ConfigFile (FileUtility.BaseDirectory + FileUtility.Separator
+					                          + "Content" + FileUtility.Separator + "models.ini");
+				}
+				return _models;
+			}
+		}
+
+		private static ConfigFile _models;
+
 		#endregion
 	}
 }

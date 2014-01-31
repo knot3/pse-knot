@@ -273,7 +273,6 @@ namespace Knot3.Screens
 		{
 			if (Redo.Count >= 1) {
 				Knot next = Redo.Pop ();
-				Knot peek = _playerKnot.Clone () as Knot;
 				Knot push = next.Clone ()as Knot;
 				//Undo.Push (push);
 				Undo.Push (push);

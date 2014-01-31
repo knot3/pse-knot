@@ -18,6 +18,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Utilities;
 
 namespace Knot3.GameObjects
 {
@@ -79,6 +80,14 @@ namespace Knot3.GameObjects
 			}
 		}
 
+		public string NodeConfigKey
+		{
+			get {
+				IEnumerable<string> _directions = JunctionsAtNode.Select (junction => junction.EdgeFrom.Direction + "" + junction.EdgeTo.Direction);
+				return "Node" + JunctionsAtNode.Count () + ":" + string.Join (",", _directions);
+			}
+		}
+
 		private static Dictionary<Tuple<Direction, Direction>, JunctionDirection> angledJunctionDirectionMap
 		    = new Dictionary<Tuple<Direction, Direction>, JunctionDirection> ()
 		{
@@ -137,7 +146,7 @@ namespace Knot3.GameObjects
 			{ JunctionDirection.RightRight, 		Angles3.FromDegrees (0, 90, 0) },
 			{ JunctionDirection.BackwardBackward, 	Angles3.FromDegrees (0, 0, 0) },
 		};
-		private static Dictionary<Direction, Angles3> curvedJunctionRotationMap
+		private static Dictionary<Direction, Angles3> straightJunctionRotationMap
 		    = new Dictionary<Direction, Angles3> ()
 		{
 			{ Direction.Up,			Angles3.FromDegrees (90, 0, 0) },
@@ -150,43 +159,36 @@ namespace Knot3.GameObjects
 		private static Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> curvedJunctionBumpRotationMap
 		    = new Dictionary<Tuple<Direction, Direction>, Tuple<float, float>> ()
 		{
-			{ Tuple.Create(Direction.Up, Direction.Left), 			Tuple.Create(90f, 0f) },//works
-			{ Tuple.Create(Direction.Up, Direction.Right), 			Tuple.Create(-90f, 0f) },//works
-			{ Tuple.Create(Direction.Up, Direction.Forward), 		Tuple.Create(0f, 180f) },//works
-			{ Tuple.Create(Direction.Up, Direction.Backward), 		Tuple.Create(0f, 0f) },//works
+			{ Tuple.Create(Direction.Up, Direction.Left), 			Tuple.Create(90f, 0f) }, // works
+			{ Tuple.Create(Direction.Up, Direction.Right), 			Tuple.Create(-90f, 0f) }, // works
+			{ Tuple.Create(Direction.Up, Direction.Forward), 		Tuple.Create(0f, 180f) }, // works
+			{ Tuple.Create(Direction.Up, Direction.Backward), 		Tuple.Create(0f, 0f) }, // works
 
-			{ Tuple.Create(Direction.Down, Direction.Left), 		Tuple.Create(-90f, 0f) },//works
-			{ Tuple.Create(Direction.Down, Direction.Right), 		Tuple.Create(90f, 0f) },//works
-			{ Tuple.Create(Direction.Down, Direction.Forward), 		Tuple.Create(0f, 180f) },//works
-			{ Tuple.Create(Direction.Down, Direction.Backward), 	Tuple.Create(0f, 0f) },//works
+			{ Tuple.Create(Direction.Down, Direction.Left), 		Tuple.Create(-90f, 0f) }, // works
+			{ Tuple.Create(Direction.Down, Direction.Right), 		Tuple.Create(90f, 0f) }, // works
+			{ Tuple.Create(Direction.Down, Direction.Forward), 		Tuple.Create(0f, 180f) }, // works
+			{ Tuple.Create(Direction.Down, Direction.Backward), 	Tuple.Create(0f, 0f) }, // works
 
-			{ Tuple.Create(Direction.Left, Direction.Up), 			Tuple.Create(0f, 90f) },//works
+			{ Tuple.Create(Direction.Left, Direction.Up), 			Tuple.Create(0f, 90f) }, // works
 			{ Tuple.Create(Direction.Left, Direction.Down), 		Tuple.Create(0f, -90f) },
-			{ Tuple.Create(Direction.Left, Direction.Forward), 		Tuple.Create(-90f, 90f) },//works
-			{ Tuple.Create(Direction.Left, Direction.Backward), 	Tuple.Create(-90f, -90f) },//works
+			{ Tuple.Create(Direction.Left, Direction.Forward), 		Tuple.Create(-90f, 90f) }, // works
+			{ Tuple.Create(Direction.Left, Direction.Backward), 	Tuple.Create(-90f, -90f) }, // works
 
-			{ Tuple.Create(Direction.Right, Direction.Up), 			Tuple.Create(0f, -90f) },//works
+			{ Tuple.Create(Direction.Right, Direction.Up), 			Tuple.Create(0f, -90f) }, // works
 			{ Tuple.Create(Direction.Right, Direction.Down), 		Tuple.Create(0f, 90f) }, // works
-			{ Tuple.Create(Direction.Right, Direction.Forward), 	Tuple.Create(90f, -90f) },//works
-			{ Tuple.Create(Direction.Right, Direction.Backward), 	Tuple.Create(-90f, -90f) },//works
+			{ Tuple.Create(Direction.Right, Direction.Forward), 	Tuple.Create(90f, -90f) }, // works
+			{ Tuple.Create(Direction.Right, Direction.Backward), 	Tuple.Create(-90f, -90f) }, // works
 
-			{ Tuple.Create(Direction.Forward, Direction.Left), 		Tuple.Create(90f, -90f) },//works
-			{ Tuple.Create(Direction.Forward, Direction.Right), 	Tuple.Create(90f, -90f) },//works
-			{ Tuple.Create(Direction.Forward, Direction.Up), 		Tuple.Create(180f, 0f) },//works
-			{ Tuple.Create(Direction.Forward, Direction.Down), 		Tuple.Create(180f, 0f) },//works
+			{ Tuple.Create(Direction.Forward, Direction.Left), 		Tuple.Create(90f, -90f) }, // works
+			{ Tuple.Create(Direction.Forward, Direction.Right), 	Tuple.Create(90f, -90f) }, // works
+			{ Tuple.Create(Direction.Forward, Direction.Up), 		Tuple.Create(180f, 0f) }, // works
+			{ Tuple.Create(Direction.Forward, Direction.Down), 		Tuple.Create(180f, 0f) }, // works
 
-			{ Tuple.Create(Direction.Backward, Direction.Left), 	Tuple.Create(90f, 90f) },//works
+			{ Tuple.Create(Direction.Backward, Direction.Left), 	Tuple.Create(90f, 90f) }, // works
 			{ Tuple.Create(Direction.Backward, Direction.Right), 	Tuple.Create(-90f, -90f) }, // works
-			{ Tuple.Create(Direction.Backward, Direction.Up), 		Tuple.Create(0f, 0f) },//works
-			{ Tuple.Create(Direction.Backward, Direction.Down), 	Tuple.Create(0f, 0f) },//works
+			{ Tuple.Create(Direction.Backward, Direction.Up), 		Tuple.Create(0f, 0f) }, // works
+			{ Tuple.Create(Direction.Backward, Direction.Down), 	Tuple.Create(0f, 0f) }, // works
 		};
-		public static Dictionary<Tuple<Direction, Direction, Direction>, Tuple<float, float, float>> curvedJunctionBumpRotationMap2
-		    = new Dictionary<Tuple<Direction, Direction, Direction>, Tuple<float, float, float>> ()
-		{
-
-		};
-
-
 
 		#endregion
 
@@ -242,61 +244,57 @@ namespace Knot3.GameObjects
 		private void chooseModelOneJunction ()
 		{
 			if (Type == JunctionType.Angled) {
-				Modelname = "pipe-angled";
+				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-angled"];
 				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 			}
 		}
 
 		private void chooseModelTwoJunctions ()
 		{
-			if (Type == JunctionType.Straight) {
+			if (Type == JunctionType.Angled) {
+				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-angled"];
+				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
+			}
+			else if (Type == JunctionType.Straight) {
 				if (OtherJunctionsAtNode [0].Type == JunctionType.Straight) {
 					// Drehung des Übergangs
-					Modelname = "pipe-curved1";
-					Rotation = Angles3.FromDegrees (0, 0, 0) + curvedJunctionRotationMap [EdgeFrom.Direction];
+					Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-curved1"];
+					Rotation = straightJunctionRotationMap [EdgeFrom.Direction];
 
 					// Drehung der Delle
-					var directions = Tuple.Create (JunctionsAtNode [0].EdgeFrom.Direction, JunctionsAtNode [1].EdgeFrom.Direction);
-					var bumpRotationsZ = curvedJunctionBumpRotationMap [directions];
-					float bumpRotationZ = JunctionsAtNodeIndex == 0 ? bumpRotationsZ.Item1 : bumpRotationsZ.Item2;
+					var directionTuple = Tuple.Create (JunctionsAtNode [0].EdgeFrom.Direction, JunctionsAtNode [1].EdgeFrom.Direction);
+					float defaultRotation = curvedJunctionBumpRotationMap [directionTuple].At (JunctionsAtNodeIndex);
+					float bumpRotationZ = Options.Models [NodeConfigKey, "bump" + JunctionsAtNodeIndex, defaultRotation];
 					Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
 
 					// debug
 					Console.WriteLine ("Index="
-					                   + Index + ", Directions=" + directions + ", Rotation=" + Rotation + ", bumpRotationZ=" + bumpRotationZ + ", ...="
+					                   + Index + ", Directions=" + directionTuple + ", Rotation=" + Rotation + ", bumpRotationZ=" + bumpRotationZ + ", ...="
 					                   + Angles3.FromDegrees (0, 0, bumpRotationZ)
 					                  );
 				}
 				else {
-					Modelname = "pipe-straight";
-					Rotation = Angles3.FromDegrees (0, 0, 0) + curvedJunctionRotationMap [EdgeFrom.Direction];
+					Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-straight"];
+					Rotation = straightJunctionRotationMap [EdgeFrom.Direction];
 				}
-			}
-			else if (Type == JunctionType.Angled) {
-				Modelname = "pipe-angled";
-				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 			}
 		}
 
 		private void chooseModelThreeJunctions ()
 		{
-			if (Type == JunctionType.Straight) {
+			if (Type == JunctionType.Angled) {
+				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-angled"];
+				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
+			}
+			else if (Type == JunctionType.Straight) {
 
 				// Drehung des Übergangs
-				Modelname = "pipe-curved2";
-				Rotation = Angles3.FromDegrees (0, 0, 0) + curvedJunctionRotationMap [EdgeFrom.Direction];
+				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-curved2"];
+				Rotation = Angles3.FromDegrees (0, 0, 0) + straightJunctionRotationMap [EdgeFrom.Direction];
 
 				// Drehung der Delle
-				var directions = Tuple.Create (JunctionsAtNode [0].EdgeFrom.Direction, JunctionsAtNode [1].EdgeFrom.Direction, JunctionsAtNode [2].EdgeFrom.Direction);
-				var bumpRotationsZ = curvedJunctionBumpRotationMap2 [directions];
-				float bumpRotationZ = JunctionsAtNodeIndex == 0 ? bumpRotationsZ.Item1
-				                      : JunctionsAtNodeIndex == 1 ? bumpRotationsZ.Item2
-				                      : bumpRotationsZ.Item3;
+				float bumpRotationZ = Options.Models [NodeConfigKey, "bump" + JunctionsAtNodeIndex, 0];
 				Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
-			}
-			else if (Type == JunctionType.Angled) {
-				Modelname = "pipe-angled";
-				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 			}
 		}
 
