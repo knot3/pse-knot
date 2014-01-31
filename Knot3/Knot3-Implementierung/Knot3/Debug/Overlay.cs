@@ -160,8 +160,9 @@ namespace Knot3.Debug
 					PipeModel pipe = World.SelectedObject as PipeModel;
 					height += lineHeight;
 					string str = pipe.Info.Edge.Direction;
-					if (pipe.Info.Knot != null)
+					if (pipe.Info.Knot != null) {
 						str += "   #" + pipe.Info.Knot.ToList ().FindIndex (g => g == pipe.Info.Edge);
+					}
 					DrawString (str, width2, height, Color.Yellow);
 				}
 				else {

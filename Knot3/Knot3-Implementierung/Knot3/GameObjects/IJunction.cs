@@ -47,8 +47,7 @@ namespace Knot3.GameObjects
 		#endregion
 	}
 
-	public enum JunctionType
-	{
+	public enum JunctionType {
 		Angled,
 		Straight
 	}

@@ -54,7 +54,7 @@ namespace Knot3.KnotData
 		}
 
 		public NodeMap (IEnumerable<Edge> edges)
-			: this()
+		: this()
 		{
 			Edges = edges;
 			BuildIndex ();

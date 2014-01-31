@@ -45,7 +45,7 @@ namespace Knot3.Audio
 
 		private Sound SoundType;
 		private float volume;
-		
+
 		/// <summary>
 		/// Erstellt eine neue SoundEffect-Datei mit dem angegebenen Anzeigenamen und des angegebenen SoundEffect-Objekts.
 		/// </summary>
