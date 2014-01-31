@@ -115,7 +115,9 @@ namespace Knot3.Debug
 				settingsMenu.Add (item);
 			}
 
+			OnDirectionsChanged (null);
 			float[] validAngles = new float[] {
+
 				0, 45, 90, 135, 180, 225, 270, 315
 			};
 			for (int i = 0; i < 3; ++i) {
@@ -137,8 +139,6 @@ namespace Knot3.Debug
 			}
 
 			world.Camera.PositionToTargetDistance = 180;
-
-			OnDirectionsChanged (null);
 		}
 
 		#endregion
@@ -168,9 +168,9 @@ namespace Knot3.Debug
 		{
 			get {
 				Direction[] validDirections = Direction.Values;
-				Direction d1 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 1, validDirections [0]]);
-				Direction d2 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 2, validDirections [2]]);
-				Direction d3 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 3, validDirections [4]]);
+				Direction d1 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 0, validDirections [0]]);
+				Direction d2 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 1, validDirections [2]]);
+				Direction d3 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 2, validDirections [4]]);
 				return Tuple.Create (d1, d2, d3);
 			}
 		}
