@@ -269,9 +269,9 @@ namespace Knot3.GameObjects
 
 					// debug
 					Console.WriteLine ("Index="
-						+ Index + ", Directions=" + directionTuple + ", Rotation=" + Rotation + ", bumpRotationZ=" + bumpRotationZ + ", ...="
-						+ Angles3.FromDegrees (0, 0, bumpRotationZ)
-					);
+					                   + Index + ", Directions=" + directionTuple + ", Rotation=" + Rotation + ", bumpRotationZ=" + bumpRotationZ + ", ...="
+					                   + Angles3.FromDegrees (0, 0, bumpRotationZ)
+					                  );
 				}
 				else {
 					Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-straight"];
@@ -306,8 +306,8 @@ namespace Knot3.GameObjects
 
 			if (other is NodeModelInfo) {
 				if (this.EdgeFrom == (other as NodeModelInfo).EdgeFrom
-					&& this.EdgeTo == (other as NodeModelInfo).EdgeTo
-					&& base.Equals (other)) {
+				        && this.EdgeTo == (other as NodeModelInfo).EdgeTo
+				        && base.Equals (other)) {
 					return true;
 				}
 				else {
@@ -322,8 +322,7 @@ namespace Knot3.GameObjects
 		#endregion
 	}
 
-	enum JunctionDirection
-	{
+	enum JunctionDirection {
 		UpForward,
 		UpBackward,
 		UpLeft,

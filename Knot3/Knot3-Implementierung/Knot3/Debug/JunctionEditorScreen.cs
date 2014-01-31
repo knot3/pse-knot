@@ -142,7 +142,7 @@ namespace Knot3.Debug
 		private void OnDirectionsChanged (GameTime time)
 		{
 			var directions = Directions;
-			float[] validAngles = new float[]{
+			float[] validAngles = new float[] {
 				0, 45, 90, 135, 180, 225, 270, 315
 			};
 			for (int i = 0; i < 3; ++i) {
