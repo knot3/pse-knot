@@ -148,7 +148,7 @@ namespace Knot3.Debug
 			for (int i = 0; i < 3; ++i) {
 				FloatOptionInfo option = new FloatOptionInfo (
 				    section: NodeConfigKey (directions.ToEnumerable ()),
-				    name: "dbump" + i,
+				    name: "bump" + i,
 				    defaultValue: 0,
 				    validValues: validAngles,
 				    configFile: Options.Models
