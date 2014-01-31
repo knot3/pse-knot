@@ -16,7 +16,7 @@ build:
 
 install: build
 	$(MKDIR) $(BINDIR)
-	install --mode=755 $(NAME) $(BINDIR)/$(NAME)
+	install --mode=755 knot.sh $(BINDIR)/$(NAME)
 	$(MKDIR) $(GAMEDIR)
 	unzip -o -d bin/Debug/ lib/MonoGame-Linux-3.1.2.zip
 	$(CPR) bin/Debug/* $(GAMEDIR)/
