@@ -38,7 +38,7 @@ namespace Knot3.Utilities
 		{
 			get {
 				string directory;
-				if (MonoHelper.IsRunningOnMono ()) {
+				if (MonoHelper.IsRunningOnLinux ()) {
 					directory = Environment.GetEnvironmentVariable ("HOME") + "/.knot3/";
 				}
 				else {
@@ -68,7 +68,8 @@ namespace Knot3.Utilities
 		{
 			get {
 				string directory;
-				if (MonoHelper.IsRunningOnMono ()) {
+                if (MonoHelper.IsRunningOnLinux())
+                {
 					directory = Environment.GetEnvironmentVariable ("HOME");
 				}
 				else {
@@ -83,7 +84,8 @@ namespace Knot3.Utilities
 		{
 			get {
 				string directory;
-				if (MonoHelper.IsRunningOnMono ()) {
+                if (MonoHelper.IsRunningOnLinux())
+                {
 					directory = "/var/tmp/knot3/";
 				}
 				else {

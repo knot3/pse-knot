@@ -64,7 +64,7 @@ namespace Knot3.Core
 		/// ständig verwendet. Daher muss die Maus bei der Interaktion immer
 		/// im Vordergrund sein. Cursor steht für die vorderste Ebene.
 		/// </summary>
-		public static readonly DisplayLayer Cursor = new DisplayLayer (301, "Cursor");
+		public static readonly DisplayLayer Cursor = new DisplayLayer (500, "Cursor");
 
 		#endregion
 
