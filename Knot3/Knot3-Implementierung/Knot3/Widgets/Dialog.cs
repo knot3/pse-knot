@@ -233,12 +233,10 @@ namespace Knot3.Widgets
 
 		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
-
 		}
 
 		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
-
 		}
 
 

@@ -54,5 +54,4 @@ namespace Knot3.Audio
 		/// </summary>
 		void Update (GameTime time);
 	}
-
 }

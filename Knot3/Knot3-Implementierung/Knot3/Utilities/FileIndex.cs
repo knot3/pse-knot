@@ -64,6 +64,5 @@ namespace Knot3.Utilities
 			File.WriteAllText (filename, string.Join ("\n", hashes));
 		}
 	}
-
 }
 

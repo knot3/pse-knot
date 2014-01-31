@@ -217,6 +217,5 @@ namespace Knot3.KnotData
 	public enum Axis {
 		X, Y, Z, Zero
 	}
-
 }
 
