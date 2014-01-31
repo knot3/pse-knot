@@ -1,36 +1,27 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
 
-
-
+using NUnit.Framework;
+using Knot3.Core;
+using Knot3.GameObjects;
+using Knot3.KnotData;
+using Knot3.RenderEffects;
 
 namespace Knot3.Screen_Tests
 {
-
-	/// <summary>
-	///
-	/// </summary>
-
-
-
-	[TestClass]
+	[TestFixture]
 	public class Screen_Tests
 	{
-
-
-
-		[TestMethod]
+		[Test]
 		public void Test_Undo()
 		{
 		}
 
 
-		[TestMethod]
+		[Test]
 		public void Test_Redo()
 		{
 		}
-
-
-
 	}
 }
