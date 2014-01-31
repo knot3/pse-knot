@@ -47,7 +47,7 @@ namespace Knot3.RenderEffects
 		public Color Color
 		{
 			get {
-                return Color.Red;
+				return Color.Red;
 			}
 			set {
 
@@ -62,12 +62,12 @@ namespace Knot3.RenderEffects
 
 			Camera camera = model.World.Camera;
 
-            zNebulaEffect.Parameters["World"].SetValue(model.WorldMatrix * camera.WorldMatrix);
-            zNebulaEffect.Parameters["View"].SetValue(camera.ViewMatrix);
-            zNebulaEffect.Parameters["Projection"].SetValue(camera.ProjectionMatrix);
+			zNebulaEffect.Parameters["World"].SetValue(model.WorldMatrix * camera.WorldMatrix);
+			zNebulaEffect.Parameters["View"].SetValue(camera.ViewMatrix);
+			zNebulaEffect.Parameters["Projection"].SetValue(camera.ProjectionMatrix);
 
 
-            zNebulaEffect.CurrentTechnique = zNebulaEffect.Techniques["Simplest"];
+			zNebulaEffect.CurrentTechnique = zNebulaEffect.Techniques["Simplest"];
 
 			foreach (ModelMesh mesh in model.Model.Meshes) {
 				mesh.Draw();
