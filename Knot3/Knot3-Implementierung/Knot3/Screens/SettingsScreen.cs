@@ -38,6 +38,9 @@ namespace Knot3.Screens
 		/// </summary>
 		private VerticalMenu navigationMenu;
 
+        // Zurück-Button.
+        private MenuButton backButton;
+
 		#endregion
 
 		#region Constructors
@@ -88,24 +91,33 @@ namespace Knot3.Screens
 			    name: "Profile",
 			    onClick: (time) => NextScreen = new ProfileSettingsScreen (Game)
 			);
-			MenuButton backButton = new MenuButton (
-			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			    name: "Back",
-			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is SettingsScreen)).ElementAt (0)
-			);
-			backButton.AddKey (Keys.Escape);
 
 			navigationMenu.Add (debugButton);
 			navigationMenu.Add (graphicsButton);
 			navigationMenu.Add (audioButton);
 			navigationMenu.Add (controlsButton);
 			navigationMenu.Add (profileButton);
-			navigationMenu.Add (backButton);
+			
 
-			lines.AddPoints (0, 50,
-			                 30, 970, 970, 50, 1000
-			                );
+            lines.AddPoints(0, 50,
+                            30, 970,
+                            770, 895,
+                            870, 970,
+                            970, 50, 1000
+                           );
+
+            backButton = new MenuButton(
+                            screen: this,
+                            drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+                            name: "Back",
+                            onClick: (time) => NextScreen = Game.Screens.Where((s) => !(s is SettingsScreen)).ElementAt(0)
+                        );
+            backButton.AddKey(Keys.Escape);
+            backButton.SetCoordinates(left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
+            backButton.AlignX = HorizontalAlignment.Center;
+
+            backButton.ForegroundColor = () => base.MenuItemForegroundColor(backButton.ItemState);
+            backButton.BackgroundColor = () => base.MenuItemBackgroundColor(backButton.ItemState);
 		}
 
 		#endregion
@@ -125,7 +137,7 @@ namespace Knot3.Screens
 		public override void Entered (IGameScreen previousScreen, GameTime time)
 		{
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, navigationMenu);
+			AddGameComponents (time, navigationMenu, backButton);
 		}
 
 		public override void Draw (GameTime time)
