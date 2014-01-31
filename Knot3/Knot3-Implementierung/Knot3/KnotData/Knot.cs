@@ -223,6 +223,7 @@ namespace Knot3.KnotData
 			if (StructuredSelection [0].Begin == StructuredSelection [0].End.Next) {
 				return true;
 			}
+			HashSet<Axis> axes = new HashSet<Axis> ();
 			// Für Jeden Block werden Start und ende untersucht.
 			foreach (SelectionBlock block in StructuredSelection) {
 				// Wenn Kante nach der Bewegung gelöscht werden müsste ist ein Zug nicht möglich
@@ -233,6 +234,13 @@ namespace Knot3.KnotData
 				if (block.End.Value.Direction == dir && block.End.Next.Value.Direction != dir) {
 					return false;
 				}
+				foreach (Edge edge in block.Begin.RangeTo(block.End)) {
+					axes.Add (edge.Direction.Axis);
+				}
+			}
+			// Wenn alle Kanten entlang einer Achse angeordnet sind und die Verschieberichtung die selbe Achse hat
+			if (axes.Count == 1 && axes.Contains(dir.Axis)) {
+				return false;
 			}
 			return true;
 		}
