@@ -47,7 +47,7 @@ namespace Knot3.RenderEffects
 		public Color Color
 		{
 			get {
-                return Color.Red; new Color();
+                return Color.Red;
 			}
 			set {
 
