@@ -11,12 +11,12 @@ using Knot3.RenderEffects;
 namespace Knot3.UnitTests
 {
 	[TestFixture]
-	public class WorldTest
+	public class World_Tests
 	{
 		private IGameScreen screen;
 		private IRenderEffect effect;
 
-		public WorldTest ()
+		public World_Tests ()
 		{
 		}
 

@@ -4,22 +4,29 @@ using NUnit.Framework;
 
 namespace Knot3.UnitTests
 {
+
+
 	[TestFixture]
-	public class UnitTest1
+	public class NUnit_Beispiel_Tests
 	{
-		/*
+		
+        /*
+
 		[Test]
-		public void TestMethod1 ()
+		public void Test_Methode1 ()
 		{
 			Assert.IsNull (null);
 		}
 
 		[Test]
-		public void TestMethod2 ()
+		public void Test_Methode2 ()
 		{
 			Assert.IsNotNull (null);
 		}
-		*/
+		
+        */
 	}
+
+
 }
 

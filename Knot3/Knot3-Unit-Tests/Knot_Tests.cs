@@ -11,9 +11,9 @@ using Knot3.RenderEffects;
 namespace Knot3.UnitTests
 {
 	[TestFixture]
-	public class KnotTest
+	public class Knot_Tests
 	{
-		public KnotTest ()
+		public Knot_Tests ()
 		{
 		}
 
