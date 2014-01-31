@@ -216,16 +216,16 @@ namespace Knot3.Screens
 
 			// Redo-Button
 			redoButton = new MenuButton (
-				screen: this,
-				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				name: "Redo",
-				onClick: (time) => OnRedo ()
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Redo",
+			    onClick: (time) => OnRedo ()
 			);
 			redoButton.SetCoordinates (left: 0.70f, top: 0.900f, right: 0.80f, bottom: 0.95f);
 			redoButton.BackgroundColor = () => base.MenuItemBackgroundColor(redoButton.ItemState);
 			redoButton.ForegroundColor = () => base.MenuItemForegroundColor(redoButton.ItemState);
 			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				widget: redoButton, lineWidth: 2, padding: 0);
+			                               widget: redoButton, lineWidth: 2, padding: 0);
 			redoButton.AlignX = HorizontalAlignment.Center;
 
 			// die Linien
@@ -285,7 +285,8 @@ namespace Knot3.Screens
 				// den Knoten den Inputhandlern und Renderern zuweisen
 				registerCurrentKnot ();
 				redoButton.IsVisible = true;
-			}else {
+			}
+			else {
 				redoButton.IsVisible = false;
 			}
 		}
