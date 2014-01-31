@@ -82,10 +82,10 @@ namespace Knot3.Screens
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",
 			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(
-                    
-                       s is CreativeMainScreen 
-                    || s is CreativeLoadScreen
-                    || s is ChallengeCreateScreen)).ElementAt (0)
+
+			                                        s is CreativeMainScreen
+			                                        || s is CreativeLoadScreen
+			                                        || s is ChallengeCreateScreen)).ElementAt (0)
 			);
 			backButton.AddKey (Keys.Escape);
 			backButton.SetCoordinates (left: 0.825f, top: 0.850f, right: 0.975f, bottom: 0.950f);
