@@ -25,7 +25,7 @@ namespace Knot3.KnotData
 	/// <summary>
 	/// Eine Zuordnung zwischen Kanten und den dreidimensionalen Rasterpunkten, an denen sich die die Kantenübergänge befinden.
 	/// </summary>
-	public sealed class NodeMap
+	public sealed class NodeMap : INodeMap
 	{
 		#region Properties
 
@@ -42,7 +42,7 @@ namespace Knot3.KnotData
 
 		public Vector3 Offset { get; set; }
 
-		public Action IndexRebuilt = () => {};
+		public Action IndexRebuilt { get; set; }
 
 		#endregion
 
@@ -50,9 +50,11 @@ namespace Knot3.KnotData
 
 		public NodeMap ()
 		{
+			IndexRebuilt = () => {};
 		}
 
 		public NodeMap (IEnumerable<Edge> edges)
+			: this()
 		{
 			Edges = edges;
 			BuildIndex ();

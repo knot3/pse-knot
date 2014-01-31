@@ -26,7 +26,7 @@ namespace Knot3.KnotData
 	{
 		#region Properties
 
-		private NodeMap NodeMap;
+		private INodeMap NodeMap;
 		private Dictionary<Vector3, List<PossibleRectanglePosition>> positions
 		    = new Dictionary<Vector3, List<PossibleRectanglePosition>> ();
 
@@ -34,7 +34,7 @@ namespace Knot3.KnotData
 
 		#region Constructors
 
-		public RectangleMap (NodeMap nodeMap)
+		public RectangleMap (INodeMap nodeMap)
 		{
 			NodeMap = nodeMap;
 		}

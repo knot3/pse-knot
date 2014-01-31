@@ -116,6 +116,16 @@ namespace Knot3.KnotData
 			return axis == Axis.X ? Right : axis == Axis.Y ? Up : axis == Axis.Z ? Backward : Zero;
 		}
 
+		public static Direction FromString (string str)
+		{
+			foreach (Direction direction in Values) {
+				if (str.ToLower() == direction.Description.ToLower()) {
+					return direction;
+				}
+			}
+			return null;
+		}
+
 		public override string ToString ()
 		{
 			return Description;

@@ -47,6 +47,7 @@ namespace Knot3.Widgets
 			}
 		}
 
+		public Action<GameTime> ValueChanged = (time) => {};
 
 		#endregion
 
@@ -61,7 +62,7 @@ namespace Knot3.Widgets
 		{
 			dropdown = new VerticalMenu (screen: screen, drawOrder: Index + DisplayLayer.Menu);
 			dropdown.Bounds.Position = ValueBounds.Position;
-			dropdown.Bounds.Size = new ScreenPoint(Screen, () => ValueBounds.Size.OnlyX + ValueBounds.Size.OnlyY * 10);
+			dropdown.Bounds.Size = new ScreenPoint (Screen, () => ValueBounds.Size.OnlyX + ValueBounds.Size.OnlyY * 10);
 			dropdown.Bounds.Padding = new ScreenPoint (screen, 0.010f, 0.010f);
 			dropdown.ItemForegroundColor = (i) => Menu.ItemForegroundColor (i);
 			dropdown.ItemBackgroundColor = (i) => Color.Black;
@@ -99,9 +100,10 @@ namespace Knot3.Widgets
 				string value = _value; // create a copy for the action
 				Action<GameTime> onSelected = (time) => {
 					Console.WriteLine ("OnClick: " + value);
-					option.Value = option.DisplayValidValues[value];
+					option.Value = option.DisplayValidValues [value];
 					currentValue.InputText = value;
 					dropdown.IsVisible = false;
+					ValueChanged (time);
 				};
 				MenuButton button = new MenuButton (
 				    screen: Screen,

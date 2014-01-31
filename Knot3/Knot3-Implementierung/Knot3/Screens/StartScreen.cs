@@ -19,6 +19,7 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
+using Knot3.Debug;
 
 namespace Knot3.Screens
 {
@@ -102,11 +103,11 @@ namespace Knot3.Screens
 			// die Linien
 			lines.AddPoints (0.000f, 0.050f,
 			                 0.380f, 0.250f, 0.960f, 0.380f, 0.700f, 0.160f, 1.000f
-			                );
+			);
 			lines.AddPoints (0.000f, 0.190f,
 			                 0.620f, 0.855f, 0.800f, 0.535f, 0.980f, 0.790f,
 			                 0.480f, 0.950f, 0.260f, 0.840f, 0.520f, 1.000f
-			                );
+			);
 		}
 
 		#endregion
@@ -118,6 +119,25 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Update (GameTime time)
 		{
+			// Versteckte Funktionen
+			if (Keys.F1.IsDown ()) {
+				MenuButton debugButton = new MenuButton (
+				    screen: this,
+				    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				    name: "Debug Junctions",
+				    onClick: (t) => NextScreen = new DebugJunctionScreen (Game)
+				);
+				debugButton.ForegroundColor = () => base.MenuItemForegroundColor(debugButton.ItemState);
+				debugButton.BackgroundColor = () => base.MenuItemBackgroundColor(debugButton.ItemState);
+				debugButton.AlignX = HorizontalAlignment.Center;
+				debugButton.AlignY = VerticalAlignment.Center;
+
+				debugButton.AddKey (Keys.D);
+				debugButton.SetCoordinates (left: 0.800f, top: 0.030f, right: 0.950f, bottom: 0.100f);
+				AddGameComponents (time, debugButton);
+				Border border = new Border (this, DisplayLayer.ScreenUI, debugButton);
+				AddGameComponents (time, border);
+			}
 		}
 
 		/// <summary>
