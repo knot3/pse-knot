@@ -159,7 +159,7 @@ namespace Knot3.GameObjects
 			if (InputManager.CurrentMouseState.MiddleButton == ButtonState.Pressed && InputManager.PreviousMouseState.MiddleButton == ButtonState.Released) {
 				Screen.Input.GrabMouseMovement = true;
 			}
-			else if(InputManager.CurrentMouseState.MiddleButton == ButtonState.Released && InputManager.PreviousMouseState.MiddleButton == ButtonState.Pressed) {
+			else if (InputManager.CurrentMouseState.MiddleButton == ButtonState.Released && InputManager.PreviousMouseState.MiddleButton == ButtonState.Pressed) {
 				Screen.Input.GrabMouseMovement = false;
 			}
 
@@ -348,9 +348,11 @@ namespace Knot3.GameObjects
 			// Wenn kein 3D-Objekt selektiert ist...
 			if (world.SelectedObject == null && world.Count () > 0) {
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
-				world.SelectedObject = world.FindNearestObjects (
-				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+				IGameObject[] nearestObjects
+				    = world.FindNearestObjects (nearTo: InputManager.CurrentMouseState.ToVector2 ()).ToArray ();
+				if (nearestObjects.Length > 0) {
+					world.SelectedObject = nearestObjects [0];
+				}
 			}
 
 			// Überprüfe, wie weit das Kamera-Target von dem Objekt, um das rotiert werden soll,
@@ -469,7 +471,7 @@ namespace Knot3.GameObjects
 				// und lese den Wert aus und speichere ihn in der Zuordnung.
 				CurrentKeyAssignment [option.Value] = action;
 			}
-			CurrentKeyAssignmentReversed = CurrentKeyAssignment.ReverseDictionary();
+			CurrentKeyAssignmentReversed = CurrentKeyAssignment.ReverseDictionary ();
 
 			// Aktualisiere die Liste von Tasten, zu denen wir als IKeyEventListener benachrichtigt werden
 			ValidKeys.Clear ();

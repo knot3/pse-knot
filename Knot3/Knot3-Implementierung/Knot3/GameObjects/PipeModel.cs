@@ -72,7 +72,7 @@ namespace Knot3.GameObjects
 			if (World.SelectedObject == this) {
 				Coloring.Highlight (intensity: 0.40f, color: Color.White);
 			}
-			else if (Info.Knot.SelectedEdges.Contains (Info.Edge)) {
+			else if (Info.Knot != null && Info.Knot.SelectedEdges.Contains (Info.Edge)) {
 				Coloring.Highlight (intensity: 0.80f, color: Color.White);
 			}
 			else {

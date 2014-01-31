@@ -92,11 +92,9 @@ namespace Knot3.Screens
 				// Undo- und Redo-Stacks neu erstellen
 				Redo = new Stack<Knot> ();
 				Undo = new Stack<Knot> ();
-				Undo.Push (_playerKnot);
+				Undo.Push (_playerKnot.Clone () as Knot);
 				// den Knoten dem KnotRenderer zuweisen
-				PlayerKnotRenderer.Knot = _playerKnot;
-				// den Knoten dem Kantenverschieber zuweisen
-				PlayerEdgeMovement.Knot = _playerKnot;
+				registerCurrentKnot ();
 				// Event registrieren
 				_playerKnot.EdgesChanged += OnEdgesChanged;
 				// coloring.Knot = knot;
@@ -115,6 +113,12 @@ namespace Knot3.Screens
 		private TimeSpan playTime;
 		private TextItem playTimeDisplay;
 		private Border playTimeBorder;
+		// Undo-Button
+		private MenuButton undoButton;
+		private Border undoButtonBorder;
+		// Undo-Button
+		private MenuButton redoButton;
+		private Border redoButtonBorder;
 		// Der Status, z.b. ist die Challenge beendet?
 		private ChallengeModeState state;
 
@@ -175,6 +179,50 @@ namespace Knot3.Screens
 			playTimeDisplay.ForegroundColor = () => Color.White;
 			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                             widget: playTimeDisplay, lineWidth: 2, padding: 0);
+			//Undo-Button
+			undoButton = new MenuButton (screen: this,
+			                             drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			                             name: "Undo",
+			                             onClick: (time) => OnUndo ());
+			undoButton.SetCoordinates (left: 0.55f, top: 0.900f, right: 0.65f, bottom: 0.95f);
+			undoButton.BackgroundColor = () => base.MenuItemBackgroundColor (undoButton.ItemState);
+			undoButton.ForegroundColor = () => base.MenuItemForegroundColor (undoButton.ItemState);
+			undoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			                               widget: undoButton, lineWidth: 2, padding: 0);
+			undoButton.AlignX = HorizontalAlignment.Center;
+			undoButton.IsVisible = false;
+
+
+			//Redo-Button
+			redoButton = new MenuButton (screen: this,
+			                             drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			                             name: "Redo",
+			                             onClick: (time) => OnRedo ());
+			redoButton.SetCoordinates (left: 0.70f, top: 0.900f, right: 0.85f, bottom: 0.95f);
+			redoButton.BackgroundColor = () => Color.Black;
+			redoButton.ForegroundColor = () => Color.White;
+			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			                               widget: redoButton, lineWidth: 2, padding: 0);
+			redoButton.AlignX = HorizontalAlignment.Center;
+			redoButton.IsVisible = false;
+
+			// die Linien
+			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
+			lines.AddPoints (500, 0, 500, 1000);
+
+			// Redo-Button
+			redoButton = new MenuButton (
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Redo",
+			    onClick: (time) => OnRedo ()
+			);
+			redoButton.SetCoordinates (left: 0.70f, top: 0.900f, right: 0.80f, bottom: 0.95f);
+			redoButton.BackgroundColor = () => base.MenuItemBackgroundColor (redoButton.ItemState);
+			redoButton.ForegroundColor = () => base.MenuItemForegroundColor (redoButton.ItemState);
+			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			                               widget: redoButton, lineWidth: 2, padding: 0);
+			redoButton.AlignX = HorizontalAlignment.Center;
 
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
@@ -190,8 +238,11 @@ namespace Knot3.Screens
 
 		private void OnEdgesChanged ()
 		{
-			Undo.Push (_playerKnot);
+			Knot push = _playerKnot.Clone ()as Knot;
+			Undo.Push (push);
 			Redo.Clear ();
+			redoButton.IsVisible = false;
+			undoButton.IsVisible = true;
 
 			// Status
 			if (state == ChallengeModeState.Start) {
@@ -201,20 +252,52 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-			Knot current = Undo.Pop ();
-			Knot previous = Undo.Peek ();
-			Redo.Push (current);
-			_playerKnot = previous;
-			_playerKnot.EdgesChanged();
+			if (Undo.Count >= 2) {
+				Knot current = Undo.Pop ();
+				Knot prev = Undo.Peek ();
+				Knot previous = prev.Clone () as Knot;
+				Knot curr = current.Clone () as Knot;
+				Redo.Push (curr);
+				_playerKnot = previous;
+				registerCurrentKnot ();
+				_playerKnot.EdgesChanged += OnEdgesChanged;
+				redoButton.IsVisible = true;
+			}
+			if (Undo.Count == 1) {
+				undoButton.IsVisible = false;
+
+			}
 		}
 
 		private void OnRedo ()
 		{
-			Knot next = Redo.Pop ();
-			Redo.Push (_playerKnot);
-			Undo.Push (_playerKnot);
-			_playerKnot = next;
-			_playerKnot.EdgesChanged();
+			if (Redo.Count >= 1) {
+				Knot next = Redo.Pop ();
+				Knot peek = _playerKnot.Clone () as Knot;
+				Knot push = next.Clone ()as Knot;
+				//Undo.Push (push);
+				Undo.Push (push);
+				_playerKnot = next;
+				_playerKnot.EdgesChanged += OnEdgesChanged;
+				// den Knoten den Inputhandlern und Renderern zuweisen
+				registerCurrentKnot ();
+
+				redoButton.IsVisible = true;
+
+
+			}
+			if (Redo.Count == 0) {
+
+				redoButton.IsVisible = false;
+			}
+		}
+
+		private void registerCurrentKnot ()
+		{
+			// den Knoten dem KnotRenderer zuweisen
+			PlayerKnotRenderer.Knot = _playerKnot;
+			// den Knoten dem Kantenverschieber zuweisen
+			PlayerEdgeMovement.Knot = _playerKnot;
 		}
 
 		/// <summary>
@@ -266,7 +349,7 @@ namespace Knot3.Screens
 			// erstelle einen Dialog zum Eingeben des Spielernamens
 			TextInputDialog nameDialog = new TextInputDialog (screen: this, drawOrder: DisplayLayer.Dialog,
 			        title: "Challenge", text: "Your name:",
-			        inputText: "ABC");
+			        inputText: Options.Default ["profile", "name", ""]);
 			// füge ihn zur Spielkomponentenliste hinzu
 			AddGameComponents (time, nameDialog);
 
@@ -288,7 +371,9 @@ namespace Knot3.Screens
 		{
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, knotInput, overlay, pointer, ChallengeWorld, PlayerWorld,
-			                   modelMouseHandler, lines, playTimeDisplay, playTimeBorder);
+
+			                   modelMouseHandler, lines, playTimeDisplay, playTimeBorder, undoButton, undoButtonBorder, redoButton, redoButtonBorder);
+
 			Audio.BackgroundMusic = Sound.ChallengeMusic;
 
 			// Einstellungen anwenden

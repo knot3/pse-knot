@@ -42,7 +42,14 @@ namespace Knot3.GameObjects
 
 		int Index { get; }
 
+		JunctionType Type { get; }
+
 		#endregion
+	}
+
+	public enum JunctionType {
+		Angled,
+		Straight
 	}
 }
 

@@ -19,13 +19,11 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.Widgets;
 using Knot3.Utilities;
+using Knot3.KnotData;
 
-namespace Knot3.KnotData
+namespace Knot3.Debug
 {
-	/// <summary>
-	/// Eine Zuordnung zwischen Kanten und den dreidimensionalen Rasterpunkten, an denen sich die die Kantenübergänge befinden.
-	/// </summary>
-	public sealed class NodeMap : INodeMap
+	public class DebugJunctionNodeMap : INodeMap
 	{
 		#region Properties
 
@@ -38,7 +36,13 @@ namespace Knot3.KnotData
 		/// </summary>
 		public int Scale { get; set; }
 
-		public IEnumerable<Edge> Edges { get; set; }
+		public IEnumerable<Edge> Edges
+		{
+			get { return _edges; }
+			set {}
+		}
+
+		private Edge[] _edges;
 
 		public Vector3 Offset { get; set; }
 
@@ -48,21 +52,24 @@ namespace Knot3.KnotData
 
 		#region Constructors
 
-		public NodeMap ()
+		public DebugJunctionNodeMap ()
 		{
 			IndexRebuilt = () => {};
-		}
-
-		public NodeMap (IEnumerable<Edge> edges)
-		: this()
-		{
-			Edges = edges;
-			BuildIndex ();
 		}
 
 		#endregion
 
 		#region Methods
+
+		public void Render (Tuple<Direction, Direction, Direction> direction, Angles3 rotations)
+		{
+			_edges = new Edge[] {
+				new Edge(direction.Item1), new Edge(direction.Item1),
+				new Edge(direction.Item2), new Edge(direction.Item2),
+				new Edge(direction.Item3), new Edge(direction.Item3),
+			};
+			BuildIndex ();
+		}
 
 		/// <summary>
 		/// Gibt die Rasterposition des Übergangs am Anfang der Kante zurück.
@@ -87,12 +94,14 @@ namespace Knot3.KnotData
 
 		public List<IJunction> JunctionsBeforeEdge (Edge edge)
 		{
-			return junctionMap [NodeBeforeEdge (edge)];
+			Node node = NodeBeforeEdge (edge);
+			return junctionMap.ContainsKey(node) ? junctionMap [node] : new List<IJunction>();
 		}
 
 		public List<IJunction> JunctionsAfterEdge (Edge edge)
 		{
-			return junctionMap [NodeAfterEdge (edge)];
+			Node node = NodeAfterEdge (edge);
+			return junctionMap.ContainsKey(node) ? junctionMap [node] : new List<IJunction>();
 		}
 
 		public IEnumerable<Node> Nodes
@@ -114,24 +123,21 @@ namespace Knot3.KnotData
 		{
 			fromMap.Clear ();
 			toMap.Clear ();
-			float x = Offset.X, y = Offset.Y, z = Offset.Z;
-			foreach (Edge edge in Edges) {
-				fromMap [edge] = new Node ((int)x, (int)y, (int)z);
-				Vector3 v = edge.Direction.Vector;
-				x += v.X;
-				y += v.Y;
-				z += v.Z;
-				toMap [edge] = new Node ((int)x, (int)y, (int)z);
-			}
-
 			IndexRebuilt = () => {};
 			junctionMap.Clear ();
-			List<Edge> EdgeList = Edges.ToList ();
-			for (int n = 0; n < EdgeList.Count; n++) {
-				Edge edgeA = Edges.At (n);
-				Edge edgeB = Edges.At (n + 1);
-				Node node = NodeAfterEdge (edgeA);
-				IJunction junction = new NodeModelInfo (nodeMap: this, from: edgeA, to: edgeB, node: node, index: n);
+
+			Node zero = new Node (0, 0, 0);
+			for (int i = 0; i <= 2; ++i) {
+				Edge edge1 = _edges [i * 2 + 0];
+				Edge edge2 = _edges [i * 2 + 1];
+
+				fromMap [edge1] = zero - edge1.Direction;
+				toMap [edge1] = zero;
+				fromMap [edge2] = zero;
+				toMap [edge2] = zero + edge2.Direction;
+
+				Node node = NodeAfterEdge (edge1);
+				IJunction junction = new NodeModelInfo (nodeMap: this, from: edge1, to: edge2, node: node, index: i * 2);
 				junctionMap.Add (node, junction);
 			}
 

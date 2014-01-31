@@ -22,66 +22,59 @@ using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
 
-namespace Knot3.Audio.XNA
+namespace Knot3.Audio
 {
 	/// <summary>
-	/// Ein Wrapper um die Song-Klasse des XNA-Frameworks.
+	/// Ein Wrapper um die SoundEffect-Klasse des XNA-Frameworks.
 	/// </summary>
-	public class SongFile : IAudioFile
+	public class SoundEffectFile : IAudioFile
 	{
 		/// <summary>
-		/// Der Anzeigename des Songs.
+		/// Der Anzeigename des SoundEffects.
 		/// </summary>
 		public string Name { get; private set; }
 
 		/// <summary>
 		/// Gibt an, ob die Wiedergabe läuft oder gestoppt bzw. pausiert ist.
 		/// </summary>
-		public SoundState State
-		{
-			get {
-				//Console.WriteLine (MediaPlayer.State);
-				return MediaPlayer.State == MediaState.Playing ? SoundState.Playing
-					: MediaPlayer.State == MediaState.Stopped ? SoundState.Stopped
-					: MediaPlayer.State == MediaState.Paused ? SoundState.Paused
-					: SoundState.Stopped;
-			}
-		}
+		public SoundState State { get { return Instance.State; } }
 
-		private Song Song;
-		private bool valid;
+		public SoundEffect SoundEffect { get; private set; }
+
+		private SoundEffectInstance Instance;
+
 		private Sound SoundType;
+		private float volume;
 
 		/// <summary>
-		/// Erstellt eine neue Song-Datei mit dem angegebenen Anzeigenamen und des angegebenen Song-Objekts.
+		/// Erstellt eine neue SoundEffect-Datei mit dem angegebenen Anzeigenamen und des angegebenen SoundEffect-Objekts.
 		/// </summary>
-		public SongFile (string name, Song song, Sound soundType)
+		public SoundEffectFile (string name, SoundEffect soundEffect, Sound soundType)
 		{
 			Name = name;
-			Song = song;
-			valid = true;
+			SoundEffect = soundEffect;
+			Instance = soundEffect.CreateInstance ();
 			SoundType = soundType;
 		}
 
 		public void Play ()
 		{
-			if (valid) {
-				Console.WriteLine ("Play: " + Name);
-				try {
-					MediaPlayer.Volume = AudioManager.Volume (SoundType);
-					MediaPlayer.Play (Song);
-				}
-				catch (Exception ex) {
-					Console.WriteLine (ex);
-					valid = false;
-				}
-			}
+			Console.WriteLine ("Play: " + Name);
+			Instance.Volume = volume = AudioManager.Volume(SoundType);
+			Instance.Play ();
 		}
 
 		public void Stop ()
 		{
 			Console.WriteLine ("Stop: " + Name);
-			MediaPlayer.Stop ();
+			Instance.Stop ();
 		}
-	}	
+
+		public void Update (GameTime time)
+		{
+			if (volume != AudioManager.Volume (SoundType)) {
+				Instance.Volume = volume = AudioManager.Volume(SoundType);
+			}
+		}
+	}
 }

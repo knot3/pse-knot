@@ -38,7 +38,7 @@ namespace Knot3.Utilities
 		{
 			get {
 				string directory;
-				if (MonoHelper.IsRunningOnMono ()) {
+				if (MonoHelper.IsRunningOnLinux ()) {
 					directory = Environment.GetEnvironmentVariable ("HOME") + "/.knot3/";
 				}
 				else {
@@ -68,11 +68,26 @@ namespace Knot3.Utilities
 		{
 			get {
 				string directory;
-				if (MonoHelper.IsRunningOnMono ()) {
+				if (MonoHelper.IsRunningOnLinux()) {
 					directory = Environment.GetEnvironmentVariable ("HOME");
 				}
 				else {
 					directory = Environment.GetFolderPath (System.Environment.SpecialFolder.MyPictures) + "\\Knot3\\";
+				}
+				Directory.CreateDirectory (directory);
+				return directory;
+			}
+		}
+
+		public static string DecodedMusicCache
+		{
+			get {
+				string directory;
+				if (MonoHelper.IsRunningOnLinux()) {
+					directory = "/var/tmp/knot3/";
+				}
+				else {
+					directory = Environment.GetFolderPath (System.Environment.SpecialFolder.MyMusic) + "\\Knot3\\";
 				}
 				Directory.CreateDirectory (directory);
 				return directory;

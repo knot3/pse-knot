@@ -61,9 +61,11 @@ namespace Knot3.Screens
 			    text: "Player Name:",
 			    inputText: "DEFAULT" // TODO
 			);
+			playerNameInput.OnValueSubmitted += () => {
+				Options.Default["profile", "name", ""] = playerNameInput.InputText;
+			};
+
 			settingsMenu.Add(playerNameInput);
-
-
 		}
 
 		#endregion
@@ -75,9 +77,6 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-
-
-			// TODO
 		}
 
 		/// <summary>
@@ -87,10 +86,6 @@ namespace Knot3.Screens
 		{
 			base.Entered(previousScreen, time);
 			AddGameComponents(time, settingsMenu);
-
-			// ???
-
-			// playerNameInput.OnKeyEvent(key: null, keyEvent: null, time); // time ???
 		}
 
 		#endregion

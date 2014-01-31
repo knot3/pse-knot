@@ -25,9 +25,7 @@ using Knot3.Utilities;
 
 using OggSharp;
 
-using Knot3.Audio.XNA;
-
-namespace Knot3.Audio.Ogg
+namespace Knot3.Audio
 {
 	public class OggVorbisFile : IAudioFile
 	{
@@ -40,7 +38,7 @@ namespace Knot3.Audio.Ogg
 		public OggVorbisFile (string name, string filepath, Sound soundType)
 		{
 			Name = name;
-			string cachefile = System.IO.Path.GetTempPath () + FileUtility.Separator + name.GetHashCode () + ".wav";
+			string cachefile = FileUtility.DecodedMusicCache + FileUtility.Separator + soundType + "_" + name.GetHashCode () + ".wav";
 
 			byte[] data;
 			try {
@@ -76,6 +74,11 @@ namespace Knot3.Audio.Ogg
 		public void Stop ()
 		{
 			internalFile.Stop ();
+		}
+
+		public void Update (GameTime time)
+		{
+			internalFile.Update (time);
 		}
 
 		private static void WriteWave (BinaryWriter writer, int channels, int rate, byte[] data)

@@ -43,10 +43,6 @@ namespace Knot3.Utilities
 			if (currentAngleY + diffAngleY > MinAngleY && currentAngleY + diffAngleY < MaxAngleY) {
 				rotated = rotated.RotateAroundVector (-side, diffAngleY);
 			}
-			Console.WriteLine ("currentAngleY = " + MathHelper.ToDegrees (currentAngleY) + ", "
-			                   + "diffAngleY = " + MathHelper.ToDegrees (diffAngleY) + "°" + ", "
-			                   + "position = " + position + ", " + "length=" + position.Length ()
-			                  );
 
 			return rotated;
 		}

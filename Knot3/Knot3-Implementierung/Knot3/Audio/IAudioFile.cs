@@ -48,6 +48,11 @@ namespace Knot3.Audio
 		/// Stoppe die Wiedergabe.
 		/// </summary>
 		void Stop ();
+
+		/// <summary>
+		/// Wird für jeden Frame aufgerufen.
+		/// </summary>
+		void Update (GameTime time);
 	}
 
 }

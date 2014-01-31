@@ -103,7 +103,7 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Die Zuordnung zwischen Kanten und den dreidimensionalen Rasterpunkten, an denen sich die die Kantenübergänge befinden.
 		/// </summary>
-		private NodeMap nodeMap;
+		private INodeMap nodeMap;
 
 		/// <summary>
 		/// Gibt an, ob Pfeile anzuzeigen sind. Wird aus der Einstellungsdatei gelesen.

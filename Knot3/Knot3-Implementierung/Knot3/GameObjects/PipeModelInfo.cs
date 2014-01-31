@@ -66,7 +66,7 @@ namespace Knot3.GameObjects
 		/// Erstellt ein neues Informationsobjekt für ein 3D-Modell, das eine Kante darstellt.
 		/// [base="pipe1", Angles3.Zero, new Vector3(10,10,10)]
 		/// </summary>
-		public PipeModelInfo (NodeMap nodeMap, Knot knot, Edge edge)
+		public PipeModelInfo (INodeMap nodeMap, Knot knot, Edge edge)
 		: base("pipe-straight", Angles3.Zero, new Vector3(25f, 25f, 25f))
 		{
 			// Weise Knoten und Kante zu
@@ -90,9 +90,9 @@ namespace Knot3.GameObjects
 			// Berechne die Skalierung bei abgeschnittenen Übergängen
 			List<IJunction> junctions1 = nodeMap.JunctionsBeforeEdge (edge);
 			List<IJunction> junctions2 = nodeMap.JunctionsAfterEdge (edge);
+			/*
 			IJunction myJunction1 = junctions1.Where (j => j.EdgeTo == edge).ElementAtOrDefault (0) ?? junctions1 [0];
 			IJunction myJunction2 = junctions2.Where (j => j.EdgeFrom == edge).ElementAtOrDefault (0) ?? junctions2 [0];
-			/*
 			if (myJunction1.EdgeFrom.Direction != myJunction1.EdgeTo.Direction) {
 				Scale += new Vector3 (0, 0, 8f);
 				Position -= edge.Direction * 8f;
