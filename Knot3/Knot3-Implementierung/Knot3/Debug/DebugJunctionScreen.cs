@@ -116,7 +116,7 @@ namespace Knot3.Debug
 				settingsMenu.Add (item);
 			}
 
-			float[] validAngles = new float[]{
+			float[] validAngles = new float[] {
 				0, 45, 90, 135, 180, 225, 270, 315
 			};
 			for (int i = 1; i <= 3; ++i) {

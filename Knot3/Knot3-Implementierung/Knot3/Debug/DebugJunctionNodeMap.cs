@@ -63,7 +63,7 @@ namespace Knot3.Debug
 
 		public void Render (Tuple<Direction, Direction, Direction> direction, Angles3 rotations)
 		{
-			_edges = new Edge[]{
+			_edges = new Edge[] {
 				new Edge(direction.Item1), new Edge(direction.Item1),
 				new Edge(direction.Item2), new Edge(direction.Item2),
 				new Edge(direction.Item3), new Edge(direction.Item3),

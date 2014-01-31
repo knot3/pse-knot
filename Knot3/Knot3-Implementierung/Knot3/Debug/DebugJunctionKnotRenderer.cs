@@ -117,7 +117,7 @@ namespace Knot3.Debug
 		public void Render (Tuple<Direction, Direction, Direction> direction, Angles3 rotations)
 		{
 			if (direction.Item1.Axis != direction.Item2.Axis && direction.Item1.Axis != direction.Item3.Axis &&
-				direction.Item2.Axis != direction.Item3.Axis) {
+			        direction.Item2.Axis != direction.Item3.Axis) {
 
 				NodeModelInfo.curvedJunctionBumpRotationMap2 [direction] = Tuple.Create (rotations.X, rotations.Y, rotations.Z);
 
