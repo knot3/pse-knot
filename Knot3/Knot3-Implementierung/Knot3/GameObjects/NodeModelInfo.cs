@@ -229,63 +229,75 @@ namespace Knot3.GameObjects
 		private void chooseModel ()
 		{
 			if (JunctionsAtNode.Count == 1) {
-				if (Type == JunctionType.Angled) {
-					Modelname = "pipe-angled";
-					Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
-				}
+				chooseModelOneJunction ();
 			}
 			else if (JunctionsAtNode.Count == 2) {
-				if (Type == JunctionType.Straight) {
-					if (OtherJunctionsAtNode [0].Type == JunctionType.Straight) {
-
-						// Drehung des Übergangs
-						Modelname = "pipe-curved1";
-						Rotation = Angles3.FromDegrees (0, 0, 0) + curvedJunctionRotationMap [EdgeFrom.Direction];
-
-						// Drehung der Delle
-						var directions = Tuple.Create (JunctionsAtNode [0].EdgeFrom.Direction, JunctionsAtNode [1].EdgeFrom.Direction);
-						var bumpRotationsZ = curvedJunctionBumpRotationMap [directions];
-						float bumpRotationZ = JunctionsAtNodeIndex == 0 ? bumpRotationsZ.Item1 : bumpRotationsZ.Item2;
-						Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
-
-						// debug
-						Console.WriteLine ("Index="
-						                   + Index + ", Directions=" + directions + ", Rotation=" + Rotation + ", bumpRotationZ=" + bumpRotationZ + ", ...="
-						                   + Angles3.FromDegrees (0, 0, bumpRotationZ)
-						                  );
-					}
-					else {
-						Modelname = "pipe-straight";
-					}
-				}
-				else if (Type == JunctionType.Angled) {
-					Modelname = "pipe-angled";
-					Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
-				}
+				chooseModelTwoJunctions ();
 			}
 			else if (JunctionsAtNode.Count == 3) {
-				if (Type == JunctionType.Straight) {
+				chooseModelThreeJunctions ();
+			}
+		}
 
+		private void chooseModelOneJunction ()
+		{
+			if (Type == JunctionType.Angled) {
+				Modelname = "pipe-angled";
+				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
+			}
+		}
+
+		private void chooseModelTwoJunctions ()
+		{
+			if (Type == JunctionType.Straight) {
+				if (OtherJunctionsAtNode [0].Type == JunctionType.Straight) {
 					// Drehung des Übergangs
-					Modelname = "pipe-curved2";
+					Modelname = "pipe-curved1";
 					Rotation = Angles3.FromDegrees (0, 0, 0) + curvedJunctionRotationMap [EdgeFrom.Direction];
 
 					// Drehung der Delle
-					var directions = Tuple.Create (JunctionsAtNode [0].EdgeFrom.Direction, JunctionsAtNode [1].EdgeFrom.Direction, JunctionsAtNode [2].EdgeFrom.Direction);
-					var bumpRotationsZ = curvedJunctionBumpRotationMap2 [directions];
-					float bumpRotationZ = JunctionsAtNodeIndex == 0 ? bumpRotationsZ.Item1
-					                      : JunctionsAtNodeIndex == 1 ? bumpRotationsZ.Item2
-					                      : bumpRotationsZ.Item3;
+					var directions = Tuple.Create (JunctionsAtNode [0].EdgeFrom.Direction, JunctionsAtNode [1].EdgeFrom.Direction);
+					var bumpRotationsZ = curvedJunctionBumpRotationMap [directions];
+					float bumpRotationZ = JunctionsAtNodeIndex == 0 ? bumpRotationsZ.Item1 : bumpRotationsZ.Item2;
 					Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
+
+					// debug
+					Console.WriteLine ("Index="
+						+ Index + ", Directions=" + directions + ", Rotation=" + Rotation + ", bumpRotationZ=" + bumpRotationZ + ", ...="
+						+ Angles3.FromDegrees (0, 0, bumpRotationZ)
+					);
 				}
-				else if (Type == JunctionType.Angled) {
-					Modelname = "pipe-angled";
-					Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
+				else {
+					Modelname = "pipe-straight";
+					Rotation = Angles3.FromDegrees (0, 0, 0) + curvedJunctionRotationMap [EdgeFrom.Direction];
 				}
 			}
+			else if (Type == JunctionType.Angled) {
+				Modelname = "pipe-angled";
+				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
+			}
+		}
 
-			// Berechne die Drehung
-			//Console.WriteLine ("directions = " + EdgeFrom.Direction + ", " + EdgeTo.Direction);
+		private void chooseModelThreeJunctions ()
+		{
+			if (Type == JunctionType.Straight) {
+
+				// Drehung des Übergangs
+				Modelname = "pipe-curved2";
+				Rotation = Angles3.FromDegrees (0, 0, 0) + curvedJunctionRotationMap [EdgeFrom.Direction];
+
+				// Drehung der Delle
+				var directions = Tuple.Create (JunctionsAtNode [0].EdgeFrom.Direction, JunctionsAtNode [1].EdgeFrom.Direction, JunctionsAtNode [2].EdgeFrom.Direction);
+				var bumpRotationsZ = curvedJunctionBumpRotationMap2 [directions];
+				float bumpRotationZ = JunctionsAtNodeIndex == 0 ? bumpRotationsZ.Item1
+					                      : JunctionsAtNodeIndex == 1 ? bumpRotationsZ.Item2
+					                      : bumpRotationsZ.Item3;
+				Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
+			}
+			else if (Type == JunctionType.Angled) {
+				Modelname = "pipe-angled";
+				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
+			}
 		}
 
 		public override bool Equals (GameObjectInfo other)
@@ -296,8 +308,8 @@ namespace Knot3.GameObjects
 
 			if (other is NodeModelInfo) {
 				if (this.EdgeFrom == (other as NodeModelInfo).EdgeFrom
-				        && this.EdgeTo == (other as NodeModelInfo).EdgeTo
-				        && base.Equals (other)) {
+					&& this.EdgeTo == (other as NodeModelInfo).EdgeTo
+					&& base.Equals (other)) {
 					return true;
 				}
 				else {
@@ -312,7 +324,8 @@ namespace Knot3.GameObjects
 		#endregion
 	}
 
-	enum JunctionDirection {
+	enum JunctionDirection
+	{
 		UpForward,
 		UpBackward,
 		UpLeft,
