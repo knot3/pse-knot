@@ -142,8 +142,8 @@ namespace Knot3.Screens
 			    onClick: (time) => OnUndo ()
 			);
 			undoButton.SetCoordinates (left: 0.05f, top: 0.900f, right: 0.15f, bottom: 0.95f);
-			undoButton.BackgroundColor = () => base.MenuItemBackgroundColor(undoButton.ItemState);
-			undoButton.ForegroundColor = () => base.MenuItemForegroundColor(undoButton.ItemState);
+			undoButton.BackgroundColor = () => base.MenuItemBackgroundColor (undoButton.ItemState);
+			undoButton.ForegroundColor = () => base.MenuItemForegroundColor (undoButton.ItemState);
 			undoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                               widget: undoButton, lineWidth: 2, padding: 0);
 			undoButton.AlignX = HorizontalAlignment.Center;
@@ -156,8 +156,8 @@ namespace Knot3.Screens
 			    onClick: (time) => OnRedo ()
 			);
 			redoButton.SetCoordinates (left: 0.20f, top: 0.900f, right: 0.30f, bottom: 0.95f);
-			redoButton.BackgroundColor = () =>  base.MenuItemBackgroundColor(redoButton.ItemState);
-			redoButton.ForegroundColor = () => base.MenuItemForegroundColor(redoButton.ItemState);
+			redoButton.BackgroundColor = () => base.MenuItemBackgroundColor (redoButton.ItemState);
+			redoButton.ForegroundColor = () => base.MenuItemForegroundColor (redoButton.ItemState);
 			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                               widget: redoButton, lineWidth: 2, padding: 0);
 			redoButton.AlignX = HorizontalAlignment.Center;
@@ -192,7 +192,7 @@ namespace Knot3.Screens
 				knot.EdgesChanged += OnEdgesChanged;
 				redoButton.IsVisible = true;
 			}
-			else {
+			if (Undo.Count == 1) {
 				undoButton.IsVisible = false;
 
 			}
@@ -212,9 +212,9 @@ namespace Knot3.Screens
 				knot.EdgesChanged += OnEdgesChanged;
 				// den Knoten den Inputhandlern und Renderern zuweisen
 				registerCurrentKnot ();
-
+				undoButton.IsVisible = true;
 			}
-			else {
+			if (Redo.Count == 0) {
 				redoButton.IsVisible = false;
 			}
 		}
