@@ -77,20 +77,7 @@ namespace Knot3.Screens
 			//player.PlayLooping();
 		}
 
-		protected virtual Color MenuItemBackgroundColor (ItemState itemState)
-		{
-			return Color.Transparent;
-		}
 
-		protected virtual Color MenuItemForegroundColor (ItemState itemState)
-		{
-			if (itemState == ItemState.Hovered) {
-				return Color.White;
-			}
-			else {
-				return Color.White * 0.7f;
-			}
-		}
 
 		#endregion
 	}

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,7 +12,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -28,6 +26,7 @@ namespace Knot3.KnotData
 	/// </summary>
 	public sealed class Knot : ICloneable, IEnumerable<Edge>, IEquatable<Knot>
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -56,7 +55,8 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Ein Ereignis, das in der Move-Methode ausgelöst wird, wenn sich die Struktur der Kanten geändert hat.
 		/// </summary>
-		public Action EdgesChanged = () => {};
+		public Action EdgesChanged = () => {
+		};
 
 		/// <summary>
 		/// Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
@@ -64,14 +64,16 @@ namespace Knot3.KnotData
 		public IEnumerable<Edge> SelectedEdges { get { return selectedEdges; } }
 
 		private List<Edge> selectedEdges;
-
+		public int debugId;
 		/// <summary>
 		///
 		/// </summary>
-		public Action SelectionChanged = () => {};
+		public Action SelectionChanged = () => {
+		};
 		private List<SelectionBlock> StructuredSelection;
 		private Circle<Edge> lastSelected;
-		public Action<Vector3> StartEdgeChanged = (v) => {};
+		public Action<Vector3> StartEdgeChanged = (v) => {
+		};
 
 		#endregion
 
@@ -83,12 +85,13 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Knot ()
 		{
+			debugId++;
 			MetaData = new KnotMetaData ("", () => startElement.Count, null, null);
 			startElement = new Circle<Edge> (new Edge[] {
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
-			                                );
+			);
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -100,18 +103,19 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Knot (KnotMetaData metaData, IEnumerable<Edge> edges)
 		{
-			Stack<Direction> structure = new Stack<Direction>();
+			debugId++;
+			Stack<Direction> structure = new Stack<Direction> ();
 			foreach (Edge edge in edges) {
-				structure.Push(edge.Direction);
+				structure.Push (edge.Direction);
 			}
-			if (!IsValidStructure(structure)) {
-				throw new InvalidDataException();
+			if (!IsValidStructure (structure)) {
+				throw new InvalidDataException ();
 			}
 			MetaData = new KnotMetaData (
-			    name: metaData.Name,
-			    countEdges: () => this.startElement.Count,
-			    format: metaData.Format,
-			    filename: metaData.Filename
+				name: metaData.Name,
+				countEdges: () => this.startElement.Count,
+				format: metaData.Format,
+				filename: metaData.Filename
 			);
 			this.startElement = new Circle<Edge> (edges);
 			selectedEdges = new List<Edge> ();
@@ -134,7 +138,7 @@ namespace Knot3.KnotData
 			if (StructuredSelection [0].Begin == StructuredSelection [0].End.Next) {
 				return true;
 			}
-			if (!IsValidMove(direction)) {
+			if (!IsValidMove (direction)) {
 				return false;
 			}
 			Stack<Direction> stack = new Stack<Direction> ();
@@ -153,7 +157,7 @@ namespace Knot3.KnotData
 					stack.Push (direction.Reverse);
 				}
 				int counter = 0;
-				while (stack.Peek() == pointer.Value.Direction.Reverse && pointer != nextBlock.Begin) {
+				while (stack.Peek () == pointer.Value.Direction.Reverse && pointer != nextBlock.Begin) {
 					if (counter >= distance) { // Passiert, wenn man versucht den Knoten vollständig ineinander zu schieben.
 						return false;
 					}
@@ -174,44 +178,45 @@ namespace Knot3.KnotData
 					}
 				}
 			}
-			return IsValidStructure(stack);
+			return IsValidStructure (stack);
 		}
 
 		/// <summary>
 		/// Prüft ob die gegeben Struktur einen gültigen Knoten darstellt.
 		/// </summary>
-		public static bool IsValidStructure(Stack<Direction> knot)
+		public static bool IsValidStructure (Stack<Direction> knot)
 		{
 			Vector3 position3D = Vector3.Zero;
-			HashSet<Vector3> occupancy = new HashSet<Vector3>();
+			HashSet<Vector3> occupancy = new HashSet<Vector3> ();
 			if (knot.Count < 4) {
 				return false;
 			}
 			while (knot.Count > 0) {
-				if (occupancy.Contains(position3D + (knot.Peek() / 2))) {
+				if (occupancy.Contains (position3D + (knot.Peek () / 2))) {
 					return false;
 				}
 				else {
-					occupancy.Add(position3D + (knot.Peek() / 2));
-					position3D += knot.Pop();
+					occupancy.Add (position3D + (knot.Peek () / 2));
+					position3D += knot.Pop ();
 				}
 			}
-			if (position3D.DistanceTo(Vector3.Zero) > 0.00001f) {
+			if (position3D.DistanceTo (Vector3.Zero) > 0.00001f) {
 				return false;
 			}
 			return true;
 		}
+
 		/// <summary>
 		/// Gibt an ob ein Move in diese Richtung überhaupt möglich ist.
 		/// </summary>
-		public bool IsValidMove(Direction dir)
+		public bool IsValidMove (Direction dir)
 		{
-			CreateStructuredSelection();
+			CreateStructuredSelection ();
 			if (StructuredSelection.Count == 0) {
 				return false;
 			}
 			// Alles selektiert
-			if (StructuredSelection[0].Begin == StructuredSelection[0].End.Next) {
+			if (StructuredSelection [0].Begin == StructuredSelection [0].End.Next) {
 				return true;
 			}
 			// Für Jeden Block werden Start und ende untersucht.
@@ -233,11 +238,13 @@ namespace Knot3.KnotData
 		/// </summary>
 		public bool Move (Direction direction, int distance)
 		{
+			Console.WriteLine ("Moving edges of knot#" + debugId);
 			if (!IsValidMove (direction, distance)) {
 				return false;
 			}
 			// Durchlauf über die Selektionsblöcke
 			for (int b = 0; b < StructuredSelection.Count; ++b) {
+				Console.WriteLine ("Moving edges of knot#" + debugId);
 				SelectionBlock currentBlock = StructuredSelection [b];
 
 				Circle<Edge> pointer = currentBlock.Begin;
@@ -282,7 +289,9 @@ namespace Knot3.KnotData
 					}
 				}
 			}
+			Console.WriteLine ("Moving edges of knot#" + debugId);
 			EdgesChanged ();
+
 			return true;
 		}
 
@@ -319,15 +328,15 @@ namespace Knot3.KnotData
 		{
 			Circle<Edge> newCircle = new Circle<Edge> (startElement as IEnumerable<Edge>);
 			KnotMetaData metaData = new KnotMetaData (
-			    name: MetaData.Name,
-			    countEdges: () => 0,
-			    format: MetaData.Format,
-			    filename: MetaData.Filename
-			);
+				                        name: MetaData.Name,
+				                        countEdges: () => 0,
+				                        format: MetaData.Format,
+				                        filename: MetaData.Filename
+			                        );
 			return new Knot (metaData: metaData, edges: newCircle) {
-				selectedEdges = new List<Edge>(selectedEdges),
-				EdgesChanged = EdgesChanged,
-				SelectionChanged = SelectionChanged,
+				selectedEdges = new List<Edge> (selectedEdges),
+				EdgesChanged = null,
+				SelectionChanged = null,
 			};
 		}
 
@@ -454,8 +463,8 @@ namespace Knot3.KnotData
 					if (currentThisElement.Value.Direction != currentOtherElement.Value.Direction) {
 						return false;
 					}
-					currentThisElement ++;
-					currentOtherElement ++;
+					currentThisElement++;
+					currentOtherElement++;
 				}
 				return true;
 			}
@@ -467,8 +476,8 @@ namespace Knot3.KnotData
 					if (currentThisElement.Value.Direction != currentOtherElement.Value.Direction.Reverse) {
 						return false;
 					}
-					currentThisElement ++;
-					currentOtherElement ++;
+					currentThisElement++;
+					currentOtherElement++;
 				}
 				return true;
 			}
@@ -489,11 +498,11 @@ namespace Knot3.KnotData
 			Vector3 bestPosition3D = startElement.Value.Direction / 2;
 			Circle<Edge> edgePointer = startElement.Next;
 			int edgeCount = 1;
-			for (edgeCount = 1; edgePointer != startElement; edgePointer ++, edgeCount ++) {
+			for (edgeCount = 1; edgePointer != startElement; edgePointer++, edgeCount++) {
 				Vector3 nextPosition3D = position3D + edgePointer.Value.Direction / 2;
 				if ((nextPosition3D.X < bestPosition3D.X)
-				        || (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y < bestPosition3D.Y)
-				        || (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y == bestPosition3D.Y && nextPosition3D.Z < bestPosition3D.Z)) {
+				    || (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y < bestPosition3D.Y)
+				    || (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y == bestPosition3D.Y && nextPosition3D.Z < bestPosition3D.Z)) {
 
 					bestPosition3D = position3D + edgePointer.Value.Direction / 2;
 					charakteristikElement = edgePointer;
@@ -506,8 +515,8 @@ namespace Knot3.KnotData
 		public override string ToString ()
 		{
 			return "Knot(name=" + Name + ",#edgecount=" + startElement.Count
-			       + ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
-			       + ")";
+			+ ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
+			+ ")";
 		}
 
 		/// <summary>
@@ -536,14 +545,14 @@ namespace Knot3.KnotData
 			// Suche eine Stelle an der ein Selektionsblock beginnt.
 			if (selectedEdges.Contains (start.Value)) {
 				// Wenn "edges" in der Selektion ist geh nach links, bis zum Anfang des Blockes.
-				while (selectedEdges.Contains(start.Previous.Value)) {
-					start --;
+				while (selectedEdges.Contains (start.Previous.Value)) {
+					start--;
 				}
 			}
 			else {
 				// Wenn "edges" nicht selektiert ist, gehe nach rechts bis zum beginn des nächsten Blockes.
-				while (!selectedEdges.Contains(start.Value)) {
-					start ++;
+				while (!selectedEdges.Contains (start.Value)) {
+					start++;
 				}
 			}
 			do {
@@ -551,22 +560,22 @@ namespace Knot3.KnotData
 				Circle<Edge> begin = start;
 				stop = start;
 				// Gehe bis zum Ende des selektierten Blockes.
-				while (selectedEdges.Contains(stop.Next.Value)) {
-					stop ++;
+				while (selectedEdges.Contains (stop.Next.Value)) {
+					stop++;
 				}
 				Circle<Edge> end = stop;
 
 				// Gehe bis zum start des nächsten Blockes.
 				start = stop.Next;
-				while (!selectedEdges.Contains(start.Value)) {
-					start ++;
+				while (!selectedEdges.Contains (start.Value)) {
+					start++;
 				}
 
 				// Füge den Selektions-Block der Liste hinzu
 				StructuredSelection.Add (new SelectionBlock (begin, end));
 			}
 			// Höre auf, wenn man wieder beim element ist mit dem man begonnen hat.
-			while (start != StructuredSelection[0].Begin);
+			while (start != StructuredSelection [0].Begin);
 		}
 
 		#endregion
@@ -586,12 +595,13 @@ namespace Knot3.KnotData
 			}
 		}
 
-		private struct KnotCharakteristic {
+		private struct KnotCharakteristic
+		{
 			public Circle<Edge> CharacteristicalEdge { get; private set; }
 
 			public int CountEdges { get; private set; }
 
-			public KnotCharakteristic (Circle<Edge> characteristicalEdge, int countEdges) : this()
+			public KnotCharakteristic (Circle<Edge> characteristicalEdge, int countEdges) : this ()
 			{
 				CharacteristicalEdge = characteristicalEdge;
 				CountEdges = countEdges;
@@ -599,6 +609,7 @@ namespace Knot3.KnotData
 		}
 
 		#endregion
+
 	}
 }
 
