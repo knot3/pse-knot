@@ -125,7 +125,7 @@ namespace Knot3.Screens
 				    screen: this,
 				    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 				    name: "Debug Junctions",
-				    onClick: (t) => NextScreen = new DebugJunctionScreen (Game)
+				    onClick: (t) => NextScreen = new JunctionEditorScreen (Game)
 				);
 				debugButton.ForegroundColor = () => base.MenuItemForegroundColor(debugButton.ItemState);
 				debugButton.BackgroundColor = () => base.MenuItemBackgroundColor(debugButton.ItemState);

@@ -204,9 +204,7 @@ namespace Knot3.Screens
 			Console.WriteLine ("Redo: Redo.Count=" + Redo.Count);
 			if (Redo.Count >= 1) {
 				Knot next = Redo.Pop ();
-				Knot peek = knot.Clone () as Knot;
 				Knot push = next.Clone ()as Knot;
-				//Undo.Push (push);
 				Undo.Push (push);
 				knot = next;
 				knot.EdgesChanged += OnEdgesChanged;

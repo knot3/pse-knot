@@ -65,7 +65,7 @@ namespace Knot3.Utilities
 		public static float AngleBetween (this Vector2 a, Vector2 b)
 		{
 			return ((b.X - a.X) > 0 ? 1 : -1)
-			       * (float)Math.Acos ((double)Vector2.Dot (Vector2.Normalize (a), Vector2.Normalize (b)));
+				* (float)Math.Acos ((double)Vector2.Dot (Vector2.Normalize (a), Vector2.Normalize (b)));
 		}
 
 		public static float AngleBetween (this Vector3 a, Vector3 b)
@@ -100,7 +100,7 @@ namespace Knot3.Utilities
 			           MathHelper.Clamp (v.X, lower.X, higher.X),
 			           MathHelper.Clamp (v.Y, lower.Y, higher.Y),
 			           MathHelper.Clamp (v.Z, lower.Z, higher.Z)
-			       );
+			);
 		}
 
 		public static Vector3 Clamp (this Vector3 v, int minLength, int maxLength)
@@ -308,7 +308,7 @@ namespace Knot3.Utilities
 			return new Rectangle (
 			           rect.X * max.X / 1000, rect.Y * max.Y / 1000,
 			           rect.Width * max.X / 1000, rect.Height * max.Y / 1000
-			       );
+			);
 		}
 
 		public static Rectangle Grow (this Rectangle rect, int x, int y)
@@ -409,6 +409,29 @@ namespace Knot3.Utilities
 				index = index % count;
 			}
 			return list.ElementAt (index);
+		}
+
+		public static T At<T> (this Tuple<T,T> tuple, int i)
+		{
+			return i == 0 ? tuple.Item1 : i == 1 ? tuple.Item2 : default(T);
+		}
+
+		public static T At<T> (this Tuple<T,T,T> tuple, int i)
+		{
+			return i == 0 ? tuple.Item1 : i == 1 ? tuple.Item2 : i == 2 ? tuple.Item3 : default(T);
+		}
+
+		public static IEnumerable<T> ToEnumerable<T> (this Tuple<T,T> tuple)
+		{
+			yield return tuple.Item1;
+			yield return tuple.Item2;
+		}
+
+		public static IEnumerable<T> ToEnumerable<T> (this Tuple<T,T,T> tuple)
+		{
+			yield return tuple.Item1;
+			yield return tuple.Item2;
+			yield return tuple.Item3;
 		}
 
 		private static Random random = new Random (Guid.NewGuid ().GetHashCode ());

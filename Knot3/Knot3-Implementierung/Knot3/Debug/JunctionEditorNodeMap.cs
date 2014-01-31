@@ -23,7 +23,7 @@ using Knot3.KnotData;
 
 namespace Knot3.Debug
 {
-	public class DebugJunctionNodeMap : INodeMap
+	public class JunctionEditorNodeMap : INodeMap
 	{
 		#region Properties
 
@@ -52,7 +52,7 @@ namespace Knot3.Debug
 
 		#region Constructors
 
-		public DebugJunctionNodeMap ()
+		public JunctionEditorNodeMap ()
 		{
 			IndexRebuilt = () => {};
 		}
@@ -61,7 +61,7 @@ namespace Knot3.Debug
 
 		#region Methods
 
-		public void Render (Tuple<Direction, Direction, Direction> direction, Angles3 rotations)
+		public void Render (Tuple<Direction, Direction, Direction> direction)
 		{
 			_edges = new Edge[] {
 				new Edge(direction.Item1), new Edge(direction.Item1),
