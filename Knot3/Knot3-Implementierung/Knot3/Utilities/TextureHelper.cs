@@ -130,7 +130,6 @@ namespace Knot3.Utilities
 
 				// zeichne die Schrift
 				spriteBatch.DrawString (font, text, textPosition, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.6f);
-
 			}
 			catch (ArgumentException exp) {
 				Console.WriteLine (exp.ToString ());

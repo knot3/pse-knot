@@ -50,7 +50,6 @@ namespace Knot3.RenderEffects
 				return Color.Red;
 			}
 			set {
-
 			}
 		}
 

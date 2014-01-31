@@ -128,7 +128,6 @@ namespace Knot3.GameObjects
 							Knot.ClearSelection ();
 							Knot.AddToSelection (selectedEdge);
 						}
-
 					}
 					catch (ArgumentOutOfRangeException exp) {
 						Console.WriteLine (exp.ToString ());
@@ -233,7 +232,6 @@ namespace Knot3.GameObjects
 						screen.Audio.PlaySound (Sound.PipeInvalidMoveSound);
 					}
 					previousMousePosition = currentMousePosition;
-
 				}
 				catch (ArgumentOutOfRangeException exp) {
 					Console.WriteLine (exp.ToString ());

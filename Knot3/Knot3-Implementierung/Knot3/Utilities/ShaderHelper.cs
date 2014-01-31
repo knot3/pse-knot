@@ -26,7 +26,6 @@ namespace Knot3.Utilities
 	{
 		public static Effect LoadEffect (this IGameScreen screen, string name)
 		{
-
 			if (MonoHelper.IsRunningOnMono () || MonoHelper.IsRunningOnMonogame ()) {
 				return LoadEffectMono (screen, name);
 			}

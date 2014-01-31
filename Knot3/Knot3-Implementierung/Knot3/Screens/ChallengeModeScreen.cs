@@ -264,7 +264,6 @@ namespace Knot3.Screens
 			}
 			if (Undo.Count == 1) {
 				undoButton.IsVisible = false;
-
 			}
 		}
 
@@ -281,7 +280,6 @@ namespace Knot3.Screens
 				registerCurrentKnot ();
 
 				redoButton.IsVisible = true;
-
 			}
 			if (Redo.Count == 0) {
 

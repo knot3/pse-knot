@@ -67,7 +67,6 @@ namespace Knot3.Utilities
 
 		public static string ToEnumDescription<T> (this T value)
 		{
-
 			Type enumType = typeof(T);
 
 			if (enumType.BaseType != typeof(Enum)) {

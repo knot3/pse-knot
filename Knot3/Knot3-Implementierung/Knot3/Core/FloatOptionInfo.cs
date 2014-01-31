@@ -53,7 +53,6 @@ namespace Knot3.Core
 			get {
 				return new Dictionary<string,string> (base.ValidValues.ToDictionary(s =>""+stringToFloat(s),s=>s));
 			}
-
 		}
 
 		#endregion
@@ -68,14 +67,11 @@ namespace Knot3.Core
 		public FloatOptionInfo (string section, string name, float defaultValue, IEnumerable<float> validValues, ConfigFile configFile)
 		: base(section, name, convertToString( defaultValue),validValues.Select(convertToString), configFile)
 		{
-
 		}
 
 		private static String convertToString(float f)
 		{
-
 			return ("" + (int)(f*1000f));
-
 		}
 		private static float stringToFloat (string s)
 		{

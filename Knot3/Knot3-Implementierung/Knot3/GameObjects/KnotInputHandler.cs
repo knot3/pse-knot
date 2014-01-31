@@ -153,7 +153,6 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-
 			// und die linke Maustaste gedrückt gehalten wird
 			if (InputManager.CurrentMouseState.MiddleButton == ButtonState.Pressed && InputManager.PreviousMouseState.MiddleButton == ButtonState.Released) {
 				Screen.Input.GrabMouseMovement = true;
@@ -278,7 +277,6 @@ namespace Knot3.GameObjects
 
 		private void ResetMousePosition ()
 		{
-
 			if (InputManager.CurrentMouseState != InputManager.PreviousMouseState) {
 				if (Screen.Input.GrabMouseMovement || (Screen.Input.CurrentInputAction == InputAction.ArcballMove)) {
 					Mouse.SetPosition (world.Viewport.X + world.Viewport.Width / 2,
@@ -286,7 +284,6 @@ namespace Knot3.GameObjects
 					InputManager.CurrentMouseState = Mouse.GetState ();
 				}
 			}
-
 		}
 
 		/// <summary>
@@ -338,12 +335,10 @@ namespace Knot3.GameObjects
 			else {
 				rotateEverywhere (move, time);
 			}
-
 		}
 
 		private void rotateCenter (Vector2 move, GameTime time)
 		{
-
 			// Wenn kein 3D-Objekt selektiert ist...
 			if (world.SelectedObject == null && world.Count () > 0) {
 				// selektiere das Objekt, das der Mausposition am nächsten ist!

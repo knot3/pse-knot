@@ -194,9 +194,7 @@ namespace Knot3.Screens
 			}
 			if (Undo.Count == 1) {
 				undoButton.IsVisible = false;
-
 			}
-
 		}
 
 		private void OnRedo ()

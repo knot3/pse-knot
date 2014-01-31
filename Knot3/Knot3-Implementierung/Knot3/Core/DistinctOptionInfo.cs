@@ -53,11 +53,9 @@ namespace Knot3.Core
 		}
 		public virtual string DisplayValue
 		{
-
 			get {
 				return Value;
 			}
-
 		}
 
 		#endregion
