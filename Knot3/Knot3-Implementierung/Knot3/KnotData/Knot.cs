@@ -272,7 +272,7 @@ namespace Knot3.KnotData
 						pointer.Previous.Remove ();
 					}
 					else {
-						pointer.InsertBefore (new Edge (direction));
+						pointer.InsertBefore (new Edge (direction, pointer.Value.Color));
 					}
 				}
 
@@ -297,7 +297,7 @@ namespace Knot3.KnotData
 						pointer.Next.Remove ();
 					}
 					else {
-						pointer.InsertAfter (new Edge (direction.Reverse));
+                        pointer.InsertAfter(new Edge(direction.Reverse, pointer.Value.Color));
 					}
 				}
 			}
