@@ -61,7 +61,7 @@ namespace Knot3.Widgets
 			set {
 				isVisible = value;
 				if (items != null) {
-					foreach (MenuItem item in items) {
+					foreach (Widget item in items) {
 						item.IsVisible = value;
 					}
 				}
