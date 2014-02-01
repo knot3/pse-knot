@@ -84,10 +84,11 @@ print $fh <<END;
   The music is licensed under the CC BY-NC-SA 3.0 license:
   http://creativecommons.org/licenses/by-nc-sa/3.0/
 
-  Authors by lines of code:
-
 END
+if (0) {
+print $fh "  Authors by lines of code:\n\n";
 print $fh $authors_files;
+}
 close $fh;
 
 
