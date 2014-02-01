@@ -11,6 +11,15 @@ git pull origin master
 git pull
 
 (
+	cd Knot3
+
+#	cd Knot3-Implementierung/; mkdir Standard_Knots; find . -name "*.knot" -exec git mv '{}' Standard_Knots \; ; rmdir * ; cd ..
+	cd Knot3-Unit-Tests/; mkdir Standard_Knots; find . -name "*.knot" -exec git mv '{}' Standard_Knots \; ; rmdir * ; cd ..
+
+	cd ..
+)
+
+(
 	cd Knot3/Knot3-Implementierung/
 
 	astyle-csharp --suffix=none --lineend=linux Knot3/*/*.cs Knot3/*.cs ../*/*.cs
@@ -40,22 +49,31 @@ git pull
 	gitlog-to-deblog.rb | sed 's@pse-knot@knot3@gm' > debian/changelog
 	debuild -b -us -uc
 	alien -r ../*.deb
+	export V=$(basename ../*.deb | perl -n -e 'print $1 if (/_(.*?)_/);')
 	mv -f ../*.deb *.rpm /var/www/knot3.de/download/
 
-	export V=$(git rev-list HEAD --count)-$(git log --oneline | head -n 1 | cut -d' ' -f1)
+	# export V=$(git rev-list HEAD --count)-$(git log --oneline | head -n 1 | cut -d' ' -f1)
 	unzip -o ~/MonoGame-Windows-3.1.2.zip -d /usr/lib/mono/4.0/
 	xbuild /p:Configuration=Release Knot3-Linux.csproj
-	cp -rf Savegames/ Content/ bin/Release/
+	cp -rf Standard_Knots/ Content/ bin/Release/
 	unzip -o ~/MonoGame-Windows-3.1.2.zip -d bin/Release/
 	cp ~/oalinst.exe bin/Release/
 	mv bin/Release/MonoGame*/* bin/Release/
 	rmdir bin/Release/*
 	find bin/Release/ -name "*.csproj" -exec rm '{}' \;
-	cp debian/changelog bin/Release/Changelog.txt
+	cp debian/changelog bin/Release/CHANGELOG
+	cp AUTHORS bin/Release/
 	cd bin/Release/; zip -r ../../Knot3-git$V.zip *; cd ../..
 	mv Knot3-*.zip /var/www/knot3.de/download/
 
 	unzip -o ~/MonoGame-Linux-20130126.zip -d /usr/lib/mono/4.0/
 
-	cd ../..
+	# Source tarballs
+	rm -rf bin/
+	cd ..
+	cp -rf Knot3-Implementierung/ knot3_$V
+	tar cplSzf knot3_$V.tar.gz knot3_$V
+	rm -rf knot3_$V
+	mv -f knot3_$V.tar.gz /var/www/knot3.de/download/
+	cd Knot3-Implementierung/
 )
