@@ -23,6 +23,7 @@ install: build
 	$(CPR) bin/Debug/* $(GAMEDIR)/
 	$(CPR) Savegames/ $(GAMEDIR)/
 	$(CP) AUTHORS $(GAMEDIR)/
+	$(CP) debian/changelog $(GAMEDIR)/CHANGELOG
 
 clean: distclean
 
