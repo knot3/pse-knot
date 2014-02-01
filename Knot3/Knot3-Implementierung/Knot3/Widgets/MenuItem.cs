@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -27,6 +25,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public abstract class MenuItem : Widget, IKeyEventListener, IMouseClickEventListener, IMouseScrollEventListener
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -63,7 +62,6 @@ namespace Knot3.Widgets
 		public virtual float ValueWidth { get { return _valueWidth; } set { _valueWidth = value; } }
 
 		private float _valueWidth = 0.5f;
-
 		// ein Spritebatch
 		protected SpriteBatch spriteBatch;
 
@@ -71,14 +69,15 @@ namespace Knot3.Widgets
 
 		public Rectangle MouseScrollBounds { get { return Bounds; } }
 
-		public Action<bool, GameTime> Hovered = (isHovered, time) => {};
+		public Action<bool, GameTime> Hovered = (isHovered, time) => {
+		};
 
 		#endregion
 
 		#region Constructors
 
 		public MenuItem (IGameScreen screen, DisplayLayer drawOrder, string text)
-		: base(screen, drawOrder)
+		: base (screen, drawOrder)
 		{
 			Text = text;
 			ItemOrder = -1;
@@ -95,6 +94,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public virtual void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
+			ItemState = ItemState.Selected;
 		}
 
 		/// <summary>
@@ -113,8 +113,10 @@ namespace Knot3.Widgets
 
 		public virtual void SetHovered (bool isHovered, GameTime time)
 		{
-			ItemState = isHovered ? ItemState.Hovered : ItemState.None;
-			Hovered (isHovered, time);
+			if (!(ItemState == ItemState.Selected)) {
+				ItemState = isHovered ? ItemState.Hovered : ItemState.None;
+				Hovered (isHovered, time);
+			}
 		}
 
 		/// <summary>
@@ -157,7 +159,7 @@ namespace Knot3.Widgets
 		protected virtual Bounds NameBounds
 		{
 			get {
-				return Bounds.FromLeft(() => NameWidth);
+				return Bounds.FromLeft (() => NameWidth);
 			}
 		}
 
@@ -167,7 +169,7 @@ namespace Knot3.Widgets
 		protected virtual Bounds ValueBounds
 		{
 			get {
-				return Bounds.FromRight(() => ValueWidth);
+				return Bounds.FromRight (() => ValueWidth);
 			}
 		}
 
@@ -176,5 +178,6 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
+
 	}
 }

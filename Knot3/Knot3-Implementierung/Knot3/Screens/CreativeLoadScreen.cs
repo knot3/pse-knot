@@ -65,11 +65,12 @@ namespace Knot3.Screens
 			savegameMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
 			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.620f);
 			savegameMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
-			savegameMenu.ItemForegroundColor = base.MenuItemForegroundColor;
-			savegameMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
+			savegameMenu.ItemForegroundColor = savegameMenu.MenuItemForegroundColor;
+			savegameMenu.ItemBackgroundColor = savegameMenu.MenuItemBackgroundColor;
 			savegameMenu.ItemAlignX = HorizontalAlignment.Left;
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
-
+			savegameMenu.SelectedColorBackground = Color.White;
+			savegameMenu.SelectedColorForeground = Color.Black;
 			lines.AddPoints(0, 50,
 			                30, 970,
 			                770, 895,
@@ -139,14 +140,17 @@ namespace Knot3.Screens
 		/// </summary>
 		private void AddSavegameToList (string filename, KnotMetaData meta)
 		{
-			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
-			Action<GameTime> LoadFile = (time) => {
-				NextScreen = new CreativeModeScreen (game: Game, knot: loader.FileFormat.Load (filename));
-			};
 
+		
 			// Finde den Namen des Knotens
 			string name = meta.Name.Length > 0 ? meta.Name : filename;
+			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
+			Action<GameTime> LoadFile;
+			LoadFile = (time) => {
 
+				//NextScreen = n ew CreativeModeScreen (game: Game, knot: loader.FileFormat.Load (filename));
+			};
+				
 			// Erstelle den Menüeintrag
 			MenuButton button = new MenuButton (
 			    screen: this,
@@ -162,6 +166,7 @@ namespace Knot3.Screens
 					}
 				}
 			};
+
 			savegameMenu.Add (button);
 		}
 

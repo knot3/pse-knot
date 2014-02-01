@@ -75,6 +75,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
+			ItemState = ItemState.Selected;
 			OnClick (time);
 		}
 
