@@ -21,6 +21,7 @@ install: build
 	$(MKDIR) $(GAMEDIR)
 	$(UNZIP) -o -d bin/Debug/ lib/MonoGame-Linux-3.1.2.zip
 	$(CPR) bin/Debug/* $(GAMEDIR)/
+	$(CPR) Savegames/ $(GAMEDIR)/
 
 clean: distclean
 
