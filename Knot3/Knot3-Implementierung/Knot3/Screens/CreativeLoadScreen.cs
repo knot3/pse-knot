@@ -142,9 +142,9 @@ namespace Knot3.Screens
 		{
 			// Finde den Namen des Knotens
 			string name = meta.Name.Length > 0 ? meta.Name : filename;
+
 			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
 			Action<GameTime> LoadFile = (time) => {
-
 				//NextScreen = n ew CreativeModeScreen (game: Game, knot: loader.FileFormat.Load (filename));
 			};
 
