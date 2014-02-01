@@ -43,7 +43,7 @@ namespace Knot3.Screens
 		public ProfileSettingsScreen (Knot3Game game)
 		: base(game)
 		{
-			MenuName = "Profiles";
+			MenuName = "Profile";
 
 			settingsMenu = new VerticalMenu(this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			settingsMenu.Bounds.Position = new ScreenPoint (this, 0.400f, 0.180f);
