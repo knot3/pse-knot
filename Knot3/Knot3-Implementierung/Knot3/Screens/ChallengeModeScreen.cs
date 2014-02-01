@@ -181,16 +181,15 @@ namespace Knot3.Screens
 			                             widget: playTimeDisplay, lineWidth: 2, padding: 0);
 			//Undo-Button
 			undoButton = new Button (screen: this,
-			                            drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			                            name: "Undo",
-			                            onClick: (time) => OnUndo ());
+			                         drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			                         name: "Undo",
+			                         onClick: (time) => OnUndo ());
 			undoButton.SetCoordinates (left: 0.55f, top: 0.900f, right: 0.65f, bottom: 0.95f);
 
 			undoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                               widget: undoButton, lineWidth: 2, padding: 0);
 			undoButton.AlignX = HorizontalAlignment.Center;
 			undoButton.IsVisible = false;
-
 
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
