@@ -68,12 +68,16 @@ namespace Knot3.Screens
 			    text: "Selective Rendering",
 			    option: new BooleanOptionInfo ("video", "selectiveRendering", false, Options.Default)
 			);
-			settingsMenu.Add (selectiveRender);
+			settingsMenu.Add (selectiveRender); 
 			string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width + "x" + Graphics.GraphicsDevice.DisplayMode.Height;
-			string[] validResolutions = {
-				"1280x720", "1920x1080", "1366x768", "1024x768", "1280x800", "1680x1050", "1440x900", "1600x900",
-			};
-			Array.Sort (validResolutions);
+			DisplayModeCollection modes = GraphicsAdapter.DefaultAdapter.SupportedDisplayModes;
+			HashSet<string> reso = new HashSet<string>();
+			foreach(DisplayMode mode in modes) {
+				reso.Add (mode.Width+"x"+mode.Height);
+			}
+
+			string[] validResolutions = reso.ToArray();
+			validResolutions = validResolutions.OrderBy(x=>Decimal.Parse (x.Split('x')[0], System.Globalization.NumberStyles.Any)).ToArray();
 			DistinctOptionInfo resolutionOption = new DistinctOptionInfo (
 			    section: "video",
 			    name: "resolution",
