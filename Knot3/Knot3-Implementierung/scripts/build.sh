@@ -10,6 +10,8 @@ git checkout HEAD --force
 git pull origin master
 git pull
 
+find -name Thumbs.db -exec rm '{}' \;
+
 (
 	cd Knot3
 
@@ -28,7 +30,8 @@ git pull
 
 	cd ../..
 
-	git commit -a -m "Code Format"
+	export LAST_AUTHOR=$(git log --stat | grep Author:  | cut -d" " -f2,3,4,5,6,7,8,9 | grep -vi "PSE Knot" | head -n 1)
+	git commit -a -m "Code Format"  --author="$LAST_AUTHOR"
 	git push origin master
 )
 
@@ -77,3 +80,6 @@ git pull
 	mv -f knot3_$V.tar.gz /var/www/knot3.de/download/
 	cd Knot3-Implementierung/
 )
+
+rm -f /var/www/knot3.de/download/{knot3_.tar.gz,Knot3-git.zip}
+
