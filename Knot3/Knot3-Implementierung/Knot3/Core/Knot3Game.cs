@@ -49,7 +49,6 @@ namespace Knot3.Core
 				if (value != isFullscreen) {
 					Console.WriteLine ("Fullscreen Toggle");
 					if (value) {
-
 						Graphics.PreferredBackBufferWidth = Graphics.GraphicsDevice.DisplayMode.Width;
 						Graphics.PreferredBackBufferHeight = Graphics.GraphicsDevice.DisplayMode.Height;
 					}
