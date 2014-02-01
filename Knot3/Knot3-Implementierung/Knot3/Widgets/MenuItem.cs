@@ -71,8 +71,8 @@ namespace Knot3.Widgets
 		public Rectangle MouseScrollBounds { get { return Bounds; } }
 
 		public Action<bool, GameTime> Hovered = (isHovered, time) =>
-			{
-			};
+		{
+		};
 
 		#endregion
 
