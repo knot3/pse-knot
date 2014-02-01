@@ -50,7 +50,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public VerticalAlignment ItemAlignY { get; set; }
 
-		protected List<MenuItem> items;
+		protected List<Widget> items;
 		private bool isVisible;
 
 		public override bool IsVisible
@@ -79,7 +79,7 @@ namespace Knot3.Widgets
 		public Container (IGameScreen screen, DisplayLayer drawOrder)
 		: base(screen, drawOrder)
 		{
-			items = new List<MenuItem> ();
+			items = new List<Widget> ();
 			ItemAlignX = HorizontalAlignment.Left;
 			ItemAlignY = VerticalAlignment.Center;
 		}
@@ -100,15 +100,23 @@ namespace Knot3.Widgets
 			item.Menu = this;
 		}
 
+		
+		public void Add (Widget item)
+		{
+			assignMenuItemInformation (item);
+			items.Add (item);
+		}
+
 		/// <summary>
 		/// Entfernt einen Eintrag aus dem Menü.
 		/// </summary>
-		public virtual void Delete (MenuItem item)
+		public virtual void Delete (Widget item)
 		{
 			if (items.Contains (item)) {
 				items.Remove (item);
 				for (int i = 0; i < items.Count; ++i) {
-					items [i].ItemOrder = i;
+					if (items[i] is MenuItem)
+					(items[i] as MenuItem).ItemOrder = i;
 				}
 			}
 		}
@@ -116,7 +124,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Gibt einen Eintrag des Menüs zurück.
 		/// </summary>
-		public virtual MenuItem GetItem (int i)
+		public Widget GetItem (int i)
 		{
 			while (i < 0) {
 				i += items.Count;
@@ -124,7 +132,7 @@ namespace Knot3.Widgets
 			return items [i % items.Count];
 		}
 
-		public MenuItem this [int i]
+		public Widget this [int i]
 		{
 			get {
 				return GetItem (i);
@@ -186,6 +194,11 @@ namespace Knot3.Widgets
 			if (ItemBackgroundColor != null) {
 				item.BackgroundColor = () => ItemBackgroundColor (item.ItemState);
 			}
+			assignMenuItemInformation (item as Widget);
+		}
+
+		protected virtual void assignMenuItemInformation (Widget item)
+		{
 			item.AlignX = ItemAlignX;
 			item.AlignY = ItemAlignY;
 			item.IsVisible = isVisible;
