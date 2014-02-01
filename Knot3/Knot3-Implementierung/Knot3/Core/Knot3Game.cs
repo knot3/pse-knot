@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.GameObjects;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
@@ -27,12 +25,13 @@ namespace Knot3.Core
 	/// </summary>
 	public class Knot3Game : Game
 	{
+
 		#region Properties
 
 		private string lastResolution;
-
 		private bool isFullscreen;
-		public Action FullScreenChanged = () => {};
+		public Action FullScreenChanged = () => {
+		};
 
 		/// <summary>
 		/// Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
@@ -53,9 +52,9 @@ namespace Knot3.Core
 						Graphics.PreferredBackBufferHeight = Graphics.GraphicsDevice.DisplayMode.Height;
 					}
 					else {
+						string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width + "x" + Graphics.GraphicsDevice.DisplayMode.Height;
+						Options.Default ["video", "resolution", currentResolution] = "1280x720";
 
-						Graphics.PreferredBackBufferWidth = (int)Knot3Game.defaultSize.X;
-						Graphics.PreferredBackBufferHeight = (int)Knot3Game.defaultSize.Y;
 					}
 					Graphics.ToggleFullScreen ();
 					Graphics.ApplyChanges ();
@@ -119,7 +118,7 @@ namespace Knot3.Core
 			if (MonoHelper.IsRunningOnLinux ()) {
 				IsMouseVisible = true;
 			}
-			else if (MonoHelper.IsRunningOnWindows()) {
+			else if (MonoHelper.IsRunningOnWindows ()) {
 				IsMouseVisible = false;
 				System.Windows.Forms.Cursor.Hide ();
 			}
@@ -218,7 +217,8 @@ namespace Knot3.Core
 			// base method
 			base.Update (time);
 		}
-		private void toDefaultSize(bool fullscreen)
+
+		private void toDefaultSize (bool fullscreen)
 		{
 			if (!fullscreen) {
 				Graphics.PreferredBackBufferWidth = (int)Knot3Game.defaultSize.X;
@@ -227,12 +227,12 @@ namespace Knot3.Core
 			}
 		}
 
-		private void updateResolution()
+		private void updateResolution ()
 		{
 			int width;
 			int height;
-			string currentResolution = Graphics.GraphicsDevice.Viewport.Width + "x" + Graphics.GraphicsDevice.Viewport.Height;
-			if (lastResolution == Options.Default ["video", "resolution", currentResolution]) {
+			string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width + "x" + Graphics.GraphicsDevice.DisplayMode.Height;
+			if (lastResolution == Options.Default ["video", "resolution", currentResolution] && !isFullscreen) {
 				String strReso = Options.Default ["video", "resolution", currentResolution];
 				string[] reso = strReso.Split ('x');
 				width = int.Parse (reso [0]);
@@ -243,6 +243,8 @@ namespace Knot3.Core
 			}
 			lastResolution = Options.Default ["video", "resolution", currentResolution];
 		}
+
 		#endregion
+
 	}
 }
