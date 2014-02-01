@@ -41,7 +41,7 @@ namespace Knot3.Screens
 		private SavegameLoader<Knot, KnotMetaData> loader;
 
 		// Zurück-Button
-		private MenuEntry backButton;
+		private Button backButton;
 
 		// Preview
 		private World previewWorld;
@@ -115,8 +115,7 @@ namespace Knot3.Screens
 			// backButton.BackgroundColor = () => Color.Azure;
 			backButton.AlignX = HorizontalAlignment.Center;
 
-			backButton.ForegroundColor = () => base.MenuItemForegroundColor(backButton.State);
-			backButton.BackgroundColor = () => base.MenuItemBackgroundColor(backButton.State);
+		
 		}
 
 		#endregion

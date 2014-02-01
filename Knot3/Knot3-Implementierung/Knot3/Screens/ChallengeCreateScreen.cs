@@ -39,10 +39,10 @@ namespace Knot3.Screens
 		private Menu targetKnotMenu;
 		private TextItem title;
 		private InputItem challengeName;
-		private MenuEntry createButton;
+		private Button createButton;
 		private Border createButtonBorder;
 		// Zurück-Button.
-		private MenuEntry backButton;
+		private Button backButton;
 		// Spielstand-Loader
 		private SavegameLoader<Knot, KnotMetaData> loader;
 		private Knot selectedStartKnot;

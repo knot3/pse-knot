@@ -114,10 +114,10 @@ namespace Knot3.Screens
 		private TextItem playTimeDisplay;
 		private Border playTimeBorder;
 		// Undo-Button
-		private MenuEntry undoButton;
+		private Button undoButton;
 		private Border undoButtonBorder;
 		// Undo-Button
-		private MenuEntry redoButton;
+		private Button redoButton;
 		private Border redoButtonBorder;
 		// Der Status, z.b. ist die Challenge beendet?
 		private ChallengeModeState state;
@@ -203,8 +203,7 @@ namespace Knot3.Screens
 			    onClick: (time) => OnRedo ()
 			);
 			redoButton.SetCoordinates (left: 0.70f, top: 0.900f, right: 0.80f, bottom: 0.95f);
-			redoButton.BackgroundColor = () => base.MenuItemBackgroundColor (redoButton.State);
-			redoButton.ForegroundColor = () => base.MenuItemForegroundColor (redoButton.State);
+	
 			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                               widget: redoButton, lineWidth: 2, padding: 0);
 			redoButton.AlignX = HorizontalAlignment.Center;

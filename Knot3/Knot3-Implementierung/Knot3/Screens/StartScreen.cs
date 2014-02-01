@@ -57,12 +57,10 @@ namespace Knot3.Screens
 			spriteBatch = new SpriteBatch (Device);
 
 			// menu
-			buttons.ItemForegroundColor = base.MenuItemForegroundColor;
-			buttons.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			buttons.ItemAlignX = HorizontalAlignment.Center;
 			buttons.ItemAlignY = VerticalAlignment.Center;
 
-			MenuEntry creativeButton = new MenuEntry (
+			Button creativeButton = new Button (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Creative",
@@ -70,7 +68,7 @@ namespace Knot3.Screens
 			);
 			creativeButton.SetCoordinates (left: 0.700f, top: 0.250f, right: 0.960f, bottom: 0.380f);
 
-			MenuEntry challengeButton = new MenuEntry (
+			Button challengeButton = new Button (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Challenge",
@@ -78,7 +76,7 @@ namespace Knot3.Screens
 			);
 			challengeButton.SetCoordinates (left: 0.000f, top: 0.050f, right: 0.380f, bottom: 0.190f);
 
-			MenuEntry settingsButton = new MenuEntry (
+			Button settingsButton = new Button (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Settings",
@@ -86,7 +84,7 @@ namespace Knot3.Screens
 			);
 			settingsButton.SetCoordinates (left: 0.260f, top: 0.840f, right: 0.480f, bottom: 0.950f);
 
-			MenuEntry exitButton = new MenuEntry (
+			Button exitButton = new Button (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Exit",
@@ -121,14 +119,13 @@ namespace Knot3.Screens
 		{
 			// Versteckte Funktionen
 			if (Keys.F1.IsDown ()) {
-				MenuEntry debugButton = new MenuEntry (
+				Button debugButton = new Button (
 				    screen: this,
 				    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 				    name: "Junction Editor",
 				    onClick: (t) => NextScreen = new JunctionEditorScreen (Game)
 				);
-				debugButton.ForegroundColor = () => base.MenuItemForegroundColor(debugButton.State);
-				debugButton.BackgroundColor = () => base.MenuItemBackgroundColor(debugButton.State);
+
 				debugButton.AlignX = HorizontalAlignment.Center;
 				debugButton.AlignY = VerticalAlignment.Center;
 

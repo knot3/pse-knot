@@ -34,7 +34,7 @@ namespace Knot3.Screens
 		/// </summary>
 		private Menu savegameMenu;
 
-		private MenuEntry backButton;
+		private Button backButton;
 
 		// Der Titel des Screens
 		private TextItem title;
@@ -117,7 +117,7 @@ namespace Knot3.Screens
 			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 			previewMouseHandler = new ModelMouseHandler (screen: this, world: previewWorld);
 
-			backButton = new MenuEntry(
+			backButton = new Button(
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",
@@ -127,8 +127,7 @@ namespace Knot3.Screens
 			backButton.SetCoordinates(left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
 			backButton.AlignX = HorizontalAlignment.Center;
 
-			backButton.ForegroundColor = () => base.MenuItemForegroundColor(backButton.State);
-			backButton.BackgroundColor = () => base.MenuItemBackgroundColor(backButton.State);
+
 		}
 
 		#endregion
