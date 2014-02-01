@@ -76,8 +76,8 @@ namespace Knot3.Widgets
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
 			ItemState = ItemState.Selected;
-			foreach ( MenuItem item in Menu.GetEnumerator){
-				if(item is MenuEntry && item != this){
+			foreach ( MenuItem item in Menu.GetEnumerator) {
+				if(item is MenuEntry && item != this) {
 					item.ItemState == ItemState.None;
 				}
 			}
