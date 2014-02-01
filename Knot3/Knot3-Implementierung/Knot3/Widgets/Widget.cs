@@ -113,12 +113,13 @@ namespace Knot3.Widgets
 			Bounds = Bounds.Zero (screen);
 			AlignX = HorizontalAlignment.Left;
 			AlignY = VerticalAlignment.Center;
-			ForegroundColor = () => Color.Gray;
-			BackgroundColor = () => Color.Transparent;
+			ForegroundColor = Color.AntiqueWhite;
+			BackgroundColor = Color.AliceBlue;
 			ValidKeys = new List<Keys> ();
 			IsVisible = true;
 			_isEnabled = true;
 		}
+
 
 		#endregion
 	}

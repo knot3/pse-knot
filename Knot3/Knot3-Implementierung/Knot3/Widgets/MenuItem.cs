@@ -50,6 +50,18 @@ namespace Knot3.Widgets
 		/// </summary>
 		public Container Menu { get; set; }
 
+		Color SelectedColorBackground
+		{
+			get;
+			set;
+		}
+
+		Color SelectedColorForeground
+		{
+			get;
+			set;
+		}
+
 		/// <summary>
 		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
 		/// </summary>
@@ -128,6 +140,36 @@ namespace Knot3.Widgets
 			}
 			else {
 				Console.WriteLine ("Warning: MenuItem is not assigned to a menu: " + this);
+			}
+		}
+
+
+		public Color MenuItemBackgroundColor (ItemState itemState)
+		{
+			if (itemState == ItemState.None || itemState == ItemState.Hovered) {
+				return Color.Transparent;
+			}
+			else if (itemState == ItemState.Selected) {
+				return SelectedColorBackground;
+			}
+			else {
+				return Color.CornflowerBlue;
+			}
+		}
+
+		public  Color MenuItemForegroundColor (ItemState itemState)
+		{
+			if (itemState == ItemState.Hovered) {
+				return Color.White;
+			}
+			else if (itemState == ItemState.None) {
+				return Color.White * 0.7f;
+			}
+			else if (itemState == ItemState.Selected) {
+				return SelectedColorForeground;
+			}
+			else {
+				return Color.CornflowerBlue;
 			}
 		}
 
