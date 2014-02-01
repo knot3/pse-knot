@@ -143,7 +143,6 @@ namespace Knot3.Widgets
 			}
 		}
 
-
 		public Color MenuItemBackgroundColor (ItemState itemState)
 		{
 			if (itemState == ItemState.None || itemState == ItemState.Hovered) {

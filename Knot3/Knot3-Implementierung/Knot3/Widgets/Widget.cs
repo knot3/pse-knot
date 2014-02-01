@@ -120,7 +120,6 @@ namespace Knot3.Widgets
 			_isEnabled = true;
 		}
 
-
 		#endregion
 	}
 }
