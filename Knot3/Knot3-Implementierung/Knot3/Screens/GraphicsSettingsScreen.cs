@@ -68,7 +68,7 @@ namespace Knot3.Screens
 			    text: "Selective Rendering",
 			    option: new BooleanOptionInfo ("video", "selectiveRendering", false, Options.Default)
 			);
-			settingsMenu.Add (selectiveRender); 
+			settingsMenu.Add (selectiveRender);
 			string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width + "x" + Graphics.GraphicsDevice.DisplayMode.Height;
 			DisplayModeCollection modes = GraphicsAdapter.DefaultAdapter.SupportedDisplayModes;
 			HashSet<string> reso = new HashSet<string>();
