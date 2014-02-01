@@ -140,7 +140,6 @@ namespace Knot3.Screens
 		/// </summary>
 		private void AddSavegameToList (string filename, KnotMetaData meta)
 		{
-
 			// Finde den Namen des Knotens
 			string name = meta.Name.Length > 0 ? meta.Name : filename;
 			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
