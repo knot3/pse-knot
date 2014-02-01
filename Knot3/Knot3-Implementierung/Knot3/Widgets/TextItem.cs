@@ -66,7 +66,7 @@ namespace Knot3.Widgets
 		//Da TextItems werden nicht unterlegt um sie von Buttons abzugrenzen
 		public override void SetHovered (bool hovered, GameTime time)
 		{
-			ItemState = ItemState.None;
+			State = State.None;
 		}
 		#endregion
 	}

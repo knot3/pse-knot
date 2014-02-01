@@ -41,9 +41,7 @@ namespace Knot3.Widgets
 
 		private SpriteBatch spriteBatch;
 
-		public Color SelectedColorBackground { get; set; }
 
-		public Color SelectedColorForeground { get; set; }
 
 		#endregion
 

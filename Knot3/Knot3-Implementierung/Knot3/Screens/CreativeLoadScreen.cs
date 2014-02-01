@@ -65,12 +65,9 @@ namespace Knot3.Screens
 			savegameMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
 			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.620f);
 			savegameMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
-			savegameMenu.ItemForegroundColor = savegameMenu.MenuItemForegroundColor;
-			savegameMenu.ItemBackgroundColor = savegameMenu.MenuItemBackgroundColor;
 			savegameMenu.ItemAlignX = HorizontalAlignment.Left;
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
-			savegameMenu.SelectedColorBackground = Color.White;
-			savegameMenu.SelectedColorForeground = Color.Black;
+
 			lines.AddPoints(0, 50,
 			                30, 970,
 			                770, 895,
@@ -118,8 +115,8 @@ namespace Knot3.Screens
 			// backButton.BackgroundColor = () => Color.Azure;
 			backButton.AlignX = HorizontalAlignment.Center;
 
-			backButton.ForegroundColor = () => base.MenuItemForegroundColor(backButton.ItemState);
-			backButton.BackgroundColor = () => base.MenuItemBackgroundColor(backButton.ItemState);
+			backButton.ForegroundColor = () => base.MenuItemForegroundColor(backButton.State);
+			backButton.BackgroundColor = () => base.MenuItemBackgroundColor(backButton.State);
 		}
 
 		#endregion
@@ -155,6 +152,8 @@ namespace Knot3.Screens
 			    name: name,
 			    onClick: LoadFile
 			);
+			button.SelectedColorBackground = Color.White;
+			button.SelectedColorForeground = Color.Black;
 			button.Hovered += (isHovered, time) => {
 				if (isHovered) {
 					if (previewKnotMetaData != meta) {

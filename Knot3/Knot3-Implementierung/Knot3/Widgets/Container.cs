@@ -33,12 +33,12 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die vom Zustand des Menüeintrags abhängige Vordergrundfarbe des Menüeintrags.
 		/// </summary>
-		public Func<ItemState, Color> ItemForegroundColor { get; set; }
+		public Func<State, Color> ItemForegroundColor { get; set; }
 
 		/// <summary>
 		/// Die vom Zustand des Menüeintrags abhängige Hintergrundfarbe des Menüeintrags.
 		/// </summary>
-		public Func<ItemState, Color> ItemBackgroundColor { get; set; }
+		public Func<State, Color> ItemBackgroundColor { get; set; }
 
 		/// <summary>
 		/// Die horizontale Ausrichtung der Menüeinträge.
@@ -189,10 +189,10 @@ namespace Knot3.Widgets
 		protected virtual void assignMenuItemInformation (MenuItem item)
 		{
 			if (ItemForegroundColor != null) {
-				item.ForegroundColor = () => ItemForegroundColor (item.ItemState);
+				item.ForegroundColor = () => ItemForegroundColor (item.State);
 			}
 			if (ItemBackgroundColor != null) {
-				item.BackgroundColor = () => ItemBackgroundColor (item.ItemState);
+				item.BackgroundColor = () => ItemBackgroundColor (item.State);
 			}
 			assignMenuItemInformation (item as Widget);
 		}

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -27,6 +25,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public abstract class Widget : DrawableGameScreenComponent
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -70,25 +69,25 @@ namespace Knot3.Widgets
 		public virtual bool IsKeyEventEnabled
 		{
 			get { return IsVisible; }
-			set {}
+			set { }
 		}
 
 		public virtual bool IsMouseClickEventEnabled
 		{
 			get { return IsVisible; }
-			set {}
+			set { }
 		}
 
 		public virtual bool IsMouseMoveEventEnabled
 		{
 			get { return IsVisible; }
-			set {}
+			set { }
 		}
 
 		public virtual bool IsMouseScrollEventEnabled
 		{
 			get { return IsVisible; }
-			set {}
+			set { }
 		}
 
 		public virtual bool IsEnabled
@@ -99,6 +98,24 @@ namespace Knot3.Widgets
 
 		private bool _isEnabled;
 
+		public virtual State State
+		{
+			get;
+			set;
+		}
+
+		public virtual Color SelectedColorBackground
+		{
+			get;
+			set;
+		}
+
+		public virtual Color SelectedColorForeground
+		{
+			get;
+			set;
+		}
+
 		#endregion
 
 		#region Constructors
@@ -108,18 +125,49 @@ namespace Knot3.Widgets
 		/// mit der angegebenen Zeichenreihenfolge.
 		/// </summary>
 		public Widget (IGameScreen screen, DisplayLayer drawOrder)
-		: base(screen, drawOrder)
+		: base (screen, drawOrder)
 		{
 			Bounds = Bounds.Zero (screen);
 			AlignX = HorizontalAlignment.Left;
 			AlignY = VerticalAlignment.Center;
-			ForegroundColor = () => Color.AntiqueWhite;
-			BackgroundColor = () =>Color.AliceBlue;
+			ForegroundColor = MenuItemForegroundColor;
+			BackgroundColor = MenuItemBackgroundColor;
 			ValidKeys = new List<Keys> ();
 			IsVisible = true;
 			_isEnabled = true;
+			State = State.None;
+		}
+
+		public Color MenuItemBackgroundColor ()
+		{
+			if (State == State.None || State == State.Hovered) {
+				return Color.Transparent;
+			}
+			else if (State == State.Selected) {
+				return SelectedColorBackground;
+			}
+			else {
+				return Color.CornflowerBlue;
+			}
+		}
+
+		public  Color MenuItemForegroundColor ()
+		{
+			if (State == State.Hovered) {
+				return Color.White;
+			}
+			else if (State == State.None) {
+				return Color.White * 0.7f;
+			}
+			else if (State == State.Selected) {
+				return SelectedColorForeground;
+			}
+			else {
+				return Color.CornflowerBlue;
+			}
 		}
 
 		#endregion
+
 	}
 }

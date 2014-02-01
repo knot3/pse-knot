@@ -134,14 +134,14 @@ namespace Knot3.Core
 		{
 		}
 
-		protected virtual Color MenuItemBackgroundColor (ItemState itemState)
+		protected virtual Color MenuItemBackgroundColor (State itemState)
 		{
 			return Color.Transparent;
 		}
 
-		protected virtual Color MenuItemForegroundColor (ItemState itemState)
+		protected virtual Color MenuItemForegroundColor (State itemState)
 		{
-			if (itemState == ItemState.Hovered) {
+			if (itemState == State.Hovered) {
 				return Color.White;
 			}
 			else {

@@ -127,8 +127,8 @@ namespace Knot3.Screens
 				    name: "Junction Editor",
 				    onClick: (t) => NextScreen = new JunctionEditorScreen (Game)
 				);
-				debugButton.ForegroundColor = () => base.MenuItemForegroundColor(debugButton.ItemState);
-				debugButton.BackgroundColor = () => base.MenuItemBackgroundColor(debugButton.ItemState);
+				debugButton.ForegroundColor = () => base.MenuItemForegroundColor(debugButton.State);
+				debugButton.BackgroundColor = () => base.MenuItemBackgroundColor(debugButton.State);
 				debugButton.AlignX = HorizontalAlignment.Center;
 				debugButton.AlignY = VerticalAlignment.Center;
 

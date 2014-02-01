@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -26,6 +24,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public class MenuEntry : MenuItem
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -75,11 +74,11 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-			ItemState = ItemState.Selected;
+			State = State.Selected;
 
 			foreach (MenuItem item in Menu) {
 				if (item is MenuEntry && item != this) {
-					item.ItemState = ItemState.None;
+					item.State = State.None;
 				}
 			}
 			base.OnLeftClick (position, state, time);
@@ -99,8 +98,8 @@ namespace Knot3.Widgets
 
 		public override void SetHovered (bool isHovered, GameTime time)
 		{
-			if (ItemState != ItemState.Selected) {
-				base.SetHovered(isHovered, time);
+			if (State != State.Selected) {
+				base.SetHovered (isHovered, time);
 			}
 		}
 
@@ -112,5 +111,6 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
+
 	}
 }

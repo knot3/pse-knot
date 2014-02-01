@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -27,13 +25,8 @@ namespace Knot3.Widgets
 	/// </summary>
 	public abstract class MenuItem : Widget, IKeyEventListener, IMouseClickEventListener, IMouseScrollEventListener
 	{
-		#region Properties
 
-		/// <summary>
-		/// Gibt an, ob die Maus sich über dem Eintrag befindet, ohne ihn anzuklicken, ob er ausgewählt ist
-		/// oder nichts von beidem.
-		/// </summary>
-		public ItemState ItemState { get; set; }
+		#region Properties
 
 		/// <summary>
 		/// Die Zeichenreihenfolge.
@@ -49,18 +42,6 @@ namespace Knot3.Widgets
 		/// Eine Referenz auf das Menu, in dem sich der Eintrag befindet.
 		/// </summary>
 		public Container Menu { get; set; }
-
-		Color SelectedColorBackground
-		{
-			get;
-			set;
-		}
-
-		Color SelectedColorForeground
-		{
-			get;
-			set;
-		}
 
 		/// <summary>
 		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.
@@ -82,8 +63,7 @@ namespace Knot3.Widgets
 
 		public Rectangle MouseScrollBounds { get { return Bounds; } }
 
-		public Action<bool, GameTime> Hovered = (isHovered, time) =>
-		{
+		public Action<bool, GameTime> Hovered = (isHovered, time) => {
 		};
 
 		#endregion
@@ -95,10 +75,11 @@ namespace Knot3.Widgets
 		{
 			Text = text;
 			ItemOrder = -1;
-			ItemState = ItemState.None;
+			State = State.None;
 			spriteBatch = new SpriteBatch (screen.Device);
 			SelectedColorBackground = Color.Transparent;
 			SelectedColorForeground = Color.White;
+
 		}
 
 		#endregion
@@ -128,7 +109,7 @@ namespace Knot3.Widgets
 
 		public virtual void SetHovered (bool isHovered, GameTime time)
 		{
-			ItemState = isHovered ? ItemState.Hovered : ItemState.None;
+			State = isHovered ? State.Hovered : State.None;
 			Hovered (isHovered, time);
 		}
 
@@ -142,35 +123,6 @@ namespace Knot3.Widgets
 			}
 			else {
 				Console.WriteLine ("Warning: MenuItem is not assigned to a menu: " + this);
-			}
-		}
-
-		public Color MenuItemBackgroundColor (ItemState itemState)
-		{
-			if (itemState == ItemState.None || itemState == ItemState.Hovered) {
-				return Color.Transparent;
-			}
-			else if (itemState == ItemState.Selected) {
-				return SelectedColorBackground;
-			}
-			else {
-				return Color.CornflowerBlue;
-			}
-		}
-
-		public  Color MenuItemForegroundColor (ItemState itemState)
-		{
-			if (itemState == ItemState.Hovered) {
-				return Color.White;
-			}
-			else if (itemState == ItemState.None) {
-				return Color.White * 0.7f;
-			}
-			else if (itemState == ItemState.Selected) {
-				return SelectedColorForeground;
-			}
-			else {
-				return Color.CornflowerBlue;
 			}
 		}
 
@@ -220,5 +172,6 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
+
 	}
 }

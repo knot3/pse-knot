@@ -24,7 +24,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Der Zustand eines Menüeintrags.
 	/// </summary>
-	public enum ItemState {
+	public enum State {
 		/// <summary>
 		/// Ausgewählt.
 		/// </summary>
