@@ -241,7 +241,6 @@ namespace Knot3.Screens
 				AddGameComponents (time, pauseDialog);
 				// weise ihn als den aktuellen Dialog zu
 				currentDialog = pauseDialog;
-
 			}
 
 			// wenn der aktuelle Dialog unsichtbar ist,

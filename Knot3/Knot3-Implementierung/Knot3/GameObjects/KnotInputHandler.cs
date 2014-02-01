@@ -487,7 +487,8 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		private void resetCamera(GameTime time){
+		private void resetCamera(GameTime time)
+		{
 			if (CurrentKeyAssignmentReversed [PlayerActions.ResetCamera].IsDown ()) {
 				camera.ResetCamera ();
 			}
