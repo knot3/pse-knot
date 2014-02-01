@@ -98,6 +98,10 @@ namespace Knot3.Debug
 				return;
 			}
 
+			// Setze den Viewport auf den der aktuellen Spielwelt
+			Viewport original = screen.Viewport;
+			screen.Viewport = World.Viewport;
+
 			foreach (GameModel model in World.OfType<GameModel>()) {
 				if (model.Info.IsVisible) {
 					screen.Device.SetVertexBuffer (vertBuffer);
@@ -118,6 +122,9 @@ namespace Knot3.Debug
 					}
 				}
 			}
+
+			// Setze den Viewport wieder auf den ganzen Screen
+			screen.Viewport = original;
 		}
 
 		public GameObjectDistance Intersects (Ray ray)

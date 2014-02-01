@@ -53,7 +53,7 @@ namespace Knot3.GameObjects
 		: base(screen, info)
 		{
 			float length = (info.PositionTo - info.PositionFrom).Length ();
-			float radius = 10;
+			float radius = 5.1f;
 			_bounds = VectorHelper.CylinderBounds (
 			              length: length,
 			              radius: radius,
