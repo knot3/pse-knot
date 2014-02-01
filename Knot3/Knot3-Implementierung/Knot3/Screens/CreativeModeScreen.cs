@@ -116,6 +116,7 @@ namespace Knot3.Screens
 
 			// visualisiert die BoundingSpheres
 			debugBoundings = new DebugBoundings (screen: this, position: Vector3.Zero);
+			world.Add (debugBoundings);
 
 			// der Input-Handler zur Kanten-Verschiebung
 			edgeMovement = new EdgeMovement (screen: this, world: world, position: Vector3.Zero);

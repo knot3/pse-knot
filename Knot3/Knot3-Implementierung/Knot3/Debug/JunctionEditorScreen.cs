@@ -73,6 +73,7 @@ namespace Knot3.Debug
 
 			// visualisiert die BoundingSpheres
 			debugBoundings = new DebugBoundings (screen: this, position: Vector3.Zero);
+			world.Add(debugBoundings);
 
 			// Hintergrund
 			SkyCube skyCube = new SkyCube (screen: this, position: Vector3.Zero, distance: world.Camera.MaxPositionDistance + 500);
