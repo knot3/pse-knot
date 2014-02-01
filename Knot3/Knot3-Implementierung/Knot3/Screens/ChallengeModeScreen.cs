@@ -180,37 +180,24 @@ namespace Knot3.Screens
 			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                             widget: playTimeDisplay, lineWidth: 2, padding: 0);
 			//Undo-Button
-			undoButton = new MenuEntry (screen: this,
+			undoButton = new Button (screen: this,
 			                            drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                            name: "Undo",
 			                            onClick: (time) => OnUndo ());
 			undoButton.SetCoordinates (left: 0.55f, top: 0.900f, right: 0.65f, bottom: 0.95f);
-			undoButton.BackgroundColor = () => base.MenuItemBackgroundColor (undoButton.State);
-			undoButton.ForegroundColor = () => base.MenuItemForegroundColor (undoButton.State);
+
 			undoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                               widget: undoButton, lineWidth: 2, padding: 0);
 			undoButton.AlignX = HorizontalAlignment.Center;
 			undoButton.IsVisible = false;
 
-			//Redo-Button
-			redoButton = new MenuEntry (screen: this,
-			                            drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			                            name: "Redo",
-			                            onClick: (time) => OnRedo ());
-			redoButton.SetCoordinates (left: 0.70f, top: 0.900f, right: 0.85f, bottom: 0.95f);
-			redoButton.BackgroundColor = () => Color.Black;
-			redoButton.ForegroundColor = () => Color.White;
-			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			                               widget: redoButton, lineWidth: 2, padding: 0);
-			redoButton.AlignX = HorizontalAlignment.Center;
-			redoButton.IsVisible = false;
 
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
 			lines.AddPoints (500, 0, 500, 1000);
 
 			// Redo-Button
-			redoButton = new MenuEntry (
+			redoButton = new Button (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Redo",

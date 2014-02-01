@@ -24,7 +24,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagiert.
 	/// </summary>
-	public class Button : MenuItem
+	public class Button : Widget
 	{
 		#region Properties
 

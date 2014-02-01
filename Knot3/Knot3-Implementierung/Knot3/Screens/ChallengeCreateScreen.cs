@@ -74,7 +74,7 @@ namespace Knot3.Screens
 			challengeName.NameWidth = 0.2f;
 			challengeName.ValueWidth = 0.8f;
 
-			createButton = new MenuEntry (
+			createButton = new Button (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Create!",
@@ -109,7 +109,7 @@ namespace Knot3.Screens
 			// Erstelle einen Spielstand-Loader
 			loader = new SavegameLoader<Knot, KnotMetaData> (fileFormat, "index-knots");
 
-			backButton = new MenuEntry (
+			backButton = new Button (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",
@@ -120,8 +120,7 @@ namespace Knot3.Screens
 
 			backButton.AlignX = HorizontalAlignment.Center;
 
-			backButton.ForegroundColor = () => base.MenuItemForegroundColor (backButton.State);
-			backButton.BackgroundColor = () => base.MenuItemBackgroundColor (backButton.State);
+
 		}
 
 		#endregion
@@ -174,13 +173,7 @@ namespace Knot3.Screens
 			    onClick: SelectTargetKnot
 			);
 
-			Func<bool> matchesStartKnot = () => selectedStartKnot != null && meta == selectedStartKnot.MetaData;
-			buttonStart.ForegroundColor = () => MenuItemForegroundColor (buttonStart.State, matchesStartKnot);
-			buttonStart.BackgroundColor = () => MenuItemBackgroundColor (buttonStart.State, matchesStartKnot);
 
-			Func<bool> matchesTargetKnot = () => selectedTargetKnot != null && meta == selectedTargetKnot.MetaData;
-			buttonTarget.ForegroundColor = () => MenuItemForegroundColor (buttonTarget.State, matchesTargetKnot);
-			buttonTarget.BackgroundColor = () => MenuItemBackgroundColor (buttonTarget.State, matchesTargetKnot);
 
 			startKnotMenu.Add (buttonStart);
 			targetKnotMenu.Add (buttonTarget);

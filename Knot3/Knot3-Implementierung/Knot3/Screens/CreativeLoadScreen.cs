@@ -104,7 +104,7 @@ namespace Knot3.Screens
 			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 			previewMouseHandler = new ModelMouseHandler (screen: this, world: previewWorld);
 
-			backButton = new MenuEntry(
+			backButton = new Button(
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",
