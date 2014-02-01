@@ -332,7 +332,9 @@ namespace Knot3.GameObjects
 				);
 				TexturedRectangle rectangle = new TexturedRectangle (screen: screen, info: info);
 				rectangle.World = World;
-				Console.WriteLine ("rectangle=" + rectangle);
+
+                if (MonoHelper.IsRunningOnLinux ())
+				    Console.WriteLine ("rectangle=" + rectangle);
 
 				if (!rectangles.Contains (rectangle)) {
 					rectangles.Add (rectangle);
