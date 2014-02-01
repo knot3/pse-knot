@@ -69,15 +69,17 @@ namespace Knot3.Screens
 			    option: new BooleanOptionInfo ("video", "selectiveRendering", false, Options.Default)
 			);
 			settingsMenu.Add (selectiveRender);
+
 			string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width + "x" + Graphics.GraphicsDevice.DisplayMode.Height;
 			DisplayModeCollection modes = GraphicsAdapter.DefaultAdapter.SupportedDisplayModes;
-			HashSet<string> reso = new HashSet<string>();
-			foreach(DisplayMode mode in modes) {
-				reso.Add (mode.Width+"x"+mode.Height);
+			HashSet<string> reso = new HashSet<string> ();
+			foreach (DisplayMode mode in modes) {
+				reso.Add (mode.Width + "x" + mode.Height);
 			}
+			reso.Add ("1024x600");
 
-			string[] validResolutions = reso.ToArray();
-			validResolutions = validResolutions.OrderBy(x=>Decimal.Parse (x.Split('x')[0], System.Globalization.NumberStyles.Any)).ToArray();
+			string[] validResolutions = reso.ToArray ();
+			validResolutions = validResolutions.OrderBy (x => Decimal.Parse (x.Split ('x') [0], System.Globalization.NumberStyles.Any)).ToArray ();
 			DistinctOptionInfo resolutionOption = new DistinctOptionInfo (
 			    section: "video",
 			    name: "resolution",
@@ -109,7 +111,7 @@ namespace Knot3.Screens
 			);
 			supersamplesItem.AddEntries (supersamplesOption);
 			settingsMenu.Add (supersamplesItem);
-			string[] validRenderEffects = RenderEffectLibrary.Names.ToArray();
+			string[] validRenderEffects = RenderEffectLibrary.Names.ToArray ();
 			DistinctOptionInfo renderEffectOption = new DistinctOptionInfo (
 			    section: "video",
 			    name: "knot-shader",
