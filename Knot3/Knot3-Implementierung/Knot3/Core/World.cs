@@ -200,7 +200,7 @@ namespace Knot3.Core
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-			if (Options.Default ["video", "selectiveRendering", false]) {
+			if (!Options.Default ["video", "selectiveRendering", false]) {
 				Redraw = true;
 			}
 			if (Screen.PostProcessingEffect is FadeEffect) {
