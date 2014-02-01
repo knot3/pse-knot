@@ -217,8 +217,6 @@ namespace Knot3.Widgets
 		{
 		}
 
-	
-
 		public override void Draw (GameTime time)
 		{
 			base.Draw (time);
