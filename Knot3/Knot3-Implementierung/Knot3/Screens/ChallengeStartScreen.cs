@@ -126,8 +126,6 @@ namespace Knot3.Screens
 			backButton.AddKey(Keys.Escape);
 			backButton.SetCoordinates(left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
 			backButton.AlignX = HorizontalAlignment.Center;
-
-
 		}
 
 		#endregion

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -11,6 +12,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.RenderEffects;
@@ -26,7 +28,6 @@ namespace Knot3.Screens
 	/// </summary>
 	public class CreativeMainScreen : MenuScreen
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -52,39 +53,39 @@ namespace Knot3.Screens
 			buttons.ItemAlignY = VerticalAlignment.Center;
 
 			Button newKnotButton = new Button (
-				                       screen: this,
-				                       drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				                       name: "NEW\nKnot",
-				                       onClick: (time) => NextScreen = new CreativeModeScreen (Game, new Knot ())
-			                       );
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "NEW\nKnot",
+			    onClick: (time) => NextScreen = new CreativeModeScreen (Game, new Knot ())
+			);
 			newKnotButton.SetCoordinates (left: 0.100f, top: 0.150f, right: 0.300f, bottom: 0.350f);
 
 			Button loadKnotButton = new Button (
-				                        screen: this,
-				                        drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				                        name: "LOAD\nKnot",
-				                        onClick: (time) => NextScreen = new CreativeLoadScreen (Game)
-			                        );
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "LOAD\nKnot",
+			    onClick: (time) => NextScreen = new CreativeLoadScreen (Game)
+			);
 			loadKnotButton.SetCoordinates (left: 0.675f, top: 0.300f, right: 0.875f, bottom: 0.475f);
 
 			Button newChallengeButton = new Button (
-				                            screen: this,
-				                            drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				                            name: "NEW\nChallenge",
-				                            onClick: (time) => NextScreen = new ChallengeCreateScreen (Game)
-			                            );
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "NEW\nChallenge",
+			    onClick: (time) => NextScreen = new ChallengeCreateScreen (Game)
+			);
 			newChallengeButton.SetCoordinates (left: 0.250f, top: 0.525f, right: 0.600f, bottom: 0.750f);
 
 			Button backButton = new Button (
-				                    screen: this,
-				                    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				                    name: "Back",
-				                    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Back",
+			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(
 
-				                        s is CreativeMainScreen
-				                        || s is CreativeLoadScreen
-				                        || s is ChallengeCreateScreen)).ElementAt (0)
-			                    );
+			                                        s is CreativeMainScreen
+			                                        || s is CreativeLoadScreen
+			                                        || s is ChallengeCreateScreen)).ElementAt (0)
+			);
 			backButton.AddKey (Keys.Escape);
 			backButton.SetCoordinates (left: 0.825f, top: 0.850f, right: 0.975f, bottom: 0.950f);
 
@@ -96,9 +97,9 @@ namespace Knot3.Screens
 
 			// die Linien
 			lines.AddPoints (0.000f, 0.150f,
-				0.300f, 0.350f, 0.100f, 0.070f, 0.600f, 0.750f, 0.250f,
-				0.525f, 0.875f, 0.300f, 0.675f, 0.475f, 0.950f, 0.000f
-			);
+			                 0.300f, 0.350f, 0.100f, 0.070f, 0.600f, 0.750f, 0.250f,
+			                 0.525f, 0.875f, 0.300f, 0.675f, 0.475f, 0.950f, 0.000f
+			                );
 
 			lines.AddPoints (0.975f, 0.850f, 0.825f, 0.950f, 0.975f, 0.850f);
 		}
@@ -124,6 +125,5 @@ namespace Knot3.Screens
 		}
 
 		#endregion
-
 	}
 }
