@@ -96,7 +96,6 @@ namespace Knot3.Widgets
 		/// </summary>
 		public virtual void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-
 		}
 
 		/// <summary>

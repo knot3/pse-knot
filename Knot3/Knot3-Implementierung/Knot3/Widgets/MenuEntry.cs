@@ -74,7 +74,7 @@ namespace Knot3.Widgets
 		/// Reaktionen auf einen Linksklick.
 		/// </summary>
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
-		{	
+		{
 			ItemState = ItemState.Selected;
 			base.OnLeftClick (position, state, time);
 			OnClick (time);
