@@ -155,6 +155,7 @@ namespace Knot3.Audio
 			}
 			Console.WriteLine ("Background Music: " + BackgroundMusic);
 			Playlist = new LoopPlaylist (AudioFiles [BackgroundMusic]);
+			Playlist.Shuffle ();
 			Playlist.Start ();
 		}
 

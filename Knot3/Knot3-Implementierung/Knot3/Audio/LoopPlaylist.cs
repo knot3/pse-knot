@@ -53,6 +53,11 @@ namespace Knot3.Audio
 			}
 		}
 
+		public void Shuffle ()
+		{
+			Sounds = Sounds.Shuffle ().ToList ();
+		}
+
 		/// <summary>
 		/// Starte die Wiedergabe.
 		/// </summary>
@@ -60,7 +65,7 @@ namespace Knot3.Audio
 		{
 			if (Sounds.Count > 0) {
 				State = SoundState.Playing;
-				Sounds .At(index).Play ();
+				Sounds .At (index).Play ();
 			}
 		}
 
@@ -71,7 +76,7 @@ namespace Knot3.Audio
 		{
 			if (Sounds.Count > 0) {
 				State = SoundState.Stopped;
-				Sounds.At(index).Stop();
+				Sounds.At (index).Stop ();
 			}
 		}
 
@@ -81,12 +86,12 @@ namespace Knot3.Audio
 		public void Update (GameTime time)
 		{
 			if (Sounds.Count > 0) {
-				if (State == SoundState.Playing && Sounds.At(index).State != SoundState.Playing) {
+				if (State == SoundState.Playing && Sounds.At (index).State != SoundState.Playing) {
 					++index;
-					Sounds.At(index).Play();
+					Sounds.At (index).Play ();
 				}
 			}
-			Sounds.At(index).Update (time);
+			Sounds.At (index).Update (time);
 		}
 	}
 }
