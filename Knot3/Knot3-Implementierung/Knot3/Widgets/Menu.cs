@@ -18,184 +18,284 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
+using Knot3.Utilities;
 
 namespace Knot3.Widgets
 {
 	/// <summary>
-	/// Ein Menü enthält Bedienelemente zur Benutzerinteraktion. Diese Klasse bietet Standardwerte für
-	/// Positionen, Größen, Farben und Ausrichtungen der Menüeinträge. Sie werden gesetzt, wenn die Werte
-	/// der Menüeinträge \glqq null\grqq~sind.
+	/// Ein Menü, das alle Einträge vertikal anordnet.
 	/// </summary>
-	public class Menu : Widget, IEnumerable<MenuItem>
+	public sealed class Menu : Container, IMouseClickEventListener, IMouseMoveEventListener
 	{
 		#region Properties
 
 		/// <summary>
-		/// Die vom Zustand des Menüeintrags abhängige Vordergrundfarbe des Menüeintrags.
+		/// Die von der Auflösung unabhängige Höhe der Menüeinträge in Prozent.
 		/// </summary>
-		public Func<ItemState, Color> ItemForegroundColor { get; set; }
+		/// <value>
+		/// The height of the relative item.
+		/// </value>
+		public float RelativeItemHeight { get; set; }
 
-		/// <summary>
-		/// Die vom Zustand des Menüeintrags abhängige Hintergrundfarbe des Menüeintrags.
-		/// </summary>
-		public Func<ItemState, Color> ItemBackgroundColor { get; set; }
+		public Rectangle MouseClickBounds { get { return Bounds; } }
 
-		/// <summary>
-		/// Die horizontale Ausrichtung der Menüeinträge.
-		/// </summary>
-		public HorizontalAlignment ItemAlignX { get; set; }
+		private SpriteBatch spriteBatch;
 
-		/// <summary>
-		/// Die vertikale Ausrichtung der Menüeinträge.
-		/// </summary>
-		public VerticalAlignment ItemAlignY { get; set; }
+		public Color SelectedColorBackground { get; set; }
 
-		protected List<MenuItem> items;
-		private bool isVisible;
-
-		public override bool IsVisible
-		{
-			get {
-				return isVisible;
-			}
-			set {
-				isVisible = value;
-				if (items != null) {
-					foreach (MenuItem item in items) {
-						item.IsVisible = value;
-					}
-				}
-			}
-		}
+		public Color SelectedColorForeground { get; set; }
 
 		#endregion
 
 		#region Constructors
 
 		/// <summary>
-		/// Erzeugt ein neues Menu-Objekt und initialisiert dieses mit dem zugehörigen IGameScreen-Objekt.
-		/// Zudem ist die Angabe der Zeichenreihenfolge Pflicht.
+		/// Erzeugt eine neue Instanz eines VerticalMenu-Objekts und initialisiert diese mit dem zugehörigen IGameScreen-Objekt.
+		/// Zudem ist die Angaben der Zeichenreihenfolge Pflicht.
 		/// </summary>
 		public Menu (IGameScreen screen, DisplayLayer drawOrder)
-		: base(screen, drawOrder)
+		: base (screen, drawOrder)
 		{
-			items = new List<MenuItem> ();
-			ItemAlignX = HorizontalAlignment.Left;
-			ItemAlignY = VerticalAlignment.Center;
+			RelativeItemHeight = 0.040f;
+			spriteBatch = new SpriteBatch (screen.Device);
+		}
+
+		private Bounds ScrollBarBounds
+		{
+			get {
+				Bounds bounds = new Bounds (
+				    Bounds.Position + Bounds.Size.OnlyX + new ScreenPoint (Screen, 0.005f, 0f),
+				    new ScreenPoint (Screen, 0.02f, Bounds.Size.Relative.Y)
+				);
+				return bounds;
+			}
+		}
+
+		public Rectangle MouseMoveBounds
+		{
+			get {
+				return new Bounds (Bounds.Position, Bounds.Size + ScrollBarBounds.Size.OnlyX);
+			}
+		}
+
+		private Bounds ScrollSliderInBarBounds
+		{
+			get {
+				Bounds moveBounds = ScrollBarBounds;
+				float maxValue = maxScrollPosition;
+				float pageValue = pageScrollPosition;
+				float visiblePercent = (pageValue / maxValue).Clamp (0.05f, 1f);
+				float currentValue = (float)currentScrollPosition / (maxValue - pageValue);
+				// Console.WriteLine ("currentValue=" + currentValue + ", pos=" + moveBounds.FromTop (currentValue).Position);
+				Bounds bounds = new Bounds (
+				    position: moveBounds.Size.OnlyY * currentValue * (1f - visiblePercent),
+				    size: moveBounds.Size.ScaleY (visiblePercent)
+				);
+				return bounds;
+			}
 		}
 
 		#endregion
 
 		#region Methods
 
-		/// <summary>
-		/// Fügt einen Eintrag in das Menü ein. Falls der Menüeintrag \glqq null\grqq~oder leere Werte für
-		/// Position, Größe, Farbe oder Ausrichtung hat, werden die Werte mit denen des Menüs überschrieben.
-		/// </summary>
-		public virtual void Add (MenuItem item)
+		protected override void assignMenuItemInformation (MenuItem item)
 		{
-			item.ItemOrder = items.Count;
-			assignMenuItemInformation (item);
-			items.Add (item);
-			item.Menu = this;
+			Bounds itemBounds = ItemBounds (item.ItemOrder);
+			item.Bounds.Position = itemBounds.Position;
+			item.Bounds.Size = itemBounds.Size;
+			base.assignMenuItemInformation (item);
 		}
 
 		/// <summary>
-		/// Entfernt einen Eintrag aus dem Menü.
+		/// Die von der Auflösung unabhängigen Ausmaße der Menüeinträge.
 		/// </summary>
-		public virtual void Delete (MenuItem item)
+		public Bounds ItemBounds (int itemOrder)
 		{
-			if (items.Contains (item)) {
-				items.Remove (item);
-				for (int i = 0; i < items.Count; ++i) {
-					items [i].ItemOrder = i;
-				}
+			return new Bounds (
+			           position: new ScreenPoint (Screen, () => verticalRelativeItemPosition (itemOrder)),
+			           size: new ScreenPoint (Screen, () => verticalRelativeItemSize (itemOrder))
+			       );
+		}
+
+		private Vector2 verticalRelativeItemPosition (int itemOrder)
+		{
+			if (itemOrder < currentScrollPosition) {
+				return Vector2.Zero;
+			}
+			else if (itemOrder > currentScrollPosition + pageScrollPosition - 1) {
+				return Vector2.Zero;
+			}
+			else {
+				float itemHeight = RelativeItemHeight + Bounds.Padding.Relative.Y;
+				return Bounds.Position.Relative + new Vector2 (0, itemHeight * (itemOrder - currentScrollPosition));
+			}
+		}
+
+		private Vector2 verticalRelativeItemSize (int itemOrder)
+		{
+			if (itemOrder < currentScrollPosition) {
+				return Vector2.Zero;
+			}
+			else if (itemOrder > currentScrollPosition + pageScrollPosition - 1) {
+				return Vector2.Zero;
+			}
+			else {
+				return new Vector2 (Bounds.Size.Relative.X, RelativeItemHeight);
 			}
 		}
 
 		/// <summary>
-		/// Gibt einen Eintrag des Menüs zurück.
+		/// Wird für jeden Frame aufgerufen.
 		/// </summary>
-		public virtual MenuItem GetItem (int i)
+		public override void Update (GameTime time)
 		{
-			while (i < 0) {
-				i += items.Count;
-			}
-			return items [i % items.Count];
-		}
+			base.Update (time);
 
-		public MenuItem this [int i]
-		{
-			get {
-				return GetItem (i);
-			}
-		}
-
-		/// <summary>
-		/// Gibt die Anzahl der Einträge des Menüs zurück.
-		/// </summary>
-		public int Size ()
-		{
-			return Count;
-		}
-
-		public int Count { get { return items.Count; } }
-
-		public void Clear ()
-		{
-			items.Clear ();
-		}
-
-		/// <summary>
-		/// Gibt einen Enumerator über die Einträge des Menüs zurück.
-		/// [returntype=IEnumerator<MenuItem>]
-		/// </summary>
-		public virtual IEnumerator<MenuItem> GetEnumerator ()
-		{
-			return items.GetEnumerator ();
-		}
-
-		// Explicit interface implementation for nongeneric interface
-		IEnumerator IEnumerable.GetEnumerator ()
-		{
-			return GetEnumerator (); // Just return the generic version
-		}
-
-		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
-		{
-			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
-				yield return component;
-			}
-			foreach (DrawableGameScreenComponent item in items) {
-				yield return item;
-			}
+			performScroll ();
 		}
 
 		/// <summary>
 		/// Die Reaktion auf eine Bewegung des Mausrads.
 		/// </summary>
-		public virtual void OnScroll (int scrollValue)
+		public override void OnScroll (int scrollValue)
+		{
+			tempScrollValue = scrollValue;
+		}
+
+		private void performScroll ()
+		{
+			if (Math.Abs (tempScrollValue) > 0) {
+				currentScrollPosition += tempScrollValue;
+				tempScrollValue = 0;
+			}
+		}
+
+		private int tempScrollValue = 0;
+
+		private float currentScrollPosition
+		{
+			get {
+				return _currentScrollPosition;
+			}
+			set {
+				_currentScrollPosition = MathHelper.Clamp (value, 0, maxScrollPosition - pageScrollPosition);
+			}
+		}
+
+		private float _currentScrollPosition;
+
+		private float maxScrollPosition { get { return items.Count; } }
+
+		private float pageScrollPosition
+		{
+			get {
+				return (int)Math.Ceiling (Bounds.Size.Relative.Y / (RelativeItemHeight + Bounds.Padding.Relative.Y));
+			}
+		}
+
+		private bool HasScrollbar { get { return maxScrollPosition > pageScrollPosition; } }
+
+		/// <summary>
+		/// Tut nichts.
+		/// </summary>
+		public void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
 		}
 
-		protected virtual void assignMenuItemInformation (MenuItem item)
+		/// <summary>
+		/// Tut nichts.
+		/// </summary>
+		public void OnRightClick (Vector2 position, ClickState state, GameTime time)
 		{
-			if (ItemForegroundColor != null) {
-				item.ForegroundColor = () => ItemForegroundColor (item.ItemState);
-			}
-			if (ItemBackgroundColor != null) {
-				item.BackgroundColor = () => ItemBackgroundColor (item.ItemState);
-			}
-			item.AlignX = ItemAlignX;
-			item.AlignY = ItemAlignY;
-			item.IsVisible = isVisible;
 		}
 
-		public void Collapse ()
+		/// <summary>
+		/// Tut nichts.
+		/// </summary>
+		public void SetHovered (bool hovered, GameTime time)
 		{
-			foreach (MenuItem item in items) {
-				item.Collapse ();
+		}
+
+		public Color MenuItemBackgroundColor (ItemState itemState)
+		{
+			if (itemState == ItemState.None || itemState == ItemState.Hovered) {
+				return Color.Transparent;
 			}
+			else if (itemState == ItemState.Selected) {
+				return SelectedColorBackground;
+			}
+			else {
+				return Color.CornflowerBlue;
+			}
+		}
+
+		public  Color MenuItemForegroundColor (ItemState itemState)
+		{
+			if (itemState == ItemState.Hovered) {
+				return Color.White;
+			}
+			else if (itemState == ItemState.None) {
+				return Color.White * 0.7f;
+			}
+			else if (itemState == ItemState.Selected) {
+				return SelectedColorForeground;
+			}
+			else {
+				return Color.CornflowerBlue;
+			}
+		}
+
+		public override void Draw (GameTime time)
+		{
+			base.Draw (time);
+
+			if (IsVisible && IsEnabled && HasScrollbar) {
+				spriteBatch.Begin ();
+				Texture2D rectangleTexture = TextureHelper.Create (Screen.Device, Color.White);
+				Bounds sliderBounds = ScrollSliderInBarBounds.In (ScrollBarBounds);
+				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle.Grow (1), Lines.DefaultOutlineColor);
+				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle, Lines.DefaultLineColor);
+				// Console.WriteLine ("ScrollSliderBounds=" + sliderBounds.Rectangle);
+				// Console.WriteLine ("ScrollBarBounds=" + ScrollBarBounds.Rectangle);
+				spriteBatch.End ();
+			}
+		}
+
+		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
+			//currentScrollPosition += (int)((move.Y / RelativeItemHeight)
+			//	* ((float)minScrollPosition / (maxScrollPosition - pageScrollPosition)));
+
+			if (IsVisible && IsEnabled && HasScrollbar) {
+				Bounds slider = ScrollSliderInBarBounds;
+				Bounds bar = ScrollBarBounds;
+
+				float percentOfBar = move.Y / bar.Size.Absolute.Y;
+				currentScrollPosition += percentOfBar * maxScrollPosition;
+
+				/*
+				float maxValue = maxScrollPosition;
+				float pageValue = pageScrollPosition;
+				float visiblePercent = (pageValue / maxValue).Clamp (0.05f, 1f);
+				float sliderPosition = ScrollSliderInBarBounds.Position.Absolute.Y / ScrollBarBounds.Size.Absolute.Y;
+				Console.WriteLine ("sliderPosition=" + sliderPosition + ", ScrollSliderInBarBounds=" + ScrollSliderInBarBounds);
+				sliderPosition = move.Y / ScrollBarBounds.Size.Absolute.Y;
+
+				Console.WriteLine ("sliderPosition new=" + sliderPosition + ", current.Y=" + currentPosition.Y
+					+ ", bar.Size.Y=" + ScrollBarBounds.Size.Absolute.Y
+				);
+				currentScrollPosition = (int)(sliderPosition * (maxValue - pageValue));
+				*/
+			}
+		}
+
+		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
+		}
+
+		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		{
 		}
 
 		#endregion

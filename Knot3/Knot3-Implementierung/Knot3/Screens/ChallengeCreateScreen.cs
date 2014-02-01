@@ -32,18 +32,18 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Das Menü, das die Spielstände enthält, die als Startknoten ausgewählt werden.
 		/// </summary>
-		private VerticalMenu startKnotMenu;
+		private Menu startKnotMenu;
 		/// <summary>
 		/// Das Menü, das die Spielstände enthält, die als Zielknoten ausgewählt werden.
 		/// </summary>
-		private VerticalMenu targetKnotMenu;
+		private Menu targetKnotMenu;
 		private TextItem title;
 		private InputItem challengeName;
-		private MenuButton createButton;
+		private MenuEntry createButton;
 		private Border createButtonBorder;
 
 		// Zurück-Button.
-		private MenuButton backButton;
+		private MenuEntry backButton;
 
 		// Spielstand-Loader
 		private SavegameLoader<Knot, KnotMetaData> loader;
@@ -61,11 +61,11 @@ namespace Knot3.Screens
 		public ChallengeCreateScreen (Knot3Game game)
 		: base(game)
 		{
-			startKnotMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			startKnotMenu = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			startKnotMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
 			startKnotMenu.Bounds.Size = new ScreenPoint (this, 0.375f, 0.620f);
 
-			targetKnotMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			targetKnotMenu = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			targetKnotMenu.Bounds.Position = new ScreenPoint (this, 0.525f, 0.180f);
 			targetKnotMenu.Bounds.Size = new ScreenPoint (this, 0.375f, 0.620f);
 
@@ -76,7 +76,7 @@ namespace Knot3.Screens
 			challengeName.NameWidth = 0.2f;
 			challengeName.ValueWidth = 0.8f;
 
-			createButton = new MenuButton (
+			createButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Create!",
@@ -111,7 +111,7 @@ namespace Knot3.Screens
 			// Erstelle einen Spielstand-Loader
 			loader = new SavegameLoader<Knot, KnotMetaData> (fileFormat, "index-knots");
 
-			backButton = new MenuButton(
+			backButton = new MenuEntry(
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",
@@ -163,13 +163,13 @@ namespace Knot3.Screens
 			};
 
 			// Erstelle die Menüeinträge
-			MenuButton buttonStart = new MenuButton (
+			MenuEntry buttonStart = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: name,
 			    onClick: SelectStartKnot
 			);
-			MenuButton buttonTarget = new MenuButton (
+			MenuEntry buttonTarget = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: name,

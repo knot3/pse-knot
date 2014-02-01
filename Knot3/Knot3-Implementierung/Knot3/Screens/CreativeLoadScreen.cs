@@ -32,7 +32,7 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Das Menü, das die Spielstände enthält.
 		/// </summary>
-		private VerticalMenu savegameMenu;
+		private Menu savegameMenu;
 
 		// Der Titel des Screens
 		private TextItem title;
@@ -61,7 +61,7 @@ namespace Knot3.Screens
 		public CreativeLoadScreen (Knot3Game game)
 		: base(game)
 		{
-			savegameMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			savegameMenu = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			savegameMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
 			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.620f);
 			savegameMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);

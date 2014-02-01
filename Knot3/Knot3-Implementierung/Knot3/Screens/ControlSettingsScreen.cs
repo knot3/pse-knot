@@ -32,7 +32,7 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Das Menü, das die Einstellungen enthält.
 		/// </summary>
-		private VerticalMenu settingsMenu;
+		private Menu settingsMenu;
 		public static Action ControlSettingsChanged = () => {};
 
 		#endregion
@@ -47,7 +47,7 @@ namespace Knot3.Screens
 		{
 			MenuName = "Controls";
 
-			settingsMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			settingsMenu = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			settingsMenu.Bounds.Position = new ScreenPoint (this, 0.400f, 0.180f);
 			settingsMenu.Bounds.Size = new ScreenPoint (this, 0.500f, 0.620f);
 			settingsMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);

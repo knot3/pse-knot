@@ -42,8 +42,8 @@ namespace Knot3.Debug
 		private MousePointer pointer;
 		private Overlay overlay;
 		private DebugBoundings debugBoundings;
-		private MenuButton backButton;
-		private VerticalMenu settingsMenu;
+		private MenuEntry backButton;
+		private Menu settingsMenu;
 		private DropDownMenuItem[] itemBumpRotation;
 
 		#endregion
@@ -80,7 +80,7 @@ namespace Knot3.Debug
 			world.Add (skyCube);
 
 			// Backbutton
-			backButton = new MenuButton (
+			backButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.Overlay + DisplayLayer.MenuItem,
 			    name: "Back",
@@ -90,7 +90,7 @@ namespace Knot3.Debug
 			backButton.IsVisible = true;
 
 			// Menü
-			settingsMenu = new VerticalMenu (this, DisplayLayer.Overlay + DisplayLayer.Menu);
+			settingsMenu = new Menu (this, DisplayLayer.Overlay + DisplayLayer.Menu);
 			settingsMenu.Bounds = Bounds.FromRight (0.40f).FromBottom (0.9f).FromLeft (0.8f);
 			settingsMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			settingsMenu.ItemForegroundColor = (state) => Color.White;

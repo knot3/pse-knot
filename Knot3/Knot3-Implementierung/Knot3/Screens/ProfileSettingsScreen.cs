@@ -31,7 +31,7 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Das vertikale Menü wo die Einstellungen anzeigt. Hier nimmt der Spieler Einstellungen vor.
 		/// </summary>
-		private VerticalMenu settingsMenu { get; set; }
+		private Menu settingsMenu { get; set; }
 
 		#endregion
 
@@ -45,7 +45,7 @@ namespace Knot3.Screens
 		{
 			MenuName = "Profile";
 
-			settingsMenu = new VerticalMenu(this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			settingsMenu = new Menu(this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			settingsMenu.Bounds.Position = new ScreenPoint (this, 0.400f, 0.180f);
 			settingsMenu.Bounds.Size = new ScreenPoint (this, 0.500f, 0.720f);
 			settingsMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);

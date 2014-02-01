@@ -31,9 +31,9 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Das Menü, das Schaltflächen enthält.
 		/// </summary>
-		private Menu buttons { get; set; }
+		private Container buttons { get; set; }
 
-		private VerticalMenu menu;
+		private Menu menu;
 
 		#endregion
 
@@ -51,7 +51,7 @@ namespace Knot3.Widgets
 			AlignX = HorizontalAlignment.Center;
 
 			// Menü, in dem die Textanzeige angezeigt wird
-			menu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
+			menu = new Menu (Screen, Index + DisplayLayer.Menu);
 			menu.Bounds = ContentBounds;
 			menu.ItemForegroundColor = (s) => Color.White;
 			menu.ItemBackgroundColor = (s) => Color.Transparent;

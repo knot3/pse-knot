@@ -33,7 +33,7 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Die Schaltflächen des Startbildschirms.
 		/// </summary>
-		private Menu buttons;
+		private Container buttons;
 		// das Logo
 		private Texture2D logo;
 		private SpriteBatch spriteBatch;
@@ -48,7 +48,7 @@ namespace Knot3.Screens
 		public StartScreen (Knot3Game game)
 		: base (game)
 		{
-			buttons = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			buttons = new Container (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 
 			// logo
 			logo = this.LoadTexture ("logo");
@@ -62,7 +62,7 @@ namespace Knot3.Screens
 			buttons.ItemAlignX = HorizontalAlignment.Center;
 			buttons.ItemAlignY = VerticalAlignment.Center;
 
-			MenuButton creativeButton = new MenuButton (
+			MenuEntry creativeButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Creative",
@@ -70,7 +70,7 @@ namespace Knot3.Screens
 			);
 			creativeButton.SetCoordinates (left: 0.700f, top: 0.250f, right: 0.960f, bottom: 0.380f);
 
-			MenuButton challengeButton = new MenuButton (
+			MenuEntry challengeButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Challenge",
@@ -78,7 +78,7 @@ namespace Knot3.Screens
 			);
 			challengeButton.SetCoordinates (left: 0.000f, top: 0.050f, right: 0.380f, bottom: 0.190f);
 
-			MenuButton settingsButton = new MenuButton (
+			MenuEntry settingsButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Settings",
@@ -86,7 +86,7 @@ namespace Knot3.Screens
 			);
 			settingsButton.SetCoordinates (left: 0.260f, top: 0.840f, right: 0.480f, bottom: 0.950f);
 
-			MenuButton exitButton = new MenuButton (
+			MenuEntry exitButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Exit",
@@ -121,7 +121,7 @@ namespace Knot3.Screens
 		{
 			// Versteckte Funktionen
 			if (Keys.F1.IsDown ()) {
-				MenuButton debugButton = new MenuButton (
+				MenuEntry debugButton = new MenuEntry (
 				    screen: this,
 				    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 				    name: "Junction Editor",

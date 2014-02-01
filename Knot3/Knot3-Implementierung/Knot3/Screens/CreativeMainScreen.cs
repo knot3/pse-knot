@@ -33,7 +33,7 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Ein Menü aus Schaltflächen, welche den Spielwunsch des Spielers weiterleiten.
 		/// </summary>
-		private Menu buttons;
+		private Container buttons;
 
 		#endregion
 
@@ -45,7 +45,7 @@ namespace Knot3.Screens
 		public CreativeMainScreen (Knot3Game game)
 		: base(game)
 		{
-			buttons = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			buttons = new Container (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 
 			// menu
 			buttons.ItemForegroundColor = base.MenuItemForegroundColor;
@@ -53,7 +53,7 @@ namespace Knot3.Screens
 			buttons.ItemAlignX = HorizontalAlignment.Center;
 			buttons.ItemAlignY = VerticalAlignment.Center;
 
-			MenuButton newKnotButton = new MenuButton (
+			MenuEntry newKnotButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "NEW\nKnot",
@@ -61,7 +61,7 @@ namespace Knot3.Screens
 			);
 			newKnotButton.SetCoordinates (left: 0.100f, top: 0.150f, right: 0.300f, bottom: 0.350f);
 
-			MenuButton loadKnotButton = new MenuButton (
+			MenuEntry loadKnotButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "LOAD\nKnot",
@@ -69,7 +69,7 @@ namespace Knot3.Screens
 			);
 			loadKnotButton.SetCoordinates (left: 0.675f, top: 0.300f, right: 0.875f, bottom: 0.475f);
 
-			MenuButton newChallengeButton = new MenuButton (
+			MenuEntry newChallengeButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "NEW\nChallenge",
@@ -77,7 +77,7 @@ namespace Knot3.Screens
 			);
 			newChallengeButton.SetCoordinates (left: 0.250f, top: 0.525f, right: 0.600f, bottom: 0.750f);
 
-			MenuButton backButton = new MenuButton (
+			MenuEntry backButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",

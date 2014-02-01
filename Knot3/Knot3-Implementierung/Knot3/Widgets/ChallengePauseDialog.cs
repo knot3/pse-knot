@@ -32,7 +32,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Das Menü, das verschiedene Schaltflächen enthält.
 		/// </summary>
-		private VerticalMenu pauseMenu;
+		private Menu pauseMenu;
 
 		#endregion
 
@@ -48,14 +48,14 @@ namespace Knot3.Widgets
 			AlignX = HorizontalAlignment.Center;
 
 			// Erstelle das Pause-Menü
-			pauseMenu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
+			pauseMenu = new Menu (Screen, Index + DisplayLayer.Menu);
 			pauseMenu.Bounds = ContentBounds;
 			pauseMenu.ItemForegroundColor = MenuItemForegroundColor;
 			pauseMenu.ItemBackgroundColor = MenuItemBackgroundColor;
 			pauseMenu.ItemAlignX = HorizontalAlignment.Left;
 			pauseMenu.ItemAlignY = VerticalAlignment.Center;
 
-			MenuButton settingsButton = new MenuButton (
+			MenuEntry settingsButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Settings",
@@ -64,7 +64,7 @@ namespace Knot3.Widgets
 				Screen.NextScreen = new SettingsScreen (Screen.Game);
 			}
 			);
-			MenuButton backButton = new MenuButton (
+			MenuEntry backButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Back to Game",
@@ -74,7 +74,7 @@ namespace Knot3.Widgets
 			);
 
 			backButton.AddKey (Keys.Escape);
-			MenuButton discardExitButton = new MenuButton (
+			MenuEntry discardExitButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Discard Changes and Exit",

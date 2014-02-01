@@ -46,7 +46,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public Action KeyEvent { get; set; }
 
-		private VerticalMenu menu;
+		private Menu menu;
 		private InputItem textInput;
 
 		#endregion
@@ -61,7 +61,7 @@ namespace Knot3.Widgets
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
-			menu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
+			menu = new Menu (Screen, Index + DisplayLayer.Menu);
 			menu.Bounds = ContentBounds;
 			menu.ItemForegroundColor = (s) => Color.White;
 			menu.ItemBackgroundColor = (s) => Color.Transparent;

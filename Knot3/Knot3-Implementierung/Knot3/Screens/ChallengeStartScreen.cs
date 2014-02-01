@@ -32,9 +32,9 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Das Menü, das die Spielstände enthält.
 		/// </summary>
-		private VerticalMenu savegameMenu;
+		private Menu savegameMenu;
 
-		private MenuButton backButton;
+		private MenuEntry backButton;
 
 		// Der Titel des Screens
 		private TextItem title;
@@ -61,7 +61,7 @@ namespace Knot3.Screens
 		public ChallengeStartScreen (Knot3Game game)
 		: base (game)
 		{
-			savegameMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			savegameMenu = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			savegameMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
 			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.720f);
 			savegameMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
@@ -117,7 +117,7 @@ namespace Knot3.Screens
 			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 			previewMouseHandler = new ModelMouseHandler (screen: this, world: previewWorld);
 
-			backButton = new MenuButton(
+			backButton = new MenuEntry(
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",
@@ -158,7 +158,7 @@ namespace Knot3.Screens
 			string name = meta.Name.Length > 0 ? meta.Name : filename;
 
 			// Erstelle den Menüeintrag
-			MenuButton button = new MenuButton (
+			MenuEntry button = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: name,

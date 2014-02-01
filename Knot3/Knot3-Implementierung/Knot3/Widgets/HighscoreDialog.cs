@@ -29,7 +29,7 @@ namespace Knot3.Widgets
 	{
 		#region Properties
 
-		private VerticalMenu highscoreList;
+		private Menu highscoreList;
 
 		#endregion
 
@@ -43,7 +43,7 @@ namespace Knot3.Widgets
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
-			highscoreList = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
+			highscoreList = new Menu (Screen, Index + DisplayLayer.Menu);
 			highscoreList.Bounds = ContentBounds;
 			highscoreList.ItemForegroundColor = MenuItemForegroundColor;
 			highscoreList.ItemBackgroundColor = MenuItemBackgroundColor;
@@ -64,7 +64,7 @@ namespace Knot3.Widgets
 			}
 
 			//Button f�rs Neustarten
-			MenuButton restartButton = new MenuButton (
+			MenuEntry restartButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Restart challenge",
@@ -77,7 +77,7 @@ namespace Knot3.Widgets
 			highscoreList.Add (restartButton);
 
 			//Button f�r die R�ckkehr zum StartScreen
-			MenuButton returnButton = new MenuButton (
+			MenuEntry returnButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Return to menu",

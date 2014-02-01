@@ -83,10 +83,10 @@ namespace Knot3.Screens
 		private Dialog currentDialog;
 		private DebugBoundings debugBoundings;
 		// Undo-Button
-		private MenuButton undoButton;
+		private MenuEntry undoButton;
 		private Border undoButtonBorder;
 		// Redo-Button
-		private MenuButton redoButton;
+		private MenuEntry redoButton;
 		private Border redoButtonBorder;
 
 		#endregion
@@ -136,7 +136,7 @@ namespace Knot3.Screens
 			world.Add (skyCube);
 
 			// Undo-Button
-			undoButton = new MenuButton (
+			undoButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Undo",
@@ -150,7 +150,7 @@ namespace Knot3.Screens
 			undoButton.AlignX = HorizontalAlignment.Center;
 			undoButton.IsVisible = false;
 			// Redo-Button
-			redoButton = new MenuButton (
+			redoButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Redo",

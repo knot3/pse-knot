@@ -32,7 +32,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Das Dropdown-Menü, das ein- und ausgeblendet werden kann.
 		/// </summary>
-		private VerticalMenu dropdown;
+		private Menu dropdown;
 		private Border dropdownBorder;
 		private InputItem currentValue;
 
@@ -60,7 +60,7 @@ namespace Knot3.Widgets
 		public DropDownMenuItem (IGameScreen screen, DisplayLayer drawOrder, string text)
 		: base(screen, drawOrder, "")
 		{
-			dropdown = new VerticalMenu (screen: screen, drawOrder: Index + DisplayLayer.Menu);
+			dropdown = new Menu (screen: screen, drawOrder: Index + DisplayLayer.Menu);
 			dropdown.Bounds.Position = ValueBounds.Position;
 			dropdown.Bounds.Size = new ScreenPoint (Screen, () => ValueBounds.Size.OnlyX + ValueBounds.Size.OnlyY * 10);
 			dropdown.Bounds.Padding = new ScreenPoint (screen, 0.010f, 0.010f);
@@ -106,7 +106,7 @@ namespace Knot3.Widgets
 					dropdown.IsVisible = false;
 					ValueChanged (time);
 				};
-				MenuButton button = new MenuButton (
+				MenuEntry button = new MenuEntry (
 				    screen: Screen,
 				    drawOrder: Index + DisplayLayer.MenuItem,
 				    name: value,

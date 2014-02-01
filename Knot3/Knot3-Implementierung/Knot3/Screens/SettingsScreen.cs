@@ -36,10 +36,10 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Das Menu, in dem man die Einstellungs-Kategorie auswählen kann.
 		/// </summary>
-		private VerticalMenu navigationMenu;
+		private Menu navigationMenu;
 
 		// Zurück-Button.
-		private MenuButton backButton;
+		private MenuEntry backButton;
 
 		#endregion
 
@@ -52,7 +52,7 @@ namespace Knot3.Screens
 
 			spriteBatch = new SpriteBatch (Device);
 
-			navigationMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			navigationMenu = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			navigationMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
 			navigationMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.770f);
 			navigationMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
@@ -61,31 +61,31 @@ namespace Knot3.Screens
 			navigationMenu.ItemAlignX = HorizontalAlignment.Left;
 			navigationMenu.ItemAlignY = VerticalAlignment.Center;
 
-			MenuButton debugButton = new MenuButton (
+			MenuEntry debugButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Debug",
 			    onClick: (time) => NextScreen = new DebugSettingsScreen (Game)
 			);
-			MenuButton graphicsButton = new MenuButton (
+			MenuEntry graphicsButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Video",
 			    onClick: (time) => NextScreen = new GraphicsSettingsScreen (Game)
 			);
-			MenuButton audioButton = new MenuButton (
+			MenuEntry audioButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Audio",
 			    onClick: (time) => NextScreen = new AudioSettingsScreen (Game)
 			);
-			MenuButton controlsButton = new MenuButton (
+			MenuEntry controlsButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Controls",
 			    onClick: (time) => NextScreen = new ControlSettingsScreen (Game)
 			);
-			MenuButton profileButton = new MenuButton (
+			MenuEntry profileButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Profile",
@@ -105,7 +105,7 @@ namespace Knot3.Screens
 			                970, 50, 1000
 			               );
 
-			backButton = new MenuButton(
+			backButton = new MenuEntry(
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",

@@ -48,7 +48,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Eine Referenz auf das Menu, in dem sich der Eintrag befindet.
 		/// </summary>
-		public Menu Menu { get; set; }
+		public Container Menu { get; set; }
 
 		/// <summary>
 		/// Wie viel Prozent der Name des Eintrags (auf der linken Seite) von der Breite des Eintrags einnehmen darf.

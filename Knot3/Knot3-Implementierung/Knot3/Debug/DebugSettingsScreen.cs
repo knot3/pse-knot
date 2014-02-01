@@ -33,7 +33,7 @@ namespace Knot3.Debug
 		/// <summary>
 		/// Das Menü, das die Einstellungen enthält.
 		/// </summary>
-		private VerticalMenu settingsMenu;
+		private Menu settingsMenu;
 
 		#endregion
 
@@ -47,7 +47,7 @@ namespace Knot3.Debug
 		{
 			MenuName = "Debug";
 
-			settingsMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			settingsMenu = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			settingsMenu.Bounds.Position = new ScreenPoint (this, 0.400f, 0.180f);
 			settingsMenu.Bounds.Size = new ScreenPoint (this, 0.500f, 0.770f);
 			settingsMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);

@@ -32,7 +32,7 @@ namespace Knot3.Screens
 		/// <summary>
 		/// Das Menü, das die Einstellungen enthält.
 		/// </summary>
-		private VerticalMenu settingsMenu { get; set; }
+		private Menu settingsMenu { get; set; }
 
 		private Dictionary<string, HashSet<Sound>> soundCategories = new Dictionary<string, HashSet<Sound>>()
 		{
@@ -66,7 +66,7 @@ namespace Knot3.Screens
 		{
 			MenuName = "Audio";
 
-			settingsMenu = new VerticalMenu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			settingsMenu = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			settingsMenu.Bounds.Position = new ScreenPoint (this, 0.400f, 0.180f);
 			settingsMenu.Bounds.Size = new ScreenPoint (this, 0.500f, 0.720f);
 			settingsMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);

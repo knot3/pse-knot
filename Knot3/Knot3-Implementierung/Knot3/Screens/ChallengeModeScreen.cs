@@ -114,10 +114,10 @@ namespace Knot3.Screens
 		private TextItem playTimeDisplay;
 		private Border playTimeBorder;
 		// Undo-Button
-		private MenuButton undoButton;
+		private MenuEntry undoButton;
 		private Border undoButtonBorder;
 		// Undo-Button
-		private MenuButton redoButton;
+		private MenuEntry redoButton;
 		private Border redoButtonBorder;
 		// Der Status, z.b. ist die Challenge beendet?
 		private ChallengeModeState state;
@@ -180,7 +180,7 @@ namespace Knot3.Screens
 			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                             widget: playTimeDisplay, lineWidth: 2, padding: 0);
 			//Undo-Button
-			undoButton = new MenuButton (screen: this,
+			undoButton = new MenuEntry (screen: this,
 			                             drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                             name: "Undo",
 			                             onClick: (time) => OnUndo ());
@@ -193,7 +193,7 @@ namespace Knot3.Screens
 			undoButton.IsVisible = false;
 
 			//Redo-Button
-			redoButton = new MenuButton (screen: this,
+			redoButton = new MenuEntry (screen: this,
 			                             drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                             name: "Redo",
 			                             onClick: (time) => OnRedo ());
@@ -210,7 +210,7 @@ namespace Knot3.Screens
 			lines.AddPoints (500, 0, 500, 1000);
 
 			// Redo-Button
-			redoButton = new MenuButton (
+			redoButton = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Redo",

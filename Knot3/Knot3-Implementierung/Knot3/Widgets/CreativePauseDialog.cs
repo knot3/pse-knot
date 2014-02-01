@@ -33,7 +33,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Das Menü, das verschiedene Schaltflächen enthält.
 		/// </summary>
-		private VerticalMenu pauseMenu;
+		private Menu pauseMenu;
 		private Knot knot;
 
 		#endregion
@@ -52,14 +52,14 @@ namespace Knot3.Widgets
 			AlignX = HorizontalAlignment.Center;
 
 			// Erstelle das Pause-Menü
-			pauseMenu = new VerticalMenu (Screen, Index + DisplayLayer.Menu);
+			pauseMenu = new Menu (Screen, Index + DisplayLayer.Menu);
 			pauseMenu.Bounds = ContentBounds;
 			pauseMenu.ItemForegroundColor = MenuItemForegroundColor;
 			pauseMenu.ItemBackgroundColor = MenuItemBackgroundColor;
 			pauseMenu.ItemAlignX = HorizontalAlignment.Left;
 			pauseMenu.ItemAlignY = VerticalAlignment.Center;
 
-			MenuButton settingsButton = new MenuButton (
+			MenuEntry settingsButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Settings",
@@ -68,7 +68,7 @@ namespace Knot3.Widgets
 				Screen.NextScreen = new SettingsScreen (Screen.Game);
 			}
 			);
-			MenuButton backButton = new MenuButton (
+			MenuEntry backButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Back to Game",
@@ -76,7 +76,7 @@ namespace Knot3.Widgets
 				Close (time);
 			}
 			);
-			MenuButton saveButton = new MenuButton (
+			MenuEntry saveButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Save",
@@ -85,7 +85,7 @@ namespace Knot3.Widgets
 				KnotSave (time);
 			}
 			);
-			MenuButton saveAsButton = new MenuButton (
+			MenuEntry saveAsButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Save As",
@@ -94,7 +94,7 @@ namespace Knot3.Widgets
 				KnotSaveAs (time);
 			}
 			);
-			MenuButton saveExitButton = new MenuButton (
+			MenuEntry saveExitButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Save and Exit",
@@ -104,7 +104,7 @@ namespace Knot3.Widgets
 				Screen.NextScreen = new StartScreen (Screen.Game);
 			}
 			);
-			MenuButton discardExitButton = new MenuButton (
+			MenuEntry discardExitButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Discard Changes and Exit",
