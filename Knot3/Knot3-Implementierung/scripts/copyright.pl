@@ -20,6 +20,8 @@ my @files = split(/[\r\n]+/, `git ls-files Knot3 Content/Shader/*.fx`);
 
 my @stat_files_authors_percent = ();
 my %stat_authors_files_percent = ();
+my %authors_allfiles_percent = ();
+my $allfiles_loc = 0;
 
 foreach my $file (@files) {
 	my @blame = split(/[\r\n]+/, `git blame -w $file`);
@@ -33,6 +35,8 @@ foreach my $file (@files) {
 	delete $authors{"PSE Knot"} if defined $authors{"PSE Knot"};
 	my $count = 0;
 	$count += $_ foreach (values %authors);
+	$authors_allfiles_percent{$_} += $authors{$_} foreach (keys %authors);
+	$allfiles_loc += $count;
 
 	push @stat_files_authors_percent, $file."\t".join(", ", map { $_.": ".int($authors{$_}/$count*100)."%" } keys %authors);
 	foreach my $author (keys %authors) {
@@ -44,7 +48,8 @@ foreach my $file (@files) {
 #print join("\n", @stat_files_authors_percent)."\n";
 my $authors_files = "";
 foreach my $author (keys %stat_authors_files_percent) {
-	$authors_files .= "  $author:\n\n";
+	my $author_percent = sprintf("%.1f", $authors_allfiles_percent{$author}/$allfiles_loc*100);
+	$authors_files .= "  $author (".$author_percent."%):\n\n";
 	foreach my $entry (sort {$b->[1] <=> $a->[1]} @{$stat_authors_files_percent{$author}}) {
 		my ($total_lines, $percent_lines, $file) = @$entry;
 		$percent_lines = sprintf("%.1f", $percent_lines*100);
