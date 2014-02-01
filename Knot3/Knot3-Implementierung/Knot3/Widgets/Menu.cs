@@ -217,34 +217,7 @@ namespace Knot3.Widgets
 		{
 		}
 
-		public Color MenuItemBackgroundColor (ItemState itemState)
-		{
-			if (itemState == ItemState.None || itemState == ItemState.Hovered) {
-				return Color.Transparent;
-			}
-			else if (itemState == ItemState.Selected) {
-				return SelectedColorBackground;
-			}
-			else {
-				return Color.CornflowerBlue;
-			}
-		}
-
-		public  Color MenuItemForegroundColor (ItemState itemState)
-		{
-			if (itemState == ItemState.Hovered) {
-				return Color.White;
-			}
-			else if (itemState == ItemState.None) {
-				return Color.White * 0.7f;
-			}
-			else if (itemState == ItemState.Selected) {
-				return SelectedColorForeground;
-			}
-			else {
-				return Color.CornflowerBlue;
-			}
-		}
+	
 
 		public override void Draw (GameTime time)
 		{
