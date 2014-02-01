@@ -100,7 +100,6 @@ namespace Knot3.Widgets
 			item.Menu = this;
 		}
 
-		
 		public void Add (Widget item)
 		{
 			assignMenuItemInformation (item);
@@ -115,8 +114,9 @@ namespace Knot3.Widgets
 			if (items.Contains (item)) {
 				items.Remove (item);
 				for (int i = 0; i < items.Count; ++i) {
-					if (items[i] is MenuItem)
-					(items[i] as MenuItem).ItemOrder = i;
+					if (items[i] is MenuItem) {
+						(items[i] as MenuItem).ItemOrder = i;
+					}
 				}
 			}
 		}
