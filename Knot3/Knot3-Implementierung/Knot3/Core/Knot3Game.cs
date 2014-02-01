@@ -29,6 +29,8 @@ namespace Knot3.Core
 	{
 		#region Properties
 
+		private string lastResolution;
+
 		private bool isFullscreen;
 		public Action FullScreenChanged = () => {};
 
@@ -46,18 +48,23 @@ namespace Knot3.Core
 				if (value != isFullscreen) {
 					Console.WriteLine ("Fullscreen Toggle");
 					if (value) {
+
 						Graphics.PreferredBackBufferWidth = Graphics.GraphicsDevice.DisplayMode.Width;
 						Graphics.PreferredBackBufferHeight = Graphics.GraphicsDevice.DisplayMode.Height;
+
 					}
 					else {
+
 						Graphics.PreferredBackBufferWidth = (int)Knot3Game.defaultSize.X;
 						Graphics.PreferredBackBufferHeight = (int)Knot3Game.defaultSize.Y;
+
 					}
-					Graphics.ApplyChanges ();
 					Graphics.ToggleFullScreen ();
 					Graphics.ApplyChanges ();
 					isFullscreen = value;
+					Graphics.ApplyChanges ();
 					FullScreenChanged ();
+					toDefaultSize (isFullscreen);
 				}
 			}
 		}
@@ -185,6 +192,7 @@ namespace Knot3.Core
 		/// </summary>
 		protected override void Update (GameTime time)
 		{
+			updateResolution ();
 			// falls der Screen gewechselt werden soll...
 			IGameScreen current = Screens.Peek ();
 			IGameScreen next = current.NextScreen;
@@ -212,7 +220,29 @@ namespace Knot3.Core
 			// base method
 			base.Update (time);
 		}
+		private void toDefaultSize(bool fullscreen){
+			if (!fullscreen) {
+				Graphics.PreferredBackBufferWidth = (int)Knot3Game.defaultSize.X;
+				Graphics.PreferredBackBufferHeight = (int)Knot3Game.defaultSize.Y;
+				Graphics.ApplyChanges ();
+			}
+		}
 
+		private void updateResolution(){
+			int width;
+			int height;
+			string currentResolution = Graphics.GraphicsDevice.Viewport.Width + "x" + Graphics.GraphicsDevice.Viewport.Height;
+			if (lastResolution == Options.Default ["video", "resolution", currentResolution]) {
+				String strReso = Options.Default ["video", "resolution", currentResolution];
+				string[] reso = strReso.Split ('x');
+				width = int.Parse (reso [0]);
+				height = int.Parse (reso [1]);
+				Graphics.PreferredBackBufferWidth = width;
+				Graphics.PreferredBackBufferHeight = height;
+				Graphics.ApplyChanges ();
+			}
+			lastResolution = Options.Default ["video", "resolution", currentResolution];
+		}
 		#endregion
 	}
 }
