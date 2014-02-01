@@ -8,7 +8,7 @@ using Knot3.GameObjects;
 using Knot3.KnotData;
 using Knot3.RenderEffects;
 
-namespace Knot3.UnitTests
+namespace Knot3.Knot_Tests
 {
 	[TestFixture]
 	public class Knot_Tests

@@ -101,13 +101,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Tests\Audio\Audio_Tests.cs" />
+    <Compile Include="Tests\Core\Core_Tests.cs" />
+    <Compile Include="Tests\GameObjects\GameObject_Tests.cs" />
     <Compile Include="Tests\KnotData\Knot_Tests.cs" />
     <Compile Include="MockObjects\FakeEffect.cs" />
     <Compile Include="MockObjects\FakeEffectStack.cs" />
     <Compile Include="MockObjects\FakeScreen.cs" />
     <Compile Include="Tests\Beispiele\NUnit_Beispiel_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\RenderEffects\RenderEffect_Tests.cs" />
     <Compile Include="Tests\Screens\Screen_Tests.cs" />
+    <Compile Include="Tests\Utilities\Utility_Tests.cs" />
+    <Compile Include="Tests\Widgets\Widget_Tests.cs" />
     <Compile Include="World_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,13 +126,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Tests\Audio\" />
-    <Folder Include="Tests\Core\" />
     <Folder Include="Tests\Debug\" />
-    <Folder Include="Tests\GameObjects\" />
-    <Folder Include="Tests\RenderEffects\" />
-    <Folder Include="Tests\Utilities\" />
-    <Folder Include="Tests\Widgets\" />
     <Folder Include="Verschiedene Speicherstände\" />
   </ItemGroup>
   <Choose>
