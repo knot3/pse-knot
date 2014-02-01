@@ -4,6 +4,7 @@ CPR = cp -rvf
 RM = rm -v
 RMR = rm -rvf
 MKDIR = mkdir -p
+UNZIP = unzip
 BINDIR = $(DESTDIR)/usr/games
 GAMEDIR = $(DESTDIR)/usr/share/knot3
 NAME = knot3
@@ -16,9 +17,9 @@ build:
 
 install: build
 	$(MKDIR) $(BINDIR)
-	install --mode=755 knot.sh $(BINDIR)/$(NAME)
+	install --mode=755 knot3.sh $(BINDIR)/$(NAME)
 	$(MKDIR) $(GAMEDIR)
-	unzip -o -d bin/Debug/ lib/MonoGame-Linux-3.1.2.zip
+	$(UNZIP) -o -d bin/Debug/ lib/MonoGame-Linux-3.1.2.zip
 	$(CPR) bin/Debug/* $(GAMEDIR)/
 
 clean: distclean
