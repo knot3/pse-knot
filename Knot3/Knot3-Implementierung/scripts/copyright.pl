@@ -16,7 +16,7 @@ sub pad {
 	return ' ' x ($len - length $num) . $num;
 }
 
-my @files = split(/[\r\n]+/, `git ls-files Knot3 Content/Shader/*.fx`);
+my @files = split(/[\r\n]+/, `git ls-files Knot3 Content/Shader/*.fx Content/models.ini`);
 
 my @stat_files_authors_percent = ();
 my %stat_authors_files_percent = ();
