@@ -41,7 +41,7 @@ namespace Knot3.Screens
 		private SavegameLoader<Knot, KnotMetaData> loader;
 
 		// Zurück-Button
-		private MenuButton backButton;
+		private MenuEntry backButton;
 
 		// Preview
 		private World previewWorld;
@@ -107,7 +107,7 @@ namespace Knot3.Screens
 			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 			previewMouseHandler = new ModelMouseHandler (screen: this, world: previewWorld);
 
-			backButton = new MenuButton(
+			backButton = new MenuEntry(
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Back",
@@ -149,7 +149,7 @@ namespace Knot3.Screens
 			};
 
 			// Erstelle den Menüeintrag
-			MenuButton button = new MenuButton (
+			MenuEntry button = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: name,

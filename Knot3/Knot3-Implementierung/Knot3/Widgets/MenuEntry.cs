@@ -24,7 +24,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagiert.
 	/// </summary>
-	public class MenuButton : MenuItem
+	public class MenuEntry : MenuItem
 	{
 		#region Properties
 
@@ -60,7 +60,7 @@ namespace Knot3.Widgets
 		/// Zudem sind Angabe der Zeichenreihenfolge, einer Zeichenkette für den Namen der Schaltfläche
 		/// und der Aktion, welche bei einem Klick ausgeführt wird Pflicht.
 		/// </summary>
-		public MenuButton (IGameScreen screen, DisplayLayer drawOrder, string name, Action<GameTime> onClick)
+		public MenuEntry (IGameScreen screen, DisplayLayer drawOrder, string name, Action<GameTime> onClick)
 		: base(screen, drawOrder, name)
 		{
 			OnClick = onClick;

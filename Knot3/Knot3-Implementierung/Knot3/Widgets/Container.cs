@@ -26,7 +26,7 @@ namespace Knot3.Widgets
 	/// Positionen, Größen, Farben und Ausrichtungen der Menüeinträge. Sie werden gesetzt, wenn die Werte
 	/// der Menüeinträge \glqq null\grqq~sind.
 	/// </summary>
-	public class Container : Widget, IEnumerable<MenuItem>
+	public class Container : Widget, IEnumerable<Widget>
 	{
 		#region Properties
 
@@ -150,7 +150,7 @@ namespace Knot3.Widgets
 		/// Gibt einen Enumerator über die Einträge des Menüs zurück.
 		/// [returntype=IEnumerator<MenuItem>]
 		/// </summary>
-		public virtual IEnumerator<MenuItem> GetEnumerator ()
+		public virtual IEnumerator<Widget> GetEnumerator ()
 		{
 			return items.GetEnumerator ();
 		}
