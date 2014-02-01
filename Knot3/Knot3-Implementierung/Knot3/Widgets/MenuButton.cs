@@ -39,7 +39,7 @@ namespace Knot3.Widgets
 		public override float NameWidth
 		{
 			get { return 1.00f; }
-			set { throw new ArgumentException("You can't change the NameWidth of a MenuButton!"); }
+			set { throw new ArgumentException ("You can't change the NameWidth of a MenuButton!"); }
 		}
 
 		/// <summary>
@@ -48,7 +48,7 @@ namespace Knot3.Widgets
 		public override float ValueWidth
 		{
 			get { return 0.00f; }
-			set { throw new ArgumentException("You can't change the ValueWidth of a MenuButton!"); }
+			set { throw new ArgumentException ("You can't change the ValueWidth of a MenuButton!"); }
 		}
 
 		#endregion
@@ -75,7 +75,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-			ItemState = ItemState.Selected;
+			base.OnLeftClick (position, state, time);
 			OnClick (time);
 		}
 
