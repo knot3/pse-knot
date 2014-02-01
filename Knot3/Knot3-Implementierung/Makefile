@@ -32,3 +32,4 @@ uninstall:
 	$(RMR) $(GAMEDIR)/
 
 .PHONY: clean distclean uninstall build install all
+
