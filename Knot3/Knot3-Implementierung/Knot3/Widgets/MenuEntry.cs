@@ -97,6 +97,15 @@ namespace Knot3.Widgets
 			}
 		}
 
+		
+
+		public override void SetHovered (bool isHovered, GameTime time)
+		{
+			if (ItemState != ItemState.Selected) {
+				base.SetHovered(isHovered, time);
+			}
+		}
+
 		public void AddKey (Keys key)
 		{
 			if (!ValidKeys.Contains (key)) {
