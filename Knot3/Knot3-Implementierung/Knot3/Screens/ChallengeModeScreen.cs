@@ -181,9 +181,9 @@ namespace Knot3.Screens
 			                             widget: playTimeDisplay, lineWidth: 2, padding: 0);
 			//Undo-Button
 			undoButton = new MenuEntry (screen: this,
-			                             drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			                             name: "Undo",
-			                             onClick: (time) => OnUndo ());
+			                            drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			                            name: "Undo",
+			                            onClick: (time) => OnUndo ());
 			undoButton.SetCoordinates (left: 0.55f, top: 0.900f, right: 0.65f, bottom: 0.95f);
 			undoButton.BackgroundColor = () => base.MenuItemBackgroundColor (undoButton.ItemState);
 			undoButton.ForegroundColor = () => base.MenuItemForegroundColor (undoButton.ItemState);
@@ -194,9 +194,9 @@ namespace Knot3.Screens
 
 			//Redo-Button
 			redoButton = new MenuEntry (screen: this,
-			                             drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			                             name: "Redo",
-			                             onClick: (time) => OnRedo ());
+			                            drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			                            name: "Redo",
+			                            onClick: (time) => OnRedo ());
 			redoButton.SetCoordinates (left: 0.70f, top: 0.900f, right: 0.85f, bottom: 0.95f);
 			redoButton.BackgroundColor = () => Color.Black;
 			redoButton.ForegroundColor = () => Color.White;
