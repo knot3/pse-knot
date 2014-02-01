@@ -38,6 +38,7 @@ foreach my $file (@files) {
 	$count += $_ foreach (values %authors);
 	$authors_allfiles_percent{$_} += $authors{$_} foreach (keys %authors);
 	$allfiles_loc += $count;
+	do { $authors{$_} /= 5 foreach (keys %authors) } if $file =~ /.ini$/;
 
 	push @stat_files_authors_percent, $file."\t".join(", ", map { $_.": ".int($authors{$_}/$count*100)."%" } keys %authors);
 	foreach my $author (keys %authors) {
