@@ -28,6 +28,7 @@ foreach my $file (@files) {
 	my %authors = ();
 	foreach my $line (@blame) {
 		if ($line =~ /^.*?\((.*?)\s[\d]{4}/) {
+			next if $line =~ /angled/ && $file =~ /.ini$/;
 			$authors{author($1)} += 1;
 		}
 	}
