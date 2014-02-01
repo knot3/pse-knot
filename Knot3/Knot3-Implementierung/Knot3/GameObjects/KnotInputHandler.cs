@@ -136,7 +136,7 @@ namespace Knot3.GameObjects
 				{ PlayerActions.RotateRight, 			(time) => rotate (Vector2.UnitX * 4, time) },
 				{ PlayerActions.ZoomIn, 				(time) => zoom (-1, time) },
 				{ PlayerActions.ZoomOut, 				(time) => zoom (+1, time) },
-				{ PlayerActions.ResetCamera, 			(time) => camera.ResetCamera () },
+				{ PlayerActions.ResetCamera, 			(time) => resetCamera(time) },
 				{ PlayerActions.MoveToCenter,			(time) => camera.StartSmoothMove (target: camera.ArcballTarget, time: time) },
 				{ PlayerActions.ToggleMouseLock,		(time) => toggleMouseLock (time) },
 				{ PlayerActions.AddToEdgeSelection,		(time) => {} },
@@ -484,6 +484,12 @@ namespace Knot3.GameObjects
 		{
 			if (CurrentKeyAssignmentReversed [PlayerActions.ToggleMouseLock].IsDown ()) {
 				Screen.Input.GrabMouseMovement = !Screen.Input.GrabMouseMovement;
+			}
+		}
+
+		private void resetCamera(GameTime time){
+			if (CurrentKeyAssignmentReversed [PlayerActions.ResetCamera].IsDown ()) {
+				camera.ResetCamera ();
 			}
 		}
 

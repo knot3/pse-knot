@@ -235,17 +235,20 @@ namespace Knot3.Screens
 			// wenn zur Zeit kein Dialog vorhanden ist, und Escape gedrückt wurde...
 			if (currentDialog == null && Keys.Escape.IsDown ()) {
 				// erstelle einen neuen Pausedialog
+				knotInput.IsEnabled = false;
 				Dialog pauseDialog = new CreativePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog, knot: knot);
 				// füge ihn in die Spielkomponentenliste hinzu
 				AddGameComponents (time, pauseDialog);
 				// weise ihn als den aktuellen Dialog zu
 				currentDialog = pauseDialog;
+
 			}
 
 			// wenn der aktuelle Dialog unsichtbar ist,
 			// befinden wir uns im 1. Frame nach dem Schließen des Dialogs
 			if (currentDialog != null && !currentDialog.IsVisible) {
 				currentDialog = null;
+				knotInput.IsEnabled = true;
 			}
 		}
 
