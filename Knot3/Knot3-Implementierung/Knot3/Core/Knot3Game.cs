@@ -51,13 +51,11 @@ namespace Knot3.Core
 
 						Graphics.PreferredBackBufferWidth = Graphics.GraphicsDevice.DisplayMode.Width;
 						Graphics.PreferredBackBufferHeight = Graphics.GraphicsDevice.DisplayMode.Height;
-
 					}
 					else {
 
 						Graphics.PreferredBackBufferWidth = (int)Knot3Game.defaultSize.X;
 						Graphics.PreferredBackBufferHeight = (int)Knot3Game.defaultSize.Y;
-
 					}
 					Graphics.ToggleFullScreen ();
 					Graphics.ApplyChanges ();
@@ -220,7 +218,8 @@ namespace Knot3.Core
 			// base method
 			base.Update (time);
 		}
-		private void toDefaultSize(bool fullscreen){
+		private void toDefaultSize(bool fullscreen)
+		{
 			if (!fullscreen) {
 				Graphics.PreferredBackBufferWidth = (int)Knot3Game.defaultSize.X;
 				Graphics.PreferredBackBufferHeight = (int)Knot3Game.defaultSize.Y;
@@ -228,7 +227,8 @@ namespace Knot3.Core
 			}
 		}
 
-		private void updateResolution(){
+		private void updateResolution()
+		{
 			int width;
 			int height;
 			string currentResolution = Graphics.GraphicsDevice.Viewport.Width + "x" + Graphics.GraphicsDevice.Viewport.Height;
