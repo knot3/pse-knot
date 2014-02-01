@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Knot3" company="PSE" webLink="http://" view-date="2013-12-30" view-index="1" gantt-divider-location="315" resource-divider-location="300" version="2.0" locale="de">
+<?xml version="1.0" encoding="UTF-8"?><project name="Knot3" company="PSE" webLink="http://" view-date="2013-12-16" view-index="1" gantt-divider-location="315" resource-divider-location="300" version="2.0" locale="de">
     <description/>
-    <view zooming-state="default:4" id="gantt-chart">
-        <field id="tpd3" name="Vorgang" width="59" order="0"/>
-        <field id="tpd4" name="Anfang" width="18" order="1"/>
+    <view zooming-state="default:5" id="gantt-chart">
+        <field id="tpd3" name="Vorgang" width="73" order="0"/>
+        <field id="tpd4" name="Anfang" width="5" order="1"/>
         <field id="tpd5" name="Ende" width="21" order="2"/>
     </view>
     <view id="resource-table">
-        <field id="0" name="Ressource" width="52" order="0"/>
-        <field id="1" name="Rolle" width="47" order="1"/>
+        <field id="0" name="Ressource" width="92" order="0"/>
+        <field id="1" name="Rolle" width="7" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -62,10 +62,6 @@
         <date year="2013" month="12" date="24"/>
         <date year="2013" month="12" date="25"/>
         <date year="2013" month="12" date="26"/>
-        <date year="2013" month="12" date="27"/>
-        <date year="2013" month="12" date="28"/>
-        <date year="2013" month="12" date="29"/>
-        <date year="2013" month="12" date="30"/>
         <date year="2013" month="12" date="31"/>
         <date year="2014" month="1" date="1"/>
         <date year="" month="1" date="1"/>
@@ -91,92 +87,6 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Grundlegende Spielstruktur" color="#ff0033" meeting="false" start="2013-12-23" duration="1" complete="0" priority="4" expand="true">
-            <depend id="21" type="2" difference="0" hardness="Strong"/>
-            <depend id="23" type="2" difference="0" hardness="Strong"/>
-            <depend id="129" type="2" difference="0" hardness="Strong"/>
-            <depend id="131" type="2" difference="0" hardness="Strong"/>
-            <depend id="298" type="2" difference="0" hardness="Strong"/>
-            <depend id="351" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="7" name="Datenstruktur" color="#ff0033" meeting="false" start="2013-12-23" duration="21" complete="0" expand="true">
-            <depend id="19" type="2" difference="0" hardness="Strong"/>
-            <depend id="74" type="2" difference="0" hardness="Strong"/>
-            <depend id="199" type="2" difference="0" hardness="Strong"/>
-            <depend id="200" type="2" difference="0" hardness="Strong"/>
-            <task id="214" name="Kantenverschiebung" color="#ff0033" meeting="false" start="2014-01-18" duration="4" complete="0" expand="true">
-                <depend id="213" type="2" difference="0" hardness="Strong"/>
-                <depend id="247" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="213" name="Knotenvergleich" color="#ff0033" meeting="false" start="2014-01-22" duration="1" complete="0" expand="true"/>
-            <task id="212" name="Doppelt-verkettete Liste" color="#ff0033" meeting="false" start="2013-12-23" duration="1" complete="0" expand="true">
-                <depend id="210" type="2" difference="0" hardness="Strong"/>
-                <depend id="211" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="211" name="Rasterpunktzuordnung" color="#ff0033" meeting="false" start="2014-01-02" duration="15" complete="0" expand="true">
-                <depend id="141" type="2" difference="0" hardness="Strong"/>
-                <depend id="213" type="2" difference="0" hardness="Strong"/>
-                <depend id="214" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="210" name="Kantenabfolge" color="#ff0033" meeting="false" start="2014-01-02" duration="15" complete="0" expand="true"/>
-        </task>
-        <task id="351" name="3D-Komponenten" color="#000000" meeting="false" project="true" start="2014-01-02" duration="25" complete="0" expand="true">
-            <task id="298" name="Grundlegende Funktionalität" color="#8cb6ce" meeting="false" start="2014-01-02" duration="5" complete="0" expand="true">
-                <depend id="25" type="2" difference="0" hardness="Strong"/>
-                <depend id="133" type="2" difference="0" hardness="Strong"/>
-                <depend id="299" type="2" difference="0" hardness="Strong"/>
-                <depend id="355" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="299" name="Erweiterte Funktionalität" color="#8cb6ce" meeting="false" start="2014-01-08" duration="20" complete="0" expand="true"/>
-        </task>
-        <task id="354" name="3D-Modelle" meeting="false" start="2014-01-08" duration="21" complete="0" expand="true">
-            <task id="356" name="Verbesserte Modelle" color="#8cb6ce" meeting="false" start="2014-01-09" duration="20" complete="0" expand="true"/>
-            <task id="355" name="Grundlegende Modelle" color="#8cb6ce" meeting="false" start="2014-01-08" duration="1" complete="0" expand="true">
-                <depend id="141" type="2" difference="0" hardness="Strong"/>
-                <depend id="356" type="2" difference="0" hardness="Strong"/>
-            </task>
-        </task>
-        <task id="19" name="3D-Modell-Klassen" color="#3333ff" meeting="false" start="2014-01-23" duration="9" complete="0" expand="true">
-            <depend id="74" type="2" difference="0" hardness="Strong"/>
-            <task id="247" name="Kantenverschiebung" color="#ff0033" meeting="false" start="2014-01-23" duration="1" complete="0" expand="true">
-                <depend id="209" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="141" name="Kantendarstellung" color="#ff0033" meeting="false" start="2014-01-23" duration="1" complete="0" expand="true"/>
-            <task id="142" name="Übergangsdarstellung" color="#ff0033" meeting="false" start="2014-01-25" duration="4" complete="0" expand="true">
-                <depend id="145" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="145" name="Flächen" color="#33ff00" meeting="false" start="2014-01-29" duration="3" complete="0" expand="true"/>
-        </task>
-        <task id="129" name="Bugfixes" color="#33ff00" meeting="false" start="2014-01-02" duration="30" complete="0" expand="true">
-            <depend id="209" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="330" name="Widgets" color="#000000" meeting="false" start="2014-01-02" duration="18" complete="0" expand="true">
-            <task id="21" name="Grundlegende" color="#ff0033" meeting="false" start="2014-01-02" duration="17" complete="0" expand="true">
-                <depend id="74" type="2" difference="0" hardness="Strong"/>
-                <depend id="130" type="2" difference="0" hardness="Strong"/>
-                <depend id="337" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="337" name="Slider" color="#8cb6ce" meeting="false" start="2014-01-20" duration="1" complete="0" expand="true">
-                <depend id="130" type="2" difference="0" hardness="Strong"/>
-            </task>
-        </task>
-        <task id="23" name="GameScreens" color="#3333ff" meeting="false" start="2014-01-02" duration="24" complete="0" expand="true">
-            <task id="130" name="Einstellungsmenüs" color="#ff0033" meeting="false" start="2014-01-21" duration="6" complete="0" expand="true"/>
-            <task id="131" name="Grundlegende Screens" color="#ff0033" meeting="false" start="2014-01-02" duration="4" complete="0" expand="true"/>
-            <task id="133" name="Spielmodi" color="#ff0033" meeting="false" start="2014-01-08" duration="14" complete="0" expand="true">
-                <depend id="19" type="2" difference="0" hardness="Strong"/>
-                <depend id="141" type="2" difference="0" hardness="Strong"/>
-            </task>
-        </task>
-        <task id="25" name="Rendereffekte" color="#3333ff" meeting="false" start="2014-01-08" duration="24" complete="0" expand="true">
-            <task id="164" name="Standardeffekte" color="#ff0033" meeting="false" start="2014-01-08" duration="7" complete="0" expand="true">
-                <depend id="19" type="2" difference="0" hardness="Strong"/>
-                <depend id="165" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="165" name="Optionale Effekte" color="#33ff00" meeting="false" start="2014-01-15" duration="17" complete="0" expand="true">
-                <depend id="209" type="2" difference="0" hardness="Strong"/>
-            </task>
-        </task>
         <task id="72" name="Start" color="#ff0033" meeting="true" start="2013-12-23" duration="0" complete="0" expand="true">
             <depend id="0" type="2" difference="0" hardness="Strong"/>
             <depend id="7" type="2" difference="0" hardness="Strong"/>
@@ -186,12 +96,110 @@
             <depend id="212" type="2" difference="0" hardness="Strong"/>
             <depend id="298" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="74" name="Eastereggs" color="#ff00ff" meeting="false" start="2014-02-01" duration="1" complete="0" expand="true">
+        <task id="360" name="Ender der Ferien" color="#ff0033" meeting="true" start="2014-01-14" duration="0" complete="0" expand="true">
+            <depend id="129" type="2" difference="0" hardness="Strong"/>
+            <depend id="133" type="2" difference="0" hardness="Strong"/>
+            <depend id="165" type="2" difference="0" hardness="Strong"/>
+            <depend id="213" type="2" difference="0" hardness="Strong"/>
+            <depend id="214" type="2" difference="0" hardness="Strong"/>
+            <depend id="337" type="2" difference="0" hardness="Strong"/>
+            <depend id="356" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="416" name="1 Woche vor Abgabe" color="#ff0033" meeting="true" start="2014-01-26" duration="0" complete="0" expand="true">
+            <depend id="142" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="0" name="Grundlegende Spielstruktur" color="#ff0033" meeting="false" start="2013-12-23" duration="1" complete="0" priority="4" expand="true">
+            <depend id="21" type="2" difference="0" hardness="Strong"/>
+            <depend id="23" type="2" difference="0" hardness="Strong"/>
+            <depend id="129" type="2" difference="0" hardness="Strong"/>
+            <depend id="131" type="2" difference="0" hardness="Strong"/>
+            <depend id="298" type="2" difference="0" hardness="Strong"/>
+            <depend id="351" type="2" difference="0" hardness="Strong"/>
+            <depend id="388" type="2" difference="0" hardness="Strong"/>
+            <depend id="392" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="7" name="Datenstruktur" color="#ff0033" meeting="false" start="2013-12-23" duration="21" complete="0" expand="true">
+            <depend id="74" type="2" difference="0" hardness="Strong"/>
+            <depend id="199" type="2" difference="0" hardness="Strong"/>
+            <depend id="200" type="2" difference="0" hardness="Strong"/>
+            <task id="214" name="Kantenverschiebung" color="#ff0033" meeting="false" start="2014-01-14" duration="4" complete="0" expand="true">
+                <depend id="213" type="2" difference="0" hardness="Strong"/>
+                <depend id="247" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="213" name="Knotenvergleich" color="#ff0033" meeting="false" start="2014-01-18" duration="1" complete="0" expand="true"/>
+            <task id="212" name="Doppelt-verkettete Liste" color="#ff0033" meeting="false" start="2013-12-23" duration="1" complete="0" expand="true">
+                <depend id="210" type="2" difference="0" hardness="Strong"/>
+                <depend id="211" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="211" name="Rasterpunktzuordnung" color="#ff0033" meeting="false" start="2013-12-27" duration="3" complete="0" expand="true">
+                <depend id="213" type="2" difference="0" hardness="Strong"/>
+                <depend id="214" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="210" name="Kantenabfolge" color="#ff0033" meeting="false" start="2013-12-27" duration="5" complete="0" expand="true"/>
+        </task>
+        <task id="351" name="3D-Komponenten" color="#000000" meeting="false" start="2013-12-27" duration="31" complete="0" expand="true">
+            <task id="388" name="Inputhandler" color="#ff0033" meeting="false" start="2013-12-27" duration="31" complete="0" expand="true"/>
+            <task id="298" name="Grundlegende Funktionalität" color="#ff0033" meeting="false" start="2013-12-27" duration="5" complete="0" expand="true">
+                <depend id="25" type="2" difference="0" hardness="Strong"/>
+                <depend id="299" type="2" difference="0" hardness="Strong"/>
+                <depend id="355" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="299" name="Erweiterte Funktionalität" color="#ff0033" meeting="false" start="2014-01-03" duration="25" complete="0" expand="true"/>
+        </task>
+        <task id="23" name="GameScreens" color="#3333ff" meeting="false" start="2013-12-27" duration="29" complete="0" expand="true">
+            <task id="392" name="Grundlegende Spielmodi" color="#ff0033" meeting="false" start="2013-12-27" duration="6" complete="0" expand="true">
+                <depend id="133" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="130" name="Einstellungsmenüs" color="#ff0033" meeting="false" start="2014-01-15" duration="6" complete="0" expand="true"/>
+            <task id="131" name="Grundlegende Screens" color="#ff0033" meeting="false" start="2013-12-27" duration="4" complete="0" expand="true"/>
+            <task id="133" name="Erweiterte Spielmodi" color="#ff0033" meeting="false" start="2014-01-14" duration="14" complete="0" expand="true"/>
+        </task>
+        <task id="330" name="Widgets" color="#000000" meeting="false" start="2013-12-27" duration="16" complete="0" expand="true">
+            <task id="21" name="Grundlegende" color="#ff0033" meeting="false" start="2013-12-27" duration="5" complete="0" expand="true">
+                <depend id="74" type="2" difference="0" hardness="Strong"/>
+                <depend id="130" type="2" difference="0" hardness="Strong"/>
+                <depend id="337" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="337" name="Slider" color="#ff0033" meeting="false" start="2014-01-14" duration="1" complete="0" expand="true">
+                <depend id="130" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="354" name="3D-Modelle" meeting="false" start="2014-01-03" duration="20" complete="0" expand="true">
+            <task id="356" name="Verbesserte Modelle" color="#ff0033" meeting="false" start="2014-01-14" duration="10" complete="0" expand="true"/>
+            <task id="355" name="Grundlegende Modelle" color="#ff0033" meeting="false" start="2014-01-03" duration="1" complete="0" expand="true">
+                <depend id="141" type="2" difference="0" hardness="Strong"/>
+                <depend id="356" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="365" name="3D-Modell-Klassen" meeting="false" start="2014-01-04" duration="28" complete="0" expand="true">
+            <task id="145" name="Flächen" color="#33ff00" meeting="false" start="2014-01-30" duration="3" complete="0" expand="true"/>
+            <task id="142" name="Übergangsdarstellung" color="#ff0033" meeting="false" start="2014-01-26" duration="4" complete="0" expand="true">
+                <depend id="145" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="141" name="Kantendarstellung" color="#ff0033" meeting="false" start="2014-01-04" duration="1" complete="0" expand="true">
+                <depend id="142" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="247" name="Kantenverschiebung" color="#ff0033" meeting="false" start="2014-01-18" duration="1" complete="0" expand="true">
+                <depend id="209" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="25" name="Rendereffekte" color="#3333ff" meeting="false" start="2014-01-03" duration="29" complete="0" expand="true">
+            <task id="164" name="Standardeffekte" color="#ff0033" meeting="false" start="2014-01-03" duration="7" complete="0" expand="true">
+                <depend id="165" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="165" name="Optionale Effekte" color="#33ff00" meeting="false" start="2014-01-14" duration="19" complete="0" expand="true">
+                <depend id="209" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="198" name="Eingabe/Ausgabe" color="#3333ff" meeting="false" start="2014-01-19" duration="8" complete="0" expand="true">
+            <task id="199" name="Standardformate" color="#ff0033" meeting="false" start="2014-01-19" duration="8" complete="0" expand="true"/>
+            <task id="200" name="3D-Drucker-Formate" color="#33ff33" meeting="false" start="2014-01-19" duration="3" complete="0" expand="true"/>
+        </task>
+        <task id="129" name="Bugfixes" color="#33ff00" meeting="false" start="2014-01-14" duration="19" complete="0" expand="true">
             <depend id="209" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="198" name="Eingabe/Ausgabe" color="#3333ff" meeting="false" start="2014-01-23" duration="8" complete="0" expand="true">
-            <task id="199" name="Standardformate" color="#ff0033" meeting="false" start="2014-01-23" duration="8" complete="0" expand="true"/>
-            <task id="200" name="3D-Drucker-Formate" color="#33ff33" meeting="false" start="2014-01-23" duration="3" complete="0" expand="true"/>
+        <task id="74" name="Eastereggs" color="#ff00ff" meeting="false" start="2014-01-19" duration="1" complete="0" expand="true">
+            <depend id="209" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="209" name="Ende" color="#ff0033" meeting="true" start="2014-02-02" duration="0" complete="0" expand="true"/>
     </tasks>
@@ -210,39 +218,40 @@
         <allocation task-id="213" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="355" resource-id="0" function="Default:1" responsible="false" load="2.0"/>
         <allocation task-id="356" resource-id="0" function="Default:1" responsible="false" load="2.0"/>
-        <allocation task-id="0" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
-        <allocation task-id="23" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="30.0"/>
+        <allocation task-id="0" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
         <allocation task-id="164" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="30.0"/>
-        <allocation task-id="165" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
         <allocation task-id="214" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="30.0"/>
         <allocation task-id="247" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
-        <allocation task-id="199" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="199" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="20.0"/>
         <allocation task-id="298" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
         <allocation task-id="299" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
         <allocation task-id="212" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
         <allocation task-id="21" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
         <allocation task-id="129" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="40.0"/>
-        <allocation task-id="145" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="145" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="30.0"/>
         <allocation task-id="142" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="50.0"/>
         <allocation task-id="213" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
         <allocation task-id="210" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="20.0"/>
         <allocation task-id="211" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="20.0"/>
-        <allocation task-id="23" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
-        <allocation task-id="19" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="20.0"/>
-        <allocation task-id="165" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
+        <allocation task-id="130" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
+        <allocation task-id="141" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="80.0"/>
+        <allocation task-id="131" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="30.0"/>
+        <allocation task-id="133" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="20.0"/>
+        <allocation task-id="388" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="20.0"/>
+        <allocation task-id="392" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
+        <allocation task-id="165" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
         <allocation task-id="129" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="20.0"/>
-        <allocation task-id="142" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
-        <allocation task-id="23" resource-id="3" function="SoftwareDevelopment:10" responsible="false" load="10.0"/>
-        <allocation task-id="165" resource-id="3" function="SoftwareDevelopment:10" responsible="false" load="70.0"/>
+        <allocation task-id="142" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="80.0"/>
+        <allocation task-id="133" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="20.0"/>
         <allocation task-id="129" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="20.0"/>
-        <allocation task-id="23" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
-        <allocation task-id="165" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
+        <allocation task-id="130" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="30.0"/>
+        <allocation task-id="165" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="60.0"/>
         <allocation task-id="129" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
-        <allocation task-id="337" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
-        <allocation task-id="23" resource-id="5" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
-        <allocation task-id="165" resource-id="5" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
+        <allocation task-id="337" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="70.0"/>
+        <allocation task-id="130" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="30.0"/>
         <allocation task-id="129" resource-id="5" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
-        <allocation task-id="337" resource-id="5" function="SoftwareDevelopment:2" responsible="false" load="50.0"/>
+        <allocation task-id="337" resource-id="5" function="SoftwareDevelopment:2" responsible="false" load="70.0"/>
+        <allocation task-id="130" resource-id="5" function="SoftwareDevelopment:2" responsible="false" load="30.0"/>
         <allocation task-id="355" resource-id="6" function="SoftwareDevelopment:5" responsible="true" load="10.0"/>
         <allocation task-id="356" resource-id="6" function="SoftwareDevelopment:5" responsible="true" load="5.0"/>
     </allocations>
@@ -257,8 +266,8 @@
         <displaycolumn property-id="tpd8" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd9" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd2" order="-1" width="75" visible="false"/>
-        <displaycolumn property-id="tpd3" order="0" width="176" visible="true"/>
-        <displaycolumn property-id="tpd4" order="1" width="56" visible="true"/>
+        <displaycolumn property-id="tpd3" order="0" width="217" visible="true"/>
+        <displaycolumn property-id="tpd4" order="1" width="15" visible="true"/>
         <displaycolumn property-id="tpd5" order="2" width="64" visible="true"/>
     </taskdisplaycolumns>
     <previous/>
