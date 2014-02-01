@@ -41,8 +41,6 @@ namespace Knot3.Widgets
 
 		private SpriteBatch spriteBatch;
 
-
-
 		#endregion
 
 		#region Constructors

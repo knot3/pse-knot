@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -11,6 +12,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.RenderEffects;
@@ -26,7 +28,6 @@ namespace Knot3.Screens
 	/// </summary>
 	public class SettingsScreen : MenuScreen
 	{
-
 		#region Properties
 
 		protected string MenuName;
@@ -59,35 +60,35 @@ namespace Knot3.Screens
 			navigationMenu.ItemAlignY = VerticalAlignment.Center;
 
 			MenuEntry debugButton = new MenuEntry (
-				                        screen: this,
-				                        drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				                        name: "Debug",
-				                        onClick: (time) => NextScreen = new DebugSettingsScreen (Game)
-			                        );
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Debug",
+			    onClick: (time) => NextScreen = new DebugSettingsScreen (Game)
+			);
 			MenuEntry graphicsButton = new MenuEntry (
-				                           screen: this,
-				                           drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				                           name: "Video",
-				                           onClick: (time) => NextScreen = new GraphicsSettingsScreen (Game)
-			                           );
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Video",
+			    onClick: (time) => NextScreen = new GraphicsSettingsScreen (Game)
+			);
 			MenuEntry audioButton = new MenuEntry (
-				                        screen: this,
-				                        drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				                        name: "Audio",
-				                        onClick: (time) => NextScreen = new AudioSettingsScreen (Game)
-			                        );
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Audio",
+			    onClick: (time) => NextScreen = new AudioSettingsScreen (Game)
+			);
 			MenuEntry controlsButton = new MenuEntry (
-				                           screen: this,
-				                           drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				                           name: "Controls",
-				                           onClick: (time) => NextScreen = new ControlSettingsScreen (Game)
-			                           );
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Controls",
+			    onClick: (time) => NextScreen = new ControlSettingsScreen (Game)
+			);
 			MenuEntry profileButton = new MenuEntry (
-				                          screen: this,
-				                          drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				                          name: "Profile",
-				                          onClick: (time) => NextScreen = new ProfileSettingsScreen (Game)
-			                          );
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Profile",
+			    onClick: (time) => NextScreen = new ProfileSettingsScreen (Game)
+			);
 
 			navigationMenu.Add (debugButton);
 			navigationMenu.Add (graphicsButton);
@@ -96,17 +97,17 @@ namespace Knot3.Screens
 			navigationMenu.Add (profileButton);
 
 			lines.AddPoints (0, 50,
-				30, 970,
-				770, 895,
-				870, 970,
-				970, 50, 1000
-			);
+			                 30, 970,
+			                 770, 895,
+			                 870, 970,
+			                 970, 50, 1000
+			                );
 
 			backButton = new MenuEntry (
-				screen: this,
-				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				name: "Back",
-				onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is SettingsScreen)).ElementAt (0)
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Back",
+			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is SettingsScreen)).ElementAt (0)
 			);
 			backButton.AddKey (Keys.Escape);
 			backButton.SetCoordinates (left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
@@ -141,17 +142,16 @@ namespace Knot3.Screens
 			spriteBatch.Begin ();
 			// text
 			spriteBatch.DrawStringInRectangle (
-				font: HfGDesign.MenuFont (this),
-				text: MenuName,
-				color: Color.White,
-				bounds: new Rectangle (50, 50, 900, 50).Scale (Viewport),
-				alignX: HorizontalAlignment.Left,
-				alignY: VerticalAlignment.Center
+			    font: HfGDesign.MenuFont (this),
+			    text: MenuName,
+			    color: Color.White,
+			    bounds: new Rectangle (50, 50, 900, 50).Scale (Viewport),
+			    alignX: HorizontalAlignment.Left,
+			    alignY: VerticalAlignment.Center
 			);
 			spriteBatch.End ();
 		}
 
 		#endregion
-
 	}
 }
