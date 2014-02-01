@@ -77,9 +77,11 @@ namespace Knot3.Widgets
 		{
 			State = State.Selected;
 
-			foreach (MenuItem item in Menu) {
-				if (item is MenuEntry && item != this) {
-					item.State = State.None;
+			if (Menu != null) {
+				foreach (MenuItem item in Menu) {
+					if (item is MenuEntry && item != this) {
+						item.State = State.None;
+					}
 				}
 			}
 			base.OnLeftClick (position, state, time);
