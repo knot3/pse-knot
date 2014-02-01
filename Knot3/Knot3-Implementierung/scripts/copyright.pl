@@ -33,6 +33,7 @@ foreach my $file (@files) {
 	}
 
 	delete $authors{"PSE Knot"} if defined $authors{"PSE Knot"};
+	delete $authors{"Not Committed Yet"} if defined $authors{"Not Committed Yet"};
 	my $count = 0;
 	$count += $_ foreach (values %authors);
 	$authors_allfiles_percent{$_} += $authors{$_} foreach (keys %authors);
@@ -50,7 +51,7 @@ my $authors_files = "";
 foreach my $author (keys %stat_authors_files_percent) {
 	my $author_percent = sprintf("%.1f", $authors_allfiles_percent{$author}/$allfiles_loc*100);
 	$authors_files .= "  $author (".$author_percent."%):\n\n";
-	foreach my $entry (sort {$b->[1] <=> $a->[1]} @{$stat_authors_files_percent{$author}}) {
+	foreach my $entry (sort {int(100*$b->[1]) <=> int(100*$a->[1]) or $a->[2] cmp $b->[2]} @{$stat_authors_files_percent{$author}}) {
 		my ($total_lines, $percent_lines, $file) = @$entry;
 		$percent_lines = sprintf("%.1f", $percent_lines*100);
 		$authors_files .= "    ".pad($percent_lines, 5)."%    ".pad($total_lines, 5)." lines    ".$file."\n";
