@@ -43,5 +43,7 @@ namespace Knot3.Audio
 		/// Wird für jeden Frame aufgerufen.
 		/// </summary>
 		void Update (GameTime time);
+
+		void Shuffle ();
 	}
 }

@@ -476,5 +476,11 @@ namespace Knot3.Utilities
 				return origin;
 			}
 		}
+
+		public static IEnumerable<T> Shuffle<T> (this IEnumerable<T> source)
+		{
+			Random rnd = new Random ();
+			return source.OrderBy<T, int> ((item) => rnd.Next ());
+		}
 	}
 }
