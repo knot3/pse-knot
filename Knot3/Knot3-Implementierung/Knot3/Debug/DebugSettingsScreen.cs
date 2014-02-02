@@ -88,6 +88,16 @@ namespace Knot3.Debug
 			);
 			settingsMenu.Add (showStartEdgeArrow);
 
+			string[] unprojectMethods = { "SelectedObject", "NearFarAverage" };
+			DistinctOptionInfo unprojectOption = new DistinctOptionInfo ("debug", "unproject", unprojectMethods[0], unprojectMethods, Options.Default);
+			DropDownMenuItem unprojectItem = new DropDownMenuItem (
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    text: "Unproject"
+			);
+			unprojectItem.AddEntries (unprojectOption);
+			settingsMenu.Add (unprojectItem);
+
 			/*
 			CheckBoxItem shaderPascal = new CheckBoxItem (
 			    screen: this,

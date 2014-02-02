@@ -270,12 +270,12 @@ namespace Knot3.GameObjects
 			if (Options.Default ["video", "auto-camera", false]) {
 				ScreenPoint currentPosition = InputManager.CurrentMouseState.ToScreenPoint (Screen);
 				Bounds worldBounds = world.Bounds;
-				Bounds innerBounds = worldBounds.FromLeft (0.9f).FromRight (0.9f).FromTop (0.9f).FromBottom (0.9f);
+				Bounds innerBounds = worldBounds.FromLeft (0.96f).FromRight (0.96f).FromTop (0.96f).FromBottom (0.96f);
 				if (worldBounds.Contains (currentPosition) && !innerBounds.Contains (currentPosition)) {
 					Vector2 viewportCenter = new Vector2 (world.Viewport.X + world.Viewport.Width / 2,
 					                                      world.Viewport.Y + world.Viewport.Height / 2);
 					Vector2 screenCorner = (currentPosition - viewportCenter).PrimaryDirection ();
-					MoveCameraAndTarget (new Vector3 (screenCorner.X, -screenCorner.Y, 0) * 0.5f, time);
+					MoveTarget (new Vector3 (screenCorner.X, -screenCorner.Y, 0) * 0.5f, time);
 					world.Redraw = true;
 					Screen.Input.CurrentInputAction = InputAction.FreeMouse;
 				}

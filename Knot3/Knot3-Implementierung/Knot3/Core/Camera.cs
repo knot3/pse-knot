@@ -291,42 +291,43 @@ namespace Knot3.Core
 		/// </summary>
 		public Vector3 To3D (Vector2 position, Vector3 nearTo)
 		{
-			/*
-			Vector3 screenLocation = World.Viewport.Project (
-			                             source: nearTo,
-			                             projection: World.Camera.ProjectionMatrix,
-			                             view: World.Camera.ViewMatrix,
-			                             world: World.Camera.WorldMatrix
-			);
-			Vector3 currentMousePosition = World.Viewport.Unproject (
-			                                   source: new Vector3 (position, screenLocation.Z),
-			                                   projection: World.Camera.ProjectionMatrix,
-			                                   view: World.Camera.ViewMatrix,
-			                                   world: Matrix.Identity
-			);
-			return currentMousePosition;
-			*/
-
-			Vector3 nearScreenPoint = new Vector3 (position.X, position.Y, 0);
-			Vector3 farScreenPoint = new Vector3 (position.X, position.Y, 1);
-			Vector3 nearWorldPoint = World.Viewport.Unproject (
+			if (Options.Default ["debug", "unproject", "SelectedObject"] == "NearFarAverage") {
+				Vector3 nearScreenPoint = new Vector3 (position.X, position.Y, 0);
+				Vector3 farScreenPoint = new Vector3 (position.X, position.Y, 1);
+				Vector3 nearWorldPoint = World.Viewport.Unproject (
 			                             source: nearScreenPoint,
 			                             projection: World.Camera.ProjectionMatrix,
 			                             view: World.Camera.ViewMatrix,
 			                             world: Matrix.Identity
-			                         );
-			Vector3 farWorldPoint = World.Viewport.Unproject (
+				);
+				Vector3 farWorldPoint = World.Viewport.Unproject (
 			                            source: farScreenPoint,
 			                            projection: World.Camera.ProjectionMatrix,
 			                            view: World.Camera.ViewMatrix,
 			                            world: Matrix.Identity
-			                        );
+				);
 
-			Vector3 direction = farWorldPoint - nearWorldPoint;
+				Vector3 direction = farWorldPoint - nearWorldPoint;
 
-			float zFactor = -nearWorldPoint.Y / direction.Y;
-			Vector3 zeroWorldPoint = nearWorldPoint + direction * zFactor;
-			return zeroWorldPoint;
+				float zFactor = -nearWorldPoint.Y / direction.Y;
+				Vector3 zeroWorldPoint = nearWorldPoint + direction * zFactor;
+				return zeroWorldPoint;
+			}
+			else {
+				Vector3 screenLocation = World.Viewport.Project (
+			                             source: nearTo,
+			                             projection: World.Camera.ProjectionMatrix,
+			                             view: World.Camera.ViewMatrix,
+			                             world: World.Camera.WorldMatrix
+				);
+				Vector3 currentMousePosition = World.Viewport.Unproject (
+			                                   source: new Vector3 (position, screenLocation.Z),
+			                                   projection: World.Camera.ProjectionMatrix,
+			                                   view: World.Camera.ViewMatrix,
+			                                   world: Matrix.Identity
+				);
+				return currentMousePosition;
+			}
 		}
 
 		public Vector2 To2D (Vector3 position)

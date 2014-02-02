@@ -102,6 +102,7 @@ namespace Knot3.Screens
 			);
 			resolutionItem.AddEntries (resolutionOption);
 			settingsMenu.Add (resolutionItem);
+
 			float[] validSupersamples = {
 				1f, 1.25f, 1.5f, 1.75f, 2f
 			};
