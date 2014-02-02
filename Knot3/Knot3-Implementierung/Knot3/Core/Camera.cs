@@ -279,7 +279,7 @@ namespace Knot3.Core
 				Target = Target.SetDistanceTo (
 				             target: smoothTarget.Value,
 				             distance: Math.Max (0, smoothDistance - distance)
-				);
+				         );
 				World.Redraw = true;
 			}
 		}
@@ -296,13 +296,13 @@ namespace Knot3.Core
 			                             projection: World.Camera.ProjectionMatrix,
 			                             view: World.Camera.ViewMatrix,
 			                             world: World.Camera.WorldMatrix
-			);
+			                         );
 			Vector3 currentMousePosition = World.Viewport.Unproject (
 			                                   source: new Vector3 (position, screenLocation.Z),
 			                                   projection: World.Camera.ProjectionMatrix,
 			                                   view: World.Camera.ViewMatrix,
 			                                   world: Matrix.Identity
-			);
+			                               );
 			return currentMousePosition;
 		}
 
@@ -313,7 +313,7 @@ namespace Knot3.Core
 			                             projection: World.Camera.ProjectionMatrix,
 			                             view: World.Camera.ViewMatrix,
 			                             world: World.Camera.WorldMatrix
-			);
+			                         );
 			return new Vector2 (screenLocation.X, screenLocation.Y);
 		}
 
