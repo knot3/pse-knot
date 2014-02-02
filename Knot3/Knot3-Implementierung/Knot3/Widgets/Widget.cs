@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -27,6 +25,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public abstract class Widget : DrawableGameScreenComponent
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -48,12 +47,16 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die Hintergrundfarbe.
 		/// </summary>
-		public Func<Color> BackgroundColor { get; set; }
+		public Func<Color> BackgroundColorFunc { get; set; }
 
 		/// <summary>
 		/// Die Vordergrundfarbe.
 		/// </summary>
-		public Func<Color> ForegroundColor { get; set; }
+		public Func<Color> ForegroundColorFunc { get; set; }
+
+		public Color BackgroundColor  { get; set; }
+
+		public Color ForegroundColor { get; set; }
 
 		/// <summary>
 		/// Die horizontale Ausrichtung.
@@ -119,20 +122,22 @@ namespace Knot3.Widgets
 			Bounds = Bounds.Zero (screen);
 			AlignX = HorizontalAlignment.Left;
 			AlignY = VerticalAlignment.Center;
-			ForegroundColor = MenuItemForegroundColor;
-			BackgroundColor = MenuItemBackgroundColor;
+			ForegroundColorFunc = MenuItemForegroundColor;
+			BackgroundColorFunc = MenuItemBackgroundColor;
 			ValidKeys = new List<Keys> ();
 			IsVisible = true;
 			_isEnabled = true;
 			State = State.None;
 			SelectedColorBackground = Color.White;
 			SelectedColorForeground = Color.Black;
+			BackgroundColor = Color.Transparent;
+			ForegroundColor = Color.White;
 		}
 
 		public Color MenuItemBackgroundColor ()
 		{
 			if (State == State.None || State == State.Hovered) {
-				return Color.Transparent;
+				return BackgroundColor;
 			}
 			else if (State == State.Selected) {
 				return SelectedColorBackground;
@@ -145,10 +150,10 @@ namespace Knot3.Widgets
 		public  Color MenuItemForegroundColor ()
 		{
 			if (State == State.Hovered) {
-				return Color.White;
+				return ForegroundColor;
 			}
 			else if (State == State.None) {
-				return Color.White * 0.7f;
+				return ForegroundColor * 0.7f;
 			}
 			else if (State == State.Selected) {
 				return SelectedColorForeground;
@@ -159,5 +164,6 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
+
 	}
 }

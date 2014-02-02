@@ -39,6 +39,8 @@ namespace Knot3.Screens
 		// Spielstand-Loader
 		private SavegameLoader<Challenge, ChallengeMetaData> loader;
 		// Preview
+		private TextItem infoTitle;
+		private Menu challengeInfo;
 		private World previewWorld;
 		private KnotRenderer previewRenderer;
 		private KnotMetaData previewKnotMetaData;
@@ -85,7 +87,19 @@ namespace Knot3.Screens
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
 			title.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
-			title.ForegroundColor = () => Color.White;
+			title.ForegroundColorFunc = () => Color.White;
+
+			infoTitle = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Knot Info:");
+			infoTitle.Bounds.Position = new ScreenPoint (this, 0.45f, 0.62f);
+			infoTitle.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
+			infoTitle.ForegroundColorFunc = () => Color.White;
+
+			challengeInfo = new Menu(this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			challengeInfo.Bounds.Position = new ScreenPoint (this,0.47f, 0.70f);
+			challengeInfo.Bounds.Size = new ScreenPoint (this, 0.300f, 0.500f);
+			challengeInfo.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
+			challengeInfo.ItemAlignX = HorizontalAlignment.Left;
+			challengeInfo.ItemAlignY = VerticalAlignment.Center;
 
 			// Erstelle einen Parser für das Dateiformat
 			ChallengeFileIO fileFormat = new ChallengeFileIO ();
@@ -93,7 +107,7 @@ namespace Knot3.Screens
 			loader = new SavegameLoader<Challenge, ChallengeMetaData> (fileFormat, "index-challenges");
 
 			// Preview
-			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.48f, 0.7f);
+			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.48f, 0.5f);
 			previewWorld = new World (
 			    screen: this,
 			    drawIndex: DisplayLayer.ScreenUI + DisplayLayer.GameWorld,
@@ -153,11 +167,28 @@ namespace Knot3.Screens
 		private void AddSavegameToList (string filename, ChallengeMetaData meta)
 		{
 			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
+			Action<GameTime> nullAction = (time) => {
+			};
 			Action<GameTime> LoadFile = (time) => {
+				challengeInfo.Clear();
+				RemoveGameComponents (time,challengeInfo);
 				if (previewKnotMetaData != meta.Target) {
 					previewRenderer.Knot = loader.FileFormat.Load (filename).Target;
 					previewKnotMetaData = meta.Target;
 					startButton.IsVisible = true;
+
+					MenuEntry count = new MenuEntry (
+						screen: this,
+						drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+						name: "Knot Count: "+ previewKnotMetaData.CountEdges,
+						onClick: nullAction
+					);
+					count.BackgroundColor = Color.Black;
+					count.ForegroundColor = Color.White;
+					count.Selectable =false;
+					count.Enabled=false;
+					challengeInfo.Add(count);
+					AddGameComponents(time,challengeInfo);
 				}
 			};
 
@@ -183,7 +214,7 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler, backButton,startButton);
+			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler, backButton,startButton, infoTitle);
 		}
 
 		#endregion

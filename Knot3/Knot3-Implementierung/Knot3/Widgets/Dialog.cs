@@ -96,8 +96,8 @@ namespace Knot3.Widgets
 			// Der Standardabstand
 			Bounds.Padding = new ScreenPoint (screen, 0.010f, 0.010f);
 			// Die Standardfarben
-			BackgroundColor = () => screen.BackgroundColor.Mix (Color.White, 0.05f);
-			ForegroundColor = () => Color.Black;
+			BackgroundColorFunc = () => screen.BackgroundColor.Mix (Color.White, 0.05f);
+			ForegroundColorFunc = () => Color.Black;
 			TitleBackgroundColor = () => Lines.DefaultLineColor * 0.75f;
 
 			// Einen Rahmen um den Titel des Dialogs
@@ -137,14 +137,14 @@ namespace Knot3.Widgets
 			spriteBatch.Begin ();
 
 			// zeichne den Hintergrund
-			spriteBatch.DrawColoredRectangle (BackgroundColor (), Bounds.Rectangle);
+			spriteBatch.DrawColoredRectangle (BackgroundColorFunc (), Bounds.Rectangle);
 
 			// lade die Schrift
 			SpriteFont font = HfGDesign.MenuFont (Screen);
 
 			// zeichne den Titel des Dialogs
 			spriteBatch.DrawColoredRectangle (TitleBackgroundColor (), TitleBounds.Rectangle);
-			spriteBatch.DrawStringInRectangle (font, Title, ForegroundColor (), TitleBounds.Rectangle, AlignX, AlignY);
+			spriteBatch.DrawStringInRectangle (font, Title, ForegroundColorFunc (), TitleBounds.Rectangle, AlignX, AlignY);
 
 			spriteBatch.End ();
 		}

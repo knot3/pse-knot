@@ -41,12 +41,14 @@ namespace Knot3.Screens
 		private Button backButton;
 		private Button startButton;
 		// Preview
+		private TextItem infoTitle;
 		private World previewWorld;
 		private KnotRenderer previewRenderer;
 		private KnotMetaData previewKnotMetaData;
 		private Border previewBorder;
 		private KnotInputHandler previewInput;
 		private ModelMouseHandler previewMouseHandler;
+		private Menu knotInfo;
 
 		#endregion
 
@@ -70,7 +72,19 @@ namespace Knot3.Screens
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Knot");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
 			title.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
-			title.ForegroundColor = () => Color.White;
+			title.ForegroundColorFunc = () => Color.White;
+
+			infoTitle = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Knot Info:");
+			infoTitle.Bounds.Position = new ScreenPoint (this, 0.45f, 0.62f);
+			infoTitle.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
+			infoTitle.ForegroundColorFunc = () => Color.White;
+
+			knotInfo = new Menu(this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			knotInfo.Bounds.Position = new ScreenPoint (this,0.47f, 0.70f);
+			knotInfo.Bounds.Size = new ScreenPoint (this, 0.300f, 0.500f);
+			knotInfo.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
+			knotInfo.ItemAlignX = HorizontalAlignment.Left;
+			knotInfo.ItemAlignY = VerticalAlignment.Center;
 
 			// Erstelle einen Parser für das Dateiformat
 			KnotFileIO fileFormat = new KnotFileIO ();
@@ -78,7 +92,7 @@ namespace Knot3.Screens
 			loader = new SavegameLoader<Knot, KnotMetaData> (fileFormat, "index-knots");
 
 			// Preview
-			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.48f, 0.7f);
+			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.48f, 0.5f);
 			previewWorld = new World (
 			    screen: this,
 			    drawIndex: DisplayLayer.ScreenUI + DisplayLayer.GameWorld,
@@ -139,13 +153,30 @@ namespace Knot3.Screens
 		{
 			// Finde den Namen des Knotens
 			string name = meta.Name.Length > 0 ? meta.Name : filename;
-
+			Action<GameTime> nullAction = (time) => {
+			};
 			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
 			Action<GameTime> preview = (time) => {
+				knotInfo.Clear();
+				RemoveGameComponents (time,knotInfo);
 				if (previewKnotMetaData != meta) {
 					previewRenderer.Knot = loader.FileFormat.Load (filename);
 					previewKnotMetaData = meta;
 					startButton.IsVisible = true;
+					 
+
+							MenuEntry count = new MenuEntry (
+						screen: this,
+						drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+						name: "Knot Count: "+ previewKnotMetaData.CountEdges,
+						onClick: nullAction
+					);
+					count.BackgroundColor = Color.Black;
+					count.ForegroundColor = Color.White;
+					count.Selectable =false;
+					count.Enabled=false;
+					knotInfo.Add(count);
+					AddGameComponents(time,knotInfo);
 				}
 			};
 
@@ -170,7 +201,7 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler, backButton, startButton);
+			AddGameComponents (time, title , savegameMenu,previewBorder,previewWorld, previewInput, previewMouseHandler, backButton, startButton,infoTitle);
 		}
 
 		#endregion

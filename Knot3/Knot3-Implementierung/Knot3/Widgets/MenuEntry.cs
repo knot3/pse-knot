@@ -112,7 +112,8 @@ namespace Knot3.Widgets
 
 		public override void SetHovered (bool isHovered, GameTime time)
 		{
-			if (State != State.Selected) {
+
+			if (State != State.Selected && Enabled) {
 				base.SetHovered (isHovered, time);
 			}
 		}

@@ -107,7 +107,7 @@ namespace Knot3.Widgets
 			Rectangle bounds = ValueBounds;
 
 			// zeichne den Hintergrund des Eingabefelds
-			spriteBatch.DrawColoredRectangle (ForegroundColor (), bounds);
+			spriteBatch.DrawColoredRectangle (ForegroundColorFunc (), bounds);
 			Color backgroundColor = IsInputEnabled ? Color.Black.Mix (Color.White, 0.25f) : Color.Black;
 			spriteBatch.DrawColoredRectangle (backgroundColor, bounds.Shrink (xy: 2));
 
@@ -118,7 +118,7 @@ namespace Knot3.Widgets
 			spriteBatch.DrawStringInRectangle (
 			    font: font,
 			    text: InputText,
-			    color: ForegroundColor (),
+			    color: ForegroundColorFunc (),
 			    bounds: bounds.Shrink (x: 4, y: 2),
 			    alignX: HorizontalAlignment.Left,
 			    alignY: AlignY
