@@ -156,7 +156,7 @@ namespace Knot3.Widgets
 		{
 			get {
 				ScreenPoint pos = Bounds.Position;
-				ScreenPoint size = new ScreenPoint(Screen, Bounds.Size.Relative.X, 0.050f);
+				ScreenPoint size = new ScreenPoint(Screen, ()=>Bounds.Size.Relative.X, ()=>0.050f);
 				return new Bounds(pos, size);
 			}
 			set{
