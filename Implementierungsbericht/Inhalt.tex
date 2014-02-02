@@ -9,39 +9,36 @@ Grund: Analog zu FloatOptionInfo brauchten wir für die Konfigurierbarkeit der T
 \subsection{IGameScreen}
 Grund: Um ein Mock-Objekt für GameScreen erstellen zu können, werden alle von außen verwendeten Eigenschaften und Methoden von GameScreen in einem Interface zusammengefasst und überall im Code wird IGameScreen verwendet. Dies erleichtert die Unit-Tests.
 \subsection{IMouseClickEventListener, IMouseMoveEventListener und IMouseScrollEventListener}
-Grund:
+Grund: Die in IMouseEventListener definierten Methoden wurden in drei Interfaces aufgeteilt, damit nicht jede Klasse,
+die Teile der Funktionalität benötigt, alle Methoden überschreiben muss und die dann teilweise leer sind.
 
 \section{GameObjects:}
 \subsection{EdgeColoring}
-Grund:
+Grund: War im Entwurf nicht spezifiziert, da die Kolorierung als optional angesehen wurde. Ein einfacher Inputhandler analog zu EdgeRectangles, der auf Tastendruck einen ColorPickDialog für die selektierten Kanten öffnet.
 \subsection{EdgeRectangles}
-Grund:
-\subsection{GameObjectInfo}
-Grund:
+Grund: War im Entwurf nicht spezifiziert, da die Kolorierung als optional angesehen wurde. Ein einfacher Inputhandler analog zu EdgeColoring, der auf Tastendruck den selektierten Kanten eine gemeinsame neue Flächen-ID zuweist.
 \subsection{ModelColoring}
-Grund:
+Grund: Alle GameModels halten jetzt nicht mehr nur ein Color-Objekt, das ihre Farbe beinhaltet, sondern eine Instanz von ModelColoring. Dies ist eine abstrakte Klasse, die die Farbe von Modellen kapselt. Konkrete Implementierungen dieser Klasse sind SingleColor für eine einheitliche Farbe und GradientColor für einen Farbverlauf zwischen zwei Farben. Derzeit können wir aufgrund der Eingeschränktheit der XNA-API noch keinen Farbverlauf auf Modellen darstellen, aber sobald unser diesnezüglicher Erkenntnisfindungsprozess abgeschlossen ist, haben wir dann bereits die benötigte Infrastruktur im Code, um Modelle mit verschiedenen Farbeffekten zu versehen. Zusätzlich wird in ModelColoring auch die Hervorhebungsfarbe und dessen Intensität gekapselt und es gibt verschiedene Properties, um entweder die einzelnen Farbparameter abzufragen oder für Shadereffekte, die keine Farbverläufe unterstützen, eine Mischfarbe zu berechnen.
 \subsection{SkyCube}
-Grund:
+Grund: Ein IGameObject, das den weltraumartigen Hintergrund in unserem aktuellen Design darstellt.
 \subsection{TexturedRectangle}
-Grund:
+Grund: Ein texturiertes, frei im Raum positionierbares Rechteck, das aus zwei Dreiecken zusammengesetzt ist und low level gezeichnet wird.
 \subsection{TexturedRectangleInfo}
-Grund:
+Grund: Das Metadaten-Objekt zu TexturedRectangle.
 
 \section{RenderEffects:}
 \subsection{OpaqueEffekt}
-Grund:
+Grund: ???
 \subsection{RenderEffectLibrary}
-Grund:
+Grund: Sammelt alle aktuell im Spiel verwendbaren RenderEffekte und bietet Schnittstellen an, um den aktuell vom Spieler im Optionsmenü ausgewählten Rendereffekt zu instanziieren.
 \subsection{IRenderEffectStack}
-Grund:
-\subsection{ResizeEffect}
-Grund:
+Grund: Ein Interface, das benötigt wird, damit wir ein gemeinsames Interface für den echten RenderEffectStack und dessen Mock-Objekt bei den Unit-Tests haben.
 
 \section{KnotData:}
 \subsection{DirectionHelper}
-Grund:
+Grund: Enthält Methoden rund um das Direction.
 \subsection{RectangleMap}
-Grund:
+Grund: Analog zu NodeMap stellt RectangleMap eine Zuordnung zwischen den Kanten und den Flächen zwischen ihnen dar. Die Berechnung, wo Flächen angezeigt werden, findet in dieser Klasse statt.
 
 \section{Widgets:}
 Grund:
