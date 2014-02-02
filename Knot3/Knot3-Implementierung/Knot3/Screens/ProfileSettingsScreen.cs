@@ -54,11 +54,12 @@ namespace Knot3.Screens
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
+            
 			InputItem playerNameInput = new InputItem(
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Player Name:",
-			    inputText: "DEFAULT" // TODO
+                inputText: Options.Default["profile", "name", "Player"]
 			);
 			playerNameInput.OnValueSubmitted += () => {
 				Options.Default["profile", "name", ""] = playerNameInput.InputText;
