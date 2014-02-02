@@ -310,7 +310,7 @@ namespace Knot3.Screens
 			if (state == ChallengeModeState.Running) {
 				// vergleiche den Spielerknoten mit dem Zielknoten
 				if (PlayerKnot.Equals (Challenge.Target)) {
-					//Console.WriteLine ("Playerknot equals Target!");
+					Console.WriteLine ("Playerknot equals Target!");
 					state = ChallengeModeState.Finished;
 					OnChallengeFinished (time);
 				}

@@ -251,13 +251,13 @@ namespace Knot3.KnotData
 		/// </summary>
 		public bool Move (Direction direction, int distance)
 		{
-			//Console.WriteLine ("Moving edges of knot#" + debugId);
+			Console.WriteLine ("Moving edges of knot#" + debugId);
 			if (!IsValidMove (direction, distance)) {
 				return false;
 			}
 			// Durchlauf über die Selektionsblöcke
 			for (int b = 0; b < StructuredSelection.Count; ++b) {
-				//Console.WriteLine ("Moving edges of knot#" + debugId);
+				Console.WriteLine ("Moving edges of knot#" + debugId);
 				SelectionBlock currentBlock = StructuredSelection [b];
 
 				Circle<Edge> pointer = currentBlock.Begin;
@@ -277,9 +277,9 @@ namespace Knot3.KnotData
 					}
 				}
 
-				////Console.WriteLine("startElement="+startElement);
+				//Console.WriteLine("startElement="+startElement);
 				for (pointer = currentBlock.Begin; pointer != currentBlock.End.Next; pointer++) {
-					////Console.WriteLine("pointer="+pointer);
+					//Console.WriteLine("pointer="+pointer);
 					if (pointer == startElement) {
 						StartEdgeChanged (direction * distance);
 					}
@@ -302,7 +302,7 @@ namespace Knot3.KnotData
 					}
 				}
 			}
-			//Console.WriteLine ("Moving edges of knot#" + debugId);
+			Console.WriteLine ("Moving edges of knot#" + debugId);
 			onEdgesChanged ();
 
 			return true;

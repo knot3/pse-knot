@@ -275,7 +275,7 @@ namespace Knot3.Core
 
 				smoothProgress += 0.05f;
 
-				////Console.WriteLine ("distance = " + distance);
+				//Console.WriteLine ("distance = " + distance);
 				Target = Target.SetDistanceTo (
 				             target: smoothTarget.Value,
 				             distance: Math.Max (0, smoothDistance - distance)

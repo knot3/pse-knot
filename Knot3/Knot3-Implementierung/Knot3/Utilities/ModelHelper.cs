@@ -67,7 +67,7 @@ namespace Knot3.Utilities
 					return model;
 				}
 				catch (ContentLoadException) {
-					//Console.WriteLine ("Warning: Model " + name + " does not exist!");
+					Console.WriteLine ("Warning: Model " + name + " does not exist!");
 					invalidModels.Add (name);
 					return null;
 				}

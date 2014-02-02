@@ -43,7 +43,7 @@ namespace Knot3.KnotData
 		public IEnumerable<Edge> Edges
 		{
 			get {
-				//Console.WriteLine ("KnotStringIO.Edges[get] = " + edgeLines.Count ());
+				Console.WriteLine ("KnotStringIO.Edges[get] = " + edgeLines.Count ());
 				foreach (string _line in edgeLines) {
 					string line = _line;
 					Edge edge = DecodeEdge (line [0]);
@@ -65,12 +65,12 @@ namespace Knot3.KnotData
 				}
 			}
 			set {
-				//Console.WriteLine ("KnotStringIO.Edges[set] = #" + value.Count ());
+				Console.WriteLine ("KnotStringIO.Edges[set] = #" + value.Count ());
 				try {
 					edgeLines = ToLines (value);
 				}
 				catch (Exception ex) {
-					//Console.WriteLine (ex);
+					Console.WriteLine (ex);
 				}
 			}
 		}
@@ -132,7 +132,7 @@ namespace Knot3.KnotData
 				edgeLines = ToLines (knot);
 			}
 			catch (Exception ex) {
-				//Console.WriteLine (ex);
+				Console.WriteLine (ex);
 			}
 		}
 

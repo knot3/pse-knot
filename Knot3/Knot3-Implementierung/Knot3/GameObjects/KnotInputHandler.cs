@@ -500,7 +500,7 @@ namespace Knot3.GameObjects
 
 		public void OnStartEdgeChanged (Vector3 direction)
 		{
-			//Console.WriteLine ("OnStartEdgeChanged: " + direction);
+			Console.WriteLine ("OnStartEdgeChanged: " + direction);
 			camera.Position -= direction * Node.Scale;
 			camera.Target -= direction * Node.Scale;
 			Screen.Input.CurrentInputAction = InputAction.FreeMouse;

@@ -60,13 +60,12 @@ namespace Knot3.Debug
 			}
 			catch (ContentLoadException ex) {
 				font = null;
-				//Console.WriteLine (ex.Message);
+				Console.WriteLine (ex.Message);
 			}
 		}
 
 		public override void Draw (GameTime time)
 		{
-			return;
 			if (Options.Default ["video", "debug-coordinates", false]) {
 				DrawCoordinates (time);
 			}
@@ -194,10 +193,10 @@ namespace Knot3.Debug
 					spriteBatch.DrawString (font, str, new Vector2 (width, height) * Options.Default ["video", "Supersamples", 1], color, 0f, Vector2.Zero, scale * Options.Default ["video", "Supersamples", 1], SpriteEffects.None, 0f);
 				}
 				catch (ArgumentException exp) {
-					//Console.WriteLine (exp.ToString ());
+					Console.WriteLine (exp.ToString ());
 				}
 				catch (InvalidOperationException exp) {
-					//Console.WriteLine (exp.ToString ());
+					Console.WriteLine (exp.ToString ());
 				}
 			}
 		}

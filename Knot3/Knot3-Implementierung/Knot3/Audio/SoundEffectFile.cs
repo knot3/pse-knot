@@ -59,14 +59,14 @@ namespace Knot3.Audio
 
 		public void Play ()
 		{
-			//Console.WriteLine ("Play: " + Name);
+			Console.WriteLine ("Play: " + Name);
 			Instance.Volume = volume = AudioManager.Volume(SoundType);
 			Instance.Play ();
 		}
 
 		public void Stop ()
 		{
-			//Console.WriteLine ("Stop: " + Name);
+			Console.WriteLine ("Stop: " + Name);
 			Instance.Stop ();
 		}
 

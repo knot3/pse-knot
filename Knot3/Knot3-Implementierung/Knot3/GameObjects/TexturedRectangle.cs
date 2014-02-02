@@ -88,7 +88,7 @@ namespace Knot3.GameObjects
 				Viewport original = Screen.Viewport;
 				Screen.Viewport = World.Viewport;
 
-				////Console.WriteLine ("basicEffect=" + World);
+				//Console.WriteLine ("basicEffect=" + World);
 				basicEffect.World = World.Camera.WorldMatrix;
 				basicEffect.View = World.Camera.ViewMatrix;
 				basicEffect.Projection = World.Camera.ProjectionMatrix;

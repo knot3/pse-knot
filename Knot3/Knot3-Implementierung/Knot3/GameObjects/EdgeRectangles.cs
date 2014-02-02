@@ -47,7 +47,7 @@ namespace Knot3.GameObjects
 				int rectId = random.Next ();
 				foreach (Edge edge in Knot.SelectedEdges) {
 					edge.Rectangles.Add (rectId);
-					//Console.WriteLine ("edge=" + edge + ", edge.Rectangles=" + string.Join (",", edge.Rectangles));
+					Console.WriteLine ("edge=" + edge + ", edge.Rectangles=" + string.Join (",", edge.Rectangles));
 				}
 				Knot.EdgesChanged ();
 			}
