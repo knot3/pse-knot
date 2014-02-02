@@ -109,7 +109,7 @@ namespace Knot3.Utilities
 						}
 					}
 					// Environment.CurrentDirectory = cwd;
-					Console.WriteLine (cwd);
+					//Console.WriteLine (cwd);
 					baseDirectory = cwd;
 					return cwd;
 				}

@@ -202,7 +202,7 @@ namespace Knot3.Utilities
 
 		public static BoundingSphere[] Bounds (this Model model)
 		{
-			//Console.WriteLine(model);
+			////Console.WriteLine(model);
 			BoundingSphere[] bounds = new BoundingSphere[model.Meshes.Count];
 			int i = 0;
 			foreach (ModelMesh mesh in model.Meshes) {
@@ -382,7 +382,7 @@ namespace Knot3.Utilities
 			BoundingSphere[] bounds = new BoundingSphere[(int)(length / distance)];
 			for (int offset = 0; offset < (int)(length / distance); ++offset) {
 				bounds [offset] = new BoundingSphere (position + direction * offset * distance, radius);
-				//Console.WriteLine ("sphere[" + offset + "]=" + Bounds [offset]);
+				////Console.WriteLine ("sphere[" + offset + "]=" + Bounds [offset]);
 			}
 			return bounds;
 		}

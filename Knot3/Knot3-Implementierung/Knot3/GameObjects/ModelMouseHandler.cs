@@ -63,7 +63,7 @@ namespace Knot3.GameObjects
 			        && (Screen.Input.CurrentInputAction == InputAction.CameraTargetMove
 			            || Screen.Input.CurrentInputAction == InputAction.FreeMouse)
 			        && InputManager.CurrentMouseState.ToVector2 () != lastMousePosition) {
-				//Console.WriteLine (Screen.Input.CurrentInputAction);
+				////Console.WriteLine (Screen.Input.CurrentInputAction);
 				lastRayCheck = millis;
 				lastMousePosition = InputManager.CurrentMouseState.ToVector2 ();
 

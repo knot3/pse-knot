@@ -196,7 +196,7 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-			Console.WriteLine ("Undo: Undo.Count=" + Undo.Count);
+			//Console.WriteLine ("Undo: Undo.Count=" + Undo.Count);
 			if (Undo.Count >= 2) {
 				Knot current = Undo.Pop ();
 				Knot prev = Undo.Peek ();
@@ -216,7 +216,7 @@ namespace Knot3.Screens
 
 		private void OnRedo ()
 		{
-			Console.WriteLine ("Redo: Redo.Count=" + Redo.Count);
+			//Console.WriteLine ("Redo: Redo.Count=" + Redo.Count);
 			if (Redo.Count >= 1) {
 				Knot next = Redo.Pop ();
 				Knot push = next.Clone ()as Knot;

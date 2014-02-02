@@ -32,7 +32,7 @@ namespace Knot3.Utilities
 				return screen.Content.Load<Texture2D> ("Textures/" + name);
 			}
 			catch (ContentLoadException ex) {
-				Console.WriteLine (ex.ToString ());
+				//Console.WriteLine (ex.ToString ());
 				return null;
 			}
 		}
@@ -43,7 +43,7 @@ namespace Knot3.Utilities
 				return screen.Content.Load<SpriteFont> ("Fonts/" + name);
 			}
 			catch (ContentLoadException ex) {
-				Console.WriteLine (ex.ToString ());
+				//Console.WriteLine (ex.ToString ());
 				return null;
 			}
 		}
@@ -132,10 +132,10 @@ namespace Knot3.Utilities
 				spriteBatch.DrawString (font, text, textPosition, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.6f);
 			}
 			catch (ArgumentException exp) {
-				Console.WriteLine (exp.ToString ());
+				//Console.WriteLine (exp.ToString ());
 			}
 			catch (InvalidOperationException exp) {
-				Console.WriteLine (exp.ToString ());
+				//Console.WriteLine (exp.ToString ());
 			}
 		}
 

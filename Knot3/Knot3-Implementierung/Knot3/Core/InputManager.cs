@@ -122,7 +122,7 @@ namespace Knot3.Core
 					                  ? ClickState.DoubleClick : ClickState.SingleClick;
 					LeftButtonClickTimer = 0;
 					PreviousClickMouseState = PreviousMouseState;
-					Console.WriteLine ("LeftButton=" + LeftMouseButton.ToString ());
+					//Console.WriteLine ("LeftButton=" + LeftMouseButton.ToString ());
 				}
 				else {
 					LeftMouseButton = ClickState.None;
@@ -133,7 +133,7 @@ namespace Knot3.Core
 					                   ? ClickState.DoubleClick : ClickState.SingleClick;
 					RightButtonClickTimer = 0;
 					PreviousClickMouseState = PreviousMouseState;
-					Console.WriteLine ("RightButton=" + RightMouseButton.ToString ());
+					//Console.WriteLine ("RightButton=" + RightMouseButton.ToString ());
 				}
 				else {
 					RightMouseButton = ClickState.None;
