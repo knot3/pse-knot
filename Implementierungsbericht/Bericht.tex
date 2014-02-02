@@ -14,5 +14,12 @@ Beim Vergleich zweier Knoten hat der direkte Zugriff auf die Datenstruktur und d
 \\\\
 Bei den Widgets hingegen sind einige Varianten aufgetaucht die wir im Entwurf noch nicht bedacht hatten. Zum Beispiel gab es keine gute Variante reinen Text anzuzeigen, der nicht auf Eingaben regaieren sollte.
 \\\\
-Bei der Audio-API sind wir auf das Problem gestoßen, dass XNA nur den proprietären WMA-Codec oder reine WAV-Dateien unterstützt. MonoGame unterstützt allerdings auf Plattformen wie Linux aus lizenzrechtlichen Gründen keine WMA-Dateien, sondern nur WAV-Dateien. Da wir nicht vollständig darauf verzichten wollten, komprimierte Audiodateien verwenden zu können, haben wir eine modifizierte Version der Library OggSharp \footnote{https://github.com/tobiasschulz/oggsharp} eingebunden, um den freien Ogg-Vorbis-Codec verwenden zu können, der sich auch allein aus lizenzrechtlichen Gründen besser eignet als WMA.
 
+
+Außerdem mussten wir feststellen, dass wir für das Pausenmenü im Creative und im Challenge Mode doch zwei unterschiedliche Widgets brauchen, da sie sich intern stärker unterscheiden als erwartet. Dazu kamen noch verschieden Helfer, die einem die Arbeit nur sehr erleichtert haben wie Border, das die Umrahmung von Widgets einfach ermöglicht.
+Während dieser Zeit haben sich andere aus unserem Team mit der Auswahl der Musik beschäftigt.
+Der schnelle Fortschritt, den wir durch Tobias Arbeiten in den anderen Phasen und in den Ferien hatten, führte in der Mitte der Implementierungsphase zu einer stark erhöhten Bereitschaft viel der Arbeitszeit mit konzeptionellen Ideen zur Implementierung und mit Recherchen zu Musik, Grafiken und 3D-Modellen zu verbringen.
+Dies änderte sich erst als uns die Zeit längst eingehohlt hatte.
+Bei der Audio-API sind wir auf das Problem gestoßen, dass XNA nur den proprietären WMA-Codec oder reine WAV-Dateien unterstützt. MonoGame unterstützt allerdings auf Plattformen wie Linux aus lizenzrechtlichen Gründen keine WMA-Dateien, sondern nur WAV-Dateien. Da wir nicht vollständig darauf verzichten wollten, komprimierte Audiodateien verwenden zu können, haben wir eine modifizierte Version der Library OggSharp \footnote{https://github.com/tobiasschulz/oggsharp} eingebunden, um den freien Ogg-Vorbis-Codec verwenden zu können, der sich auch allein aus lizenzrechtlichen Gründen besser eignet als WMA.
+Nun wurden auch endlich Langzeitbaustellen angegangen, wie zum Beispiel die Kantenübergänge.
+Dies stellte sich als sehr aufwendig heraus, da keine Möglichkeit gefunden wurde die Ausrichtung der Übergänge Algorythmisch zu ermitteln, sondern jeder mögliche Übergang einzeln von Hand bearbeitet werden mussten.
