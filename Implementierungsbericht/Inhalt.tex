@@ -48,21 +48,21 @@ Grund: Eine verbesserte Neuimplementierung der Rectangle-Klasse aus XNA, die auf
 \subsection{ChallengePauseDialog}
 Grund: Vorher war nur ein Pause-Dialog vorgesehen. Es hat sich herausgestellt, dass wir für die beiden Modi unterschiedliche Funktionalität benötigen. Im Fall des Challenge-Modus muss der Pause-Dialog die Zeit anhalten.
 \subsection{ColorPickDialog}
-Grund:
+Grund: Ein Dialog, der ein ColorPickItem enthält und zum Colorpicken aufgerufen wird.
 \subsection{Container}
-Grund:
+Grund: Container wurde in Menu umbenannt und VerticalMenu in Menu, weil dies die angedachte Funktionalität besser beschreibt.
 \subsection{CreativePauseDialog}
 Grund: Vorher war nur ein Pause-Dialog vorgesehen. Es hat sich herausgestellt, dass wir für die beiden Modi unterschiedliche Funktionalität benötigen.
 \subsection{ErrorDialog}
-Grund:
+Grund: Ein Dialog der Fehlermeldungen anzeigt.
 \subsection{Lines}
-Grund:
+Grund: Ein Widget, das die Linien zeichnet, die im HfG-Design vorgegeben waren und so aussehen wie im Mockup.
 \subsection{MenuEntry}
-Grund:
+Grund: Umbenannter MenuButton.
 \subsection{ScreenPoint}
 Grund: Eine verbesserte Neuimplementierung sowohl der Klassen Vector2 als auch Point aus dem XNA-Framework, die sich implizit in beide konvertieren lässt und an deren Stelle in der XNA-API verwenden lässt. Die X- und Y-Korrdinaten von ScreenPoint sind als Delegate implementiert, was eine verschachtelte Abhängigkeit zwischen mehreren ScreenPoints ermöglicht. Jeder ScreenPoint hält eine Referenz auf den IGameScreen, in dem er verwendet wird, und skaliert beim Casten in Vector2 oder Point auf den aktuell im GameScreen verwendeten Viewport. Diese Implementierung ist von der erweiterten Monogame-API inspiriert und behebt sowohl die Schwäche, dass zwischen zwei Points des XNA-Frameworks keine Rechenoperationen ausgeführt werden können als auch das Problem, dass beide keine Delegate-Werte unterstützen und damit keine Abhängigkeiten und komplexeren automatischen Berechnungen durchgeführt werden können.
 \subsection{State}
-Grund:
+Grund: Umbenannter ItemState, da jetzt alle Widgets (nicht nur MenuItems) Selected oder Hovered sein können.
 \subsection{TextItem}
 Grund: Wir haben festgestellt, dass wir keine Möglichkeit hatten reine Textkomponenten für Dialoge oder Menüs zu nutzen. Wir hätten die Klasse des Buttons verwenden können, aber dies wäre nicht die korrekte Verwendung der Klasse im Sinne des Entwurfs. Aus diesem Grund haben wir eine Klasse für reine Textdarstellung eingefügt.
 
