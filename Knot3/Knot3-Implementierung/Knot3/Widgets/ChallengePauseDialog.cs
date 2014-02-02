@@ -48,7 +48,6 @@ namespace Knot3.Widgets
 			AlignX = HorizontalAlignment.Center;
 
 			Bounds.Size = new ScreenPoint(screen,0.3f,0.31f);
-			base.TitleBounds = Bounds;
 			// Erstelle das Pause-Menü
 			pauseMenu = new Menu (Screen, Index + DisplayLayer.Menu);
 			pauseMenu.Bounds = ContentBounds;
