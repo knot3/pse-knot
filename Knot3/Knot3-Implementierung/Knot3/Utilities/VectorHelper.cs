@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -13,13 +12,13 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Debug;
 
 namespace Knot3.Utilities
 {
@@ -49,12 +48,31 @@ namespace Knot3.Utilities
 
 		public static Vector3 MoveLinear (this Vector3 vectorToMove, Vector3 mouse, Vector3 up, Vector3 forward)
 		{
-			Vector3 side = Vector3.Cross (up, forward);
+			/*Vector3 side = Vector3.Cross (up, forward);
 			side.Normalize ();
 			Vector3 relUp = Vector3.Cross (side, forward);
 			relUp.Normalize ();
 			Vector3 movedVector = vectorToMove - side * mouse.X - relUp * mouse.Y - forward * mouse.Z;
+			return movedVector;*/
+			Vector3 movedVector = Vector3.Zero;
+			Profiler.ProfileDelegate ["gesamt"] = () => {
+				Vector3 side = Vector3.Zero;
+				Profiler.ProfileDelegate ["Cross1"] = () => {
+					side = Vector3.Cross (up, forward);
+					side.Normalize ();
+				};
+				Vector3 relUp = Vector3.Zero;
+				Profiler.ProfileDelegate ["Cross2"] = () => {
+					relUp = Vector3.Cross (side, forward);
+					relUp.Normalize ();
+				};
+
+				Profiler.ProfileDelegate ["PlusMinux"] = () => {
+					movedVector = vectorToMove - side * mouse.X - relUp * mouse.Y - forward * mouse.Z;
+				};
+			};
 			return movedVector;
+
 		}
 
 		public static Vector3 MoveLinear (this Vector3 vectorToMove, Vector2 mouse, Vector3 up, Vector3 forward)
@@ -64,7 +82,9 @@ namespace Knot3.Utilities
 
 		public static float AngleBetween (this Vector2 a, Vector2 b)
 		{
+
 			return ((b.X - a.X) > 0 ? 1 : -1) * (float)Math.Acos ((double)Vector2.Dot (Vector2.Normalize (a), Vector2.Normalize (b)));
+
 		}
 
 		public static float AngleBetween (this Vector3 a, Vector3 b)
@@ -96,10 +116,10 @@ namespace Knot3.Utilities
 		public static Vector3 Clamp (this Vector3 v, Vector3 lower, Vector3 higher)
 		{
 			return new Vector3 (
-			           MathHelper.Clamp (v.X, lower.X, higher.X),
-			           MathHelper.Clamp (v.Y, lower.Y, higher.Y),
-			           MathHelper.Clamp (v.Z, lower.Z, higher.Z)
-			       );
+				MathHelper.Clamp (v.X, lower.X, higher.X),
+				MathHelper.Clamp (v.Y, lower.Y, higher.Y),
+				MathHelper.Clamp (v.Z, lower.Z, higher.Z)
+			);
 		}
 
 		public static Vector3 Clamp (this Vector3 v, int minLength, int maxLength)
@@ -304,7 +324,9 @@ namespace Knot3.Utilities
 		public static Rectangle Scale (this Rectangle rect, Viewport viewport)
 		{
 			Point max = viewport.ToVector2 ().ToPoint ();
+
 			return new Rectangle (rect.X * max.X / 1000, rect.Y * max.Y / 1000, rect.Width * max.X / 1000, rect.Height * max.Y / 1000);
+
 		}
 
 		public static Rectangle Grow (this Rectangle rect, int x, int y)

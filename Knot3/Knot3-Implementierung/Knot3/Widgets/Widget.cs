@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -27,6 +25,7 @@ namespace Knot3.Widgets
 	/// </summary>
 	public abstract class Widget : DrawableGameScreenComponent
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -69,7 +68,7 @@ namespace Knot3.Widgets
 
 		public virtual bool IsKeyEventEnabled
 		{
-			get { return IsVisible; }
+			get { return IsVisible && ValidKeys.Count > 0; }
 			set { }
 		}
 
@@ -169,5 +168,6 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
+
 	}
 }
