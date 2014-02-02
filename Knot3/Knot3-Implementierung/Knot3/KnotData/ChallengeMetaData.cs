@@ -108,6 +108,10 @@ namespace Knot3.KnotData
 			}
 		}
 
+		#endregion
+
+		#region Methods
+
 		/// <summary>
 		/// Fügt eine neue Bestzeit eines bestimmten Spielers in die Bestenliste ein.
 		/// </summary>
@@ -117,6 +121,42 @@ namespace Knot3.KnotData
 			if (!highscore.Contains (entry)) {
 				highscore.Add (entry);
 			}
+		}
+
+		public bool Equals (ChallengeMetaData other)
+		{
+			return other != null && name == other.name;
+		}
+
+		public override bool Equals (object other)
+		{
+			return other != null && Equals (other as ChallengeMetaData);
+		}
+
+		public override int GetHashCode ()
+		{
+			return (name ?? "").GetHashCode ();
+		}
+
+		public static bool operator == (ChallengeMetaData a, ChallengeMetaData b)
+		{
+			// If both are null, or both are same instance, return true.
+			if (System.Object.ReferenceEquals (a, b)) {
+				return true;
+			}
+
+			// If one is null, but not both, return false.
+			if (((object)a == null) || ((object)b == null)) {
+				return false;
+			}
+
+			// Return true if the fields match:
+			return a.Equals (b);
+		}
+
+		public static bool operator != (ChallengeMetaData a, ChallengeMetaData b)
+		{
+			return !(a == b);
 		}
 
 		#endregion

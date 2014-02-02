@@ -42,8 +42,8 @@ namespace Knot3.Screens
 		private TextItem infoTitle;
 		private Menu challengeInfo;
 		private World previewWorld;
+		private Challenge previewChallenge;
 		private KnotRenderer previewRenderer;
-		private KnotMetaData previewKnotMetaData;
 		private Border previewBorder;
 		private KnotInputHandler previewInput;
 		private ModelMouseHandler previewMouseHandler;
@@ -82,7 +82,7 @@ namespace Knot3.Screens
 			                 770, 895,
 			                 870, 970,
 			                 970, 50, 1000
-			                );
+			);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -94,8 +94,8 @@ namespace Knot3.Screens
 			infoTitle.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
 			infoTitle.ForegroundColorFunc = () => Color.White;
 
-			challengeInfo = new Menu(this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
-			challengeInfo.Bounds.Position = new ScreenPoint (this,0.47f, 0.70f);
+			challengeInfo = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			challengeInfo.Bounds.Position = new ScreenPoint (this, 0.47f, 0.70f);
 			challengeInfo.Bounds.Size = new ScreenPoint (this, 0.300f, 0.500f);
 			challengeInfo.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			challengeInfo.ItemAlignX = HorizontalAlignment.Left;
@@ -135,11 +135,17 @@ namespace Knot3.Screens
 
 			backButton.SetCoordinates (left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
 			backButton.AlignX = HorizontalAlignment.Center;
+			Action<GameTime> loadSelectedChallenge = (time) => {
+				NextScreen = new ChallengeModeScreen (
+					game: Game,
+					challenge: loader.FileFormat.Load (previewChallenge.MetaData.Filename)
+				);
+			};
 			startButton = new Button (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Start",
-			    onClick: (time) => NextScreen = NextScreen = new ChallengeModeScreen (game: Game, challenge: loader.FileFormat.Load (previewKnotMetaData.Filename))
+			    onClick: loadSelectedChallenge
 			);
 			startButton.IsVisible = false;
 			startButton.AddKey (Keys.Enter);
@@ -170,23 +176,23 @@ namespace Knot3.Screens
 			Action<GameTime> nullAction = (time) => {
 			};
 			Action<GameTime> LoadFile = (time) => {
-				RemoveGameComponents (time,challengeInfo);
-				challengeInfo.Clear();
-				if (previewKnotMetaData != meta.Target) {
-					previewRenderer.Knot = loader.FileFormat.Load (filename).Target;
-					previewKnotMetaData = meta.Target;
+				RemoveGameComponents (time, challengeInfo);
+				challengeInfo.Clear ();
+				if (previewChallenge == null || previewChallenge.MetaData != meta) {
+					previewChallenge = loader.FileFormat.Load (filename);
+					previewRenderer.Knot = previewChallenge.Target;
 					startButton.IsVisible = true;
 
 					MenuEntry count = new MenuEntry (
 					    screen: this,
 					    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-					    name: "Knot Count: "+ previewKnotMetaData.CountEdges,
+					    name: "Knot Count: " + meta.Target.CountEdges,
 					    onClick: nullAction
 					);
-					count.Selectable =false;
-					count.Enabled=false;
-					challengeInfo.Add(count);
-					AddGameComponents(time,challengeInfo);
+					count.Selectable = false;
+					count.Enabled = false;
+					challengeInfo.Add (count);
+					AddGameComponents (time, challengeInfo);
 				}
 			};
 
@@ -212,7 +218,7 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler, backButton,startButton, infoTitle);
+			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler, backButton, startButton, infoTitle);
 		}
 
 		#endregion
