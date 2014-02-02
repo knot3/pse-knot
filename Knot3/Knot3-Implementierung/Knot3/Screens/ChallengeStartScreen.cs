@@ -178,10 +178,10 @@ namespace Knot3.Screens
 					startButton.IsVisible = true;
 
 					MenuEntry count = new MenuEntry (
-						screen: this,
-						drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-						name: "Knot Count: "+ previewKnotMetaData.CountEdges,
-						onClick: nullAction
+					    screen: this,
+					    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+					    name: "Knot Count: "+ previewKnotMetaData.CountEdges,
+					    onClick: nullAction
 					);
 					count.BackgroundColor = Color.Black;
 					count.ForegroundColor = Color.White;
