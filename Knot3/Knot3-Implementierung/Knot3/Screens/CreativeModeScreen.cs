@@ -143,11 +143,12 @@ namespace Knot3.Screens
 			    onClick: (time) => OnUndo ()
 			);
 			undoButton.SetCoordinates (left: 0.05f, top: 0.900f, right: 0.15f, bottom: 0.95f);
+			undoButton.AlignX = HorizontalAlignment.Center;
+			undoButton.IsVisible = false;
 
 			undoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                               widget: undoButton, lineWidth: 2, padding: 0);
-			undoButton.AlignX = HorizontalAlignment.Center;
-			undoButton.IsVisible = false;
+
 			// Redo-Button
 			redoButton = new Button (
 			    screen: this,
@@ -156,11 +157,11 @@ namespace Knot3.Screens
 			    onClick: (time) => OnRedo ()
 			);
 			redoButton.SetCoordinates (left: 0.20f, top: 0.900f, right: 0.30f, bottom: 0.95f);
+			redoButton.AlignX = HorizontalAlignment.Center;
+			redoButton.IsVisible = false;
 
 			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                               widget: redoButton, lineWidth: 2, padding: 0);
-			redoButton.AlignX = HorizontalAlignment.Center;
-			redoButton.IsVisible = false;
 
 			invisible = new Button (
 			    screen: this,
@@ -172,7 +173,7 @@ namespace Knot3.Screens
 				Console.WriteLine ("test");
 				Dialog pauseDialog = new CreativePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog, knot: knot);
 				// füge ihn in die Spielkomponentenliste hinzu
-				pauseDialog.Close = (t) => knotInput.IsEnabled = true;
+				pauseDialog.Close += (t) => knotInput.IsEnabled = true;
 
 				AddGameComponents (time, pauseDialog);
 				// weise ihn als den aktuellen Dialog zu
