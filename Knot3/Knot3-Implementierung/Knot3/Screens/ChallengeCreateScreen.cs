@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.RenderEffects;
@@ -27,6 +25,7 @@ namespace Knot3.Screens
 	/// </summary>
 	public class ChallengeCreateScreen : MenuScreen
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -75,15 +74,14 @@ namespace Knot3.Screens
 			challengeName.ValueWidth = 0.8f;
 
 			createButton = new Button (
-			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			    name: "Create!",
-			    onClick: OnCreateChallenge
+				screen: this,
+				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				name: "Create!",
+				onClick: OnCreateChallenge
 			);
 			createButton.Bounds.Position = new ScreenPoint (this, 0.525f, 0.8525f);
 			createButton.Bounds.Size = new ScreenPoint (this, 0.125f, 0.050f);
-			createButton.ForegroundColor = () => base.MenuItemForegroundColor (createButton.State);
-			createButton.BackgroundColor = () => base.MenuItemBackgroundColor (createButton.State);
+
 			createButtonBorder = new Border (this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, createButton, 4, 4);
 			createButton.AlignX = HorizontalAlignment.Center;
 
@@ -93,11 +91,11 @@ namespace Knot3.Screens
 
 			lines.AddPoints (0, 50,
 
-			                 30, 970,
-			                 770, 895,
-			                 870, 970,
-			                 970, 50, 1000
-			                );
+				30, 970,
+				770, 895,
+				870, 970,
+				970, 50, 1000
+			);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Create Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -110,15 +108,16 @@ namespace Knot3.Screens
 			loader = new SavegameLoader<Knot, KnotMetaData> (fileFormat, "index-knots");
 
 			backButton = new Button (
-			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			    name: "Back",
-			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is ChallengeCreateScreen)).ElementAt (0)
+				screen: this,
+				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				name: "Back",
+				onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is ChallengeCreateScreen)).ElementAt (0)
 			);
 			backButton.AddKey (Keys.Escape);
 			backButton.SetCoordinates (left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
 
 			backButton.AlignX = HorizontalAlignment.Center;
+
 		}
 
 		#endregion
@@ -146,30 +145,30 @@ namespace Knot3.Screens
 			// Erstelle die Lamdafunktionen, die beim Auswählen des Menüeintrags ausgeführt werden
 			Action<GameTime> SelectStartKnot = (time) => {
 				selectedStartKnot = loader.FileFormat.Load (filename);
-				UpdateFiles ();
+
 				TryConstructChallenge ();
 			};
 
 			// Erstelle die Lamdafunktionen, die beim Auswählen des Menüeintrags ausgeführt werden
 			Action<GameTime> SelectTargetKnot = (time) => {
 				selectedTargetKnot = loader.FileFormat.Load (filename);
-				UpdateFiles ();
+
 				TryConstructChallenge ();
 			};
 
 			// Erstelle die Menüeinträge
 			MenuEntry buttonStart = new MenuEntry (
-			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			    name: name,
-			    onClick: SelectStartKnot
-			);
+				                        screen: this,
+				                        drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				                        name: name,
+				                        onClick: SelectStartKnot
+			                        );
 			MenuEntry buttonTarget = new MenuEntry (
-			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			    name: name,
-			    onClick: SelectTargetKnot
-			);
+				                         screen: this,
+				                         drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				                         name: name,
+				                         onClick: SelectTargetKnot
+			                         );
 			buttonStart.SelectedColorBackground = Color.White;
 			buttonStart.SelectedColorForeground = Color.Black;
 			buttonTarget.SelectedColorBackground = Color.White;
@@ -187,8 +186,8 @@ namespace Knot3.Screens
 		{
 			get {
 				return selectedStartKnot != null && selectedTargetKnot != null &&
-				       selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
-				       && challengeName.InputText.Length > 0;
+				selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
+				&& challengeName.InputText.Length > 0;
 			}
 		}
 
@@ -201,17 +200,17 @@ namespace Knot3.Screens
 
 			if (can) {
 				ChallengeMetaData challengeMeta = new ChallengeMetaData (
-				    name: challengeName.InputText,
-				    start: selectedStartKnot.MetaData,
-				    target: selectedTargetKnot.MetaData,
-				    filename: null,
-				    format: new ChallengeFileIO (),
-				    highscore: new List<KeyValuePair<string,int>> ()
-				);
+					                                  name: challengeName.InputText,
+					                                  start: selectedStartKnot.MetaData,
+					                                  target: selectedTargetKnot.MetaData,
+					                                  filename: null,
+					                                  format: new ChallengeFileIO (),
+					                                  highscore: new List<KeyValuePair<string,int>> ()
+				                                  );
 				selectedChallenge = new Challenge (
-				    meta: challengeMeta,
-				    start: selectedStartKnot,
-				    target: selectedTargetKnot
+					meta: challengeMeta,
+					start: selectedStartKnot,
+					target: selectedTargetKnot
 				);
 			}
 			else {
@@ -247,30 +246,11 @@ namespace Knot3.Screens
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, startKnotMenu, targetKnotMenu, challengeName, createButton,
-			                   createButtonBorder, title, backButton);
+				createButtonBorder, title, backButton);
 			TryConstructChallenge ();
 		}
 
-		protected Color MenuItemForegroundColor (State itemState, Func<bool> matches)
-		{
-			if (matches ()) {
-				return Color.Black;
-			}
-			else {
-				return base.MenuItemForegroundColor (itemState);
-			}
-		}
-
-		protected Color MenuItemBackgroundColor (State itemState, Func<bool> matches)
-		{
-			if (matches ()) {
-				return Lines.DefaultLineColor;
-			}
-			else {
-				return base.MenuItemBackgroundColor (itemState);
-			}
-		}
-
 		#endregion
+
 	}
 }
