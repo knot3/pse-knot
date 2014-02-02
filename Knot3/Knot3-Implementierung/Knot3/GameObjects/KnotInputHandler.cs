@@ -124,12 +124,12 @@ namespace Knot3.GameObjects
 
 			// Lege die Bedeutungen der PlayerActions fest
 			ActionBindings = new Dictionary<PlayerActions, Action<GameTime>> {
-				{ PlayerActions.MoveUp,                  (time) => move (Vector3.Up, time) },
-				{ PlayerActions.MoveDown,                (time) => move (Vector3.Down, time) },
-				{ PlayerActions.MoveLeft,                (time) => move (Vector3.Left, time) },
-				{ PlayerActions.MoveRight,               (time) => move (Vector3.Right, time) },
-				{ PlayerActions.MoveForward,             (time) => move (Vector3.Forward, time) },
-				{ PlayerActions.MoveBackward,            (time) => move (Vector3.Backward, time) },
+				{ PlayerActions.MoveUp,                  (time) => MoveCameraAndTarget (Vector3.Up, time) },
+				{ PlayerActions.MoveDown,                (time) => MoveCameraAndTarget (Vector3.Down, time) },
+				{ PlayerActions.MoveLeft,                (time) => MoveCameraAndTarget (Vector3.Left, time) },
+				{ PlayerActions.MoveRight,               (time) => MoveCameraAndTarget (Vector3.Right, time) },
+				{ PlayerActions.MoveForward,             (time) => MoveCameraAndTarget (Vector3.Forward, time) },
+				{ PlayerActions.MoveBackward,            (time) => MoveCameraAndTarget (Vector3.Backward, time) },
 				{ PlayerActions.RotateUp,                (time) => rotate (-Vector2.UnitY * 4, time) },
 				{ PlayerActions.RotateDown,              (time) => rotate (Vector2.UnitY * 4, time) },
 				{ PlayerActions.RotateLeft,              (time) => rotate (-Vector2.UnitX * 4, time) },
@@ -260,7 +260,7 @@ namespace Knot3.GameObjects
 				break;
 			case InputAction.CameraTargetMove:
 				// verschieben
-				moveTarget (new Vector3 (mouseMove.X, -mouseMove.Y, 0) * 0.3f, time);
+				MoveTarget (new Vector3 (mouseMove.X, -mouseMove.Y, 0) * 0.3f, time);
 				break;
 			}
 		}
@@ -272,19 +272,10 @@ namespace Knot3.GameObjects
 				Bounds worldBounds = world.Bounds;
 				Bounds innerBounds = worldBounds.FromLeft (0.9f).FromRight (0.9f).FromTop (0.9f).FromBottom (0.9f);
 				if (worldBounds.Rectangle.Contains (currentPosition) && !innerBounds.Rectangle.Contains (currentPosition)) {
-					//if (worldBounds.Rectangle.Contains (previousPosition) && !innerBounds.Rectangle.Contains (previousPosition)) {
-					//Vector3 mousePosition3D = world.Camera.To3D (
-					//                              position: mousePosition2D,
-					//                              nearTo: world.SelectedObject != null ? world.SelectedObject.Center () : Vector3.Zero
-					//                          );
 					Vector2 viewportCenter = new Vector2 (world.Viewport.X + world.Viewport.Width / 2,
 					                                      world.Viewport.Y + world.Viewport.Height / 2);
-					Vector2 direction = (currentPosition - viewportCenter).PrimaryDirection ();
-					//Console.WriteLine ("AutoCamera: direction=" + direction + ", (currentPosition - viewportCenter)=" + (currentPosition - viewportCenter));
-					move (new Vector3 (direction.X, -direction.Y, 0) * 0.5f, time);
-					//mousePosition2D = camera.To2D (mousePosition3D);
-					//Mouse.SetPosition ((int)mousePosition2D.X, (int)mousePosition2D.Y);
-					//}
+					Vector2 screenCorner = (currentPosition - viewportCenter).PrimaryDirection ();
+					MoveCameraAndTarget (new Vector3 (screenCorner.X, -screenCorner.Y, 0) * 0.5f, time);
 					world.Redraw = true;
 					Screen.Input.CurrentInputAction = InputAction.FreeMouse;
 				}
@@ -320,7 +311,7 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Verschiebt die Kamera und das Target linear in die angegebene Richtung.
 		/// </summary>
-		private void move (Vector3 move, GameTime time)
+		public void MoveCameraAndTarget (Vector3 move, GameTime time)
 		{
 			Profiler.ProfileDelegate ["Move"] = () => {
 				if (move.Length () > 0) {
@@ -339,7 +330,7 @@ namespace Knot3.GameObjects
 		/// <summary>
 		/// Verschiebt das Target linear in die angegebene Richtung.
 		/// </summary>
-		private void moveTarget (Vector3 move, GameTime time)
+		public void MoveTarget (Vector3 move, GameTime time)
 		{
 			Profiler.ProfileDelegate ["Move"] = () => {
 				if (move.Length () > 0) {

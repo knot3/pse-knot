@@ -30,7 +30,8 @@ namespace Knot3.GameObjects
 	{
 		#region Properties
 
-		private IGameScreen screen;
+		private IGameScreen Screen;
+		private KnotInputHandler KnotInput;
 
 		/// <summary>
 		/// Enthält Informationen über die Position des Knotens.
@@ -59,10 +60,11 @@ namespace Knot3.GameObjects
 		/// mit ihrem zugehörigen IGameScreen-Objekt screen, der Spielwelt world und
 		/// Objektinformationen info.
 		/// </summary>
-		public EdgeMovement (IGameScreen screen, World world, Vector3 position)
+		public EdgeMovement (IGameScreen screen, World world, KnotInputHandler knotInput, Vector3 position)
 		{
-			this.screen = screen;
+			Screen = screen;
 			World = world;
+			KnotInput = knotInput;
 			Info = new GameObjectInfo (position: position);
 			shadowObjects = new List<ShadowGameObject> ();
 		}
@@ -156,11 +158,11 @@ namespace Knot3.GameObjects
 				Vector3 currentMousePosition = World.Camera.To3D (
 				                                   position: InputManager.CurrentMouseState.ToVector2 (),
 				                                   nearTo: selectedModel.Center ()
-				                               );
+				);
 
 				// Wenn die Maus gedrückt gehalten ist und wir mitten im Ziehen der Kante
 				// an die neue Position sind
-				if (screen.Input.CurrentInputAction == InputAction.SelectedObjectShadowMove) {
+				if (Screen.Input.CurrentInputAction == InputAction.SelectedObjectShadowMove) {
 					// Wenn dies der erste Frame ist...
 					if (previousMousePosition == Vector3.Zero) {
 						previousMousePosition = currentMousePosition;
@@ -171,12 +173,12 @@ namespace Knot3.GameObjects
 					// Setze die Positionen der Shadowobjekte abhängig von der Mausposition
 					if (selectedModel is ArrowModel) {
 						// Wenn ein Pfeil selektiert wurde, ist die Verschiebe-Richtung eindeutig festgelegt
-						UpdateShadowPipes (currentMousePosition, (selectedModel as ArrowModel).Info.Direction);
+						UpdateShadowPipes (currentMousePosition, (selectedModel as ArrowModel).Info.Direction, time);
 					}
 					else {
 						// Wenn etwas anderes (eine Kante) selektiert wurde,
 						// muss die Verschiebe-Richtung berechnet werden
-						UpdateShadowPipes (currentMousePosition);
+						UpdateShadowPipes (currentMousePosition, time);
 					}
 
 					// Zeichne im nächsten Frame auf jeden Fall neu
@@ -184,16 +186,16 @@ namespace Knot3.GameObjects
 				}
 
 				// Wenn die Verschiebe-Aktion beendet ist (wenn die Maus losgelassen wurde)
-				else if (screen.Input.CurrentInputAction == InputAction.SelectedObjectMove) {
+				else if (Screen.Input.CurrentInputAction == InputAction.SelectedObjectMove) {
 					// Führe die finale Verschiebung durch
 					if (selectedModel is ArrowModel) {
 						// Wenn ein Pfeil selektiert wurde, ist die Verschiebe-Richtung eindeutig festgelegt
-						MovePipes (currentMousePosition, (selectedModel as ArrowModel).Info.Direction);
+						MovePipes (currentMousePosition, (selectedModel as ArrowModel).Info.Direction, time);
 					}
 					else {
 						// Wenn etwas anderes (eine Kante) selektiert wurde,
 						// muss die Verschiebe-Richtung berechnet werden
-						MovePipes (currentMousePosition);
+						MovePipes (currentMousePosition, time);
 					}
 					DestroyShadowModels ();
 					// Zeichne im nächsten Frame auf jeden Fall neu
@@ -219,16 +221,16 @@ namespace Knot3.GameObjects
 		/// Bestimme die Richtung und die Länge in Rasterpunkt-Einheiten
 		/// und verschiebe die ausgewählten Kanten.
 		/// </summary>
-		private void MovePipes (Vector3 currentMousePosition, Direction direction)
+		private void MovePipes (Vector3 currentMousePosition, Direction direction, GameTime time)
 		{
 			int count = (int)Math.Round (ComputeLength (currentMousePosition));
 			if (count > 0) {
 				try {
 					if (Knot.IsValidMove (direction, count) && Knot.Move (direction, count)) {
-						screen.Audio.PlaySound (Sound.PipeMoveSound);
+						Screen.Audio.PlaySound (Sound.PipeMoveSound);
 					}
 					else {
-						screen.Audio.PlaySound (Sound.PipeInvalidMoveSound);
+						Screen.Audio.PlaySound (Sound.PipeInvalidMoveSound);
 					}
 					previousMousePosition = currentMousePosition;
 				}
@@ -238,10 +240,10 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		private void MovePipes (Vector3 currentMousePosition)
+		private void MovePipes (Vector3 currentMousePosition, GameTime time)
 		{
 			Direction direction = ComputeDirection (currentMousePosition);
-			MovePipes (currentMousePosition, direction);
+			MovePipes (currentMousePosition, direction, time);
 		}
 
 		/// <summary>
@@ -273,12 +275,12 @@ namespace Knot3.GameObjects
 			foreach (PipeModel pipe in World.OfType<PipeModel>()) {
 				if (Knot.SelectedEdges.Contains (pipe.Info.Edge)) {
 					pipe.Info.IsVisible = false;
-					shadowObjects.Add (new ShadowGameModel (screen, pipe));
+					shadowObjects.Add (new ShadowGameModel (Screen, pipe));
 				}
 			}
 			foreach (ArrowModel arrow in World.OfType<ArrowModel>()) {
 				arrow.Info.IsVisible = false;
-				shadowObjects.Add (new ShadowGameModel (screen, arrow));
+				shadowObjects.Add (new ShadowGameModel (Screen, arrow));
 			}
 		}
 
@@ -300,7 +302,7 @@ namespace Knot3.GameObjects
 		/// Setze die Position der Shadowobjekte der selektierten Kantenmodelle
 		/// auf die von der aktuellen Mausposition abhängende Position.
 		/// </summary>
-		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction, float count)
+		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction, float count, GameTime time)
 		{
 			/*
 			Vector3 nextMousePosition = currentMousePosition;// + direction * count * Node.Scale;
@@ -308,6 +310,24 @@ namespace Knot3.GameObjects
 			Mouse.SetPosition ((int)screenPosition.X, (int)screenPosition.Y);
 			InputManager.CurrentMouseState = Mouse.GetState ();
 			*/
+			
+			Vector2 currentPosition = InputManager.CurrentMouseState.ToVector2 ();
+			Bounds worldBounds = World.Bounds;
+			Bounds innerBounds = worldBounds.FromLeft (0.9f).FromRight (0.9f).FromTop (0.9f).FromBottom (0.9f);
+			if (worldBounds.Rectangle.Contains (currentPosition) && !innerBounds.Rectangle.Contains (currentPosition)) {
+
+				Vector2 viewportCenter = new Vector2 (World.Viewport.X + World.Viewport.Width / 2,
+					                                      World.Viewport.Y + World.Viewport.Height / 2);
+				Vector2 screenCorner = (currentPosition - viewportCenter).PrimaryDirection ();
+				//Console.WriteLine ("AutoCamera: direction=" + direction + ", (currentPosition - viewportCenter)=" + (currentPosition - viewportCenter));
+				InputAction action = Screen.Input.CurrentInputAction;
+				KnotInput.MoveCameraAndTarget (new Vector3 (screenCorner.X, -screenCorner.Y, 0) * 0.5f, time);
+				Screen.Input.CurrentInputAction = action;
+				//mousePosition2D = camera.To2D (mousePosition3D);
+				//Mouse.SetPosition ((int)mousePosition2D.X, (int)mousePosition2D.Y);
+				//}
+				World.Redraw = true;
+			}
 
 			if (Knot.IsValidMove (direction)) {
 				foreach (ShadowGameModel shadowObj in shadowObjects) {
@@ -318,18 +338,18 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction)
+		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction, GameTime time)
 		{
 			//Console.WriteLine ("XXX: " + direction);
 			float count = ComputeLength (currentMousePosition);
-			UpdateShadowPipes (currentMousePosition, direction, count);
+			UpdateShadowPipes (currentMousePosition, direction, count, time);
 		}
 
-		private void UpdateShadowPipes (Vector3 currentMousePosition)
+		private void UpdateShadowPipes (Vector3 currentMousePosition, GameTime time)
 		{
 			float count = ComputeLength (currentMousePosition);
 			Direction direction = ComputeDirection (currentMousePosition);
-			UpdateShadowPipes (currentMousePosition, direction, count);
+			UpdateShadowPipes (currentMousePosition, direction, count, time);
 		}
 
 		/// <summary>
