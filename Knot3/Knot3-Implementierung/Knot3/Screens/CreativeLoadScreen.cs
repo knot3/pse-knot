@@ -172,7 +172,7 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler, backButton);
+			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler, backButton, startButton);
 		}
 
 		#endregion
