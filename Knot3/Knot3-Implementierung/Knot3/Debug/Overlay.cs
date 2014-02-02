@@ -66,6 +66,7 @@ namespace Knot3.Debug
 
 		public override void Draw (GameTime time)
 		{
+			return;
 			if (Options.Default ["video", "debug-coordinates", false]) {
 				DrawCoordinates (time);
 			}
