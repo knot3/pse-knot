@@ -107,7 +107,6 @@ namespace Knot3.GameObjects
 
 				// Bei einem Linksklick...
 				if (InputManager.LeftMouseButton == ClickState.SingleClick) {
-
 					// Zeichne im nächsten Frame auf jeden Fall neu
 					World.Redraw = true;
 

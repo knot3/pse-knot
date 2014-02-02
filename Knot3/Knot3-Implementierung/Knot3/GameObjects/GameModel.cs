@@ -173,7 +173,6 @@ namespace Knot3.GameObjects
 		private void UpdatePrecomputed ()
 		{
 			if (Info.Scale != _scale || Info.Rotation != _rotation || Info.Position != _position) {
-
 				// world matrix
 				_worldMatrix = Matrix.CreateScale (Info.Scale)
 				               * Matrix.CreateFromYawPitchRoll (Info.Rotation.Y, Info.Rotation.X, Info.Rotation.Z)

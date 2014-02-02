@@ -147,7 +147,6 @@ namespace Knot3.Screens
 
 			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
 			Action<GameTime> preview = (time) => {
-
 				if (previewKnotMetaData != meta) {
 					previewRenderer.Knot = loader.FileFormat.Load (filename);
 					previewKnotMetaData = meta;

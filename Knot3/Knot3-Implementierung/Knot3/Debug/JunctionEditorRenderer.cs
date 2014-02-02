@@ -118,7 +118,6 @@ namespace Knot3.Debug
 		{
 			if (directions.Item1.Axis != directions.Item2.Axis && directions.Item1.Axis != directions.Item3.Axis &&
 			        directions.Item2.Axis != directions.Item3.Axis) {
-
 				nodeMap.Render (directions);
 				nodeMap.Offset = Info.Position;
 

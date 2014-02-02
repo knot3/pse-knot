@@ -267,7 +267,6 @@ namespace Knot3.Screens
 				redoButton.IsVisible = true;
 			}
 			if (Redo.Count == 0) {
-
 				redoButton.IsVisible = false;
 			}
 		}

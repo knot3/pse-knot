@@ -287,7 +287,6 @@ namespace Knot3.GameObjects
 				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 			}
 			else if (Type == JunctionType.Straight) {
-
 				// Drehung des Übergangs
 				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-curved1"];
 				Rotation = Angles3.FromDegrees (0, 0, 0) + straightJunctionRotationMap [EdgeFrom.Direction];
