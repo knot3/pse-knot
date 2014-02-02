@@ -46,6 +46,15 @@ namespace Knot3.Widgets
 			set;
 		}
 
+		public string Text{
+			get{
+				return textItem.Text;
+
+			}
+			set{
+				textItem.Text = value;
+			}
+		}
 		/// <summary>
 		///
 		/// </summary>
@@ -53,7 +62,7 @@ namespace Knot3.Widgets
 
 		private Menu menu;
 		private InputItem textInput;
-		private TextItem TextItem;
+		private TextItem textItem;
 
 		#endregion
 
@@ -66,19 +75,21 @@ namespace Knot3.Widgets
 		: base (screen, drawOrder, title, text)
 		{
 
-			TextItem = new TextItem(screen,drawOrder,"");
-
-			Bounds.Size = new ScreenPoint(screen,0.5f,0.3f);
+			textItem = new TextItem(screen,drawOrder,"");
+			//textItem.Bounds = ContentBounds.FromBottom(0.5f);
+			Bounds.Size = new ScreenPoint(screen,0.5f,0.2f);
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
 			menu = new Menu (Screen, Index + DisplayLayer.Menu);
 			menu.Bounds = ContentBounds;
+			menu.Bounds.Padding = new ScreenPoint(screen,0.010f,0.019f);
 			menu.ItemAlignX = HorizontalAlignment.Left;
 			menu.ItemAlignY = VerticalAlignment.Center;
 
 			//die Texteingabe
 			textInput = new InputItem (Screen, Index + DisplayLayer.MenuItem, text, inputText);
 			menu.Add (textInput);
+			menu.Add (textItem);
 			textInput.IsEnabled = true;
 			textInput.IsInputEnabled = true;
 			textInput.ValueWidth = 0.75f;
