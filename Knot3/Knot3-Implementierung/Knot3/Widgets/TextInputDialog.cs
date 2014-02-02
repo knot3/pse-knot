@@ -46,12 +46,12 @@ namespace Knot3.Widgets
 			set;
 		}
 
-		public string Text{
-			get{
+		public string Text
+		{
+			get {
 				return textItem.Text;
-
 			}
-			set{
+			set {
 				textItem.Text = value;
 			}
 		}
@@ -74,7 +74,6 @@ namespace Knot3.Widgets
 		public TextInputDialog (IGameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
 		: base (screen, drawOrder, title, text)
 		{
-
 
 			TextItem = new TextItem(screen,drawOrder,"");
 
