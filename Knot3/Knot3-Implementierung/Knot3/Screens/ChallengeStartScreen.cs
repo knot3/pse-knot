@@ -193,10 +193,10 @@ namespace Knot3.Screens
 					count.Enabled = false;
 					challengeInfo.Add (count);
 					MenuEntry avgtime = new MenuEntry (
-						screen: this,
-						drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-						name: "Avg Time: " + meta.FormatedAvgTime,
-						onClick: nullAction
+					    screen: this,
+					    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+					    name: "Avg Time: " + meta.FormatedAvgTime,
+					    onClick: nullAction
 					);
 					avgtime.Selectable = false;
 					avgtime.Enabled = false;
