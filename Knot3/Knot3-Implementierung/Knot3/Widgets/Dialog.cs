@@ -159,6 +159,11 @@ namespace Knot3.Widgets
 				ScreenPoint size = new ScreenPoint(Screen, Bounds.Size.Relative.X, 0.050f);
 				return new Bounds(pos, size);
 			}
+			set{
+				ScreenPoint pos = value.Position;
+				ScreenPoint size = new ScreenPoint(Screen, value.Size.Relative.X, 0.050f);
+				titleBorder.Bounds= new Bounds(pos, size);
+			}
 		}
 
 		protected Bounds ContentBounds

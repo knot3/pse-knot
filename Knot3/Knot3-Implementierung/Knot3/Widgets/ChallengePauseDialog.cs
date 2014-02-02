@@ -47,11 +47,12 @@ namespace Knot3.Widgets
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
 
+			Bounds.Size = new ScreenPoint(screen,0.3f,0.31f);
+			base.TitleBounds = Bounds;
 			// Erstelle das Pause-Menü
 			pauseMenu = new Menu (Screen, Index + DisplayLayer.Menu);
 			pauseMenu.Bounds = ContentBounds;
-			pauseMenu.ItemForegroundColor = MenuItemForegroundColor;
-			pauseMenu.ItemBackgroundColor = MenuItemBackgroundColor;
+
 			pauseMenu.ItemAlignX = HorizontalAlignment.Left;
 			pauseMenu.ItemAlignY = VerticalAlignment.Center;
 

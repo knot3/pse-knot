@@ -47,7 +47,7 @@ namespace Knot3.Widgets
 		: base(screen, drawOrder, "Pause", "")
 		{
 			this.knot = knot;
-			base.
+
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
 			Bounds.Size = new ScreenPoint(screen,0.3f,0.31f);
