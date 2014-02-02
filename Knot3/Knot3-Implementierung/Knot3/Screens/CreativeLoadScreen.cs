@@ -154,7 +154,6 @@ namespace Knot3.Screens
 					previewKnotMetaData = meta;
 					startButton.IsVisible = true;
 				}
-
 			};
 
 			// Erstelle den Menüeintrag

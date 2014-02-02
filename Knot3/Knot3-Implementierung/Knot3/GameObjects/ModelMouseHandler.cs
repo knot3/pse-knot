@@ -69,7 +69,6 @@ namespace Knot3.GameObjects
 
 				Profiler.ProfileDelegate ["Ray"] = () => {
 					UpdateMouseRay (time);
-
 				};
 			}
 		}
