@@ -219,7 +219,7 @@ namespace Knot3.GameObjects
 					chooseModel ();
 				}
 				catch (Exception ex) {
-					Console.WriteLine (ex);
+					//Console.WriteLine (ex);
 				}
 			};
 		}
@@ -268,10 +268,7 @@ namespace Knot3.GameObjects
 					Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
 
 					// debug
-					Console.WriteLine ("Index="
-					                   + Index + ", Directions=" + directionTuple + ", Rotation=" + Rotation + ", bumpRotationZ=" + bumpRotationZ + ", ...="
-					                   + Angles3.FromDegrees (0, 0, bumpRotationZ)
-					                  );
+					//Console.WriteLine ("Index=" + Index + ", Directions=" + directionTuple + ", Rotation=" + Rotation + ", bumpRotationZ=" + bumpRotationZ + ", ...=" + Angles3.FromDegrees (0, 0, bumpRotationZ));
 				}
 				else {
 					Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-straight"];

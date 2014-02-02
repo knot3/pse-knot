@@ -47,9 +47,9 @@ namespace Knot3.Audio
 			index = 0;
 			State = SoundState.Stopped;
 
-			Console.WriteLine ("Created new playlist (" + Sounds.Count + " songs)");
+			//Console.WriteLine ("Created new playlist (" + Sounds.Count + " songs)");
 			foreach (IAudioFile sound in Sounds) {
-				Console.WriteLine ("  - " + sound.Name);
+				//Console.WriteLine ("  - " + sound.Name);
 			}
 		}
 

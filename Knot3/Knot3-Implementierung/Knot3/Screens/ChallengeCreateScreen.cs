@@ -226,7 +226,7 @@ namespace Knot3.Screens
 		private void OnCreateChallenge (GameTime time)
 		{
 			if (TryConstructChallenge ()) {
-				Console.WriteLine ("Save Challenge: " + selectedChallenge);
+				//Console.WriteLine ("Save Challenge: " + selectedChallenge);
 				try {
 					selectedChallenge.Save ();
 					NextScreen = new ChallengeStartScreen (Game);

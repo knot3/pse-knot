@@ -211,7 +211,7 @@ namespace Knot3.RenderEffects
 				}
 				while (!renderTargets [resolution][viewport].ContainsKey (Supersampling)) {
 					try {
-						Console.WriteLine("Supersampling="+Supersampling);
+						//Console.WriteLine("Supersampling="+Supersampling);
 						renderTargets [resolution] [viewport] [Supersampling] = new RenderTarget2D (
 						    screen.Device, (int)(viewport.Width * Supersampling), (int)(viewport.Height * Supersampling),
 						    false, SurfaceFormat.Color, DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
@@ -219,7 +219,7 @@ namespace Knot3.RenderEffects
 						break;
 					}
 					catch (NotSupportedException ex) {
-						Console.WriteLine(ex);
+						//Console.WriteLine(ex);
 						if (Options.Default ["video", "Supersamples", 1] > 1) {
 							Options.Default ["video", "Supersamples", 1] *= 0.8f;
 						}

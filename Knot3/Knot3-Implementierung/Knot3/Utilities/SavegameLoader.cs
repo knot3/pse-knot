@@ -47,7 +47,7 @@ namespace Knot3.Utilities
 				FileUtility.BaseDirectory,
 				FileUtility.SavegameDirectory
 			};
-			Console.WriteLine ("Search for Savegames: " + string.Join (", ", searchDirectories));
+			//Console.WriteLine ("Search for Savegames: " + string.Join (", ", searchDirectories));
 
 			// Suche nach Spielstanddateien und fülle das Menü auf
 			OnSavegameFound = onSavegameFound;
@@ -77,7 +77,7 @@ namespace Knot3.Utilities
 				}
 				catch (Exception ex) {
 					// Es ist eine Exception aufgetreten, der Knoten ist offenbar ungültig.
-					Console.WriteLine (ex);
+					//Console.WriteLine (ex);
 					isValid = false;
 				}
 			}

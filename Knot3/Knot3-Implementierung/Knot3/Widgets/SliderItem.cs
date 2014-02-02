@@ -166,7 +166,7 @@ namespace Knot3.Widgets
 		{
 			float min = SliderRectangleMinX-ValueBounds.Rectangle.X;
 			float max = SliderRectangleMaxX-ValueBounds.Rectangle.X;
-			Console.WriteLine("position="+position+", min="+min+", max="+max);
+			//Console.WriteLine("position="+position+", min="+min+", max="+max);
 			float mousePositionX = position.X.Clamp(min, max);
 			float percent = (mousePositionX - min)/(max-min);
 			Value = (int)(MinValue + percent * (MaxValue-MinValue));

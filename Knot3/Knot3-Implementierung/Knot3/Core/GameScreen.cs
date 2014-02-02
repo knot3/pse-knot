@@ -107,7 +107,7 @@ namespace Knot3.Core
 		/// </summary>
 		public virtual void Entered (IGameScreen previousScreen, GameTime time)
 		{
-			Console.WriteLine ("Entered: " + this);
+			//Console.WriteLine ("Entered: " + this);
 			AddGameComponents (time, Input, Audio, new WidgetKeyHandler (this), new WidgetMouseHandler (this));
 		}
 
@@ -116,7 +116,7 @@ namespace Knot3.Core
 		/// </summary>
 		public virtual void BeforeExit (IGameScreen nextScreen, GameTime time)
 		{
-			Console.WriteLine ("BeforeExit: " + this);
+			//Console.WriteLine ("BeforeExit: " + this);
 			Game.Components.Clear ();
 		}
 
@@ -154,7 +154,7 @@ namespace Knot3.Core
 		public virtual void AddGameComponents (GameTime time, params IGameScreenComponent[] components)
 		{
 			foreach (IGameScreenComponent component in components) {
-				Console.WriteLine ("AddGameComponents: " + component);
+				//Console.WriteLine ("AddGameComponents: " + component);
 				Game.Components.Add (component);
 				AddGameComponents (time, component.SubComponents (time).ToArray ());
 			}
@@ -166,7 +166,7 @@ namespace Knot3.Core
 		public virtual void RemoveGameComponents (GameTime time, params IGameScreenComponent[] components)
 		{
 			foreach (IGameScreenComponent component in components) {
-				Console.WriteLine ("RemoveGameComponents: " + component);
+				//Console.WriteLine ("RemoveGameComponents: " + component);
 				RemoveGameComponents (time, component.SubComponents (time).ToArray ());
 				Game.Components.Remove (component);
 			}

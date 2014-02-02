@@ -165,18 +165,19 @@ namespace Knot3.Screens
 
 			invisible = new Button (
 			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.Overlay + DisplayLayer.MenuItem,
 			    name: "menu",
 			onClick: (time) => {
 				// erstelle einen neuen Pausedialog
 				knotInput.IsEnabled = false;
-				Console.WriteLine ("test");
 				Dialog pauseDialog = new CreativePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog, knot: knot);
 				// füge ihn in die Spielkomponentenliste hinzu
 				pauseDialog.Close += (t) => knotInput.IsEnabled = true;
 				AddGameComponents (time, pauseDialog);
 			}
 			);
+			invisible.SetCoordinates (left: 1.00f, top: 1.00f, right: 1.10f, bottom: 1.10f);
+			invisible.IsVisible = true;
 			invisible.AddKey (Keys.Escape);
 		}
 
@@ -195,7 +196,7 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-			Console.WriteLine ("Undo: Undo.Count=" + Undo.Count);
+			//Console.WriteLine ("Undo: Undo.Count=" + Undo.Count);
 			if (Undo.Count >= 2) {
 				Knot current = Undo.Pop ();
 				Knot prev = Undo.Peek ();
@@ -215,7 +216,7 @@ namespace Knot3.Screens
 
 		private void OnRedo ()
 		{
-			Console.WriteLine ("Redo: Redo.Count=" + Redo.Count);
+			//Console.WriteLine ("Redo: Redo.Count=" + Redo.Count);
 			if (Redo.Count >= 1) {
 				Knot next = Redo.Pop ();
 				Knot push = next.Clone ()as Knot;

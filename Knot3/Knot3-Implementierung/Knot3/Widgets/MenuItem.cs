@@ -123,7 +123,7 @@ namespace Knot3.Widgets
 				Menu.OnScroll (scrollValue);
 			}
 			else {
-				Console.WriteLine ("Warning: MenuItem is not assigned to a menu: " + this);
+				//Console.WriteLine ("Warning: MenuItem is not assigned to a menu: " + this);
 			}
 		}
 
