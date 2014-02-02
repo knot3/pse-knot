@@ -70,11 +70,19 @@ namespace Knot3.Screens
 			);
 			settingsMenu.Add (selectiveRender);
 
+			CheckBoxItem autoCameraMove = new CheckBoxItem (
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    text: "Auto Camera (edge move)",
+			    option: new BooleanOptionInfo ("video", "auto-camera-move", true, Options.Default)
+			);
+			settingsMenu.Add (autoCameraMove);
+
 			CheckBoxItem autoCamera = new CheckBoxItem (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Auto Camera",
-			    option: new BooleanOptionInfo ("video", "auto-camera", false, Options.Default)
+			    option: new BooleanOptionInfo ("video", "auto-camera-nomove", false, Options.Default)
 			);
 			settingsMenu.Add (autoCamera);
 

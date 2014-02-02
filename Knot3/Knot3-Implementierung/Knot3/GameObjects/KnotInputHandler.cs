@@ -267,15 +267,19 @@ namespace Knot3.GameObjects
 
 		private void AutoCamera (GameTime time)
 		{
-			if (Options.Default ["video", "auto-camera", false]) {
+			if (Options.Default ["video", "auto-camera-nomove", false]) {
 				ScreenPoint currentPosition = InputManager.CurrentMouseState.ToScreenPoint (Screen);
 				Bounds worldBounds = world.Bounds;
-				Bounds innerBounds = worldBounds.FromLeft (0.96f).FromRight (0.96f).FromTop (0.96f).FromBottom (0.96f);
-				if (worldBounds.Contains (currentPosition) && !innerBounds.Contains (currentPosition)) {
-					Vector2 viewportCenter = new Vector2 (world.Viewport.X + world.Viewport.Width / 2,
-					                                      world.Viewport.Y + world.Viewport.Height / 2);
-					Vector2 screenCorner = (currentPosition - viewportCenter).PrimaryDirection ();
-					MoveTarget (new Vector3 (screenCorner.X, -screenCorner.Y, 0) * 0.5f, time);
+				var bounds = new [] {
+					new { Bounds = worldBounds.FromLeft (0.1f), Side = new Vector2 (-1, 0) },
+					new { Bounds = worldBounds.FromRight (0.1f), Side = new Vector2 (1, 0) },
+					new { Bounds = worldBounds.FromTop (0.1f), Side = new Vector2 (0, 1) },
+					new { Bounds = worldBounds.FromBottom (0.1f), Side = new Vector2 (0, -1) }
+				};
+				Vector2[] sides = bounds.Where (x => x.Bounds.Contains (currentPosition)).Select (x => x.Side).ToArray ();
+				if (sides.Length == 1) {
+					InputAction action = Screen.Input.CurrentInputAction;
+					MoveTarget (new Vector3 (sides [0].X, sides [0].Y, 0) * 0.5f, time);
 					world.Redraw = true;
 					Screen.Input.CurrentInputAction = InputAction.FreeMouse;
 				}
