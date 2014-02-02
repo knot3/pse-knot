@@ -306,23 +306,17 @@ namespace Knot3.GameObjects
 		{
 			ScreenPoint currentPosition = InputManager.CurrentMouseState.ToScreenPoint (Screen);
 			Bounds worldBounds = World.Bounds;
-			Bounds leftSide = worldBounds.FromLeft (0.1f);
-			Bounds rightSide = worldBounds.FromRight (0.1f);
-			Bounds topSide = worldBounds.FromTop (0.1f);
-			Bounds bottomSide = worldBounds.FromBottom (0.1f);
-			List<Vector2> sides = new List<Vector2>();
-			if (leftSide.Contains (currentPosition))
-				sides.Add (new Vector2 (-1, 0));
-			if (rightSide.Contains (currentPosition))
-				sides.Add (new Vector2 (1, 0));
-			if (topSide.Contains (currentPosition))
-				sides.Add (new Vector2 (0, 1));
-			if (bottomSide.Contains (currentPosition))
-				sides.Add (new Vector2 (0, -1));
+			var bounds = new []{
+				new { Bounds = worldBounds.FromLeft (0.1f), Side = new Vector2 (-1, 0) },
+				new { Bounds = worldBounds.FromRight (0.1f), Side = new Vector2 (1, 0) },
+				new { Bounds = worldBounds.FromTop (0.1f), Side = new Vector2 (0, 1) },
+				new { Bounds = worldBounds.FromBottom (0.1f), Side = new Vector2 (0, -1) }
+			};
+			Vector2[] sides = bounds.Where (x => x.Bounds.Contains (currentPosition)).Select (x => x.Side).ToArray ();
 
-			if (sides.Count == 1) {
+			if (sides.Length == 1) {
 				InputAction action = Screen.Input.CurrentInputAction;
-				KnotInput.MoveCameraAndTarget (new Vector3 (sides[0].X, sides[0].Y, 0) * 0.5f, time);
+				KnotInput.MoveCameraAndTarget (new Vector3 (sides [0].X, sides [0].Y, 0) * 0.5f, time);
 				Screen.Input.CurrentInputAction = action;
 				World.Redraw = true;
 			}

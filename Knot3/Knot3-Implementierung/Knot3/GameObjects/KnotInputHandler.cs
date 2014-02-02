@@ -270,12 +270,16 @@ namespace Knot3.GameObjects
 			if (Options.Default ["video", "auto-camera", false]) {
 				ScreenPoint currentPosition = InputManager.CurrentMouseState.ToScreenPoint (Screen);
 				Bounds worldBounds = world.Bounds;
-				Bounds innerBounds = worldBounds.FromLeft (0.96f).FromRight (0.96f).FromTop (0.96f).FromBottom (0.96f);
-				if (worldBounds.Contains (currentPosition) && !innerBounds.Contains (currentPosition)) {
-					Vector2 viewportCenter = new Vector2 (world.Viewport.X + world.Viewport.Width / 2,
-					                                      world.Viewport.Y + world.Viewport.Height / 2);
-					Vector2 screenCorner = (currentPosition - viewportCenter).PrimaryDirection ();
-					MoveTarget (new Vector3 (screenCorner.X, -screenCorner.Y, 0) * 0.5f, time);
+				var bounds = new []{
+					new { Bounds = worldBounds.FromLeft (0.1f), Side = new Vector2 (-1, 0) },
+					new { Bounds = worldBounds.FromRight (0.1f), Side = new Vector2 (1, 0) },
+					new { Bounds = worldBounds.FromTop (0.1f), Side = new Vector2 (0, 1) },
+					new { Bounds = worldBounds.FromBottom (0.1f), Side = new Vector2 (0, -1) }
+				};
+				Vector2[] sides = bounds.Where (x => x.Bounds.Contains (currentPosition)).Select (x => x.Side).ToArray ();
+				if (sides.Length == 1) {
+					InputAction action = Screen.Input.CurrentInputAction;
+					MoveTarget (new Vector3 (sides [0].X, sides [0].Y, 0) * 0.5f, time);
 					world.Redraw = true;
 					Screen.Input.CurrentInputAction = InputAction.FreeMouse;
 				}
@@ -395,7 +399,7 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = camera.PositionToTargetDirection;
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.Target
-				                  + (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
+					+ (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.Target, oldDistance);
 			}
 		}
@@ -407,7 +411,7 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+				).ElementAt (0);
 			}
 
 			if (move.Length () > 0) {
@@ -420,9 +424,9 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = Vector3.Normalize (camera.ArcballTarget - camera.Position);
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.ArcballTarget
-				                  + (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+					+ (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Target = camera.ArcballTarget
-				                + (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+					+ (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.ArcballTarget, oldPositionDistance);
 				camera.Target = camera.Target.SetDistanceTo (camera.Position, oldTargetDistance);
 			}
