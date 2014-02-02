@@ -278,7 +278,7 @@ namespace Knot3.GameObjects
 					//                              nearTo: world.SelectedObject != null ? world.SelectedObject.Center () : Vector3.Zero
 					//                          );
 					Vector2 viewportCenter = new Vector2 (world.Viewport.X + world.Viewport.Width / 2,
-						                                      world.Viewport.Y + world.Viewport.Height / 2);
+					                                      world.Viewport.Y + world.Viewport.Height / 2);
 					Vector2 direction = (currentPosition - viewportCenter).PrimaryDirection ();
 					//Console.WriteLine ("AutoCamera: direction=" + direction + ", (currentPosition - viewportCenter)=" + (currentPosition - viewportCenter));
 					move (new Vector3 (direction.X, -direction.Y, 0) * 0.5f, time);
