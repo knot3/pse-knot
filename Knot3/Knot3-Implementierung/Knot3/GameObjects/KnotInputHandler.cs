@@ -278,12 +278,15 @@ namespace Knot3.GameObjects
 					//                              nearTo: world.SelectedObject != null ? world.SelectedObject.Center () : Vector3.Zero
 					//                          );
 					Vector2 viewportCenter = new Vector2 (world.Viewport.X + world.Viewport.Width / 2,
-					                                      world.Viewport.Y + world.Viewport.Height / 2);
-					Vector2 direction = Vector2.Normalize (currentPosition - viewportCenter).PrimaryDirection ();
-					move (new Vector3 (direction.X, -direction.Y, 0) * 1f, time);
+						                                      world.Viewport.Y + world.Viewport.Height / 2);
+					Vector2 direction = (currentPosition - viewportCenter).PrimaryDirection ();
+					//Console.WriteLine ("AutoCamera: direction=" + direction + ", (currentPosition - viewportCenter)=" + (currentPosition - viewportCenter));
+					move (new Vector3 (direction.X, -direction.Y, 0) * 0.5f, time);
 					//mousePosition2D = camera.To2D (mousePosition3D);
 					//Mouse.SetPosition ((int)mousePosition2D.X, (int)mousePosition2D.Y);
 					//}
+					world.Redraw = true;
+					Screen.Input.CurrentInputAction = InputAction.FreeMouse;
 				}
 			}
 		}
