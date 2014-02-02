@@ -170,6 +170,10 @@ namespace Knot3.Screens
 			    name: name,
 			    onClick: SelectTargetKnot
 			);
+			buttonStart.SelectedColorBackground = Color.White;
+			buttonStart.SelectedColorForeground = Color.Black;
+			buttonTarget.SelectedColorBackground = Color.White;
+			buttonTarget.SelectedColorForeground = Color.Black;
 
 			startKnotMenu.Add (buttonStart);
 			targetKnotMenu.Add (buttonTarget);

@@ -168,6 +168,8 @@ namespace Knot3.Screens
 					}
 				}
 			};
+			button.SelectedColorBackground = Color.White;
+			button.SelectedColorForeground = Color.Black;
 			savegameMenu.Add (button);
 		}
 
