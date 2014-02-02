@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -11,6 +12,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.RenderEffects;
@@ -25,7 +27,6 @@ namespace Knot3.Screens
 	/// </summary>
 	public sealed class CreativeLoadScreen : MenuScreen
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -65,11 +66,11 @@ namespace Knot3.Screens
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
 
 			lines.AddPoints (0, 50,
-				30, 970,
-				770, 895,
-				870, 970,
-				970, 50, 1000
-			);
+			                 30, 970,
+			                 770, 895,
+			                 870, 970,
+			                 970, 50, 1000
+			                );
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Knot");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -84,38 +85,38 @@ namespace Knot3.Screens
 			// Preview
 			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.48f, 0.7f);
 			previewWorld = new World (
-				screen: this,
-				drawIndex: DisplayLayer.ScreenUI + DisplayLayer.GameWorld,
-				bounds: previewBounds
+			    screen: this,
+			    drawIndex: DisplayLayer.ScreenUI + DisplayLayer.GameWorld,
+			    bounds: previewBounds
 			);
 			previewRenderer = new KnotRenderer (screen: this, position: Vector3.Zero);
 			previewWorld.Add (previewRenderer);
 			previewBorder = new Border (
-				screen: this,
-				drawOrder: DisplayLayer.GameWorld,
-				bounds: previewBounds,
-				lineWidth: 2,
-				padding: 0
+			    screen: this,
+			    drawOrder: DisplayLayer.GameWorld,
+			    bounds: previewBounds,
+			    lineWidth: 2,
+			    padding: 0
 			);
 			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 			previewMouseHandler = new ModelMouseHandler (screen: this, world: previewWorld);
 
 			backButton = new Button (
-				screen: this,
-				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				name: "Back",
-				onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is CreativeLoadScreen)).ElementAt (0)
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Back",
+			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is CreativeLoadScreen)).ElementAt (0)
 			);
 			backButton.AddKey (Keys.Escape);
 			backButton.SetCoordinates (left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
 
 			backButton.AlignX = HorizontalAlignment.Center;
 			startButton = new Button (
-				screen: this,
-				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				name: "Start",
-				onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is CreativeLoadScreen)).ElementAt (0)
-				//NextScreen = n ew CreativeModeScreen (game: Game, knot: loader.FileFormat.Load (filename));
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "Start",
+			    onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is CreativeLoadScreen)).ElementAt (0)
+			                                    //NextScreen = n ew CreativeModeScreen (game: Game, knot: loader.FileFormat.Load (filename));
 			);
 			backButton.AddKey (Keys.Escape);
 			backButton.SetCoordinates (left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
@@ -157,11 +158,11 @@ namespace Knot3.Screens
 			// Erstelle den Menüeintrag
 			MenuEntry button = new MenuEntry (
 
-				                   screen: this,
-				                   drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				                   name: name,
-				                   onClick: preview
-			                   );
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: name,
+			    onClick: preview
+			);
 
 			button.SelectedColorBackground = Color.White;
 			button.SelectedColorForeground = Color.Black;
@@ -180,6 +181,5 @@ namespace Knot3.Screens
 		}
 
 		#endregion
-
 	}
 }
