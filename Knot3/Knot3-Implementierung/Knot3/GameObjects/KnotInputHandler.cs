@@ -267,7 +267,7 @@ namespace Knot3.GameObjects
 
 		private void AutoCamera (GameTime time)
 		{
-			if (Options.Default ["video", "auto-camera", false]) {
+			if (Options.Default ["video", "auto-camera-nomove", false]) {
 				ScreenPoint currentPosition = InputManager.CurrentMouseState.ToScreenPoint (Screen);
 				Bounds worldBounds = world.Bounds;
 				var bounds = new [] {
