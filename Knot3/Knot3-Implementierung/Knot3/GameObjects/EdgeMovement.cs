@@ -158,7 +158,7 @@ namespace Knot3.GameObjects
 				Vector3 currentMousePosition = World.Camera.To3D (
 				                                   position: InputManager.CurrentMouseState.ToVector2 (),
 				                                   nearTo: selectedModel.Center ()
-				);
+				                               );
 
 				// Wenn die Maus gedrückt gehalten ist und wir mitten im Ziehen der Kante
 				// an die neue Position sind
@@ -306,7 +306,7 @@ namespace Knot3.GameObjects
 		{
 			ScreenPoint currentPosition = InputManager.CurrentMouseState.ToScreenPoint (Screen);
 			Bounds worldBounds = World.Bounds;
-			var bounds = new []{
+			var bounds = new [] {
 				new { Bounds = worldBounds.FromLeft (0.1f), Side = new Vector2 (-1, 0) },
 				new { Bounds = worldBounds.FromRight (0.1f), Side = new Vector2 (1, 0) },
 				new { Bounds = worldBounds.FromTop (0.1f), Side = new Vector2 (0, 1) },
