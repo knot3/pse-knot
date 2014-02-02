@@ -91,7 +91,6 @@ namespace Knot3.Widgets
 						Console.WriteLine("State: "+ item.State);
 						if (item is MenuEntry ) {
 							item.State = State.None;
-
 						}
 					}
 				}
