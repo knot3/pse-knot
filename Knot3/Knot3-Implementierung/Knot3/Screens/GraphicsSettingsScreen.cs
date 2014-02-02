@@ -70,6 +70,14 @@ namespace Knot3.Screens
 			);
 			settingsMenu.Add (selectiveRender);
 
+			CheckBoxItem autoCamera = new CheckBoxItem (
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    text: "Auto Camera",
+			    option: new BooleanOptionInfo ("video", "auto-camera", false, Options.Default)
+			);
+			settingsMenu.Add (autoCamera);
+
 			string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width + "x" + Graphics.GraphicsDevice.DisplayMode.Height;
 			DisplayModeCollection modes = GraphicsAdapter.DefaultAdapter.SupportedDisplayModes;
 			HashSet<string> reso = new HashSet<string> ();
