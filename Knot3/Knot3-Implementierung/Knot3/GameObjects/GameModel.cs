@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -11,6 +12,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+
 using Knot3.Core;
 using Knot3.Screens;
 using Knot3.RenderEffects;
@@ -25,7 +27,6 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public abstract class GameModel : IGameObject
 	{
-
 		#region Properties
 
 		GameObjectInfo IGameObject.Info { get { return Info; } }
@@ -174,8 +175,8 @@ namespace Knot3.GameObjects
 			if (Info.Scale != _scale || Info.Rotation != _rotation || Info.Position != _position) {
 				// world matrix
 				_worldMatrix = Matrix.CreateScale (Info.Scale)
-				* Matrix.CreateFromYawPitchRoll (Info.Rotation.Y, Info.Rotation.X, Info.Rotation.Z)
-				* Matrix.CreateTranslation (Info.Position);
+				               * Matrix.CreateFromYawPitchRoll (Info.Rotation.Y, Info.Rotation.X, Info.Rotation.Z)
+				               * Matrix.CreateTranslation (Info.Position);
 
 				// bounding spheres
 				_bounds = Model.Bounds ().ToArray ();
@@ -205,6 +206,5 @@ namespace Knot3.GameObjects
 		}
 
 		#endregion
-
 	}
 }
