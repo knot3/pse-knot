@@ -168,11 +168,6 @@ namespace Knot3.Widgets
 				ScreenPoint size = Bounds.Size - TitleBounds.Size.OnlyY - Bounds.Padding * 2;
 				return new Bounds(pos, size);
 			}
-			set {
-				// TODO
-				//				Vector2 newSize = value + new Vector2 (0, RelativeTitleSize.Y) + RelativePadding () * 2;
-				//				RelativeSize = () => newSize;
-			}
 		}
 
 		protected virtual Color MenuItemBackgroundColor (State itemState)
