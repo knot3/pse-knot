@@ -279,7 +279,7 @@ namespace Knot3.Core
 				Target = Target.SetDistanceTo (
 				             target: smoothTarget.Value,
 				             distance: Math.Max (0, smoothDistance - distance)
-				);
+				         );
 				World.Redraw = true;
 			}
 		}
@@ -306,21 +306,21 @@ namespace Knot3.Core
 			);
 			return currentMousePosition;
 			*/
-			
+
 			Vector3 nearScreenPoint = new Vector3 (position.X, position.Y, 0);
 			Vector3 farScreenPoint = new Vector3 (position.X, position.Y, 1);
 			Vector3 nearWorldPoint = World.Viewport.Unproject (
-				source: nearScreenPoint,
-			                                   projection: World.Camera.ProjectionMatrix,
-			                                   view: World.Camera.ViewMatrix,
-			                                   world: Matrix.Identity
-			);
+			                             source: nearScreenPoint,
+			                             projection: World.Camera.ProjectionMatrix,
+			                             view: World.Camera.ViewMatrix,
+			                             world: Matrix.Identity
+			                         );
 			Vector3 farWorldPoint = World.Viewport.Unproject (
-				source: farScreenPoint,
-			                                   projection: World.Camera.ProjectionMatrix,
-			                                   view: World.Camera.ViewMatrix,
-			                                   world: Matrix.Identity
-			);
+			                            source: farScreenPoint,
+			                            projection: World.Camera.ProjectionMatrix,
+			                            view: World.Camera.ViewMatrix,
+			                            world: Matrix.Identity
+			                        );
 
 			Vector3 direction = farWorldPoint - nearWorldPoint;
 
@@ -336,7 +336,7 @@ namespace Knot3.Core
 			                             projection: World.Camera.ProjectionMatrix,
 			                             view: World.Camera.ViewMatrix,
 			                             world: World.Camera.WorldMatrix
-			);
+			                         );
 			return new Vector2 (screenLocation.X, screenLocation.Y);
 		}
 
