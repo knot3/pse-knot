@@ -27,7 +27,7 @@ namespace Knot3.GameObjects
 	/// Verarbeitet die Maus- und Tastatureingaben des Spielers und modifiziert die Kamera-Position
 	/// und das Kamera-Ziel.
 	/// </summary>
-	public class KnotInputHandler : GameScreenComponent, IKeyEventListener, IMouseMoveEventListener, IMouseScrollEventListener
+	public sealed class KnotInputHandler : GameScreenComponent, IKeyEventListener, IMouseMoveEventListener, IMouseScrollEventListener
 	{
 		#region Properties
 
@@ -168,23 +168,23 @@ namespace Knot3.GameObjects
 
 		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
-			UpdateMouse (move, time);
+			UpdateMouse (previousPosition, currentPosition, move, time);
 			ResetMousePosition ();
 		}
 
 		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
-			UpdateMouse (move, time);
+			UpdateMouse (previousPosition, currentPosition, move, time);
 			ResetMousePosition ();
 		}
 
 		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
-			UpdateMouse (move, time);
+			UpdateMouse (previousPosition, currentPosition, move, time);
 			ResetMousePosition ();
 		}
 
-		protected void UpdateMouse (Vector2 mouseMove, GameTime time)
+		private void UpdateMouse (Vector2 previousPosition, Vector2 currentPosition, Vector2 mouseMove, GameTime time)
 		{
 			// wurde im letzten Frame in den oder aus dem Vollbildmodus gewechselt?
 			// dann überpringe einen frame
@@ -257,6 +257,28 @@ namespace Knot3.GameObjects
 				// verschieben
 				moveTarget (new Vector3 (mouseMove.X, -mouseMove.Y, 0) * 0.3f, time);
 				break;
+			case InputAction.FreeMouse:
+				// automatische Kameraführung
+				AutoCamera (previousPosition, currentPosition, mouseMove, time);
+				break;
+			}
+		}
+
+		private void AutoCamera (Vector2 previousPosition, Vector2 currentPosition, Vector2 mouseMove, GameTime time)
+		{
+			Bounds worldBounds = world.Bounds;
+			Bounds innerBounds = worldBounds.FromLeft (0.9f).FromRight (0.9f).FromTop (0.9f).FromBottom (0.9f);
+			if (worldBounds.Rectangle.Contains (currentPosition) && !innerBounds.Rectangle.Contains (currentPosition)) {
+				if (worldBounds.Rectangle.Contains (previousPosition) && !innerBounds.Rectangle.Contains (previousPosition)) {
+					
+					Vector3 mousePosition3D = world.Camera.To3D (
+				                                   position: InputManager.CurrentMouseState.ToVector2 (),
+				                                   nearTo: world.SelectedObject != null ? world.SelectedObject.Center() : Vector3.Zero
+					);
+					moveTarget (new Vector3 (mouseMove.X, -mouseMove.Y, 0) * 0.3f, time);
+					Vector2 mousePosition2D = camera.To2D (mousePosition3D);
+					Mouse.SetPosition ((int)mousePosition2D.X, (int)mousePosition2D.Y);
+				}
 			}
 		}
 
@@ -373,7 +395,7 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = camera.PositionToTargetDirection;
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.Target
-				                  + (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
+					+ (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.Target, oldDistance);
 			}
 		}
@@ -385,7 +407,7 @@ namespace Knot3.GameObjects
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+				).ElementAt (0);
 			}
 
 			if (move.Length () > 0) {
@@ -398,9 +420,9 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = Vector3.Normalize (camera.ArcballTarget - camera.Position);
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.ArcballTarget
-				                  + (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+					+ (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Target = camera.ArcballTarget
-				                + (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+					+ (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.ArcballTarget, oldPositionDistance);
 				camera.Target = camera.Target.SetDistanceTo (camera.Position, oldTargetDistance);
 			}
