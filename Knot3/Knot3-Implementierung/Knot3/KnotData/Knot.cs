@@ -512,13 +512,15 @@ namespace Knot3.KnotData
 		/// </summary>
 		private KnotCharakteristic Charakteristic ()
 		{
-			if (CharakteristicCache != null) {
-				return (KnotCharakteristic)CharakteristicCache;
+			if (CharakteristicCache.HasValue) {
+				return CharakteristicCache.Value;
 			}
+
 			Circle<Edge> charakteristikElement = startElement;
 			Vector3 position3D = startElement.Value.Direction;
 			Vector3 bestPosition3D = startElement.Value.Direction / 2;
 			Circle<Edge> edgePointer = startElement.Next;
+
 			int edgeCount = 1;
 			for (edgeCount = 1; edgePointer != startElement; edgePointer++, edgeCount++) {
 				Vector3 nextPosition3D = position3D + edgePointer.Value.Direction / 2;
@@ -530,8 +532,9 @@ namespace Knot3.KnotData
 				}
 				position3D += edgePointer.Value.Direction;
 			}
+
 			CharakteristicCache = new KnotCharakteristic(charakteristikElement, edgeCount);
-			return (KnotCharakteristic)CharakteristicCache;
+			return CharakteristicCache.Value;
 		}
 
 		public override string ToString ()
