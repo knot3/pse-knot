@@ -75,7 +75,6 @@ namespace Knot3.Widgets
 		: base (screen, drawOrder, title, text)
 		{
 
-
 			textItem = new TextItem(screen,drawOrder,"");
 
 			Bounds.Size = new ScreenPoint(screen,0.5f,0.3f);
