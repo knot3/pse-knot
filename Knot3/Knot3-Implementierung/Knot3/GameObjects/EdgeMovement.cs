@@ -158,7 +158,7 @@ namespace Knot3.GameObjects
 				Vector3 currentMousePosition = World.Camera.To3D (
 				                                   position: InputManager.CurrentMouseState.ToVector2 (),
 				                                   nearTo: selectedModel.Center ()
-				);
+				                               );
 
 				// Wenn die Maus gedrückt gehalten ist und wir mitten im Ziehen der Kante
 				// an die neue Position sind
@@ -310,14 +310,13 @@ namespace Knot3.GameObjects
 			Mouse.SetPosition ((int)screenPosition.X, (int)screenPosition.Y);
 			InputManager.CurrentMouseState = Mouse.GetState ();
 			*/
-			
+
 			Vector2 currentPosition = InputManager.CurrentMouseState.ToVector2 ();
 			Bounds worldBounds = World.Bounds;
 			Bounds innerBounds = worldBounds.FromLeft (0.9f).FromRight (0.9f).FromTop (0.9f).FromBottom (0.9f);
 			if (worldBounds.Rectangle.Contains (currentPosition) && !innerBounds.Rectangle.Contains (currentPosition)) {
-
 				Vector2 viewportCenter = new Vector2 (World.Viewport.X + World.Viewport.Width / 2,
-					                                      World.Viewport.Y + World.Viewport.Height / 2);
+				                                      World.Viewport.Y + World.Viewport.Height / 2);
 				Vector2 screenCorner = (currentPosition - viewportCenter).PrimaryDirection ();
 				//Console.WriteLine ("AutoCamera: direction=" + direction + ", (currentPosition - viewportCenter)=" + (currentPosition - viewportCenter));
 				InputAction action = Screen.Input.CurrentInputAction;
