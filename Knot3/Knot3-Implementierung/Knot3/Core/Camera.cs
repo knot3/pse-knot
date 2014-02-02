@@ -295,17 +295,17 @@ namespace Knot3.Core
 				Vector3 nearScreenPoint = new Vector3 (position.X, position.Y, 0);
 				Vector3 farScreenPoint = new Vector3 (position.X, position.Y, 1);
 				Vector3 nearWorldPoint = World.Viewport.Unproject (
-			                             source: nearScreenPoint,
-			                             projection: World.Camera.ProjectionMatrix,
-			                             view: World.Camera.ViewMatrix,
-			                             world: Matrix.Identity
-				);
+				                             source: nearScreenPoint,
+				                             projection: World.Camera.ProjectionMatrix,
+				                             view: World.Camera.ViewMatrix,
+				                             world: Matrix.Identity
+				                         );
 				Vector3 farWorldPoint = World.Viewport.Unproject (
-			                            source: farScreenPoint,
-			                            projection: World.Camera.ProjectionMatrix,
-			                            view: World.Camera.ViewMatrix,
-			                            world: Matrix.Identity
-				);
+				                            source: farScreenPoint,
+				                            projection: World.Camera.ProjectionMatrix,
+				                            view: World.Camera.ViewMatrix,
+				                            world: Matrix.Identity
+				                        );
 
 				Vector3 direction = farWorldPoint - nearWorldPoint;
 
@@ -315,17 +315,17 @@ namespace Knot3.Core
 			}
 			else {
 				Vector3 screenLocation = World.Viewport.Project (
-			                             source: nearTo,
-			                             projection: World.Camera.ProjectionMatrix,
-			                             view: World.Camera.ViewMatrix,
-			                             world: World.Camera.WorldMatrix
-				);
+				                             source: nearTo,
+				                             projection: World.Camera.ProjectionMatrix,
+				                             view: World.Camera.ViewMatrix,
+				                             world: World.Camera.WorldMatrix
+				                         );
 				Vector3 currentMousePosition = World.Viewport.Unproject (
-			                                   source: new Vector3 (position, screenLocation.Z),
-			                                   projection: World.Camera.ProjectionMatrix,
-			                                   view: World.Camera.ViewMatrix,
-			                                   world: Matrix.Identity
-				);
+				                                   source: new Vector3 (position, screenLocation.Z),
+				                                   projection: World.Camera.ProjectionMatrix,
+				                                   view: World.Camera.ViewMatrix,
+				                                   world: Matrix.Identity
+				                               );
 				return currentMousePosition;
 			}
 		}
