@@ -118,7 +118,7 @@ namespace Knot3.Utilities
 			           MathHelper.Clamp (v.X, lower.X, higher.X),
 			           MathHelper.Clamp (v.Y, lower.Y, higher.Y),
 			           MathHelper.Clamp (v.Z, lower.Z, higher.Z)
-			       );
+			);
 		}
 
 		public static Vector3 Clamp (this Vector3 v, int minLength, int maxLength)
@@ -247,14 +247,20 @@ namespace Knot3.Utilities
 			return new BoundingBox (Vector3.Transform (box.Min, translation), Vector3.Transform (box.Max, translation));
 		}
 
-		public static Vector2 ToVector2 (this MouseState screen)
+		public static Vector2 ToVector2 (this MouseState mouse)
 		{
-			return new Vector2 (screen.X, screen.Y);
+			return new Vector2 (mouse.X, mouse.Y);
 		}
 
-		public static Point ToPoint (this MouseState screen)
+		public static ScreenPoint ToScreenPoint (this MouseState mouse, IGameScreen screen)
 		{
-			return new Point (screen.X, screen.Y);
+			Vector2 vector = mouse.ToVector2 () / screen.Viewport.ScaleFactor ();
+			return new ScreenPoint (screen, vector);
+		}
+
+		public static Point ToPoint (this MouseState mouse)
+		{
+			return new Point (mouse.X, mouse.Y);
 		}
 
 		public static Vector2 ToVector2 (this Viewport viewport)

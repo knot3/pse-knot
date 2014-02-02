@@ -310,11 +310,12 @@ namespace Knot3.GameObjects
 			Mouse.SetPosition ((int)screenPosition.X, (int)screenPosition.Y);
 			InputManager.CurrentMouseState = Mouse.GetState ();
 			*/
-
-			Vector2 currentPosition = InputManager.CurrentMouseState.ToVector2 ();
+			
+			ScreenPoint currentPosition = InputManager.CurrentMouseState.ToScreenPoint (Screen);
 			Bounds worldBounds = World.Bounds;
 			Bounds innerBounds = worldBounds.FromLeft (0.9f).FromRight (0.9f).FromTop (0.9f).FromBottom (0.9f);
-			if (worldBounds.Rectangle.Contains (currentPosition) && !innerBounds.Rectangle.Contains (currentPosition)) {
+			if (worldBounds.Contains (currentPosition) && !innerBounds.Contains (currentPosition)) {
+
 				Vector2 viewportCenter = new Vector2 (World.Viewport.X + World.Viewport.Width / 2,
 				                                      World.Viewport.Y + World.Viewport.Height / 2);
 				Vector2 screenCorner = (currentPosition - viewportCenter).PrimaryDirection ();

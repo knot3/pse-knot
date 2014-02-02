@@ -97,13 +97,23 @@ namespace Knot3.Widgets
 
 		#region Methods and Operators
 
+		public bool Contains (Point point)
+		{
+			return Rectangle.Contains (point);
+		}
+
+		public bool Contains (ScreenPoint point)
+		{
+			return Rectangle.Contains ((Point)point);
+		}
+
 		public static Bounds Zero (IGameScreen screen)
 		{
 			return new Bounds (
 			           position: new ScreenPoint (screen, Vector2.Zero),
 			           size: new ScreenPoint (screen, Vector2.Zero),
 			           padding: new ScreenPoint (screen, Vector2.Zero)
-			       );
+			);
 		}
 
 		public Bounds FromLeft (Func<float> percent)
@@ -112,7 +122,7 @@ namespace Knot3.Widgets
 			           position: Position,
 			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X * percent (), () => Size.Relative.Y),
 			           padding: Padding
-			       );
+			);
 		}
 
 		public Bounds FromRight (Func<float> percent)
@@ -121,7 +131,7 @@ namespace Knot3.Widgets
 			           position: Position + new ScreenPoint (Size.Screen, () => Size.Relative.X * (1f - percent ()), () => 0),
 			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X * percent (), () => Size.Relative.Y),
 			           padding: Padding
-			       );
+			);
 		}
 
 		public Bounds FromTop (Func<float> percent)
@@ -130,7 +140,7 @@ namespace Knot3.Widgets
 			           position: Position,
 			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X, () => Size.Relative.Y * percent ()),
 			           padding: Padding
-			       );
+			);
 		}
 
 		public Bounds FromBottom (Func<float> percent)
@@ -139,7 +149,7 @@ namespace Knot3.Widgets
 			           position: Position + new ScreenPoint (Size.Screen, () => 0, () => Size.Relative.Y * (1f - percent ())),
 			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X, () => Size.Relative.Y * percent ()),
 			           padding: Padding
-			       );
+			);
 		}
 
 		public Bounds FromLeft (float percent)
