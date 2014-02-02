@@ -78,7 +78,7 @@ namespace Knot3.KnotData
 		public Action<Vector3> StartEdgeChanged = (v) =>
 		{
 		};
-        private KnotCharakteristic? CharakteristicCache = null;
+		private KnotCharakteristic? CharakteristicCache = null;
 
 		#endregion
 
@@ -308,10 +308,11 @@ namespace Knot3.KnotData
 			return true;
 		}
 
-        private void onEdgesChanged() {
-            CharakteristicCache = null;
-            EdgesChanged();
-        }
+		private void onEdgesChanged()
+		{
+			CharakteristicCache = null;
+			EdgesChanged();
+		}
 
 		/// <summary>
 		/// Gibt die doppelt-verkettete Kantenliste als Enumerator zurück.
@@ -511,10 +512,9 @@ namespace Knot3.KnotData
 		/// </summary>
 		private KnotCharakteristic Charakteristic ()
 		{
-            if (CharakteristicCache != null)
-            {
-                return (KnotCharakteristic)CharakteristicCache;
-            }
+			if (CharakteristicCache != null) {
+				return (KnotCharakteristic)CharakteristicCache;
+			}
 			Circle<Edge> charakteristikElement = startElement;
 			Vector3 position3D = startElement.Value.Direction;
 			Vector3 bestPosition3D = startElement.Value.Direction / 2;
@@ -530,8 +530,8 @@ namespace Knot3.KnotData
 				}
 				position3D += edgePointer.Value.Direction;
 			}
-            CharakteristicCache = new KnotCharakteristic(charakteristikElement, edgeCount);
-            return (KnotCharakteristic)CharakteristicCache;
+			CharakteristicCache = new KnotCharakteristic(charakteristikElement, edgeCount);
+			return (KnotCharakteristic)CharakteristicCache;
 		}
 
 		public override string ToString ()
