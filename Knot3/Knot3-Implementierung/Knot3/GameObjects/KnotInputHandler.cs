@@ -279,9 +279,9 @@ namespace Knot3.GameObjects
 						Vector2 viewportCenter = new Vector2 (world.Viewport.X + world.Viewport.Width / 2,
 						                                      world.Viewport.Y + world.Viewport.Height / 2);
 						Vector2 direction = Vector2.Normalize (mousePosition2D - viewportCenter);
-						move (new Vector3 (direction, 0) * 0.3f, time);
-						mousePosition2D = camera.To2D (mousePosition3D);
-						Mouse.SetPosition ((int)mousePosition2D.X, (int)mousePosition2D.Y);
+						move (new Vector3 (direction.X, -direction.Y, 0) * 1f, time);
+						//mousePosition2D = camera.To2D (mousePosition3D);
+						//Mouse.SetPosition ((int)mousePosition2D.X, (int)mousePosition2D.Y);
 					}
 				}
 			}
