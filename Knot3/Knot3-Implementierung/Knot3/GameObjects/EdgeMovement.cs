@@ -317,7 +317,9 @@ namespace Knot3.GameObjects
 
 				if (sides.Length == 1) {
 					InputAction action = Screen.Input.CurrentInputAction;
-					KnotInput.MoveCameraAndTarget (new Vector3 (sides [0].X, sides [0].Y, 0) * 0.5f, time);
+					World.Camera.Position += direction * 2.5f;
+					World.Camera.Target += direction * 2.5f;
+					//KnotInput.MoveCameraAndTarget (new Vector3 (sides [0].X, sides [0].Y, 0) * 0.5f, time);
 					Screen.Input.CurrentInputAction = action;
 					World.Redraw = true;
 				}
