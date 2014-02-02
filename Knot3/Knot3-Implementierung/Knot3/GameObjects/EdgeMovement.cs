@@ -302,10 +302,12 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction, float count)
 		{
+			/*
 			Vector3 nextMousePosition = currentMousePosition;// + direction * count * Node.Scale;
 			Vector2 screenPosition = World.Camera.To2D (nextMousePosition);
 			Mouse.SetPosition ((int)screenPosition.X, (int)screenPosition.Y);
 			InputManager.CurrentMouseState = Mouse.GetState ();
+			*/
 
 			if (Knot.IsValidMove (direction)) {
 				foreach (ShadowGameModel shadowObj in shadowObjects) {
