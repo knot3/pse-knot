@@ -158,7 +158,7 @@ namespace Knot3.GameObjects
 				Vector3 currentMousePosition = World.Camera.To3D (
 				                                   position: InputManager.CurrentMouseState.ToVector2 (),
 				                                   nearTo: selectedModel.Center ()
-				                               );
+				);
 
 				// Wenn die Maus gedrückt gehalten ist und wir mitten im Ziehen der Kante
 				// an die neue Position sind
@@ -304,27 +304,26 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction, float count, GameTime time)
 		{
-			/*
-			Vector3 nextMousePosition = currentMousePosition;// + direction * count * Node.Scale;
-			Vector2 screenPosition = World.Camera.To2D (nextMousePosition);
-			Mouse.SetPosition ((int)screenPosition.X, (int)screenPosition.Y);
-			InputManager.CurrentMouseState = Mouse.GetState ();
-			*/
-
 			ScreenPoint currentPosition = InputManager.CurrentMouseState.ToScreenPoint (Screen);
 			Bounds worldBounds = World.Bounds;
-			Bounds innerBounds = worldBounds.FromLeft (0.9f).FromRight (0.9f).FromTop (0.9f).FromBottom (0.9f);
-			if (worldBounds.Contains (currentPosition) && !innerBounds.Contains (currentPosition)) {
-				Vector2 viewportCenter = new Vector2 (World.Viewport.X + World.Viewport.Width / 2,
-				                                      World.Viewport.Y + World.Viewport.Height / 2);
-				Vector2 screenCorner = (currentPosition - viewportCenter).PrimaryDirection ();
-				//Console.WriteLine ("AutoCamera: direction=" + direction + ", (currentPosition - viewportCenter)=" + (currentPosition - viewportCenter));
+			Bounds leftSide = worldBounds.FromLeft (0.1f);
+			Bounds rightSide = worldBounds.FromRight (0.1f);
+			Bounds topSide = worldBounds.FromTop (0.1f);
+			Bounds bottomSide = worldBounds.FromBottom (0.1f);
+			List<Vector2> sides = new List<Vector2>();
+			if (leftSide.Contains (currentPosition))
+				sides.Add (new Vector2 (-1, 0));
+			if (rightSide.Contains (currentPosition))
+				sides.Add (new Vector2 (1, 0));
+			if (topSide.Contains (currentPosition))
+				sides.Add (new Vector2 (0, 1));
+			if (bottomSide.Contains (currentPosition))
+				sides.Add (new Vector2 (0, -1));
+
+			if (sides.Count == 1) {
 				InputAction action = Screen.Input.CurrentInputAction;
-				KnotInput.MoveCameraAndTarget (new Vector3 (screenCorner.X, -screenCorner.Y, 0) * 0.5f, time);
+				KnotInput.MoveCameraAndTarget (new Vector3 (sides[0].X, sides[0].Y, 0) * 0.5f, time);
 				Screen.Input.CurrentInputAction = action;
-				//mousePosition2D = camera.To2D (mousePosition3D);
-				//Mouse.SetPosition ((int)mousePosition2D.X, (int)mousePosition2D.Y);
-				//}
 				World.Redraw = true;
 			}
 
