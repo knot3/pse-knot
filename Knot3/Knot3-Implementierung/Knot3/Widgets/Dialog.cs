@@ -34,11 +34,6 @@ namespace Knot3.Widgets
 		/// </summary>
 		public string Title { get; set; }
 
-		/// <summary>
-		/// Der angezeigte Text.
-		/// </summary>
-		public string Text { get; set; }
-
 		protected SpriteBatch spriteBatch;
 
 		/// <summary>
@@ -77,7 +72,6 @@ namespace Knot3.Widgets
 		{
 			// Setzte Titel und Text
 			Title = title;
-			Text = text;
 
 			// erstelle einen Spritebatch zum Zeichnen der Titelleiste
 			spriteBatch = new SpriteBatch (screen.Device);
