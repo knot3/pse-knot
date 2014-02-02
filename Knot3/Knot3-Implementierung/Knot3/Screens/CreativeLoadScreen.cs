@@ -147,18 +147,15 @@ namespace Knot3.Screens
 
 			};
 
-
-
 			// Erstelle den Menüeintrag
 			MenuEntry button = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: name,
-				onClick: preview
+			    onClick: preview
 			);
 			button.SelectedColorBackground = Color.White;
 			button.SelectedColorForeground = Color.Black;
-
 
 			savegameMenu.Add (button);
 		}

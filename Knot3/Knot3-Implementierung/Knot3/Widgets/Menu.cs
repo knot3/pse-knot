@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -11,6 +12,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.Screens;
@@ -25,7 +27,6 @@ namespace Knot3.Widgets
 	/// </summary>
 	public sealed class Menu : Container, IMouseClickEventListener, IMouseMoveEventListener
 	{
-
 		#region Properties
 
 		/// <summary>
@@ -59,9 +60,9 @@ namespace Knot3.Widgets
 		{
 			get {
 				Bounds bounds = new Bounds (
-					                Bounds.Position + Bounds.Size.OnlyX + new ScreenPoint (Screen, 0.005f, 0f),
-					                new ScreenPoint (Screen, 0.02f, Bounds.Size.Relative.Y)
-				                );
+				    Bounds.Position + Bounds.Size.OnlyX + new ScreenPoint (Screen, 0.005f, 0f),
+				    new ScreenPoint (Screen, 0.02f, Bounds.Size.Relative.Y)
+				);
 				return bounds;
 			}
 		}
@@ -83,9 +84,9 @@ namespace Knot3.Widgets
 				float currentValue = (float)currentScrollPosition / (maxValue - pageValue);
 				// Console.WriteLine ("currentValue=" + currentValue + ", pos=" + moveBounds.FromTop (currentValue).Position);
 				Bounds bounds = new Bounds (
-					                position: moveBounds.Size.OnlyY * currentValue * (1f - visiblePercent),
-					                size: moveBounds.Size.ScaleY (visiblePercent)
-				                );
+				    position: moveBounds.Size.OnlyY * currentValue * (1f - visiblePercent),
+				    size: moveBounds.Size.ScaleY (visiblePercent)
+				);
 				return bounds;
 			}
 		}
@@ -108,9 +109,9 @@ namespace Knot3.Widgets
 		public Bounds ItemBounds (int itemOrder)
 		{
 			return new Bounds (
-				position: new ScreenPoint (Screen, () => verticalRelativeItemPosition (itemOrder)),
-				size: new ScreenPoint (Screen, () => verticalRelativeItemSize (itemOrder))
-			);
+			           position: new ScreenPoint (Screen, () => verticalRelativeItemPosition (itemOrder)),
+			           size: new ScreenPoint (Screen, () => verticalRelativeItemSize (itemOrder))
+			       );
 		}
 
 		private Vector2 verticalRelativeItemPosition (int itemOrder)
@@ -265,6 +266,5 @@ namespace Knot3.Widgets
 		}
 
 		#endregion
-
 	}
 }

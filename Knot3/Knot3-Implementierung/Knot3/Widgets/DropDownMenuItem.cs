@@ -107,7 +107,7 @@ namespace Knot3.Widgets
 					ValueChanged (time);
 				};
 				MenuEntry button = new MenuEntry (
-					screen: Screen,
+				    screen: Screen,
 				    drawOrder: Index + DisplayLayer.MenuItem,
 				    name: value,
 				    onClick: onSelected
