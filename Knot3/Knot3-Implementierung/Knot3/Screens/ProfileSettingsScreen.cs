@@ -55,7 +55,6 @@ namespace Knot3.Screens
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 
 			InputItem playerNameInput = new InputItem(
-
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    text: "Player Name:",

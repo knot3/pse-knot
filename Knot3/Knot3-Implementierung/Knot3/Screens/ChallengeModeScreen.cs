@@ -350,7 +350,6 @@ namespace Knot3.Screens
 		{
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, knotInput, overlay, pointer, ChallengeWorld, PlayerWorld,
-
 			                   modelMouseHandler, lines, playTimeDisplay, playTimeBorder, undoButton, undoButtonBorder, redoButton, redoButtonBorder);
 
 			Audio.BackgroundMusic = Sound.ChallengeMusic;

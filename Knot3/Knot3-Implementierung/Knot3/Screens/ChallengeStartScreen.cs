@@ -71,7 +71,6 @@ namespace Knot3.Screens
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
 
 			/*			lines.AddPoints (
-
 						   0, 50,
 
 						    30, 970,

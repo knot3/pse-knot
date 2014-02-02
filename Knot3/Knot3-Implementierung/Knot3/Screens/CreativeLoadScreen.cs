@@ -107,12 +107,10 @@ namespace Knot3.Screens
 
 			backButton.AlignX = HorizontalAlignment.Center;
 			startButton = new Button (
-
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "Start",
 			    onClick: (time) => NextScreen = new CreativeModeScreen (game: Game, knot: loader.FileFormat.Load (previewKnotMetaData.Filename))
-
 			);
 			startButton.IsVisible = false;
 			startButton.AddKey (Keys.Enter);
@@ -153,7 +151,6 @@ namespace Knot3.Screens
 
 			// Erstelle den Menüeintrag
 			MenuEntry button = new MenuEntry (
-
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: name,
