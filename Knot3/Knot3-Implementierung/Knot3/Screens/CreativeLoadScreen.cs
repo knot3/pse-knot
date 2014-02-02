@@ -151,7 +151,6 @@ namespace Knot3.Screens
 					previewRenderer.Knot = loader.FileFormat.Load (filename);
 					previewKnotMetaData = meta;
 				}
-
 			};
 
 			// Erstelle den Menüeintrag
