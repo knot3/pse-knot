@@ -118,7 +118,7 @@ namespace Knot3.Utilities
 			           MathHelper.Clamp (v.X, lower.X, higher.X),
 			           MathHelper.Clamp (v.Y, lower.Y, higher.Y),
 			           MathHelper.Clamp (v.Z, lower.Z, higher.Z)
-			);
+			       );
 		}
 
 		public static Vector3 Clamp (this Vector3 v, int minLength, int maxLength)
