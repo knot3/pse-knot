@@ -83,19 +83,33 @@ namespace Knot3.KnotData
 
 		private List<KeyValuePair<string, int>> highscore;
 
-		public int AvgTime
-		{
-			get {
-				if (highscore != null) {
+
+		public float AvgTime{
+			get{
+				if (highscore != null && highscore.Count>0) {
 					float amount =0;
 					foreach (KeyValuePair<string, int> entry in highscore) {
 						amount += (float)entry.Value;
 					}
-					return amount/(float)highscore.Count;
+					return amount/((float)highscore.Count);
 				}
+				return 0f;
 			}
 
 			private set {}
+		}
+
+		public string FormatedAvgTime{
+			get{
+				float time = AvgTime;
+				Console.WriteLine(time);
+				if(time != 0f){
+					return formatTime(time);
+				}
+				return "Not yet set.";
+			}
+			private set{
+				}
 		}
 
 		#endregion
@@ -137,14 +151,17 @@ namespace Knot3.KnotData
 				highscore.Add (entry);
 			}
 		}
-		public static string formatTime()
-		{
+
+		public static string formatTime(float secs){
+			Console.WriteLine(secs);
 			TimeSpan t = TimeSpan.FromSeconds( secs );
 
-			string answer = string.Format("{0:D2}h:{1:D2}m:{2:D2}s",
-			                              t.Hours,
-			                              t.Minutes,
-			                              t.Seconds);
+			string answer = string.Format("{0:D2}h:{1:D2}m:{2:D2}s", 
+				t.Hours, 
+				t.Minutes, 
+				t.Seconds);
+			return answer;
+
 		}
 
 		public bool Equals (ChallengeMetaData other)
