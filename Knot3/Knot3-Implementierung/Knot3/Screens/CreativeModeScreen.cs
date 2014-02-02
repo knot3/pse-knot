@@ -162,25 +162,23 @@ namespace Knot3.Screens
 			redoButton.AlignX = HorizontalAlignment.Center;
 			redoButton.IsVisible = false;
 
-				invisible = new Button (
-				screen: this,
-				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-				name: "menu",
-				onClick: (time) => {
-					// erstelle einen neuen Pausedialog
-					knotInput.IsEnabled = false;
-					Console.WriteLine("test");
-					Dialog pauseDialog = new CreativePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog, knot: knot);
-					// füge ihn in die Spielkomponentenliste hinzu
-					pauseDialog.Close= (t) => knotInput.IsEnabled = true;
-					
-					AddGameComponents (time, pauseDialog);
-					// weise ihn als den aktuellen Dialog zu
+			invisible = new Button (
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    name: "menu",
+			onClick: (time) => {
+				// erstelle einen neuen Pausedialog
+				knotInput.IsEnabled = false;
+				Console.WriteLine("test");
+				Dialog pauseDialog = new CreativePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog, knot: knot);
+				// füge ihn in die Spielkomponentenliste hinzu
+				pauseDialog.Close= (t) => knotInput.IsEnabled = true;
 
-				}
-				);
-				invisible.AddKey (Keys.Escape);
-				
+				AddGameComponents (time, pauseDialog);
+				// weise ihn als den aktuellen Dialog zu
+			}
+			);
+			invisible.AddKey (Keys.Escape);
 		}
 
 		#endregion
@@ -251,7 +249,6 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-					
 		}
 
 		/// <summary>
@@ -262,7 +259,7 @@ namespace Knot3.Screens
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler,
 			                   edgeColoring, edgeRectangles, undoButton, undoButtonBorder,
-				redoButton, redoButtonBorder,invisible);
+			                   redoButton, redoButtonBorder,invisible);
 			Audio.BackgroundMusic = Sound.CreativeMusic;
 
 			// Einstellungen anwenden
