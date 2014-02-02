@@ -75,9 +75,10 @@ namespace Knot3.Widgets
 		: base (screen, drawOrder, title, text)
 		{
 
-			textItem = new TextItem(screen,drawOrder,"");
-			//textItem.Bounds = ContentBounds.FromBottom(0.5f);
-			Bounds.Size = new ScreenPoint(screen,0.5f,0.2f);
+
+			TextItem = new TextItem(screen,drawOrder,"");
+
+			Bounds.Size = new ScreenPoint(screen,0.5f,0.3f);
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
 			menu = new Menu (Screen, Index + DisplayLayer.Menu);
