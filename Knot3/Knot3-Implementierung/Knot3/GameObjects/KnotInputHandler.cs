@@ -124,29 +124,23 @@ namespace Knot3.GameObjects
 
 			// Lege die Bedeutungen der PlayerActions fest
 			ActionBindings = new Dictionary<PlayerActions, Action<GameTime>> {
-				{ PlayerActions.MoveUp, 				(time) => move (Vector3.Up, time) },
-				{ PlayerActions.MoveDown, 				(time) => move (Vector3.Down, time) },
-				{ PlayerActions.MoveLeft, 				(time) => move (Vector3.Left, time) },
-				{ PlayerActions.MoveRight, 				(time) => move (Vector3.Right, time) },
-				{ PlayerActions.MoveForward, 			(time) => move (Vector3.Forward, time) },
-				{ PlayerActions.MoveBackward, 			(time) => move (Vector3.Backward, time) },
-				{ PlayerActions.RotateUp, 				(time) => rotate (-Vector2.UnitY * 4, time) },
-				{ PlayerActions.RotateDown, 			(time) => rotate (Vector2.UnitY * 4, time) },
-				{ PlayerActions.RotateLeft, 			(time) => rotate (-Vector2.UnitX * 4, time) },
-				{ PlayerActions.RotateRight, 			(time) => rotate (Vector2.UnitX * 4, time) },
-				{ PlayerActions.ZoomIn, 				(time) => zoom (-1, time) },
-				{ PlayerActions.ZoomOut, 				(time) => zoom (+1, time) },
-				{ PlayerActions.ResetCamera, 			(time) => resetCamera (time) },
-				{ PlayerActions.MoveToCenter,			(time) => camera.StartSmoothMove (target: camera.ArcballTarget, time: time) },
-				{ PlayerActions.ToggleMouseLock,		(time) => toggleMouseLock (time) },
-				{
-					PlayerActions.AddToEdgeSelection,		(time) => {
-					}
-				},
-				{
-					PlayerActions.AddRangeToEdgeSelection,(time) => {
-					}
-				},
+				{ PlayerActions.MoveUp,                  (time) => move (Vector3.Up, time) },
+				{ PlayerActions.MoveDown,                (time) => move (Vector3.Down, time) },
+				{ PlayerActions.MoveLeft,                (time) => move (Vector3.Left, time) },
+				{ PlayerActions.MoveRight,               (time) => move (Vector3.Right, time) },
+				{ PlayerActions.MoveForward,             (time) => move (Vector3.Forward, time) },
+				{ PlayerActions.MoveBackward,            (time) => move (Vector3.Backward, time) },
+				{ PlayerActions.RotateUp,                (time) => rotate (-Vector2.UnitY * 4, time) },
+				{ PlayerActions.RotateDown,              (time) => rotate (Vector2.UnitY * 4, time) },
+				{ PlayerActions.RotateLeft,              (time) => rotate (-Vector2.UnitX * 4, time) },
+				{ PlayerActions.RotateRight,             (time) => rotate (Vector2.UnitX * 4, time) },
+				{ PlayerActions.ZoomIn,                  (time) => zoom (-1, time) },
+				{ PlayerActions.ZoomOut,                 (time) => zoom (+1, time) },
+				{ PlayerActions.ResetCamera,             (time) => resetCamera (time) },
+				{ PlayerActions.MoveToCenter,            (time) => camera.StartSmoothMove (target: camera.ArcballTarget, time: time) },
+				{ PlayerActions.ToggleMouseLock,         (time) => toggleMouseLock (time) },
+				{ PlayerActions.AddToEdgeSelection,      (time) => {} },
+				{ PlayerActions.AddRangeToEdgeSelection, (time) => {} },
 			};
 		}
 
