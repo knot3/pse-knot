@@ -330,6 +330,7 @@ namespace Knot3.Screens
 			        title: "Challenge", text: "Your name:",
 			        inputText: Options.Default ["profile", "name", ""]);
 			// füge ihn zur Spielkomponentenliste hinzu
+			nameDialog.NoCloseEmpty = true;
 			AddGameComponents (time, nameDialog);
 
 			// wenn der Dialog geschlossen wird...

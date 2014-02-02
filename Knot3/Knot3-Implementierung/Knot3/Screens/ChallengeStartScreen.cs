@@ -89,7 +89,7 @@ namespace Knot3.Screens
 			title.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
 			title.ForegroundColorFunc = () => Color.White;
 
-			infoTitle = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Knot Info:");
+			infoTitle = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Challenge Info:");
 			infoTitle.Bounds.Position = new ScreenPoint (this, 0.45f, 0.62f);
 			infoTitle.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
 			infoTitle.ForegroundColorFunc = () => Color.White;
@@ -181,6 +181,7 @@ namespace Knot3.Screens
 				if (previewChallenge == null || previewChallenge.MetaData != meta) {
 					previewChallenge = loader.FileFormat.Load (filename);
 					previewRenderer.Knot = previewChallenge.Target;
+					previewWorld.Camera.ResetCamera();
 					startButton.IsVisible = true;
 
 					MenuEntry count = new MenuEntry (

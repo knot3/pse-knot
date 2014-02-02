@@ -162,6 +162,7 @@ namespace Knot3.Screens
 
 				if (previewKnotMetaData != meta) {
 					previewRenderer.Knot = loader.FileFormat.Load (filename);
+					previewWorld.Camera.ResetCamera();
 					previewKnotMetaData = meta;
 					startButton.IsVisible = true;
 

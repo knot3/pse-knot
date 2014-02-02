@@ -40,6 +40,10 @@ namespace Knot3.Widgets
 				textInput.InputText = value;
 			}
 		}
+		public bool NoCloseEmpty{
+			get;
+			set;
+		}
 
 		/// <summary>
 		///
@@ -88,7 +92,15 @@ namespace Knot3.Widgets
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 			if (key.Contains (Keys.Enter) || key.Contains (Keys.Escape)) {
+				if(NoCloseEmpty){
+					if(textInput.InputText!=null&&textInput.InputText!=""){
 				Close (time);
+					}
+				}
+					else{Close(time);
+
+				}
+
 			}
 			base.OnKeyEvent (key, keyEvent, time);
 		}
