@@ -174,9 +174,7 @@ namespace Knot3.Screens
 				Dialog pauseDialog = new CreativePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog, knot: knot);
 				// füge ihn in die Spielkomponentenliste hinzu
 				pauseDialog.Close += (t) => knotInput.IsEnabled = true;
-
 				AddGameComponents (time, pauseDialog);
-				// weise ihn als den aktuellen Dialog zu
 			}
 			);
 			invisible.AddKey (Keys.Escape);
