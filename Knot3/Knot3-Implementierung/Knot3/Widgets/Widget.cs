@@ -69,7 +69,7 @@ namespace Knot3.Widgets
 
 		public virtual bool IsKeyEventEnabled
 		{
-			get { return IsVisible; }
+			get { return IsVisible && ValidKeys.Count > 0; }
 			set { }
 		}
 
@@ -99,23 +99,11 @@ namespace Knot3.Widgets
 
 		private bool _isEnabled;
 
-		public virtual State State
-		{
-			get;
-			set;
-		}
+		public virtual State State { get; set; }
 
-		public virtual Color SelectedColorBackground
-		{
-			get;
-			set;
-		}
+		public virtual Color SelectedColorBackground { get; set; }
 
-		public virtual Color SelectedColorForeground
-		{
-			get;
-			set;
-		}
+		public virtual Color SelectedColorForeground { get; set; }
 
 		#endregion
 
@@ -137,6 +125,8 @@ namespace Knot3.Widgets
 			IsVisible = true;
 			_isEnabled = true;
 			State = State.None;
+			SelectedColorBackground = Color.White;
+			SelectedColorForeground = Color.Black;
 		}
 
 		public Color MenuItemBackgroundColor ()

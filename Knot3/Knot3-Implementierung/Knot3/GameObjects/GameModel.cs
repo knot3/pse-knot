@@ -88,7 +88,7 @@ namespace Knot3.GameObjects
 			Info = info;
 
 			// default values
-			Coloring = new SingleColor(Color.Transparent);
+			Coloring = new SingleColor (Color.Transparent);
 		}
 
 		#endregion
@@ -136,7 +136,7 @@ namespace Knot3.GameObjects
 				float? distance = ray.Intersects (sphere);
 				if (distance != null) {
 					GameObjectDistance intersection = new GameObjectDistance () {
-						Object=this, Distance=distance.Value
+						Object = this, Distance = distance.Value
 					};
 					return intersection;
 				}
@@ -195,7 +195,8 @@ namespace Knot3.GameObjects
 		{
 			// camera frustum
 			_inFrustum = false;
-			foreach (BoundingSphere _sphere in Bounds) {
+			UpdatePrecomputed ();
+			foreach (BoundingSphere _sphere in _bounds) {
 				var sphere = _sphere;
 				if (World.Camera.ViewFrustum.FastIntersects (ref sphere)) {
 					_inFrustum = true;
