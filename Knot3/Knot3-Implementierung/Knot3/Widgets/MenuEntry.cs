@@ -89,13 +89,13 @@ namespace Knot3.Widgets
 				if (Menu != null) {
 					foreach (MenuItem item in Menu) {
 						Console.WriteLine("State: "+ item.State);
-						if (item is MenuEntry ) {
+						if (item is MenuEntry && item !=this) {
 							item.State = State.None;
 						}
 					}
 				}
 			}
-			State = State.Selected;
+
 			OnClick (time);
 		}
 

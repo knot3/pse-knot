@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.RenderEffects;
@@ -27,21 +25,18 @@ namespace Knot3.Screens
 	/// </summary>
 	public sealed class ChallengeStartScreen : MenuScreen
 	{
+
 		#region Properties
 
 		/// <summary>
 		/// Das Menü, das die Spielstände enthält.
 		/// </summary>
 		private Menu savegameMenu;
-
 		private Button backButton;
-
 		// Der Titel des Screens
 		private TextItem title;
-
 		// Spielstand-Loader
 		private SavegameLoader<Challenge, ChallengeMetaData> loader;
-
 		// Preview
 		private World previewWorld;
 		private KnotRenderer previewRenderer;
@@ -49,6 +44,7 @@ namespace Knot3.Screens
 		private Border previewBorder;
 		private KnotInputHandler previewInput;
 		private ModelMouseHandler previewMouseHandler;
+		private Button startButton;
 
 		#endregion
 
@@ -65,8 +61,6 @@ namespace Knot3.Screens
 			savegameMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
 			savegameMenu.Bounds.Size = new ScreenPoint (this, 0.300f, 0.720f);
 			savegameMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
-			savegameMenu.ItemForegroundColor = base.MenuItemForegroundColor;
-			savegameMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			savegameMenu.ItemAlignX = HorizontalAlignment.Left;
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
 
@@ -80,12 +74,12 @@ namespace Knot3.Screens
 						    1000
 						);*/
 
-			lines.AddPoints(0, 50,
-			                30, 970,
-			                770, 895,
-			                870, 970,
-			                970, 50, 1000
-			               );
+			lines.AddPoints (0, 50,
+				30, 970,
+				770, 895,
+				870, 970,
+				970, 50, 1000
+			);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -100,31 +94,43 @@ namespace Knot3.Screens
 			// Preview
 			Bounds previewBounds = new Bounds (this, 0.45f, 0.1f, 0.48f, 0.7f);
 			previewWorld = new World (
-			    screen: this,
-			    drawIndex: DisplayLayer.ScreenUI + DisplayLayer.GameWorld,
-			    bounds: previewBounds
+				screen: this,
+				drawIndex: DisplayLayer.ScreenUI + DisplayLayer.GameWorld,
+				bounds: previewBounds
 			);
 			previewRenderer = new KnotRenderer (screen: this, position: Vector3.Zero);
 			previewWorld.Add (previewRenderer);
 			previewBorder = new Border (
-			    screen: this,
-			    drawOrder: DisplayLayer.GameWorld,
-			    bounds: previewBounds,
-			    lineWidth: 2,
-			    padding: 0
+				screen: this,
+				drawOrder: DisplayLayer.GameWorld,
+				bounds: previewBounds,
+				lineWidth: 2,
+				padding: 0
 			);
 			previewInput = new KnotInputHandler (screen: this, world: previewWorld);
 			previewMouseHandler = new ModelMouseHandler (screen: this, world: previewWorld);
 
-			backButton = new Button(
-			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			    name: "Back",
-			    onClick: (time) => NextScreen = Game.Screens.Where((s) => !(s is ChallengeStartScreen)).ElementAt(0)
+			backButton = new Button (
+				screen: this,
+				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				name: "Back",
+				onClick: (time) => NextScreen = Game.Screens.Where ((s) => !(s is ChallengeStartScreen)).ElementAt (0)
 			);
-			backButton.AddKey(Keys.Escape);
-			backButton.SetCoordinates(left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
+			backButton.AddKey (Keys.Escape);
+
+			backButton.SetCoordinates (left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
 			backButton.AlignX = HorizontalAlignment.Center;
+			startButton = new Button (
+				screen: this,
+				drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				name: "Start",
+				onClick: (time) => NextScreen = NextScreen = new ChallengeModeScreen (game: Game, challenge: loader.FileFormat.Load (previewKnotMetaData.Filename))
+			);
+			startButton.IsVisible = false;
+			startButton.AddKey (Keys.Enter);
+			startButton.SetCoordinates (left: 0.660f, top: 0.910f, right: 0.770f, bottom: 0.960f);
+
+			startButton.AlignX = HorizontalAlignment.Center;
 		}
 
 		#endregion
@@ -147,7 +153,12 @@ namespace Knot3.Screens
 		{
 			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
 			Action<GameTime> LoadFile = (time) => {
-				NextScreen = new ChallengeModeScreen (game: Game, challenge: loader.FileFormat.Load (filename));
+
+				if (previewKnotMetaData != meta.Target) {
+					previewRenderer.Knot = loader.FileFormat.Load (filename).Target;
+					previewKnotMetaData = meta.Target;
+					startButton.IsVisible = true;
+				}
 			};
 
 			// Finde den Namen der Challenge
@@ -155,19 +166,11 @@ namespace Knot3.Screens
 
 			// Erstelle den Menüeintrag
 			MenuEntry button = new MenuEntry (
-			    screen: this,
-			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			    name: name,
-			    onClick: LoadFile
-			);
-			button.Hovered += (isHovered, time) => {
-				if (isHovered) {
-					if (previewKnotMetaData != meta.Target) {
-						previewRenderer.Knot = loader.FileFormat.Load (filename).Target;
-						previewKnotMetaData = meta.Target;
-					}
-				}
-			};
+				                   screen: this,
+				                   drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+				                   name: name,
+				                   onClick: LoadFile
+			                   );
 			button.SelectedColorBackground = Color.White;
 			button.SelectedColorForeground = Color.Black;
 			savegameMenu.Add (button);
@@ -180,9 +183,10 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents(time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler, backButton);
+			AddGameComponents (time, savegameMenu, title, previewWorld, previewBorder, previewInput, previewMouseHandler, backButton,startButton);
 		}
 
 		#endregion
+
 	}
 }
