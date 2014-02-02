@@ -98,23 +98,11 @@ namespace Knot3.Widgets
 
 		private bool _isEnabled;
 
-		public virtual State State
-		{
-			get;
-			set;
-		}
+		public virtual State State { get; set; }
 
-		public virtual Color SelectedColorBackground
-		{
-			get;
-			set;
-		}
+		public virtual Color SelectedColorBackground { get; set; }
 
-		public virtual Color SelectedColorForeground
-		{
-			get;
-			set;
-		}
+		public virtual Color SelectedColorForeground { get; set; }
 
 		#endregion
 
