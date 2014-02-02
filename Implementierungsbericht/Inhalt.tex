@@ -3,13 +3,11 @@ Dieses Kapitel enthält eine Auflistung der Klassen, welche während der Impleme
 
 \section{Core:}
 \subsection{FloatOptionInfo}
-Grund:
+Grund: Analog zu BooleanOptionInfo brauchten wir auch eine Möglichkeit, Gleitkommazahlen in der Einstellungsdatei abzuspeichern.
 \subsection{KeyOptionInfo}
-Grund:
-\subsection{Options}
-Grund:
+Grund: Analog zu FloatOptionInfo brauchten wir für die Konfigurierbarkeit der Tastengelegungen auch eine Möglichkeit, Tasten in der Einstellungsdatei abzuspeichern, repräsentiert durch das "Keys"-Enum von XNA.
 \subsection{IGameScreen}
-Grund:
+Grund: Um ein Mock-Objekt für GameScreen erstellen zu können, werden alle von außen verwendeten Eigenschaften und Methoden von GameScreen in einem Interface zusammengefasst und überall im Code wird IGameScreen verwendet. Dies erleichtert die Unit-Tests.
 \subsection{IMouseClickEventListener, IMouseMoveEventListener und IMouseScrollEventListener}
 Grund:
 
