@@ -55,10 +55,6 @@ namespace Knot3.Widgets
 		/// </summary>
 		public Func<Color> ForegroundColorFunc { get; set; }
 
-		public Color BackgroundColor  { get; set; }
-
-		public Color ForegroundColor { get; set; }
-
 		/// <summary>
 		/// Die horizontale Ausrichtung.
 		/// </summary>
@@ -131,14 +127,13 @@ namespace Knot3.Widgets
 			State = State.None;
 			SelectedColorBackground = Color.White;
 			SelectedColorForeground = Color.Black;
-			BackgroundColor = Color.Transparent;
-			ForegroundColor = Color.White;
+
 		}
 
 		public Color MenuItemBackgroundColor ()
 		{
 			if (State == State.None || State == State.Hovered) {
-				return BackgroundColor;
+				return Color.Transparent;
 			}
 			else if (State == State.Selected) {
 				return SelectedColorBackground;
@@ -151,10 +146,10 @@ namespace Knot3.Widgets
 		public  Color MenuItemForegroundColor ()
 		{
 			if (State == State.Hovered) {
-				return ForegroundColor;
+				return Color.White;
 			}
 			else if (State == State.None) {
-				return ForegroundColor * 0.7f;
+				return Color.White * 0.7f;
 			}
 			else if (State == State.Selected) {
 				return SelectedColorForeground;

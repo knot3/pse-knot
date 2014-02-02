@@ -170,8 +170,9 @@ namespace Knot3.Screens
 			Action<GameTime> nullAction = (time) => {
 			};
 			Action<GameTime> LoadFile = (time) => {
-				challengeInfo.Clear();
+
 				RemoveGameComponents (time,challengeInfo);
+				challengeInfo.Clear();
 				if (previewKnotMetaData != meta.Target) {
 					previewRenderer.Knot = loader.FileFormat.Load (filename).Target;
 					previewKnotMetaData = meta.Target;
@@ -183,8 +184,6 @@ namespace Knot3.Screens
 					    name: "Knot Count: "+ previewKnotMetaData.CountEdges,
 					    onClick: nullAction
 					);
-					count.BackgroundColor = Color.Black;
-					count.ForegroundColor = Color.White;
 					count.Selectable =false;
 					count.Enabled=false;
 					challengeInfo.Add(count);

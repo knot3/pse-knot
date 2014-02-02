@@ -157,8 +157,9 @@ namespace Knot3.Screens
 			};
 			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
 			Action<GameTime> preview = (time) => {
-				knotInfo.Clear();
 				RemoveGameComponents (time,knotInfo);
+				knotInfo.Clear();
+			
 				if (previewKnotMetaData != meta) {
 					previewRenderer.Knot = loader.FileFormat.Load (filename);
 					previewKnotMetaData = meta;
@@ -170,8 +171,7 @@ namespace Knot3.Screens
 					    name: "Knot Count: "+ previewKnotMetaData.CountEdges,
 					    onClick: nullAction
 					);
-					count.BackgroundColor = Color.Black;
-					count.ForegroundColor = Color.White;
+
 					count.Selectable =false;
 					count.Enabled=false;
 					knotInfo.Add(count);
