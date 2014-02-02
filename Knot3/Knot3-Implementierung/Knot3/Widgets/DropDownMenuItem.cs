@@ -107,11 +107,12 @@ namespace Knot3.Widgets
 					ValueChanged (time);
 				};
 				MenuEntry button = new MenuEntry (
-				    screen: Screen,
+					screen: Screen,
 				    drawOrder: Index + DisplayLayer.MenuItem,
 				    name: value,
 				    onClick: onSelected
 				);
+				button.Selectable = false;
 				dropdown.Add (button);
 			}
 			currentValue.InputText = option.DisplayValue;

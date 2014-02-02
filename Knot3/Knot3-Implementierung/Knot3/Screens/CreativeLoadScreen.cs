@@ -138,27 +138,27 @@ namespace Knot3.Screens
 			string name = meta.Name.Length > 0 ? meta.Name : filename;
 
 			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
-			Action<GameTime> LoadFile = (time) => {
-				//NextScreen = n ew CreativeModeScreen (game: Game, knot: loader.FileFormat.Load (filename));
+			Action<GameTime> preview = (time) => {
+
+				if (previewKnotMetaData != meta) {
+					previewRenderer.Knot = loader.FileFormat.Load (filename);
+					previewKnotMetaData = meta;
+				}
+
 			};
+
+
 
 			// Erstelle den Menüeintrag
 			MenuEntry button = new MenuEntry (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: name,
-			    onClick: LoadFile
+				onClick: preview
 			);
 			button.SelectedColorBackground = Color.White;
 			button.SelectedColorForeground = Color.Black;
-			button.Hovered += (isHovered, time) => {
-				if (isHovered) {
-					if (previewKnotMetaData != meta) {
-						previewRenderer.Knot = loader.FileFormat.Load (filename);
-						previewKnotMetaData = meta;
-					}
-				}
-			};
+
 
 			savegameMenu.Add (button);
 		}
