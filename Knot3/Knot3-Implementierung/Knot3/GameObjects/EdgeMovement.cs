@@ -156,7 +156,7 @@ namespace Knot3.GameObjects
 				Vector3 currentMousePosition = World.Camera.To3D (
 				                                   position: InputManager.CurrentMouseState.ToVector2 (),
 				                                   nearTo: selectedModel.Center ()
-				                               );
+				);
 
 				// Wenn die Maus gedrückt gehalten ist und wir mitten im Ziehen der Kante
 				// an die neue Position sind
@@ -302,9 +302,13 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction, float count)
 		{
+			Vector3 nextMousePosition = currentMousePosition + direction * count * Node.Scale;
+			Vector2 screenPosition = World.Camera.To2D (nextMousePosition);
+			Mouse.SetPosition ((int)screenPosition.X, (int)screenPosition.Y);
+
 			if (Knot.IsValidMove (direction)) {
 				foreach (ShadowGameModel shadowObj in shadowObjects) {
-					shadowObj.ShadowPosition = shadowObj.OriginalPosition + direction.Vector * count * Node.Scale;
+					shadowObj.ShadowPosition = shadowObj.OriginalPosition + direction * count * Node.Scale;
 					shadowObj.ShadowAlpha = 1f;
 					shadowObj.ShadowColor = Color.White;
 				}
