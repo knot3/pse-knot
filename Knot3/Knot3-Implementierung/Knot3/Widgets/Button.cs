@@ -25,7 +25,7 @@ namespace Knot3.Widgets
 	/// <summary>
 	/// Eine Schaltfläche, der eine Zeichenkette anzeigt und auf einen Linksklick reagiert.
 	/// </summary>
-	public sealed class Button : Widget,IKeyEventListener, IMouseClickEventListener
+	public sealed class Button : Widget, IKeyEventListener, IMouseClickEventListener
 	{
 		#region Properties
 
@@ -37,9 +37,7 @@ namespace Knot3.Widgets
 		private string name;
 		private SpriteBatch spriteBatch;
 
-		public  Rectangle MouseClickBounds { get { return Bounds; } }
-
-		public Rectangle MouseScrollBounds { get { return Bounds; } }
+		public Rectangle MouseClickBounds { get { return Bounds; } }
 
 		public Action<bool, GameTime> Hovered = (isHovered, time) =>
 		{
@@ -69,16 +67,16 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Reaktionen auf einen Linksklick.
 		/// </summary>
-		public  void OnLeftClick (Vector2 position, ClickState state, GameTime time)
+		public void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
 			OnClick (time);
 		}
 
-		public  void OnRightClick (Vector2 position, ClickState state, GameTime time)
+		public void OnRightClick (Vector2 position, ClickState state, GameTime time)
 		{
 		}
 
-		public  void SetHovered (bool isHovered, GameTime time)
+		public void SetHovered (bool isHovered, GameTime time)
 		{
 			State = isHovered ? State.Hovered : State.None;
 			Hovered (isHovered, time);
