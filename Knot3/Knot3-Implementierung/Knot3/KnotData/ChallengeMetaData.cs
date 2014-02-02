@@ -83,6 +83,20 @@ namespace Knot3.KnotData
 
 		private List<KeyValuePair<string, int>> highscore;
 
+		public int AvgTime{
+			get{
+				if (highscore != null) {
+					float amount =0;
+					foreach (KeyValuePair<string, int> entry in highscore) {
+						amount += (float)entry.Value;
+					}
+					return amount/(float)highscore.Count;
+				}
+			}
+			
+			private set{}
+		}
+
 		#endregion
 
 		#region Constructors
@@ -121,6 +135,14 @@ namespace Knot3.KnotData
 			if (!highscore.Contains (entry)) {
 				highscore.Add (entry);
 			}
+		}
+		public static string formatTime(){
+			TimeSpan t = TimeSpan.FromSeconds( secs );
+
+			string answer = string.Format("{0:D2}h:{1:D2}m:{2:D2}s", 
+				t.Hours, 
+				t.Minutes, 
+				t.Seconds);
 		}
 
 		public bool Equals (ChallengeMetaData other)
