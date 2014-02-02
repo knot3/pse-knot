@@ -169,10 +169,10 @@ namespace Knot3.Screens
 			onClick: (time) => {
 				// erstelle einen neuen Pausedialog
 				knotInput.IsEnabled = false;
-				Console.WriteLine("test");
+				Console.WriteLine ("test");
 				Dialog pauseDialog = new CreativePauseDialog (screen: this, drawOrder: DisplayLayer.Dialog, knot: knot);
 				// füge ihn in die Spielkomponentenliste hinzu
-				pauseDialog.Close= (t) => knotInput.IsEnabled = true;
+				pauseDialog.Close = (t) => knotInput.IsEnabled = true;
 
 				AddGameComponents (time, pauseDialog);
 				// weise ihn als den aktuellen Dialog zu
@@ -259,7 +259,7 @@ namespace Knot3.Screens
 			base.Entered (previousScreen, time);
 			AddGameComponents (time, knotInput, overlay, pointer, world, modelMouseHandler,
 			                   edgeColoring, edgeRectangles, undoButton, undoButtonBorder,
-			                   redoButton, redoButtonBorder,invisible);
+			                   redoButton, redoButtonBorder, invisible);
 			Audio.BackgroundMusic = Sound.CreativeMusic;
 
 			// Einstellungen anwenden
