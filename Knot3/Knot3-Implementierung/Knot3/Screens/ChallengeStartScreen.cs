@@ -170,7 +170,6 @@ namespace Knot3.Screens
 			Action<GameTime> nullAction = (time) => {
 			};
 			Action<GameTime> LoadFile = (time) => {
-
 				RemoveGameComponents (time,challengeInfo);
 				challengeInfo.Clear();
 				if (previewKnotMetaData != meta.Target) {

@@ -159,7 +159,7 @@ namespace Knot3.Screens
 			Action<GameTime> preview = (time) => {
 				RemoveGameComponents (time,knotInfo);
 				knotInfo.Clear();
-			
+
 				if (previewKnotMetaData != meta) {
 					previewRenderer.Knot = loader.FileFormat.Load (filename);
 					previewKnotMetaData = meta;
