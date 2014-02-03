@@ -132,7 +132,7 @@ namespace Knot3.Screens
 			Knot = knot;
 
 			// Hintergrund
-			SkyCube skyCube = new SkyCube (screen: this, position: Vector3.Zero, distance: world.Camera.MaxPositionDistance + 500);
+			SkyCube skyCube = new SkyCube (screen: this, position: Vector3.Zero);
 			world.Add (skyCube);
 
 			// Undo-Button

@@ -39,22 +39,26 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public World World
 		{
-			get {
-				return _world;
-			}
-			set {
-				_world = value;
-				assignWorld ();
-			}
+			get { return _world; }
+			set { _world = value;
+				assignWorld (); }
 		}
 
 		private World _world;
+
+		public float Distance
+		{
+			get { return _distance; }
+			set { _distance = value;
+				ConstructRectangles (); }
+		}
+
+		private float _distance;
 
 		/// <summary>
 		/// Die einzelnen texturierten Rechtecke.
 		/// </summary>
 		private List<TexturedRectangle> rectangles = new List<TexturedRectangle> ();
-
 		private Random random;
 
 		#endregion
@@ -65,23 +69,29 @@ namespace Knot3.GameObjects
 		/// Erstellt ein neues KnotRenderer-Objekt für den angegebenen Spielzustand mit den angegebenen
 		/// Spielobjekt-Informationen, die unter Anderem die Position des Knotenursprungs enthalten.
 		/// </summary>
-		public SkyCube (IGameScreen screen, Vector3 position, float distance)
+		public SkyCube (IGameScreen screen, Vector3 position)
 		{
 			Screen = screen;
 			Info = new GameObjectInfo (position: position);
-			random = new Random();
-			ConstructRectangles (distance);
+			random = new Random ();
+		}
+
+		public SkyCube (IGameScreen screen, Vector3 position, float distance)
+			: this(screen, position)
+		{
+			Distance = distance;
+			ConstructRectangles ();
 		}
 
 		#endregion
 
 		#region Methods
 
-		private void ConstructRectangles (float distance)
+		private void ConstructRectangles ()
 		{
 			rectangles.Clear ();
 			foreach (Vector3 direction in Direction.Values) {
-				Vector3 position = direction * distance;
+				Vector3 position = direction * Distance;
 				Vector3 up = direction == Direction.Up || direction == Direction.Down ? Vector3.Forward : Vector3.Up;
 				Vector3 left = Vector3.Normalize (Vector3.Cross (position, up));
 				TexturedRectangleInfo info = new TexturedRectangleInfo (
@@ -89,9 +99,9 @@ namespace Knot3.GameObjects
 				    texture: CreateSkyTexture (),
 				    origin: position,
 				    left: left,
-				    width: 2 * distance,
+				    width: 2 * Distance,
 				    up: up,
-				    height: 2 * distance
+				    height: 2 * Distance
 				);
 
 				rectangles.Add (new TexturedRectangle (Screen, info));
@@ -103,7 +113,7 @@ namespace Knot3.GameObjects
 		{
 			string effectName = Options.Default ["video", "knot-shader", "default"];
 			if (effectName == "celshader") {
-				return TextureHelper.Create(Screen.Device, Color.CornflowerBlue);
+				return TextureHelper.Create (Screen.Device, Color.CornflowerBlue);
 			}
 			else {
 				return CreateSpaceTexture ();
@@ -121,20 +131,20 @@ namespace Knot3.GameObjects
 			}
 			for (int h = 2; h+2 < height; ++h) {
 				for (int w = 2; w+2 < width; ++w) {
-					int i = h*width+w;
-					if (random.Next()%(width*3) == w) {
-						float alpha = (1+random.Next()%3)/3f;
+					int i = h * width + w;
+					if (random.Next () % (width * 3) == w) {
+						float alpha = (1 + random.Next () % 3) / 3f;
 						Color white = Color.White * alpha;
 						Color gray = Color.Gray * alpha;
-						colors[i] = white;
-						colors[i-1] = white;
-						colors[i+1] = white;
-						colors[i-width] = white;
-						colors[i-width-1] = gray;
-						colors[i-width+1] = gray;
-						colors[i+width] = white;
-						colors[i+width-1] = gray;
-						colors[i+width+1] = gray;
+						colors [i] = white;
+						colors [i - 1] = white;
+						colors [i + 1] = white;
+						colors [i - width] = white;
+						colors [i - width - 1] = gray;
+						colors [i - width + 1] = gray;
+						colors [i + width] = white;
+						colors [i + width - 1] = gray;
+						colors [i + width + 1] = gray;
 					}
 				}
 			}
@@ -159,6 +169,9 @@ namespace Knot3.GameObjects
 
 		public void Update (GameTime time)
 		{
+			if (World.Camera.MaxPositionDistance + 500 != Distance) {
+				Distance = World.Camera.MaxPositionDistance + 500;
+			}
 			foreach (TexturedRectangle rect in rectangles) {
 				rect.Update (time);
 			}

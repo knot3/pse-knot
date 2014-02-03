@@ -43,7 +43,8 @@ namespace Knot3.Core
 			get { return _position; }
 			set {
 				OnViewChanged ();
-				if (MaxPositionDistance == 0 || value.Length ().Abs () <= MaxPositionDistance) {
+				if ((value.X.Abs () <= MaxPositionDistance && value.Y.Abs () <= MaxPositionDistance
+				     && value.Z.Abs () <= MaxPositionDistance) || MaxPositionDistance == 0) {
 					_position = value;
 				}
 			}
@@ -110,7 +111,7 @@ namespace Knot3.Core
 
 		public Vector3 UpVector { get; private set; }
 
-		public float MaxPositionDistance { get; private set; }
+		public float MaxPositionDistance { get; set; }
 
 		public Action OnViewChanged = () => {};
 		private float aspectRatio;
@@ -205,6 +206,7 @@ namespace Knot3.Core
 		private void UpdateMatrices (GameTime time)
 		{
 			aspectRatio = Screen.Viewport.AspectRatio;
+			farPlane = MaxPositionDistance * 4;
 			ViewMatrix = Matrix.CreateLookAt (Position, Target, UpVector);
 			WorldMatrix = Matrix.CreateFromYawPitchRoll (Rotation.Y, Rotation.X, Rotation.Z);
 			ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView (MathHelper.ToRadians (FoV), aspectRatio, nearPlane, farPlane);
