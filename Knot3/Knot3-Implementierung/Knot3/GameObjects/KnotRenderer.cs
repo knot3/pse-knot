@@ -444,8 +444,8 @@ namespace Knot3.GameObjects
 				foreach (GameModel model in debugModels) {
 					model.Draw (time);
 				}
-				Profiler.Values ["# Pipes"] = pipes.Count ();
-				Profiler.Values ["# Nodes"] = nodes.Count ();
+				Profiler.Values ["# Pipes"] = pipes.Count;
+				Profiler.Values ["# Nodes"] = nodes.Count;
 			}
 		}
 

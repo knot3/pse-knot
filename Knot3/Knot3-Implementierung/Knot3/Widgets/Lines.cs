@@ -115,7 +115,7 @@ namespace Knot3.Widgets
 			points.Add (start);
 
 			Vector2 current = start;
-			for (int i = 0; i < xyxy.Count(); ++i) {
+			for (int i = 0; i < xyxy.Length; ++i) {
 				// this is a new X value
 				if (i % 2 == 0) {
 					current.X = xyxy [i] > 1 ? xyxy [i] / 1000f : xyxy [i];
