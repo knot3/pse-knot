@@ -124,16 +124,15 @@ namespace Knot3.Widgets
 
 				// wenn die Komponente die aktuelle Position enthält
 				else if (!lastLeftClickPosition.HasValue && !lastRightClickPosition.HasValue
-					&& bounds.Contains (previous.ToPoint ())) {
+				         && bounds.Contains (previous.ToPoint ())) {
 					notify = true;
 				}
 
 				// Console.WriteLine("notify="+notify+", component="+component+", cntains="+bounds.Contains (lastLeftClickPosition ?? Point.Zero));
 
 				if (notify && relativePositionMove.Length () > 0
-					|| InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton
-					|| InputManager.PreviousMouseState.RightButton != InputManager.CurrentMouseState.RightButton) {
-
+				        || InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton
+				        || InputManager.PreviousMouseState.RightButton != InputManager.CurrentMouseState.RightButton) {
 					if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
 						component.OnLeftMove (
 						    previousPosition: relativePositionPrevious,
