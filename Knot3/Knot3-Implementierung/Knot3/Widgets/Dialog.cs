@@ -212,9 +212,24 @@ namespace Knot3.Widgets
 
 		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
 		{
-			Console.WriteLine ("OnLeftMove(" + previousPosition + "," + currentPosition + "," + move + ")");
+			Console.WriteLine (
+                  "OnLeftMove("
+                + previousPosition.ToString ()
+                + ","
+                + currentPosition.ToString ()
+                + ","
+                + move
+                + ")"
+            );
+
 			if (MouseMoveBounds.Contains (previousPosition.ToPoint ())) {
-				Console.WriteLine ("TitleBounds =" + Vector2.Zero.CreateRectangle (TitleBounds.Size) + "; previousPosition=" + previousPosition);
+				
+                Console.WriteLine (
+                    "TitleBounds ="
+                    + Vector2.Zero.CreateRectangle (TitleBounds.Size).ToString ()
+                    + "; previousPosition=" 
+                    + previousPosition.ToString ()
+                );
 				Bounds.Position = Bounds.Position + new ScreenPoint (Screen, move / Screen.Viewport.ToVector2 ());
 			}
 		}
