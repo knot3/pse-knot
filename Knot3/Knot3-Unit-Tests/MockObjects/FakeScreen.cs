@@ -1,8 +1,10 @@
 using System;
 using System.Windows.Forms;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+
 using Knot3.Core;
 using Knot3.Audio;
 using Knot3.RenderEffects;
@@ -125,4 +127,3 @@ namespace Knot3.UnitTests
 		#endregion
 	}
 }
-

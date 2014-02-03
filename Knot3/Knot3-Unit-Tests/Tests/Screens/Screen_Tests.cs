@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using NUnit.Framework;
+
 using Knot3.Core;
 using Knot3.GameObjects;
 using Knot3.KnotData;
@@ -17,7 +18,6 @@ namespace Knot3.Screen_Tests
 		public void Test_Undo()
 		{
 		}
-
 
 		[Test]
 		public void Test_Redo()
