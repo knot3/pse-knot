@@ -65,7 +65,7 @@ namespace Knot3.KnotData
 				}
 			}
 			set {
-				Console.WriteLine ("KnotStringIO.Edges[set] = #" + value.Count ());
+				Console.WriteLine ("KnotStringIO.Edges[set] = #" + value.Count ().ToString ());
 				try {
 					edgeLines = ToLines (value);
 				}
@@ -163,7 +163,7 @@ namespace Knot3.KnotData
 			case 'z':
 				return Edge.Forward;
 			default:
-				throw new IOException ("Failed to decode Edge: '" + c + "'!");
+				throw new IOException ("Failed to decode Edge: '" + c.ToString () + "'!");
 			}
 		}
 
@@ -223,7 +223,7 @@ namespace Knot3.KnotData
 
 		public override string ToString ()
 		{
-			return "KnotStringIO(length=" + Content.Length + ")";
+			return "KnotStringIO(length=" + Content.Length.ToString () + ")";
 		}
 
 		#endregion

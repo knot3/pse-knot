@@ -191,7 +191,7 @@ namespace Knot3.KnotData
 				    + entry.Key.ToString ()
 				);
 
-				yield return entry.Value + ":" + entry.Key;
+				yield return entry.Value.ToString () + ":" + entry.Key;
 			}
 		}
 
@@ -204,7 +204,7 @@ namespace Knot3.KnotData
 					string name = entry [1].Trim ();
 					int time;
 					if (Int32.TryParse (entry [0], out time)) {
-						Console.WriteLine("=> "+name+":"+time);
+						Console.WriteLine("=> " + name + ":" + time.ToString ());
 						yield return new KeyValuePair<string, int> (name, time);
 					}
 				}

@@ -218,7 +218,7 @@ namespace Knot3.Widgets
 			    + ","
 			    + currentPosition.ToString ()
 			    + ","
-			    + move
+                + move.ToString ()
 			    + ")"
 			);
 
