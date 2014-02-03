@@ -172,12 +172,10 @@ namespace Knot3.Core
 			}
 		}
 
-
-        public void Dispose()
-        {
-            //
-        }
-
+		public void Dispose()
+		{
+			//
+		}
 
 		#endregion
 	}
