@@ -203,7 +203,7 @@ namespace Knot3.Debug
 
 		private void DrawString (float n, int width, int height, Color color)
 		{
-            DrawString(String.Empty + n, width, height, color);
+			DrawString(String.Empty + n, width, height, color);
 		}
 
 		int _total_frames = 0;

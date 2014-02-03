@@ -177,7 +177,7 @@ namespace Knot3.KnotData
 
 		public override int GetHashCode ()
 		{
-            return (name ?? String.Empty).GetHashCode();
+			return (name ?? String.Empty).GetHashCode();
 		}
 
 		public static bool operator == (ChallengeMetaData a, ChallengeMetaData b)

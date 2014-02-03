@@ -192,7 +192,7 @@ namespace Knot3.Debug
 
 		public static string NodeConfigKey (IEnumerable<Direction> directions)
 		{
-            IEnumerable<string> _directions = directions.Select(direction => direction + String.Empty + direction);
+			IEnumerable<string> _directions = directions.Select(direction => direction + String.Empty + direction);
 			return "Node" + directions.Count () + ":" + string.Join (",", _directions);
 		}
 
