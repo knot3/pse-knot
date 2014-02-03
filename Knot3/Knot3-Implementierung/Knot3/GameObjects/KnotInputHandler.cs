@@ -96,6 +96,8 @@ namespace Knot3.GameObjects
 
 		private Camera camera { get { return world.Camera; } }
 
+		public bool IsModal { get { return false; } }
+
 		#endregion
 
 		#region Constructors

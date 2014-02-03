@@ -38,6 +38,8 @@ namespace Knot3.Core
 		/// </summary>
 		bool IsKeyEventEnabled { get; }
 
+		bool IsModal { get; }
+
 		/// <summary>
 		/// Die Tasten, auf die die Klasse reagiert.
 		/// </summary>

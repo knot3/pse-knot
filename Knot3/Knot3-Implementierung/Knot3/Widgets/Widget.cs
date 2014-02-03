@@ -105,6 +105,8 @@ namespace Knot3.Widgets
 
 		public virtual Color SelectedColorForeground { get; set; }
 
+		public bool IsModal { get; set; }
+
 		#endregion
 
 		#region Constructors
@@ -124,6 +126,7 @@ namespace Knot3.Widgets
 			ValidKeys = new List<Keys> ();
 			IsVisible = true;
 			_isEnabled = true;
+			IsModal = false;
 			State = State.None;
 			SelectedColorBackground = Color.White;
 			SelectedColorForeground = Color.Black;

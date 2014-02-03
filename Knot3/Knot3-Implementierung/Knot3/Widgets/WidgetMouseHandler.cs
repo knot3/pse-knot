@@ -32,28 +32,6 @@ namespace Knot3.Widgets
 		{
 		}
 
-		private class ClickEventComponent
-		{
-			public IMouseClickEventListener receiver;
-			public DisplayLayer layer = DisplayLayer.None;
-			public Vector2 relativePosition;
-		}
-
-		private class ScrollEventComponent
-		{
-			public IMouseScrollEventListener receiver;
-			public DisplayLayer layer = DisplayLayer.None;
-		}
-
-		private class MoveEventComponent
-		{
-			public IMouseMoveEventListener receiver;
-			public DisplayLayer layer = DisplayLayer.None;
-			public Vector2 relativePositionPrevious;
-			public Vector2 relativePositionCurrent;
-			public Vector2 relativePositionMove;
-		}
-
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
 		/// </summary>
@@ -67,49 +45,37 @@ namespace Knot3.Widgets
 		private void UpdateMouseClick (GameTime time)
 		{
 			// Mausklicks
-			ClickEventComponent best = null;
-			foreach (IMouseClickEventListener receiver in Screen.Game.Components.OfType<IMouseClickEventListener>()) {
-				Rectangle bounds = receiver.MouseClickBounds;
+			foreach (IMouseClickEventListener component in Screen.Game.Components.OfType<IMouseClickEventListener>()
+			         .Where(c => c.IsMouseClickEventEnabled).OrderByDescending(c => c.Index.Index)) {
+				Rectangle bounds = component.MouseClickBounds;
 				bool hovered = bounds.Contains (InputManager.CurrentMouseState.ToPoint ());
-				receiver.SetHovered (hovered, time);
-				if (hovered && receiver.IsMouseClickEventEnabled && (best == null || receiver.Index > best.layer)) {
-					best = new ClickEventComponent {
-						receiver = receiver,
-						layer = receiver.Index,
-						relativePosition = InputManager.CurrentMouseState.ToVector2()-bounds.Location.ToVector2()
-					};
-				}
-			}
-			if (best != null) {
-				if (InputManager.LeftMouseButton != ClickState.None) {
-					best.receiver.OnLeftClick (best.relativePosition, InputManager.LeftMouseButton, time);
-				}
-				else if (InputManager.RightMouseButton != ClickState.None) {
-					best.receiver.OnRightClick (best.relativePosition, InputManager.RightMouseButton, time);
+				component.SetHovered (hovered, time);
+				if (hovered) {
+					Vector2 relativePosition = InputManager.CurrentMouseState.ToVector2 () - bounds.Location.ToVector2 ();
+					if (InputManager.LeftMouseButton != ClickState.None) {
+						component.OnLeftClick (relativePosition, InputManager.LeftMouseButton, time);
+					}
+					else if (InputManager.RightMouseButton != ClickState.None) {
+						component.OnRightClick (relativePosition, InputManager.RightMouseButton, time);
+					}
 				}
 			}
 		}
 
 		private void UpdateMouseScroll (GameTime time)
 		{
-			ScrollEventComponent best = null;
-			foreach (IMouseScrollEventListener receiver in Screen.Game.Components.OfType<IMouseScrollEventListener>()) {
-				Rectangle bounds = receiver.MouseScrollBounds;
+			foreach (IMouseScrollEventListener component in Screen.Game.Components.OfType<IMouseScrollEventListener>()
+			         .Where(c => c.IsMouseScrollEventEnabled).OrderByDescending(c => c.Index.Index)) {
+				Rectangle bounds = component.MouseScrollBounds;
 				bool hovered = bounds.Contains (InputManager.CurrentMouseState.ToPoint ());
 
-				if (hovered && receiver.IsMouseScrollEventEnabled && (best == null || receiver.Index > best.layer)) {
-					best = new ScrollEventComponent {
-						receiver = receiver,
-						layer = receiver.Index,
-					};
-				}
-			}
-			if (best != null) {
-				if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
-					best.receiver.OnScroll (-1);
-				}
-				else if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
-					best.receiver.OnScroll (+1);
+				if (hovered) {
+					if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
+						component.OnScroll (-1);
+					}
+					else if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
+						component.OnScroll (+1);
+					}
 				}
 			}
 		}
@@ -133,84 +99,66 @@ namespace Knot3.Widgets
 				lastRightClickPosition = null;
 			}
 
-			// die obersten Komponenten
-			MoveEventComponent best = null;
-
 			// aktuelle Position und die des letzten Frames
 			Vector2 current = InputManager.CurrentMouseState.ToVector2 ();
 			Vector2 previous = InputManager.PreviousMouseState.ToVector2 ();
 
-			foreach (IMouseMoveEventListener receiver in Screen.Game.Components.OfType<IMouseMoveEventListener>()) {
-				Rectangle bounds = receiver.MouseMoveBounds;
+			foreach (IMouseMoveEventListener component in Screen.Game.Components.OfType<IMouseMoveEventListener>()
+			         .Where(c => c.IsMouseMoveEventEnabled).OrderByDescending(c => c.Index.Index)) {
+				Rectangle bounds = component.MouseMoveBounds;
 
+				Vector2 relativePositionPrevious = previous - bounds.Location.ToVector2 ();
+				Vector2 relativePositionCurrent = current - bounds.Location.ToVector2 ();
+				Vector2 relativePositionMove = current - previous;
+
+				bool notify = false;
 				// wenn die Komponente die Position beim Drücken der linken Maustaste enthält
 				if (lastLeftClickPosition.HasValue && bounds.Contains (lastLeftClickPosition.Value)) {
-					if (receiver.IsMouseMoveEventEnabled && (best == null || receiver.Index > best.layer)) {
-						best = new MoveEventComponent {
-							receiver = receiver,
-							layer = receiver.Index,
-							relativePositionPrevious = previous-bounds.Location.ToVector2(),
-							relativePositionCurrent = current-bounds.Location.ToVector2(),
-							relativePositionMove = current - previous
-						};
-					}
+					notify = true;
 				}
 
 				// wenn die Komponente die Position beim Drücken der rechten Maustaste enthält
 				else if (lastRightClickPosition.HasValue && bounds.Contains (lastRightClickPosition.Value)) {
-					if (receiver.IsMouseMoveEventEnabled && (best == null || receiver.Index > best.layer)) {
-						best = new MoveEventComponent {
-							receiver = receiver,
-							layer = receiver.Index,
-							relativePositionPrevious = previous-bounds.Location.ToVector2(),
-							relativePositionCurrent = current-bounds.Location.ToVector2(),
-							relativePositionMove = current - previous
-						};
-					}
+					notify = true;
 				}
 
 				// wenn die Komponente die aktuelle Position enthält
 				else if (!lastLeftClickPosition.HasValue && !lastRightClickPosition.HasValue
-				         && bounds.Contains (previous.ToPoint())) {
-					if (receiver.IsMouseMoveEventEnabled && (best == null || receiver.Index > best.layer)) {
-						best = new MoveEventComponent {
-							receiver = receiver,
-							layer = receiver.Index,
-							relativePositionPrevious = previous-bounds.Location.ToVector2(),
-							relativePositionCurrent = current-bounds.Location.ToVector2(),
-							relativePositionMove = current - previous
-						};
-					}
+					&& bounds.Contains (previous.ToPoint ())) {
+					notify = true;
 				}
-			}
-			if (best != null) {
-				if (best.relativePositionMove.Length () > 0
-				        || InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton
-				        || InputManager.PreviousMouseState.RightButton != InputManager.CurrentMouseState.RightButton) {
+
+				// Console.WriteLine("notify="+notify+", component="+component+", cntains="+bounds.Contains (lastLeftClickPosition ?? Point.Zero));
+
+				if (notify && relativePositionMove.Length () > 0
+					|| InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton
+					|| InputManager.PreviousMouseState.RightButton != InputManager.CurrentMouseState.RightButton) {
+
 					if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
-						best.receiver.OnLeftMove (
-						    previousPosition: best.relativePositionPrevious,
-						    currentPosition: best.relativePositionCurrent,
-						    move: best.relativePositionMove,
+						component.OnLeftMove (
+						    previousPosition: relativePositionPrevious,
+						    currentPosition: relativePositionCurrent,
+						    move: relativePositionMove,
 						    time: time
 						);
 					}
 					else if (InputManager.CurrentMouseState.RightButton == ButtonState.Pressed) {
-						best.receiver.OnRightMove (
-						    previousPosition: best.relativePositionPrevious,
-						    currentPosition: best.relativePositionCurrent,
-						    move: best.relativePositionMove,
+						component.OnRightMove (
+						    previousPosition: relativePositionPrevious,
+						    currentPosition: relativePositionCurrent,
+						    move: relativePositionMove,
 						    time: time
 						);
 					}
 					else {
-						best.receiver.OnMove (
-						    previousPosition: best.relativePositionPrevious,
-						    currentPosition: best.relativePositionCurrent,
-						    move: best.relativePositionMove,
+						component.OnMove (
+						    previousPosition: relativePositionPrevious,
+						    currentPosition: relativePositionCurrent,
+						    move: relativePositionMove,
 						    time: time
 						);
 					}
+					break;
 				}
 			}
 		}

@@ -78,6 +78,7 @@ namespace Knot3.Widgets
 
 			// Dialoge sind nach dem erstellen sichtbar, und das Delegate zum schließen macht sie unsichtbar
 			IsVisible = true;
+			IsModal = true;
 			Close = (time) => {
 				IsVisible = false;
 				Screen.RemoveGameComponents (time, this);

@@ -32,27 +32,18 @@ namespace Knot3.Widgets
 		{
 		}
 
-		private class KeyEventComponent
-		{
-			public IKeyEventListener receiver;
-			public DisplayLayer layer = DisplayLayer.None;
-			public KeyEvent keyEvent;
-			public List<Keys> keys;
-		}
-
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-			KeyEventComponent best = null;
-			foreach (IKeyEventListener component in Screen.Game.Components.OfType<IKeyEventListener>()) {
+			foreach (IKeyEventListener component in Screen.Game.Components.OfType<IKeyEventListener>()
+			         .Where(c => c.IsKeyEventEnabled).OrderByDescending(c => c.Index.Index)) {
 				// keyboard input
-				IKeyEventListener receiver = component as IKeyEventListener;
 				KeyEvent keyEvent = KeyEvent.None;
 				List<Keys> keysInvolved = new List<Keys> ();
 
-				foreach (Keys key in receiver.ValidKeys) {
+				foreach (Keys key in component.ValidKeys) {
 					// Console.WriteLine("receiver="+receiver+",validkeys="+key+", receiver.IsKeyEventEnabled="+((dynamic)receiver).IsVisible);
 
 					if (key.IsDown ()) {
@@ -65,17 +56,13 @@ namespace Knot3.Widgets
 					}
 				}
 
-				if (keysInvolved.Count > 0 && receiver.IsKeyEventEnabled && (best == null || (int)component.Index >= (int)best.layer)) {
-					best = new KeyEventComponent {
-						receiver = receiver,
-						layer = receiver.Index,
-						keyEvent = keyEvent,
-						keys = keysInvolved
-					};
+				if (keysInvolved.Count > 0) {
+					component.OnKeyEvent (keysInvolved, keyEvent, time);
+					break;
 				}
-			}
-			if (best != null) {
-				best.receiver.OnKeyEvent (best.keys, best.keyEvent, time);
+				if (component.IsModal) {
+					break;
+				}
 			}
 		}
 	}

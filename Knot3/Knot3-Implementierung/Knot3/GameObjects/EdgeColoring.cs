@@ -60,5 +60,7 @@ namespace Knot3.GameObjects
 		public List<Keys> ValidKeys { get; private set; }
 
 		public bool IsKeyEventEnabled { get { return true; } }
+
+		public bool IsModal { get { return false; } }
 	}
 }

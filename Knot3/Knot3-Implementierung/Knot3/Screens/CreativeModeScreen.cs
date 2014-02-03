@@ -165,7 +165,7 @@ namespace Knot3.Screens
 
 			invisible = new Button (
 			    screen: this,
-			    drawOrder: DisplayLayer.Overlay + DisplayLayer.MenuItem,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			    name: "menu",
 			onClick: (time) => {
 				// erstelle einen neuen Pausedialog
