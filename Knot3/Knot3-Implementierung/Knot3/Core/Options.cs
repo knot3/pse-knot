@@ -36,7 +36,7 @@ namespace Knot3.Core
 		{
 			get {
 				if (_default == null) {
-					_default = new ConfigFile (FileUtility.SettingsDirectory + FileUtility.Separator + "knot3.ini");
+					_default = new ConfigFile (FileUtility.SettingsDirectory + FileUtility.Separator.ToString () + "knot3.ini");
 				}
 				return _default;
 			}
