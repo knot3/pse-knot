@@ -67,7 +67,7 @@ namespace Knot3.Screens
 			savegameMenu.ItemAlignX = HorizontalAlignment.Left;
 			savegameMenu.ItemAlignY = VerticalAlignment.Center;
 
-			lines.AddPoints (0, 50, 30, 970, 770, 895, 870, 970, 970, 50, 1000);
+			lines.AddPoints (0, 50, 30, 970, 630, 895, 730, 970, 770, 895, 870, 970, 970, 50, 1000);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Knot");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -118,8 +118,8 @@ namespace Knot3.Screens
 			);
 			backButton.AddKey (Keys.Escape);
 			backButton.SetCoordinates (left: 0.770f, top: 0.910f, right: 0.870f, bottom: 0.960f);
-
 			backButton.AlignX = HorizontalAlignment.Center;
+
 			startButton = new Button (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
@@ -128,8 +128,7 @@ namespace Knot3.Screens
 			);
 			startButton.IsVisible = false;
 			startButton.AddKey (Keys.Enter);
-			startButton.SetCoordinates (left: 0.660f, top: 0.910f, right: 0.770f, bottom: 0.960f);
-
+			startButton.SetCoordinates (left: 0.630f, top: 0.910f, right: 0.730f, bottom: 0.960f);
 			startButton.AlignX = HorizontalAlignment.Center;
 		}
 
