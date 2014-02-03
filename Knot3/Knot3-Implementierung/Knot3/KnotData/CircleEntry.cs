@@ -39,7 +39,7 @@ namespace Knot3.KnotData
 			Next = this;
 		}
 
-        public CircleEntry(IEnumerable<T> list)
+		public CircleEntry(IEnumerable<T> list)
 		{
 			bool first = true;
 			CircleEntry<T> inserted = this;
