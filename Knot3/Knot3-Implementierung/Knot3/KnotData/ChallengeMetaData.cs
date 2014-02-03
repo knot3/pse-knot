@@ -49,7 +49,7 @@ namespace Knot3.KnotData
 				else {
 					throw new ArgumentException ("Every implementation of IChallengeIO must have at least one file extension.");
 				}
-				Filename = FileUtility.SavegameDirectory + FileUtility.Separator
+				Filename = FileUtility.SavegameDirectory + FileUtility.Separator.ToString ()
 				           + FileUtility.ConvertToFileName (name) + extension;
 			}
 		}

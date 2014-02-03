@@ -184,7 +184,14 @@ namespace Knot3.KnotData
 		IEnumerable<string> printHighscore (IEnumerable<KeyValuePair<string, int>> highscore)
 		{
 			foreach (KeyValuePair<string, int> entry in highscore) {
-				Console.WriteLine("Save Highscore: "+entry.Value + ":" + entry.Key);
+
+				Console.WriteLine(
+                      "Save Highscore: "
+                    + entry.Value.ToString ()
+                    + ":"
+                    + entry.Key.ToString ()
+                );
+
 				yield return entry.Value + ":" + entry.Key;
 			}
 		}
