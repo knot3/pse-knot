@@ -131,14 +131,14 @@ namespace Knot3.Widgets
 			spriteBatch.Begin ();
 
 			// zeichne den Hintergrund
-			spriteBatch.DrawColoredRectangle (BackgroundColorFunc (), Bounds.Rectangle);
+			spriteBatch.DrawColoredRectangle (BackgroundColorFunc (), Bounds);
 
 			// lade die Schrift
 			SpriteFont font = HfGDesign.MenuFont (Screen);
 
 			// zeichne den Titel des Dialogs
-			spriteBatch.DrawColoredRectangle (TitleBackgroundColor (), TitleBounds.Rectangle);
-			spriteBatch.DrawStringInRectangle (font, Title, ForegroundColorFunc (), TitleBounds.Rectangle, AlignX, AlignY);
+			spriteBatch.DrawColoredRectangle (TitleBackgroundColor (), TitleBounds);
+			spriteBatch.DrawStringInRectangle (font, Title, ForegroundColorFunc (), TitleBounds, AlignX, AlignY);
 
 			spriteBatch.End ();
 		}

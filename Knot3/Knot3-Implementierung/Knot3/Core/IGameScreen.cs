@@ -63,6 +63,8 @@ namespace Knot3.Core
 
 		Color BackgroundColor { get; }
 
+		Bounds Bounds { get; }
+
 		#endregion
 
 		#region Methods

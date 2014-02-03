@@ -86,7 +86,7 @@ namespace Knot3.Widgets
 			_padding = new ScreenPoint (position.Screen, Vector2.Zero);
 		}
 
-		public Bounds (GameScreen screen, float relX, float relY, float relWidth, float relHeight)
+		public Bounds (IGameScreen screen, float relX, float relY, float relWidth, float relHeight)
 		{
 			_position = new ScreenPoint (screen, relX, relY);
 			_size = new ScreenPoint (screen, relWidth, relHeight);

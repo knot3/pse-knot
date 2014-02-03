@@ -1,11 +1,12 @@
 using System;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Knot3.Core;
 using Knot3.Audio;
 using Knot3.RenderEffects;
-using System.Windows.Forms;
+using Knot3.Widgets;
 
 namespace Knot3.UnitTests
 {
@@ -49,6 +50,11 @@ namespace Knot3.UnitTests
 		public ContentManager Content { get; private set; }
 
 		public Color BackgroundColor { get; private set; }
+
+		public Bounds Bounds
+		{
+			get { return new Bounds (screen: this, relX: 0f, relY: 0f, relWidth: 1f, relHeight: 1f); }
+		}
 
 		#endregion
 

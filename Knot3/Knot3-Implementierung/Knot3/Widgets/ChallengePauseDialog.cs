@@ -18,6 +18,7 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
+using Knot3.Utilities;
 
 namespace Knot3.Widgets
 {
@@ -47,7 +48,7 @@ namespace Knot3.Widgets
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;
 
-			Bounds.Size = new ScreenPoint(screen,0.3f,0.31f);
+			Bounds.Size = new ScreenPoint (screen, 0.3f, 0.31f);
 			// Erstelle das Pause-Menü
 			pauseMenu = new Menu (Screen, Index + DisplayLayer.Menu);
 			pauseMenu.Bounds = ContentBounds;
@@ -88,6 +89,19 @@ namespace Knot3.Widgets
 			pauseMenu.Add (settingsButton);
 			pauseMenu.Add (backButton);
 			pauseMenu.Add (discardExitButton);
+		}
+
+		#endregion
+
+		#region Methods
+
+		public override void Draw (GameTime time)
+		{
+			spriteBatch.Begin ();
+			spriteBatch.DrawColoredRectangle (Color.Black * 0.8f, Screen.Bounds);
+			spriteBatch.End ();
+
+			base.Draw (time);
 		}
 
 		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
