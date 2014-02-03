@@ -4,7 +4,6 @@ using NUnit.Framework;
 
 namespace Knot3.UnitTests
 {
-
 	[TestFixture]
 	public class NUnit_Beispiel_Tests
 	{
