@@ -43,7 +43,7 @@ namespace Knot3.KnotData
 					Format = new ChallengeFileIO ();
 				}
 				string extension;
-				if (Format.FileExtensions.Count () > 0) {
+				if (Format.FileExtensions.Any ()) {
 					extension = Format.FileExtensions.ElementAt (0);
 				}
 				else {
@@ -86,7 +86,8 @@ namespace Knot3.KnotData
 		public float AvgTime
 		{
 			get {
-				if (highscore != null && highscore.Count>0) {
+				if (   highscore != null 
+                    && highscore.Any ()) {
 					float amount =0;
 					foreach (KeyValuePair<string, int> entry in highscore) {
 						amount += (float)entry.Value;
