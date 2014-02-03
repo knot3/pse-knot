@@ -82,7 +82,7 @@ namespace Knot3.Screens
 			                 770, 895,
 			                 870, 970,
 			                 970, 50, 1000
-			                );
+			);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -176,12 +176,13 @@ namespace Knot3.Screens
 			Action<GameTime> nullAction = (time) => {
 			};
 			Action<GameTime> LoadFile = (time) => {
-				RemoveGameComponents (time, challengeInfo);
-				challengeInfo.Clear ();
 				if (previewChallenge == null || previewChallenge.MetaData != meta) {
+					RemoveGameComponents (time, challengeInfo);
+					challengeInfo.Clear ();
+
 					previewChallenge = loader.FileFormat.Load (filename);
 					previewRenderer.Knot = previewChallenge.Target;
-					previewWorld.Camera.ResetCamera();
+					previewWorld.Camera.ResetCamera ();
 					startButton.IsVisible = true;
 
 					MenuEntry count = new MenuEntry (

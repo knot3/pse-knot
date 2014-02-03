@@ -79,8 +79,8 @@ namespace Knot3.Screens
 			infoTitle.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
 			infoTitle.ForegroundColorFunc = () => Color.White;
 
-			knotInfo = new Menu(this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
-			knotInfo.Bounds.Position = new ScreenPoint (this,0.47f, 0.70f);
+			knotInfo = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
+			knotInfo.Bounds.Position = new ScreenPoint (this, 0.47f, 0.70f);
 			knotInfo.Bounds.Size = new ScreenPoint (this, 0.300f, 0.500f);
 			knotInfo.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
 			knotInfo.ItemAlignX = HorizontalAlignment.Left;
@@ -157,26 +157,26 @@ namespace Knot3.Screens
 			};
 			// Erstelle eine Lamdafunktion, die beim Auswählen des Menüeintrags ausgeführt wird
 			Action<GameTime> preview = (time) => {
-				RemoveGameComponents (time,knotInfo);
-				knotInfo.Clear();
-
 				if (previewKnotMetaData != meta) {
+					RemoveGameComponents (time, knotInfo);
+					knotInfo.Clear ();
+
 					previewRenderer.Knot = loader.FileFormat.Load (filename);
-					previewWorld.Camera.ResetCamera();
+					previewWorld.Camera.ResetCamera ();
 					previewKnotMetaData = meta;
 					startButton.IsVisible = true;
 
 					MenuEntry count = new MenuEntry (
 					    screen: this,
 					    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-					    name: "Knot Count: "+ previewKnotMetaData.CountEdges,
+					    name: "Knot Count: " + previewKnotMetaData.CountEdges,
 					    onClick: nullAction
 					);
 
-					count.Selectable =false;
-					count.Enabled=false;
-					knotInfo.Add(count);
-					AddGameComponents(time,knotInfo);
+					count.Selectable = false;
+					count.Enabled = false;
+					knotInfo.Add (count);
+					AddGameComponents (time, knotInfo);
 				}
 			};
 
@@ -201,7 +201,7 @@ namespace Knot3.Screens
 		{
 			UpdateFiles ();
 			base.Entered (previousScreen, time);
-			AddGameComponents (time, title , savegameMenu,previewBorder,previewWorld, previewInput, previewMouseHandler, backButton, startButton,infoTitle);
+			AddGameComponents (time, title, savegameMenu, previewBorder, previewWorld, previewInput, previewMouseHandler, backButton, startButton, infoTitle);
 		}
 
 		#endregion
