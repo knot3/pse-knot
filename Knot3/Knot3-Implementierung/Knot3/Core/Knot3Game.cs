@@ -32,9 +32,7 @@ namespace Knot3.Core
 		private string lastResolution;
 		private bool isFullscreen;
 		public Action FullScreenChanged = () =>
-		{
-		};
-
+{};
 		/// <summary>
 		/// Wird dieses Attribut ausgelesen, dann gibt es einen Wahrheitswert zurück, der angibt,
 		/// ob sich das Spiel im Vollbildmodus befindet. Wird dieses Attribut auf einen Wert gesetzt,

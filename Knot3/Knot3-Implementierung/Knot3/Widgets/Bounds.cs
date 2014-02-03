@@ -110,10 +110,10 @@ namespace Knot3.Widgets
 		public static Bounds Zero (IGameScreen screen)
 		{
 			return new Bounds (
-				position: ScreenPoint.Zero (screen),
-				size: ScreenPoint.Zero (screen),
-				padding: ScreenPoint.Zero (screen)
-			);
+			           position: ScreenPoint.Zero (screen),
+			           size: ScreenPoint.Zero (screen),
+			           padding: ScreenPoint.Zero (screen)
+			       );
 		}
 
 		public Bounds FromLeft (Func<float> percent)
