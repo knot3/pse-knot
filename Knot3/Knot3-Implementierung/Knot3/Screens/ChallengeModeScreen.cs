@@ -172,7 +172,7 @@ namespace Knot3.Screens
 			ChallengeWorld.Add (challengeSkyCube);
 
 			// Die Spielzeit-Anzeige
-            playTimeDisplay = new TextItem(screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: String.Empty);
+			playTimeDisplay = new TextItem(screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: String.Empty);
 			playTimeDisplay.Bounds.Position = new ScreenPoint (this, 0.800f, 0.01f);
 			playTimeDisplay.Bounds.Size = new ScreenPoint (this, 0.15f, 0.04f);
 			playTimeDisplay.BackgroundColorFunc = () => Color.Black;
@@ -330,7 +330,7 @@ namespace Knot3.Screens
 			// erstelle einen Dialog zum Eingeben des Spielernamens
 			TextInputDialog nameDialog = new TextInputDialog (screen: this, drawOrder: DisplayLayer.Dialog,
 			        title: "Challenge", text: "Your name:",
-                    inputText: Options.Default["profile", "name", String.Empty]);
+			        inputText: Options.Default["profile", "name", String.Empty]);
 			// füge ihn zur Spielkomponentenliste hinzu
 			nameDialog.NoCloseEmpty = true;
 			nameDialog.Text = "Press Enter to submit your name. ";

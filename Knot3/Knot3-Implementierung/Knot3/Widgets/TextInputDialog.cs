@@ -74,7 +74,7 @@ namespace Knot3.Widgets
 		public TextInputDialog (IGameScreen screen, DisplayLayer drawOrder, string title, string text, string inputText)
 		: base (screen, drawOrder, title, text)
 		{
-            textItem = new TextItem(screen, drawOrder, String.Empty);
+			textItem = new TextItem(screen, drawOrder, String.Empty);
 
 			Bounds.Size = new ScreenPoint(screen,0.5f,0.3f);
 			// Der Titel-Text ist mittig ausgerichtet
