@@ -181,14 +181,12 @@ namespace Knot3.Screens
 			invisible.AddKey (Keys.Escape);
 		}
 
-
-        /*
-        public void Dispose()
-        {
-            // Undo, Redo, knot ...
-        }
-        */
-
+		/*
+		public void Dispose()
+		{
+		    // Undo, Redo, knot ...
+		}
+		*/
 
 		#endregion
 
