@@ -79,7 +79,7 @@ namespace Knot3.Screens
 
 			lines.AddPoints (0, 50, 30, 970, 630, 895, 730, 970, 770, 895, 870, 970, 970, 50, 1000);
 
-			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Challenge");
+			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Start Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
 			title.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
 			title.ForegroundColorFunc = () => Color.White;
