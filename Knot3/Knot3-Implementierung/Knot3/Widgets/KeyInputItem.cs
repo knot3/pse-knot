@@ -96,7 +96,7 @@ namespace Knot3.Widgets
 			else {
 				ValidKeys.AddRange (typeof(Keys).ToEnumValues<Keys> ());
 				IsInputEnabled = true;
-                InputText = String.Empty;
+				InputText = String.Empty;
 			}
 		}
 

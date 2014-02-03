@@ -42,7 +42,7 @@ namespace Knot3.Widgets
 		/// [base=screen, drawOrder, title, text]
 		/// </summary>
 		public ColorPickDialog (IGameScreen screen, DisplayLayer drawOrder, Color selectedColor)
-            : base(screen, drawOrder, "Select a color", String.Empty)
+		: base(screen, drawOrder, "Select a color", String.Empty)
 		{
 			// Die ausgewählte Farbe
 			SelectedColor = selectedColor;

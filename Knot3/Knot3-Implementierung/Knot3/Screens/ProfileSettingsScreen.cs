@@ -61,7 +61,7 @@ namespace Knot3.Screens
 			    inputText: Options.Default["profile", "name", "Player"]
 			);
 			playerNameInput.OnValueSubmitted += () => {
-                Options.Default["profile", "name", String.Empty] = playerNameInput.InputText;
+				Options.Default["profile", "name", String.Empty] = playerNameInput.InputText;
 			};
 
 			settingsMenu.Add(playerNameInput);
