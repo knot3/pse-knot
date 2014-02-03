@@ -40,8 +40,10 @@ namespace Knot3.GameObjects
 		public World World
 		{
 			get { return _world; }
-			set { _world = value;
-				assignWorld (); }
+			set {
+				_world = value;
+				assignWorld ();
+			}
 		}
 
 		private World _world;
@@ -49,8 +51,10 @@ namespace Knot3.GameObjects
 		public float Distance
 		{
 			get { return _distance; }
-			set { _distance = value;
-				ConstructRectangles (); }
+			set {
+				_distance = value;
+				ConstructRectangles ();
+			}
 		}
 
 		private float _distance;
@@ -77,7 +81,7 @@ namespace Knot3.GameObjects
 		}
 
 		public SkyCube (IGameScreen screen, Vector3 position, float distance)
-			: this(screen, position)
+		: this(screen, position)
 		{
 			Distance = distance;
 			ConstructRectangles ();

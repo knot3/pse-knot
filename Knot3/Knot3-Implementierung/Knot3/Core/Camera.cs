@@ -44,7 +44,7 @@ namespace Knot3.Core
 			set {
 				OnViewChanged ();
 				if ((value.X.Abs () <= MaxPositionDistance && value.Y.Abs () <= MaxPositionDistance
-				     && value.Z.Abs () <= MaxPositionDistance) || MaxPositionDistance == 0) {
+				        && value.Z.Abs () <= MaxPositionDistance) || MaxPositionDistance == 0) {
 					_position = value;
 				}
 			}
