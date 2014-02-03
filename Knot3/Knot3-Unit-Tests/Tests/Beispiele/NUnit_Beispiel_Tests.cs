@@ -7,7 +7,6 @@ using NUnit.Framework;
 [TestFixture]
 public class NUnit_Beispiel_Tests
 {
-
 	[Test]
 	public void Test_Methode1 ()
 	{
