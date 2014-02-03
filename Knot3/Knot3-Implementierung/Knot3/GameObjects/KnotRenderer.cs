@@ -313,7 +313,7 @@ namespace Knot3.GameObjects
 			Node nodeC = rect.NodeC;
 			Node nodeD = rect.NodeD;
 
-			if (rect.IsVirtual || edgeAB.Rectangles.Intersect (edgeCD.Rectangles).Count () > 0) {
+			if (rect.IsVirtual || edgeAB.Rectangles.Intersect (edgeCD.Rectangles).Any ()) {
 				Texture2D texture;
 				if (rect.NodeB == rect.NodeC) {
 					texture = CreateDiagonalRectangleTexture (edgeAB.Color, edgeCD.Color);
