@@ -172,14 +172,6 @@ namespace Knot3.Core
 			}
 		}
 
-<<<<<<< HEAD
-=======
-		public void Dispose()
-		{
-			//
-		}
-
->>>>>>> 7d8629a3a656aac026c01d64114e3b8c3a578908
 		#endregion
 	}
 }
