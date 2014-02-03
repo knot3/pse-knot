@@ -65,7 +65,7 @@ namespace Knot3.KnotData
 		public void Save (Knot knot)
 		{
 			KnotStringIO parser = new KnotStringIO (knot);
-            Console.WriteLine("KnotFileIO.Save(" + knot + ") = #" + parser.Content.Length.ToString());
+			Console.WriteLine("KnotFileIO.Save(" + knot + ") = #" + parser.Content.Length.ToString());
 			if (knot.MetaData.Filename == null) {
 				throw new IOException ("Error! knot has no filename: " + knot);
 			}
