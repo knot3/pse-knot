@@ -25,7 +25,7 @@ namespace Knot3.Core
 	/// <summary>
 	/// Ein Spielzustand, der zu einem angegebenen Spiel gehört und einen Inputhandler und Rendereffekte enthält.
 	/// </summary>
-	public class GameScreen : IGameScreen, IDisposable
+	public class GameScreen : IGameScreen
 	{
 		#region Properties
 
@@ -171,13 +171,6 @@ namespace Knot3.Core
 				Game.Components.Remove (component);
 			}
 		}
-
-
-        public void Dispose()
-        {
-            //
-        }
-
 
 		#endregion
 	}
