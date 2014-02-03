@@ -127,7 +127,7 @@ namespace Knot3.KnotData
 
 		public override string ToString ()
 		{
-            return "(" + X.ToString() + "," + Y.ToString() + "," + Z.ToString() + ")";
+			return "(" + X.ToString() + "," + Y.ToString() + "," + Z.ToString() + ")";
 		}
 
 		public object Clone ()

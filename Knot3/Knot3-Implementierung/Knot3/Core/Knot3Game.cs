@@ -50,10 +50,9 @@ namespace Knot3.Core
 						Graphics.PreferredBackBufferHeight = Graphics.GraphicsDevice.DisplayMode.Height;
 					}
 					else {
-
-                        string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width.ToString() 
-                                                 + "x"
-                                                 + Graphics.GraphicsDevice.DisplayMode.Height.ToString();
+						string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width.ToString()
+						                           + "x"
+						                           + Graphics.GraphicsDevice.DisplayMode.Height.ToString();
 
 						Options.Default ["video", "resolution", currentResolution] = "1280x720";
 					}
