@@ -86,8 +86,8 @@ namespace Knot3.KnotData
 		public float AvgTime
 		{
 			get {
-				if (   highscore != null 
-                    && highscore.Any ()) {
+				if (   highscore != null
+				        && highscore.Any ()) {
 					float amount =0;
 					foreach (KeyValuePair<string, int> entry in highscore) {
 						amount += (float)entry.Value;
