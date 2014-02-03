@@ -105,13 +105,18 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
-			if (key.Contains (Keys.Enter)) {
-				if(NoCloseEmpty) {
-					if(textInput.InputText!=null&&textInput.InputText!="") {
+			if (key.Contains (Keys.Enter))
+            {
+				if (NoCloseEmpty)
+                {
+					if (   textInput.InputText != null 
+                        && textInput.InputText.Length == 0)
+                    {
 						Close (time);
 					}
 				}
-				else {
+				else
+                {
 					Close(time);
 				}
 			}
