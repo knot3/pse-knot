@@ -123,7 +123,7 @@ namespace Knot3.Screens
 			startButton = new Button (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-			    name: "Start",
+			    name: "Load",
 			    onClick: (time) => NextScreen = new CreativeModeScreen (game: Game, knot: loader.FileFormat.Load (previewKnotMetaData.Filename))
 			);
 			startButton.IsVisible = false;
