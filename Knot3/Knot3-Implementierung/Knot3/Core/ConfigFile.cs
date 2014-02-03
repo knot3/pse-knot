@@ -106,7 +106,7 @@ namespace Knot3.Core
 
 		private string floatToString (float f)
 		{
-			return "" + (int)(f * 1000);
+			return String.Empty + (int)(f * 1000);
 		}
 
 		private float stringToFloat (string s)

@@ -44,7 +44,7 @@ namespace Knot3.Widgets
 		///
 		/// </summary>
 		public CreativePauseDialog (IGameScreen screen, DisplayLayer drawOrder, Knot knot)
-		: base(screen, drawOrder, "Pause", "")
+            : base(screen, drawOrder, "Pause", String.Empty)
 		{
 			this.knot = knot;
 
@@ -146,7 +146,7 @@ namespace Knot3.Widgets
 			    drawOrder: DisplayLayer.Dialog,
 			    title: "Save Knot",
 			    text: "Name:",
-			    inputText: knot.Name != null ? knot.Name : ""
+                inputText: knot.Name != null ? knot.Name : String.Empty
 			);
 			saveDialog.NoCloseEmpty =true;
 			saveDialog.Text = "Press Enter to save the Knot.";

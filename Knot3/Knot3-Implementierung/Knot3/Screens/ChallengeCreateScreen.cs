@@ -67,7 +67,7 @@ namespace Knot3.Screens
 			targetKnotMenu.Bounds.Position = new ScreenPoint (this, 0.525f, 0.180f);
 			targetKnotMenu.Bounds.Size = new ScreenPoint (this, 0.375f, 0.620f);
 
-			challengeName = new InputItem (this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, "Name:", "");
+            challengeName = new InputItem(this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, "Name:", String.Empty);
 			challengeName.Bounds.Position = new ScreenPoint (this, 0.100f, 0.860f);
 			challengeName.Bounds.Size = new ScreenPoint (this, 0.375f, 0.040f);
 			challengeName.OnValueChanged += () => TryConstructChallenge ();
