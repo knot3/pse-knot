@@ -11,6 +11,8 @@ public class TargetTest
     [Test]
     public void DoSomethingTest()
     {
+
+    NUnit_Beispiel_Tests.DoSomething();
        
     }
 } 
