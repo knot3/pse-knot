@@ -109,8 +109,8 @@ namespace Knot3.Widgets
             {
 				if (NoCloseEmpty)
                 {
-					if (   textInput.InputText != null 
-                        && textInput.InputText.Length == 0)
+					if (    textInput.InputText != null 
+                         && textInput.InputText.Length != 0)
                     {
 						Close (time);
 					}
