@@ -2,12 +2,12 @@
 
 using NUnit.Framework;
 
-namespace Knot3.UnitTests
-{
+//namespace Knot3.UnitTests
+//{
 	[TestFixture]
 	public class NUnit_Beispiel_Tests
 	{
-		/*
+		
 
 		[Test]
 		public void Test_Methode1 ()
@@ -21,6 +21,22 @@ namespace Knot3.UnitTests
 			Assert.IsNotNull (null);
 		}
 
-		*/
+
+        public static void DoSomething()
+        {
+            try
+            {
+                Console.WriteLine("I Random!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+        }
+
+
+   
 	}
-}
+//}
