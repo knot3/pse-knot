@@ -125,7 +125,7 @@ namespace Knot3.GameObjects
 			}
 
 			if (other is PipeModelInfo) {
-				if (this.Edge == (other as PipeModelInfo).Edge && base.Equals (other)) {
+				if (this.Edge == (other as PipeModelInfo).Edge && this.Scale == (other as PipeModelInfo).Scale && base.Equals (other)) {
 					return true;
 				}
 				else {
