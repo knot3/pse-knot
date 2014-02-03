@@ -178,13 +178,13 @@ namespace Knot3.Core
 			float x, y, z;
 			ToDegrees (out x, out y, out z);
 
-            return   "Angles3(" 
-                    + x.ToString()
-                    + ","
-                    + y.ToString()
-                    + ","
-                    + z.ToString()
-                    + ")";
+			return   "Angles3("
+			         + x.ToString()
+			         + ","
+			         + y.ToString()
+			         + ","
+			         + z.ToString()
+			         + ")";
 		}
 
 		#endregion
