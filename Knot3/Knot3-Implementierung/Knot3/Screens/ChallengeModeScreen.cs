@@ -177,7 +177,7 @@ namespace Knot3.Screens
 			playTimeDisplay.Bounds.Size = new ScreenPoint (this, 0.15f, 0.04f);
 			playTimeDisplay.BackgroundColorFunc = () => Color.Black;
 			playTimeDisplay.ForegroundColorFunc = () => Color.White;
-            playTimeDisplay.AlignX = HorizontalAlignment.Center;
+			playTimeDisplay.AlignX = HorizontalAlignment.Center;
 			playTimeBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                             widget: playTimeDisplay, lineWidth: 2, padding: 0);
 			//Undo-Button
