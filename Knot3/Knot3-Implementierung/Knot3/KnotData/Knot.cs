@@ -56,7 +56,7 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Ein Ereignis, das in der Move-Methode ausgelöst wird, wenn sich die Struktur der Kanten geändert hat.
 		/// </summary>
-		public Action EdgesChanged = () =>{};
+		public Action EdgesChanged = () => {};
 		/// <summary>
 		/// Enthält die aktuell vom Spieler selektierten Kanten in der Reihenfolge, in der sie selektiert wurden.
 		/// </summary>
@@ -67,10 +67,10 @@ namespace Knot3.KnotData
 		/// <summary>
 		///
 		/// </summary>
-		public Action SelectionChanged = () =>{};
+		public Action SelectionChanged = () => {};
 		private List<SelectionBlock> StructuredSelection;
 		private Circle<Edge> lastSelected;
-		public Action<Vector3> StartEdgeChanged = (v) =>{};
+		public Action<Vector3> StartEdgeChanged = (v) => {};
 		private KnotCharakteristic? CharakteristicCache = null;
 
 		#endregion
