@@ -5,19 +5,17 @@
 [TestFixture]
 public class TargetTest
 {
-<<<<<<< HEAD
-    [Test]
-    public void DoSomethingTest()
-    {
-
-    NUnit_Beispiel_Tests.DoSomething();
-       
-    }
-} 
-=======
+	<<<<<<< HEAD
 	[Test]
 	public void DoSomethingTest()
 	{
+		NUnit_Beispiel_Tests.DoSomething();
 	}
+}
+=======
+    [Test]
+    public void DoSomethingTest()
+{
+}
 }
 >>>>>>> 255ea213e8c06b81460d0587b8c9deb78194c7ea
