@@ -27,7 +27,7 @@ namespace Knot3.Screens
 	/// <summary>
 	/// Der Spielzustand, der während dem Erstellen und Bearbeiten eines Knotens aktiv ist und für den Knoten eine 3D-Welt zeichnet.
 	/// </summary>
-	public class CreativeModeScreen : GameScreen
+	public class CreativeModeScreen : GameScreen // , IDisposable
 	{
 		#region Properties
 
@@ -180,6 +180,15 @@ namespace Knot3.Screens
 			invisible.IsVisible = true;
 			invisible.AddKey (Keys.Escape);
 		}
+
+
+        /*
+        public void Dispose()
+        {
+            // Undo, Redo, knot ...
+        }
+        */
+
 
 		#endregion
 

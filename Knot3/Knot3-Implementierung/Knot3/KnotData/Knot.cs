@@ -46,7 +46,7 @@ namespace Knot3.KnotData
 		/// <summary>
 		/// Das Startelement der doppelt-verketteten Liste, in der die Kanten gespeichert werden.
 		/// </summary>
-		private Circle<Edge> startElement;
+        private CircleEntry<Edge> startElement;
 
 		/// <summary>
 		/// Die Metadaten des Knotens.
@@ -69,7 +69,7 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Action SelectionChanged = () => {};
 		private List<SelectionBlock> StructuredSelection;
-		private Circle<Edge> lastSelected;
+        private CircleEntry<Edge> lastSelected;
 		public Action<Vector3> StartEdgeChanged = (v) => {};
 		private KnotCharakteristic? CharakteristicCache = null;
 
@@ -85,7 +85,7 @@ namespace Knot3.KnotData
 		{
 			debugId++;
 			MetaData = new KnotMetaData(String.Empty, () => startElement.Count, null, null);
-			startElement = new Circle<Edge> (new Edge[] {
+            startElement = new CircleEntry<Edge>(new Edge[] {
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
@@ -115,7 +115,7 @@ namespace Knot3.KnotData
 			    format: metaData.Format,
 			    filename: metaData.Filename
 			);
-			this.startElement = new Circle<Edge> (edges);
+            this.startElement = new CircleEntry<Edge>(edges);
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -144,7 +144,7 @@ namespace Knot3.KnotData
 				SelectionBlock currentBlock = StructuredSelection [b];
 				SelectionBlock nextBlock = StructuredSelection.At (b + 1);
 
-				Circle<Edge> pointer = currentBlock.Begin;
+                CircleEntry<Edge> pointer = currentBlock.Begin;
 				do {
 					stack.Push (pointer.Value.Direction);
 					pointer++;
@@ -253,7 +253,7 @@ namespace Knot3.KnotData
 				Console.WriteLine ("Moving edges of knot#" + debugId);
 				SelectionBlock currentBlock = StructuredSelection [b];
 
-				Circle<Edge> pointer = currentBlock.Begin;
+                CircleEntry<Edge> pointer = currentBlock.Begin;
 				// Vor der Selektion Kanten einfügen, wenn die vorhandenen nicht in die entgegengesetzte Richtung zeigen.
 				// Wenn das der Fall ist stattdessen die Kante löschen.
 				for (int n = 0; n < distance; n++) {
@@ -338,7 +338,7 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Object Clone ()
 		{
-			Circle<Edge> newCircle = new Circle<Edge> (startElement as IEnumerable<Edge>);
+            CircleEntry<Edge> newCircle = new CircleEntry<Edge>(startElement as IEnumerable<Edge>);
 			KnotMetaData metaData = new KnotMetaData (
 			    name: MetaData.Name,
 			    countEdges: () => 0,
@@ -404,7 +404,7 @@ namespace Knot3.KnotData
 				AddToSelection (selectedEdge);
 				return;
 			}
-			Circle<Edge> selectedCircle = null;
+            CircleEntry<Edge> selectedCircle = null;
 			if (startElement.Contains (selectedEdge, out selectedCircle) && selectedEdge != lastSelected.Value) {
 				List<Edge> forward = new List<Edge> (lastSelected.RangeTo (selectedCircle));
 				List<Edge> backward = new List<Edge> (selectedCircle.RangeTo (lastSelected));
@@ -469,8 +469,8 @@ namespace Knot3.KnotData
 			}
 			// Bei Struktur im gleicher Richtung
 			if (thisCharakteristik.CharacteristicalEdge.Value.Direction == otherCharakteristik.CharacteristicalEdge.Value.Direction) {
-				Circle<Edge> currentThisElement = thisCharakteristik.CharacteristicalEdge.Next;
-				Circle<Edge> currentOtherElement = otherCharakteristik.CharacteristicalEdge.Next;
+                CircleEntry<Edge> currentThisElement = thisCharakteristik.CharacteristicalEdge.Next;
+                CircleEntry<Edge> currentOtherElement = otherCharakteristik.CharacteristicalEdge.Next;
 				while (currentThisElement != thisCharakteristik.CharacteristicalEdge) {
 					if (currentThisElement.Value.Direction != currentOtherElement.Value.Direction) {
 						return false;
@@ -482,8 +482,8 @@ namespace Knot3.KnotData
 			}
 			// Bei Struktur in entgegengesetzter Richtung
 			else if (thisCharakteristik.CharacteristicalEdge.Value.Direction == otherCharakteristik.CharacteristicalEdge.Value.Direction.Reverse) {
-				Circle<Edge> currentThisElement = thisCharakteristik.CharacteristicalEdge.Next;
-				Circle<Edge> currentOtherElement = otherCharakteristik.CharacteristicalEdge.Next;
+                CircleEntry<Edge> currentThisElement = thisCharakteristik.CharacteristicalEdge.Next;
+                CircleEntry<Edge> currentOtherElement = otherCharakteristik.CharacteristicalEdge.Next;
 				while (currentThisElement != thisCharakteristik.CharacteristicalEdge) {
 					if (currentThisElement.Value.Direction != currentOtherElement.Value.Direction.Reverse) {
 						return false;
@@ -509,10 +509,10 @@ namespace Knot3.KnotData
 				return CharakteristicCache.Value;
 			}
 
-			Circle<Edge> charakteristikElement = startElement;
+            CircleEntry<Edge> charakteristikElement = startElement;
 			Vector3 position3D = startElement.Value.Direction;
 			Vector3 bestPosition3D = startElement.Value.Direction / 2;
-			Circle<Edge> edgePointer = startElement.Next;
+            CircleEntry<Edge> edgePointer = startElement.Next;
 
 			int edgeCount = 1;
 			for (edgeCount = 1; edgePointer != startElement; edgePointer++, edgeCount++) {
@@ -558,8 +558,8 @@ namespace Knot3.KnotData
 				StructuredSelection.Add (new SelectionBlock (startElement, startElement.Previous));
 				return;
 			}
-			Circle<Edge> start = startElement;
-			Circle<Edge> stop = start.Previous;
+            CircleEntry<Edge> start = startElement;
+            CircleEntry<Edge> stop = start.Previous;
 			// Suche eine Stelle an der ein Selektionsblock beginnt.
 			if (selectedEdges.Contains (start.Value)) {
 				// Wenn "edges" in der Selektion ist geh nach links, bis zum Anfang des Blockes.
@@ -575,13 +575,13 @@ namespace Knot3.KnotData
 			}
 			do {
 				// "start" zeigt auf den Beginn eines Blockes und wird daher hinzu gefügt.
-				Circle<Edge> begin = start;
+                CircleEntry<Edge> begin = start;
 				stop = start;
 				// Gehe bis zum Ende des selektierten Blockes.
 				while (selectedEdges.Contains (stop.Next.Value)) {
 					stop++;
 				}
-				Circle<Edge> end = stop;
+                CircleEntry<Edge> end = stop;
 
 				// Gehe bis zum start des nächsten Blockes.
 				start = stop.Next;
@@ -602,11 +602,11 @@ namespace Knot3.KnotData
 
 		private class SelectionBlock
 		{
-			public Circle<Edge> Begin { get; set; }
+            public CircleEntry<Edge> Begin { get; set; }
 
-			public Circle<Edge> End { get; set; }
+            public CircleEntry<Edge> End { get; set; }
 
-			public SelectionBlock (Circle<Edge> begin, Circle<Edge> end)
+            public SelectionBlock(CircleEntry<Edge> begin, CircleEntry<Edge> end)
 			{
 				Begin = begin;
 				End = end;
@@ -614,11 +614,12 @@ namespace Knot3.KnotData
 		}
 
 		private struct KnotCharakteristic {
-			public Circle<Edge> CharacteristicalEdge { get; private set; }
+            public CircleEntry<Edge> CharacteristicalEdge { get; private set; }
 
 			public int CountEdges { get; private set; }
 
-			public KnotCharakteristic (Circle<Edge> characteristicalEdge, int countEdges) : this ()
+            public KnotCharakteristic(CircleEntry<Edge> characteristicalEdge, int countEdges)
+                : this()
 			{
 				CharacteristicalEdge = characteristicalEdge;
 				CountEdges = countEdges;

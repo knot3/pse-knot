@@ -24,25 +24,25 @@ namespace Knot3.KnotData
 	/// <summary>
 	/// Eine doppelt verkettete Liste.
 	/// </summary>
-	public class Circle<T> : IEnumerable<T>
+	public class CircleEntry<T> : IEnumerable<T>
 	{
 		public T Value { get; set; }
 
-		public Circle<T> Next { get; set; }
+		public CircleEntry<T> Next { get; set; }
 
-		public Circle<T> Previous { get; set; }
+		public CircleEntry<T> Previous { get; set; }
 
-		public Circle (T value)
+		public CircleEntry (T value)
 		{
 			Value = value;
 			Previous = this;
 			Next = this;
 		}
 
-		public Circle (IEnumerable<T> list)
+        public CircleEntry(IEnumerable<T> list)
 		{
 			bool first = true;
-			Circle<T> inserted = this;
+			CircleEntry<T> inserted = this;
 			foreach (T obj in list) {
 				if (first) {
 					Value = obj;
@@ -56,9 +56,9 @@ namespace Knot3.KnotData
 			}
 		}
 
-		public Circle<T> InsertBefore (T obj)
+		public CircleEntry<T> InsertBefore (T obj)
 		{
-			Circle<T> insert = new Circle<T> (obj);
+			CircleEntry<T> insert = new CircleEntry<T> (obj);
 			insert.Previous = this.Previous;
 			insert.Next = this;
 			this.Previous.Next = insert;
@@ -66,10 +66,10 @@ namespace Knot3.KnotData
 			return insert;
 		}
 
-		public Circle<T> InsertAfter (T obj)
+		public CircleEntry<T> InsertAfter (T obj)
 		{
 			//Console.WriteLine (this + ".InsertAfter(" + obj + ")");
-			Circle<T> insert = new Circle<T> (obj);
+			CircleEntry<T> insert = new CircleEntry<T> (obj);
 			insert.Next = this.Next;
 			insert.Previous = this;
 			this.Next.Previous = insert;
@@ -86,7 +86,7 @@ namespace Knot3.KnotData
 		public int Count
 		{
 			get {
-				Circle<T> current = this;
+				CircleEntry<T> current = this;
 				int count = 0;
 				do {
 					++count;
@@ -97,38 +97,38 @@ namespace Knot3.KnotData
 			}
 		}
 
-		public bool Contains (T obj, out IEnumerable<Circle<T>> item)
+		public bool Contains (T obj, out IEnumerable<CircleEntry<T>> item)
 		{
 			item = Find (obj);
 			return item.Count () > 0;
 		}
 
-		public bool Contains (Func<T, bool> func, out IEnumerable<Circle<T>> item)
+		public bool Contains (Func<T, bool> func, out IEnumerable<CircleEntry<T>> item)
 		{
 			item = Find (func);
 			return item.Count () > 0;
 		}
 
-		public bool Contains (T obj, out Circle<T> item)
+		public bool Contains (T obj, out CircleEntry<T> item)
 		{
 			item = Find (obj).ElementAtOrDefault (0);
 			return item != null;
 		}
 
-		public bool Contains (Func<T, bool> func, out Circle<T> item)
+		public bool Contains (Func<T, bool> func, out CircleEntry<T> item)
 		{
 			item = Find (func).ElementAtOrDefault (0);
 			return item != null;
 		}
 
-		public IEnumerable<Circle<T>> Find (T obj)
+		public IEnumerable<CircleEntry<T>> Find (T obj)
 		{
 			return Find ((t) => t.Equals (obj));
 		}
 
-		public IEnumerable<Circle<T>> Find (Func<T, bool> func)
+		public IEnumerable<CircleEntry<T>> Find (Func<T, bool> func)
 		{
-			Circle<T> current = this;
+			CircleEntry<T> current = this;
 			do {
 				if (func (current.Value)) {
 					yield return current;
@@ -139,9 +139,9 @@ namespace Knot3.KnotData
 			yield break;
 		}
 
-		public IEnumerable<T> RangeTo (Circle<T> other)
+		public IEnumerable<T> RangeTo (CircleEntry<T> other)
 		{
-			Circle<T> current = this;
+			CircleEntry<T> current = this;
 			do {
 				yield return current.Value;
 				current = current.Next;
@@ -151,7 +151,7 @@ namespace Knot3.KnotData
 
 		public IEnumerator<T> GetEnumerator ()
 		{
-			Circle<T> current = this;
+			CircleEntry<T> current = this;
 			do {
 				//Console.WriteLine (this + " => " + current.Content);
 				yield return current.Value;
@@ -168,12 +168,12 @@ namespace Knot3.KnotData
 
 		public override string ToString ()
 		{
-			return "Circle(" + Value + ")";
+			return "CircleEntry(" + Value + ")";
 		}
 
-		public static Circle<T> operator + (Circle<T> circle, int i)
+		public static CircleEntry<T> operator + (CircleEntry<T> circle, int i)
 		{
-			Circle<T> next = circle;
+			CircleEntry<T> next = circle;
 			while (i > 0) {
 				next = next.Next;
 				i--;
@@ -192,22 +192,22 @@ namespace Knot3.KnotData
 			}
 		}
 
-		public static Circle<T> operator - (Circle<T> circle, int i)
+		public static CircleEntry<T> operator - (CircleEntry<T> circle, int i)
 		{
 			return circle + (-i);
 		}
 
-		public static Circle<T> operator ++ (Circle<T> circle)
+		public static CircleEntry<T> operator ++ (CircleEntry<T> circle)
 		{
 			return circle.Next;
 		}
 
-		public static Circle<T> operator -- (Circle<T> circle)
+		public static CircleEntry<T> operator -- (CircleEntry<T> circle)
 		{
 			return circle.Previous;
 		}
 
-		public static implicit operator T (Circle<T> circle)
+		public static implicit operator T (CircleEntry<T> circle)
 		{
 			return circle.Value;
 		}
