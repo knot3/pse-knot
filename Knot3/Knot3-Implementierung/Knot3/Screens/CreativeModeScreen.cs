@@ -223,7 +223,7 @@ namespace Knot3.Screens
 
 		private void OnRedo ()
 		{
-			Console.WriteLine ("Redo: Redo.Count=" + Redo.Count);
+            Console.WriteLine("Redo: Redo.Count=" + Redo.Count.ToString ());
 			if (Redo.Count >= 1) {
 				Knot next = Redo.Pop ();
 				Knot push = next.Clone ()as Knot;
