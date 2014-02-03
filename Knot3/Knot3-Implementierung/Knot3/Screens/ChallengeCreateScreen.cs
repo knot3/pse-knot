@@ -96,7 +96,7 @@ namespace Knot3.Screens
 			                 770, 895,
 			                 870, 970,
 			                 970, 50, 1000
-			                );
+			);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Create Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -185,9 +185,10 @@ namespace Knot3.Screens
 		public bool CanCreateChallenge
 		{
 			get {
-				return selectedStartKnot != null && selectedTargetKnot != null &&
-				       selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
-				       && challengeName.InputText.Length > 0;
+				return selectedStartKnot != null && selectedTargetKnot != null
+					&& selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
+					&& challengeName.InputText.Length > 0
+					&& (selectedStartKnot.MetaData.CountEdges > 4 || selectedTargetKnot.MetaData.CountEdges > 4);
 			}
 		}
 
