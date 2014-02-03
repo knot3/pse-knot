@@ -168,7 +168,7 @@ namespace Knot3.Widgets
 		private IEnumerable<ScreenPoint> CreateTiles (IEnumerable<Color> _colors)
 		{
 			Color[] colors = _colors.ToArray ();
-			float sqrt = (float)Math.Sqrt (colors.Count ());
+			float sqrt = (float)Math.Sqrt (colors.Length);
 			int row = 0;
 			int column = 0;
 			foreach (Color color in colors) {
