@@ -105,38 +105,34 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
-<<<<<<< HEAD
-			if (key.Contains (Keys.Enter))
-            {
-				if (NoCloseEmpty)
-                {
-					if (    textInput.InputText != null 
-                         && textInput.InputText.Length != 0)
-                    {
-=======
+			<<<<<<< HEAD
 			if (key.Contains (Keys.Enter)) {
 				if (NoCloseEmpty) {
-					if (   textInput.InputText != null
-					        && textInput.InputText.Length == 0) {
->>>>>>> f0c05868490714eacc3119e8a87beed3ce7e8c1a
-						Close (time);
+					if (    textInput.InputText != null
+					        && textInput.InputText.Length != 0) {
+						=======
+						if (key.Contains (Keys.Enter)) {
+							if (NoCloseEmpty) {
+								if (   textInput.InputText != null
+								        && textInput.InputText.Length == 0) {
+									>>>>>>> f0c05868490714eacc3119e8a87beed3ce7e8c1a
+									Close (time);
+								}
+							}
+							else {
+								Close(time);
+							}
+						}
+						base.OnKeyEvent (key, keyEvent, time);
 					}
-				}
-				else {
-					Close(time);
+
+					public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time) {
+						foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
+							yield return component;
+						}
+						yield return menu;
+					}
+
+					#endregion
 				}
 			}
-			base.OnKeyEvent (key, keyEvent, time);
-		}
-
-		public override IEnumerable<IGameScreenComponent> SubComponents (GameTime time)
-		{
-			foreach (DrawableGameScreenComponent component in base.SubComponents(time)) {
-				yield return component;
-			}
-			yield return menu;
-		}
-
-		#endregion
-	}
-}
