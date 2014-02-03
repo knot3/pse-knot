@@ -207,6 +207,7 @@ namespace Knot3.Screens
 			redoButtonBorder = new Border (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
 			                               widget: redoButton, lineWidth: 2, padding: 0);
 			redoButton.AlignX = HorizontalAlignment.Center;
+			redoButton.IsVisible = false;
 
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
@@ -264,7 +265,7 @@ namespace Knot3.Screens
 				// den Knoten den Inputhandlern und Renderern zuweisen
 				registerCurrentKnot ();
 
-				redoButton.IsVisible = true;
+				undoButton.IsVisible = true;
 			}
 			if (Redo.Count == 0) {
 				redoButton.IsVisible = false;
