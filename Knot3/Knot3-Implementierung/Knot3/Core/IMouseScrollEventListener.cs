@@ -42,7 +42,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Die Ausmaße des von der Klasse repräsentierten Objektes.
 		/// </summary>
-		Rectangle MouseScrollBounds { get; }
+		Bounds MouseScrollBounds { get; }
 
 		/// <summary>
 		/// Die Reaktion auf ein Scrollen. Der Wert ist relativ zum letzten Frame.

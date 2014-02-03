@@ -522,9 +522,9 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		public Rectangle MouseMoveBounds { get { return world.Bounds; } }
+		public Bounds MouseMoveBounds { get { return world.Bounds; } }
 
-		public Rectangle MouseScrollBounds { get { return world.Bounds; } }
+		public Bounds MouseScrollBounds { get { return world.Bounds; } }
 
 		#endregion
 	}

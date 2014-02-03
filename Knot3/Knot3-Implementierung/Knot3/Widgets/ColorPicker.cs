@@ -44,7 +44,7 @@ namespace Knot3.Widgets
 		private ScreenPoint tileSize;
 		private SpriteBatch spriteBatch;
 
-		public Rectangle MouseClickBounds { get { return Bounds.Rectangle; } }
+		public Bounds MouseClickBounds { get { return Bounds; } }
 
 		#endregion
 

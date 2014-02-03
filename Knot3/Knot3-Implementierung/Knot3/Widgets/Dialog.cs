@@ -49,13 +49,11 @@ namespace Knot3.Widgets
 		private Border titleBorder;
 		private Border dialogBorder;
 
-		public Rectangle MouseClickBounds { get { return Bounds.Rectangle; } }
+		public Bounds MouseClickBounds { get { return Bounds; } }
 
-		public Rectangle MouseMoveBounds
+		public Bounds MouseMoveBounds
 		{
-			get {
-				return Vector2.Zero.CreateRectangle (TitleBounds.Size);
-			}
+			get { return new Bounds (ScreenPoint.Zero (Screen), TitleBounds.Size); }
 		}
 
 		#endregion
@@ -85,7 +83,7 @@ namespace Knot3.Widgets
 			};
 
 			// Die Standardposition ist in der Mitte des Bildschirms
-			Bounds.Position = ScreenPoint.Centered(screen, Bounds);
+			Bounds.Position = ScreenPoint.Centered (screen, Bounds);
 			// Die Standardgröße
 			Bounds.Size = new ScreenPoint (screen, 0.500f, 0.500f);
 			// Der Standardabstand
@@ -157,8 +155,8 @@ namespace Knot3.Widgets
 		{
 			get {
 				ScreenPoint pos = Bounds.Position;
-				ScreenPoint size = new ScreenPoint(Screen, ()=>Bounds.Size.Relative.X, ()=>0.050f);
-				return new Bounds(pos, size);
+				ScreenPoint size = new ScreenPoint (Screen, () => Bounds.Size.Relative.X, () => 0.050f);
+				return new Bounds (pos, size);
 			}
 		}
 
@@ -167,7 +165,7 @@ namespace Knot3.Widgets
 			get {
 				ScreenPoint pos = Bounds.Position + TitleBounds.Size.OnlyY + Bounds.Padding;
 				ScreenPoint size = Bounds.Size - TitleBounds.Size.OnlyY - Bounds.Padding * 2;
-				return new Bounds(pos, size);
+				return new Bounds (pos, size);
 			}
 		}
 
@@ -217,7 +215,7 @@ namespace Knot3.Widgets
 			Console.WriteLine ("OnLeftMove(" + previousPosition + "," + currentPosition + "," + move + ")");
 			if (MouseMoveBounds.Contains (previousPosition.ToPoint ())) {
 				Console.WriteLine ("TitleBounds =" + Vector2.Zero.CreateRectangle (TitleBounds.Size) + "; previousPosition=" + previousPosition);
-				Bounds.Position = Bounds.Position + new ScreenPoint(Screen, move / Screen.Viewport.ToVector2 ());
+				Bounds.Position = Bounds.Position + new ScreenPoint (Screen, move / Screen.Viewport.ToVector2 ());
 			}
 		}
 

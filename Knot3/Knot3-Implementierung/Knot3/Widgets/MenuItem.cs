@@ -60,9 +60,9 @@ namespace Knot3.Widgets
 		// ein Spritebatch
 		protected SpriteBatch spriteBatch;
 
-		public virtual Rectangle MouseClickBounds { get { return Bounds; } }
+		public virtual Bounds MouseClickBounds { get { return Bounds; } }
 
-		public Rectangle MouseScrollBounds { get { return Bounds; } }
+		public Bounds MouseScrollBounds { get { return Bounds; } }
 
 		public Action<bool, GameTime> Hovered = (isHovered, time) =>
 		{

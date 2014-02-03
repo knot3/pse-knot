@@ -45,7 +45,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Die Ausmaße des von der Klasse repräsentierten Objektes.
 		/// </summary>
-		Rectangle MouseClickBounds { get; }
+		Bounds MouseClickBounds { get; }
 
 		/// <summary>
 		/// Die Reaktion auf einen Linksklick.

@@ -93,6 +93,11 @@ namespace Knot3.Widgets
 			RelativeFunc = other.RelativeFunc;
 		}
 
+		public static ScreenPoint Zero (IGameScreen screen)
+		{
+			return new ScreenPoint (screen, Vector2.Zero);
+		}
+
 		public static ScreenPoint TopLeft (IGameScreen screen)
 		{
 			return new ScreenPoint (screen, Vector2.Zero);

@@ -105,8 +105,8 @@ namespace Knot3.Widgets
 			}
 		}
 
-		public override Rectangle MouseClickBounds { get { return ValueBounds; } }
-		public Rectangle MouseMoveBounds { get { return ValueBounds; } }
+		public override Bounds MouseClickBounds { get { return ValueBounds; } }
+		public Bounds MouseMoveBounds { get { return ValueBounds; } }
 
 		#endregion
 

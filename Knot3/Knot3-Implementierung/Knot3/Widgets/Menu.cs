@@ -37,24 +37,9 @@ namespace Knot3.Widgets
 		/// </value>
 		public float RelativeItemHeight { get; set; }
 
-		public Rectangle MouseClickBounds { get { return Bounds; } }
+		public Bounds MouseClickBounds { get { return Bounds; } }
 
 		private SpriteBatch spriteBatch;
-
-		#endregion
-
-		#region Constructors
-
-		/// <summary>
-		/// Erzeugt eine neue Instanz eines VerticalMenu-Objekts und initialisiert diese mit dem zugehörigen IGameScreen-Objekt.
-		/// Zudem ist die Angaben der Zeichenreihenfolge Pflicht.
-		/// </summary>
-		public Menu (IGameScreen screen, DisplayLayer drawOrder)
-		: base (screen, drawOrder)
-		{
-			RelativeItemHeight = 0.040f;
-			spriteBatch = new SpriteBatch (screen.Device);
-		}
 
 		private Bounds ScrollBarBounds
 		{
@@ -67,11 +52,9 @@ namespace Knot3.Widgets
 			}
 		}
 
-		public Rectangle MouseMoveBounds
+		public Bounds MouseMoveBounds
 		{
-			get {
-				return new Bounds (Bounds.Position, Bounds.Size + ScrollBarBounds.Size.OnlyX);
-			}
+			get { return new Bounds (Bounds.Position, Bounds.Size + ScrollBarBounds.Size.OnlyX); }
 		}
 
 		private Bounds ScrollSliderInBarBounds
@@ -89,6 +72,21 @@ namespace Knot3.Widgets
 				);
 				return bounds;
 			}
+		}
+
+		#endregion
+
+		#region Constructors
+
+		/// <summary>
+		/// Erzeugt eine neue Instanz eines VerticalMenu-Objekts und initialisiert diese mit dem zugehörigen IGameScreen-Objekt.
+		/// Zudem ist die Angaben der Zeichenreihenfolge Pflicht.
+		/// </summary>
+		public Menu (IGameScreen screen, DisplayLayer drawOrder)
+		: base (screen, drawOrder)
+		{
+			RelativeItemHeight = 0.040f;
+			spriteBatch = new SpriteBatch (screen.Device);
 		}
 
 		#endregion

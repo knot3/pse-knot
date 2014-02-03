@@ -45,7 +45,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Die Ausmaße des von der Klasse repräsentierten Objektes.
 		/// </summary>
-		Rectangle MouseMoveBounds { get; }
+		Bounds MouseMoveBounds { get; }
 
 		void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time);
 
