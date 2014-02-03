@@ -132,7 +132,7 @@ namespace Knot3.KnotData
 
 		public override int GetHashCode ()
 		{
-			return (countEdges () + (name ?? "")).GetHashCode ();
+            return (countEdges() + (name ?? String.Empty)).GetHashCode();
 		}
 
 		public static bool operator == (KnotMetaData a, KnotMetaData b)

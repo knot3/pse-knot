@@ -43,7 +43,7 @@ namespace Knot3.Widgets
 		///
 		/// </summary>
 		public ChallengePauseDialog (IGameScreen screen, DisplayLayer drawOrder)
-		: base (screen, drawOrder, "Pause", "")
+            : base(screen, drawOrder, "Pause", String.Empty)
 		{
 			// Der Titel-Text ist mittig ausgerichtet
 			AlignX = HorizontalAlignment.Center;

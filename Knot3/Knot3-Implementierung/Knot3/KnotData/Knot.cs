@@ -84,7 +84,7 @@ namespace Knot3.KnotData
 		public Knot ()
 		{
 			debugId++;
-			MetaData = new KnotMetaData ("", () => startElement.Count, null, null);
+            MetaData = new KnotMetaData(String.Empty, () => startElement.Count, null, null);
 			startElement = new Circle<Edge> (new Edge[] {
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward

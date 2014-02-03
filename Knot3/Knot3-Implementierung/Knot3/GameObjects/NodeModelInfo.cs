@@ -83,7 +83,7 @@ namespace Knot3.GameObjects
 		public string NodeConfigKey
 		{
 			get {
-				IEnumerable<string> _directions = JunctionsAtNode.Select (junction => junction.EdgeFrom.Direction + "" + junction.EdgeTo.Direction);
+                IEnumerable<string> _directions = JunctionsAtNode.Select(junction => junction.EdgeFrom.Direction + String.Empty + junction.EdgeTo.Direction);
 				return "Node" + JunctionsAtNode.Count () + ":" + string.Join (",", _directions);
 			}
 		}

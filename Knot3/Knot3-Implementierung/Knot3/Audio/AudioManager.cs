@@ -92,7 +92,7 @@ namespace Knot3.Audio
 
 		private void AddXnaAudioFile (string filepath)
 		{
-			filepath = filepath.Replace (".xnb", "").Replace (@"Content\", "").Replace ("Content/", "").Replace (@"\", "/");
+            filepath = filepath.Replace(".xnb", String.Empty).Replace(@"Content\", String.Empty).Replace("Content/", String.Empty).Replace(@"\", "/");
 
 			foreach (KeyValuePair<Sound,string> pair in AudioDirectories) {
 				Sound soundType = pair.Key;

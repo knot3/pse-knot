@@ -44,14 +44,14 @@ namespace Knot3.Core
 		public override string DisplayValue
 		{
 			get {
-				return ""+stringToFloat(base.Value);
+                return String.Empty + stringToFloat(base.Value);
 			}
 		}
 
 		public override Dictionary<string,string> DisplayValidValues
 		{
 			get {
-				return new Dictionary<string,string> (base.ValidValues.ToDictionary(s =>""+stringToFloat(s),s=>s));
+                return new Dictionary<string, string>(base.ValidValues.ToDictionary(s => String.Empty + stringToFloat(s), s => s));
 			}
 		}
 
@@ -71,7 +71,7 @@ namespace Knot3.Core
 
 		private static String convertToString(float f)
 		{
-			return ("" + (int)(f*1000f));
+            return (String.Empty + (int)(f * 1000f));
 		}
 		private static float stringToFloat (string s)
 		{
