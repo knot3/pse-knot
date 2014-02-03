@@ -368,7 +368,7 @@ namespace Knot3.GameObjects
 		private void rotateCenter (Vector2 move, GameTime time)
 		{
 			// Wenn kein 3D-Objekt selektiert ist...
-			if (world.SelectedObject == null && world.Count () > 0) {
+			if (world.SelectedObject == null && world.Any ()) {
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				IGameObject[] nearestObjects
 				    = world.FindNearestObjects (nearTo: InputManager.CurrentMouseState.ToVector2 ()).ToArray ();
@@ -409,7 +409,7 @@ namespace Knot3.GameObjects
 		private void rotateEverywhere (Vector2 move, GameTime time)
 		{
 			// Wenn kein 3D-Objekt selektiert ist...
-			if (world.SelectedObject == null && world.Count () > 0) {
+			if (world.SelectedObject == null && world.Any ()) {
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
 				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
