@@ -46,8 +46,8 @@ namespace Knot3.Screens
 		private Button backButton;
 		// Spielstand-Loader
 		private SavegameLoader<Knot, KnotMetaData> loader;
-		private Knot selectedStartKnot;
-		private Knot selectedTargetKnot;
+		private Knot selectedStartKnot = null;
+		private Knot selectedTargetKnot = null;
 		private Challenge selectedChallenge;
 
 		#endregion
@@ -60,9 +60,6 @@ namespace Knot3.Screens
 		public ChallengeCreateScreen (Knot3Game game)
 		: base (game)
 		{
-			selectedStartKnot = null;
-			selectedTargetKnot = null;
-
 			startKnotMenu = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			startKnotMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
 			startKnotMenu.Bounds.Size = new ScreenPoint (this, 0.375f, 0.620f);
