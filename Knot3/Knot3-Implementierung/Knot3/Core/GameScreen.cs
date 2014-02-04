@@ -109,7 +109,7 @@ namespace Knot3.Core
 		/// </summary>
 		public virtual void Entered (IGameScreen previousScreen, GameTime time)
 		{
-			Log.Debug ("Entered: "+ this);
+			Log.Debug ("Entered: ", this);
 			AddGameComponents (time, Input, Audio, new WidgetKeyHandler (this), new WidgetMouseHandler (this));
 		}
 
