@@ -128,11 +128,11 @@ namespace Knot3.Widgets
 					}
 				}
 				// wenn die Komponente die aktuelle Position enthält
-				else if (lastLeftClickPosition != null && lastRightClickPosition != null && bounds.Contains (previous)) {
+				else if (lastLeftClickPosition == null && lastRightClickPosition == null && bounds.Contains (previous)) {
 					notify = true;
 				}
 
-				// Console.WriteLine("notify="+notify+", component="+component+", cntains="+bounds.Contains (lastLeftClickPosition ?? Point.Zero));
+				//Console.WriteLine("notify="+notify+", component="+component+", cntains="+(lastLeftClickPosition != null ? bounds.Contains (lastLeftClickPosition)+"" : "") +",bounds="+bounds+",precious="+previous);
 
 				if (notify && (relativePositionMove
 				        || InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton

@@ -255,6 +255,8 @@ namespace Knot3.GameObjects
 			}
 			Screen.Input.CurrentInputAction = action;
 
+			//Console.WriteLine("action="+action);
+
 			switch (action) {
 			case InputAction.ArcballMove:
 				// rotieren
