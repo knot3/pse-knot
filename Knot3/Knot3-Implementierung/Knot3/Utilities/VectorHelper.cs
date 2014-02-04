@@ -373,13 +373,13 @@ namespace Knot3.Utilities
 
 		public static string Print (this Vector3 v)
 		{
-            return   "(" 
-                   + v.X.ToString()
-                   + ","
-                   + v.Y.ToString()
-                   + ","
-                   + v.Z.ToString()
-                   + ")";
+			return   "("
+			         + v.X.ToString()
+			         + ","
+			         + v.Y.ToString()
+			         + ","
+			         + v.Z.ToString()
+			         + ")";
 		}
 
 		public static BoundingSphere[] CylinderBounds (float length, float radius, Vector3 direction, Vector3 position)
