@@ -31,8 +31,10 @@ namespace Knot3
 		/// </summary>
 		/// <returns></returns>
 		public static string Version
-		{ get {
+		{
+			get {
 				return System.Reflection.Assembly.GetExecutingAssembly ().GetName ().Version.ToString ();
-			} }
+			}
+		}
 	}
 }
