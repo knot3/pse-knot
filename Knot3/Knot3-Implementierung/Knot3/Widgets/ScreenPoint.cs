@@ -212,8 +212,8 @@ namespace Knot3.Widgets
 			else if (other is Point) {
 				return Absolute.Equals ((Point)other);
 			}
-			else if (other is string) {
-				return ToString ().Equals ((string)other);
+			else if ((other = other as string) != null) {
+				return ToString ().Equals (other);
 			}
 			else {
 				return false;

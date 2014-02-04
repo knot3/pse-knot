@@ -187,8 +187,7 @@ namespace Knot3.Widgets
 			return   "("
 			         + Position.Relative.X.ToString()
 			         + "x"
-			         + Position.Relative.Y.ToString()
-			         + Size.Relative.X.ToString()
+			         + (Position.Relative.Y + Size.Relative.X).ToString()
 			         + "x"
 			         + Size.Relative.Y.ToString()
 			         + ")";

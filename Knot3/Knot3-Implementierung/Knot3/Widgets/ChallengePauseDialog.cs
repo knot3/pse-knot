@@ -78,7 +78,7 @@ namespace Knot3.Widgets
 			MenuEntry discardExitButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
-			    name: "Discard Changes and Exit",
+			    name: "Abort Challenge",
 			onClick: (time) => {
 				Close (time);
 				Screen.NextScreen = new StartScreen (Screen.Game);

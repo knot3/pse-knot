@@ -46,8 +46,8 @@ namespace Knot3.Screens
 		private Button backButton;
 		// Spielstand-Loader
 		private SavegameLoader<Knot, KnotMetaData> loader;
-		private Knot selectedStartKnot = null;
-		private Knot selectedTargetKnot = null;
+		private Knot selectedStartKnot;
+		private Knot selectedTargetKnot;
 		private Challenge selectedChallenge;
 
 		#endregion
