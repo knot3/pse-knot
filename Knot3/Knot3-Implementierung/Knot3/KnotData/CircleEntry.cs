@@ -168,7 +168,7 @@ namespace Knot3.KnotData
 
 		public override string ToString ()
 		{
-			return "CircleEntry(" + Value + ")";
+            return "CircleEntry(" + Value.ToString() + ")";
 		}
 
 		public static CircleEntry<T> operator + (CircleEntry<T> circle, int i)
