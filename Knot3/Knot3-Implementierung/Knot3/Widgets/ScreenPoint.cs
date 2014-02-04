@@ -53,6 +53,13 @@ namespace Knot3.Widgets
 			}
 		}
 
+		public ScreenPoint Const
+		{
+			get {
+				return new ScreenPoint(Screen, Relative.X, Relative.Y);
+			}
+		}
+
 		public bool IsEmpty { get { return Relative.Length () == 0; } }
 
 		#endregion

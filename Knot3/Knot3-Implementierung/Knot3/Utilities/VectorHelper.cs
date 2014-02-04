@@ -254,7 +254,7 @@ namespace Knot3.Utilities
 
 		public static ScreenPoint ToScreenPoint (this MouseState mouse, IGameScreen screen)
 		{
-			Vector2 vector = mouse.ToVector2 () / screen.Viewport.ScaleFactor ();
+			Vector2 vector = mouse.ToVector2 () / screen.Viewport.ToVector2 ();
 			return new ScreenPoint (screen, vector);
 		}
 

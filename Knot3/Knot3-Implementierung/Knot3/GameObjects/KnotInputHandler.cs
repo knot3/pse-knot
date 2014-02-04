@@ -173,25 +173,25 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnLeftMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 			UpdateMouse (previousPosition, currentPosition, move, time);
 			ResetMousePosition ();
 		}
 
-		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnRightMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 			UpdateMouse (previousPosition, currentPosition, move, time);
 			ResetMousePosition ();
 		}
 
-		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 			UpdateMouse (previousPosition, currentPosition, move, time);
 			ResetMousePosition ();
 		}
 
-		private void UpdateMouse (Vector2 previousPosition, Vector2 currentPosition, Vector2 mouseMove, GameTime time)
+		private void UpdateMouse (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint _mouseMove, GameTime time)
 		{
 			// wurde im letzten Frame in den oder aus dem Vollbildmodus gewechselt?
 			// dann überpringe einen frame
@@ -204,9 +204,9 @@ namespace Knot3.GameObjects
 			if (InputManager.CurrentMouseState == InputManager.PreviousMouseState) {
 				return;
 			}
-
+			
 			// die aktuelle Mausbewegung
-			// Vector2 mouseMove = InputManager.CurrentMouseState.ToVector2 () - InputManager.PreviousMouseState.ToVector2 ();
+			Point mouseMove = _mouseMove.Absolute;
 
 			InputAction action;
 			// wenn die Maus in der Mitte des Bildschirms gelockt ist
@@ -258,7 +258,7 @@ namespace Knot3.GameObjects
 			switch (action) {
 			case InputAction.ArcballMove:
 				// rotieren
-				rotate (mouseMove * 1.5f, time);
+				rotate (new Vector2(mouseMove.X, mouseMove.Y) * 1.5f, time);
 				break;
 			case InputAction.CameraTargetMove:
 				// verschieben

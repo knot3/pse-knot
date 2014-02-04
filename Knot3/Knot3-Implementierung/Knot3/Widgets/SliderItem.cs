@@ -162,7 +162,7 @@ namespace Knot3.Widgets
 			spriteBatch.End ();
 		}
 
-		private void UpdateSlider (Vector2 position)
+		private void UpdateSlider (ScreenPoint position)
 		{
 			float min = SliderRectangleMinX-ValueBounds.Rectangle.X;
 			float max = SliderRectangleMaxX-ValueBounds.Rectangle.X;
@@ -176,7 +176,7 @@ namespace Knot3.Widgets
 			    + max.ToString()
 			);
 
-			float mousePositionX = position.X.Clamp(min, max);
+			float mousePositionX = ((float)(position.Absolute.X)).Clamp(min, max);
 			float percent = (mousePositionX - min)/(max-min);
 
 			Value = (int)(MinValue + percent * (MaxValue-MinValue));
@@ -184,19 +184,19 @@ namespace Knot3.Widgets
 
 		public override void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
-			UpdateSlider(position);
+			//UpdateSlider(position);
 		}
 
-		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnLeftMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 			UpdateSlider(currentPosition);
 		}
 
-		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnRightMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 		}
 
-		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 		}
 

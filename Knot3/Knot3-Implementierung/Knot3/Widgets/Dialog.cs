@@ -51,10 +51,7 @@ namespace Knot3.Widgets
 
 		public Bounds MouseClickBounds { get { return Bounds; } }
 
-		public Bounds MouseMoveBounds
-		{
-			get { return new Bounds (ScreenPoint.Zero (Screen), TitleBounds.Size); }
-		}
+		public Bounds MouseMoveBounds { get { return TitleBounds; } }
 
 		#endregion
 
@@ -210,7 +207,7 @@ namespace Knot3.Widgets
 		{
 		}
 
-		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnLeftMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 			Console.WriteLine (
 			    "OnLeftMove("
@@ -222,22 +219,22 @@ namespace Knot3.Widgets
 			    + ")"
 			);
 
-			if (MouseMoveBounds.Contains (previousPosition.ToPoint ())) {
+			if (new Bounds(ScreenPoint.Zero(Screen), MouseMoveBounds.Size).Contains (previousPosition)) {
 				Console.WriteLine (
 				    "TitleBounds ="
 				    + Vector2.Zero.CreateRectangle (TitleBounds.Size).ToString ()
 				    + "; previousPosition="
 				    + previousPosition.ToString ()
 				);
-				Bounds.Position = Bounds.Position + new ScreenPoint (Screen, move / Screen.Viewport.ToVector2 ());
+				Bounds.Position = (Bounds.Position + move).Const;
 			}
 		}
 
-		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnRightMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 		}
 
-		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 		}
 

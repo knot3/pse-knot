@@ -47,11 +47,11 @@ namespace Knot3.Core
 		/// </summary>
 		Bounds MouseMoveBounds { get; }
 
-		void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time);
+		void OnLeftMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time);
 
-		void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time);
+		void OnRightMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time);
 
-		void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time);
+		void OnMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time);
 
 		#endregion
 	}

@@ -227,7 +227,7 @@ namespace Knot3.Widgets
 			}
 		}
 
-		public void OnLeftMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnLeftMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 			//currentScrollPosition += (int)((move.Y / RelativeItemHeight)
 			//	* ((float)minScrollPosition / (maxScrollPosition - pageScrollPosition)));
@@ -236,7 +236,7 @@ namespace Knot3.Widgets
 				Bounds slider = ScrollSliderInBarBounds;
 				Bounds bar = ScrollBarBounds;
 
-				float percentOfBar = move.Y / bar.Size.Absolute.Y;
+				float percentOfBar = move.Absolute.Y / bar.Size.Absolute.Y;
 				currentScrollPosition += percentOfBar * maxScrollPosition;
 
 				/*
@@ -255,11 +255,11 @@ namespace Knot3.Widgets
 			}
 		}
 
-		public void OnRightMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnRightMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 		}
 
-		public void OnMove (Vector2 previousPosition, Vector2 currentPosition, Vector2 move, GameTime time)
+		public void OnMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
 		}
 
