@@ -183,7 +183,7 @@ namespace Knot3.Development
 		{
 			get {
 				Direction[] validDirections = Direction.Values;
-                Direction d1 = Direction.FromString (Options.Default ["debug", "debug_junction_direction0" /* + 0 */, validDirections [0]]);
+				Direction d1 = Direction.FromString (Options.Default ["debug", "debug_junction_direction0" /* + 0 */, validDirections [0]]);
 				Direction d2 = Direction.FromString (Options.Default ["debug", "debug_junction_direction1" /* + 1 */, validDirections [2]]);
 				Direction d3 = Direction.FromString (Options.Default ["debug", "debug_junction_direction2" /* + 2 */, validDirections [4]]);
 				return Tuple.Create (d1, d2, d3);
