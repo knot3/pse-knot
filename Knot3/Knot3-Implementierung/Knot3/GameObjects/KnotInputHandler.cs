@@ -204,7 +204,7 @@ namespace Knot3.GameObjects
 			if (InputManager.CurrentMouseState == InputManager.PreviousMouseState) {
 				return;
 			}
-			
+
 			// die aktuelle Mausbewegung
 			Point mouseMove = _mouseMove.Absolute;
 
