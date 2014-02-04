@@ -21,7 +21,6 @@ using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
 
-
 namespace Knot3.GameObjects
 {
 	public class SkyCube : IGameObject, IEnumerable<IGameObject>

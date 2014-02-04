@@ -15,7 +15,6 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
 using Knot3.Core;
-
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;

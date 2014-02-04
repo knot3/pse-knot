@@ -23,7 +23,6 @@ using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Development;
 
-
 namespace Knot3.Utilities
 {
 	public static class VectorHelper
