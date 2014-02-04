@@ -203,7 +203,7 @@ namespace Knot3.Development
 
 		private void DrawString (float n, int width, int height, Color color)
 		{
-			DrawString(String.Empty + n, width, height, color);
+			DrawString(String.Empty + n.ToString(), width, height, color);
 		}
 
 		int _total_frames = 0;
@@ -225,7 +225,7 @@ namespace Knot3.Development
 		{
 			_total_frames++;
 			spriteBatch.Begin ();
-			DrawString ("FPS: " + _fps, (int)(Screen.Viewport.Width / Options.Default ["video", "Supersamples", 1]) - (int)(170 * scale), (int)(50 * scale), Color.White);
+			DrawString ("FPS: " + _fps.ToString(), (int)(Screen.Viewport.Width / Options.Default ["video", "Supersamples", 1]) - (int)(170 * scale), (int)(50 * scale), Color.White);
 			spriteBatch.End ();
 		}
 

@@ -102,7 +102,7 @@ namespace Knot3.Development
 			for (int i = 0; i < 3; ++i) {
 				DistinctOptionInfo option = new DistinctOptionInfo (
 				    section: "debug",
-				    name: "debug_junction_direction" + i,
+				    name: "debug_junction_direction" + i.ToString(),
 				    defaultValue: validDirections [i * 2],
 				    validValues: validDirections.Select (d => d.Description),
 				    configFile: Options.Default
@@ -110,7 +110,7 @@ namespace Knot3.Development
 				DropDownMenuItem item = new DropDownMenuItem (
 				    screen: this,
 				    drawOrder: DisplayLayer.Overlay + DisplayLayer.MenuItem,
-				    text: "Direction " + i
+				    text: "Direction " + i.ToString()
 				);
 				item.AddEntries (option);
 				item.ValueChanged += OnDirectionsChanged;
@@ -122,7 +122,7 @@ namespace Knot3.Development
 				DropDownMenuItem item = new DropDownMenuItem (
 				    screen: this,
 				    drawOrder: DisplayLayer.Overlay + DisplayLayer.MenuItem,
-				    text: "Bump Angle " + i
+				    text: "Bump Angle " + i.ToString()
 				);
 				item.ValueChanged += OnAnglesChanged;
 				settingsMenu.Add (item);
@@ -149,7 +149,7 @@ namespace Knot3.Development
 			for (int i = 0; i < 3; ++i) {
 				FloatOptionInfo option = new FloatOptionInfo (
 				    section: NodeConfigKey (directions.ToEnumerable ()),
-				    name: "bump" + i,
+				    name: "bump" + i.ToString(),
 				    defaultValue: 0,
 				    validValues: validAngles,
 				    configFile: Options.Models
@@ -183,9 +183,9 @@ namespace Knot3.Development
 		{
 			get {
 				Direction[] validDirections = Direction.Values;
-				Direction d1 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 0, validDirections [0]]);
-				Direction d2 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 1, validDirections [2]]);
-				Direction d3 = Direction.FromString (Options.Default ["debug", "debug_junction_direction" + 2, validDirections [4]]);
+                Direction d1 = Direction.FromString (Options.Default ["debug", "debug_junction_direction0" /* + 0 */, validDirections [0]]);
+				Direction d2 = Direction.FromString (Options.Default ["debug", "debug_junction_direction1" /* + 1 */, validDirections [2]]);
+				Direction d3 = Direction.FromString (Options.Default ["debug", "debug_junction_direction2" /* + 2 */, validDirections [4]]);
 				return Tuple.Create (d1, d2, d3);
 			}
 		}
@@ -193,7 +193,7 @@ namespace Knot3.Development
 		public static string NodeConfigKey (IEnumerable<Direction> directions)
 		{
 			IEnumerable<string> _directions = directions.Select(direction => direction + String.Empty + direction);
-			return "Node" + directions.Count () + ":" + string.Join (",", _directions);
+			return "Node" + directions.Count ().ToString() + ":" + string.Join (",", _directions);
 		}
 
 		/// <summary>

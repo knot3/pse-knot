@@ -55,7 +55,7 @@ namespace Knot3.Utilities
 					else if (str.Length < 100) {
 						char c;
 						if (TryConvertKey (lastKey, out c)) {
-							str += c;
+							str += c.ToString();
 						}
 						catched = true;
 					}
