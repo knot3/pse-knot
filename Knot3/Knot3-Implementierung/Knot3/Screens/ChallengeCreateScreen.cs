@@ -60,8 +60,8 @@ namespace Knot3.Screens
 		public ChallengeCreateScreen (Knot3Game game)
 		: base (game)
 		{
-            selectedStartKnot = null;
-            selectedTargetKnot = null;
+			selectedStartKnot = null;
+			selectedTargetKnot = null;
 
 			startKnotMenu = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			startKnotMenu.Bounds.Position = new ScreenPoint (this, 0.100f, 0.180f);
