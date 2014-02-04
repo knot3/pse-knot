@@ -185,13 +185,13 @@ namespace Knot3.Widgets
 		public override string ToString ()
 		{
 			return   "("
-                   + Position.Relative.X.ToString()
-                   + "x"
-                   + Position.Relative.Y.ToString()
-                   + Size.Relative.X.ToString()
-                   + "x"
-                   + Size.Relative.Y.ToString()
-                   + ")";
+			         + Position.Relative.X.ToString()
+			         + "x"
+			         + Position.Relative.Y.ToString()
+			         + Size.Relative.X.ToString()
+			         + "x"
+			         + Size.Relative.Y.ToString()
+			         + ")";
 		}
 
 		#endregion
