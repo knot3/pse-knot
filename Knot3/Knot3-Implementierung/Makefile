@@ -22,7 +22,7 @@ install: build
 	$(UNZIP) -o -d bin/Debug/ lib/MonoGame-Linux-3.1.2.zip
 	$(CPR) bin/Debug/* $(GAMEDIR)/
 	$(CPR) Standard_Knots/ $(GAMEDIR)/
-	$(CP) AUTHORS $(GAMEDIR)/
+	$(CP) AUTHORS LICENSE $(GAMEDIR)/
 	$(CP) debian/changelog $(GAMEDIR)/CHANGELOG
 
 clean: distclean
