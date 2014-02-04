@@ -245,7 +245,7 @@ namespace Knot3.GameObjects
 		private void chooseModelOneJunction ()
 		{
 			if (Type == JunctionType.Angled) {
-				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-angled"];
+				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex.ToString (), "pipe-angled"];
 				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 			}
 		}

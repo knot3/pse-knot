@@ -168,7 +168,7 @@ namespace Knot3.Screens
 					MenuEntry count = new MenuEntry (
 					    screen: this,
 					    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
-					    name: "Knot Count: " + previewKnotMetaData.CountEdges,
+					    name: "Knot Count: " + previewKnotMetaData.CountEdges.ToString (),
 					    onClick: nullAction
 					);
 

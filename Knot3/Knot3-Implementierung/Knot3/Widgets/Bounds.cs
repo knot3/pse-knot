@@ -184,7 +184,14 @@ namespace Knot3.Widgets
 
 		public override string ToString ()
 		{
-			return "(" + Position.Relative.X + "x" + Position.Relative.Y + Size.Relative.X + "x" + Size.Relative.Y + ")";
+			return   "("
+                   + Position.Relative.X.ToString()
+                   + "x"
+                   + Position.Relative.Y.ToString()
+                   + Size.Relative.X.ToString()
+                   + "x"
+                   + Size.Relative.Y.ToString()
+                   + ")";
 		}
 
 		#endregion
