@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -19,8 +20,9 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
-using Knot3.Debug;
+
 using Knot3.Audio;
+using Knot3.Development;
 
 namespace Knot3.Screens
 {
@@ -119,7 +121,7 @@ namespace Knot3.Screens
 			world.Add (debugBoundings);
 
 			// der Input-Handler zur Kanten-Verschiebung
-			edgeMovement = new EdgeMovement (screen: this, world: world, knotInput: knotInput, position: Vector3.Zero);
+			edgeMovement = new EdgeMovement (screen: this, world: world, position: Vector3.Zero);
 			world.Add (edgeMovement);
 
 			// der Input-Handler zur Kanten-Einfärbung
@@ -203,7 +205,7 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-			Console.WriteLine ("Undo: Undo.Count=" + Undo.Count);
+			Log.WriteLine ("Undo: Undo.Count=" + Undo.Count);
 			if (Undo.Count >= 2) {
 				Knot current = Undo.Pop ();
 				Knot prev = Undo.Peek ();
@@ -223,7 +225,7 @@ namespace Knot3.Screens
 
 		private void OnRedo ()
 		{
-			Console.WriteLine("Redo: Redo.Count=" + Redo.Count.ToString ());
+			Log.WriteLine("Redo: Redo.Count=" + Redo.Count.ToString ());
 			if (Redo.Count >= 1) {
 				Knot next = Redo.Pop ();
 				Knot push = next.Clone ()as Knot;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.IO;
 
 using Microsoft.Xna.Framework;
@@ -22,7 +23,7 @@ using Knot3.Utilities;
 using Knot3.Audio;
 using Knot3.Screens;
 
-namespace Knot3.Debug
+namespace Knot3.Development
 {
 	public class JunctionEditorScreen : GameScreen
 	{

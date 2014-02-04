@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -20,6 +21,7 @@ using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
 using Knot3.Audio;
+using Knot3.Development;
 
 namespace Knot3.GameObjects
 {
@@ -31,7 +33,6 @@ namespace Knot3.GameObjects
 		#region Properties
 
 		private IGameScreen Screen;
-		private KnotInputHandler KnotInput;
 
 		/// <summary>
 		/// Enthält Informationen über die Position des Knotens.
@@ -60,11 +61,10 @@ namespace Knot3.GameObjects
 		/// mit ihrem zugehörigen IGameScreen-Objekt screen, der Spielwelt world und
 		/// Objektinformationen info.
 		/// </summary>
-		public EdgeMovement (IGameScreen screen, World world, KnotInputHandler knotInput, Vector3 position)
+		public EdgeMovement (IGameScreen screen, World world, Vector3 position)
 		{
 			Screen = screen;
 			World = world;
-			KnotInput = knotInput;
 			Info = new GameObjectInfo (position: position);
 			shadowObjects = new List<ShadowGameObject> ();
 		}
@@ -114,7 +114,7 @@ namespace Knot3.GameObjects
 
 					try {
 						Edge selectedEdge = pipe.Info.Edge;
-						Console.WriteLine ("knot.Count() = " + Knot.Count ());
+						Log.WriteLine ("knot.Count() = " + Knot.Count ());
 
 						// Ctrl gedrückt
 						if (KnotInputHandler.CurrentKeyAssignmentReversed [PlayerActions.AddToEdgeSelection].IsHeldDown ()) {
@@ -131,7 +131,7 @@ namespace Knot3.GameObjects
 						}
 					}
 					catch (ArgumentOutOfRangeException exp) {
-						Console.WriteLine (exp.ToString ());
+						Log.WriteLine (exp.ToString ());
 					}
 				}
 			}
@@ -235,7 +235,7 @@ namespace Knot3.GameObjects
 					previousMousePosition = currentMousePosition;
 				}
 				catch (ArgumentOutOfRangeException exp) {
-					Console.WriteLine (exp.ToString ());
+					Log.WriteLine (exp.ToString ());
 				}
 			}
 		}
@@ -336,7 +336,7 @@ namespace Knot3.GameObjects
 
 		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction, GameTime time)
 		{
-			//Console.WriteLine ("XXX: " + direction);
+			//Log.WriteLine ("XXX: " + direction);
 			float count = ComputeLength (currentMousePosition);
 			UpdateShadowPipes (currentMousePosition, direction, count, time);
 		}

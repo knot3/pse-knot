@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.IO;
 
 using Microsoft.Xna.Framework;
@@ -19,6 +20,7 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.Widgets;
+using Knot3.Development;
 
 namespace Knot3.KnotData
 {
@@ -43,7 +45,7 @@ namespace Knot3.KnotData
 		public IEnumerable<Edge> Edges
 		{
 			get {
-				Console.WriteLine ("KnotStringIO.Edges[get] = " + edgeLines.Count ());
+				Log.WriteLine ("KnotStringIO.Edges[get] = " + edgeLines.Count ());
 				foreach (string _line in edgeLines) {
 					string line = _line;
 					Edge edge = DecodeEdge (line [0]);
@@ -65,12 +67,12 @@ namespace Knot3.KnotData
 				}
 			}
 			set {
-				Console.WriteLine ("KnotStringIO.Edges[set] = #" + value.Count ().ToString ());
+				Log.WriteLine ("KnotStringIO.Edges[set] = #" + value.Count ().ToString ());
 				try {
 					edgeLines = ToLines (value);
 				}
 				catch (Exception ex) {
-					Console.WriteLine (ex);
+					Log.WriteLine (ex);
 				}
 			}
 		}
@@ -132,7 +134,7 @@ namespace Knot3.KnotData
 				edgeLines = ToLines (knot);
 			}
 			catch (Exception ex) {
-				Console.WriteLine (ex);
+				Log.WriteLine (ex);
 			}
 		}
 

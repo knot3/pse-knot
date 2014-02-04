@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -65,7 +66,7 @@ namespace Knot3.Widgets
 				float pageValue = pageScrollPosition;
 				float visiblePercent = (pageValue / maxValue).Clamp (0.05f, 1f);
 				float currentValue = (float)currentScrollPosition / (maxValue - pageValue);
-				// Console.WriteLine ("currentValue=" + currentValue + ", pos=" + moveBounds.FromTop (currentValue).Position);
+				// Log.WriteLine ("currentValue=" + currentValue + ", pos=" + moveBounds.FromTop (currentValue).Position);
 				Bounds bounds = new Bounds (
 				    position: moveBounds.Size.OnlyY * currentValue * (1f - visiblePercent),
 				    size: moveBounds.Size.ScaleY (visiblePercent)
@@ -221,8 +222,8 @@ namespace Knot3.Widgets
 				Bounds sliderBounds = ScrollSliderInBarBounds.In (ScrollBarBounds);
 				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle.Grow (1), Lines.DefaultOutlineColor);
 				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle, Lines.DefaultLineColor);
-				// Console.WriteLine ("ScrollSliderBounds=" + sliderBounds.Rectangle);
-				// Console.WriteLine ("ScrollBarBounds=" + ScrollBarBounds.Rectangle);
+				// Log.WriteLine ("ScrollSliderBounds=" + sliderBounds.Rectangle);
+				// Log.WriteLine ("ScrollBarBounds=" + ScrollBarBounds.Rectangle);
 				spriteBatch.End ();
 			}
 		}
@@ -244,10 +245,10 @@ namespace Knot3.Widgets
 				float pageValue = pageScrollPosition;
 				float visiblePercent = (pageValue / maxValue).Clamp (0.05f, 1f);
 				float sliderPosition = ScrollSliderInBarBounds.Position.Absolute.Y / ScrollBarBounds.Size.Absolute.Y;
-				Console.WriteLine ("sliderPosition=" + sliderPosition + ", ScrollSliderInBarBounds=" + ScrollSliderInBarBounds);
+				Log.WriteLine ("sliderPosition=" + sliderPosition + ", ScrollSliderInBarBounds=" + ScrollSliderInBarBounds);
 				sliderPosition = move.Y / ScrollBarBounds.Size.Absolute.Y;
 
-				Console.WriteLine ("sliderPosition new=" + sliderPosition + ", current.Y=" + currentPosition.Y
+				Log.WriteLine ("sliderPosition new=" + sliderPosition + ", current.Y=" + currentPosition.Y
 					+ ", bar.Size.Y=" + ScrollBarBounds.Size.Absolute.Y
 				);
 				currentScrollPosition = (int)(sliderPosition * (maxValue - pageValue));

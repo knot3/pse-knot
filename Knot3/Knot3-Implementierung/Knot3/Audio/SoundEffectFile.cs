@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.IO;
 
 using Microsoft.Xna.Framework;
@@ -21,6 +22,7 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
+using Knot3.Development;
 
 namespace Knot3.Audio
 {
@@ -59,14 +61,14 @@ namespace Knot3.Audio
 
 		public void Play ()
 		{
-			Console.WriteLine ("Play: " + Name);
+			Log.WriteLine ("Play: " + Name);
 			Instance.Volume = volume = AudioManager.Volume(SoundType);
 			Instance.Play ();
 		}
 
 		public void Stop ()
 		{
-			Console.WriteLine ("Stop: " + Name);
+			Log.WriteLine ("Stop: " + Name);
 			Instance.Stop ();
 		}
 

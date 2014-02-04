@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -18,6 +19,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Development;
 
 namespace Knot3.Core
 {
@@ -54,11 +56,11 @@ namespace Knot3.Core
 		public virtual string Value
 		{
 			get {
-				Console.WriteLine ("OptionInfo: " + Section + "." + Name + " => " + configFile [Section, Name, DefaultValue]);
+				Log.WriteLine ("OptionInfo: " + Section + "." + Name + " => " + configFile [Section, Name, DefaultValue]);
 				return configFile [Section, Name, DefaultValue];
 			}
 			set {
-				Console.WriteLine ("OptionInfo: " + Section + "." + Name + " <= " + value);
+				Log.WriteLine ("OptionInfo: " + Section + "." + Name + " <= " + value);
 				configFile [Section, Name, DefaultValue] = value;
 			}
 		}

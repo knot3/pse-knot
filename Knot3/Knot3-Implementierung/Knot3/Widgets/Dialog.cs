@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -19,6 +20,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Utilities;
+using Knot3.Development;
 
 namespace Knot3.Widgets
 {
@@ -209,7 +211,7 @@ namespace Knot3.Widgets
 
 		public void OnLeftMove (ScreenPoint previousPosition, ScreenPoint currentPosition, ScreenPoint move, GameTime time)
 		{
-			Console.WriteLine (
+			Log.WriteLine (
 			    "OnLeftMove("
 			    + previousPosition.ToString ()
 			    + ","
@@ -220,7 +222,7 @@ namespace Knot3.Widgets
 			);
 
 			if (new Bounds(ScreenPoint.Zero(Screen), MouseMoveBounds.Size).Contains (previousPosition)) {
-				Console.WriteLine (
+				Log.WriteLine (
 				    "TitleBounds ="
 				    + Vector2.Zero.CreateRectangle (TitleBounds.Size).ToString ()
 				    + "; previousPosition="

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -18,6 +19,7 @@ using Knot3.GameObjects;
 using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
+using Knot3.Development;
 
 namespace Knot3.Widgets
 {
@@ -88,7 +90,7 @@ namespace Knot3.Widgets
 
 				if (Menu != null) {
 					foreach (MenuItem item in Menu) {
-						Console.WriteLine("State: "+ item.State);
+						Log.WriteLine("State: "+ item.State);
 						if (item is MenuEntry && item !=this) {
 							item.State = State.None;
 						}
@@ -104,7 +106,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
-			// Console.WriteLine("OnKeyEvent: " + key[0]);
+			// Log.WriteLine("OnKeyEvent: " + key[0]);
 			if (keyEvent == KeyEvent.KeyDown) {
 				OnClick (time);
 			}

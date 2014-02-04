@@ -21,7 +21,7 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 
-namespace Knot3.Debug
+namespace Knot3.Development
 {
 	public static class Profiler
 	{

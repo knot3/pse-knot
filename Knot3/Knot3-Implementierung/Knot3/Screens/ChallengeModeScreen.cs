@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -18,9 +19,10 @@ using Knot3.GameObjects;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
-using Knot3.Debug;
+
 using Knot3.Utilities;
 using Knot3.Audio;
+using Knot3.Development;
 
 namespace Knot3.Screens
 {
@@ -156,7 +158,7 @@ namespace Knot3.Screens
 			debugBoundings = new DebugBoundings (screen: this, position: Vector3.Zero);
 
 			// edge movements
-			PlayerEdgeMovement = new EdgeMovement (screen: this, world: PlayerWorld, knotInput: knotInput, position: Vector3.Zero);
+			PlayerEdgeMovement = new EdgeMovement (screen: this, world: PlayerWorld, position: Vector3.Zero);
 			PlayerWorld.Add (PlayerEdgeMovement);
 
 			// assign the specified challenge
@@ -312,7 +314,7 @@ namespace Knot3.Screens
 			if (state == ChallengeModeState.Running) {
 				// vergleiche den Spielerknoten mit dem Zielknoten
 				if (PlayerKnot.Equals (Challenge.Target)) {
-					Console.WriteLine ("Playerknot equals Target!");
+					Log.WriteLine ("Playerknot equals Target!");
 					state = ChallengeModeState.Finished;
 					OnChallengeFinished (time);
 				}

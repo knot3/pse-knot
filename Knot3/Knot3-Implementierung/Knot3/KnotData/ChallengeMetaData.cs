@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -19,6 +20,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.Widgets;
 using Knot3.Utilities;
+using Knot3.Development;
 
 namespace Knot3.KnotData
 {
@@ -104,7 +106,7 @@ namespace Knot3.KnotData
 		{
 			get {
 				float time = AvgTime;
-				Console.WriteLine(time);
+				Log.WriteLine(time);
 				if(time != 0f) {
 					return formatTime(time);
 				}
@@ -156,7 +158,7 @@ namespace Knot3.KnotData
 
 		public static string formatTime(float secs)
 		{
-			Console.WriteLine(secs);
+			Log.WriteLine(secs);
 			TimeSpan t = TimeSpan.FromSeconds( secs );
 
 			string answer = string.Format("{0:D2}h:{1:D2}m:{2:D2}s",

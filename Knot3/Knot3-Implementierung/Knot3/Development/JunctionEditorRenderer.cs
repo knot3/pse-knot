@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -21,7 +22,7 @@ using Knot3.Widgets;
 using Knot3.Utilities;
 using Knot3.GameObjects;
 
-namespace Knot3.Debug
+namespace Knot3.Development
 {
 	public class JunctionEditorRenderer : IGameObject, IEnumerable<IGameObject>
 	{

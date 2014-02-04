@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -21,6 +22,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Development;
 
 namespace Knot3.Utilities
 {
@@ -109,7 +111,7 @@ namespace Knot3.Utilities
 						}
 					}
 					// Environment.CurrentDirectory = cwd;
-					Console.WriteLine (cwd);
+					Log.WriteLine (cwd);
 					baseDirectory = cwd;
 					return cwd;
 				}

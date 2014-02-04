@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -19,6 +20,7 @@ using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
+using Knot3.Development;
 
 namespace Knot3.Screens
 {
@@ -227,7 +229,7 @@ namespace Knot3.Screens
 		private void OnCreateChallenge (GameTime time)
 		{
 			if (TryConstructChallenge ()) {
-				Console.WriteLine ("Save Challenge: " + selectedChallenge);
+				Log.WriteLine ("Save Challenge: " + selectedChallenge);
 				try {
 					selectedChallenge.Save ();
 					NextScreen = new ChallengeStartScreen (Game);

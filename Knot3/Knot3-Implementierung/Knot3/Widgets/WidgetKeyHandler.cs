@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -44,7 +45,7 @@ namespace Knot3.Widgets
 				List<Keys> keysInvolved = new List<Keys> ();
 
 				foreach (Keys key in component.ValidKeys) {
-					// Console.WriteLine("receiver="+receiver+",validkeys="+key+", receiver.IsKeyEventEnabled="+((dynamic)receiver).IsVisible);
+					// Log.WriteLine("receiver="+receiver+",validkeys="+key+", receiver.IsKeyEventEnabled="+((dynamic)receiver).IsVisible);
 
 					if (key.IsDown ()) {
 						keysInvolved.Add (key);

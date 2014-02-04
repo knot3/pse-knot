@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.Text;
 
 using Microsoft.Xna.Framework;
@@ -20,7 +21,8 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
-using Knot3.Debug;
+using Knot3.Development;
+
 
 namespace Knot3.Utilities
 {
@@ -202,7 +204,7 @@ namespace Knot3.Utilities
 
 		public static BoundingSphere[] Bounds (this Model model)
 		{
-			//Console.WriteLine(model);
+			//Log.WriteLine(model);
 			BoundingSphere[] bounds = new BoundingSphere[model.Meshes.Count];
 			int i = 0;
 			foreach (ModelMesh mesh in model.Meshes) {
@@ -382,7 +384,7 @@ namespace Knot3.Utilities
 			BoundingSphere[] bounds = new BoundingSphere[(int)(length / distance)];
 			for (int offset = 0; offset < (int)(length / distance); ++offset) {
 				bounds [offset] = new BoundingSphere (position + direction * offset * distance, radius);
-				//Console.WriteLine ("sphere[" + offset + "]=" + Bounds [offset]);
+				//Log.WriteLine ("sphere[" + offset + "]=" + Bounds [offset]);
 			}
 			return bounds;
 		}

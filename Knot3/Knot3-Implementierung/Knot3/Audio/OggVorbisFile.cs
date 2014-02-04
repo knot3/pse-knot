@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.IO;
 using System.Diagnostics;
+using System.IO;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -24,6 +24,7 @@ using Knot3.Widgets;
 using Knot3.Utilities;
 
 using OggSharp;
+using Knot3.Development;
 
 namespace Knot3.Audio
 {
@@ -42,11 +43,11 @@ namespace Knot3.Audio
 
 			byte[] data;
 			try {
-				Console.WriteLine ("Read from cache: " + cachefile);
+				Log.WriteLine ("Read from cache: " + cachefile);
 				data = File.ReadAllBytes (cachefile);
 			}
 			catch (Exception) {
-				Console.WriteLine ("Decode: " + name);
+				Log.WriteLine ("Decode: " + name);
 				OggDecoder decoder = new OggDecoder ();
 				decoder.Initialize (TitleContainer.OpenStream (filepath));
 				data = decoder.SelectMany (chunk => chunk.Bytes.Take (chunk.Length)).ToArray ();

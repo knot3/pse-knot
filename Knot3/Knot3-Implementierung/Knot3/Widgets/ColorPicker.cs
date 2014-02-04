@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -19,6 +20,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Utilities;
+using Knot3.Development;
 
 namespace Knot3.Widgets
 {
@@ -123,16 +125,16 @@ namespace Knot3.Widgets
 		public void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
 			position = position.RelativeTo (Screen.Viewport);
-			Console.WriteLine ("ColorPicker.OnLeftClick: positon=" + position.ToString ());
+			Log.WriteLine ("ColorPicker.OnLeftClick: positon=" + position.ToString ());
 			int i = 0;
 			foreach (ScreenPoint tile in tiles) {
-				//Console.WriteLine ("ColorPicker: tile=" + tile + "  "
+				//Log.WriteLine ("ColorPicker: tile=" + tile + "  "
 				//	+ (tile.X <= position.X) + " " + (tile.X + tileSize.X > position.X) + " " + (
 				//                       tile.Y <= position.Y) + " " + (tile.Y + tileSize.Y > position.Y)
 				//);
 				if (tile.Relative.X <= position.X && tile.Relative.X + tileSize.Relative.X > position.X
 				        && tile.Relative.Y <= position.Y && tile.Relative.Y + tileSize.Relative.Y > position.Y) {
-					Console.WriteLine ("ColorPicker: color=" + colors [i].ToString ());
+					Log.WriteLine ("ColorPicker: color=" + colors [i].ToString ());
 
 					ColorSelected (colors [i], time);
 				}

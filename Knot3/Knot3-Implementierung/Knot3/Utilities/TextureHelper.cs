@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -19,6 +20,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Widgets;
+using Knot3.Development;
 
 namespace Knot3.Utilities
 {
@@ -32,7 +34,7 @@ namespace Knot3.Utilities
 				return screen.Content.Load<Texture2D> ("Textures/" + name);
 			}
 			catch (ContentLoadException ex) {
-				Console.WriteLine (ex.ToString ());
+				Log.WriteLine (ex.ToString ());
 				return null;
 			}
 		}
@@ -43,7 +45,7 @@ namespace Knot3.Utilities
 				return screen.Content.Load<SpriteFont> ("Fonts/" + name);
 			}
 			catch (ContentLoadException ex) {
-				Console.WriteLine (ex.ToString ());
+				Log.WriteLine (ex.ToString ());
 				return null;
 			}
 		}
@@ -132,10 +134,10 @@ namespace Knot3.Utilities
 				spriteBatch.DrawString (font, text, textPosition, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.6f);
 			}
 			catch (ArgumentException exp) {
-				Console.WriteLine (exp.ToString ());
+				Log.WriteLine (exp.ToString ());
 			}
 			catch (InvalidOperationException exp) {
-				Console.WriteLine (exp.ToString ());
+				Log.WriteLine (exp.ToString ());
 			}
 		}
 

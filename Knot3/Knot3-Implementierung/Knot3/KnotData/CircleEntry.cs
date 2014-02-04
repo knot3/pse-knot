@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -68,7 +69,7 @@ namespace Knot3.KnotData
 
 		public CircleEntry<T> InsertAfter (T obj)
 		{
-			//Console.WriteLine (this + ".InsertAfter(" + obj + ")");
+			//Log.WriteLine (this + ".InsertAfter(" + obj + ")");
 			CircleEntry<T> insert = new CircleEntry<T> (obj);
 			insert.Next = this.Next;
 			insert.Previous = this;
@@ -153,7 +154,7 @@ namespace Knot3.KnotData
 		{
 			CircleEntry<T> current = this;
 			do {
-				//Console.WriteLine (this + " => " + current.Content);
+				//Log.WriteLine (this + " => " + current.Content);
 				yield return current.Value;
 				current = current.Next;
 			}

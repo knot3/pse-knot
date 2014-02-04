@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -21,7 +22,7 @@ using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Utilities;
 
-namespace Knot3.Debug
+namespace Knot3.Development
 {
 	public sealed class Overlay : DrawableGameScreenComponent
 	{
@@ -60,7 +61,7 @@ namespace Knot3.Debug
 			}
 			catch (ContentLoadException ex) {
 				font = null;
-				Console.WriteLine (ex.Message);
+				Log.WriteLine (ex.Message);
 			}
 		}
 
@@ -193,10 +194,10 @@ namespace Knot3.Debug
 					spriteBatch.DrawString (font, str, new Vector2 (width, height) * Options.Default ["video", "Supersamples", 1], color, 0f, Vector2.Zero, scale * Options.Default ["video", "Supersamples", 1], SpriteEffects.None, 0f);
 				}
 				catch (ArgumentException exp) {
-					Console.WriteLine (exp.ToString ());
+					Log.WriteLine (exp.ToString ());
 				}
 				catch (InvalidOperationException exp) {
-					Console.WriteLine (exp.ToString ());
+					Log.WriteLine (exp.ToString ());
 				}
 			}
 		}
