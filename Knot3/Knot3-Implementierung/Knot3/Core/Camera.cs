@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -278,7 +278,7 @@ namespace Knot3.Core
 
 				smoothProgress += 0.05f;
 
-				//Log.WriteLine ("distance = " + distance);
+				//Log.Debug ("distance = " + distance);
 				Target = Target.SetDistanceTo (
 				             target: smoothTarget.Value,
 				             distance: Math.Max (0, smoothDistance - distance)

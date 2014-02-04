@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -169,7 +169,7 @@ namespace Knot3.Widgets
 			float min = SliderRectangleMinX-ValueBounds.Rectangle.X;
 			float max = SliderRectangleMaxX-ValueBounds.Rectangle.X;
 
-			Log.WriteLine(
+			Log.Debug(
 			    "position="
 			    + position.ToString ()
 			    + ", min="

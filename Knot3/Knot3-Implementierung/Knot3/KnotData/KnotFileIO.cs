@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 using System.IO;
 
 using Microsoft.Xna.Framework;
@@ -67,7 +67,7 @@ namespace Knot3.KnotData
 		public void Save (Knot knot)
 		{
 			KnotStringIO parser = new KnotStringIO (knot);
-			Log.WriteLine("KnotFileIO.Save(" + knot + ") = #" + parser.Content.Length.ToString());
+			Log.Debug("KnotFileIO.Save(" + knot + ") = #" + parser.Content.Length.ToString());
 			if (knot.MetaData.Filename == null) {
 				throw new IOException ("Error! knot has no filename: " + knot);
 			}
@@ -85,7 +85,7 @@ namespace Knot3.KnotData
 				return KnotCache [filename];
 			}
 			else {
-				Log.WriteLine ("Load knot from " + filename);
+				Log.Debug ("Load knot from " + filename);
 				KnotStringIO parser = new KnotStringIO (content: string.Join ("\n", FileUtility.ReadFrom (filename)));
 				return KnotCache [filename] = new Knot (
 				    new KnotMetaData (parser.Name, () => parser.CountEdges, this, filename),

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -204,7 +204,7 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-			Log.WriteLine ("Undo: Undo.Count=" + Undo.Count);
+			Log.Debug ("Undo: Undo.Count=" + Undo.Count);
 			if (Undo.Count >= 2) {
 				Knot current = Undo.Pop ();
 				Knot prev = Undo.Peek ();
@@ -224,7 +224,7 @@ namespace Knot3.Screens
 
 		private void OnRedo ()
 		{
-			Log.WriteLine("Redo: Redo.Count=" + Redo.Count.ToString ());
+			Log.Debug("Redo: Redo.Count=" + Redo.Count.ToString ());
 			if (Redo.Count >= 1) {
 				Knot next = Redo.Pop ();
 				Knot push = next.Clone ()as Knot;

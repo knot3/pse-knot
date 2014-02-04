@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -86,7 +86,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
-			Log.WriteLine ("OnKeyEvent: " + key [0]);
+			Log.Debug ("OnKeyEvent: " + key [0]);
 			if (keyEvent == KeyEvent.KeyDown) {
 				OnClick (time);
 			}

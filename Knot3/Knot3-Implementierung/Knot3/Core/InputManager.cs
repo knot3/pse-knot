@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -124,7 +124,7 @@ namespace Knot3.Core
 					                  ? ClickState.DoubleClick : ClickState.SingleClick;
 					LeftButtonClickTimer = 0;
 					PreviousClickMouseState = PreviousMouseState;
-					Log.WriteLine ("LeftButton=" + LeftMouseButton.ToString ());
+					Log.Debug ("LeftButton=" + LeftMouseButton.ToString ());
 				}
 				else {
 					LeftMouseButton = ClickState.None;
@@ -135,7 +135,7 @@ namespace Knot3.Core
 					                   ? ClickState.DoubleClick : ClickState.SingleClick;
 					RightButtonClickTimer = 0;
 					PreviousClickMouseState = PreviousMouseState;
-					Log.WriteLine ("RightButton=" + RightMouseButton.ToString ());
+					Log.Debug ("RightButton=" + RightMouseButton.ToString ());
 				}
 				else {
 					RightMouseButton = ClickState.None;

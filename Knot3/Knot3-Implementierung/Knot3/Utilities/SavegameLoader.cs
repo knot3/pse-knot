@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -49,7 +49,7 @@ namespace Knot3.Utilities
 				FileUtility.BaseDirectory,
 				FileUtility.SavegameDirectory
 			};
-			Log.WriteLine ("Search for Savegames: " + string.Join (", ", searchDirectories));
+			Log.Debug ("Search for Savegames: " + string.Join (", ", searchDirectories));
 
 			// Suche nach Spielstanddateien und fülle das Menü auf
 			OnSavegameFound = onSavegameFound;
@@ -79,7 +79,7 @@ namespace Knot3.Utilities
 				}
 				catch (Exception ex) {
 					// Es ist eine Exception aufgetreten, der Knoten ist offenbar ungültig.
-					Log.WriteLine (ex);
+					Log.Debug (ex);
 					isValid = false;
 				}
 			}

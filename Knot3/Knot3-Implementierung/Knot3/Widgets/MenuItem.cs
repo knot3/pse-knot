@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -122,7 +122,7 @@ namespace Knot3.Widgets
 				Menu.OnScroll (scrollValue);
 			}
 			else {
-				Log.WriteLine ("Warning: MenuItem is not assigned to a menu: " + this);
+				Log.Debug ("Warning: MenuItem is not assigned to a menu: " + this);
 			}
 		}
 

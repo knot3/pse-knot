@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -46,7 +46,7 @@ namespace Knot3.Core
 			}
 			set {
 				if (value != isFullscreen) {
-					Log.WriteLine ("Fullscreen Toggle");
+					Log.Debug ("Fullscreen Toggle");
 					if (value) {
 						Graphics.PreferredBackBufferWidth = Graphics.GraphicsDevice.DisplayMode.Width;
 						Graphics.PreferredBackBufferHeight = Graphics.GraphicsDevice.DisplayMode.Height;

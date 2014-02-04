@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -313,7 +313,7 @@ namespace Knot3.Screens
 			if (state == ChallengeModeState.Running) {
 				// vergleiche den Spielerknoten mit dem Zielknoten
 				if (PlayerKnot.Equals (Challenge.Target)) {
-					Log.WriteLine ("Playerknot equals Target!");
+					Log.Debug ("Playerknot equals Target!");
 					state = ChallengeModeState.Finished;
 					OnChallengeFinished (time);
 				}

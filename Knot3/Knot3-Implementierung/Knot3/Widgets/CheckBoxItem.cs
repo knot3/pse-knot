@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -99,7 +99,7 @@ namespace Knot3.Widgets
 		private void onClick ()
 		{
 			currentValue = option.Value = !option.Value;
-			Log.WriteLine ("option: " + option.ToString () + " := " + currentValue.ToString ());
+			Log.Debug ("option: " + option.ToString () + " := " + currentValue.ToString ());
 		}
 
 		/// <summary>

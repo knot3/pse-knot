@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -69,7 +69,7 @@ namespace Knot3.Utilities
 					return model;
 				}
 				catch (ContentLoadException) {
-					Log.WriteLine ("Warning: Model " + name + " does not exist!");
+					Log.Debug ("Warning: Model " + name + " does not exist!");
 					invalidModels.Add (name);
 					return null;
 				}

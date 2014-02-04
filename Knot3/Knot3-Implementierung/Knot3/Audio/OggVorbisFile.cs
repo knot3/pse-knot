@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 using System.IO;
 
 using Microsoft.Xna.Framework;
@@ -44,11 +44,11 @@ namespace Knot3.Audio
 
 			byte[] data;
 			try {
-				Log.WriteLine ("Read from cache: " + cachefile);
+				Log.Debug ("Read from cache: " + cachefile);
 				data = File.ReadAllBytes (cachefile);
 			}
 			catch (Exception) {
-				Log.WriteLine ("Decode: " + name);
+				Log.Debug ("Decode: " + name);
 				OggDecoder decoder = new OggDecoder ();
 				decoder.Initialize (TitleContainer.OpenStream (filepath));
 				data = decoder.SelectMany (chunk => chunk.Bytes.Take (chunk.Length)).ToArray ();

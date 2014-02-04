@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -114,7 +114,7 @@ namespace Knot3.GameObjects
 
 					try {
 						Edge selectedEdge = pipe.Info.Edge;
-						Log.WriteLine ("knot.Count() = " + Knot.Count ());
+						Log.Debug ("knot.Count() = " + Knot.Count ());
 
 						// Ctrl gedrückt
 						if (KnotInputHandler.CurrentKeyAssignmentReversed [PlayerActions.AddToEdgeSelection].IsHeldDown ()) {
@@ -131,7 +131,7 @@ namespace Knot3.GameObjects
 						}
 					}
 					catch (ArgumentOutOfRangeException exp) {
-						Log.WriteLine (exp.ToString ());
+						Log.Debug (exp.ToString ());
 					}
 				}
 			}
@@ -235,7 +235,7 @@ namespace Knot3.GameObjects
 					previousMousePosition = currentMousePosition;
 				}
 				catch (ArgumentOutOfRangeException exp) {
-					Log.WriteLine (exp.ToString ());
+					Log.Debug (exp.ToString ());
 				}
 			}
 		}
@@ -336,7 +336,7 @@ namespace Knot3.GameObjects
 
 		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction, GameTime time)
 		{
-			//Log.WriteLine ("XXX: " + direction);
+			//Log.Debug ("XXX: " + direction);
 			float count = ComputeLength (currentMousePosition);
 			UpdateShadowPipes (currentMousePosition, direction, count, time);
 		}

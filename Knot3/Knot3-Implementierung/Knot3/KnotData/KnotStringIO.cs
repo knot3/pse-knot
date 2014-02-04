@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 using System.IO;
 
 using Microsoft.Xna.Framework;
@@ -45,7 +45,7 @@ namespace Knot3.KnotData
 		public IEnumerable<Edge> Edges
 		{
 			get {
-				Log.WriteLine ("KnotStringIO.Edges[get] = " + edgeLines.Count ());
+				Log.Debug ("KnotStringIO.Edges[get] = " + edgeLines.Count ());
 				foreach (string _line in edgeLines) {
 					string line = _line;
 					Edge edge = DecodeEdge (line [0]);
@@ -67,12 +67,12 @@ namespace Knot3.KnotData
 				}
 			}
 			set {
-				Log.WriteLine ("KnotStringIO.Edges[set] = #" + value.Count ().ToString ());
+				Log.Debug ("KnotStringIO.Edges[set] = #" + value.Count ().ToString ());
 				try {
 					edgeLines = ToLines (value);
 				}
 				catch (Exception ex) {
-					Log.WriteLine (ex);
+					Log.Debug (ex);
 				}
 			}
 		}
@@ -134,7 +134,7 @@ namespace Knot3.KnotData
 				edgeLines = ToLines (knot);
 			}
 			catch (Exception ex) {
-				Log.WriteLine (ex);
+				Log.Debug (ex);
 			}
 		}
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -213,7 +213,7 @@ namespace Knot3.RenderEffects
 				}
 				while (!renderTargets [resolution][viewport].ContainsKey (Supersampling)) {
 					try {
-						Log.WriteLine("Supersampling=" + Supersampling.ToString());
+						Log.Debug("Supersampling=" + Supersampling.ToString());
 						renderTargets [resolution] [viewport] [Supersampling] = new RenderTarget2D (
 						    screen.Device, (int)(viewport.Width * Supersampling), (int)(viewport.Height * Supersampling),
 						    false, SurfaceFormat.Color, DepthFormat.Depth24, 1, RenderTargetUsage.PreserveContents
@@ -221,7 +221,7 @@ namespace Knot3.RenderEffects
 						break;
 					}
 					catch (NotSupportedException ex) {
-						Log.WriteLine(ex);
+						Log.Debug(ex);
 						if (Options.Default ["video", "Supersamples", 1] > 1) {
 							Options.Default ["video", "Supersamples", 1] *= 0.8f;
 						}

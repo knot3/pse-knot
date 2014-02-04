@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -64,7 +64,7 @@ namespace Knot3.GameObjects
 			        && (Screen.Input.CurrentInputAction == InputAction.CameraTargetMove
 			            || Screen.Input.CurrentInputAction == InputAction.FreeMouse)
 			        && InputManager.CurrentMouseState.ToVector2 () != lastMousePosition) {
-				//Log.WriteLine (Screen.Input.CurrentInputAction);
+				//Log.Debug (Screen.Input.CurrentInputAction);
 				lastRayCheck = millis;
 				lastMousePosition = InputManager.CurrentMouseState.ToVector2 ();
 

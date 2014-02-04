@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -328,7 +328,7 @@ namespace Knot3.Core
 				IEnumerable<float> sorted = distances.Keys.OrderBy (k => k);
 				foreach (float where in sorted) {
 					yield return distances [where];
-					// Log.WriteLine ("where=" + where + " = " + distances [where].Center ());
+					// Log.Debug ("where=" + where + " = " + distances [where].Center ());
 				}
 			}
 			else {

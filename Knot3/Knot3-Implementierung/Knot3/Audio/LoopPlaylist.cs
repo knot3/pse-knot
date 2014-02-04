@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 using System.IO;
 
 using Microsoft.Xna.Framework;
@@ -49,9 +49,9 @@ namespace Knot3.Audio
 			index = 0;
 			State = SoundState.Stopped;
 
-			Log.WriteLine ("Created new playlist (" + Sounds.Count + " songs)");
+			Log.Debug ("Created new playlist (" + Sounds.Count + " songs)");
 			foreach (IAudioFile sound in Sounds) {
-				Log.WriteLine ("  - " + sound.Name);
+				Log.Debug ("  - " + sound.Name);
 			}
 		}
 

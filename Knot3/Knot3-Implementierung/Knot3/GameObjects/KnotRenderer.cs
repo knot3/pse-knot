@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -277,7 +277,7 @@ namespace Knot3.GameObjects
 				}
 			}
 			catch (NullReferenceException ex) {
-				Log.WriteLine (ex.ToString ());
+				Log.Debug (ex.ToString ());
 			}
 		}
 
@@ -298,7 +298,7 @@ namespace Knot3.GameObjects
 				newRectangles = 0;
 				ValidRectanglePosition[] validPositions = rectMap.ValidPositions ().ToArray ();
 				foreach (ValidRectanglePosition validPosition in validPositions) {
-					//Log.WriteLine ("validPosition=" + validPosition);
+					//Log.Debug ("validPosition=" + validPosition);
 					newRectangles += CreateRectangle (validPosition, ref rectMap) ? 1 : 0;
 				}
 			}
@@ -335,7 +335,7 @@ namespace Knot3.GameObjects
 				rectangle.World = World;
 
 				if (MonoHelper.IsRunningOnLinux ()) {
-					Log.WriteLine ("rectangle=" + rectangle);
+					Log.Debug ("rectangle=" + rectangle);
 				}
 
 				if (!rectangles.Contains (rectangle)) {

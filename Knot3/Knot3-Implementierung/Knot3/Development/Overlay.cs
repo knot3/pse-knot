@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -61,7 +61,7 @@ namespace Knot3.Development
 			}
 			catch (ContentLoadException ex) {
 				font = null;
-				Log.WriteLine (ex.Message);
+				Log.Debug (ex.Message);
 			}
 		}
 
@@ -194,10 +194,10 @@ namespace Knot3.Development
 					spriteBatch.DrawString (font, str, new Vector2 (width, height) * Options.Default ["video", "Supersamples", 1], color, 0f, Vector2.Zero, scale * Options.Default ["video", "Supersamples", 1], SpriteEffects.None, 0f);
 				}
 				catch (ArgumentException exp) {
-					Log.WriteLine (exp.ToString ());
+					Log.Debug (exp.ToString ());
 				}
 				catch (InvalidOperationException exp) {
-					Log.WriteLine (exp.ToString ());
+					Log.Debug (exp.ToString ());
 				}
 			}
 		}

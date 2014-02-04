@@ -1,25 +1,23 @@
 using System;
+using System.Diagnostics;
 
 namespace Knot3.Development
 {
 	public static class Log
 	{
-		public static void WriteLine (string str)
+		[Conditional("DEBUG")]
+		public static void Debug (string str)
 		{
 		}
 
-		public static void Write (string str)
+		[Conditional("DEBUG")]
+		public static void Debug (object str)
 		{
+			Debug (str.ToString ());
 		}
 
-		public static void WriteLine (object str)
+		public static void Message (string str)
 		{
-			WriteLine(str.ToString());
-		}
-
-		public static void Write (object str)
-		{
-			Write(str.ToString());
 		}
 	}
 }

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -221,7 +221,7 @@ namespace Knot3.GameObjects
 					chooseModel ();
 				}
 				catch (Exception ex) {
-					Log.WriteLine (ex);
+					Log.Debug (ex);
 				}
 			};
 		}
@@ -270,7 +270,7 @@ namespace Knot3.GameObjects
 					Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
 
 					// debug
-					Log.WriteLine(
+					Log.Debug(
 					    "Index="
 					    + Index.ToString()
 					    + ", Directions="

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -102,7 +102,7 @@ namespace Knot3.Widgets
 			foreach (string _value in option.DisplayValidValues.Keys) {
 				string value = _value; // create a copy for the action
 				Action<GameTime> onSelected = (time) => {
-					Log.WriteLine ("OnClick: " + value);
+					Log.Debug ("OnClick: " + value);
 					option.Value = option.DisplayValidValues [value];
 					currentValue.InputText = value;
 					dropdown.IsVisible = false;

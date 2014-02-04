@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -89,7 +89,7 @@ namespace Knot3.GameObjects
 				Viewport original = Screen.Viewport;
 				Screen.Viewport = World.Viewport;
 
-				//Log.WriteLine ("basicEffect=" + World);
+				//Log.Debug ("basicEffect=" + World);
 				basicEffect.World = World.Camera.WorldMatrix;
 				basicEffect.View = World.Camera.ViewMatrix;
 				basicEffect.Projection = World.Camera.ProjectionMatrix;

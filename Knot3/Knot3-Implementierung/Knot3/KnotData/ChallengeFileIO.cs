@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 using System.IO;
 using System.Text;
 
@@ -165,7 +165,7 @@ namespace Knot3.KnotData
 				}
 			}
 			if (name != null && start != null && target != null) {
-				Log.WriteLine("Load challenge file: " + filename + " (name=" + name + ",start=" + start + ",target=" + target + ",highscore=" + highscore);
+				Log.Debug("Load challenge file: " + filename + " (name=" + name + ",start=" + start + ",target=" + target + ",highscore=" + highscore);
 				return new ChallengeMetaData (
 				           name: name,
 				           start: start,
@@ -186,7 +186,7 @@ namespace Knot3.KnotData
 		IEnumerable<string> printHighscore (IEnumerable<KeyValuePair<string, int>> highscore)
 		{
 			foreach (KeyValuePair<string, int> entry in highscore) {
-				Log.WriteLine(
+				Log.Debug(
 				    "Save Highscore: "
 				    + entry.Value.ToString ()
 				    + ":"
@@ -200,13 +200,13 @@ namespace Knot3.KnotData
 		IEnumerable<KeyValuePair<string, int>> parseHighscore (IEnumerable<string> highscore)
 		{
 			foreach (string line in highscore) {
-				Log.WriteLine("Load Highscore: "+line);
+				Log.Debug("Load Highscore: "+line);
 				if (line.Contains (":")) {
 					string[] entry = line.Split (new char[] {':'}, 2, StringSplitOptions.None);
 					string name = entry [1].Trim ();
 					int time;
 					if (Int32.TryParse (entry [0], out time)) {
-						Log.WriteLine("=> " + name + ":" + time.ToString ());
+						Log.Debug("=> " + name + ":" + time.ToString ());
 						yield return new KeyValuePair<string, int> (name, time);
 					}
 				}

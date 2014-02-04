@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -256,7 +256,7 @@ namespace Knot3.GameObjects
 			}
 			Screen.Input.CurrentInputAction = action;
 
-			//Log.WriteLine("action="+action);
+			//Log.Debug("action="+action);
 
 			switch (action) {
 			case InputAction.ArcballMove:
@@ -505,7 +505,7 @@ namespace Knot3.GameObjects
 
 		public void OnStartEdgeChanged (Vector3 direction)
 		{
-			Log.WriteLine ("OnStartEdgeChanged: " + direction);
+			Log.Debug ("OnStartEdgeChanged: " + direction);
 			camera.Position -= direction * Node.Scale;
 			camera.Target -= direction * Node.Scale;
 			Screen.Input.CurrentInputAction = InputAction.FreeMouse;
