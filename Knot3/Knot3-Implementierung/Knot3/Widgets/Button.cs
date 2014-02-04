@@ -111,8 +111,9 @@ namespace Knot3.Widgets
 				// zeichne den Hintergrund
 				spriteBatch.DrawColoredRectangle (BackgroundColorFunc (), Bounds);
 
-				if (BackgroundTexture != null)
-				spriteBatch.Draw (BackgroundTexture, Bounds, Color.White);
+				if (BackgroundTexture != null) {
+					spriteBatch.Draw (BackgroundTexture, Bounds, Color.White);
+				}
 
 				// lade die Schrift
 				SpriteFont font = HfGDesign.MenuFont (Screen);
