@@ -113,7 +113,7 @@ namespace Knot3.Widgets
 			           position: ScreenPoint.Zero (screen),
 			           size: ScreenPoint.Zero (screen),
 			           padding: ScreenPoint.Zero (screen)
-			       );
+			);
 		}
 
 		public Bounds FromLeft (Func<float> percent)
@@ -122,7 +122,7 @@ namespace Knot3.Widgets
 			           position: Position,
 			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X * percent (), () => Size.Relative.Y),
 			           padding: Padding
-			       );
+			);
 		}
 
 		public Bounds FromRight (Func<float> percent)
@@ -131,7 +131,7 @@ namespace Knot3.Widgets
 			           position: Position + new ScreenPoint (Size.Screen, () => Size.Relative.X * (1f - percent ()), () => 0),
 			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X * percent (), () => Size.Relative.Y),
 			           padding: Padding
-			       );
+			);
 		}
 
 		public Bounds FromTop (Func<float> percent)
@@ -140,7 +140,7 @@ namespace Knot3.Widgets
 			           position: Position,
 			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X, () => Size.Relative.Y * percent ()),
 			           padding: Padding
-			       );
+			);
 		}
 
 		public Bounds FromBottom (Func<float> percent)
@@ -149,7 +149,7 @@ namespace Knot3.Widgets
 			           position: Position + new ScreenPoint (Size.Screen, () => 0, () => Size.Relative.Y * (1f - percent ())),
 			           size: new ScreenPoint (Size.Screen, () => Size.Relative.X, () => Size.Relative.Y * percent ()),
 			           padding: Padding
-			       );
+			);
 		}
 
 		public Bounds FromLeft (float percent)
@@ -184,13 +184,15 @@ namespace Knot3.Widgets
 
 		public override string ToString ()
 		{
-			return   "("
-			         + Position.Relative.X.ToString()
-			         + "x"
-			         + (Position.Relative.Y + Size.Relative.X).ToString()
-			         + "x"
-			         + Size.Relative.Y.ToString()
-			         + ")";
+			return "("
+				+ Position.Relative.X.ToString ()
+				+ "x"
+				+ Position.Relative.Y.ToString ()
+				+ ","
+				+ Size.Relative.X.ToString ()
+				+ "x"
+				+ Size.Relative.Y.ToString ()
+				+ ")";
 		}
 
 		#endregion
