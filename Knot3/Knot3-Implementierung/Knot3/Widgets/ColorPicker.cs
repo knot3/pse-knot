@@ -124,16 +124,16 @@ namespace Knot3.Widgets
 		public void OnLeftClick (Vector2 position, ClickState state, GameTime time)
 		{
 			position = position.RelativeTo (Screen.Viewport);
-			Log.Debug ("ColorPicker.OnLeftClick: positon=" + position.ToString ());
+			Log.Debug ("ColorPicker.OnLeftClick: positon=", position);
 			int i = 0;
 			foreach (ScreenPoint tile in tiles) {
-				//Log.Debug ("ColorPicker: tile=" + tile + "  "
+				//Log.Debug ("ColorPicker: tile=", tile, "  "
 				//	+ (tile.X <= position.X) + " " + (tile.X + tileSize.X > position.X) + " " + (
 				//                       tile.Y <= position.Y) + " " + (tile.Y + tileSize.Y > position.Y)
 				//);
 				if (tile.Relative.X <= position.X && tile.Relative.X + tileSize.Relative.X > position.X
 				        && tile.Relative.Y <= position.Y && tile.Relative.Y + tileSize.Relative.Y > position.Y) {
-					Log.Debug ("ColorPicker: color=" + colors [i].ToString ());
+					Log.Debug ("ColorPicker: color=", colors [i]);
 
 					ColorSelected (colors [i], time);
 				}

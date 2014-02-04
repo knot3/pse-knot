@@ -101,7 +101,7 @@ namespace Knot3.Widgets
 			foreach (string _value in option.DisplayValidValues.Keys) {
 				string value = _value; // create a copy for the action
 				Action<GameTime> onSelected = (time) => {
-					Log.Debug ("OnClick: " + value);
+					Log.Debug ("OnClick: ", value);
 					option.Value = option.DisplayValidValues [value];
 					currentValue.InputText = value;
 					dropdown.IsVisible = false;

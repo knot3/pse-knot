@@ -44,7 +44,7 @@ namespace Knot3.Widgets
 				List<Keys> keysInvolved = new List<Keys> ();
 
 				foreach (Keys key in component.ValidKeys) {
-					// Log.Debug("receiver="+receiver+",validkeys="+key+", receiver.IsKeyEventEnabled="+((dynamic)receiver).IsVisible);
+					// Log.Debug("receiver=",receiver,",validkeys=",key,", receiver.IsKeyEventEnabled=",((dynamic)receiver).IsVisible);
 
 					if (key.IsDown ()) {
 						keysInvolved.Add (key);

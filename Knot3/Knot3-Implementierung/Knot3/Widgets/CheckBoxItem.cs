@@ -98,7 +98,7 @@ namespace Knot3.Widgets
 		private void onClick ()
 		{
 			currentValue = option.Value = !option.Value;
-			Log.Debug ("option: " + option.ToString () + " := " + currentValue.ToString ());
+			Log.Debug ("option: ", option, " := ", currentValue);
 		}
 
 		/// <summary>

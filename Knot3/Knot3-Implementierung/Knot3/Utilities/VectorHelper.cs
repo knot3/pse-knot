@@ -382,7 +382,7 @@ namespace Knot3.Utilities
 			BoundingSphere[] bounds = new BoundingSphere[(int)(length / distance)];
 			for (int offset = 0; offset < (int)(length / distance); ++offset) {
 				bounds [offset] = new BoundingSphere (position + direction * offset * distance, radius);
-				//Log.Debug ("sphere[" + offset + "]=" + Bounds [offset]);
+				//Log.Debug ("sphere[", offset, "]=", Bounds [offset]);
 			}
 			return bounds;
 		}

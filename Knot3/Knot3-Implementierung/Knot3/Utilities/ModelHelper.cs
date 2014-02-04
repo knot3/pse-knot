@@ -68,7 +68,7 @@ namespace Knot3.Utilities
 					return model;
 				}
 				catch (ContentLoadException) {
-					Log.Debug ("Warning: Model " + name + " does not exist!");
+					Log.Debug ("Warning: Model ", name, " does not exist!");
 					invalidModels.Add (name);
 					return null;
 				}

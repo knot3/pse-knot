@@ -55,11 +55,11 @@ namespace Knot3.Core
 		public virtual string Value
 		{
 			get {
-				Log.Debug ("OptionInfo: " + Section + "." + Name + " => " + configFile [Section, Name, DefaultValue]);
+				Log.Debug ("OptionInfo: ", Section, ".", Name, " => ", configFile [Section, Name, DefaultValue]);
 				return configFile [Section, Name, DefaultValue];
 			}
 			set {
-				Log.Debug ("OptionInfo: " + Section + "." + Name + " <= " + value);
+				Log.Debug ("OptionInfo: ", Section, ".", Name, " <= ", value);
 				configFile [Section, Name, DefaultValue] = value;
 			}
 		}

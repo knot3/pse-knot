@@ -276,7 +276,7 @@ namespace Knot3.GameObjects
 				}
 			}
 			catch (NullReferenceException ex) {
-				Log.Debug (ex.ToString ());
+				Log.Debug (ex);
 			}
 		}
 
@@ -297,7 +297,7 @@ namespace Knot3.GameObjects
 				newRectangles = 0;
 				ValidRectanglePosition[] validPositions = rectMap.ValidPositions ().ToArray ();
 				foreach (ValidRectanglePosition validPosition in validPositions) {
-					//Log.Debug ("validPosition=" + validPosition);
+					//Log.Debug ("validPosition=", validPosition);
 					newRectangles += CreateRectangle (validPosition, ref rectMap) ? 1 : 0;
 				}
 			}
@@ -334,7 +334,7 @@ namespace Knot3.GameObjects
 				rectangle.World = World;
 
 				if (MonoHelper.IsRunningOnLinux ()) {
-					Log.Debug ("rectangle=" + rectangle);
+					Log.Debug ("rectangle=", rectangle);
 				}
 
 				if (!rectangles.Contains (rectangle)) {

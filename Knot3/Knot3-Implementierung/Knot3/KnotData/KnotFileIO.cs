@@ -66,7 +66,7 @@ namespace Knot3.KnotData
 		public void Save (Knot knot)
 		{
 			KnotStringIO parser = new KnotStringIO (knot);
-			Log.Debug("KnotFileIO.Save(" + knot + ") = #" + parser.Content.Length.ToString());
+			Log.Debug("KnotFileIO.Save(", knot, ") = #", parser.Content.Length);
 			if (knot.MetaData.Filename == null) {
 				throw new IOException ("Error! knot has no filename: " + knot);
 			}
@@ -84,7 +84,7 @@ namespace Knot3.KnotData
 				return KnotCache [filename];
 			}
 			else {
-				Log.Debug ("Load knot from " + filename);
+				Log.Debug ("Load knot from ", filename);
 				KnotStringIO parser = new KnotStringIO (content: string.Join ("\n", FileUtility.ReadFrom (filename)));
 				return KnotCache [filename] = new Knot (
 				    new KnotMetaData (parser.Name, () => parser.CountEdges, this, filename),

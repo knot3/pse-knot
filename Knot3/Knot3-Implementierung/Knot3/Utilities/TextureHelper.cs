@@ -33,7 +33,7 @@ namespace Knot3.Utilities
 				return screen.Content.Load<Texture2D> ("Textures/" + name);
 			}
 			catch (ContentLoadException ex) {
-				Log.Debug (ex.ToString ());
+				Log.Debug (ex);
 				return null;
 			}
 		}
@@ -44,7 +44,7 @@ namespace Knot3.Utilities
 				return screen.Content.Load<SpriteFont> ("Fonts/" + name);
 			}
 			catch (ContentLoadException ex) {
-				Log.Debug (ex.ToString ());
+				Log.Debug (ex);
 				return null;
 			}
 		}
@@ -133,10 +133,10 @@ namespace Knot3.Utilities
 				spriteBatch.DrawString (font, text, textPosition, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.6f);
 			}
 			catch (ArgumentException exp) {
-				Log.Debug (exp.ToString ());
+				Log.Debug (exp);
 			}
 			catch (InvalidOperationException exp) {
-				Log.Debug (exp.ToString ());
+				Log.Debug (exp);
 			}
 		}
 

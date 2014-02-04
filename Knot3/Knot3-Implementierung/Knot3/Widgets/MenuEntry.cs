@@ -89,7 +89,7 @@ namespace Knot3.Widgets
 
 				if (Menu != null) {
 					foreach (MenuItem item in Menu) {
-						Log.Debug("State: "+ item.State);
+						Log.Debug("State: ", item.State);
 						if (item is MenuEntry && item !=this) {
 							item.State = State.None;
 						}
@@ -105,7 +105,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
-			// Log.Debug("OnKeyEvent: " + key[0]);
+			// Log.Debug("OnKeyEvent: ", key[0]);
 			if (keyEvent == KeyEvent.KeyDown) {
 				OnClick (time);
 			}

@@ -65,7 +65,7 @@ namespace Knot3.Widgets
 				float pageValue = pageScrollPosition;
 				float visiblePercent = (pageValue / maxValue).Clamp (0.05f, 1f);
 				float currentValue = (float)currentScrollPosition / (maxValue - pageValue);
-				// Log.Debug ("currentValue=" + currentValue + ", pos=" + moveBounds.FromTop (currentValue).Position);
+				// Log.Debug ("currentValue=", currentValue, ", pos=", moveBounds.FromTop (currentValue).Position);
 				Bounds bounds = new Bounds (
 				    position: moveBounds.Size.OnlyY * currentValue * (1f - visiblePercent),
 				    size: moveBounds.Size.ScaleY (visiblePercent)
@@ -221,8 +221,8 @@ namespace Knot3.Widgets
 				Bounds sliderBounds = ScrollSliderInBarBounds.In (ScrollBarBounds);
 				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle.Grow (1), Lines.DefaultOutlineColor);
 				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle, Lines.DefaultLineColor);
-				// Log.Debug ("ScrollSliderBounds=" + sliderBounds.Rectangle);
-				// Log.Debug ("ScrollBarBounds=" + ScrollBarBounds.Rectangle);
+				// Log.Debug ("ScrollSliderBounds=", sliderBounds.Rectangle);
+				// Log.Debug ("ScrollBarBounds=", ScrollBarBounds.Rectangle);
 				spriteBatch.End ();
 			}
 		}
@@ -244,10 +244,10 @@ namespace Knot3.Widgets
 				float pageValue = pageScrollPosition;
 				float visiblePercent = (pageValue / maxValue).Clamp (0.05f, 1f);
 				float sliderPosition = ScrollSliderInBarBounds.Position.Absolute.Y / ScrollBarBounds.Size.Absolute.Y;
-				Log.Debug ("sliderPosition=" + sliderPosition + ", ScrollSliderInBarBounds=" + ScrollSliderInBarBounds);
+				Log.Debug ("sliderPosition=", sliderPosition, ", ScrollSliderInBarBounds=", ScrollSliderInBarBounds);
 				sliderPosition = move.Y / ScrollBarBounds.Size.Absolute.Y;
 
-				Log.Debug ("sliderPosition new=" + sliderPosition + ", current.Y=" + currentPosition.Y
+				Log.Debug ("sliderPosition new=", sliderPosition, ", current.Y=", currentPosition.Y
 					+ ", bar.Size.Y=" + ScrollBarBounds.Size.Absolute.Y
 				);
 				currentScrollPosition = (int)(sliderPosition * (maxValue - pageValue));

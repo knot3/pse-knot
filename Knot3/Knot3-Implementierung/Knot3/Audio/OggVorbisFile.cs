@@ -43,11 +43,11 @@ namespace Knot3.Audio
 
 			byte[] data;
 			try {
-				Log.Debug ("Read from cache: " + cachefile);
+				Log.Debug ("Read from cache: ", cachefile);
 				data = File.ReadAllBytes (cachefile);
 			}
 			catch (Exception) {
-				Log.Debug ("Decode: " + name);
+				Log.Debug ("Decode: ", name);
 				OggDecoder decoder = new OggDecoder ();
 				decoder.Initialize (TitleContainer.OpenStream (filepath));
 				data = decoder.SelectMany (chunk => chunk.Bytes.Take (chunk.Length)).ToArray ();

@@ -44,7 +44,7 @@ namespace Knot3.KnotData
 		public IEnumerable<Edge> Edges
 		{
 			get {
-				Log.Debug ("KnotStringIO.Edges[get] = " + edgeLines.Count ());
+				Log.Debug ("KnotStringIO.Edges[get] = ", edgeLines.Count ());
 				foreach (string _line in edgeLines) {
 					string line = _line;
 					Edge edge = DecodeEdge (line [0]);
@@ -66,7 +66,7 @@ namespace Knot3.KnotData
 				}
 			}
 			set {
-				Log.Debug ("KnotStringIO.Edges[set] = #" + value.Count ().ToString ());
+				Log.Debug ("KnotStringIO.Edges[set] = #", value.Count ());
 				try {
 					edgeLines = ToLines (value);
 				}

@@ -48,7 +48,7 @@ namespace Knot3.Utilities
 				FileUtility.BaseDirectory,
 				FileUtility.SavegameDirectory
 			};
-			Log.Debug ("Search for Savegames: " + string.Join (", ", searchDirectories));
+			Log.Debug ("Search for Savegames: ", string.Join (", ", searchDirectories));
 
 			// Suche nach Spielstanddateien und fülle das Menü auf
 			OnSavegameFound = onSavegameFound;

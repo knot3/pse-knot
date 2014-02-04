@@ -85,7 +85,7 @@ namespace Knot3.Widgets
 		/// </summary>
 		public void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
-			Log.Debug ("OnKeyEvent: " + key [0]);
+			Log.Debug ("OnKeyEvent: ", key [0]);
 			if (keyEvent == KeyEvent.KeyDown) {
 				OnClick (time);
 			}

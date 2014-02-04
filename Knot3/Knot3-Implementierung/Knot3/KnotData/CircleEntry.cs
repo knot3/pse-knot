@@ -68,7 +68,7 @@ namespace Knot3.KnotData
 
 		public CircleEntry<T> InsertAfter (T obj)
 		{
-			//Log.Debug (this + ".InsertAfter(" + obj + ")");
+			//Log.Debug (this, ".InsertAfter(", obj, ")");
 			CircleEntry<T> insert = new CircleEntry<T> (obj);
 			insert.Next = this.Next;
 			insert.Previous = this;
@@ -153,7 +153,7 @@ namespace Knot3.KnotData
 		{
 			CircleEntry<T> current = this;
 			do {
-				//Log.Debug (this + " => " + current.Content);
+				//Log.Debug (this, " => ", current.Content);
 				yield return current.Value;
 				current = current.Next;
 			}

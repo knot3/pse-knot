@@ -113,7 +113,7 @@ namespace Knot3.GameObjects
 
 					try {
 						Edge selectedEdge = pipe.Info.Edge;
-						Log.Debug ("knot.Count() = " + Knot.Count ());
+						Log.Debug ("knot.Count() = ", Knot.Count ());
 
 						// Ctrl gedrückt
 						if (KnotInputHandler.CurrentKeyAssignmentReversed [PlayerActions.AddToEdgeSelection].IsHeldDown ()) {
@@ -130,7 +130,7 @@ namespace Knot3.GameObjects
 						}
 					}
 					catch (ArgumentOutOfRangeException exp) {
-						Log.Debug (exp.ToString ());
+						Log.Debug (exp);
 					}
 				}
 			}
@@ -234,7 +234,7 @@ namespace Knot3.GameObjects
 					previousMousePosition = currentMousePosition;
 				}
 				catch (ArgumentOutOfRangeException exp) {
-					Log.Debug (exp.ToString ());
+					Log.Debug (exp);
 				}
 			}
 		}
@@ -335,7 +335,7 @@ namespace Knot3.GameObjects
 
 		private void UpdateShadowPipes (Vector3 currentMousePosition, Direction direction, GameTime time)
 		{
-			//Log.Debug ("XXX: " + direction);
+			//Log.Debug ("XXX: ", direction);
 			float count = ComputeLength (currentMousePosition);
 			UpdateShadowPipes (currentMousePosition, direction, count, time);
 		}

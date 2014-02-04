@@ -102,7 +102,7 @@ namespace Knot3.Widgets
 			else if (InputManager.CurrentMouseState.RightButton == ButtonState.Released) {
 				lastRightClickPosition = null;
 			}
-			//Log.Debug("left="+(lastLeftClickPosition ?? ScreenPoint.Zero(Screen))+"right="+(lastRightClickPosition ?? ScreenPoint.Zero(Screen)));
+			//Log.Debug("left=",(lastLeftClickPosition ?? ScreenPoint.Zero(Screen)),"right=",(lastRightClickPosition ?? ScreenPoint.Zero(Screen)));
 
 			foreach (IMouseMoveEventListener component in Screen.Game.Components.OfType<IMouseMoveEventListener>()
 			         .Where(c => c.IsMouseMoveEventEnabled).OrderByDescending(c => c.Index.Index)) {
@@ -132,7 +132,7 @@ namespace Knot3.Widgets
 					notify = true;
 				}
 
-				//Log.Debug("notify="+notify+", component="+component+", cntains="+(lastLeftClickPosition != null ? bounds.Contains (lastLeftClickPosition)+"" : "") +",bounds="+bounds+",precious="+previous);
+				//Log.Debug("notify=",notify,", component=",component,", cntains=",(lastLeftClickPosition != null ? bounds.Contains (lastLeftClickPosition),"" : ""),",bounds=",bounds,",precious=",previous);
 
 				if (notify && (relativePositionMove
 				               || InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton

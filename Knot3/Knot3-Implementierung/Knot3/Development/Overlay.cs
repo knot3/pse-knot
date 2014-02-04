@@ -193,10 +193,10 @@ namespace Knot3.Development
 					spriteBatch.DrawString (font, str, new Vector2 (width, height) * Options.Default ["video", "Supersamples", 1], color, 0f, Vector2.Zero, scale * Options.Default ["video", "Supersamples", 1], SpriteEffects.None, 0f);
 				}
 				catch (ArgumentException exp) {
-					Log.Debug (exp.ToString ());
+					Log.Debug (exp);
 				}
 				catch (InvalidOperationException exp) {
-					Log.Debug (exp.ToString ());
+					Log.Debug (exp);
 				}
 			}
 		}

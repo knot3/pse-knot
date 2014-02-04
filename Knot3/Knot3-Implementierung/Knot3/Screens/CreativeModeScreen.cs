@@ -203,7 +203,7 @@ namespace Knot3.Screens
 
 		private void OnUndo ()
 		{
-			Log.Debug ("Undo: Undo.Count=" + Undo.Count);
+			Log.Debug ("Undo: Undo.Count=", Undo.Count);
 			if (Undo.Count >= 2) {
 				Knot current = Undo.Pop ();
 				Knot prev = Undo.Peek ();
@@ -223,7 +223,7 @@ namespace Knot3.Screens
 
 		private void OnRedo ()
 		{
-			Log.Debug("Redo: Redo.Count=" + Redo.Count.ToString ());
+			Log.Debug("Redo: Redo.Count=", Redo.Count);
 			if (Redo.Count >= 1) {
 				Knot next = Redo.Pop ();
 				Knot push = next.Clone ()as Knot;

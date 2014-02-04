@@ -112,7 +112,7 @@ namespace Knot3.Audio
 				// versuche, die Audiodatei als "SoundEffect" zu laden
 				SoundEffect soundEffect = Screen.Content.Load<SoundEffect> (filepath);
 				AudioFiles [soundType].Add (new SoundEffectFile (name, soundEffect, soundType));
-				Log.Debug ("Load sound effect (" + soundType + "): " + filepath);
+				Log.Debug ("Load sound effect (", soundType, "): ", filepath);
 			}
 			catch (Exception ex) {
 				Log.Debug (ex);
@@ -138,14 +138,14 @@ namespace Knot3.Audio
 		{
 			try {
 				// erstelle ein AudioFile-Objekt
-				Log.Debug ("Load ogg audio file (" + soundType + "): " + filepath);
+				Log.Debug ("Load ogg audio file (", soundType, "): ", filepath);
 				AudioFiles [soundType].Add (new OggVorbisFile (name, filepath, soundType));
 			}
 			catch (Exception ex) {
 				// egal, warum das laden nicht klappt; mehr als die Fehlermeldung anzeigen
 				// macht wegen einer fehlenden Musikdatei keinen Sinn
-				Log.Debug ("Failed to load ffmpeg audio file (" + soundType + "): " + filepath);
-				Log.Debug (ex.ToString ());
+				Log.Debug ("Failed to load ffmpeg audio file (", soundType, "): ", filepath);
+				Log.Debug (ex);
 			}
 		}
 
@@ -154,7 +154,7 @@ namespace Knot3.Audio
 			if (Playlist != null) {
 				Playlist.Stop ();
 			}
-			Log.Debug ("Background Music: " + BackgroundMusic);
+			Log.Debug ("Background Music: ", BackgroundMusic);
 			Playlist = new LoopPlaylist (AudioFiles [BackgroundMusic]);
 			Playlist.Shuffle ();
 			Playlist.Start ();
@@ -162,12 +162,12 @@ namespace Knot3.Audio
 
 		public void PlaySound (Sound sound)
 		{
-			Log.Debug ("Sound: " + sound);
+			Log.Debug ("Sound: ", sound);
 			if (AudioFiles [sound].Count > 0) {
 				AudioFiles [sound].RandomElement ().Play ();
 			}
 			else {
-				Log.Debug ("There are no audio files for: " + sound);
+				Log.Debug ("There are no audio files for: ", sound);
 			}
 		}
 
@@ -196,7 +196,7 @@ namespace Knot3.Audio
 			volume = ValidVolume (volume);
 			VolumeMap [soundType] = volume;
 			Options.Default ["volume", soundType.ToString (), 1] = volume;
-			Log.Debug ("Set Volume (" + soundType + "): " + volume);
+			Log.Debug ("Set Volume (", soundType, "): ", volume);
 		}
 
 		public static float ValidVolume (float volume)
