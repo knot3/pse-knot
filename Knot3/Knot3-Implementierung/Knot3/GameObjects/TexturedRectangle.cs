@@ -210,7 +210,15 @@ namespace Knot3.GameObjects
 
 		public override string ToString ()
 		{
-			return "TexturedRectangle(" + UpperLeft + "," + UpperRight + "," + LowerRight + "," + LowerLeft + ")";
+			return   "TexturedRectangle("
+                   + UpperLeft.ToString()
+                   + ","
+                   + UpperRight.ToString()
+                   + ","
+                   + LowerRight.ToString()
+                   + ","
+                   + LowerLeft.ToString()
+                   + ")";
 		}
 
 		public void Dispose ()
