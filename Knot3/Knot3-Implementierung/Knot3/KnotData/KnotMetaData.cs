@@ -52,7 +52,7 @@ namespace Knot3.KnotData
 				}
 				if (name != null && name.Length > 0) {
 					string extension;
-					if (Format.FileExtensions.Count () > 0) {
+					if (Format.FileExtensions.Any ()) {
 						extension = Format.FileExtensions.ElementAt (0);
 					}
 					else {

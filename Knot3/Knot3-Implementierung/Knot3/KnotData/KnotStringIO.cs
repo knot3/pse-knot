@@ -144,7 +144,7 @@ namespace Knot3.KnotData
 		private static IEnumerable<string> ToLines (IEnumerable<Edge> edges)
 		{
 			foreach (Edge edge in edges) {
-				yield return EncodeEdge (edge) + "#" + EncodeColor (edge.Color) + "#" + string.Join (",", edge.Rectangles);
+				yield return EncodeEdge (edge).ToString () + "#" + EncodeColor (edge.Color) + "#" + string.Join (",", edge.Rectangles);
 			}
 		}
 

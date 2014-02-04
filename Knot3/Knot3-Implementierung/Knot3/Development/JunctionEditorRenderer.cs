@@ -197,8 +197,8 @@ namespace Knot3.Development
 						node.Draw (time);
 					}
 				};
-				Profiler.Values ["# Pipes"] = pipes.Count ();
-				Profiler.Values ["# Nodes"] = nodes.Count ();
+				Profiler.Values ["# Pipes"] = pipes.Count;
+				Profiler.Values ["# Nodes"] = nodes.Count;
 			}
 		}
 
