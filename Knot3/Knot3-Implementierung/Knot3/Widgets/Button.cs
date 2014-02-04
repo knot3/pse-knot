@@ -41,6 +41,9 @@ namespace Knot3.Widgets
 		public Bounds MouseClickBounds { get { return Bounds; } }
 
 		public Action<bool, GameTime> Hovered = (isHovered, time) => {};
+
+		public Texture2D BackgroundTexture { get; set; }
+
 		#endregion
 
 		#region Constructors
@@ -107,6 +110,9 @@ namespace Knot3.Widgets
 
 				// zeichne den Hintergrund
 				spriteBatch.DrawColoredRectangle (BackgroundColorFunc (), Bounds);
+
+				if (BackgroundTexture != null)
+				spriteBatch.Draw (BackgroundTexture, Bounds, Color.White);
 
 				// lade die Schrift
 				SpriteFont font = HfGDesign.MenuFont (Screen);

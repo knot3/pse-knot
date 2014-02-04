@@ -38,9 +38,6 @@ namespace Knot3.Screens
 		private Texture2D logo;
 		private SpriteBatch spriteBatch;
 
-		// Exit-Symbol
-		private Texture2D exitSymbol;
-
 		#endregion
 
 		#region Constructors
@@ -55,9 +52,6 @@ namespace Knot3.Screens
 
 			// logo
 			logo = this.LoadTexture ("logo");
-
-			// Exit-Symbol
-			exitSymbol = this.LoadTexture("exit");
 
 			// create a new SpriteBatch, which can be used to draw textures
 			spriteBatch = new SpriteBatch (Device);
@@ -98,7 +92,8 @@ namespace Knot3.Screens
 			);
 
 			exitButton.AddKey (Keys.Escape);
-			exitButton.SetCoordinates (left: 0.800f, top: 0.535f, right: 0.980f, bottom: 0.790f);
+			exitButton.SetCoordinates (left: 0.825f, top: 0.615f, right: 0.895f, bottom: 0.705f);
+			exitButton.BackgroundTexture = this.LoadTexture("exit");
 
 			buttons.Add (creativeButton);
 			buttons.Add (challengeButton);
@@ -181,9 +176,6 @@ namespace Knot3.Screens
 			// Zeichne das Logo
 			spriteBatch.Begin ();
 			spriteBatch.Draw (logo, new Rectangle (50, 380, 500, 300).Scale (Viewport), Color.White);
-
-			// Todo! / evtl. besser als Button Background. Besseres Bild ohn Treppen-Artefakte.
-			spriteBatch.Draw(exitSymbol, new Rectangle(825, 615, 70, 90).Scale(Viewport), Color.WhiteSmoke);
 
 			spriteBatch.End ();
 		}
