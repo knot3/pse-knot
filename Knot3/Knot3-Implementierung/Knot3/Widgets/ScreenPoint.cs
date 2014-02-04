@@ -142,7 +142,7 @@ namespace Knot3.Widgets
 
 		public override string ToString ()
 		{
-            return "(" + Relative.X.ToString() + "x" + Relative.Y.ToString() + ")";
+			return "(" + Relative.X.ToString() + "x" + Relative.Y.ToString() + ")";
 		}
 
 		public static ScreenPoint operator * (ScreenPoint a, float b)

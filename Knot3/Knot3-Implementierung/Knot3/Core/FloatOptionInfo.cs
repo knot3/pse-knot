@@ -44,7 +44,7 @@ namespace Knot3.Core
 		public override string DisplayValue
 		{
 			get {
-                return String.Empty + base.Value;
+				return String.Empty + base.Value;
 			}
 		}
 
@@ -71,7 +71,7 @@ namespace Knot3.Core
 
 		private static String convertToString(float f)
 		{
-            return (String.Empty + ((int)(f * 1000f)).ToString());
+			return (String.Empty + ((int)(f * 1000f)).ToString());
 		}
 		private static float stringToFloat (string s)
 		{
