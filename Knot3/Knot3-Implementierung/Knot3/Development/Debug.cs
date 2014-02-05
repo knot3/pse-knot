@@ -22,13 +22,13 @@ namespace Knot3.Development
 				if (str == lastDebugStr) {
 					++lastDebugTimes;
 					if (lastDebugTimes > 100) {
-						Console.WriteLine ("[" + lastDebugTimes.ToString () + "x] " + lastDebugStr);
+						Console.WriteLine ("[" + lastDebugTimes + "x] " + lastDebugStr);
 						lastDebugTimes = 0;
 					}
 				}
 				else {
 					if (lastDebugTimes > 0) {
-						Console.WriteLine (lastDebugTimes.ToString () + "x " + lastDebugStr);
+						Console.WriteLine (lastDebugTimes + "x " + lastDebugStr);
 					}
 					Console.WriteLine (str);
 					lastDebugStr = str;

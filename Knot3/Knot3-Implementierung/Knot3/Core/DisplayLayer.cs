@@ -120,7 +120,7 @@ namespace Knot3.Core
 
 		public static DisplayLayer operator * (DisplayLayer layer, int i)
 		{
-			return new DisplayLayer(layer.Index * i, "(" + layer + "*" + i.ToString () + ")");
+			return new DisplayLayer(layer.Index * i, "(" + layer + "*" + i + ")");
 		}
 
 		public static bool operator == (DisplayLayer a, DisplayLayer b)

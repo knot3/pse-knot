@@ -131,7 +131,7 @@ namespace Knot3.KnotData
 
 		public override string ToString ()
 		{
-			return Direction.ToString () + "/" + id.ToString ();
+			return Direction + "/" + id.ToString ();
 		}
 
 		public static implicit operator Direction (Edge edge)

@@ -144,7 +144,7 @@ namespace Knot3.KnotData
 		private static IEnumerable<string> ToLines (IEnumerable<Edge> edges)
 		{
 			foreach (Edge edge in edges) {
-				yield return EncodeEdge (edge).ToString () + "#" + EncodeColor (edge.Color) + "#" + string.Join (",", edge.Rectangles);
+				yield return EncodeEdge (edge) + "#" + EncodeColor (edge.Color) + "#" + string.Join (",", edge.Rectangles);
 			}
 		}
 
@@ -164,7 +164,7 @@ namespace Knot3.KnotData
 			case 'z':
 				return Edge.Forward;
 			default:
-				throw new IOException ("Failed to decode Edge: '" + c.ToString () + "'!");
+				throw new IOException ("Failed to decode Edge: '" + c + "'!");
 			}
 		}
 
@@ -224,7 +224,7 @@ namespace Knot3.KnotData
 
 		public override string ToString ()
 		{
-			return "KnotStringIO(length=" + Content.Length.ToString () + ")";
+			return "KnotStringIO(length=" + Content.Length + ")";
 		}
 
 		#endregion

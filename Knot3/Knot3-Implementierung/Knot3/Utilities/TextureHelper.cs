@@ -62,7 +62,7 @@ namespace Knot3.Utilities
 
 		public static Texture2D Create (GraphicsDevice graphicsDevice, int width, int height, Color color)
 		{
-			string key = color.ToString () + width + "x" + height;
+			string key = color.ToString () + width.ToString () + "x" + height.ToString ();
 			if (textureCache.ContainsKey (key)) {
 				return textureCache [key];
 			}

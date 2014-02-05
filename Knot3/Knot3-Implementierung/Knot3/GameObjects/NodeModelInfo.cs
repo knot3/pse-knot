@@ -85,7 +85,7 @@ namespace Knot3.GameObjects
 		{
 			get {
 				IEnumerable<string> _directions = JunctionsAtNode.Select(junction => junction.EdgeFrom.Direction + String.Empty + junction.EdgeTo.Direction);
-				return "Node" + JunctionsAtNode.Count.ToString () + ":" + string.Join (",", _directions);
+				return "Node" + JunctionsAtNode.Count + ":" + string.Join (",", _directions);
 			}
 		}
 
@@ -245,7 +245,7 @@ namespace Knot3.GameObjects
 		private void chooseModelOneJunction ()
 		{
 			if (Type == JunctionType.Angled) {
-				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex.ToString (), "pipe-angled"];
+				Modelname = Options.Models [NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-angled"];
 				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 			}
 		}
@@ -253,19 +253,19 @@ namespace Knot3.GameObjects
 		private void chooseModelTwoJunctions ()
 		{
 			if (Type == JunctionType.Angled) {
-				Modelname = Options.Models[NodeConfigKey, "modelname" + JunctionsAtNodeIndex.ToString (), "pipe-angled"];
+				Modelname = Options.Models[NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-angled"];
 				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 			}
 			else if (Type == JunctionType.Straight) {
 				if (OtherJunctionsAtNode [0].Type == JunctionType.Straight) {
 					// Drehung des Übergangs
-					Modelname = Options.Models[NodeConfigKey, "modelname" + JunctionsAtNodeIndex.ToString (), "pipe-curved1"];
+					Modelname = Options.Models[NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-curved1"];
 					Rotation = straightJunctionRotationMap [EdgeFrom.Direction];
 
 					// Drehung der Delle
 					var directionTuple = Tuple.Create (JunctionsAtNode [0].EdgeFrom.Direction, JunctionsAtNode [1].EdgeFrom.Direction);
 					float defaultRotation = curvedJunctionBumpRotationMap [directionTuple].At (JunctionsAtNodeIndex);
-					float bumpRotationZ = Options.Models[NodeConfigKey, "bump" + JunctionsAtNodeIndex.ToString (), defaultRotation];
+					float bumpRotationZ = Options.Models[NodeConfigKey, "bump" + JunctionsAtNodeIndex, defaultRotation];
 					Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
 
 					// debug
@@ -283,7 +283,7 @@ namespace Knot3.GameObjects
 					);
 				}
 				else {
-					Modelname = Options.Models[NodeConfigKey, "modelname" + JunctionsAtNodeIndex.ToString (), "pipe-straight"];
+					Modelname = Options.Models[NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-straight"];
 					Rotation = straightJunctionRotationMap [EdgeFrom.Direction];
 				}
 			}
@@ -292,16 +292,16 @@ namespace Knot3.GameObjects
 		private void chooseModelThreeJunctions ()
 		{
 			if (Type == JunctionType.Angled) {
-				Modelname = Options.Models[NodeConfigKey, "modelname" + JunctionsAtNodeIndex.ToString (), "pipe-angled"];
+				Modelname = Options.Models[NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-angled"];
 				Rotation = angledJunctionRotationMap [angledJunctionDirectionMap [Tuple.Create (EdgeFrom.Direction, EdgeTo.Direction)]];
 			}
 			else if (Type == JunctionType.Straight) {
 				// Drehung des Übergangs
-				Modelname = Options.Models[NodeConfigKey, "modelname" + JunctionsAtNodeIndex.ToString (), "pipe-curved1"];
+				Modelname = Options.Models[NodeConfigKey, "modelname" + JunctionsAtNodeIndex, "pipe-curved1"];
 				Rotation = Angles3.FromDegrees (0, 0, 0) + straightJunctionRotationMap [EdgeFrom.Direction];
 
 				// Drehung der Delle
-				float bumpRotationZ = Options.Models[NodeConfigKey, "bump" + JunctionsAtNodeIndex.ToString (), 0];
+				float bumpRotationZ = Options.Models[NodeConfigKey, "bump" + JunctionsAtNodeIndex, 0];
 				Rotation += Angles3.FromDegrees (0, 0, bumpRotationZ);
 			}
 		}

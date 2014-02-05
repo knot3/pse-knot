@@ -68,7 +68,7 @@ namespace Knot3.Screens
 			targetKnotMenu.Bounds.Position = new ScreenPoint (this, 0.525f, 0.180f);
 			targetKnotMenu.Bounds.Size = new ScreenPoint (this, 0.375f, 0.620f);
 
-			challengeName = new InputItem(this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, "Name:", String.Empty);
+			challengeName = new InputItem (this, DisplayLayer.ScreenUI + DisplayLayer.MenuItem, "Name:", String.Empty);
 			challengeName.Bounds.Position = new ScreenPoint (this, 0.100f, 0.860f);
 			challengeName.Bounds.Size = new ScreenPoint (this, 0.375f, 0.040f);
 			challengeName.OnValueChanged += () => TryConstructChallenge ();
@@ -97,7 +97,7 @@ namespace Knot3.Screens
 			                 770, 895,
 			                 870, 970,
 			                 970, 50, 1000
-			                );
+			);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Create Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
@@ -187,9 +187,9 @@ namespace Knot3.Screens
 		{
 			get {
 				return selectedStartKnot != null && selectedTargetKnot != null
-				       && selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
-				       && challengeName.InputText.Length > 0
-				       && (selectedStartKnot.MetaData.CountEdges > 4 || selectedTargetKnot.MetaData.CountEdges > 4);
+					&& selectedStartKnot.MetaData.Filename != selectedTargetKnot.MetaData.Filename
+					&& challengeName.InputText.Length > 0
+					&& (selectedStartKnot.MetaData.CountEdges > 4 || selectedTargetKnot.MetaData.CountEdges > 4);
 			}
 		}
 

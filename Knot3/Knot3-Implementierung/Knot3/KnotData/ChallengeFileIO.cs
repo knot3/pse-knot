@@ -192,7 +192,7 @@ namespace Knot3.KnotData
 				    + entry.Key.ToString ()
 				);
 
-				yield return entry.Value.ToString () + ":" + entry.Key;
+				yield return entry.Value + ":" + entry.Key;
 			}
 		}
 

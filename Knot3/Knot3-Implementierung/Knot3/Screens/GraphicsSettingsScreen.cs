@@ -93,7 +93,7 @@ namespace Knot3.Screens
 			DisplayModeCollection modes = GraphicsAdapter.DefaultAdapter.SupportedDisplayModes;
 			HashSet<string> reso = new HashSet<string> ();
 			foreach (DisplayMode mode in modes) {
-				reso.Add(mode.Width.ToString () + "x" + mode.Height.ToString ());
+				reso.Add(mode.Width + "x" + mode.Height);
 			}
 			reso.Add ("1024x600");
 
