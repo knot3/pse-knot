@@ -45,7 +45,6 @@ namespace Knot3.Core
 		{
 			get {
 				return String.Empty + stringToFloat(base.Value);
-
 			}
 		}
 
