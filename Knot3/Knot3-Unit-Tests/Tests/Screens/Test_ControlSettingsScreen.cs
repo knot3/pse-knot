@@ -20,11 +20,13 @@ namespace Knot3.UnitTests.Tests.Screens
 		}
 
 		[Test]
-		public void TestMethod1 ()
+		public void Test_NoRedundantSettings ()
 		{
 			//
 			// TODO: Testlogik hier hinzufügen
 			//
 		}
+
+
 	}
 }
