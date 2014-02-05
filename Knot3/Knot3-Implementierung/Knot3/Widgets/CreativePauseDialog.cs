@@ -153,12 +153,10 @@ namespace Knot3.Widgets
 			Screen.AddGameComponents (null, saveDialog);
 			saveDialog.Close += (t) => {
 				try {
-
-                    if (saveDialog.InputText != String.Empty) {
-
-                         knot.Name = saveDialog.InputText;
-					     knot.Save ();
-                    }
+					if (saveDialog.InputText != String.Empty) {
+						knot.Name = saveDialog.InputText;
+						knot.Save ();
+					}
 				}
 				catch (IOException ex) {
 					ErrorDialog errorDialog = new ErrorDialog (
