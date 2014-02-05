@@ -148,15 +148,22 @@ namespace Knot3.Widgets
 			    text: "Name:",
 			    inputText: knot.Name != null ? knot.Name : String.Empty
 			);
-			saveDialog.NoCloseEmpty =true;
+			saveDialog.NoCloseEmpty = true;
+            saveDialog.NoWhiteSpace = true;
 			saveDialog.Text = "Press Enter to save the Knot.";
 			Screen.AddGameComponents (null, saveDialog);
 			saveDialog.Close += (t) => {
 				try {
+<<<<<<< HEAD
 					if (saveDialog.InputText != String.Empty) {
 						knot.Name = saveDialog.InputText;
 						knot.Save ();
 					}
+=======
+
+                         knot.Name = saveDialog.InputText;
+					     knot.Save ();
+>>>>>>> Leere Eingabe oder Whitespace verboten
 				}
 				catch (IOException ex) {
 					ErrorDialog errorDialog = new ErrorDialog (

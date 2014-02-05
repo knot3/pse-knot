@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -45,6 +46,14 @@ namespace Knot3.Widgets
 			get;
 			set;
 		}
+
+        public bool NoWhiteSpace
+        {
+            get;
+            set;
+        }
+
+        private Regex Whitespace = new Regex("^\\s*$"); // Todo: global besser!?
 
 		public string Text
 		{
@@ -106,13 +115,34 @@ namespace Knot3.Widgets
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 			if (key.Contains (Keys.Enter)) {
+
+                bool flag = true;
+
 				if (NoCloseEmpty) {
-					if (    textInput.InputText != null
-					        && textInput.InputText.Length != 0) {
-						Close (time);
+
+					if (       textInput.InputText == null
+					        || textInput.InputText.Length == 0) {
+
+                                flag = false;
+                                textInput.InputText = String.Empty;
+                                // Fokus
 					}
+
 				}
-				else {
+
+                if (NoWhiteSpace) {
+
+                    if (Whitespace.IsMatch(textInput.InputText)) {
+
+                        Console.WriteLine("Input: \"" + textInput.InputText + "\"");
+                        flag = false;
+                        textInput.InputText = String.Empty;
+                        // Fokus
+                    }
+                }
+                
+                if (flag) {
+
 					Close(time);
 				}
 			}
