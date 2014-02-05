@@ -69,7 +69,7 @@ namespace Knot3.Core
 		{
 		}
 
-		private static String convertToString(float f)
+		private static string convertToString(float f)
 		{
 			return (String.Empty + (int)(f * 1000f));
 		}

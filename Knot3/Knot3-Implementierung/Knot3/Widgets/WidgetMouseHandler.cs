@@ -54,9 +54,11 @@ namespace Knot3.Widgets
 					Vector2 relativePosition = InputManager.CurrentMouseState.ToVector2 () - bounds.Location.ToVector2 ();
 					if (InputManager.LeftMouseButton != ClickState.None) {
 						component.OnLeftClick (relativePosition, InputManager.LeftMouseButton, time);
+						break;
 					}
 					else if (InputManager.RightMouseButton != ClickState.None) {
 						component.OnRightClick (relativePosition, InputManager.RightMouseButton, time);
+						break;
 					}
 				}
 			}
@@ -76,6 +78,7 @@ namespace Knot3.Widgets
 					else if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
 						component.OnScroll (+1);
 					}
+					break;
 				}
 			}
 		}
@@ -116,14 +119,14 @@ namespace Knot3.Widgets
 				// wenn die Komponente die Position beim Drücken der linken Maustaste enthält
 				if (lastLeftClickPosition != null && bounds.Contains (lastLeftClickPosition)) {
 					notify = true;
-					if (bounds.Contains(current) && InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
+					if (bounds.Contains (current) && InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
 						lastLeftClickPosition = current;
 					}
 				}
 				// wenn die Komponente die Position beim Drücken der rechten Maustaste enthält
 				else if (lastRightClickPosition != null && bounds.Contains (lastRightClickPosition)) {
 					notify = true;
-					if (bounds.Contains(current) && InputManager.CurrentMouseState.RightButton == ButtonState.Pressed) {
+					if (bounds.Contains (current) && InputManager.CurrentMouseState.RightButton == ButtonState.Pressed) {
 						lastRightClickPosition = current;
 					}
 				}
@@ -135,8 +138,8 @@ namespace Knot3.Widgets
 				//Log.Debug("notify=",notify,", component=",component,", cntains=",(lastLeftClickPosition != null ? bounds.Contains (lastLeftClickPosition),"" : ""),",bounds=",bounds,",precious=",previous);
 
 				if (notify && (relativePositionMove
-				               || InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton
-				               || InputManager.PreviousMouseState.RightButton != InputManager.CurrentMouseState.RightButton)) {
+					|| InputManager.PreviousMouseState.LeftButton != InputManager.CurrentMouseState.LeftButton
+					|| InputManager.PreviousMouseState.RightButton != InputManager.CurrentMouseState.RightButton)) {
 					if (InputManager.CurrentMouseState.LeftButton == ButtonState.Pressed) {
 						component.OnLeftMove (
 						    previousPosition: relativePositionPrevious,
