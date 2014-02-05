@@ -10,10 +10,11 @@ using Knot3.KnotData;
 
 namespace Knot3.UnitTests.Tests.KnotData
 {
+	[TestFixture]
 	class Test_KnotStringIO
 	{
-		[TestFixture]
-		public void test_EncodeDecodeEdge()
+		[Test]
+		public void test_EncodeDecodeEdge ()
 		{
 			Edge[] edges = {Edge.Left, Edge.Right, Edge.Up, Edge.Down};
 
