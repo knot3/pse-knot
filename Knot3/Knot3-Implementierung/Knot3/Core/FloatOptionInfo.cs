@@ -44,14 +44,15 @@ namespace Knot3.Core
 		public override string DisplayValue
 		{
 			get {
-				return String.Empty + base.Value;
+				return String.Empty + stringToFloat(base.Value);
+
 			}
 		}
 
 		public override Dictionary<string,string> DisplayValidValues
 		{
 			get {
-				return new Dictionary<string, string>(base.ValidValues.ToDictionary(s => String.Empty + s, s => s));
+				return new Dictionary<string, string>(base.ValidValues.ToDictionary(s => String.Empty + stringToFloat(s), s => s));
 			}
 		}
 
