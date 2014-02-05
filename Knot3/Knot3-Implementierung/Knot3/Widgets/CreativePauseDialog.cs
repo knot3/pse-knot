@@ -149,13 +149,13 @@ namespace Knot3.Widgets
 			    inputText: knot.Name != null ? knot.Name : String.Empty
 			);
 			saveDialog.NoCloseEmpty = true;
-            saveDialog.NoWhiteSpace = true;
+			saveDialog.NoWhiteSpace = true;
 			saveDialog.Text = "Press Enter to save the Knot.";
 			Screen.AddGameComponents (null, saveDialog);
 			saveDialog.Close += (t) => {
 				try {
-                         knot.Name = saveDialog.InputText;
-					     knot.Save ();
+					knot.Name = saveDialog.InputText;
+					knot.Save ();
 				}
 				catch (IOException ex) {
 					ErrorDialog errorDialog = new ErrorDialog (

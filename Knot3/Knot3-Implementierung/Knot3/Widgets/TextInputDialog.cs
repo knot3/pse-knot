@@ -47,13 +47,13 @@ namespace Knot3.Widgets
 			set;
 		}
 
-        public bool NoWhiteSpace
-        {
-            get;
-            set;
-        }
+		public bool NoWhiteSpace
+		{
+			get;
+			set;
+		}
 
-        private Regex Whitespace = new Regex("^\\s*$"); // Todo: global besser!?
+		private Regex Whitespace = new Regex("^\\s*$"); // Todo: global besser!?
 
 		public string Text
 		{
@@ -115,34 +115,27 @@ namespace Knot3.Widgets
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 			if (key.Contains (Keys.Enter)) {
-
-                bool flag = true;
+				bool flag = true;
 
 				if (NoCloseEmpty) {
-
 					if (       textInput.InputText == null
-					        || textInput.InputText.Length == 0) {
-
-                                flag = false;
-                                textInput.InputText = String.Empty;
-                                // Fokus
+					           || textInput.InputText.Length == 0) {
+						flag = false;
+						textInput.InputText = String.Empty;
+						// Fokus
 					}
-
 				}
 
-                if (NoWhiteSpace) {
+				if (NoWhiteSpace) {
+					if (Whitespace.IsMatch(textInput.InputText)) {
+						Console.WriteLine("Input: \"" + textInput.InputText + "\"");
+						flag = false;
+						textInput.InputText = String.Empty;
+						// Fokus
+					}
+				}
 
-                    if (Whitespace.IsMatch(textInput.InputText)) {
-
-                        Console.WriteLine("Input: \"" + textInput.InputText + "\"");
-                        flag = false;
-                        textInput.InputText = String.Empty;
-                        // Fokus
-                    }
-                }
-                
-                if (flag) {
-
+				if (flag) {
 					Close(time);
 				}
 			}
