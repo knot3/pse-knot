@@ -347,6 +347,14 @@ namespace Knot3.Screens
 				// füge ihn zur Spielkomponentenliste hinzu
 				AddGameComponents (time, highscoreDialog);
 			};
+
+            Undo.Clear();
+            Redo.Clear();
+
+            RemoveGameComponents(time, undoButton);
+            RemoveGameComponents(time, undoButtonBorder);
+            RemoveGameComponents(time, redoButton);
+            RemoveGameComponents(time, redoButtonBorder);
 		}
 
 		/// <summary>
