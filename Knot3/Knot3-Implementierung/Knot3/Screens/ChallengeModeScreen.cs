@@ -348,13 +348,13 @@ namespace Knot3.Screens
 				AddGameComponents (time, highscoreDialog);
 			};
 
-            Undo.Clear();
-            Redo.Clear();
+			Undo.Clear();
+			Redo.Clear();
 
-            RemoveGameComponents(time, undoButton);
-            RemoveGameComponents(time, undoButtonBorder);
-            RemoveGameComponents(time, redoButton);
-            RemoveGameComponents(time, redoButtonBorder);
+			RemoveGameComponents(time, undoButton);
+			RemoveGameComponents(time, undoButtonBorder);
+			RemoveGameComponents(time, redoButton);
+			RemoveGameComponents(time, redoButtonBorder);
 		}
 
 		/// <summary>
