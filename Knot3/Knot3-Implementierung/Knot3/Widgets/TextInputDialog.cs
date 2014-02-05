@@ -115,12 +115,11 @@ namespace Knot3.Widgets
 		public override void OnKeyEvent (List<Keys> key, KeyEvent keyEvent, GameTime time)
 		{
 			if (key.Contains (Keys.Enter)) {
-				bool flag = true;
+				bool canClose = true;
 
 				if (NoCloseEmpty) {
-					if (       textInput.InputText == null
-					           || textInput.InputText.Length == 0) {
-						flag = false;
+					if (textInput.InputText == null || textInput.InputText.Length == 0) {
+						canClose = false;
 						textInput.InputText = String.Empty;
 						textInput.IsInputEnabled = true; // Fokus
 						// FIX: bekommt bei schnellem ENTER drücken nicht wieder den Fokus.
@@ -129,14 +128,14 @@ namespace Knot3.Widgets
 
 				if (NoWhiteSpace) {
 					if (Whitespace.IsMatch(textInput.InputText)) {
-						flag = false;
+						canClose = false;
 						textInput.InputText = String.Empty;
 						textInput.IsInputEnabled = true; // Fokus
 						// FIX: bekommt bei schnellem ENTER drücken nicht wieder den Fokus.
 					}
 				}
 
-				if (flag) {
+				if (canClose) {
 					Close(time);
 				}
 			}
