@@ -26,7 +26,5 @@ namespace Knot3.UnitTests.Tests.Screens
 			// TODO: Testlogik hier hinzufügen
 			//
 		}
-
-
 	}
 }
