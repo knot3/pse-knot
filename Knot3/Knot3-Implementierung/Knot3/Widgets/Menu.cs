@@ -19,6 +19,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Utilities;
+using Knot3.Development;
 
 namespace Knot3.Widgets
 {
@@ -236,7 +237,7 @@ namespace Knot3.Widgets
 				Bounds slider = ScrollSliderInBarBounds;
 				Bounds bar = ScrollBarBounds;
 
-				float percentOfBar = move.Absolute.Y / bar.Size.Absolute.Y;
+				float percentOfBar = move.Relative.Y / bar.Size.Relative.Y;
 				currentScrollPosition += percentOfBar * maxScrollPosition;
 
 				/*
