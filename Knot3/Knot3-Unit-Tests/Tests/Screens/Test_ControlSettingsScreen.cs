@@ -7,7 +7,7 @@ namespace Knot3.UnitTests.Tests.Screens
 	/// <summary>
 	/// Zusammenfassungsbeschreibung für Test_ControlSettingsScreen
 	/// </summary>
-	[TestClass]
+	[TestFixture]
 	public class Test_ControlSettingsScreen
 	{
 		public Test_ControlSettingsScreen()
@@ -55,8 +55,8 @@ namespace Knot3.UnitTests.Tests.Screens
 		//
 		#endregion
 
-		[TestMethod]
-		public void TestMethod1()
+		[Test]
+		public void Test1()
 		{
 			//
 			// TODO: Testlogik hier hinzufügen

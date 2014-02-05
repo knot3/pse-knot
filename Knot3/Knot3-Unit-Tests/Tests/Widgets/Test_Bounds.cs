@@ -7,7 +7,7 @@ namespace Knot3.UnitTests.Tests.Widgets
 	/// <summary>
 	/// Zusammenfassungsbeschreibung für Test_Bounds
 	/// </summary>
-	[TestClass]
+	[TestFixture]
 	public class Test_Bounds
 	{
 		public Test_Bounds()
@@ -55,8 +55,8 @@ namespace Knot3.UnitTests.Tests.Widgets
 		//
 		#endregion
 
-		[TestMethod]
-		public void TestMethod1()
+		[Test]
+		public void Test1()
 		{
 			//
 			// TODO: Testlogik hier hinzufügen

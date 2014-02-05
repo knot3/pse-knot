@@ -7,7 +7,7 @@ namespace Knot3.UnitTests.Tests.Utilities
 	/// <summary>
 	/// Zusammenfassungsbeschreibung für Test_RayExtensions
 	/// </summary>
-	[TestClass]
+	[TestFixture]
 	public class Test_RayExtensions
 	{
 		public Test_RayExtensions()
@@ -55,8 +55,8 @@ namespace Knot3.UnitTests.Tests.Utilities
 		//
 		#endregion
 
-		[TestMethod]
-		public void TestMethod1()
+		[Test]
+		public void Test1()
 		{
 			//
 			// TODO: Testlogik hier hinzufügen

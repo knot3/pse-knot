@@ -7,7 +7,7 @@ namespace Knot3.UnitTests.Tests.Core
 	/// <summary>
 	/// Zusammenfassungsbeschreibung für Test_Camera
 	/// </summary>
-	[TestClass]
+	[TestFixture]
 	public class Test_Camera
 	{
 		public Test_Camera()
@@ -55,8 +55,8 @@ namespace Knot3.UnitTests.Tests.Core
 		//
 		#endregion
 
-		[TestMethod]
-		public void TestMethod1()
+		[Test]
+		public void Test1()
 		{
 			//
 			// TODO: Testlogik hier hinzufügen

@@ -7,7 +7,7 @@ namespace Knot3.UnitTests.Tests.KnotData
 	/// <summary>
 	/// Zusammenfassungsbeschreibung für Test_CircleEntry
 	/// </summary>
-	[TestClass]
+	[TestFixture]
 	public class Test_CircleEntry
 	{
 		public Test_CircleEntry()
@@ -55,8 +55,8 @@ namespace Knot3.UnitTests.Tests.KnotData
 		//
 		#endregion
 
-		[TestMethod]
-		public void TestMethod1()
+		[Test]
+		public void Test1()
 		{
 			//
 			// TODO: Testlogik hier hinzufügen

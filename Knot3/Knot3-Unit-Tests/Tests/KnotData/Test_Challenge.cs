@@ -7,7 +7,7 @@ namespace Knot3.UnitTests.Tests.KnotData
 	/// <summary>
 	/// Zusammenfassungsbeschreibung für Test_Challenge
 	/// </summary>
-	[TestClass]
+	[TestFixture]
 	public class Test_Challenge
 	{
 		public Test_Challenge()
@@ -55,8 +55,8 @@ namespace Knot3.UnitTests.Tests.KnotData
 		//
 		#endregion
 
-		[TestMethod]
-		public void TestMethod1()
+		[Test]
+		public void Test1()
 		{
 			//
 			// TODO: Testlogik hier hinzufügen
