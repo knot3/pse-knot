@@ -333,6 +333,7 @@ namespace Knot3.Screens
 			        inputText: Options.Default["profile", "name", String.Empty]);
 			// füge ihn zur Spielkomponentenliste hinzu
 			nameDialog.NoCloseEmpty = true;
+            nameDialog.NoWhiteSpace = true;
 			nameDialog.Text = "Press Enter to submit your name. ";
 
 			AddGameComponents (time, nameDialog);
