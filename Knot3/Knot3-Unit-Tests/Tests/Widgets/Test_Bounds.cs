@@ -2,7 +2,6 @@
 using System.Text;
 using System.Collections.Generic;
 
-
 namespace Knot3.UnitTests.Tests.Widgets
 {
 	/// <summary>
