@@ -10,10 +10,10 @@
 
 
 
-% \input{LaTeX/Pakete} % Eingebundene LaTeX-Pakete.
+\input{LaTeX/Pakete} % Eingebundene LaTeX-Pakete.
 % \input{LaTeX/Makros} % Eigene LaTeX-Makros.
 
-% \input{LaTeX/Einstellungen/Kompatibilitaet} % Nachträgliche Kompatibilitätseinstellungen für problematische LaTeX-Pakete.
+\input{LaTeX/Einstellungen/Kompatibilitaet} % Nachträgliche Kompatibilitätseinstellungen für problematische LaTeX-Pakete.
 
 
 
@@ -23,13 +23,24 @@
 	%
 	% \input{}
 
-	% Inhaltsverzeichnis
 	%
-	% \input{Inhalt/Verzeichnisse/Inhalt}
+	% Lege hier fest, welche Abschnitte ins Inhaltsverzeichnis
+	% eingetragen werden.
+	%
+	\setcounter{secnumdepth}{3}
+	\setcounter{tocdepth}{3}
+	
+	%
+	% Standard LaTeX-Inhaltsverzeichnis.
+	%
+	\tableofcontents
+	
+	
 	
 	% Inhalt
 	%
 	\input{Inhalt/Einleitung}
+	\input{Inhalt/Werkzeuge}
 	
 	% Verzeichnisse
 	%
