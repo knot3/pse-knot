@@ -300,12 +300,12 @@ namespace Knot3.GameObjects
 			}
 			else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
 				// camera.FoV -= 1;
-				if ( camera.PositionToTargetDistance <=80){
+				if ( camera.PositionToTargetDistance <=80) {
 					camera.PositionToTargetDistance = 40;
 				}
-				else{
-				camera.PositionToTargetDistance -= 40;
-			}
+				else {
+					camera.PositionToTargetDistance -= 40;
+				}
 				world.Redraw = true;
 			}
 		}
