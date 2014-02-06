@@ -31,7 +31,7 @@ namespace Knot3.Knot_Tests
 
 			Assert.AreEqual (knot.Count (), edges.Length, "Knotenlänge #1");
 			Assert.AreEqual (knot.MetaData.CountEdges, edges.Length, "Knotenlänge #2");
-            Assert.AreEqual(10, 0, "test");
+			Assert.AreEqual(10, 0, "test");
 
 			Assert.AreEqual (knot.Name, name, "Knotenname #1");
 			Assert.AreEqual (knot.MetaData.Name, name, "Knotenname #2");
