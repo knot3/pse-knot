@@ -15,8 +15,9 @@ namespace Knot3.UnitTests.Tests.Widgets
 	[TestFixture]
 	public class Test_Bounds
 	{
+
 		[Test]
-		public void Bounds1()
+		public void Bounds_Contains_Test()
 		{
 			FakeScreen fakeScreen = new FakeScreen();
 			ScreenPoint point = new ScreenPoint(fakeScreen,0, 0);
