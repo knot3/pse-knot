@@ -125,8 +125,8 @@ namespace Knot3.GameObjects
 
 		private Texture2D CreateSpaceTexture ()
 		{
-			int width = 2000;
-			int height = 2000;
+			int width = 1000;
+			int height = 1000;
 			Texture2D texture = new Texture2D (Screen.Device, width, height);
 			Color[] colors = new Color[width * height];
 			for (int i = 0; i < colors.Length; i++) {
