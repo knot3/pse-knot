@@ -302,9 +302,10 @@ namespace Knot3.GameObjects
 
 			}
 			else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
-				// camera.FoV -= 1;
+				// camera.FoV -= 1
 
 					zoom(-8,time);
+
 
 			}
 			world.Redraw = true;
