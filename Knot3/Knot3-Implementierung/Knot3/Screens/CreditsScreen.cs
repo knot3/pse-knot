@@ -26,6 +26,12 @@ namespace Knot3.Screens
 	/// </summary>
 	public class CreditsScreen : MenuScreen
 	{
+		#region Properties
+
+		private String text;
+
+		#endregion
+
 		#region Constructors
 
 		/// <summary>
@@ -34,7 +40,7 @@ namespace Knot3.Screens
 		public CreditsScreen (Knot3Game game)
 		: base(game)
 		{
-			throw new System.NotImplementedException();
+			text = "...";
 		}
 
 		#endregion
