@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
 using Knot3.Core;
 using Knot3.Screens;
 using Knot3.RenderEffects;
@@ -29,6 +27,7 @@ namespace Knot3.GameObjects
 	/// </summary>
 	public sealed class KnotInputHandler : GameScreenComponent, IKeyEventListener, IMouseMoveEventListener, IMouseScrollEventListener
 	{
+
 		#region Properties
 
 		/// <summary>
@@ -138,11 +137,15 @@ namespace Knot3.GameObjects
 				{ PlayerActions.RotateRight,             (time) => rotate (Vector2.UnitX * 4, time) },
 				{ PlayerActions.ZoomIn,                  (time) => zoom (-1, time) },
 				{ PlayerActions.ZoomOut,                 (time) => zoom (+1, time) },
-				{ PlayerActions.ResetCamera,             (time) => resetCamera (time) },
-				{ PlayerActions.MoveToCenter,            (time) => camera.StartSmoothMove (target: camera.ArcballTarget, time: time) },
+				{ PlayerActions.ResetCamera,             (time) => resetCamera (time) }, {
+					PlayerActions.MoveToCenter,
+					(time) => camera.StartSmoothMove (target: camera.ArcballTarget, time: time)
+				},
 				{ PlayerActions.ToggleMouseLock,         (time) => toggleMouseLock (time) },
-				{ PlayerActions.AddToEdgeSelection,      (time) => {} },
-				{ PlayerActions.AddRangeToEdgeSelection, (time) => {} },
+				{ PlayerActions.AddToEdgeSelection,      (time) => {
+					} },
+				{ PlayerActions.AddRangeToEdgeSelection, (time) => {
+					} },
 			};
 		}
 
@@ -260,7 +263,7 @@ namespace Knot3.GameObjects
 			switch (action) {
 			case InputAction.ArcballMove:
 				// rotieren
-				rotate (new Vector2(mouseMove.X, mouseMove.Y) * 1.5f, time);
+				rotate (new Vector2 (mouseMove.X, mouseMove.Y) * 1.5f, time);
 				break;
 			case InputAction.CameraTargetMove:
 				// verschieben
@@ -290,24 +293,21 @@ namespace Knot3.GameObjects
 			}
 		}
 
-		public void OnScroll (int scrollWheelValue)
+		public void OnScroll (int scrollWheelValue,GameTime time)
 		{
 			// scroll wheel zoom
 			if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
 				// camera.FoV += 1;
-				camera.PositionToTargetDistance += 40;
-				world.Redraw = true;
+				zoom(8,time);
+
 			}
 			else if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
 				// camera.FoV -= 1;
-				if ( camera.PositionToTargetDistance <=80){
-					camera.PositionToTargetDistance = 40;
-				}
-				else{
-				camera.PositionToTargetDistance -= 40;
+
+					zoom(-8,time);
+
 			}
-				world.Redraw = true;
-			}
+			world.Redraw = true;
 		}
 
 		private void ResetMousePosition ()
@@ -315,7 +315,7 @@ namespace Knot3.GameObjects
 			if (InputManager.CurrentMouseState != InputManager.PreviousMouseState) {
 				if (Screen.Input.GrabMouseMovement || (Screen.Input.CurrentInputAction == InputAction.ArcballMove)) {
 					Mouse.SetPosition (world.Viewport.X + world.Viewport.Width / 2,
-					                   world.Viewport.Y + world.Viewport.Height / 2);
+						world.Viewport.Y + world.Viewport.Height / 2);
 					InputManager.CurrentMouseState = Mouse.GetState ();
 				}
 			}
@@ -408,7 +408,7 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = camera.PositionToTargetDirection;
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.Target
-				                  + (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
+				+ (camera.Position - camera.Target).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.Target, oldDistance);
 			}
 		}
@@ -419,8 +419,8 @@ namespace Knot3.GameObjects
 			if (world.SelectedObject == null && world.Any ()) {
 				// selektiere das Objekt, das der Mausposition am nächsten ist!
 				world.SelectedObject = world.FindNearestObjects (
-				                           nearTo: InputManager.CurrentMouseState.ToVector2 ()
-				                       ).ElementAt (0);
+					nearTo: InputManager.CurrentMouseState.ToVector2 ()
+				).ElementAt (0);
 			}
 
 			if (move.Length () > 0) {
@@ -433,9 +433,9 @@ namespace Knot3.GameObjects
 				Vector3 targetDirection = Vector3.Normalize (camera.ArcballTarget - camera.Position);
 				Vector3 up = camera.UpVector;
 				camera.Position = camera.ArcballTarget
-				                  + (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+				+ (camera.Position - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Target = camera.ArcballTarget
-				                + (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
+				+ (camera.Target - camera.ArcballTarget).ArcBallMove (move, up, targetDirection);
 				camera.Position = camera.Position.SetDistanceTo (camera.ArcballTarget, oldPositionDistance);
 				camera.Target = camera.Target.SetDistanceTo (camera.Position, oldTargetDistance);
 			}
@@ -446,7 +446,13 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void zoom (int value, GameTime time)
 		{
-			camera.PositionToTargetDistance += value * 5;
+			if (camera.PositionToTargetDistance <= 80 && value<0) {
+				camera.PositionToTargetDistance = 40;
+			}
+			else {
+				camera.PositionToTargetDistance += value * 5;
+			}
+
 		}
 
 		public void OnKeyEvent (List<Keys> keys, KeyEvent keyEvent, GameTime time)
@@ -492,11 +498,11 @@ namespace Knot3.GameObjects
 
 				// Erstelle eine Option...
 				KeyOptionInfo option = new KeyOptionInfo (
-				    section: "controls",
-				    name: actionName,
-				    defaultValue: defaultReversed [action],
-				    configFile: Options.Default
-				);
+					                       section: "controls",
+					                       name: actionName,
+					                       defaultValue: defaultReversed [action],
+					                       configFile: Options.Default
+				                       );
 				// und lese den Wert aus und speichere ihn in der Zuordnung.
 				CurrentKeyAssignment [option.Value] = action;
 			}
@@ -534,5 +540,6 @@ namespace Knot3.GameObjects
 		public Bounds MouseScrollBounds { get { return world.Bounds; } }
 
 		#endregion
+
 	}
 }

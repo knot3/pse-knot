@@ -47,7 +47,7 @@ namespace Knot3.Core
 		/// <summary>
 		/// Die Reaktion auf ein Scrollen. Der Wert ist relativ zum letzten Frame.
 		/// </summary>
-		void OnScroll (int scrollWheelValue);
+		void OnScroll (int scrollWheelValue,GameTime time);
 
 		#endregion
 	}

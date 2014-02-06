@@ -115,7 +115,7 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die Reaktion auf eine Bewegung des Mausrads.
 		/// </summary>
-		public void OnScroll (int scrollValue)
+		public void OnScroll (int scrollValue,GameTime time)
 		{
 			if (Menu != null) {
 				Menu.OnScroll (scrollValue);

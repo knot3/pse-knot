@@ -73,10 +73,10 @@ namespace Knot3.Widgets
 
 				if (hovered) {
 					if (InputManager.CurrentMouseState.ScrollWheelValue > InputManager.PreviousMouseState.ScrollWheelValue) {
-						component.OnScroll (-1);
+						component.OnScroll (-1,time);
 					}
 					else if (InputManager.CurrentMouseState.ScrollWheelValue < InputManager.PreviousMouseState.ScrollWheelValue) {
-						component.OnScroll (+1);
+						component.OnScroll (+1,time);
 					}
 					break;
 				}
