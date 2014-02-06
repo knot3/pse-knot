@@ -10,7 +10,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Karlsruher Institut für Technologie")]
 [assembly: AssemblyProduct("Knot3")]
-[assembly: AssemblyCopyright("(C) 2013-2014 Tobias Schulz, Maximilian Reuter, Pascal Knodel, Gerd Augsburg, Christina Erler, Daniel Warzel")]
+[assembly: AssemblyCopyright("(C) 2013-2014 Tobias Schulz, Maximilian Reuter, " +
+	"Pascal Knodel, Gerd Augsburg, Christina Erler, Daniel Warzel, " +
+	"M. Retzlaff, F. Kalka, G. Hoffmann, T. Schmidt, G. Mückl, Torsten Pelzer")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
