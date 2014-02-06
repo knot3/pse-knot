@@ -47,7 +47,7 @@ namespace Knot3.UnitTests
 
 		public GraphicsDevice Device { get; private set; }
 
-		public Viewport Viewport { get; set; }
+        public Viewport Viewport { get { return new Viewport(new Rectangle(0, 0, 800, 600)); } set { } }
 
 		public ContentManager Content { get; private set; }
 
