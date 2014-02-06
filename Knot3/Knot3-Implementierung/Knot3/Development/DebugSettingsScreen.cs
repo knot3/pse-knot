@@ -72,6 +72,14 @@ namespace Knot3.Development
 			);
 			settingsMenu.Add (showFps);
 
+			CheckBoxItem showProfiler = new CheckBoxItem (
+			    screen: this,
+			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,
+			    text: "Show Profiler",
+			    option: new BooleanOptionInfo ("video", "profiler-overlay", true, Options.Default)
+			);
+			settingsMenu.Add (showProfiler);
+
 			CheckBoxItem showBoundings = new CheckBoxItem (
 			    screen: this,
 			    drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem,

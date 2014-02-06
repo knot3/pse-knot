@@ -53,7 +53,7 @@ namespace Knot3.Widgets
 			set;
 		}
 
-		private Regex Whitespace = new Regex("^\\s*$"); // Todo: global besser!?
+		private static readonly Regex Whitespace = new Regex("^\\s*$"); // Todo: global besser!?
 
 		public string Text
 		{
