@@ -109,20 +109,17 @@ namespace Knot3.Widgets
 		public void AddPoints (float startX, float startY, params float[] xyxy)
 		{
 			Vector2 start = new Vector2 (startX, startY);
-			if (start.X > 1 || start.Y > 1) {
-				start /= 1000f;
-			}
 			points.Add (start);
 
 			Vector2 current = start;
 			for (int i = 0; i < xyxy.Length; ++i) {
 				// this is a new X value
 				if (i % 2 == 0) {
-					current.X = xyxy [i] > 1 ? xyxy [i] / 1000f : xyxy [i];
+					current.X = xyxy [i];
 				}
 				// this is a new Y value
 				else {
-					current.Y = xyxy [i] > 1 ? xyxy [i] / 1000f : xyxy [i];
+					current.Y = xyxy [i];
 				}
 
 				points.Add (current);

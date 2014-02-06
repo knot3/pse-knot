@@ -77,7 +77,7 @@ namespace Knot3.Screens
 						    1000
 						);*/
 
-			lines.AddPoints (0, 50, 30, 970, 630, 895, 730, 970, 770, 895, 870, 970, 970, 50, 1000);
+			lines.AddPoints (.000f, .050f, .030f, .970f, .630f, .895f, .730f, .970f, .770f, .895f, .870f, .970f, .970f, .050f, 1.000f);
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Start Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);

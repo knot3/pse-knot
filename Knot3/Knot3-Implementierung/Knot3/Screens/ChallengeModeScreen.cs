@@ -192,10 +192,6 @@ namespace Knot3.Screens
 			undoButton.AlignX = HorizontalAlignment.Center;
 			undoButton.IsVisible = false;
 
-			// die Linien
-			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
-			lines.AddPoints (500, 0, 500, 1000);
-
 			// Redo-Button
 			redoButton = new Button (
 			    screen: this,
@@ -212,7 +208,7 @@ namespace Knot3.Screens
 
 			// die Linien
 			lines = new Lines (screen: this, drawOrder: DisplayLayer.Dialog, lineWidth: 2);
-			lines.AddPoints (500, 0, 500, 1000);
+			lines.AddPoints (0.500f, 0.000f, 0.500f, 1.000f);
 
 			// Status
 			state = ChallengeModeState.Start;

@@ -96,11 +96,12 @@ namespace Knot3.Screens
 			navigationMenu.Add (controlsButton);
 			navigationMenu.Add (profileButton);
 
-			lines.AddPoints (0, 50,
-			                 30, 970,
-			                 770, 895,
-			                 870, 970,
-			                 970, 50, 1000
+			lines.AddPoints (0.000f, 0.050f,
+			                 0.030f, 0.970f,
+			                 0.770f, 0.895f,
+			                 0.870f, 0.970f,
+			                 0.970f, 0.050f,
+			                 1.000f
 			                );
 
 			backButton = new MenuEntry (

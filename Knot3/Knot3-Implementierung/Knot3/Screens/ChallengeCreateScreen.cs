@@ -91,13 +91,13 @@ namespace Knot3.Screens
 			startKnotMenu.ItemAlignX = targetKnotMenu.ItemAlignX = HorizontalAlignment.Left;
 			startKnotMenu.ItemAlignY = targetKnotMenu.ItemAlignY = VerticalAlignment.Center;
 
-			lines.AddPoints (0, 50,
-
-			                 30, 970,
-			                 770, 895,
-			                 870, 970,
-			                 970, 50, 1000
-			                );
+			lines.AddPoints (.000f, .050f,
+			                 .030f, .970f,
+			                 .770f, .895f,
+			                 .870f, .970f,
+			                 .970f, .050f,
+			                 1.000f
+			                 );
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Create Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
