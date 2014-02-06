@@ -25,16 +25,26 @@ namespace Knot3.Screens
 	/// Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
 	/// </summary>
 	public class CreditsScreen : MenuScreen
-	{
-		#region Constructors
+    {
 
-		/// <summary>
+        #region Properties
+
+
+        private String text;
+
+
+        #endregion
+
+
+        #region Constructors
+
+        /// <summary>
 		/// Erzeugt ein neues CreditsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 		/// </summary>
 		public CreditsScreen (Knot3Game game)
 		: base(game)
 		{
-			throw new System.NotImplementedException();
+            text = "...";
 		}
 
 		#endregion

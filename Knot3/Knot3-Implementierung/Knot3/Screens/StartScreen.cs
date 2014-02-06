@@ -175,8 +175,7 @@ namespace Knot3.Screens
 
 			// Zeichne das Logo
 			spriteBatch.Begin ();
-			spriteBatch.Draw (logo, new Rectangle (50, 380, 500, 300).Scale (Viewport), Color.White);
-
+			spriteBatch.Draw (logo, new Rectangle (50, 360, 500, 300).Scale (Viewport), Color.White);
 			spriteBatch.End ();
 		}
 
