@@ -21,8 +21,8 @@ namespace Knot3
 		{
 			Log.Message ("Knot" + Char.ConvertFromUtf32 ('\u00B3').ToString () + " " + Version);
 			Log.Message ("Copyright (C) 2013-2014 Tobias Schulz, Maximilian Reuter,\n" +
-				"Pascal Knodel, Gerd Augsburg, Christina Erler, Daniel Warzel,\n" +
-				"M. Retzlaff, F. Kalka, G. Hoffmann, T. Schmidt, G. Mückl, Torsten Pelzer");
+			             "Pascal Knodel, Gerd Augsburg, Christina Erler, Daniel Warzel,\n" +
+			             "M. Retzlaff, F. Kalka, G. Hoffmann, T. Schmidt, G. Mückl, Torsten Pelzer");
 
 			game = new Knot3Game ();
 			game.Run ();
