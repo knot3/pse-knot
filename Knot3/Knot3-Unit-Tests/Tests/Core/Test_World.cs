@@ -24,7 +24,7 @@ namespace Knot3.UnitTests
 		[Test, Description("World Add/Remove")]
 		public void AddRemoveTest ()
 		{
-			screen = screen ?? new FakeScreen (null);
+			screen = screen ?? new FakeScreen ();
 			effect = effect ?? new FakeEffect (screen);
 
 			// Erstelle einen Knoten

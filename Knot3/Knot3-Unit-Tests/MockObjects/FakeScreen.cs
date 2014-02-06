@@ -19,7 +19,11 @@ namespace Knot3.UnitTests
 		/// <summary>
 		/// Das Spiel, zu dem der Spielzustand gehört.
 		/// </summary>
-		public Knot3Game Game { get; set; }
+		public Knot3Game Game
+		{
+			get { return null;}
+			set {}
+		}
 
 		/// <summary>
 		/// Der Inputhandler des Spielzustands.
@@ -62,9 +66,8 @@ namespace Knot3.UnitTests
 
 		#region Constructors
 
-		public FakeScreen (Knot3Game game)
+		public FakeScreen ()
 		{
-			Game = game;
 			NextScreen = this;
 			CurrentRenderEffects = new FakeEffectStack (
 			    screen: this,
