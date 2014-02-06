@@ -1,1 +1,0 @@
-﻿..\..\..\packages\NUnit.Runners.2.6.3\tools\nunit-console.exe Knot3-Coverage-Tests-Windows.test.dll /noshadow

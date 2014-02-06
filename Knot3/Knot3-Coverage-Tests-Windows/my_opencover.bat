@@ -1,0 +1,1 @@
+%USERPROFILE%\AppData\Local\Apps\OpenCover\OpenCover.Console.exe -target:..\..\my_nunit.bat -register:user -filter:+[Sample]* 
