@@ -15,7 +15,6 @@ namespace Knot3.UnitTests.Tests.Widgets
 	[TestFixture]
 	public class Test_Bounds
 	{
-
 		[Test]
 		public void Bounds_Contains_Test()
 		{
