@@ -97,7 +97,7 @@ namespace Knot3.Screens
 			                 .870f, .970f,
 			                 .970f, .050f,
 			                 1.000f
-			                 );
+			                );
 
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Create Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
