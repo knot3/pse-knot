@@ -41,6 +41,8 @@ namespace Knot3.GameObjects
 			get { return _bounds; }
 		}
 
+		public bool IsVirtual { get; set; }
+
 		#endregion
 
 		#region Constructors
@@ -71,6 +73,9 @@ namespace Knot3.GameObjects
 			Coloring = new SingleColor (Info.Edge);
 			if (World.SelectedObject == this) {
 				Coloring.Highlight (intensity: 0.40f, color: Color.White);
+			}
+			else if (IsVirtual) {
+				Coloring.Highlight (intensity: 0.5f, color: Color.White);
 			}
 			else if (Info.Knot != null && Info.Knot.SelectedEdges.Contains (Info.Edge)) {
 				Coloring.Highlight (intensity: 0.80f, color: Color.White);

@@ -34,6 +34,8 @@ namespace Knot3.GameObjects
 		/// </summary>
 		public new NodeModelInfo Info { get { return base.Info as NodeModelInfo; } set { base.Info = value; } }
 
+		public bool IsVirtual { get; set; }
+
 		#endregion
 
 		#region Constructors
@@ -57,6 +59,12 @@ namespace Knot3.GameObjects
 		public override void Draw (GameTime time)
 		{
 			Coloring = new GradientColor (Info.EdgeFrom, Info.EdgeTo);
+			if (IsVirtual) {
+				Coloring.Highlight (intensity: 0.5f, color: Color.White);
+			}
+			else {
+				Coloring.Unhighlight ();
+			}
 			base.Draw (time);
 		}
 

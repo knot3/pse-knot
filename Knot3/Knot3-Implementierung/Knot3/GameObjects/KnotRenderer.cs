@@ -231,9 +231,10 @@ namespace Knot3.GameObjects
 		{
 			pipes.Clear ();
 			foreach (Edge edge in edges) {
-				PipeModelInfo info = new PipeModelInfo (nodeMap, edges as Knot, edge);
+				PipeModelInfo info = new PipeModelInfo (nodeMap, knot, edge);
 				PipeModel pipe = pipeFactory [screen, info] as PipeModel;
 				pipe.Info.IsVisible = true;
+				pipe.IsVirtual = !knot.Contains (edge);
 				pipe.World = World;
 				pipes.Add (pipe);
 			}
@@ -267,6 +268,7 @@ namespace Knot3.GameObjects
 
 				foreach (NodeModelInfo junction in junctions.OfType<NodeModelInfo>()) {
 					NodeModel model = nodeFactory [screen, junction] as NodeModel;
+					model.IsVirtual = !knot.Contains (junction.EdgeFrom) || !knot.Contains (junction.EdgeTo);
 					model.World = World;
 					nodes.Add (model);
 				}
