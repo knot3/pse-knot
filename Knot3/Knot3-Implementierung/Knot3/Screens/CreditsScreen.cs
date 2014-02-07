@@ -52,8 +52,9 @@ namespace Knot3.Screens
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-			if (text.Length == 0)
-				text = ""; //TODO
+			if (text.Length == 0) {
+				text = "";    //TODO
+			}
 		}
 
 		/// <summary>

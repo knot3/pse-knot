@@ -52,8 +52,8 @@ namespace Knot3.Core
 					}
 					else {
 						string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width.ToString ()
-							+ "x"
-							+ Graphics.GraphicsDevice.DisplayMode.Height.ToString ();
+						                           + "x"
+						                           + Graphics.GraphicsDevice.DisplayMode.Height.ToString ();
 
 						Options.Default ["video", "resolution", currentResolution] = "1280x720";
 					}
@@ -252,8 +252,8 @@ namespace Knot3.Core
 			int width;
 			int height;
 			string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width.ToString ()
-				+ "x"
-				+ Graphics.GraphicsDevice.DisplayMode.Height.ToString ();
+			                           + "x"
+			                           + Graphics.GraphicsDevice.DisplayMode.Height.ToString ();
 			if (lastResolution != Options.Default ["video", "resolution", currentResolution] && !isFullscreen) {
 				String strReso = Options.Default ["video", "resolution", currentResolution];
 				string[] reso = strReso.Split ('x');
