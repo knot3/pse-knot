@@ -160,7 +160,7 @@ namespace Knot3.Screens
 			debugBoundings = new DebugBoundings (screen: this, position: Vector3.Zero);
 
 			// edge movements
-			PlayerEdgeMovement = new EdgeMovement (screen: this, world: PlayerWorld, position: Vector3.Zero);
+			PlayerEdgeMovement = new EdgeMovement (screen: this, world: PlayerWorld, knotRenderer: PlayerKnotRenderer, position: Vector3.Zero);
 			PlayerWorld.Add (PlayerEdgeMovement);
 
 			// assign the specified challenge

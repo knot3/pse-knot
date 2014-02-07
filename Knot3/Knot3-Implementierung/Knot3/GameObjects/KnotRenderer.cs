@@ -76,7 +76,6 @@ namespace Knot3.GameObjects
 			}
 			set {
 				knot = value;
-				nodeMap.Edges = knot;
 				knot.EdgesChanged += OnEdgesChanged;
 				knot.SelectionChanged += OnSelectionChanged;
 				OnEdgesChanged ();
@@ -84,6 +83,19 @@ namespace Knot3.GameObjects
 		}
 
 		private Knot knot;
+
+		public IEnumerable<Edge> VirtualKnot
+		{
+			get {
+				return virtualKnot;
+			}
+			set {
+				virtualKnot = value;
+				OnVirtualKnotAssigned ();
+			}
+		}
+
+		private IEnumerable<Edge> virtualKnot;
 
 		/// <summary>
 		/// Der Zwischenspeicher für die 3D-Modelle der Kanten. Hier wird das Fabrik-Entwurfsmuster verwendet.
@@ -177,10 +189,11 @@ namespace Knot3.GameObjects
 		/// </summary>
 		private void OnEdgesChanged ()
 		{
+			nodeMap.Edges = knot;
 			nodeMap.Offset = Info.Position;
 			nodeMap.OnEdgesChanged ();
 
-			CreatePipes ();
+			CreatePipes (knot);
 			if (Options.Default ["debug", "show-startedge-direction", false]) {
 				CreateStartArrow ();
 			}
@@ -193,19 +206,32 @@ namespace Knot3.GameObjects
 			World.Redraw = true;
 		}
 
+		private void OnVirtualKnotAssigned ()
+		{
+			nodeMap.Edges = virtualKnot;
+			nodeMap.Offset = Info.Position;
+			nodeMap.OnEdgesChanged ();
+
+			CreatePipes (virtualKnot);
+			CreateNodes ();
+
+			World.Redraw = true;
+		}
+
 		private void OnSelectionChanged ()
 		{
+			nodeMap.Edges = knot;
 			if (showArrows) {
 				CreateArrows ();
 			}
 			World.Redraw = true;
 		}
 
-		private void CreatePipes ()
+		private void CreatePipes (IEnumerable<Edge> edges)
 		{
 			pipes.Clear ();
-			foreach (Edge edge in knot) {
-				PipeModelInfo info = new PipeModelInfo (nodeMap, knot, edge);
+			foreach (Edge edge in edges) {
+				PipeModelInfo info = new PipeModelInfo (nodeMap, edges as Knot, edge);
 				PipeModel pipe = pipeFactory [screen, info] as PipeModel;
 				pipe.Info.IsVisible = true;
 				pipe.World = World;
@@ -349,12 +375,12 @@ namespace Knot3.GameObjects
 						}
 					}
 					else {
-						Edge edgeAC = new Edge((rect.NodeC - rect.NodeA).ToDirection());
-						Edge edgeBD = new Edge((rect.NodeD - rect.NodeB).ToDirection());
-						if (!rectMap.ContainsEdge(nodeA + edgeAC, nodeC)) {
+						Edge edgeAC = new Edge ((rect.NodeC - rect.NodeA).ToDirection ());
+						Edge edgeBD = new Edge ((rect.NodeD - rect.NodeB).ToDirection ());
+						if (!rectMap.ContainsEdge (nodeA + edgeAC, nodeC)) {
 							rectMap.AddEdge (edge: edgeAC, nodeA: nodeA + edgeAC, nodeB: nodeC, isVirtual: true);
 						}
-						if (!rectMap.ContainsEdge(nodeB + edgeBD, nodeD)) {
+						if (!rectMap.ContainsEdge (nodeB + edgeBD, nodeD)) {
 							rectMap.AddEdge (edge: edgeBD, nodeA: nodeB + edgeBD, nodeB: nodeD, isVirtual: true);
 						}
 					}

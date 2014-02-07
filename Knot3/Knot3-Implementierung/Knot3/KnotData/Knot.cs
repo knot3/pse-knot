@@ -85,12 +85,12 @@ namespace Knot3.KnotData
 		public Knot ()
 		{
 			debugId++;
-			MetaData = new KnotMetaData(String.Empty, () => startElement.Count, null, null);
-			startElement = new CircleEntry<Edge>(new Edge[] {
+			MetaData = new KnotMetaData (String.Empty, () => startElement.Count, null, null);
+			startElement = new CircleEntry<Edge> (new Edge[] {
 				Edge.Up, Edge.Right, Edge.Right, Edge.Down, Edge.Backward,
 				Edge.Up, Edge.Left, Edge.Left, Edge.Down, Edge.Forward
 			}
-			                                    );
+			);
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -116,7 +116,7 @@ namespace Knot3.KnotData
 			    format: metaData.Format,
 			    filename: metaData.Filename
 			);
-			this.startElement = new CircleEntry<Edge>(edges);
+			this.startElement = new CircleEntry<Edge> (edges);
 			selectedEdges = new List<Edge> ();
 		}
 
@@ -130,7 +130,11 @@ namespace Knot3.KnotData
 		/// </summary>
 		public bool IsValidMove (Direction direction, int distance)
 		{
-			CreateStructuredSelection ();
+			// Erstelle die Liste nur, wenn es notwendig ist.
+			if (StructuredSelection == null) {
+				StructuredSelection = CreateStructuredSelection (startElement);
+			}
+
 			if (StructuredSelection.Count == 0) {
 				return false;
 			}
@@ -165,7 +169,7 @@ namespace Knot3.KnotData
 					counter++;
 				}
 				while (pointer != nextBlock.Begin) {
-					stack.Push (pointer.Value.Direction);
+					stack.Push (pointer.Value);
 					pointer++;
 				}
 				for (int i = 0; i < distance; i++) {
@@ -177,26 +181,73 @@ namespace Knot3.KnotData
 					}
 				}
 			}
+
 			return IsValidStructure (stack);
+		}
+
+		public bool ShadowKnot (Direction direction, int distance, out IEnumerable<Edge> _virtualKnot)
+		{
+			if (!IsValidMove (direction, distance)) {
+				_virtualKnot = new Edge[]{};
+				return false;
+			}
+			Log.Debug ("ShadowKnot: direction=", direction, ", distance=", distance);
+
+			CircleEntry<Edge> virtualKnot = new CircleEntry<Edge> (startElement as IEnumerable<Edge>);
+			List<SelectionBlock> selection = new List<SelectionBlock> ();
+			selection = CreateStructuredSelection (virtualKnot);
+
+			// Durchlauf über die Selektionsblöcke
+			for (int b = 0; b < selection.Count; ++b) {
+				SelectionBlock currentBlock = selection [b];
+
+				CircleEntry<Edge> pointer = currentBlock.Begin;
+				// Vor der Selektion Kanten einfügen, wenn die vorhandenen nicht in die entgegengesetzte Richtung zeigen.
+				// Wenn das der Fall ist stattdessen die Kante löschen.
+				for (int n = 0; n < distance; n++) {
+					if (pointer.Previous.Value.Direction == direction.Reverse) {
+						pointer.Previous.Remove ();
+					}
+					else {
+						pointer.InsertBefore (new Edge (direction, pointer.Value.Color));
+					}
+				}
+
+				pointer = currentBlock.End;
+				// Hinter der Selektion Kanten einfügen, wenn die vorhandenen nicht in die entgegengesetzte Richtung zeigen.
+				// Wenn das der Fall ist stattdessen die Kante löschen.
+				for (int n = 0; n < distance; n++) {
+					if (pointer.Next.Value.Direction == direction) {
+						pointer.Next.Remove ();
+					}
+					else {
+						pointer.InsertAfter (new Edge (direction.Reverse, pointer.Value.Color));
+					}
+				}
+			}
+
+			_virtualKnot = virtualKnot;
+
+			return true;
 		}
 
 		/// <summary>
 		/// Prüft ob die gegeben Struktur einen gültigen Knoten darstellt.
 		/// </summary>
-		public static bool IsValidStructure (Stack<Direction> knot)
+		public static bool IsValidStructure (IEnumerable<Direction> knot)
 		{
 			Vector3 position3D = Vector3.Zero;
 			HashSet<Vector3> occupancy = new HashSet<Vector3> ();
-			if (knot.Count < 4) {
+			if (knot.Count () < 4) {
 				return false;
 			}
-			while (knot.Count > 0) {
-				if (occupancy.Contains (position3D + (knot.Peek () / 2))) {
+			foreach (Direction peek in knot) {
+				if (occupancy.Contains (position3D + (peek / 2))) {
 					return false;
 				}
 				else {
-					occupancy.Add (position3D + (knot.Peek () / 2));
-					position3D += knot.Pop ();
+					occupancy.Add (position3D + (peek / 2));
+					position3D += peek;
 				}
 			}
 			if (position3D.DistanceTo (Vector3.Zero) > 0.00001f) {
@@ -210,7 +261,10 @@ namespace Knot3.KnotData
 		/// </summary>
 		public bool IsValidMove (Direction dir)
 		{
-			CreateStructuredSelection ();
+			// Erstelle die Liste nur, wenn es notwendig ist.
+			if (StructuredSelection == null) {
+				StructuredSelection = CreateStructuredSelection (startElement);
+			}
 			if (StructuredSelection.Count == 0) {
 				return false;
 			}
@@ -234,7 +288,7 @@ namespace Knot3.KnotData
 				}
 			}
 			// Wenn alle Kanten entlang einer Achse angeordnet sind und die Verschieberichtung die selbe Achse hat
-			if (axes.Count == 1 && axes.Contains(dir.Axis)) {
+			if (axes.Count == 1 && axes.Contains (dir.Axis)) {
 				return false;
 			}
 			return true;
@@ -245,13 +299,14 @@ namespace Knot3.KnotData
 		/// </summary>
 		public bool Move (Direction direction, int distance)
 		{
-			Log.Debug("Moving edges of knot#", debugId);
+			Log.Debug ("Moving edges of knot#", debugId);
 			if (!IsValidMove (direction, distance)) {
 				return false;
 			}
+
 			// Durchlauf über die Selektionsblöcke
 			for (int b = 0; b < StructuredSelection.Count; ++b) {
-				Log.Debug("Moving edges of knot#", debugId);
+				Log.Debug ("Moving edges of knot#", debugId);
 				SelectionBlock currentBlock = StructuredSelection [b];
 
 				CircleEntry<Edge> pointer = currentBlock.Begin;
@@ -292,20 +347,20 @@ namespace Knot3.KnotData
 						pointer.Next.Remove ();
 					}
 					else {
-						pointer.InsertAfter(new Edge(direction.Reverse, pointer.Value.Color));
+						pointer.InsertAfter (new Edge (direction.Reverse, pointer.Value.Color));
 					}
 				}
 			}
-			Log.Debug("Moving edges of knot#", debugId);
+			Log.Debug ("Moving edges of knot#", debugId);
 			onEdgesChanged ();
 
 			return true;
 		}
 
-		private void onEdgesChanged()
+		private void onEdgesChanged ()
 		{
 			CharakteristicCache = null;
-			EdgesChanged();
+			EdgesChanged ();
 		}
 
 		/// <summary>
@@ -339,7 +394,7 @@ namespace Knot3.KnotData
 		/// </summary>
 		public Object Clone ()
 		{
-			CircleEntry<Edge> newCircle = new CircleEntry<Edge>(startElement as IEnumerable<Edge>);
+			CircleEntry<Edge> newCircle = new CircleEntry<Edge> (startElement as IEnumerable<Edge>);
 			KnotMetaData metaData = new KnotMetaData (
 			    name: MetaData.Name,
 			    countEdges: () => 0,
@@ -519,23 +574,23 @@ namespace Knot3.KnotData
 			for (edgeCount = 1; edgePointer != startElement; edgePointer++, edgeCount++) {
 				Vector3 nextPosition3D = position3D + edgePointer.Value.Direction / 2;
 				if ((nextPosition3D.X < bestPosition3D.X)
-				        || (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y < bestPosition3D.Y)
-				        || (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y == bestPosition3D.Y && nextPosition3D.Z < bestPosition3D.Z)) {
+					|| (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y < bestPosition3D.Y)
+					|| (nextPosition3D.X == bestPosition3D.X && nextPosition3D.Y == bestPosition3D.Y && nextPosition3D.Z < bestPosition3D.Z)) {
 					bestPosition3D = position3D + edgePointer.Value.Direction / 2;
 					charakteristikElement = edgePointer;
 				}
 				position3D += edgePointer.Value.Direction;
 			}
 
-			CharakteristicCache = new KnotCharakteristic(charakteristikElement, edgeCount);
+			CharakteristicCache = new KnotCharakteristic (charakteristikElement, edgeCount);
 			return CharakteristicCache.Value;
 		}
 
 		public override string ToString ()
 		{
 			return "Knot(name=" + Name + ",#edgecount=" + startElement.Count.ToString ()
-			       + ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
-			       + ")";
+				+ ",format=" + (MetaData.Format != null ? MetaData.ToString () : "null")
+				+ ")";
 		}
 
 		/// <summary>
@@ -543,23 +598,19 @@ namespace Knot3.KnotData
 		/// Die Liste hat immer 2n Einträge. Abwechselnd immer Anfang und Ende. Beide Innerhalb der Selektion.
 		/// D.h. Ist die Selektion nur eine Kante lang, dann sind die Einträge identisch.
 		/// </summary>
-		private void CreateStructuredSelection ()
+		private List<SelectionBlock> CreateStructuredSelection (CircleEntry<Edge> circle)
 		{
-			// Erstelle die Liste nur, wenn es notwendig ist.
-			if (StructuredSelection != null) {
-				return;
-			}
-			StructuredSelection = new List<SelectionBlock> ();
+			List<SelectionBlock> selection = new List<SelectionBlock> ();
 			// wenn nichts ausgewählt ist muss nichts weiter erstellt werden.
 			if (selectedEdges.Count == 0) {
-				return;
+				return selection;
 			}
 			// wenn alles ausgewählt ist kann man die erstellung verkürzen.
 			if (selectedEdges.Count == MetaData.CountEdges) {
-				StructuredSelection.Add (new SelectionBlock (startElement, startElement.Previous));
-				return;
+				selection.Add (new SelectionBlock (circle, circle.Previous));
+				return selection;
 			}
-			CircleEntry<Edge> start = startElement;
+			CircleEntry<Edge> start = circle;
 			CircleEntry<Edge> stop = start.Previous;
 			// Suche eine Stelle an der ein Selektionsblock beginnt.
 			if (selectedEdges.Contains (start.Value)) {
@@ -591,10 +642,12 @@ namespace Knot3.KnotData
 				}
 
 				// Füge den Selektions-Block der Liste hinzu
-				StructuredSelection.Add (new SelectionBlock (begin, end));
+				selection.Add (new SelectionBlock (begin, end));
 			}
 			// Höre auf, wenn man wieder beim element ist mit dem man begonnen hat.
-			while (start != StructuredSelection [0].Begin);
+			while (start != selection [0].Begin);
+			
+			return selection;
 		}
 
 		#endregion
@@ -607,19 +660,20 @@ namespace Knot3.KnotData
 
 			public CircleEntry<Edge> End { get; set; }
 
-			public SelectionBlock(CircleEntry<Edge> begin, CircleEntry<Edge> end)
+			public SelectionBlock (CircleEntry<Edge> begin, CircleEntry<Edge> end)
 			{
 				Begin = begin;
 				End = end;
 			}
 		}
 
-		private struct KnotCharakteristic {
+		private struct KnotCharakteristic
+		{
 			public CircleEntry<Edge> CharacteristicalEdge { get; private set; }
 
 			public int CountEdges { get; private set; }
 
-			public KnotCharakteristic(CircleEntry<Edge> characteristicalEdge, int countEdges)
+			public KnotCharakteristic (CircleEntry<Edge> characteristicalEdge, int countEdges)
 			: this()
 			{
 				CharacteristicalEdge = characteristicalEdge;

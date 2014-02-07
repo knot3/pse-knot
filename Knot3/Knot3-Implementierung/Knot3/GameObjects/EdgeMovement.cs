@@ -50,6 +50,7 @@ namespace Knot3.GameObjects
 
 		private Vector3 previousMousePosition = Vector3.Zero;
 		private List<ShadowGameObject> shadowObjects;
+		private KnotRenderer knotRenderer;
 
 		#endregion
 
@@ -60,10 +61,11 @@ namespace Knot3.GameObjects
 		/// mit ihrem zugehörigen IGameScreen-Objekt screen, der Spielwelt world und
 		/// Objektinformationen info.
 		/// </summary>
-		public EdgeMovement (IGameScreen screen, World world, Vector3 position)
+		public EdgeMovement (IGameScreen screen, World world, KnotRenderer knotRenderer, Vector3 position)
 		{
 			Screen = screen;
 			World = world;
+			this.knotRenderer = knotRenderer;
 			Info = new GameObjectInfo (position: position);
 			shadowObjects = new List<ShadowGameObject> ();
 		}
@@ -157,7 +159,7 @@ namespace Knot3.GameObjects
 				Vector3 currentMousePosition = World.Camera.To3D (
 				                                   position: InputManager.CurrentMouseState.ToVector2 (),
 				                                   nearTo: selectedModel.Center ()
-				                               );
+				);
 
 				// Wenn die Maus gedrückt gehalten ist und wir mitten im Ziehen der Kante
 				// an die neue Position sind
@@ -325,6 +327,12 @@ namespace Knot3.GameObjects
 			}
 
 			if (Knot.IsValidMove (direction)) {
+
+				IEnumerable<Edge> virtualKnot = null;
+				if (Knot.ShadowKnot (direction, (int)Math.Round (count), out virtualKnot)) {
+					knotRenderer.VirtualKnot = virtualKnot;
+				}
+
 				foreach (ShadowGameModel shadowObj in shadowObjects) {
 					shadowObj.ShadowPosition = shadowObj.OriginalPosition + direction * count * Node.Scale;
 					shadowObj.ShadowAlpha = 1f;

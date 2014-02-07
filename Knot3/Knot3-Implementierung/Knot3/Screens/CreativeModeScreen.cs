@@ -119,7 +119,7 @@ namespace Knot3.Screens
 			world.Add (debugBoundings);
 
 			// der Input-Handler zur Kanten-Verschiebung
-			edgeMovement = new EdgeMovement (screen: this, world: world, position: Vector3.Zero);
+			edgeMovement = new EdgeMovement (screen: this, world: world, knotRenderer : knotRenderer, position: Vector3.Zero);
 			world.Add (edgeMovement);
 
 			// der Input-Handler zur Kanten-Einfärbung
