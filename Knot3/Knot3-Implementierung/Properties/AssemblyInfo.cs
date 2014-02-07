@@ -10,7 +10,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Karlsruher Institut für Technologie")]
 [assembly: AssemblyProduct("Knot3")]
-[assembly: AssemblyCopyright("(C) 2013-2014 Tobias Schulz, Maximilian Reuter, Pascal Knodel, Gerd Augsburg, Christina Erler, Daniel Warzel")]
+[assembly: AssemblyCopyright("(C) 2013-2014 Tobias Schulz, Maximilian Reuter, " +
+			             "Pascal Knodel, Gerd Augsburg, Christina Erler, Daniel Warzel, " +
+			             "M. Retzlaff, G. Hoffmann, T. Schmidt, Torsten Pelzer")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,5 +35,5 @@ using System.Runtime.InteropServices;
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.1.73.0")]
-[assembly: AssemblyFileVersion("1.1.73.0")]
+[assembly: AssemblyVersion("1.1.80.0")]
+[assembly: AssemblyFileVersion("1.1.80.0")]

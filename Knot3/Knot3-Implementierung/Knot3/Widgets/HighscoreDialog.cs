@@ -75,11 +75,11 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Restart challenge",
-				onClick: restartAction
+			    onClick: restartAction
 			);
 			restartButton.Bounds.Size = new ScreenPoint(screen, ContentBounds.Size.Relative.X/2, 0.05f);
 			restartButton.Bounds.Position = ContentBounds.Position + ContentBounds.Size.OnlyY
-				- restartButton.Bounds.Size.OnlyY;
+			                                - restartButton.Bounds.Size.OnlyY;
 			restartButton.AlignX = HorizontalAlignment.Center;
 			buttons.Add (restartButton);
 
@@ -92,11 +92,11 @@ namespace Knot3.Widgets
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Return to menu",
-				onClick: returnAction
+			    onClick: returnAction
 			);
 			returnButton.Bounds.Size = new ScreenPoint(screen, ContentBounds.Size.Relative.X/2, 0.05f);
 			returnButton.Bounds.Position = ContentBounds.Position + ContentBounds.Size.OnlyY
-				- returnButton.Bounds.Size.OnlyY + ContentBounds.Size.OnlyX / 2;
+			                               - returnButton.Bounds.Size.OnlyY + ContentBounds.Size.OnlyX / 2;
 			returnButton.AlignX = HorizontalAlignment.Center;
 			buttons.Add (returnButton);
 		}
