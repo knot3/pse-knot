@@ -97,7 +97,6 @@ namespace Knot3.Widgets
 			}
 		}
 
-
 		/// <summary>
 		/// Reaktionen auf einen Linksklick.
 		/// </summary>
