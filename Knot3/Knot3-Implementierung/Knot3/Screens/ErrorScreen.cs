@@ -24,43 +24,45 @@ namespace Knot3.Screens
 	/// <summary>
 	/// Der Spielzustand, der die Auflistung der Mitwirkenden darstellt.
 	/// </summary>
-	public class CreditsScreen : MenuScreen
+	public class ErrorScreen : GameScreen
 	{
-		#region Properties
-
-		private String text;
-
-		#endregion
+		ErrorDialog dialog;
 
 		#region Constructors
 
 		/// <summary>
 		/// Erzeugt ein neues CreditsScreen-Objekt und initialisiert dieses mit einem Knot3Game-Objekt.
 		/// </summary>
-		public CreditsScreen (Knot3Game game)
+		public ErrorScreen (Knot3Game game, Exception ex)
 		: base(game)
 		{
-			text = "...";
+			string msg = CreateMessage (ex);
+			dialog = new ErrorDialog (screen: this, drawIndex: DisplayLayer.Dialog, message: msg);
 		}
 
 		#endregion
 
 		#region Methods
 
+		private string CreateMessage (Exception ex)
+		{
+			return ex.ToString ();
+		}
+
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
 		/// </summary>
 		public override void Update (GameTime time)
 		{
-			if (text.Length == 0)
-				text = ""; //TODO
 		}
 
 		/// <summary>
 		/// Fügt das Menü mit den Mitwirkenden in die Spielkomponentenliste ein.
 		/// </summary>
-		public override void Entered (IGameScreen previousScreen, GameTime GameTime)
+		public override void Entered (IGameScreen previousScreen, GameTime time)
 		{
+			base.Entered (previousScreen, time);
+			AddGameComponents (time, dialog);
 		}
 
 		#endregion

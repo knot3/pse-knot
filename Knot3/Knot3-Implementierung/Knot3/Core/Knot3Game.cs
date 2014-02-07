@@ -52,8 +52,8 @@ namespace Knot3.Core
 					}
 					else {
 						string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width.ToString ()
-						                           + "x"
-						                           + Graphics.GraphicsDevice.DisplayMode.Height.ToString ();
+							+ "x"
+							+ Graphics.GraphicsDevice.DisplayMode.Height.ToString ();
 
 						Options.Default ["video", "resolution", currentResolution] = "1280x720";
 					}
@@ -168,11 +168,17 @@ namespace Knot3.Core
 			current.PostProcessingEffect.Begin (time);
 			Graphics.GraphicsDevice.Clear (current.BackgroundColor);
 
-			// Rufe Draw() auf dem aktuellen Screen auf
-			current.Draw (time);
+			try {
+				// Rufe Draw() auf dem aktuellen Screen auf
+				current.Draw (time);
 
-			// Rufe Draw() auf den Spielkomponenten auf
-			base.Draw (time);
+				// Rufe Draw() auf den Spielkomponenten auf
+				base.Draw (time);
+			}
+			catch (Exception ex) {
+				// Error Screen
+				ShowError (ex);
+			}
 
 			// Beende den Post-Processing-Effekt des Screens
 			current.PostProcessingEffect.End (time);
@@ -185,38 +191,51 @@ namespace Knot3.Core
 		{
 		}
 
+		public void ShowError (Exception ex)
+		{
+			Screens = new Stack<IGameScreen> ();
+			Screens.Push (new ErrorScreen (this, ex));
+			Screens.Peek ().Entered (null, null);
+		}
+
 		/// <summary>
 		/// Wird für jeden Frame aufgerufen.
 		/// </summary>
 		protected override void Update (GameTime time)
 		{
-			updateResolution ();
-			// falls der Screen gewechselt werden soll...
-			IGameScreen current = Screens.Peek ();
-			IGameScreen next = current.NextScreen;
-			if (current != next) {
-				next.PostProcessingEffect = new FadeEffect (next, current);
-				current.BeforeExit (next, time);
-				current.NextScreen = current;
-				next.NextScreen = next;
-				Screens.Push (next);
-				next.Entered (current, time);
+			try {
+				updateResolution ();
+				// falls der Screen gewechselt werden soll...
+				IGameScreen current = Screens.Peek ();
+				IGameScreen next = current.NextScreen;
+				if (current != next) {
+					next.PostProcessingEffect = new FadeEffect (next, current);
+					current.BeforeExit (next, time);
+					current.NextScreen = current;
+					next.NextScreen = next;
+					Screens.Push (next);
+					next.Entered (current, time);
+				}
+
+				if (current.PostProcessingEffect is FadeEffect && (current.PostProcessingEffect as FadeEffect).IsFinished) {
+					current.PostProcessingEffect = new StandardEffect (current);
+				}
+
+				if (Keys.F8.IsDown ()) {
+					this.Exit ();
+					return;
+				}
+
+				// Rufe Update() auf dem aktuellen Screen auf
+				Screens.Peek ().Update (time);
+
+				// base method
+				base.Update (time);
 			}
-
-			if (current.PostProcessingEffect is FadeEffect && (current.PostProcessingEffect as FadeEffect).IsFinished) {
-				current.PostProcessingEffect = new StandardEffect (current);
+			catch (Exception ex) {
+				// Error Screen
+				ShowError (ex);
 			}
-
-			if (Keys.F8.IsDown ()) {
-				this.Exit ();
-				return;
-			}
-
-			// Rufe Update() auf dem aktuellen Screen auf
-			Screens.Peek ().Update (time);
-
-			// base method
-			base.Update (time);
 		}
 
 		private void toDefaultSize (bool fullscreen)
@@ -233,8 +252,8 @@ namespace Knot3.Core
 			int width;
 			int height;
 			string currentResolution = Graphics.GraphicsDevice.DisplayMode.Width.ToString ()
-			                           + "x"
-			                           + Graphics.GraphicsDevice.DisplayMode.Height.ToString ();
+				+ "x"
+				+ Graphics.GraphicsDevice.DisplayMode.Height.ToString ();
 			if (lastResolution != Options.Default ["video", "resolution", currentResolution] && !isFullscreen) {
 				String strReso = Options.Default ["video", "resolution", currentResolution];
 				string[] reso = strReso.Split ('x');

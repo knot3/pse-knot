@@ -143,6 +143,8 @@ namespace Knot3.Screens
 
 			// Suche nach Spielständen
 			loader.FindSavegames (AddSavegameToList);
+
+			//throw new Exception("test error");
 		}
 
 		/// <summary>
