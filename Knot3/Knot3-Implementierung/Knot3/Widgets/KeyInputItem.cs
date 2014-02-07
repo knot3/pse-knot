@@ -19,6 +19,7 @@ using Knot3.Screens;
 using Knot3.RenderEffects;
 using Knot3.KnotData;
 using Knot3.Utilities;
+using Knot3.Development;
 
 namespace Knot3.Widgets
 {
@@ -76,11 +77,23 @@ namespace Knot3.Widgets
 		public override void OnKeyEvent (List<Keys> keys, KeyEvent keyEvent, GameTime time)
 		{
 			if (keys.Count > 0) {
-				option.Value = keys [0];
-				InputText = (option as DistinctOptionInfo).Value;
-				IsInputEnabled = false;
-				OnValueChanged ();
-				OnValueSubmitted ();
+				Keys key = keys [0];
+				if (KnotInputHandler.CurrentKeyAssignment.Count == 0) {
+					KnotInputHandler.ReadKeyAssignments ();
+				}
+				Log.Debug ("Trying to assign key: ", key);
+				if (KnotInputHandler.CurrentKeyAssignment.ContainsKey (key) && option.Value != key) {
+					Log.Debug ("Key ", key, " is already assigned to: ", KnotInputHandler.CurrentKeyAssignment [key]);
+				}
+				else {
+					Log.Debug ("Key ", key, " => ", option.Name);
+					option.Value = key;
+					InputText = (option as DistinctOptionInfo).Value;
+					IsInputEnabled = false;
+					OnValueChanged ();
+					OnValueSubmitted ();
+					KnotInputHandler.ReadKeyAssignments ();
+				}
 			}
 		}
 

@@ -485,7 +485,7 @@ namespace Knot3.GameObjects
 		/// Wird ausgeführt, sobald ein KnotInputHandler erstellt wird und danach,
 		/// wenn sich die Tastenbelegung geändert hat.
 		/// </summary>
-		public void OnControlSettingsChanged ()
+		public static void ReadKeyAssignments ()
 		{
 			// Drehe die Zuordnung um; von (Taste -> Aktion) zu (Aktion -> Taste)
 			Dictionary<PlayerActions, Keys> defaultReversed = DefaultKeyAssignment.ReverseDictionary ();
@@ -509,6 +509,15 @@ namespace Knot3.GameObjects
 				CurrentKeyAssignment [option.Value] = action;
 			}
 			CurrentKeyAssignmentReversed = CurrentKeyAssignment.ReverseDictionary ();
+		}
+
+		/// <summary>
+		/// Wird ausgeführt, sobald ein KnotInputHandler erstellt wird und danach,
+		/// wenn sich die Tastenbelegung geändert hat.
+		/// </summary>
+		public void OnControlSettingsChanged ()
+		{
+			ReadKeyAssignments();
 
 			// Aktualisiere die Liste von Tasten, zu denen wir als IKeyEventListener benachrichtigt werden
 			ValidKeys.Clear ();
