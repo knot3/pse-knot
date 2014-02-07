@@ -30,6 +30,7 @@ namespace Knot3.Widgets
 		#region Properties
 
 		private Menu highscoreList;
+		private Container buttons;
 
 		#endregion
 
@@ -57,36 +58,47 @@ namespace Knot3.Widgets
 					TextItem firstScore = new TextItem (screen, drawOrder, entry.Value + " " + entry.Key);
 					highscoreList.Add (firstScore);
 					highscoreCounter++;
-					if (highscoreCounter >8) {
+					if (highscoreCounter > 8) {
 						break;
 					}
 				}
 			}
 
-			//Button f�rs Neustarten
+			buttons = new Container (screen, Index + DisplayLayer.Menu);
+
+			// Button zum Neustarten der Challenge
+			Action<GameTime> restartAction = (time) => {
+				Close (time);
+				Screen.NextScreen = new ChallengeModeScreen (Screen.Game, challenge);
+			};
 			MenuEntry restartButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Restart challenge",
-			onClick: (time) => {
-				Close (time);
-				Screen.NextScreen = new ChallengeModeScreen (Screen.Game, challenge);
-			}
+				onClick: restartAction
 			);
+			restartButton.Bounds.Size = new ScreenPoint(screen, ContentBounds.Size.Relative.X/2, 0.05f);
+			restartButton.Bounds.Position = ContentBounds.Position + ContentBounds.Size.OnlyY
+				- restartButton.Bounds.Size.OnlyY;
+			restartButton.AlignX = HorizontalAlignment.Center;
+			buttons.Add (restartButton);
 
-			highscoreList.Add (restartButton);
-
-			//Button f�r die R�ckkehr zum StartScreen
+			// Button für die Rückkehr zum StartScreen
+			Action<GameTime> returnAction = (time) => {
+				Close (time);
+				Screen.NextScreen = new StartScreen (Screen.Game);
+			};
 			MenuEntry returnButton = new MenuEntry (
 			    screen: Screen,
 			    drawOrder: Index + DisplayLayer.MenuItem,
 			    name: "Return to menu",
-			onClick: (time) => {
-				Close (time);
-				Screen.NextScreen = new StartScreen (Screen.Game);
-			}
+				onClick: returnAction
 			);
-			highscoreList.Add (returnButton);
+			returnButton.Bounds.Size = new ScreenPoint(screen, ContentBounds.Size.Relative.X/2, 0.05f);
+			returnButton.Bounds.Position = ContentBounds.Position + ContentBounds.Size.OnlyY
+				- returnButton.Bounds.Size.OnlyY + ContentBounds.Size.OnlyX / 2;
+			returnButton.AlignX = HorizontalAlignment.Center;
+			buttons.Add (returnButton);
 		}
 
 		#endregion
@@ -99,6 +111,7 @@ namespace Knot3.Widgets
 				yield return component;
 			}
 			yield return highscoreList;
+			yield return buttons;
 		}
 
 		#endregion
