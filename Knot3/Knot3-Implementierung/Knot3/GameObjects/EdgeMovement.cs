@@ -159,7 +159,7 @@ namespace Knot3.GameObjects
 				Vector3 currentMousePosition = World.Camera.To3D (
 				                                   position: InputManager.CurrentMouseState.ToVector2 (),
 				                                   nearTo: selectedModel.Center ()
-				);
+				                               );
 
 				// Wenn die Maus gedrückt gehalten ist und wir mitten im Ziehen der Kante
 				// an die neue Position sind
@@ -327,7 +327,6 @@ namespace Knot3.GameObjects
 			}
 
 			if (Knot.IsValidMove (direction)) {
-
 				IEnumerable<Edge> virtualKnot = null;
 				if (Knot.ShadowKnot (direction, (int)Math.Round (count), out virtualKnot)) {
 					knotRenderer.VirtualKnot = virtualKnot;
