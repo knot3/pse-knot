@@ -16,7 +16,7 @@ namespace Knot3.UnitTests.Tests.KnotData
 		[Test]
 		public void test_EncodeDecodeEdge ()
 		{
-			Edge[] edges = {Edge.Left, Edge.Right, Edge.Up, Edge.Down};
+			Edge[] edges = { Edge.Left, Edge.Right, Edge.Up, Edge.Down, Edge.Forward, Edge.Backward };
 
 			foreach (Edge edge in edges) {
 				// EncodeEdge(edge);
