@@ -16,14 +16,14 @@ namespace Knot3.UnitTests.Tests.Core
 	[TestFixture]
 	public class Test_Angles3
 	{
-        float X, Y, Z;
-        float rX, rY, rZ;
+		float X, Y, Z;
+		float rX, rY, rZ;
 		float redianX;
 		float redianY;
 		float redianZ;
 		Angles3 angle1;
 		Angles3 angle2;
-        Angles3 angle3;
+		Angles3 angle3;
 		Vector3 redian;
 		object obj;
 
@@ -31,12 +31,12 @@ namespace Knot3.UnitTests.Tests.Core
 		public void Init()
 		{
 			X = 120;
-		    Y = 50;
+			Y = 50;
 			Z = 280;
 
-            rX = 2.0943951023931953f;
-            rY = 0.8726646259971648f;
-            rZ = 4.886921905584122f;
+			rX = 2.0943951023931953f;
+			rY = 0.8726646259971648f;
+			rZ = 4.886921905584122f;
 
 			redianX = X * ((float)Math.PI / 180);
 			redianY = Y * ((float)Math.PI / 180);
@@ -44,7 +44,7 @@ namespace Knot3.UnitTests.Tests.Core
 
 			redian = new Vector3(redianX, redianY, redianZ);
 			angle1 = new Angles3(redian);
-            angle3 = new Angles3(rX, rY, rZ);
+			angle3 = new Angles3(rX, rY, rZ);
 			obj = angle1;
 		}
 
@@ -55,11 +55,11 @@ namespace Knot3.UnitTests.Tests.Core
 			Assert.AreEqual(angle1, angle2);
 		}
 
-        [Test]
+		[Test]
 		public void Angles3_ToDegrees_Test()
-        {
-            angle1.ToDegrees(out X,out Y, out Z);
-            Assert.AreEqual(angle1, angle3);
+		{
+			angle1.ToDegrees(out X,out Y, out Z);
+			Assert.AreEqual(angle1, angle3);
 		}
 
 		[Test]
