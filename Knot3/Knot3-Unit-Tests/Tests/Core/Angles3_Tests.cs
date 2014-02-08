@@ -22,6 +22,7 @@ namespace Knot3.UnitTests.Tests.Core
 		float redianX;
 		float redianY;
 		float redianZ;
+        object obj;
 		Angles3 angle1;
 		Angles3 angle2;
 		Vector3 redian;
@@ -37,6 +38,7 @@ namespace Knot3.UnitTests.Tests.Core
 			redianZ = Z * ((float)Math.PI / 180);
 			redian = new Vector3(redianX, redianY, redianZ);
 			angle1 = new Angles3(redian);
+            object obj = angle1;
 		}
 
 		[Test]
@@ -49,9 +51,10 @@ namespace Knot3.UnitTests.Tests.Core
 		{
 		}
 
+        [Test]
 		public void Angles3_Equals_Test()
 		{
-			Assert.AreEqual(true,angle1.Equals(angle2));
+            Assert.AreEqual(true,Angles3.Equals(angle1,angle1));
 		}
 	}
 }
