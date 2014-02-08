@@ -21,6 +21,8 @@ namespace Knot3.UnitTests.Tests.Core
 		float redianX;
 		float redianY;
 		float redianZ;
+        int hash1;
+        int hash2;
 		Angles3 angle1;
 		Angles3 angle2;
 		Angles3 angle3;
@@ -72,9 +74,18 @@ namespace Knot3.UnitTests.Tests.Core
 		[Test]
 		public void Angles3_ToString_Test()
 		{
-			string text1 = angle3.ToString();
+			string text1 = angle1.ToString();
 			string text2 = "Angles3(120,49,279)";
 			Assert.AreEqual(text1,text2);
 		}
+
+        [Test]
+        public void Angles3_GetHashCode_Test()
+        {
+            hash1 = angle1.GetHashCode();
+            hash2 = 7;
+            Assert.AreEqual(hash1, hash2);
+
+        }
 	}
 }
