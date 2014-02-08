@@ -70,13 +70,13 @@ namespace Knot3.Widgets
 
 		public Border (IGameScreen screen, DisplayLayer drawOrder, Bounds bounds, int lineWidth, int padding)
 		: this(screen: screen, drawOrder: drawOrder, bounds: bounds, lineWidth: lineWidth, padding: lineWidth,
-		       lineColor: Lines.DefaultLineColor, outlineColor: Lines.DefaultOutlineColor)
+		       lineColor: Design.DefaultLineColor, outlineColor: Design.DefaultOutlineColor)
 		{
 		}
 
 		public Border (IGameScreen screen, DisplayLayer drawOrder, Widget widget, int lineWidth, int padding)
 		: this(screen: screen, drawOrder: drawOrder, widget: widget, lineWidth: lineWidth, padding: lineWidth,
-		       lineColor: Lines.DefaultLineColor, outlineColor: Lines.DefaultOutlineColor)
+		       lineColor: Design.DefaultLineColor, outlineColor: Design.DefaultOutlineColor)
 		{
 		}
 

@@ -98,7 +98,7 @@ namespace Knot3.Widgets
 		public override void Draw (GameTime time)
 		{
 			spriteBatch.Begin ();
-			spriteBatch.DrawColoredRectangle (Color.Black * 0.8f, Screen.Bounds);
+			spriteBatch.DrawColoredRectangle (Design.WidgetBackground * 0.8f, Screen.Bounds);
 			spriteBatch.End ();
 
 			base.Draw (time);

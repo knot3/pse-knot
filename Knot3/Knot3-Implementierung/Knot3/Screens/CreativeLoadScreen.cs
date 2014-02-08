@@ -189,8 +189,8 @@ namespace Knot3.Screens
 			    onClick: preview
 			);
 
-			button.SelectedColorBackground = Color.White;
-			button.SelectedColorForeground = Color.Black;
+			button.SelectedColorBackground = Design.WidgetForeground;
+			button.SelectedColorForeground = Design.WidgetBackground;
 
 			savegameMenu.Add (button);
 		}

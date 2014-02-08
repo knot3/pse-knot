@@ -1,40 +1,24 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Net;
-using Microsoft.Xna.Framework.Storage;
-
-using Knot3.Core;
-using Knot3.GameObjects;
-using Knot3.RenderEffects;
-using Knot3.KnotData;
-using Knot3.Widgets;
 
 namespace Knot3.Utilities
 {
-	public static class HfGDesign
+	public class HfGDesign : IDesign
 	{
-		private static SpriteFont menuFont;
-
-		public static SpriteFont MenuFont (IGameScreen screen)
+		public HfGDesign ()
 		{
-			if (menuFont != null) {
-				return menuFont;
-			}
-			else {
-				// lade die Schriftart der Menüs in das private Attribut
-				menuFont = screen.LoadFont ("font-menu");
-				return menuFont;
-			}
+		}
+
+		public void Apply ()
+		{
+			Design.MenuFontName = "font-menu";
+			Design.DefaultLineColor = new Color (0xb4, 0xff, 0x00);
+			Design.DefaultOutlineColor = new Color (0x3b, 0x54, 0x00);
+			Design.WidgetBackground = Color.Black;
+			Design.WidgetForeground = Color.White;
+			Design.InGameBackground = Color.Black;
+			Design.ScreenBackground = Color.Black;
 		}
 	}
 }
+

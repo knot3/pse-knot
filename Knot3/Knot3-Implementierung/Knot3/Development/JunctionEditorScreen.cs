@@ -93,8 +93,8 @@ namespace Knot3.Development
 			settingsMenu = new Menu (this, DisplayLayer.Overlay + DisplayLayer.Menu);
 			settingsMenu.Bounds = Bounds.FromRight (0.40f).FromBottom (0.9f).FromLeft (0.8f);
 			settingsMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
-			settingsMenu.ItemForegroundColor = (state) => Color.White;
-			settingsMenu.ItemBackgroundColor = (state) => Color.Black;
+			settingsMenu.ItemForegroundColor = (state) => Design.WidgetForeground;
+			settingsMenu.ItemBackgroundColor = (state) => Design.WidgetBackground;
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 

@@ -140,7 +140,7 @@ namespace Knot3.Screens
 			spriteBatch.Begin ();
 			// text
 			spriteBatch.DrawStringInRectangle (
-			    font: HfGDesign.MenuFont (this),
+			    font: Design.MenuFont (this),
 			    text: MenuName,
 			    color: Color.White,
 			    bounds: new Rectangle (50, 50, 900, 50).Scale (Viewport),

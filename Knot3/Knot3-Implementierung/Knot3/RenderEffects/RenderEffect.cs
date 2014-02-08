@@ -150,7 +150,7 @@ namespace Knot3.RenderEffects
 			}
 
 			//effect.TextureEnabled = true;
-			//effect.Texture = TextureHelper.CreateGradient (screen.Device, model.BaseColor, Color.White.Mix (Color.Black, 0.2f));
+			//effect.Texture = TextureHelper.CreateGradient (screen.Device, model.BaseColor, Color.White.Mix (_Color.Black, 0.2f));
 
 			effect.Alpha = model.Coloring.Alpha;
 			effect.FogEnabled = false;

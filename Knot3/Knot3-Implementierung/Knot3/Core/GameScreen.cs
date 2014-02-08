@@ -20,6 +20,7 @@ using Knot3.KnotData;
 using Knot3.Widgets;
 using Knot3.Audio;
 using Knot3.Development;
+using Knot3.Utilities;
 
 namespace Knot3.Core
 {
@@ -94,7 +95,7 @@ namespace Knot3.Core
 			PostProcessingEffect = new StandardEffect (this);
 			Input = new InputManager (this);
 			Audio = new AudioManager (this);
-			BackgroundColor = Color.Black;
+			BackgroundColor = Design.ScreenBackground;
 		}
 
 		#endregion
@@ -143,10 +144,10 @@ namespace Knot3.Core
 		protected virtual Color MenuItemForegroundColor (State itemState)
 		{
 			if (itemState == State.Hovered) {
-				return Color.White;
+				return Design.WidgetForeground;
 			}
 			else {
-				return Color.White * 0.7f;
+				return Design.WidgetForeground * 0.7f;
 			}
 		}
 		/// <summary>

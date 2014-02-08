@@ -108,11 +108,11 @@ namespace Knot3.Widgets
 
 			// zeichne den Hintergrund des Eingabefelds
 			spriteBatch.DrawColoredRectangle (ForegroundColorFunc (), bounds);
-			Color backgroundColor = IsInputEnabled ? Color.Black.Mix (Color.White, 0.25f) : Color.Black;
+			Color backgroundColor = IsInputEnabled ? Design.WidgetBackground.Mix (Design.WidgetForeground, 0.25f) : Design.WidgetBackground;
 			spriteBatch.DrawColoredRectangle (backgroundColor, bounds.Shrink (xy: 2));
 
 			// lade die Schrift
-			SpriteFont font = HfGDesign.MenuFont (Screen);
+			SpriteFont font = Design.MenuFont (Screen);
 
 			// zeichne die Schrift
 			spriteBatch.DrawStringInRectangle (

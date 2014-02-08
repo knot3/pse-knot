@@ -247,7 +247,7 @@ namespace Knot3.Core
 				OnRedraw ();
 				Redraw = false;
 
-				//Screen.BackgroundColor = CurrentEffect is CelShadingEffect ? Color.CornflowerBlue : Color.Black;
+				//Screen.BackgroundColor = CurrentEffect is CelShadingEffect ? Color.CornflowerBlue : _Color.Black;
 
 				// begin the knot render effect
 				CurrentEffect.Begin (time);

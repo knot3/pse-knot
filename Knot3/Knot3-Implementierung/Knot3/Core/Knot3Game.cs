@@ -147,6 +147,9 @@ namespace Knot3.Core
 			Graphics.GraphicsDevice.PresentationParameters.MultiSampleCount = 8;
 			Graphics.PreferMultiSampling = true;
 
+			// design
+			new HfGDesign().Apply();
+
 			// screens
 			Screens = new Stack<IGameScreen> ();
 			Screens.Push (new StartScreen (this));

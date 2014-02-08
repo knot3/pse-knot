@@ -128,8 +128,8 @@ namespace Knot3.Widgets
 			_isEnabled = true;
 			IsModal = false;
 			State = State.None;
-			SelectedColorBackground = Color.White;
-			SelectedColorForeground = Color.Black;
+			SelectedColorBackground = Design.WidgetForeground;
+			SelectedColorForeground = Design.WidgetBackground;
 		}
 
 		public Color MenuItemBackgroundColor ()

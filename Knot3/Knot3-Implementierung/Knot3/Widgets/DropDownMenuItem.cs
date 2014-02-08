@@ -66,7 +66,7 @@ namespace Knot3.Widgets
 			dropdown.Bounds.Size = new ScreenPoint (Screen, () => ValueBounds.Size.OnlyX + ValueBounds.Size.OnlyY * 10);
 			dropdown.Bounds.Padding = new ScreenPoint (screen, 0.010f, 0.010f);
 			dropdown.ItemForegroundColor = (i) => Menu.ItemForegroundColor (i);
-			dropdown.ItemBackgroundColor = (i) => Color.Black;
+			dropdown.ItemBackgroundColor = (i) => Design.WidgetBackground;
 			dropdown.ItemAlignX = HorizontalAlignment.Left;
 			dropdown.ItemAlignY = VerticalAlignment.Center;
 			dropdown.IsVisible = false;

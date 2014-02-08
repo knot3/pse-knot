@@ -61,8 +61,8 @@ namespace Knot3.Widgets
 			tileSize = new ScreenPoint (screen, 0.032f, 0.032f);
 
 			// Widget-Attribute
-			BackgroundColorFunc = () => Color.Black;
-			ForegroundColorFunc = () => Color.White;
+			BackgroundColorFunc = () => Design.WidgetBackground;
+			ForegroundColorFunc = () => Design.WidgetForeground;
 			AlignX = HorizontalAlignment.Left;
 			AlignY = VerticalAlignment.Top;
 

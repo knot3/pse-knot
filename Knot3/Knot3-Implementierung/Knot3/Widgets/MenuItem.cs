@@ -136,7 +136,7 @@ namespace Knot3.Widgets
 				spriteBatch.DrawColoredRectangle (BackgroundColorFunc (), Bounds);
 
 				// lade die Schrift
-				SpriteFont font = HfGDesign.MenuFont (Screen);
+				SpriteFont font = Design.MenuFont (Screen);
 
 				// zeichne die Schrift
 				Color foreground = ForegroundColorFunc () * (IsEnabled ? 1f : 0.5f);

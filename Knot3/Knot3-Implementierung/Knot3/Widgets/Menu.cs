@@ -220,8 +220,8 @@ namespace Knot3.Widgets
 				spriteBatch.Begin ();
 				Texture2D rectangleTexture = TextureHelper.Create (Screen.Device, Color.White);
 				Bounds sliderBounds = ScrollSliderInBarBounds.In (ScrollBarBounds);
-				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle.Grow (1), Lines.DefaultOutlineColor);
-				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle, Lines.DefaultLineColor);
+				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle.Grow (1), Design.DefaultOutlineColor);
+				spriteBatch.Draw (rectangleTexture, sliderBounds.Rectangle, Design.DefaultLineColor);
 				// Log.Debug ("ScrollSliderBounds=", sliderBounds.Rectangle);
 				// Log.Debug ("ScrollBarBounds=", ScrollBarBounds.Rectangle);
 				spriteBatch.End ();

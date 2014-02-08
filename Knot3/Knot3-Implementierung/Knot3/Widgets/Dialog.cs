@@ -87,9 +87,9 @@ namespace Knot3.Widgets
 			// Der Standardabstand
 			Bounds.Padding = new ScreenPoint (screen, 0.010f, 0.010f);
 			// Die Standardfarben
-			BackgroundColorFunc = () => screen.BackgroundColor.Mix (Color.White, 0.05f);
-			ForegroundColorFunc = () => Color.Black;
-			TitleBackgroundColor = () => Lines.DefaultLineColor * 0.75f;
+			BackgroundColorFunc = () => screen.BackgroundColor.Mix (Design.WidgetForeground, 0.05f);
+			ForegroundColorFunc = () => Design.WidgetBackground;
+			TitleBackgroundColor = () => Design.DefaultLineColor * 0.75f;
 
 			// Einen Rahmen um den Titel des Dialogs
 			titleBorder = new Border (
@@ -99,7 +99,7 @@ namespace Knot3.Widgets
 			    lineWidth: 2,
 			    padding: 1,
 			    lineColor: TitleBackgroundColor (),
-			    outlineColor: Lines.DefaultOutlineColor * 0.75f
+			    outlineColor: Design.DefaultOutlineColor * 0.75f
 			);
 
 			// Einen Rahmen um den Dialog
@@ -110,7 +110,7 @@ namespace Knot3.Widgets
 			    lineWidth: 2,
 			    padding: 1,
 			    lineColor: TitleBackgroundColor (),
-			    outlineColor: Lines.DefaultOutlineColor * 0.75f
+			    outlineColor: Design.DefaultOutlineColor * 0.75f
 			);
 
 			// Tasten, auf die wir reagieren
@@ -131,7 +131,7 @@ namespace Knot3.Widgets
 			spriteBatch.DrawColoredRectangle (BackgroundColorFunc (), Bounds);
 
 			// lade die Schrift
-			SpriteFont font = HfGDesign.MenuFont (Screen);
+			SpriteFont font = Design.MenuFont (Screen);
 
 			// zeichne den Titel des Dialogs
 			spriteBatch.DrawColoredRectangle (TitleBackgroundColor (), TitleBounds);

@@ -42,10 +42,6 @@ namespace Knot3.Widgets
 
 		public Color OutlineColor { get; private set; }
 
-		// die Standardfarben der Linien
-		public static readonly Color DefaultLineColor = new Color (0xb4, 0xff, 0x00);
-		public static readonly Color DefaultOutlineColor = new Color (0x3b, 0x54, 0x00);
-
 		public Lines (IGameScreen screen, DisplayLayer drawOrder, int lineWidth, Color lineColor, Color outlineColor)
 		: base(screen, drawOrder)
 		{
@@ -60,7 +56,7 @@ namespace Knot3.Widgets
 		}
 
 		public Lines (IGameScreen screen, DisplayLayer drawOrder, int lineWidth)
-		: this(screen, drawOrder, lineWidth, DefaultLineColor, DefaultOutlineColor)
+		: this(screen, drawOrder, lineWidth, Design.DefaultLineColor, Design.DefaultOutlineColor)
 		{
 		}
 
@@ -96,10 +92,10 @@ namespace Knot3.Widgets
 					spriteBatch.Begin ();
 					foreach (Rectangle inner in rects) {
 						Rectangle outer = new Rectangle (inner.X - 1, inner.Y - 1, inner.Width + 2, inner.Height + 2);
-						spriteBatch.Draw (texture, outer, DefaultOutlineColor * (IsEnabled ? 1f : 0.5f));
+						spriteBatch.Draw (texture, outer, Design.DefaultOutlineColor * (IsEnabled ? 1f : 0.5f));
 					}
 					foreach (Rectangle rect in rects) {
-						spriteBatch.Draw (texture, rect, DefaultLineColor * (IsEnabled ? 1f : 0.5f));
+						spriteBatch.Draw (texture, rect, Design.DefaultLineColor * (IsEnabled ? 1f : 0.5f));
 					}
 					spriteBatch.End ();
 				}

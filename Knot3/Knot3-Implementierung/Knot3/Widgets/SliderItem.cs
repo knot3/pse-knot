@@ -150,7 +150,7 @@ namespace Knot3.Widgets
 			lineTexture.SetData (dataLine);
 
 			Color[] dataRec = new Color[1];
-			dataRec [0] = Lines.DefaultLineColor;
+			dataRec [0] = Design.DefaultLineColor;
 			rectangleTexture.SetData (dataRec);
 
 			Vector2 coordinateLine = new Vector2(valueBounds.X, valueBounds.Y + Bounds.Size.Absolute.Y / 2);
@@ -158,7 +158,7 @@ namespace Knot3.Widgets
 			spriteBatch.Begin ();
 
 			spriteBatch.Draw (lineTexture, coordinateLine, Color.White);
-			spriteBatch.Draw (rectangleTexture, SliderRectangle, Lines.DefaultLineColor);
+			spriteBatch.Draw (rectangleTexture, SliderRectangle, Design.DefaultLineColor);
 
 			spriteBatch.End ();
 		}
