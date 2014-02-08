@@ -52,7 +52,7 @@ namespace Knot3.UnitTests.Tests.Core
 		[Test]
 		public void Angles3_Equals_Test()
 		{
-            Assert.AreEqual(true, angle1.Equals(angle1));
+			Assert.AreEqual(true, angle1.Equals(angle1));
 		}
 	}
 }
