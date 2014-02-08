@@ -68,5 +68,13 @@ namespace Knot3.UnitTests.Tests.Core
 			Assert.AreEqual(true, angle1.Equals(angle1));
 			Assert.AreEqual(true, angle1.Equals(obj));
 		}
+
+        [Test]
+        public void Angles3_ToString_Test()
+        {
+            string text1 = angle3.ToString();
+            string text2 = "Angles3(120,49,279)";
+            Assert.AreEqual(text1,text2);
+        }
 	}
 }
