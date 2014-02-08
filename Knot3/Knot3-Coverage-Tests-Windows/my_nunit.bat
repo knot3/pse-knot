@@ -1,1 +1,0 @@
-"%ProgramFiles(x86)%\NUnit 2.6.3\bin\nunit-console.exe" Knot3-Coverage-Tests-Windows.dll /noshadow
