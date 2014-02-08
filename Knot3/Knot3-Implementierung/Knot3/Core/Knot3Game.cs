@@ -159,7 +159,6 @@ namespace Knot3.Core
 			base.Initialize ();
 		}
 
-
 		/// <summary>
 		/// Ruft die Draw()-Methode des aktuellen Spielzustands auf.
 		/// </summary>
