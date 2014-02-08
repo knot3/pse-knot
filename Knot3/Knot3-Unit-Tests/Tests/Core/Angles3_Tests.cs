@@ -45,15 +45,13 @@ namespace Knot3.UnitTests.Tests.Core
 			angle2 = Angles3.FromDegrees(X, Y, Z);
 			Assert.AreEqual(angle1, angle2);
 		}
-        public void Angles3_ToDegrees_Test()
-        {
+		public void Angles3_ToDegrees_Test()
+		{
+		}
 
-        }
-
-        public void Angles3_Equals_Test()
-        {
-            Assert.AreEqual(true,angle1.Equals(angle2));
-        }
-
+		public void Angles3_Equals_Test()
+		{
+			Assert.AreEqual(true,angle1.Equals(angle2));
+		}
 	}
 }
