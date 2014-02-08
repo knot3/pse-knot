@@ -33,7 +33,7 @@ set PATH_TO_NUNIT="%ProgramFiles(x86)%\NUnit 2.6.3\bin"
 cd ..
 cd ..
 cd ..
-set PATH_TO_PROJECT="%CD%\Knot3-Unit-Tests\bin\Debug\Knot3.exe"
+set PATH_TO_PROJECT="%CD%\Knot3-Unit-Tests\bin\Debug\Knot3.UnitTests.dll"
 set PATH_TO_REPORTGENERATOR="%ProgramFiles(x86)%\ReportGenerator\bin"
 echo.
 echo.
@@ -50,7 +50,7 @@ echo.
 ::
 :: Hinweis: Auf einem 64-Bit-System ist nunit-console-x86.exe für 32-Bit-Projekte zu verwenden! (sonst tritt ein Fehler auf)
 ::
-%PATH_TO_OPENCOVER%\OpenCover.Console.exe -target:%PATH_TO_NUNIT%\nunit-console-x86.exe -targetargs:"/noshadow %PATH_TO_PROJECT%" -filter:"+[*]*" -output:NUnit_test_coverage.xml
+%PATH_TO_OPENCOVER%\OpenCover.Console.exe -target:%PATH_TO_NUNIT%\nunit-console-x86.exe -targetargs:"/noshadow %PATH_TO_PROJECT%" -filter:"+[Tests*]*" -output:NUnit_test_coverage.xml
 echo.
 echo Current path: %CD%
 echo.
