@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NUnit_Test_Coverage_Windows
 {
-    public class Class1
-    {
-    }
+	public class Class1
+	{
+	}
 }
