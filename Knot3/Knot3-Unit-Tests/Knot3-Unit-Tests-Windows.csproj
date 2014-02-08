@@ -1,171 +1,169 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-                                <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-                                        <PropertyGroup>
-                                        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-                                                <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-                                                        <ProjectGuid> {8FC6B0BE-1FC0-4AC6-8081-7C7CC1D0407D}</ProjectGuid>
-                                                        <OutputType>Library</OutputType>
-                                                        <AppDesignerFolder>Properties</AppDesignerFolder>
-                                                        <RootNamespace>Knot3.UnitTests</RootNamespace>
-                                                        <AssemblyName>Knot3.UnitTests</AssemblyName>
-                                                        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-                                                        <FileAlignment>512</FileAlignment>
-                                                        <ProjectTypeGuids> {3AC096D0-A1C2-E12C-1390-A8335801FDAB};
-{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-<VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-                               <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-                                       <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
-                                       <IsCodedUITest>False</IsCodedUITest>
-                                       <TestProjectType>UnitTest</TestProjectType>
-                                       </PropertyGroup>
-                                       <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-                                               <DebugSymbols>true</DebugSymbols>
-                                               <DebugType>full</DebugType>
-                                               <Optimize>false</Optimize>
-                                               <OutputPath>bin\Debug\</OutputPath>
-                                               <DefineConstants>DEBUG;
-TRACE</DefineConstants>
-<ErrorReport>prompt</ErrorReport>
-<WarningLevel>4</WarningLevel>
-<PlatformTarget>x86</PlatformTarget>
-</PropertyGroup>
-<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-                         <DebugType>pdbonly</DebugType>
-                         <Optimize>true</Optimize>
-                         <OutputPath>bin\Release\</OutputPath>
-                         <DefineConstants>TRACE</DefineConstants>
-                         <ErrorReport>prompt</ErrorReport>
-                         <WarningLevel>4</WarningLevel>
-                         </PropertyGroup>
-                         <PropertyGroup>
-                         <RunPostBuildEvent>Always</RunPostBuildEvent>
-                         </PropertyGroup>
-                         <ItemGroup>
-                         <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-                                 <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-                                 </Reference>
-                                 <Reference Include="System" />
-                                         <Reference Include="Microsoft.CSharp" />
-                                                 <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-                                                         <Private>False</Private>
-                                                         </Reference>
-                                                         <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-                                                                 <Private>False</Private>
-                                                                 </Reference>
-                                                                 <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-                                                                         <Private>False</Private>
-                                                                         </Reference>
-                                                                         <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-                                                                                 <Private>False</Private>
-                                                                                 </Reference>
-                                                                                 <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-                                                                                         <Private>False</Private>
-                                                                                         </Reference>
-                                                                                         <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-                                                                                                 <Private>False</Private>
-                                                                                                 </Reference>
-                                                                                                 <Reference Include="Microsoft.Xna.Framework.Avatar, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-                                                                                                         <Private>False</Private>
-                                                                                                         </Reference>
-                                                                                                         <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-                                                                                                                 <Private>False</Private>
-                                                                                                                 </Reference>
-                                                                                                                 <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-                                                                                                                         <Private>False</Private>
-                                                                                                                         </Reference>
-                                                                                                                         <Reference Include="mscorlib">
-                                                                                                                                 <Private>False</Private>
-                                                                                                                                 </Reference>
-                                                                                                                                 <Reference Include="OggSharp">
-                                                                                                                                         <HintPath>lib\OggSharp.dll</HintPath>
-                                                                                                                                         </Reference>
-                                                                                                                                         <Reference Include="System.Windows.Forms" />
-                                                                                                                                                 <Reference Include="System.Xml">
-                                                                                                                                                         <Private>False</Private>
-                                                                                                                                                         </Reference>
-                                                                                                                                                         <Reference Include="System.Core">
-                                                                                                                                                                 <Private>False</Private>
-                                                                                                                                                                 </Reference>
-                                                                                                                                                                 <Reference Include="System.Xml.Linq">
-                                                                                                                                                                         <Private>False</Private>
-                                                                                                                                                                         </Reference>
-                                                                                                                                                                         <Reference Include="System.Net">
-                                                                                                                                                                                 <Private>False</Private>
-                                                                                                                                                                                 </Reference>
-                                                                                                                                                                                 </ItemGroup>
-                                                                                                                                                                                 <Choose>
-                                                                                                                                                                                 <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
-                                                                                                                                                                                         <ItemGroup>
-                                                                                                                                                                                         <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-                                                                                                                                                                                                 </ItemGroup>
-                                                                                                                                                                                                 </When>
-                                                                                                                                                                                                 <Otherwise>
-                                                                                                                                                                                                 <ItemGroup>
-                                                                                                                                                                                                 <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
-                                                                                                                                                                                                         </ItemGroup>
-                                                                                                                                                                                                         </Otherwise>
-                                                                                                                                                                                                         </Choose>
-                                                                                                                                                                                                         <ItemGroup>
-                                                                                                                                                                                                         <Compile Include="MockObjects\FakeEffect.cs" />
-                                                                                                                                                                                                                 <Compile Include="MockObjects\FakeEffectStack.cs" />
-                                                                                                                                                                                                                         <Compile Include="MockObjects\FakeScreen.cs" />
-                                                                                                                                                                                                                                 <Compile Include="Properties\AssemblyInfo.cs" />
-                                                                                                                                                                                                                                         <Compile Include="Tests\Audio\Audio_Tests.cs" />
-                                                                                                                                                                                                                                                 <Compile Include="Tests\Beispiele\NUnit_Beispiel_Tests.cs" />
-                                                                                                                                                                                                                                                         <Compile Include="Tests\Core\Angles3_Tests.cs" />
-                                                                                                                                                                                                                                                                 <Compile Include="Tests\Core\Camera_Tests.cs" />
-                                                                                                                                                                                                                                                                         <Compile Include="Tests\Core\World_Tests.cs" />
-                                                                                                                                                                                                                                                                                 <Compile Include="Tests\GameObjects\GameObject_Tests.cs" />
-                                                                                                                                                                                                                                                                                         <Compile Include="Tests\KnotData\Challenge_Tests.cs" />
-                                                                                                                                                                                                                                                                                                 <Compile Include="Tests\KnotData\CircleEntry_Tests.cs" />
-                                                                                                                                                                                                                                                                                                         <Compile Include="Tests\KnotData\Circle_Tests.cs" />
-                                                                                                                                                                                                                                                                                                                 <Compile Include="Tests\KnotData\KnotStringIO_Tests.cs" />
-                                                                                                                                                                                                                                                                                                                         <Compile Include="Tests\KnotData\Knot_Tests.cs" />
-                                                                                                                                                                                                                                                                                                                                 <Compile Include="Tests\RenderEffects\RenderEffect_Tests.cs" />
-                                                                                                                                                                                                                                                                                                                                         <Compile Include="Tests\Screens\Screen_Tests.cs" />
-                                                                                                                                                                                                                                                                                                                                                 <Compile Include="Tests\Utilities\Test_RayExtensions.cs" />
-                                                                                                                                                                                                                                                                                                                                                         <Compile Include="Tests\Utilities\Utility_Tests.cs" />
-                                                                                                                                                                                                                                                                                                                                                                 <Compile Include="Tests\Widgets\Bounds_Tests.cs" />
-                                                                                                                                                                                                                                                                                                                                                                         <Compile Include="Tests\Widgets\Widget_Tests.cs" />
-                                                                                                                                                                                                                                                                                                                                                                                 <Compile Include="Tests\Core\ConfigFile_Tests.cs" />
-                                                                                                                                                                                                                                                                                                                                                                                         </ItemGroup>
-                                                                                                                                                                                                                                                                                                                                                                                         <ItemGroup>
-                                                                                                                                                                                                                                                                                                                                                                                         <None Include="packages.config" />
-                                                                                                                                                                                                                                                                                                                                                                                                 </ItemGroup>
-                                                                                                                                                                                                                                                                                                                                                                                                 <ItemGroup>
-                                                                                                                                                                                                                                                                                                                                                                                                 <ProjectReference Include="..\Knot3-Implementierung\Knot3-Windows.csproj">
-                                                                                                                                                                                                                                                                                                                                                                                                         <Project> {8e6072ce-a35b-455d-93e1-0aa0ebccbccf}</Project>
-                                                                                                                                                                                                                                                                                                                                                                                                         <Name>Knot3-Windows</Name>
-                                                                                                                                                                                                                                                                                                                                                                                                         </ProjectReference>
-                                                                                                                                                                                                                                                                                                                                                                                                         </ItemGroup>
-                                                                                                                                                                                                                                                                                                                                                                                                         <ItemGroup>
-                                                                                                                                                                                                                                                                                                                                                                                                         <Folder Include="Tests\Debug\" />
-                                                                                                                                                                                                                                                                                                                                                                                                                 </ItemGroup>
-                                                                                                                                                                                                                                                                                                                                                                                                                 <Choose>
-                                                                                                                                                                                                                                                                                                                                                                                                                 <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
-                                                                                                                                                                                                                                                                                                                                                                                                                 <ItemGroup>
-                                                                                                                                                                                                                                                                                                                                                                                                                 <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-                                                                                                                                                                                                                                                                                                                                                                                                                         <Private>False</Private>
-                                                                                                                                                                                                                                                                                                                                                                                                                         </Reference>
-                                                                                                                                                                                                                                                                                                                                                                                                                         <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-                                                                                                                                                                                                                                                                                                                                                                                                                                 <Private>False</Private>
-                                                                                                                                                                                                                                                                                                                                                                                                                                 </Reference>
-                                                                                                                                                                                                                                                                                                                                                                                                                                 <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-                                                                                                                                                                                                                                                                                                                                                                                                                                         <Private>False</Private>
-                                                                                                                                                                                                                                                                                                                                                                                                                                         </Reference>
-                                                                                                                                                                                                                                                                                                                                                                                                                                         <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 <Private>False</Private>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 </Reference>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 </ItemGroup>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 </When>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 </Choose>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 Other similar extension points exist, see Microsoft.Common.targets.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 <Target Name="BeforeBuild">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 </Target>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 <Target Name="AfterBuild">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 </Target>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 -->
-                                                                                                                                                                                                                                                                                                                                                                                                                                                 </Project>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8FC6B0BE-1FC0-4AC6-8081-7C7CC1D0407D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Knot3.UnitTests</RootNamespace>
+    <AssemblyName>Knot3.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Avatar, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OggSharp">
+      <HintPath>lib\OggSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="MockObjects\FakeEffect.cs" />
+    <Compile Include="MockObjects\FakeEffectStack.cs" />
+    <Compile Include="MockObjects\FakeScreen.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Audio\Audio_Tests.cs" />
+    <Compile Include="Tests\Beispiele\NUnit_Beispiel_Tests.cs" />
+    <Compile Include="Tests\Core\Angles3_Tests.cs" />
+    <Compile Include="Tests\Core\Camera_Tests.cs" />
+    <Compile Include="Tests\Core\World_Tests.cs" />
+    <Compile Include="Tests\GameObjects\GameObject_Tests.cs" />
+    <Compile Include="Tests\KnotData\Challenge_Tests.cs" />
+    <Compile Include="Tests\KnotData\CircleEntry_Tests.cs" />
+    <Compile Include="Tests\KnotData\Circle_Tests.cs" />
+    <Compile Include="Tests\KnotData\KnotStringIO_Tests.cs" />
+    <Compile Include="Tests\KnotData\Knot_Tests.cs" />
+    <Compile Include="Tests\RenderEffects\RenderEffect_Tests.cs" />
+    <Compile Include="Tests\Screens\Screen_Tests.cs" />
+    <Compile Include="Tests\Utilities\Test_RayExtensions.cs" />
+    <Compile Include="Tests\Utilities\Utility_Tests.cs" />
+    <Compile Include="Tests\Widgets\Bounds_Tests.cs" />
+    <Compile Include="Tests\Widgets\Widget_Tests.cs" />
+    <Compile Include="Tests\Core\ConfigFile_Tests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Knot3-Implementierung\Knot3-Windows.csproj">
+      <Project>{8e6072ce-a35b-455d-93e1-0aa0ebccbccf}</Project>
+      <Name>Knot3-Windows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests\Debug\" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
