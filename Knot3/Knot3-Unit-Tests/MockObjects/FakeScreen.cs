@@ -75,7 +75,7 @@ namespace Knot3.UnitTests
 			);
 			PostProcessingEffect = new FakeEffect (this);
 			Input = new InputManager (this);
-			Audio = new AudioManager (this);
+			//Audio = new AudioManager (this);
 			BackgroundColor = Color.Black;
 		}
 
