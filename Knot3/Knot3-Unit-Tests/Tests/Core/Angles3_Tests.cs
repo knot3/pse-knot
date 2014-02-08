@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 
 using Knot3.Core;
+using Microsoft.Xna.Framework;
 
 namespace Knot3.UnitTests.Tests.Core
 {
@@ -22,6 +23,7 @@ namespace Knot3.UnitTests.Tests.Core
 		float redianZ;
 		Angles3 angle1;
 		Angles3 angle2;
+        Vector3 redian;
 
 		[SetUp]
 		public void Init()
@@ -32,7 +34,8 @@ namespace Knot3.UnitTests.Tests.Core
 			redianX = X * ((float)Math.PI / 180);
 			redianY = Y * ((float)Math.PI / 180);
 			redianZ = Z * ((float)Math.PI / 180);
-			angle1 = new Angles3(redianX, redianY, redianZ);
+            redian = new Vector3(redianX, redianY, redianZ);
+			angle1 = new Angles3(redian);
 		}
 
 		[Test]
