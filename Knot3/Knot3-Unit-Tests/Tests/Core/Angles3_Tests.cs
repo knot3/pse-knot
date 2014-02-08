@@ -13,36 +13,33 @@ namespace Knot3.UnitTests.Tests.Core
 	/// </summary>
 	[TestFixture]
 	public class Test_Angles3
-    {
-        float X;
-        float Y;
-        float Z;
-        float redianX;
-        float redianY;
-        float redianZ;
-        Angles3 angle1;
-        Angles3 angle2;
+	{
+		float X;
+		float Y;
+		float Z;
+		float redianX;
+		float redianY;
+		float redianZ;
+		Angles3 angle1;
+		Angles3 angle2;
 
-
-        [SetUp]
-        public void Init()
-        {
-            X = 120;
-            Y = 50;
-            Z = 280;
-            redianX = X * ((float)Math.PI / 180);
-            redianY = Y * ((float)Math.PI / 180);
-            redianZ = Z * ((float)Math.PI / 180);
-            angle1 = new Angles3(redianX, redianY, redianZ);
-            
-        }
+		[SetUp]
+		public void Init()
+		{
+			X = 120;
+			Y = 50;
+			Z = 280;
+			redianX = X * ((float)Math.PI / 180);
+			redianY = Y * ((float)Math.PI / 180);
+			redianZ = Z * ((float)Math.PI / 180);
+			angle1 = new Angles3(redianX, redianY, redianZ);
+		}
 
 		[Test]
-        public void Angles3_FromDegrees_Test()
+		public void Angles3_FromDegrees_Test()
 		{
-            angle2 = Angles3.FromDegrees(X, Y, Z);
-            Assert.AreEqual(angle1, angle2,"miau");
-
+			angle2 = Angles3.FromDegrees(X, Y, Z);
+			Assert.AreEqual(angle1, angle2,"miau");
 		}
 	}
 }
