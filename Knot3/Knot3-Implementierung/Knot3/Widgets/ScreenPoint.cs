@@ -198,7 +198,7 @@ namespace Knot3.Widgets
 
 		public bool Equals (ScreenPoint other)
 		{
-			return other != null && Relative == other.Relative;
+			return other != null && Relative.Equals(other.Relative);
 		}
 
 		public override bool Equals (object other)
