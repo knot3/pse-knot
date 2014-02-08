@@ -1,78 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C19C58CE-8C63-4F7F-A38C-D8B204AA21F2}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Knot3.UnitTests</RootNamespace>
-    <AssemblyName>Knot3.UnitTests</AssemblyName>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <Private>False</Private>
-      <Package>mono-nunit</Package>
-    </Reference>
-    <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral">
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="MockObjects\FakeEffect.cs" />
-    <Compile Include="MockObjects\FakeEffectStack.cs" />
-    <Compile Include="MockObjects\FakeScreen.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\Audio\Audio_Tests.cs" />
-    <Compile Include="Tests\Beispiele\NUnit_Beispiel_Tests.cs" />
-    <Compile Include="Tests\Core\Angles3_Tests.cs" />
-    <Compile Include="Tests\Core\Camera_Tests.cs" />
-    <Compile Include="Tests\Core\World_Tests.cs" />
-    <Compile Include="Tests\GameObjects\GameObject_Tests.cs" />
-    <Compile Include="Tests\KnotData\Challenge_Tests.cs" />
-    <Compile Include="Tests\KnotData\CircleEntry_Tests.cs" />
-    <Compile Include="Tests\KnotData\Circle_Tests.cs" />
-    <Compile Include="Tests\KnotData\KnotStringIO_Tests.cs" />
-    <Compile Include="Tests\KnotData\Knot_Tests.cs" />
-    <Compile Include="Tests\RenderEffects\RenderEffect_Tests.cs" />
-    <Compile Include="Tests\Screens\Screen_Tests.cs" />
-    <Compile Include="Tests\Utilities\Test_RayExtensions.cs" />
-    <Compile Include="Tests\Utilities\Utility_Tests.cs" />
-    <Compile Include="Tests\Widgets\Bounds_Tests.cs" />
-    <Compile Include="Tests\Widgets\Widget_Tests.cs" />
-    <Compile Include="Tests\Core\ConfigFile_Tests.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\Knot3-Implementierung\Knot3-Linux.csproj">
-      <Project>{A7093300-1D0E-462B-83E2-A5DC7C3D145B}</Project>
-      <Name>Knot3-Linux</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MockObjects\" />
-    <Folder Include="Tests\" />
-  </ItemGroup>
-</Project>
+                             <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+                                     <PropertyGroup>
+                                     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+                                             <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+                                                     <ProductVersion>10.0.0</ProductVersion>
+                                                     <SchemaVersion>2.0</SchemaVersion>
+                                                     <ProjectGuid> {C19C58CE-8C63-4F7F-A38C-D8B204AA21F2}</ProjectGuid>
+                                                     <OutputType>Library</OutputType>
+                                                     <RootNamespace>Knot3.UnitTests</RootNamespace>
+                                                     <AssemblyName>Knot3.UnitTests</AssemblyName>
+                                                     </PropertyGroup>
+                                                     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+                                                             <DebugSymbols>true</DebugSymbols>
+                                                             <DebugType>full</DebugType>
+                                                             <Optimize>false</Optimize>
+                                                             <OutputPath>bin\Debug</OutputPath>
+                                                             <DefineConstants>DEBUG;
+</DefineConstants>
+<ErrorReport>prompt</ErrorReport>
+<WarningLevel>4</WarningLevel>
+<ConsolePause>false</ConsolePause>
+</PropertyGroup>
+<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+                         <DebugType>none</DebugType>
+                         <Optimize>true</Optimize>
+                         <OutputPath>bin\Release</OutputPath>
+                         <ErrorReport>prompt</ErrorReport>
+                         <WarningLevel>4</WarningLevel>
+                         <ConsolePause>false</ConsolePause>
+                         </PropertyGroup>
+                         <ItemGroup>
+                         <Reference Include="System" />
+                                 <Reference Include="nunit.framework">
+                                         <Private>False</Private>
+                                         <Package>mono-nunit</Package>
+                                         </Reference>
+                                         <Reference Include="System.Core" />
+                                                 <Reference Include="System.Windows.Forms" />
+                                                         <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral">
+                                                                 <Private>False</Private>
+                                                                 </Reference>
+                                                                 </ItemGroup>
+                                                                 <ItemGroup>
+                                                                 <Compile Include="MockObjects\FakeEffect.cs" />
+                                                                         <Compile Include="MockObjects\FakeEffectStack.cs" />
+                                                                                 <Compile Include="MockObjects\FakeScreen.cs" />
+                                                                                         <Compile Include="Properties\AssemblyInfo.cs" />
+                                                                                                 <Compile Include="Tests\Audio\Audio_Tests.cs" />
+                                                                                                         <Compile Include="Tests\Beispiele\NUnit_Beispiel_Tests.cs" />
+                                                                                                                 <Compile Include="Tests\Core\Angles3_Tests.cs" />
+                                                                                                                         <Compile Include="Tests\Core\Camera_Tests.cs" />
+                                                                                                                                 <Compile Include="Tests\Core\World_Tests.cs" />
+                                                                                                                                         <Compile Include="Tests\GameObjects\GameObject_Tests.cs" />
+                                                                                                                                                 <Compile Include="Tests\KnotData\Challenge_Tests.cs" />
+                                                                                                                                                         <Compile Include="Tests\KnotData\CircleEntry_Tests.cs" />
+                                                                                                                                                                 <Compile Include="Tests\KnotData\Circle_Tests.cs" />
+                                                                                                                                                                         <Compile Include="Tests\KnotData\KnotStringIO_Tests.cs" />
+                                                                                                                                                                                 <Compile Include="Tests\KnotData\Knot_Tests.cs" />
+                                                                                                                                                                                         <Compile Include="Tests\RenderEffects\RenderEffect_Tests.cs" />
+                                                                                                                                                                                                 <Compile Include="Tests\Screens\Screen_Tests.cs" />
+                                                                                                                                                                                                         <Compile Include="Tests\Utilities\Test_RayExtensions.cs" />
+                                                                                                                                                                                                                 <Compile Include="Tests\Utilities\Utility_Tests.cs" />
+                                                                                                                                                                                                                         <Compile Include="Tests\Widgets\Bounds_Tests.cs" />
+                                                                                                                                                                                                                                 <Compile Include="Tests\Widgets\Widget_Tests.cs" />
+                                                                                                                                                                                                                                         <Compile Include="Tests\Core\ConfigFile_Tests.cs" />
+                                                                                                                                                                                                                                                 </ItemGroup>
+                                                                                                                                                                                                                                                 <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+                                                                                                                                                                                                                                                         <ItemGroup>
+                                                                                                                                                                                                                                                         <ProjectReference Include="..\Knot3-Implementierung\Knot3-Linux.csproj">
+                                                                                                                                                                                                                                                                 <Project> {A7093300-1D0E-462B-83E2-A5DC7C3D145B}</Project>
+                                                                                                                                                                                                                                                                 <Name>Knot3-Linux</Name>
+                                                                                                                                                                                                                                                                 </ProjectReference>
+                                                                                                                                                                                                                                                                 </ItemGroup>
+                                                                                                                                                                                                                                                                 <ItemGroup>
+                                                                                                                                                                                                                                                                 <Folder Include="MockObjects\" />
+                                                                                                                                                                                                                                                                         <Folder Include="Tests\" />
+                                                                                                                                                                                                                                                                         </ItemGroup>
+                                                                                                                                                                                                                                                                         </Project>
