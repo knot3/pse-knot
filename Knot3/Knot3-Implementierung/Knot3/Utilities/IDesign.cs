@@ -7,4 +7,3 @@ namespace Knot3.Utilities
 		void Apply ();
 	}
 }
-

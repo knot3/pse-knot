@@ -1,4 +1,5 @@
 using System;
+
 using Microsoft.Xna.Framework;
 
 namespace Knot3.Utilities
@@ -21,4 +22,3 @@ namespace Knot3.Utilities
 		}
 	}
 }
-
