@@ -25,7 +25,7 @@ namespace Knot3.UnitTests.Tests.Core
 		Angles3 angle1;
 		Angles3 angle2;
 		Vector3 redian;
-        bool boolian;
+		bool boolian;
 
 		[SetUp]
 		public void Init()
@@ -53,7 +53,7 @@ namespace Knot3.UnitTests.Tests.Core
 		[Test]
 		public void Angles3_Equals_Test()
 		{
-            boolian = angle1.Equals(angle1);
+			boolian = angle1.Equals(angle1);
 			Assert.AreEqual(true,boolian);
 		}
 	}
