@@ -88,7 +88,7 @@ namespace Knot3.Widgets
 		{
 			RelativeItemHeight = 0.040f;
 			spriteBatch = new SpriteBatch (screen.Device);
-			
+
 			ItemBackgroundColor = Design.MenuItemBackgroundColorFunc;
 			ItemForegroundColor = Design.MenuItemForegroundColorFunc;
 		}

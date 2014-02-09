@@ -1,6 +1,7 @@
 using System;
 
 using Microsoft.Xna.Framework;
+
 using Knot3.Widgets;
 
 namespace Knot3.Utilities
