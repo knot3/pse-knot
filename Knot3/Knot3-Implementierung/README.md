@@ -2,13 +2,13 @@
 
 Bei Knot3 handelt es sich um ein innovatives Spiel bei dem man Knoten im dreidimensionalem Raum entweder frei modifizieren oder nach Vorgabe auf Zeit ineinander überführen kann.
 
-##Install
+##Installation
 
 ###Debian
 
-A debian repository is available. You need to included it in your sources.list file to install Knot3::
+A debian repository is available. You need to include it in your sources.list file to install Knot3:
 
-    echo deb http://www.knot3.de debian/ | sudo tee /etc/apt/sources.list
+    echo deb http://www.knot3.de debian/ | sudo tee /etc/apt/sources.list.d/knot3
     apt-get update
     apt-get install knot3
 
