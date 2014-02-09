@@ -1,1 +1,0 @@
-Eine LaTeX-Vorlage für Pflichtenhefte.
