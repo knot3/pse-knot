@@ -31,3 +31,4 @@ simply run:
 
 Knot3 is the work of students at [Karlsruhe Institute of Technology](http://www.kit.edu)
 in collaborative work with M. Retzlaff, F. Kalka, G. Hoffmann, T. Schmidt.
+
