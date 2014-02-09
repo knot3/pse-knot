@@ -1,6 +1,9 @@
 pse-knot
 ========
 
-Ein privates Repository für unsere Dateien (und später den Quellcode)...
+Wir haben jetzt drei einzelne Repositories:
 
-Dokumentation des Quellcodes: http://www.knot3.de.gg/doc/html/inherits.html
+* [Pflichtenheft, Entwurf, Impl-bericht, Allgemeines](https://github.com/pse-knot/knot3-entwurf)
+* [Implementierung, Tests](https://github.com/pse-knot/knot3-code)
+* [Qualitätssicherung - wegen des Pfatzbedarfs](https://github.com/pse-knot/knot3-qualitaetssicherung)
+
