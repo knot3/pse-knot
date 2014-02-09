@@ -87,8 +87,8 @@ namespace Knot3.Widgets
 			// Der Standardabstand
 			Bounds.Padding = new ScreenPoint (screen, 0.010f, 0.010f);
 			// Die Standardfarben
-			BackgroundColorFunc = () => screen.BackgroundColor.Mix (Design.WidgetForeground, 0.05f);
-			ForegroundColorFunc = () => Design.WidgetBackground;
+			BackgroundColorFunc = (s) => screen.BackgroundColor.Mix (Design.WidgetForeground, 0.05f);
+			ForegroundColorFunc = (s) => Design.WidgetBackground;
 			TitleBackgroundColor = () => Design.DefaultLineColor * 0.75f;
 
 			// Einen Rahmen um den Titel des Dialogs
@@ -128,14 +128,14 @@ namespace Knot3.Widgets
 			spriteBatch.Begin ();
 
 			// zeichne den Hintergrund
-			spriteBatch.DrawColoredRectangle (BackgroundColorFunc (), Bounds);
+			spriteBatch.DrawColoredRectangle (BackgroundColor, Bounds);
 
 			// lade die Schrift
 			SpriteFont font = Design.MenuFont (Screen);
 
 			// zeichne den Titel des Dialogs
 			spriteBatch.DrawColoredRectangle (TitleBackgroundColor (), TitleBounds);
-			spriteBatch.DrawStringInRectangle (font, Title, ForegroundColorFunc (), TitleBounds, AlignX, AlignY);
+			spriteBatch.DrawStringInRectangle (font, Title, ForegroundColor, TitleBounds, AlignX, AlignY);
 
 			spriteBatch.End ();
 		}
@@ -164,21 +164,6 @@ namespace Knot3.Widgets
 				ScreenPoint pos = Bounds.Position + TitleBounds.Size.OnlyY + Bounds.Padding;
 				ScreenPoint size = Bounds.Size - TitleBounds.Size.OnlyY - Bounds.Padding * 2;
 				return new Bounds (pos, size);
-			}
-		}
-
-		protected virtual Color MenuItemBackgroundColor (State itemState)
-		{
-			return Color.Transparent;
-		}
-
-		protected virtual Color MenuItemForegroundColor (State itemState)
-		{
-			if (itemState == State.Hovered) {
-				return Color.White;
-			}
-			else {
-				return Color.White * 0.7f;
 			}
 		}
 

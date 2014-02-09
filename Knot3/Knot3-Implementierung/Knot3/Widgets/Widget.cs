@@ -48,12 +48,16 @@ namespace Knot3.Widgets
 		/// <summary>
 		/// Die Hintergrundfarbe.
 		/// </summary>
-		public Func<Color> BackgroundColorFunc { get; set; }
+		public Func<State, Color> BackgroundColorFunc { private get; set; }
 
 		/// <summary>
 		/// Die Vordergrundfarbe.
 		/// </summary>
-		public Func<Color> ForegroundColorFunc { get; set; }
+		public Func<State, Color> ForegroundColorFunc { private get; set; }
+
+		public Color BackgroundColor { get { return BackgroundColorFunc(State); } }
+
+		public Color ForegroundColor { get { return ForegroundColorFunc(State); } }
 
 		/// <summary>
 		/// Die horizontale Ausrichtung.
@@ -121,8 +125,8 @@ namespace Knot3.Widgets
 			Bounds = Bounds.Zero (screen);
 			AlignX = HorizontalAlignment.Left;
 			AlignY = VerticalAlignment.Center;
-			ForegroundColorFunc = MenuItemForegroundColor;
-			BackgroundColorFunc = MenuItemBackgroundColor;
+			ForegroundColorFunc = Design.WidgetForegroundColorFunc;
+			BackgroundColorFunc = Design.WidgetBackgroundColorFunc;
 			ValidKeys = new List<Keys> ();
 			IsVisible = true;
 			_isEnabled = true;
@@ -130,35 +134,6 @@ namespace Knot3.Widgets
 			State = State.None;
 			SelectedColorBackground = Design.WidgetForeground;
 			SelectedColorForeground = Design.WidgetBackground;
-		}
-
-		public Color MenuItemBackgroundColor ()
-		{
-			if (State == State.None || State == State.Hovered) {
-				return Color.Transparent;
-			}
-			else if (State == State.Selected) {
-				return SelectedColorBackground;
-			}
-			else {
-				return Color.CornflowerBlue;
-			}
-		}
-
-		public  Color MenuItemForegroundColor ()
-		{
-			if (State == State.Hovered) {
-				return Color.White;
-			}
-			else if (State == State.None) {
-				return Color.White * 0.7f;
-			}
-			else if (State == State.Selected) {
-				return SelectedColorForeground;
-			}
-			else {
-				return Color.CornflowerBlue;
-			}
 		}
 
 		#endregion

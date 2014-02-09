@@ -82,12 +82,12 @@ namespace Knot3.Screens
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Start Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
 			title.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
-			title.ForegroundColorFunc = () => Color.White;
+			title.ForegroundColorFunc = (s) => Color.White;
 
 			infoTitle = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Challenge Info:");
 			infoTitle.Bounds.Position = new ScreenPoint (this, 0.45f, 0.62f);
 			infoTitle.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
-			infoTitle.ForegroundColorFunc = () => Color.White;
+			infoTitle.ForegroundColorFunc = (s) => Color.White;
 
 			challengeInfo = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			challengeInfo.Bounds.Position = new ScreenPoint (this, 0.47f, 0.70f);

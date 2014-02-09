@@ -136,20 +136,6 @@ namespace Knot3.Core
 		{
 		}
 
-		protected virtual Color MenuItemBackgroundColor (State itemState)
-		{
-			return Color.Transparent;
-		}
-
-		protected virtual Color MenuItemForegroundColor (State itemState)
-		{
-			if (itemState == State.Hovered) {
-				return Design.WidgetForeground;
-			}
-			else {
-				return Design.WidgetForeground * 0.7f;
-			}
-		}
 		/// <summary>
 		/// Fügt die angegebenen GameComponents in die Components-Liste des Games ein.
 		/// </summary>

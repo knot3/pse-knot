@@ -46,8 +46,6 @@ namespace Knot3.Widgets
 			AlignX = HorizontalAlignment.Center;
 			highscoreList = new Menu (Screen, Index + DisplayLayer.Menu);
 			highscoreList.Bounds = ContentBounds;
-			highscoreList.ItemForegroundColor = MenuItemForegroundColor;
-			highscoreList.ItemBackgroundColor = MenuItemBackgroundColor;
 			highscoreList.ItemAlignX = HorizontalAlignment.Left;
 			highscoreList.ItemAlignY = VerticalAlignment.Center;
 

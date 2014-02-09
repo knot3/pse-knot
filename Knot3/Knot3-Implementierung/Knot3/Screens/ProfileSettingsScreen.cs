@@ -49,8 +49,6 @@ namespace Knot3.Screens
 			settingsMenu.Bounds.Position = new ScreenPoint (this, 0.400f, 0.180f);
 			settingsMenu.Bounds.Size = new ScreenPoint (this, 0.500f, 0.720f);
 			settingsMenu.Bounds.Padding = new ScreenPoint (this, 0.010f, 0.010f);
-			settingsMenu.ItemForegroundColor = base.MenuItemForegroundColor;
-			settingsMenu.ItemBackgroundColor = base.MenuItemBackgroundColor;
 			settingsMenu.ItemAlignX = HorizontalAlignment.Left;
 			settingsMenu.ItemAlignY = VerticalAlignment.Center;
 

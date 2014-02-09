@@ -80,8 +80,8 @@ namespace Knot3.Widgets
 
 			currentValue = new InputItem (screen: screen, drawOrder: Index, text: text, inputText: String.Empty);
 			currentValue.Bounds = Bounds;
-			currentValue.ForegroundColorFunc = () => ForegroundColorFunc ();
-			currentValue.BackgroundColorFunc = () => Color.Transparent;
+			currentValue.ForegroundColorFunc = (s) => ForegroundColor;
+			currentValue.BackgroundColorFunc = (s) => Color.Transparent;
 			currentValue.IsVisible = IsVisible;
 			currentValue.IsMouseClickEventEnabled = false;
 

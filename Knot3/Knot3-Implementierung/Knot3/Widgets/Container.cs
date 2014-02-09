@@ -189,10 +189,10 @@ namespace Knot3.Widgets
 		protected virtual void assignMenuItemInformation (MenuItem item)
 		{
 			if (ItemForegroundColor != null) {
-				item.ForegroundColorFunc = () => ItemForegroundColor (item.State);
+				item.ForegroundColorFunc = (s) => ItemForegroundColor (s);
 			}
 			if (ItemBackgroundColor != null) {
-				item.BackgroundColorFunc = () => ItemBackgroundColor (item.State);
+				item.BackgroundColorFunc = (s) => ItemBackgroundColor (s);
 			}
 			assignMenuItemInformation (item as Widget);
 		}

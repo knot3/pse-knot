@@ -133,13 +133,13 @@ namespace Knot3.Widgets
 				spriteBatch.Begin ();
 
 				// zeichne den Hintergrund
-				spriteBatch.DrawColoredRectangle (BackgroundColorFunc (), Bounds);
+				spriteBatch.DrawColoredRectangle (BackgroundColor, Bounds);
 
 				// lade die Schrift
 				SpriteFont font = Design.MenuFont (Screen);
 
 				// zeichne die Schrift
-				Color foreground = ForegroundColorFunc () * (IsEnabled ? 1f : 0.5f);
+				Color foreground = ForegroundColor * (IsEnabled ? 1f : 0.5f);
 				spriteBatch.DrawStringInRectangle (font, Text, foreground, Bounds, AlignX, AlignY);
 
 				spriteBatch.End ();

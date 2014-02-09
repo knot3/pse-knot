@@ -72,12 +72,12 @@ namespace Knot3.Screens
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Load Knot");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
 			title.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
-			title.ForegroundColorFunc = () => Color.White;
+			title.ForegroundColorFunc = (s) => Color.White;
 
 			infoTitle = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Knot Info:");
 			infoTitle.Bounds.Position = new ScreenPoint (this, 0.45f, 0.62f);
 			infoTitle.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
-			infoTitle.ForegroundColorFunc = () => Color.White;
+			infoTitle.ForegroundColorFunc = (s) => Color.White;
 
 			knotInfo = new Menu (this, DisplayLayer.ScreenUI + DisplayLayer.Menu);
 			knotInfo.Bounds.Position = new ScreenPoint (this, 0.47f, 0.70f);

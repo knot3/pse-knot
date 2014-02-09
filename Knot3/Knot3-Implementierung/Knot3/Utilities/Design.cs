@@ -53,10 +53,13 @@ namespace Knot3.Utilities
 		// die Standardfarben der Linien
 		public static Color DefaultLineColor;
 		public static Color DefaultOutlineColor;
-
 		public static Color InGameBackground;
 		public static Color WidgetBackground;
 		public static Color WidgetForeground;
 		public static Color ScreenBackground;
+		public static Func<State, Color> WidgetBackgroundColorFunc;
+		public static Func<State, Color> WidgetForegroundColorFunc;
+		public static Func<State, Color> MenuItemBackgroundColorFunc;
+		public static Func<State, Color> MenuItemForegroundColorFunc;
 	}
 }

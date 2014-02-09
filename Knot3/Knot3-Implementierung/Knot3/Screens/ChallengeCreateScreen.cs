@@ -102,7 +102,7 @@ namespace Knot3.Screens
 			title = new TextItem (screen: this, drawOrder: DisplayLayer.ScreenUI + DisplayLayer.MenuItem, name: "Create Challenge");
 			title.Bounds.Position = new ScreenPoint (this, 0.100f, 0.050f);
 			title.Bounds.Size = new ScreenPoint (this, 0.900f, 0.050f);
-			title.ForegroundColorFunc = () => Color.White;
+			title.ForegroundColorFunc = (s) => Color.White;
 
 			// Erstelle einen Parser für das Dateiformat
 			KnotFileIO fileFormat = new KnotFileIO ();

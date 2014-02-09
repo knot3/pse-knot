@@ -84,12 +84,12 @@ namespace Knot3.Widgets
 			Rectangle bounds = ValueBounds.Rectangle;
 
 			// zeichne den Hintergrund des Wertefelds
-			spriteBatch.DrawColoredRectangle (ForegroundColorFunc (), bounds);
+			spriteBatch.DrawColoredRectangle (ForegroundColor, bounds);
 			spriteBatch.DrawColoredRectangle (Design.WidgetBackground, bounds.Shrink (2));
 
 			// wenn der Wert wahr ist
 			if (currentValue) {
-				spriteBatch.DrawColoredRectangle (ForegroundColorFunc (), bounds.Shrink (4));
+				spriteBatch.DrawColoredRectangle (ForegroundColor, bounds.Shrink (4));
 			}
 
 			spriteBatch.End ();

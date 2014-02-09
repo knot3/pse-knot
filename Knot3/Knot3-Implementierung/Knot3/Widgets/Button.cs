@@ -109,7 +109,7 @@ namespace Knot3.Widgets
 				spriteBatch.Begin ();
 
 				// zeichne den Hintergrund
-				spriteBatch.DrawColoredRectangle (BackgroundColorFunc (), Bounds);
+				spriteBatch.DrawColoredRectangle (BackgroundColor, Bounds);
 
 				if (BackgroundTexture != null) {
 					spriteBatch.Draw (BackgroundTexture, Bounds, Color.White);
@@ -119,7 +119,7 @@ namespace Knot3.Widgets
 				SpriteFont font = Design.MenuFont (Screen);
 
 				// zeichne die Schrift
-				Color foreground = ForegroundColorFunc () * (IsEnabled ? 1f : 0.5f);
+				Color foreground = ForegroundColor * (IsEnabled ? 1f : 0.5f);
 				spriteBatch.DrawStringInRectangle (font, name, foreground, Bounds, AlignX, AlignY);
 
 				spriteBatch.End ();

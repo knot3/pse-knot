@@ -76,14 +76,19 @@ namespace Knot3.RenderEffects
 		/// </summary>
 		public IRenderEffect Pop ()
 		{
-			IRenderEffect removed = stack.Pop ();
 			if (stack.Count > 0) {
-				screen.Device.SetRenderTarget (CurrentEffect.RenderTarget);
+				IRenderEffect removed = stack.Pop ();
+				if (stack.Count > 0) {
+					screen.Device.SetRenderTarget (CurrentEffect.RenderTarget);
+				}
+				else {
+					screen.Device.SetRenderTarget (null);
+				}
+				return removed;
 			}
 			else {
-				screen.Device.SetRenderTarget (null);
+				return defaultEffect;
 			}
-			return removed;
 		}
 
 		/// <summary>
